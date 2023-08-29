@@ -64,21 +64,7 @@
 .form-select {
     max-width: 80%;
     width: 100%;
-}
-
-.form-select btn-primary {
-    width: 90px;
-}
-
-/* Reset some default margins and paddings */
-.select-container,
-.select-container select {
-    margin: 5px;
-    padding: 2px;
-}
-
-.select-container btn-primairy {
-    padding: 5px;
+    margin: 10px;
 }
 
 .modal-overlay {

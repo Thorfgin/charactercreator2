@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTable } from 'react-table';
+import Select from 'react-select';
 import data from './json/basisvaardigheden.json';
 import './App.css';
 
@@ -20,12 +21,14 @@ function App() {
     const [showModal, setShowModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("")
 
+    let skillOptions = sourceData.map((record) => ({ value: record.skill, label: record.skill, }));
+
     const handleAddToTable = () => {
-        const selectedRecord = sourceData.find((record) => record.skill === selectedSkill);
+        const selectedRecord = sourceData.find((record) => record.skill === selectedSkill.value);
 
         // if the skill actually exists
         if (selectedRecord) {
-            const cannotBeAdded = tableData.some((record) => record.skill === selectedSkill);
+            const cannotBeAdded = tableData.some((record) => record.skill === selectedSkill.value);
 
             // exit early
             if (cannotBeAdded)
@@ -135,19 +138,17 @@ function App() {
             </header>
             <main>
                 <div className="select-container">
-                    <select
+                    <Select
                         className="form-select"
+                        options={skillOptions}
                         value={selectedSkill}
-                        onChange={(e) => setSelectedSkill(e.target.value)}
-                    >
-                        <option value="">Selecteer een vaardigheid</option>
-                        {sourceData.map((record) => (
-                            <option key={record.id} value={record.skill}>
-                                {record.skill}
-                            </option>
-                        ))}
-                    </select>
-                    <button className="btn btn-primary" onClick={handleAddToTable}>
+                        onChange={(selectedOption) => setSelectedSkill(selectedOption)}
+                        placeholder="Selecteer een vaardigheid"
+                        isClearable
+                        isSearchable
+                    />
+                    
+                    <button className="btn-primary" onClick={handleAddToTable}>
                         Toevoegen
                     </button>
                 </div>
