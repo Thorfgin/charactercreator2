@@ -9,7 +9,7 @@ const emptyData = [];
 
 const columns = [
     { Header: 'ID', accessor: 'id' },
-    { Header: 'Vaardigheid', accessor: 'skill' },
+    { Header: 'Vaardigheid', accessor: 'skill', className: "col-vaardigheid" },
     { Header: 'XP Kosten', accessor: 'xp' },
     { Header: 'Loresheet', accessor: 'loresheet', Cell: ({ value }) => (value ? 'Ja' : ''), },
     { Header: 'Aantal keer', accessor: 'count' },
@@ -21,24 +21,29 @@ function App() {
     const [showModal, setShowModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("")
 
-    let skillOptions = sourceData.map((record) => ({ value: record.skill, label: record.skill, }));
+    // ReactToolTip related
+    let skillOptions = sourceData.map((record) => ({
+        value: record.skill,
+        label: record.skill
+    }));
 
     const handleAddToTable = () => {
-        const selectedRecord = sourceData.find((record) => record.skill === selectedSkill.value);
+        if (selectedSkill !== null) { 
+            const selectedRecord = sourceData.find((record) => record.skill === selectedSkill.value);
 
-        // if the skill actually exists
-        if (selectedRecord) {
-            const cannotBeAdded = tableData.some((record) => record.skill === selectedSkill.value);
+            // if the skill actually exists
+            if (selectedRecord) {
+                const cannotBeAdded = tableData.some((record) => record.skill === selectedSkill.value);
 
-            // exit early
-            if (cannotBeAdded)
-            {
-                setModalMsg("Dit item is al geselecteerd en kan niet vaker aangekocht worden.");
-                setShowModal(true);
-            }
-            else {
-                setTableData((prevData) => [...prevData, selectedRecord]);
-                setSelectedSkill('');
+                // exit early
+                if (cannotBeAdded) {
+                    setModalMsg("Dit item is al geselecteerd en kan niet vaker aangekocht worden.");
+                    setShowModal(true);
+                }
+                else {
+                    setTableData((prevData) => [...prevData, selectedRecord]);
+                    setSelectedSkill('');
+                }
             }
         }
     };
@@ -49,7 +54,6 @@ function App() {
         // Source data
         const sourceRecord = sourceData.find((record) => record.skill === row.skill);
         const currentRecord = tableData.find((record) => record.skill === row.skill);
-        console.log(currentRecord.count, sourceRecord.maxcount)
 
         if (currentRecord.count < sourceRecord.maxcount) {
             // Updated Table Data here skill matches and record has multi_purchase === true
@@ -59,8 +63,7 @@ function App() {
             );
             setTableData(updatedTableData);
         }
-        else
-        {
+        else {
             setModalMsg("Dit item is het maximum aantal keer aangekocht.");
             setShowModal(true);
         }
@@ -147,7 +150,6 @@ function App() {
                         isClearable
                         isSearchable
                     />
-                    
                     <button className="btn-primary" onClick={handleAddToTable}>
                         Toevoegen
                     </button>
@@ -158,7 +160,7 @@ function App() {
                         {headerGroups.map((headerGroup) => (
                             <tr {...headerGroup.getHeaderGroupProps()}>
                                 {headerGroup.headers.map((column) => (
-                                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                                    <th {...column.getHeaderProps()} className={column.className}>{column.render('Header')}</th>
                                 ))}
                                 <th>Acties</th>
                             </tr>
@@ -186,7 +188,7 @@ function App() {
                     <div className="modal-overlay">
                         <div className="modal">
                             <p>{modalMsg}</p>
-                            <button className="btn btn-primary" onClick={closeModal}>
+                            <button className="btn-primary" onClick={closeModal}>
                                 OK
                             </button>
                         </div>

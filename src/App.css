@@ -4,7 +4,7 @@
     font-family: 'Inknut Antiqua', serif;
 }
 
-.App main{
+.App main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +23,15 @@
     padding: 4px;
     border: 2px solid #ccc;
     max-height: 24px;
-    }
+    text-align: left;
+    white-space: nowrap; /* Prevent text from wrapping within cells */
+    overflow: hidden; /* Hide content that overflows */
+    text-overflow: ellipsis; /* Display ellipsis (...) for hidden content */
+}
+
+.col-vaardigheid {
+    min-width: 250px;
+}
 
 .App-table th {
     background-color: #f0f0f0;
@@ -42,17 +50,6 @@
     cursor: pointer;
 }
 
-/* Add a specific style for the readonly input */
-.readonly-input {
-    background-color: #f0f0f0; /* Light gray background color */
-    border: none;
-    text-align: start;
-    width: 25px; /* Adjust the width as needed */
-    font-size: 14px;
-    color: #333; /* Text color */
-    cursor: not-allowed; /* Display a "not-allowed" cursor on hover */
-}
-
 /* Adjust the width of the select component and the button */
 .select-container {
     display: flex;
@@ -66,6 +63,54 @@
     width: 100%;
     margin: 10px;
 }
+
+/* CSS */
+.btn-primary {
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 2rem;
+    padding: calc(.7rem - 1px) calc(1rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        border-color: rgba(0, 0, 0, 0.15);
+        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+        color: rgba(0, 0, 0, 0.65);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+        background-color: #F0F0F1;
+        border-color: rgba(0, 0, 0, 0.15);
+        box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+        color: rgba(0, 0, 0, 0.65);
+        transform: translateY(0);
+    }
 
 .modal-overlay {
     position: fixed;
