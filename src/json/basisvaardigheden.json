@@ -1,0 +1,804 @@
+{
+  "Vaardigheden": [
+    {
+      "id": 1,
+      "skill": "Ambidextrie",
+      "category": "Algemene vaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 2,
+      "skill": "Lezen & Schrijven",
+      "category": "Algemene vaardigheden",
+      "xp": 0,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 3,
+      "skill": "Runen Gebruiken",
+      "category": "Algemene Vaardigheden",
+      "xp": 1,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 4,
+      "skill": "Runen Gewenning",
+      "category": "Algemene Vaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 5,
+      "skill": "Glyph Gebruiken",
+      "category": "Algemene Vaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 6,
+      "skill": "Glyph Gewenning",
+      "category": "Algemene Vaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 7,
+      "skill": "Rekenen",
+      "category": "Algemene Vaardigheden",
+      "xp": 0,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 8,
+      "skill": "Levenskracht A",
+      "category": "Algemene Vaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 9,
+      "skill": "Levenskracht B",
+      "category": "Algemene Vaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 10,
+      "skill": "Levenskracht C",
+      "category": "Algemene Vaardigheden",
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 11,
+      "skill": "Leermeester Expertise",
+      "category": "Algemene Vaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99
+    },
+    {
+      "id": 12,
+      "skill": "Schilden",
+      "category": "Pantservaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 13,
+      "skill": "Harnas I",
+      "category": "Pantservaardigheden",
+      "xp": 0,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 14,
+      "skill": "Harnas II",
+      "category": "Pantservaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 15,
+      "skill": "Harnas III",
+      "category": "Pantservaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 16,
+      "skill": "Harnas IV",
+      "category": "Pantservaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 17,
+      "skill": "Spreuken in bepantsering",
+      "category": "Pantservaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 3
+    },
+    {
+      "id": 18,
+      "skill": "Paladijn",
+      "category": "Pantservaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 3
+    },
+    {
+      "id": 19,
+      "skill": "Kleine Wapens",
+      "category": "Wapenvaardigheden",
+      "xp": 0,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 20,
+      "skill": "Eenhandige Wapens",
+      "category": "Wapenvaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 21,
+      "skill": "Tweehandige Wapens",
+      "category": "Wapenvaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 22,
+      "skill": "Staf Wapens",
+      "category": "Wapenvaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 23,
+      "skill": "Werp Wapens",
+      "category": "Wapenvaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 25,
+      "skill": "Boogschieten",
+      "category": "Wapenvaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 26,
+      "skill": "Doorzettingsvermogen",
+      "category": "Vechtersvaardigheden",
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 27,
+      "skill": "Kracht A",
+      "category": "Vechtersvaardigheden",
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 28,
+      "skill": "Taaiheid A",
+      "category": "Vechtersvaardigheden",
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 29,
+      "skill": "Kracht A",
+      "category": "Vechtersvaardigheden",
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 30,
+      "skill": "Leiderschap A",
+      "category": "Vechtersvaardigheden",
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 31,
+      "skill": "Bescherming A",
+      "category": "Vechtersvaardigheden",
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 32,
+      "skill": "Berserker A",
+      "category": "Vechtersvaardigheden",
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 33,
+      "skill": "Militaire training A",
+      "category": "Vechtersvaardigheden",
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 34,
+      "skill": "Eerste hulp bij gevechten",
+      "category": "Heelmeestervaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 35,
+      "skill": "Snelle behandeling",
+      "category": "Heelmeestervaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 36,
+      "skill": "Slagveld operatie",
+      "category": "Heelmeestervaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 37,
+      "skill": "Diagnostiek",
+      "category": "Heelmeestervaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 38,
+      "skill": "Humorisch Patholoog",
+      "category": "Heelmeestervaardigheden",
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 39,
+      "skill": "Bezoar specialist",
+      "category": "Heelmeestervaardigheden",
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 40,
+      "skill": "Hypnotherapie",
+      "category": "Heelmeestervaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 41,
+      "skill": "Schadelijke hypnose",
+      "category": "Heelmeestervaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 42,
+      "skill": "Kennis van Kruiden",
+      "category": "Alchemistenvaardigheden",
+      "xp": 1,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 43,
+      "skill": "Kruiden bewaren",
+      "category": "Alchemistenvaardigheden",
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 44,
+      "skill": "Brouw Genezende Dranken A",
+      "category": "Alchemistenvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 45,
+      "skill": "Brouw Kruiden Elixers A",
+      "category": "Alchemistenvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 46,
+      "skill": "Brouw Magische Elixers A",
+      "category": "Alchemistenvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 47,
+      "skill": "Brouw Hallucinerende Elixers A",
+      "category": "Alchemistenvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 48,
+      "skill": "Brouw Giffen A",
+      "category": "Alchemistenvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 49,
+      "skill": "Meestersmid A",
+      "category": "Ambachtsvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 50,
+      "skill": "Houtbewerker A",
+      "category": "Ambachtsvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 51,
+      "skill": "Kleermaker A",
+      "category": "Ambachtsvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 52,
+      "skill": "Boekbinder A",
+      "category": "Ambachtsvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 53,
+      "skill": "Leerbewerker A",
+      "category": "Ambachtsvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 54,
+      "skill": "Juwelier A",
+      "category": "Ambachtsvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 55,
+      "skill": "Steenzetten A",
+      "category": "Ambachtsvaardigheden",
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 56,
+      "skill": "Magiërspreuken A - Wit",
+      "category": "Magiërvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 57,
+      "skill": "Magiërspreuken A - Grijs",
+      "category": "Magiërvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 58,
+      "skill": "Magiërspreuken A - Zwart",
+      "category": "Magiërvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 59,
+      "skill": "Magiërspreuken B - Lucht",
+      "category": "Magiërvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 60,
+      "skill": "Magiërspreuken B - Metaal",
+      "category": "Magiërvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 61,
+      "skill": "Magiërspreuken B - Aarde",
+      "category": "Magiërvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 62,
+      "skill": "Magiërspreuken B - Water",
+      "category": "Magiërvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 63,
+      "skill": "Magiërspreuken B - Vuur",
+      "category": "Magiërvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 64,
+      "skill": "Magiërspreuken B - Hout",
+      "category": "Magiërvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 65,
+      "skill": "Paladijnspreuken A",
+      "category": "Paladijnvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 66,
+      "skill": "Paladijnspreuken B",
+      "category": "Paladijnvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 67,
+      "skill": "Priesterspreuken A - Reinheid",
+      "category": "Priestervaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 68,
+      "skill": "Priesterspreuken A - Toorn",
+      "category": "Priestervaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 69,
+      "skill": "Priesterspreuken A - Dood",
+      "category": "Priestervaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 70,
+      "skill": "Priesterspreuken B - Reinheid",
+      "category": "Priestervaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 71,
+      "skill": "Priesterspreuken B - Toorn",
+      "category": "Priestervaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 72,
+      "skill": "Priesterspreuken B - Dood",
+      "category": "Priestervaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 73,
+      "skill": "Priesterspreuken B - Geest",
+      "category": "Priestervaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 74,
+      "skill": "Priesterspreuken B - Natuur",
+      "category": "Priestervaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 75,
+      "skill": "Genezingsspreuken A",
+      "category": "Genezingsvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 76,
+      "skill": "Genezingsspreuken B",
+      "category": "Genezingsvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 77,
+      "skill": "Genezer van Giffen",
+      "category": "Genezingsvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 78,
+      "skill": "Genezer van Ziekten",
+      "category": "Genezingsvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 79,
+      "skill": "Genezer van Geest",
+      "category": "Genezingsvaardigheden",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1
+    },
+    {
+      "id": 80,
+      "skill": "Elementair Ritualisme",
+      "category": "Ritualistenvaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99
+    },
+    {
+      "id": 81,
+      "skill": "Spiritueel Ritualisme",
+      "category": "Ritualistenvaardigheden",
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99
+    }
+  ]
+}

@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 import { useTable } from 'react-table';
+import data from './json/basisvaardigheden.json';
 import './App.css';
 
-const sourceData = [
-    { id: 1, skill: 'Eenhandig wapens', xp: 25, loresheet: false, multi_purchase: false, count: 1 },
-    { id: 2, skill: 'Stafwapens', xp: 30, loresheet: false, multi_purchase: false, count: 1 },
-    { id: 3, skill: 'Kruiden zoeken', xp: 28, loresheet: true, multi_purchase: false, count: 1 },
-    { id: 4, skill: 'Spiritueel ritualist', xp: 1, loresheet: false, multi_purchase: true, count: 1 },
-];
-
-const emptyData = []
+const sourceData = data["Vaardigheden"];
+const emptyData = [];
 
 const columns = [
     { Header: 'ID', accessor: 'id' },
@@ -23,6 +18,7 @@ function App() {
     const [tableData, setTableData] = useState(emptyData);
     const [selectedSkill, setSelectedSkill] = useState('');
     const [showModal, setShowModal] = useState(false);
+    const [modalMsg, setModalMsg] = useState("")
 
     const handleAddToTable = () => {
         const selectedRecord = sourceData.find((record) => record.skill === selectedSkill);
@@ -32,7 +28,11 @@ function App() {
             const cannotBeAdded = tableData.some((record) => record.skill === selectedSkill);
 
             // exit early
-            if (cannotBeAdded) { setShowModal(true); }
+            if (cannotBeAdded)
+            {
+                setModalMsg("Dit item is al geselecteerd en kan niet vaker aangekocht worden.");
+                setShowModal(true);
+            }
             else {
                 setTableData((prevData) => [...prevData, selectedRecord]);
                 setSelectedSkill('');
@@ -45,13 +45,22 @@ function App() {
     const handleAdd = (row) => {
         // Source data
         const sourceRecord = sourceData.find((record) => record.skill === row.skill);
+        const currentRecord = tableData.find((record) => record.skill === row.skill);
+        console.log(currentRecord.count, sourceRecord.maxcount)
 
-        // Updated Table Data here skill matches and record has multi_purchase === true
-        const updatedTableData = tableData.map((record) => record.skill === row.skill
-            ? { ...record, count: record.count + 1, xp: sourceRecord.xp * record.count + 1 }
-            : record
-        );
-        setTableData(updatedTableData);
+        if (currentRecord.count < sourceRecord.maxcount) {
+            // Updated Table Data here skill matches and record has multi_purchase === true
+            const updatedTableData = tableData.map((record) => record.skill === row.skill
+                ? { ...record, count: record.count + 1, xp: sourceRecord.xp * (record.count + 1) }
+                : record
+            );
+            setTableData(updatedTableData);
+        }
+        else
+        {
+            setModalMsg("Dit item is het maximum aantal keer aangekocht.");
+            setShowModal(true);
+        }
     };
 
     const handleSubtract = (row) => {
@@ -68,7 +77,7 @@ function App() {
             // modify the existing item
             else {
                 const updatedTableData = tableData.map((record) => record.skill === row.skill && record.multi_purchase === true
-                    ? { ...record, count: record.count - 1, xp: sourceRecord.xp * record.count - 1 }
+                    ? { ...record, count: record.count - 1, xp: sourceRecord.xp * (record.count - 1) }
                     : record
                 );
                 setTableData(updatedTableData);
@@ -175,7 +184,7 @@ function App() {
                 {showModal && (
                     <div className="modal-overlay">
                         <div className="modal">
-                            <p>Dit item is al geselecteerd en kan niet vaker aangekocht worden.</p>
+                            <p>{modalMsg}</p>
                             <button className="btn btn-primary" onClick={closeModal}>
                                 OK
                             </button>
