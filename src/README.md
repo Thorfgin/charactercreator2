@@ -6,13 +6,21 @@
 	- Spreuken & Technieken gives a summary of the selected skills
 	- Character eigenschappen are added/subtracted on the selection of sklls
 	  if already present, than numeric values are adjusted accordinly. 
-	  Should contain:
-	  HP, Max AP, 
-	  ELE. Mana, ELE Rit. Mana, 
-	  SPI. Mana, SPI Rit. Mana, 
-	  Willpower, Inspiration,
-	  Glyph CAP, Max Glyph Imbue,
-	  Rune CAP, Max Rune Imbue,
+	  JSON should contain the relevant properties under 'Eigenschappen':
+      "Eigenschappen": {
+        "hitpoints": 0,
+        "armourpoints": 0,
+        "elemental_mana": 0,
+        "elemental_ritual_mana": 0,
+        "spiritual_mana": 0,
+        "spiritual_ritual_mana": 0,
+        "inspiration": 0,
+        "willpower": 0,
+        "glyph_cap": 0,
+        "glyph_imbue_cap": 0,
+        "rune_cap": 0,
+        "rune_imbue_cap": 0
+      }
 
 	SHOULD:
 	- PREREQUISITES: check for prerequisistes to prevent invalid selection of skills 
