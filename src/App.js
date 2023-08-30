@@ -8,12 +8,22 @@ const sourceData = data["Vaardigheden"];
 const emptyData = [];
 
 const columns = [
-    { Header: 'ID', accessor: 'id' },
+    { Header: 'ID', accessor: 'id', className: "col-id" },
     { Header: 'Vaardigheid', accessor: 'skill', className: "col-vaardigheid" },
-    { Header: 'XP Kosten', accessor: 'xp' },
-    { Header: 'Loresheet', accessor: 'loresheet', Cell: ({ value }) => (value ? 'Ja' : ''), },
-    { Header: 'Aantal keer', accessor: 'count' },
+    { Header: 'XP Kosten', accessor: 'xp', className: "col-xp" },
+    { Header: 'Loresheet', accessor: 'loresheet', className: "col-loresheet", Cell: ({ value }) => (value ? 'Ja' : ''), },
+    { Header: 'Aantal keer', accessor: 'count', className: "col-aantalkeer" },
 ];
+
+// Karakter eigenschappen grid
+function GridItem({ image, text, value }) {
+    return (
+        <div className="grid-item">
+            <div className="grid-image" style={{ backgroundImage: `url(${image})` }} />
+            <div className="grid-text">{text}: {value}</div>
+        </div>
+    );
+}
 
 function App() {
     const [tableData, setTableData] = useState(emptyData);
@@ -27,8 +37,22 @@ function App() {
         label: record.skill
     }));
 
+    // karakter eigenschappen container
+    const [gridContent, setGridContent] = useState([
+        { image: 'image1.jpg', text: 'HP', value: 1 },
+        { image: 'image2.jpg', text: 'Max AP', value: 0 },
+        { image: 'image3.jpg', text: 'Elementaire Mana', value: 0 },
+        { image: 'image4.jpg', text: 'Rituele Elementaire Mana', value: 0 },
+    ]);
+
+    // nieuwe eigenschap toevoegen aan de container
+    const addGridItem = (setImage, setText, setValue) => {
+        const newItem = { image: setImage, text: setText, value: setValue, };
+        setGridContent([...gridContent, newItem]);
+    };
+
     const handleAddToTable = () => {
-        if (selectedSkill !== null) { 
+        if (selectedSkill !== null) {
             const selectedRecord = sourceData.find((record) => record.skill === selectedSkill.value);
 
             // if the skill actually exists
@@ -64,7 +88,7 @@ function App() {
             setTableData(updatedTableData);
         }
         else {
-            setModalMsg("Dit item is het maximum aantal keer aangekocht.");
+            setModalMsg("Maximum bereikt, dit item mag niet vaker aangekocht worden.");
             setShowModal(true);
         }
     };
@@ -140,60 +164,83 @@ function App() {
                 <h1>Character Creator</h1>
             </header>
             <main>
-                <div className="select-container">
-                    <Select
-                        className="form-select"
-                        options={skillOptions}
-                        value={selectedSkill}
-                        onChange={(selectedOption) => setSelectedSkill(selectedOption)}
-                        placeholder="Selecteer een vaardigheid"
-                        isClearable
-                        isSearchable
-                    />
-                    <button className="btn-primary" onClick={handleAddToTable}>
-                        Toevoegen
-                    </button>
-                </div>
-
-                <table {...getTableProps()} className="App-table">
-                    <thead>
-                        {headerGroups.map((headerGroup) => (
-                            <tr {...headerGroup.getHeaderGroupProps()}>
-                                {headerGroup.headers.map((column) => (
-                                    <th {...column.getHeaderProps()} className={column.className}>{column.render('Header')}</th>
-                                ))}
-                                <th>Acties</th>
-                            </tr>
-                        ))}
-                    </thead>
-                    <tbody {...getTableBodyProps()}>
-                        {rows.map((row) => {
-                            prepareRow(row);
-                            return (
-                                <tr {...row.getRowProps()}>
-                                    {row.cells.map((cell) => {
-                                        return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
-                                    })}
-
-                                    <td>
-                                        {requestActions(row)}
-                                    </td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
-
-                {showModal && (
-                    <div className="modal-overlay">
-                        <div className="modal">
-                            <p>{modalMsg}</p>
-                            <button className="btn-primary" onClick={closeModal}>
-                                OK
-                            </button>
-                        </div>
+                <div className="side-container">
+                    <div className="summary-title">
+                        <h4>Spreuken & Techieken</h4>
                     </div>
-                )}
+                </div>
+                <div className="main-container">
+                    <div className="select-container">
+                        <Select
+                            className="form-select"
+                            options={skillOptions}
+                            value={selectedSkill}
+                            onChange={(selectedOption) => setSelectedSkill(selectedOption)}
+                            placeholder="Selecteer een vaardigheid"
+                            isClearable
+                            isSearchable
+                        />
+                        <button className="btn-primary" onClick={handleAddToTable}>
+                            Toevoegen
+                        </button>
+                    </div>
+
+                    <table {...getTableProps()} className="App-table">
+                        <thead>
+                            {headerGroups.map((headerGroup) => (
+                                <tr {...headerGroup.getHeaderGroupProps()}>
+                                    {headerGroup.headers.map((column) => (
+                                        <th {...column.getHeaderProps()} className={column.className}>{column.render('Header')}</th>
+                                    ))}
+                                    <th className="col-acties">Acties</th>
+                                </tr>
+                            ))}
+                        </thead>
+                        <tbody {...getTableBodyProps()}>
+                            {rows.map((row) => {
+                                prepareRow(row);
+                                return (
+                                    <tr {...row.getRowProps()}>
+                                        {row.cells.map((cell) => {
+                                            return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+                                        })}
+
+                                        <td>
+                                            {requestActions(row)}
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+
+                    {showModal && (
+                        <div className="modal-overlay">
+                            <div className="modal">
+                                <p>{modalMsg}</p>
+                                <button className="btn-primary" onClick={closeModal}>
+                                    OK
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                </div>
+                <div className="side-container">
+                    <div className="summary-title">
+                        <h4>Character eigenschappen</h4>
+                    </div>
+                    <div className="grid-character-eigenschappen">
+                        {gridContent.map((item, index) => (
+                            <GridItem
+                                className="grid-item"
+                                key={index}
+                                image={item.image}
+                                text={item.text}
+                                value={item.value}
+                            />
+                        ))}
+                    </div>
+                </div>
             </main>
             <footer></footer>
         </div>

@@ -8,7 +8,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Properties": {
+        "hitpoints": 0,
+        "armourpoints": 0,
+        "elemental_mana": 0,
+        "elemental_ritual_mana": 0,
+        "spiritual_mana": 0,
+        "spiritual_ritual_mana": 0,
+        "inspiration": 0,
+        "willpower": 0
+      }
     },
     {
       "id": 2,
