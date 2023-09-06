@@ -10,20 +10,8 @@
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
-      "Eigenschappen": [
-        { "name": "hitpoints", "value": 5   },
-        { "name": "armourpoints", "value": 1 },
-        { "name": "elemental_mana", "value": 1 },
-        { "name": "elemental_ritual_mana", "value": 1 },
-        { "name": "spiritual_mana", "value": 1 },
-        { "name": "spiritual_ritual_mana", "value": 0 },
-        { "name": "inspiration", "value": 0 },
-        { "name": "willpower", "value": 0 },
-        { "name": "glyph_cap", "value": 20 },
-        { "name": "glyph_imbue_cap", "value": 20 },
-        { "name": "rune_cap", "value": 0 },
-        { "name": "rune_imbue_cap", "value": 0 }
-      ]
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 2,
@@ -34,7 +22,9 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 3,
@@ -45,7 +35,14 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "rune_imbue_cap",
+          "value": 20
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 4,
@@ -56,7 +53,14 @@
       "loresheet": false,
       "multi_purchase": true,
       "count": 1,
-      "maxcount": 99
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "rune_imbue_cap",
+          "value": 20
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 5,
@@ -67,7 +71,14 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "glyph_imbue_cap",
+          "value": 20
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 6,
@@ -80,9 +91,12 @@
       "count": 1,
       "maxcount": 99,
       "Eigenschappen": [
-        { "name": "elemental_mana", "value": 5 },
-        { "name": "elemental_ritual_mana", "value": 5 }
-      ]
+        {
+          "name": "glyph_imbue_cap",
+          "value": 20
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 7,
@@ -93,7 +107,9 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 8,
@@ -104,7 +120,14 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "hitpoints",
+          "value": 1
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 9,
@@ -115,7 +138,14 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "hitpoints",
+          "value": 1
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 10,
@@ -126,7 +156,14 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "hitpoints",
+          "value": 1
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 11,
@@ -137,7 +174,9 @@
       "loresheet": false,
       "multi_purchase": true,
       "count": 1,
-      "maxcount": 99
+      "maxcount": 3,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 12,
@@ -148,7 +187,9 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 13,
@@ -159,7 +200,14 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "armourpoints",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 14,
@@ -170,7 +218,14 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "armourpoints",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 15,
@@ -181,7 +236,14 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "armourpoints",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 16,
@@ -192,7 +254,14 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "armourpoints",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 17,
@@ -203,7 +272,9 @@
       "loresheet": false,
       "multi_purchase": true,
       "count": 1,
-      "maxcount": 3
+      "maxcount": 3,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 18,
@@ -214,7 +285,9 @@
       "loresheet": false,
       "multi_purchase": true,
       "count": 1,
-      "maxcount": 3
+      "maxcount": 3,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 19,
@@ -225,7 +298,9 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 20,
@@ -236,7 +311,9 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 21,
@@ -247,7 +324,9 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 22,
@@ -258,7 +337,9 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 23,
@@ -269,7 +350,9 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 25,
@@ -280,7 +363,9 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
       "id": 26,
@@ -291,7 +376,14 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 27,
@@ -302,7 +394,14 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 28,
@@ -313,21 +412,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 29,
-      "skill": "Kracht A",
-      "category": "Vechtersvaardigheden",
-      "description": "",
-      "xp": 3,
-      "loresheet": false,
-      "multi_purchase": false,
-      "count": 1,
-      "maxcount": 1
-    },
-    {
-      "id": 30,
       "skill": "Leiderschap A",
       "category": "Vechtersvaardigheden",
       "description": "",
@@ -335,10 +430,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 31,
+      "id": 30,
       "skill": "Bescherming A",
       "category": "Vechtersvaardigheden",
       "description": "",
@@ -346,10 +448,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 32,
+      "id": 31,
       "skill": "Berserker A",
       "category": "Vechtersvaardigheden",
       "description": "",
@@ -357,10 +466,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 33,
+      "id": 32,
       "skill": "Militaire training A",
       "category": "Vechtersvaardigheden",
       "description": "",
@@ -368,10 +484,21 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "hitpoints",
+          "value": 1
+        },
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 34,
+      "id": 33,
       "skill": "Eerste hulp bij gevechten",
       "category": "Heelmeestervaardigheden",
       "description": "",
@@ -379,10 +506,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 35,
+      "id": 34,
       "skill": "Snelle behandeling",
       "category": "Heelmeestervaardigheden",
       "description": "",
@@ -390,10 +524,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 1
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 36,
+      "id": 35,
       "skill": "Slagveld operatie",
       "category": "Heelmeestervaardigheden",
       "description": "",
@@ -401,10 +542,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 37,
+      "id": 36,
       "skill": "Diagnostiek",
       "category": "Heelmeestervaardigheden",
       "description": "",
@@ -412,10 +560,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 38,
+      "id": 37,
       "skill": "Humorisch Patholoog",
       "category": "Heelmeestervaardigheden",
       "description": "",
@@ -423,10 +578,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 39,
+      "id": 38,
       "skill": "Bezoar specialist",
       "category": "Heelmeestervaardigheden",
       "description": "",
@@ -434,10 +596,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 40,
+      "id": 39,
       "skill": "Hypnotherapie",
       "category": "Heelmeestervaardigheden",
       "description": "",
@@ -445,10 +614,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 41,
+      "id": 40,
       "skill": "Schadelijke hypnose",
       "category": "Heelmeestervaardigheden",
       "description": "",
@@ -456,10 +632,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 4
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 42,
+      "id": 41,
       "skill": "Kennis van Kruiden",
       "category": "Alchemistenvaardigheden",
       "description": "",
@@ -467,21 +650,30 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 43,
+      "id": 42,
       "skill": "Kruiden bewaren",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,
       "loresheet": false,
-      "multi_purchase": false,
+      "multi_purchase": true,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 99,
+      "Eigenschappen": [],
+      "Spreuken": []
     },
     {
-      "id": 44,
+      "id": 43,
       "skill": "Brouw Genezende Dranken A",
       "category": "Alchemistenvaardigheden",
       "description": "",
@@ -489,10 +681,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 45,
+      "id": 44,
       "skill": "Brouw Kruiden Elixers A",
       "category": "Alchemistenvaardigheden",
       "description": "",
@@ -500,10 +699,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 46,
+      "id": 45,
       "skill": "Brouw Magische Elixers A",
       "category": "Alchemistenvaardigheden",
       "description": "",
@@ -511,10 +717,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 47,
+      "id": 46,
       "skill": "Brouw Hallucinerende Elixers A",
       "category": "Alchemistenvaardigheden",
       "description": "",
@@ -522,10 +735,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 48,
+      "id": 47,
       "skill": "Brouw Giffen A",
       "category": "Alchemistenvaardigheden",
       "description": "",
@@ -533,10 +753,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 49,
+      "id": 48,
       "skill": "Meestersmid A",
       "category": "Ambachtsvaardigheden",
       "description": "",
@@ -544,10 +771,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 50,
+      "id": 49,
       "skill": "Houtbewerker A",
       "category": "Ambachtsvaardigheden",
       "description": "",
@@ -555,10 +789,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 51,
+      "id": 50,
       "skill": "Kleermaker A",
       "category": "Ambachtsvaardigheden",
       "description": "",
@@ -566,10 +807,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 52,
+      "id": 51,
       "skill": "Boekbinder A",
       "category": "Ambachtsvaardigheden",
       "description": "",
@@ -577,10 +825,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 53,
+      "id": 52,
       "skill": "Leerbewerker A",
       "category": "Ambachtsvaardigheden",
       "description": "",
@@ -588,10 +843,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 54,
+      "id": 53,
       "skill": "Juwelier A",
       "category": "Ambachtsvaardigheden",
       "description": "",
@@ -599,10 +861,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 55,
+      "id": 54,
       "skill": "Steenzetten A",
       "category": "Ambachtsvaardigheden",
       "description": "",
@@ -610,10 +879,17 @@
       "loresheet": true,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 56,
+      "id": 55,
       "skill": "Magiërspreuken A - Wit",
       "category": "Magiërvaardigheden",
       "description": "",
@@ -621,10 +897,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 57,
+      "id": 56,
       "skill": "Magiërspreuken A - Grijs",
       "category": "Magiërvaardigheden",
       "description": "",
@@ -632,10 +915,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 58,
+      "id": 57,
       "skill": "Magiërspreuken A - Zwart",
       "category": "Magiërvaardigheden",
       "description": "",
@@ -643,10 +933,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 59,
+      "id": 58,
       "skill": "Magiërspreuken B - Lucht",
       "category": "Magiërvaardigheden",
       "description": "",
@@ -654,10 +951,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 60,
+      "id": 59,
       "skill": "Magiërspreuken B - Metaal",
       "category": "Magiërvaardigheden",
       "description": "",
@@ -665,10 +969,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 61,
+      "id": 60,
       "skill": "Magiërspreuken B - Aarde",
       "category": "Magiërvaardigheden",
       "description": "",
@@ -676,10 +987,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 62,
+      "id": 61,
       "skill": "Magiërspreuken B - Water",
       "category": "Magiërvaardigheden",
       "description": "",
@@ -687,10 +1005,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 63,
+      "id": 62,
       "skill": "Magiërspreuken B - Vuur",
       "category": "Magiërvaardigheden",
       "description": "",
@@ -698,10 +1023,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 64,
+      "id": 63,
       "skill": "Magiërspreuken B - Hout",
       "category": "Magiërvaardigheden",
       "description": "",
@@ -709,10 +1041,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 65,
+      "id": 64,
       "skill": "Paladijnspreuken A",
       "category": "Paladijnvaardigheden",
       "description": "",
@@ -720,10 +1059,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 66,
+      "id": 65,
       "skill": "Paladijnspreuken B",
       "category": "Paladijnvaardigheden",
       "description": "",
@@ -731,10 +1077,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 67,
+      "id": 66,
       "skill": "Priesterspreuken A - Reinheid",
       "category": "Priestervaardigheden",
       "description": "",
@@ -742,10 +1095,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 68,
+      "id": 67,
       "skill": "Priesterspreuken A - Toorn",
       "category": "Priestervaardigheden",
       "description": "",
@@ -753,10 +1113,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 69,
+      "id": 68,
       "skill": "Priesterspreuken A - Dood",
       "category": "Priestervaardigheden",
       "description": "",
@@ -764,10 +1131,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 70,
+      "id": 69,
       "skill": "Priesterspreuken B - Reinheid",
       "category": "Priestervaardigheden",
       "description": "",
@@ -775,10 +1149,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 71,
+      "id": 70,
       "skill": "Priesterspreuken B - Toorn",
       "category": "Priestervaardigheden",
       "description": "",
@@ -786,10 +1167,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 72,
+      "id": 71,
       "skill": "Priesterspreuken B - Dood",
       "category": "Priestervaardigheden",
       "description": "",
@@ -797,10 +1185,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 73,
+      "id": 72,
       "skill": "Priesterspreuken B - Geest",
       "category": "Priestervaardigheden",
       "description": "",
@@ -808,10 +1203,17 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 74,
+      "id": 73,
       "skill": "Priesterspreuken B - Natuur",
       "category": "Priestervaardigheden",
       "description": "",
@@ -819,65 +1221,197 @@
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
+    },
+    {
+      "id": 74,
+      "skill": "Genezingsspreuken A (EL.)",
+      "category": "Genezingsvaardigheden",
+      "description": "",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 75,
-      "skill": "Genezingsspreuken A",
+      "skill": "Genezingsspreuken A (SP.)",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 76,
-      "skill": "Genezingsspreuken B",
+      "skill": "Genezingsspreuken B (EL.)",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 77,
-      "skill": "Genezer van Giffen",
+      "skill": "Genezingsspreuken B (SP.)",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 78,
-      "skill": "Genezer van Ziekten",
+      "skill": "Genezer van Giffen (EL.)",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 79,
-      "skill": "Genezer van Geest",
+      "skill": "Genezer van Giffen (SP.)",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
     },
     {
       "id": 80,
+      "skill": "Genezer van Ziekten (EL.)",
+      "category": "Genezingsvaardigheden",
+      "description": "",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
+    },
+    {
+      "id": 81,
+      "skill": "Genezer van Ziekten (SP.)",
+      "category": "Genezingsvaardigheden",
+      "description": "",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
+    },
+    {
+      "id": 82,
+      "skill": "Genezer van Geest (EL.)",
+      "category": "Genezingsvaardigheden",
+      "description": "",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
+    },
+    {
+      "id": 83,
+      "skill": "Genezer van Geest (SP.)",
+      "category": "Genezingsvaardigheden",
+      "description": "",
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": []
+    },
+    {
+      "id": 84,
       "skill": "Elementair Ritualisme",
       "category": "Ritualistenvaardigheden",
       "description": "",
@@ -885,10 +1419,17 @@
       "loresheet": false,
       "multi_purchase": true,
       "count": 1,
-      "maxcount": 99
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "elemental_ritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     },
     {
-      "id": 81,
+      "id": 85,
       "skill": "Spiritueel Ritualisme",
       "category": "Ritualistenvaardigheden",
       "description": "",
@@ -896,7 +1437,14 @@
       "loresheet": false,
       "multi_purchase": true,
       "count": 1,
-      "maxcount": 99
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_ritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": []
     }
   ]
 }

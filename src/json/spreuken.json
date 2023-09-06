@@ -1,0 +1,104 @@
+{
+  "Spreuken_en_Technieken": [
+    {
+      "id": 1,
+      "category": "techniek",
+      "spell": "Cripling Blow",
+      "spell_level": "-",
+      "mana_cost": 1,
+      "incantation": "Slow!",
+      "description": "ipsum lorem...",
+      "effect_type": "Direct",
+      "effect_duration": "5 minuten"
+    },
+    {
+      "id": 2,
+      "category": "techniek",
+      "spell": "Minor Resilience",
+      "spell_level": "A",
+      "mana_cost": 1,
+      "incantation": "By my might, grant me resilience!",
+      "description": "ipsum lorem...",
+      "effect_type": "Zelf",
+      "effect_duration": "Tot zonsopgang"
+    },
+    {
+      "id": 3,
+      "category": "techniek",
+      "spell": "Striking Blow",
+      "spell_level": "A",
+      "mana_cost": 1,
+      "incantation": "Strike!",
+      "description": "ipsum lorem...",
+      "effect_type": "Direct",
+      "effect_duration": "-"
+    },
+    {
+      "id": 4,
+      "category": "techniek",
+      "spell": "Confusing Blow",
+      "spell_level": "A",
+      "mana_cost": 2,
+      "incantation": "Confuse!",
+      "description": "ipsum lorem...",
+      "effect_type": "Direct, Geestbe�nvloedend",
+      "effect_duration": "5 minuten"
+    },
+    {
+      "id": 5,
+      "category": "techniek",
+      "spell": "Heavy Blow",
+      "spell_level": "B",
+      "mana_cost": 2,
+      "incantation": "Blast!",
+      "description": "ipsum lorem...",
+      "effect_type": "Direct",
+      "effect_duration": "-"
+    },
+    {
+      "id": 6,
+      "category": "techniek",
+      "spell": "Withstand Strike",
+      "spell_level": "B",
+      "mana_cost": 1,
+      "incantation": "I stand strong! NO EFFECT!",
+      "description": "ipsum lorem...",
+      "effect_type": "Direct, Zelf",
+      "effect_duration": "-"
+    },
+    {
+      "id": 7,
+      "category": "techniek",
+      "spell": "Resist Blast",
+      "spell_level": "A",
+      "mana_cost": 1,
+      "incantation": "I will withstand this blast!, RESIST!",
+      "description": "ipsum lorem...",
+      "effect_type": "Direct, Zelf",
+      "effect_duration": "-"
+    },
+    {
+      "id": 8,
+      "category": "techniek",
+      "spell": "Pain Suppression",
+      "spell_level": "A",
+      "mana_cost": 1,
+      "incantation": "By my will, I shall suppress my pain!",
+      "description": "ipsum lorem...",
+      "effect_type": "Direct, Zelf",
+      "effect_duration": "60 seconden"
+    },
+    {
+      "id": 9,
+      "category": "techniek",
+      "spell": "Pain Suppression",
+      "spell_level": "A",
+      "mana_cost": 1,
+      "incantation": "By my will, I shall suppress my pain!",
+      "description": "ipsum lorem...",
+      "effect_type": "Direct, Zelf",
+      "effect_duration": "60 seconden"
+    }
+
+  ]
+}

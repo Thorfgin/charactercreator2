@@ -1,0 +1,1972 @@
+{
+  "Categories": [
+    {
+      "categorie": "Vechter technieken",
+      "Skills": [
+        {
+          "skill": "Doorzettingsvermogen",
+          "Spells": [
+            {
+              "id": 1,
+              "spell": "Crippling Blow",
+              "mana_cost": "1",
+              "incantation": "SLOW!",
+              "description": "",
+              "spell_effect": "Direct",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 2,
+              "spell": "Minor Resilience",
+              "mana_cost": "1",
+              "incantation": "By my might, grant me resilience!",
+              "description": "",
+              "spell_effect": "Zelf",
+              "spell_duration": "Tot zonsopgang"
+            }
+          ]
+        },
+        {
+          "skill": "Kracht A",
+          "Spells": [
+            {
+              "id": 3,
+              "spell": "Striking Blow",
+              "mana_cost": "1",
+              "incantation": "STRIKE!",
+              "description": "",
+              "spell_effect": "Direct",
+              "spell_duration": ""
+            },
+            {
+              "id": 4,
+              "spell": "Confusing Blow",
+              "mana_cost": "2",
+              "incantation": "CONFUSE!",
+              "description": "",
+              "spell_effect": "Direct, Geestbeïnvloedend",
+              "spell_duration": "5 minuten"
+            }
+          ]
+        },
+        {
+          "skill": "Kracht B",
+          "Spells": [
+            {
+              "id": 5,
+              "spell": "Heavy Blow",
+              "mana_cost": "2",
+              "incantation": "BLAST!",
+              "description": "",
+              "spell_effect": "Direct",
+              "spell_duration": ""
+            },
+            {
+              "id": 6,
+              "spell": "Withstand Strike",
+              "mana_cost": "1",
+              "incantation": "I stand strong!",
+              "description": "",
+              "spell_effect": "Direct, Zelf",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Taaiheid A",
+          "Spells": [
+            {
+              "id": 7,
+              "spell": "Resist Blast",
+              "mana_cost": "1",
+              "incantation": "I will withstand this blast!, RESIST!",
+              "description": "",
+              "spell_effect": "Direct, Zelf",
+              "spell_duration": ""
+            },
+            {
+              "id": 8,
+              "spell": "Pain Suppression",
+              "mana_cost": "1",
+              "incantation": "By my will, I shall suppress my pain",
+              "description": "",
+              "spell_effect": "Direct, Zelf",
+              "spell_duration": "60 seconden"
+            }
+          ]
+        },
+        {
+          "skill": "Taaiheid B",
+          "Spells": [
+            {
+              "id": 9,
+              "spell": "Poison & Disease Protection",
+              "mana_cost": "2",
+              "incantation": "By my might, I will not fall ill!",
+              "description": "",
+              "spell_effect": "Zelf",
+              "spell_duration": "1 uur of tot gebruikt"
+            },
+            {
+              "id": 10,
+              "spell": "Resist Crush",
+              "mana_cost": "2",
+              "incantation": "I will withstand this crush!, RESIST!",
+              "description": "",
+              "spell_effect": "Direct, Zelf",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Leiderschap A",
+          "Spells": [
+            {
+              "id": 11,
+              "spell": "Hold the Line",
+              "mana_cost": "2",
+              "incantation": "By my might, we will hold the line!",
+              "description": "",
+              "spell_effect": "Aanraking",
+              "spell_duration": "1 uur of tot gebruikt"
+            },
+            {
+              "id": 12,
+              "spell": "Rescue Comrade",
+              "mana_cost": "1",
+              "incantation": "By my might, I will rescue you!",
+              "description": "",
+              "spell_effect": "Aanraking",
+              "spell_duration": "max 1 minuut"
+            }
+          ]
+        },
+        {
+          "skill": "Leiderschap B",
+          "Spells": [
+            {
+              "id": 13,
+              "spell": "Inspect Armour",
+              "mana_cost": "2",
+              "incantation": "By my might, wear this armour with pride!",
+              "description": "",
+              "spell_effect": "Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 14,
+              "spell": "Insight",
+              "mana_cost": "2",
+              "incantation": "I will keep focused,",
+              "description": "",
+              "spell_effect": "Direct, Zelf",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Bescherming A",
+          "Spells": [
+            {
+              "id": 15,
+              "spell": "Block spell",
+              "mana_cost": "2",
+              "incantation": "My shield will block that spell. NO EFFECT!",
+              "description": "",
+              "spell_effect": "Direct",
+              "spell_duration": ""
+            },
+            {
+              "id": 16,
+              "spell": "Withstand Freeze",
+              "mana_cost": "1",
+              "incantation": "I will not be held back by cold, NO EFFECT!",
+              "description": "",
+              "spell_effect": "Zelf",
+              "spell_duration": "1 uur of tot gebruikt"
+            }
+          ]
+        },
+        {
+          "skill": "Bescherming B",
+          "Spells": [
+            {
+              "id": 17,
+              "spell": "Defensive Stance",
+              "mana_cost": "3",
+              "incantation": "By my might, I will stand strong",
+              "description": "",
+              "spell_effect": "Direct, Zelf",
+              "spell_duration": "5 minuten of tot de stance verbreekt"
+            },
+            {
+              "id": 18,
+              "spell": "Withstand Torture",
+              "mana_cost": "3",
+              "incantation": "This pain will not stop me,",
+              "description": "",
+              "spell_effect": "",
+              "spell_duration": "NO EFFECT!"
+            }
+          ]
+        },
+        {
+          "skill": "Berserker A",
+          "Spells": [
+            {
+              "id": 19,
+              "spell": "Withstand Slow",
+              "mana_cost": "1",
+              "incantation": "I will not slow down, NO EFFECT!",
+              "description": "",
+              "spell_effect": "Zelf",
+              "spell_duration": "1 uur of tot gebruikt"
+            },
+            {
+              "id": 20,
+              "spell": "Fearful Presence",
+              "mana_cost": "1",
+              "incantation": "Be afraid of my might, FEAR me!",
+              "description": "",
+              "spell_effect": "Geestbeïnvloedend, 5 meter",
+              "spell_duration": "30 seconden"
+            }
+          ]
+        },
+        {
+          "skill": "Berserker B",
+          "Spells": [
+            {
+              "id": 21,
+              "spell": "Rage",
+              "mana_cost": "3",
+              "incantation": "By my might, Feel my rage",
+              "description": "",
+              "spell_effect": "Zelf",
+              "spell_duration": "1 minuut"
+            },
+            {
+              "id": 22,
+              "spell": "Withstand Fear",
+              "mana_cost": "1",
+              "incantation": "I will stay focused,",
+              "description": "",
+              "spell_effect": "Direct, Zelf",
+              "spell_duration": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categorie": "Magiërspreuken",
+      "Skills": [
+        {
+          "skill": "White magic",
+          "Spells": [
+            {
+              "id": 23,
+              "spell": "Detect Magic",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, I Detect Magic!",
+              "description": "",
+              "spell_effect": "Direct",
+              "spell_duration": "5 meter of Aanraking"
+            },
+            {
+              "id": 24,
+              "spell": "Confusion",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, I CONFUSE you!",
+              "description": "",
+              "spell_effect": "Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "30 seconden"
+            },
+            {
+              "id": 25,
+              "spell": "Wind Strike",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, let the wind blow you away! STRIKE!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 26,
+              "spell": "Break Enchantment",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, I BREAK this ENCHANTMENT!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 27,
+              "spell": "Counter Spell",
+              "mana_cost": "2",
+              "incantation": "By the powers of the elements, I counter that spell!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Grey magic",
+          "Spells": [
+            {
+              "id": 28,
+              "spell": "Mend",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, I Mend what was broken!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "10 seconden incantatie tijd per AP"
+            },
+            {
+              "id": 29,
+              "spell": "Minor Reinforcement",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, I reinforce my/this armour!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 30,
+              "spell": "Imbue Strike",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, I Imbue this weapon to strike with greatforce!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur of tot gebruik"
+            },
+            {
+              "id": 31,
+              "spell": "Iron Will",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, I forge a mind of iron!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur of tot gebruikt"
+            },
+            {
+              "id": 32,
+              "spell": "Slow",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, SLOW down!",
+              "description": "",
+              "spell_effect": "Enchantment, 5 meter",
+              "spell_duration": "5 minuten"
+            }
+          ]
+        },
+        {
+          "skill": "Black magic",
+          "Spells": [
+            {
+              "id": 33,
+              "spell": "Magic Blast",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, May my touch BLAST you!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 34,
+              "spell": "Fear",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, FEAR me!",
+              "description": "",
+              "spell_effect": "Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "30 seconden"
+            },
+            {
+              "id": 35,
+              "spell": "Incite Aggression",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, Release you anger! INCITE AGGRESSION!",
+              "description": "",
+              "spell_effect": "Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 36,
+              "spell": "Mute",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, I silence you! MUTE!",
+              "description": "",
+              "spell_effect": "Enchantment, 5 meter",
+              "spell_duration": "30 seconden"
+            },
+            {
+              "id": 37,
+              "spell": "Steal",
+              "mana_cost": "1",
+              "incantation": "By the powers of the elements, I COMMAND you to give me that <object>!",
+              "description": "",
+              "spell_effect": "Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "5 minuten"
+            }
+          ]
+        },
+        {
+          "skill": "Air Magic B",
+          "Spells": [
+            {
+              "id": 38,
+              "spell": "Hidden object",
+              "mana_cost": "2",
+              "incantation": "By the power of Air, may this object be hidden from sight, sound and touch.",
+              "description": "",
+              "spell_effect": "Enchantment, aanraking",
+              "spell_duration": "de rest van de dag of totdat het object tevoorschijn"
+            },
+            {
+              "id": 39,
+              "spell": "Chilling Winds",
+              "mana_cost": "2",
+              "incantation": "By the powers of Air, May the wind freeze you: FREEZE!",
+              "description": "",
+              "spell_effect": "Enchantment, Concentratie, 5 meter",
+              "spell_duration": "30 seconden"
+            },
+            {
+              "id": 40,
+              "spell": "Freedom of Movement",
+              "mana_cost": "2",
+              "incantation": "By the powers of Air, Let my/your movement be free!",
+              "description": "",
+              "spell_effect": "Enchantment, aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 41,
+              "spell": "Strike Cascade",
+              "mana_cost": "2",
+              "incantation": "By the powers of Air, I call upon the Wind! STRIKE!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Air magic C",
+          "Spells": [
+            {
+              "id": 42,
+              "spell": "Force Field",
+              "mana_cost": "3",
+              "incantation": "By the powers of Air, Let me be protected by a force field!",
+              "description": "",
+              "spell_effect": "Enchantment, Zelf",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 43,
+              "spell": "Break All Enchantments",
+              "mana_cost": "3",
+              "incantation": "By the powers of Air, I BREAK all ENCHANTMENT!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Metal magic B",
+          "Spells": [
+            {
+              "id": 44,
+              "spell": "Strengthen Armour",
+              "mana_cost": "2",
+              "incantation": "By the powers of Metal, I will strengthen your armour!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 45,
+              "spell": "Horrific Revelation",
+              "mana_cost": "2",
+              "incantation": "By the powers of Metal, I have a horrific revelation for you, FASCINATE!",
+              "description": "",
+              "spell_effect": "Concentratie, Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "max 5 minuten"
+            },
+            {
+              "id": 46,
+              "spell": "Boon of Disease",
+              "mana_cost": "2",
+              "incantation": "By the powers of Metal, I grant you a boon of Disease",
+              "description": "",
+              "spell_effect": "Enchantment, aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 47,
+              "spell": "Life Draw",
+              "mana_cost": "1",
+              "incantation": "By the powers of Metal, I drain your life! HIT!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Metal magic C",
+          "Spells": [
+            {
+              "id": 48,
+              "spell": "Aura of Fear",
+              "mana_cost": "3",
+              "incantation": "By the powers of Metal, I surround myself with an Aura of Fear!",
+              "description": "",
+              "spell_effect": "Enchantment, Zelf",
+              "spell_duration": "30 seconden"
+            },
+            {
+              "id": 49,
+              "spell": "Elemental Bolt",
+              "mana_cost": "3",
+              "incantation": "By the powers of Metal, I strike you with an Elemental Bolt! CRUSH!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Earth magic B",
+          "Spells": [
+            {
+              "id": 50,
+              "spell": "Harden",
+              "mana_cost": "2",
+              "incantation": "By the powers of Earth, l grant you protection of the earth!",
+              "description": "",
+              "spell_effect": "Enchantment, aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 51,
+              "spell": "Minor Reinforcement Cascade",
+              "mana_cost": "2",
+              "incantation": "By the powers of Earth, I reinforce your armour!",
+              "description": "",
+              "spell_effect": "Enchantment, aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 52,
+              "spell": "Sleep",
+              "mana_cost": "2",
+              "incantation": "By the powers of Earth, I put you to SLEEP!",
+              "description": "",
+              "spell_effect": "Geestbeïnvloedend, 5 meter",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 53,
+              "spell": "Boon of Mending",
+              "mana_cost": "2",
+              "incantation": "By the powers of Earth, I grant you a Boon of Mending!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "10 seconden incantatie tijd per AP"
+            }
+          ]
+        },
+        {
+          "skill": "Earth magic C",
+          "Spells": [
+            {
+              "id": 54,
+              "spell": "Stoneskin",
+              "mana_cost": "3",
+              "incantation": "By the powers of Earth, Let my Skin be as Stone!",
+              "description": "",
+              "spell_effect": "Enchantment, Zelf",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 55,
+              "spell": "Imbue Crush",
+              "mana_cost": "3",
+              "incantation": "By the powers of Earth, I Imbue this weapon to strike a Crushing blow!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur of tot gebruik"
+            }
+          ]
+        },
+        {
+          "skill": "Water magic B",
+          "Spells": [
+            {
+              "id": 56,
+              "spell": "Mind Protection",
+              "mana_cost": "2",
+              "incantation": "By the powers of Water, Let my mind be protected!",
+              "description": "",
+              "spell_effect": "Enchantment, Zelf",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 57,
+              "spell": "Force Truth",
+              "mana_cost": "1",
+              "incantation": "By the powers of Water, Answer me truthfully!",
+              "description": "",
+              "spell_effect": "Enchantment, Geestbeïnvloedend, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 58,
+              "spell": "Corrupt the Flow of Life",
+              "mana_cost": "2",
+              "incantation": "By the powers of Water, I CURSE your LIFE!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 59,
+              "spell": "Iceblast",
+              "mana_cost": "2",
+              "incantation": "By the powers of Water, IceBLAST!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Water magic C",
+          "Spells": [
+            {
+              "id": 61,
+              "spell": "Paralyzing Touch",
+              "mana_cost": "3",
+              "incantation": "By the powers of Water, I Grant you the Gift you Knowledge!By the powers of Water, I PARALYZE you!",
+              "description": "DirectEnchantment, Aanraking, 1 uurDirect, Enchantment,Aanraking, 1 uurEnchantment, aanraking, 1 dag",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "5 minuten"
+            }
+          ]
+        },
+        {
+          "skill": "Fire Magic B",
+          "Spells": [
+            {
+              "id": 62,
+              "spell": "Cleansed by Fire",
+              "mana_cost": "2",
+              "incantation": "By the powers of Fire, I will burn away your poisons and diseases, CRUSH!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "10 seconden incantatie tijd"
+            },
+            {
+              "id": 63,
+              "spell": "Fireblast",
+              "mana_cost": "2",
+              "incantation": "By the powers of Fire, FireBLAST!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 64,
+              "spell": "Inner Fire",
+              "mana_cost": "2",
+              "incantation": "By the powers of Fire, I kindle your/my inner fire!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 65,
+              "spell": "Imbue Blast",
+              "mana_cost": "2",
+              "incantation": "By the powers of Fire, I imbue this weapon with explosive magic!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur of tot gebruik"
+            }
+          ]
+        },
+        {
+          "skill": "Fire Magic C",
+          "Spells": [
+            {
+              "id": 66,
+              "spell": "Aspect of the Efreet",
+              "mana_cost": "5",
+              "incantation": "By the power of Fire, May the legendary Efreet channel through you!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 minuut"
+            },
+            {
+              "id": 67,
+              "spell": "Incinerate",
+              "mana_cost": "3",
+              "incantation": "By the powers of Fire, Let my touch incinerate you! DESTROY!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Wood Magic B",
+          "Spells": [
+            {
+              "id": 68,
+              "spell": "Rend Enchantment",
+              "mana_cost": "2",
+              "incantation": "By the powers of Wood, I BREAK an ENCHANTMENT from you and BLAST youwith its energy!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 69,
+              "spell": "Shatter Armour",
+              "mana_cost": "2",
+              "incantation": "By the powers of Wood, I SHATTER that Armour!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 70,
+              "spell": "Charm Person",
+              "mana_cost": "2",
+              "incantation": "By the powers of Wood, I COMMAND you to treat me as a friend!",
+              "description": "",
+              "spell_effect": "Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "5 minuten"
+            }
+          ]
+        },
+        {
+          "skill": "Wood Magic C",
+          "Spells": [
+            {
+              "id": 71,
+              "spell": "Primal Rage",
+              "mana_cost": "3",
+              "incantation": "By the powers of Wood, Let your heart be filled with primal rage!",
+              "description": "",
+              "spell_effect": "Enchantment, Geestbeïnvloedend, Aanraking",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 72,
+              "spell": "Aspect of the Viper",
+              "mana_cost": "3",
+              "incantation": "By the powers of Wood, I imbue this weapon with viper venom!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur of tot gebruik"
+            }
+          ]
+        },
+        {
+          "skill": "Speciale Magiërspreuken",
+          "Spells": [
+            {
+              "id": 73,
+              "spell": "Wave of Destruction",
+              "mana_cost": "5",
+              "incantation": "By the powers of the elements, I wreak destruction upon you! DESTROY!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 74,
+              "spell": "Dominate the Weak",
+              "mana_cost": "5",
+              "incantation": "By the powers of the elements, I DOMINATE your weak body!",
+              "description": "",
+              "spell_effect": "Enchantment, aanraking",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 75,
+              "spell": "Epidemic",
+              "mana_cost": "3",
+              "incantation": "By the powers of the elements, You will spread Disease, Plague andPestilence! FATAL DISEASE!",
+              "description": "",
+              "spell_effect": "aanraking",
+              "spell_duration": "10 seconden"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categorie": "Paladijnspreuken",
+      "Skills": [
+        {
+          "skill": "Paladijn A",
+          "Spells": [
+            {
+              "id": 76,
+              "spell": "Hammer of Righteousness",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I strike you down with Righteousness! STRIKE!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 77,
+              "spell": "Honorable Challenge",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I COMMAND you to fight me honorably!",
+              "description": "",
+              "spell_effect": "Enchantment",
+              "spell_duration": ""
+            },
+            {
+              "id": 78,
+              "spell": "Mercy call",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I COMMAND you to grant him/her/me Mercy!",
+              "description": "",
+              "spell_effect": "Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "5 minuten"
+            }
+          ]
+        },
+        {
+          "skill": "Paladijn B",
+          "Spells": [
+            {
+              "id": 79,
+              "spell": "Divine Heroism",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I grant you Divine Heroism!",
+              "description": "",
+              "spell_effect": "Aanraking, Enchantment",
+              "spell_duration": "1 uur of tot gebruikt"
+            },
+            {
+              "id": 80,
+              "spell": "Divine Blessing",
+              "mana_cost": "3",
+              "incantation": "In the name of... , I Pray for Divine Blessing!",
+              "description": "",
+              "spell_effect": "Enchantment, Zelf",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 81,
+              "spell": "Sanctuary",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I grant this person sanctuary!",
+              "description": "",
+              "spell_effect": "Concentratie, Aanraking",
+              "spell_duration": "max 1 uur"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categorie": "Priesterspreuken",
+      "Skills": [
+        {
+          "skill": "Purity A",
+          "Spells": [
+            {
+              "id": 82,
+              "spell": "Endure Poison",
+              "mana_cost": "1",
+              "incantation": "In the name of... , /you may endure poison!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur of tot gebruik"
+            },
+            {
+              "id": 83,
+              "spell": "Minor Reinforcement",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I reinforce my/this armour!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 84,
+              "spell": "Break Enchantment",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I BREAK this ENCHANTMENT!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 85,
+              "spell": "Counter Spell",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I counter that spell!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 86,
+              "spell": "Detect Spiritual influence",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I detect spiritual influence!",
+              "description": "",
+              "spell_effect": "Direct",
+              "spell_duration": "5 Meter of Aanraking"
+            }
+          ]
+        },
+        {
+          "skill": "Purity B",
+          "Spells": [
+            {
+              "id": 87,
+              "spell": "Disease of Temperance",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I grant you time to think before you act! SLOW DISEASE!",
+              "description": "",
+              "spell_effect": "Enchantment, Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 88,
+              "spell": "Minor Regeneration",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I grant you / myself minor regeneration!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur of tot gebruik"
+            },
+            {
+              "id": 89,
+              "spell": "Pure Body and Mind",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I grant your/my body and mind purity!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 90,
+              "spell": "Protection from Impairment",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I grant you/me protection from impairments!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            }
+          ]
+        },
+        {
+          "skill": "Purity C",
+          "Spells": [
+            {
+              "id": 92,
+              "spell": "Divine Armour",
+              "mana_cost": "3",
+              "incantation": "In the name of... , I strike you with a Holy Bolt! CRUSH!Direct, 5 meterIn the name of... , May your armour be blessed by the divine!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            }
+          ]
+        },
+        {
+          "skill": "Wrath A",
+          "Spells": [
+            {
+              "id": 93,
+              "spell": "Endure Disease",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I/you endure diseases!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur of tot gebruik"
+            },
+            {
+              "id": 94,
+              "spell": "Fear",
+              "mana_cost": "1",
+              "incantation": "In the name of... , FEAR me!",
+              "description": "",
+              "spell_effect": "Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "30 seconden"
+            },
+            {
+              "id": 95,
+              "spell": "Hit Disease",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I afflict you with a HIT DISEASE!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 96,
+              "spell": "Crave",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I COMMAND you to crave <max 2 words that refers to anitem>!",
+              "description": "",
+              "spell_effect": "Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 97,
+              "spell": "Shattering Touch",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I SHATTER this armour!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Wrath B",
+          "Spells": [
+            {
+              "id": 98,
+              "spell": "Mute Cascade",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I silence you, MUTE!",
+              "description": "",
+              "spell_effect": "Enchantment, 5 meter",
+              "spell_duration": "30 seconden"
+            },
+            {
+              "id": 99,
+              "spell": "Shatter Armour",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I SHATTER that armour!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 100,
+              "spell": "Boon of Break Enchantment",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I grant you a boon of Break Enchantment!",
+              "description": "",
+              "spell_effect": "",
+              "spell_duration": "In the name of...I break this"
+            },
+            {
+              "id": 101,
+              "spell": "Curse Life",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I CURSE your LIFE!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            }
+          ]
+        },
+        {
+          "skill": "Wrath C",
+          "Spells": [
+            {
+              "id": 102,
+              "spell": "Torture",
+              "mana_cost": "3",
+              "incantation": "In the name of... , may pain embrace you! TORTURE!",
+              "description": "",
+              "spell_effect": "Enchantment, 5 meter",
+              "spell_duration": "30 seconden"
+            },
+            {
+              "id": 103,
+              "spell": "Divine Weapon",
+              "mana_cost": "3",
+              "incantation": "In the name of... , I imbue this weapon with divine wrath!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            }
+          ]
+        },
+        {
+          "skill": "Death A",
+          "Spells": [
+            {
+              "id": 104,
+              "spell": "Discern Soul",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I discern your soul!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 105,
+              "spell": "Sanctuary",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I grant this person sanctuary!",
+              "description": "",
+              "spell_effect": "Concentratie, Aanraking",
+              "spell_duration": "max 1 uur"
+            },
+            {
+              "id": 106,
+              "spell": "Lay to Rest",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I lay this soul to rest!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "Ceremonie van 5 minuten (als onderdeel van de incantatie tijd)"
+            },
+            {
+              "id": 107,
+              "spell": "Ancestral mind protection",
+              "mana_cost": "1",
+              "incantation": "In the name of... , May your ancestors clear your mind!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 108,
+              "spell": "Reveal all undead",
+              "mana_cost": "1",
+              "incantation": "By the power of… , I reveal all undead!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Death B",
+          "Spells": [
+            {
+              "id": 109,
+              "spell": "Paralyze Undead",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I PARALYZE undead!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 110,
+              "spell": "Speak with the Dead",
+              "mana_cost": "2",
+              "incantation": "In the name of... , let this Dead one Speak!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 111,
+              "spell": "Sanctuary Ward",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I grant these people sanctuary!",
+              "description": "",
+              "spell_effect": "Concentratie, Aanraking",
+              "spell_duration": "max 1 uur"
+            },
+            {
+              "id": 112,
+              "spell": "Life Draw",
+              "mana_cost": "1",
+              "incantation": "In the name of... , LIFE DRAW!",
+              "description": "",
+              "spell_effect": "Enchantment, Direct, aanraking",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Death C",
+          "Spells": [
+            {
+              "id": 113,
+              "spell": "Destroy",
+              "mana_cost": "3",
+              "incantation": "In the name of... , May death embrace you! DESTROY!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 114,
+              "spell": "Septic Weapon",
+              "mana_cost": "3",
+              "incantation": "In the name of... , I imbue this weapon with putrid filth!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur of tot gebruik"
+            }
+          ]
+        },
+        {
+          "skill": "Mind B",
+          "Spells": [
+            {
+              "id": 115,
+              "spell": "Fascinate",
+              "mana_cost": "1",
+              "incantation": "In the name of... , I FASCINATE you!",
+              "description": "",
+              "spell_effect": "Concentratie, Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "max 10 minuten"
+            },
+            {
+              "id": 116,
+              "spell": "Discern Pattern",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I discern your pattern!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 117,
+              "spell": "Mind Protection",
+              "mana_cost": "2",
+              "incantation": "In the name of... , let my mind be protected!",
+              "description": "",
+              "spell_effect": "Enchantment, Zelf",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 118,
+              "spell": "Command",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I command you to <max 5 words>!",
+              "description": "",
+              "spell_effect": "Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "5 minuten"
+            }
+          ]
+        },
+        {
+          "skill": "Mind C",
+          "Spells": [
+            {
+              "id": 119,
+              "spell": "Gift of Wisdom",
+              "mana_cost": "3",
+              "incantation": "In the name of... , I Grant you/me the Gift of Wisdom!",
+              "description": "",
+              "spell_effect": "Enchantment, Direct, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 120,
+              "spell": "Spell Shield",
+              "mana_cost": "3",
+              "incantation": "In the name of..., May I be shielded from hostile spells!",
+              "description": "",
+              "spell_effect": "Concentratie, Zelf",
+              "spell_duration": "max 5 minuten"
+            }
+          ]
+        },
+        {
+          "skill": "Nature B",
+          "Spells": [
+            {
+              "id": 121,
+              "spell": "Hex Weapon",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I imbue this weapon to put your/my enemy to sleep!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur of tot gebruik"
+            },
+            {
+              "id": 122,
+              "spell": "Freedom of Movement",
+              "mana_cost": "2",
+              "incantation": "In the name of... , Let my/your movements be free!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 123,
+              "spell": "Resist Special Damage",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I shield myself from strong blows!",
+              "description": "",
+              "spell_effect": "Enchantment, Zelf",
+              "spell_duration": "1 uur of tot gebruikt"
+            },
+            {
+              "id": 124,
+              "spell": "Aspect of the Dryad",
+              "mana_cost": "2",
+              "incantation": "In the name of... , I grant you/me the fortitude of a dryad!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            }
+          ]
+        },
+        {
+          "skill": "Nature C",
+          "Spells": [
+            {
+              "id": 125,
+              "spell": "Barkskin",
+              "mana_cost": "3",
+              "incantation": "In the name of... , May my skin be as bark!",
+              "description": "",
+              "spell_effect": "Enchantment, Zelf",
+              "spell_duration": "5 minuten"
+            },
+            {
+              "id": 126,
+              "spell": "Blast Disease",
+              "mana_cost": "3",
+              "incantation": "In the name of... , I make a plague fall upon you! BLAST DISEASE!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Speciale Priesterspreuken",
+          "Spells": [
+            {
+              "id": 127,
+              "spell": "Miracle of Healing",
+              "mana_cost": "5",
+              "incantation": "In the name of... , I purge all your wounds, afflictions and mend yourarmour!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "30 seconde incantatie tijd"
+            },
+            {
+              "id": 128,
+              "spell": "Wrath of the Gods",
+              "mana_cost": "5",
+              "incantation": "In the name of... , Feel the wrath of the/my God(s)! FATAL!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categorie": "Genezingsspreuken",
+      "Skills": [
+        {
+          "skill": "Genezing A",
+          "Spells": [
+            {
+              "id": 129,
+              "spell": "Discern Wounds",
+              "mana_cost": "0",
+              "incantation": "By my healing powers, I discern your wounds!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 130,
+              "spell": "Discern Poison",
+              "mana_cost": "0",
+              "incantation": "By my healing powers, I discern your poisons!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 132,
+              "spell": "Heal Wounds",
+              "mana_cost": "1",
+              "incantation": "By my healing powers, I discern your diseases!By my healing powers, I heal this wound!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "10 seconde incantatie tijd per te genezen wond"
+            },
+            {
+              "id": 133,
+              "spell": "Remove Paralysis",
+              "mana_cost": "1",
+              "incantation": "By my healing powers, I remove your paralysis!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "10 seconde incantatie tijd"
+            }
+          ]
+        },
+        {
+          "skill": "Genezing B",
+          "Spells": [
+            {
+              "id": 134,
+              "spell": "Heal Fatal Wound",
+              "mana_cost": "2",
+              "incantation": "By my healing powers, I heal this fatal wound!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "30 seconde incantatie tijd"
+            },
+            {
+              "id": 135,
+              "spell": "Strengthen Body",
+              "mana_cost": "2",
+              "incantation": "By my healing powers, I grant you protection!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 136,
+              "spell": "Total Healing",
+              "mana_cost": "2",
+              "incantation": "By my healing powers, I grant you total healing!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "30 seconden incantatie tijd"
+            },
+            {
+              "id": 137,
+              "spell": "Boon of Minor Healing",
+              "mana_cost": "1",
+              "incantation": "By my healing powers, I grant you a boon of minor healing!",
+              "description": "",
+              "spell_effect": "",
+              "spell_duration": "By my healing powers"
+            }
+          ]
+        },
+        {
+          "skill": "Genezer van Giffen",
+          "Spells": [
+            {
+              "id": 138,
+              "spell": "Heal Fatal Wound",
+              "mana_cost": "2",
+              "incantation": "By my healing powers, I heal this fatal wound!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "30 seconde incantatie tijd"
+            },
+            {
+              "id": 139,
+              "spell": "Protection from Poison",
+              "mana_cost": "2",
+              "incantation": "By my healing powers, I grant you protection from poison!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 140,
+              "spell": "Neutralise Poisons",
+              "mana_cost": "1",
+              "incantation": "By my healing powers, I neutralise <name> poison!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "10 seconde incantatie tijd per geneutraliseerd gif"
+            },
+            {
+              "id": 141,
+              "spell": "Purge All Poisons",
+              "mana_cost": "3",
+              "incantation": "By my healing powers, I purge all your poisons!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "direct"
+            }
+          ]
+        },
+        {
+          "skill": "Genezer van Ziekten",
+          "Spells": [
+            {
+              "id": 142,
+              "spell": "Heal Fatal Wound",
+              "mana_cost": "2",
+              "incantation": "By my healing powers, I heal this fatal wound!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "30 seconde incantatie tijd"
+            },
+            {
+              "id": 143,
+              "spell": "Protection from Disease",
+              "mana_cost": "2",
+              "incantation": "By my healing powers, I grant you protection from disease!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 144,
+              "spell": "Cure Diseases",
+              "mana_cost": "1",
+              "incantation": "By my healing powers, I cure <name> disease!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "10 seconde incantatie tijd per te genezen ziekte"
+            },
+            {
+              "id": 145,
+              "spell": "Cure All Diseases",
+              "mana_cost": "3",
+              "incantation": "By my healing powers, I cure all your diseases",
+              "description": "",
+              "spell_effect": "Direct, Aanraking, Direct",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Genezer van Geest",
+          "Spells": [
+            {
+              "id": 146,
+              "spell": "Heal Fatal Wound",
+              "mana_cost": "2",
+              "incantation": "By my healing powers, I heal this fatal wound!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "30 seconde incantatie tijd"
+            },
+            {
+              "id": 147,
+              "spell": "Protection from Fear",
+              "mana_cost": "1",
+              "incantation": "By my healing powers, I grant you protection from fear!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 148,
+              "spell": "Break Enchantment Cascade",
+              "mana_cost": "2",
+              "incantation": "By my healing powers, I BREAK your ENCHANTMENT!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Genezing C",
+          "Spells": [
+            {
+              "id": 149,
+              "spell": "Discern Diseases and Afflictions",
+              "mana_cost": "0",
+              "incantation": "",
+              "description": "",
+              "spell_effect": "",
+              "spell_duration": "By my healing powersI Discern your WoundsPoisonsDiseases and Afflictions!"
+            },
+            {
+              "id": 150,
+              "spell": "Major Regeneration",
+              "mana_cost": "3",
+              "incantation": "By my healing powers, I grant myself/you major regeneration!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur of tot gebruik"
+            },
+            {
+              "id": 151,
+              "spell": "Purify Body",
+              "mana_cost": "5",
+              "incantation": "By my healing powers, I purify your body!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "60 seconden incantatie tijd"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categorie": "Demonologie",
+      "Skills": [
+        {
+          "skill": "Demonoloog A",
+          "Spells": [
+            {
+              "id": 152,
+              "spell": "Detect servitar",
+              "mana_cost": "0",
+              "incantation": "By the power of... , I detect servitar!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 153,
+              "spell": "Reveal all servitar",
+              "mana_cost": "1",
+              "incantation": "By the power of... , I reveal all servitars!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 154,
+              "spell": "Break minor possession",
+              "mana_cost": "1",
+              "incantation": "By the power of... , I exorcise this body!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 155,
+              "spell": "Faustian deal",
+              "mana_cost": "1",
+              "incantation": "By the power of this contract, may this blood sacrifice DESTROY you!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Demonoloog B",
+          "Spells": [
+            {
+              "id": 156,
+              "spell": "Demonic eye",
+              "mana_cost": "1",
+              "incantation": "By the power of... , My demonic eye will spot you once more!.... BLAST!",
+              "description": "",
+              "spell_effect": "Enchantment, 5 meter",
+              "spell_duration": "tot zonsopgang of gebruik."
+            },
+            {
+              "id": 157,
+              "spell": "Command servitar",
+              "mana_cost": "1",
+              "incantation": "By the power of your contract, heed my orders servitar!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 158,
+              "spell": "Banish servitar",
+              "mana_cost": "1",
+              "incantation": "By the power of your broken contract, I banish you!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 159,
+              "spell": "Smite servitar",
+              "mana_cost": "1",
+              "incantation": "By the power of... ,I shall smite this servitar, BLAST!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 161,
+              "spell": "Als de ontvanger van de spreuk niet voor het einde van de spreuk minstens",
+              "mana_cost": "4",
+              "incantation": "By the power of... , I open this mind to receive a demon!",
+              "description": "",
+              "spell_effect": "Aanraking",
+              "spell_duration": "tot zonsopgang."
+            }
+          ]
+        },
+        {
+          "skill": "Demonoloog C",
+          "Spells": [
+            {
+              "id": 162,
+              "spell": "Greater Demonic eye",
+              "mana_cost": "2",
+              "incantation": "By the power of... , My greater demonic eye will find you!.... CRUSH!",
+              "description": "",
+              "spell_effect": "Enchantment, 5 meter",
+              "spell_duration": "tot zonsopgang of gebruik."
+            },
+            {
+              "id": 164,
+              "spell": "Als de ontvanger van de spreuk niet voor het einde van de spreuk minstens",
+              "mana_cost": "6",
+              "incantation": "By the power of... , I open this mind to receive a greater demon!",
+              "description": "",
+              "spell_effect": "Aanraking",
+              "spell_duration": "tot zonsopgang"
+            },
+            {
+              "id": 165,
+              "spell": "Transfer contract",
+              "mana_cost": "1",
+              "incantation": "By the power of your contract, you are hereby also bound to this person!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": "tot zonsopgang"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categorie": "Druidisme",
+      "Skills": [
+        {
+          "skill": "Druid A",
+          "Spells": [
+            {
+              "id": 166,
+              "spell": "Detect spirit",
+              "mana_cost": "0",
+              "incantation": "By the power of... , I detect spirit!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 167,
+              "spell": "Reveal all spirits",
+              "mana_cost": "1",
+              "incantation": "By the power of... , I reveal all spirits!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 168,
+              "spell": "Break minor possession",
+              "mana_cost": "1",
+              "incantation": "By the power of... , I exorcise this body!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 169,
+              "spell": "Create personal grove",
+              "mana_cost": "1",
+              "incantation": "By the power of... , I create this personal grove!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": "5 minuten incantatie tijd"
+            }
+          ]
+        },
+        {
+          "skill": "Druid B",
+          "Spells": [
+            {
+              "id": 170,
+              "spell": "Detect impurity",
+              "mana_cost": "1",
+              "incantation": "By the power of... , I detect spirits, undead and servitars!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 171,
+              "spell": "Reveal all impurities",
+              "mana_cost": "2",
+              "incantation": "By the power of... , I reveal all spirits, undead and servitars!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 172,
+              "spell": "Protection of the grove",
+              "mana_cost": "2",
+              "incantation": "By the powers of... , I grant you the Protection of my grove",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 173,
+              "spell": "Invite nature spirit",
+              "mana_cost": "2",
+              "incantation": "By the power of… , I open this mind to receive a nature spirit!",
+              "description": "",
+              "spell_effect": "Aanraking",
+              "spell_duration": "tot zonsopgang."
+            }
+          ]
+        },
+        {
+          "skill": "Druid C",
+          "Spells": [
+            {
+              "id": 174,
+              "spell": "Grove meditation",
+              "mana_cost": "2",
+              "incantation": "By the powers of... , may my grove grant you tranquility.",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 175,
+              "spell": "Restore the cycle",
+              "mana_cost": "3",
+              "incantation": "By the power of… , I DESTROY this undead/servitar/spirit!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 176,
+              "spell": "Invite avatar of the Cycle",
+              "mana_cost": "3",
+              "incantation": "By the power of… , I open this mind to receive the avatar of the cycle!",
+              "description": "",
+              "spell_effect": "Aanraking",
+              "spell_duration": "tot zonsopgang."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categorie": "Necromantie",
+      "Skills": [
+        {
+          "skill": "Necromancer A",
+          "Spells": [
+            {
+              "id": 177,
+              "spell": "Detect undead",
+              "mana_cost": "0",
+              "incantation": "By the power of… , I detect undead!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 178,
+              "spell": "Reveal all undead",
+              "mana_cost": "1",
+              "incantation": "By the power of… , I reveal all undead!",
+              "description": "",
+              "spell_effect": "Direct, 5 meter",
+              "spell_duration": ""
+            },
+            {
+              "id": 179,
+              "spell": "Break minor possession",
+              "mana_cost": "1",
+              "incantation": "By the power of… , I exorcise this body!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": ""
+            },
+            {
+              "id": 180,
+              "spell": "Create zombie",
+              "mana_cost": "1",
+              "incantation": "By the power of… , Raise this dead/dying one!",
+              "description": "",
+              "spell_effect": "Enchantment, aanraking",
+              "spell_duration": "tot zonsopgang10 seconden incantatie tijd"
+            },
+            {
+              "id": 181,
+              "spell": "Minor Reconstruct",
+              "mana_cost": "1",
+              "incantation": "By the power of… , I Reconstruct this undead!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": ""
+            }
+          ]
+        },
+        {
+          "skill": "Necromancer B",
+          "Spells": [
+            {
+              "id": 182,
+              "spell": "Reconstruct",
+              "mana_cost": "1",
+              "incantation": "By the power of… , I Reconstruct this undead!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "10 seconden incantatie tijd"
+            },
+            {
+              "id": 183,
+              "spell": "Chilling fear",
+              "mana_cost": "2",
+              "incantation": "By the powers of… , Feel the chilling touch of death: FREEZE!........ FEAR!",
+              "description": "",
+              "spell_effect": "Concentratie, Enchantment, Geestbeïnvloedend, 5 meter",
+              "spell_duration": "30 seconden"
+            },
+            {
+              "id": 184,
+              "spell": "Bone armour",
+              "mana_cost": "1",
+              "incantation": "By the powers… , I steal your marrow! HIT!",
+              "description": "",
+              "spell_effect": "Direct, aanraking",
+              "spell_duration": "1 uur"
+            },
+            {
+              "id": 185,
+              "spell": "Invite spirit of the dead",
+              "mana_cost": "2",
+              "incantation": "By the power of… , I open this mind to receive a spirit of the dead!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "tot zonsopgang."
+            }
+          ]
+        },
+        {
+          "skill": "Necromancer C",
+          "Spells": [
+            {
+              "id": 186,
+              "spell": "Ghostly shackles",
+              "mana_cost": "1",
+              "incantation": "By the power of… , May these ghostly shackles hold you!",
+              "description": "",
+              "spell_effect": "Enchantment, Aanraking",
+              "spell_duration": "1 uur10 seconden incantie tijd"
+            },
+            {
+              "id": 188,
+              "spell": "Invite ancestor",
+              "mana_cost": "3",
+              "incantation": "In the name of... , I strike you with an Unholy Bolt! Crush!Direct, 5 meterBy the power of… , I open this mind to receive an ancestor!",
+              "description": "",
+              "spell_effect": "Direct, Aanraking",
+              "spell_duration": "tot zonsopgang"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
