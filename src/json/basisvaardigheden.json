@@ -1134,7 +1134,7 @@
         { "name": "Strengthen Armour" },
         { "name": "Horrific Revelation" },
         { "name": "Boon of Disease" },
-        { "name": "Life Draw." }
+        { "name": "Life Draw" }
       ],
       "Recepten": []
     },
@@ -1230,7 +1230,7 @@
         { "name": "Rend Enchantment" },
         { "name": "Shatter Armour" },
         { "name": "Nature’s Protection" },
-        { "name": "Charm Person." }
+        { "name": "Charm Person" }
       ],
       "Recepten": []
     },
@@ -1351,7 +1351,7 @@
         { "name": "Sanctuary" },
         { "name": "Lay to Rest" },
         { "name": "Ancestral Mind Protection" },
-        { "name": "Reveal All Undead." }
+        { "name": "Reveal All Undead" }
       ],
       "Recepten": []
     },
@@ -1546,7 +1546,7 @@
         { "name": "Fatal Wound" },
         { "name": "Strengthen Body" },
         { "name": "Total Healing" },
-        { "name": "Boon of Minor Healing." }
+        { "name": "Boon of Minor Healing" }
       ],
       "Recepten": []
     },

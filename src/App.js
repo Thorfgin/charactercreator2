@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useTable } from 'react-table';
 import Select from 'react-select';
 import data from './json/basisvaardigheden.json';
-import spells from './json/spreuken.json';
 import './App.css';
 
 const sourceData = data["Vaardigheden"];
@@ -35,12 +34,26 @@ const columns = [
     { Header: 'Aantal keer', accessor: 'count', className: "col-aantalkeer" },
 ];
 
-// Karakter eigenschappen grid
-function GridItem({ image, text, value }) {
+// Karakter eigenschappen griditem
+function GridEigenschapItem({ image, text, value }) {
     return (
-        <div className="grid-item">
-            <div className="grid-image" style={{ backgroundImage: `url(${image})` }} />
-            <div className="grid-text">{text}: {value}</div>
+        <div className="grid-eigenschap-item">
+            <div className="grid-eigenschap-image" style={{ backgroundImage: `url(${image})` }} />
+            <div className="grid-eigenschap-text">{text}: {value}</div>
+        </div>
+    );
+}
+
+// Karakter eigenschappen griditem
+function GridSpreukItem({ text }) {
+    return (
+        <div className="grid-spreuk-item">
+            <div className="grid-spreuk-text">{"  "+text}</div>
+            <img
+                className="grid-spreuk-image"
+                src="./images/img-info.png"
+                alt="Info">
+            </img>
         </div>
     );
 }
@@ -61,7 +74,23 @@ function updateGridEigenschappenTiles(tableData) {
 
 // Op basis van de eigenschappen, voeg nieuwe tegels toe.
 function updateGridSpreukenTiles(tableData) {
+    const spellProperties = tableData.reduce((spellsAccumulator, record) => {
+        const vaardigheid = sourceData.find((vaardigheid) => vaardigheid.skill === record.skill);
+        const spells = vaardigheid.Spreuken || [];
 
+        spells.forEach((spell) => {
+            const existingSpell = spellsAccumulator.find((existing) => existing.name === spell.name);
+            if (existingSpell) {
+                existingSpell.count += spell.count;
+            } else {
+                spellsAccumulator.push({ ...spell });
+            }
+        });
+
+        return spellsAccumulator;
+    }, []);
+
+    return spellProperties;
 }
 
 /// --- MAIN APP --- ///
@@ -71,8 +100,8 @@ function App() {
     const [showModal, setShowModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("")
     const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
-    const [gridSpreuken, setGridSpreuken] = useState([])
-    const [gridRecepten, setGridRecepten] = useState([])
+    const [gridSpreuken, setGridSpreuken] = useState(emptyData)
+    const [gridRecepten, setGridRecepten] = useState(emptyData)
 
     useEffect(() => { onUpdateTableData(); }, [tableData]);
 
@@ -216,15 +245,14 @@ function App() {
             <main>
                 <div className="side-container">
                     <div className="summary-title">
-                        <h5>Spreuken, Techieken</h5>
+                        <h5>Spreuken & Techieken</h5>
                     </div>
-                    <div className="grid-spreuken-eigenschappen">
+                    <div className="grid-spreuken">
                         {gridSpreuken.map((item, index) => (
-                            <GridItem
+                            <GridSpreukItem
                                 name={item.name}
                                 key={index}
-                                className="spreuk-item"
-                                text={item.text}
+                                text={item.name}
                             />
                         ))}
                     </div>
@@ -232,11 +260,10 @@ function App() {
                     <div className="summary-title">
                         <h5>Recepten</h5>
                     </div>
-                    <div>
+                    <div className="grid-recepten">
                         {gridRecepten.map((item, index) => (
-                            <GridItem
+                            <GridEigenschapItem
                                 name={item.name}
-                                className="recept-item"
                                 key={index}
                                 text={item.text}
                                 value={item.value}
@@ -304,11 +331,10 @@ function App() {
                     <div className="summary-title">
                         <h5>Character eigenschappen</h5>
                     </div>
-                    <div className="grid-character-eigenschappen">
+                    <div className="grid-eigenschappen">
                         {gridEigenschappen.map((item, index) => (
-                            <GridItem
+                            <GridEigenschapItem
                                 name={item.name}
-                                className="karakter-item"
                                 key={index}
                                 image={item.image}
                                 text={item.text}
