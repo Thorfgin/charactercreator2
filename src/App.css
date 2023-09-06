@@ -52,6 +52,7 @@
     height: 18px;
     padding-left: 5px;
     padding-right: 5px;
+    background-color: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: .35rem;
 }
@@ -90,6 +91,7 @@
 .grid-eigenschap-item {
     width: 75px;
     height: 75px;
+    background-color: #ffffff;
     border: 2px solid rgba(0, 0, 0, 0.2);
     border-radius: .35rem;
 }
@@ -220,23 +222,25 @@
     transform: translateY(0);
 }
 
+/* Styles for the modal */
 .modal-overlay {
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 100px; /* Add 50px padding at the top */
-    z-index: 1000; /* Make sure the overlay appears above the content */
+    padding-top: 100px;
+    z-index: 1000;
 }
 
 .modal {
     background-color: white;
     text-align: center;
+    font-size: 12px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);

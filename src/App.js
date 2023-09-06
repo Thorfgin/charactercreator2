@@ -58,7 +58,7 @@ function GridSpreukItem({ text }) {
     );
 }
 
-// Op basis van de eigenschappen, voeg nieuwe tegels toe.
+// Op basis van de Eigenschappen, voeg nieuwe tegels toe.
 function updateGridEigenschappenTiles(tableData) {
     const propertySums = defaultProperties.map((property) => (
         {
@@ -72,7 +72,7 @@ function updateGridEigenschappenTiles(tableData) {
     return propertySums;
 }
 
-// Op basis van de eigenschappen, voeg nieuwe tegels toe.
+// Op basis van de Spreuken, voeg nieuwe tegels toe.
 function updateGridSpreukenTiles(tableData) {
     const spellProperties = tableData.reduce((spellsAccumulator, record) => {
         const vaardigheid = sourceData.find((vaardigheid) => vaardigheid.skill === record.skill);
@@ -89,8 +89,27 @@ function updateGridSpreukenTiles(tableData) {
 
         return spellsAccumulator;
     }, []);
-
     return spellProperties;
+}
+
+// Op basis van de Recepten, voeg nieuwe tegels toe.
+function updateGridReceptenTiles(tableData) {
+    const recipyProperties = tableData.reduce((recipyAccumulator, record) => {
+        const vaardigheid = sourceData.find((vaardigheid) => vaardigheid.skill === record.skill);
+        const recepten = vaardigheid.Recepten || [];
+
+        recepten.forEach((recipy) => {
+            const existingRecipy = recipyAccumulator.find((existing) => existing.name === recipy.name);
+            if (existingRecipy) {
+                existingRecipy.count += recipy.count;
+            } else {
+                recipyAccumulator.push({ ...recipy });
+            }
+        });
+
+        return recipyAccumulator;
+    }, []);
+    return recipyProperties;
 }
 
 /// --- MAIN APP --- ///
@@ -125,8 +144,13 @@ function App() {
         const updatedGridSpreukenContent = updateGridSpreukenTiles(tableData).filter((property) => {
             return property.value !== ""
         });
-
         setGridSpreuken(updatedGridSpreukenContent);
+
+        // spreuken & techieken container
+        const updatedGridReceptenContent = updateGridReceptenTiles(tableData).filter((property) => {
+            return property.value !== ""
+        });
+        setGridRecepten(updatedGridReceptenContent);
     };
 
     /// --- TABLE CONTENT --- ///
@@ -262,11 +286,10 @@ function App() {
                     </div>
                     <div className="grid-recepten">
                         {gridRecepten.map((item, index) => (
-                            <GridEigenschapItem
+                            <GridSpreukItem
                                 name={item.name}
                                 key={index}
-                                text={item.text}
-                                value={item.value}
+                                text={item.name}
                             />
                         ))}
                     </div>
