@@ -3,9 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { useTable } from 'react-table';
 import Select from 'react-select';
 import data from './json/basisvaardigheden.json';
+import spells from './json/spreuken.json';
 import './App.css';
 
 const sourceData = data["Vaardigheden"];
+
 const defaultProperties = [
     { name: 'hitpoints', image: 'images/image_hp.jpg', text: 'HP', value: 1 },
     { name: 'armourpoints', image: 'images/image_ap.jpg', text: 'Max AP', value: 0 },
@@ -44,10 +46,11 @@ function GridItem({ image, text, value }) {
 }
 
 // Op basis van de eigenschappen, voeg nieuwe tegels toe.
-function updateGridTiles(tableData) {
+function updateGridEigenschappenTiles(tableData) {
     const propertySums = defaultProperties.map((property) => (
         {
             ...property, value: tableData.reduce((sum, record) => {
+                console.log(sum, record);
                 const vaardigheid = sourceData.find((vaardigheid) => vaardigheid.skill === record.skill);
                 const propertyValue = vaardigheid.Eigenschappen?.find((prop) => prop.name === property.name)?.value || 0;
                 return sum + propertyValue * record.count;
@@ -56,13 +59,21 @@ function updateGridTiles(tableData) {
     return propertySums;
 }
 
+// Op basis van de eigenschappen, voeg nieuwe tegels toe.
+function updateGridSpreukenTiles(tableData) {
+
+}
+
 /// --- MAIN APP --- ///
 function App() {
     const [tableData, setTableData] = useState(emptyData);
     const [selectedSkill, setSelectedSkill] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("")
-    const [gridContent, setGridContent] = useState(gridData);
+    const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
+    const [gridSpreuken, setGridSpreuken] = useState([])
+    const [gridRecepten, setGridRecepten] = useState([])
+
     useEffect(() => { onUpdateTableData(); }, [tableData]);
 
     // SELECT related
@@ -72,14 +83,21 @@ function App() {
     }));
 
     /// --- GRID CONTENT --- ///
-    // karakter eigenschappen container
     function onUpdateTableData() {
-        const updatedGridContent = updateGridTiles(tableData).filter((property) => {
+        // karakter eigenschappen container
+        const updatedGridEigenschappenContent = updateGridEigenschappenTiles(tableData).filter((property) => {
             return property.value !== 0
                 || property.name === 'hitpoints'
                 || property.name === 'armourpoints';
         });
-        setGridContent(updatedGridContent);
+        setGridEigenschappen(updatedGridEigenschappenContent);
+
+        // spreuken & techieken container
+        const updatedGridSpreukenContent = updateGridSpreukenTiles(tableData).filter((property) => {
+            return property.value !== ""
+        });
+
+        setGridSpreuken(updatedGridSpreukenContent);
     };
 
     /// --- TABLE CONTENT --- ///
@@ -200,18 +218,30 @@ function App() {
                     <div className="summary-title">
                         <h5>Spreuken, Techieken</h5>
                     </div>
-                    <div>
-                        <ul className="spell-list">
-
-                        </ul>
+                    <div className="grid-spreuken-eigenschappen">
+                        {gridSpreuken.map((item, index) => (
+                            <GridItem
+                                name={item.name}
+                                key={index}
+                                className="spreuk-item"
+                                text={item.text}
+                            />
+                        ))}
                     </div>
+
                     <div className="summary-title">
                         <h5>Recepten</h5>
                     </div>
                     <div>
-                        <ul className="spell-list">
-
-                        </ul>
+                        {gridRecepten.map((item, index) => (
+                            <GridItem
+                                name={item.name}
+                                className="recept-item"
+                                key={index}
+                                text={item.text}
+                                value={item.value}
+                            />
+                        ))}
                     </div>
                 </div>
                 <div className="main-container">
@@ -275,7 +305,7 @@ function App() {
                         <h5>Character eigenschappen</h5>
                     </div>
                     <div className="grid-character-eigenschappen">
-                        {gridContent.map((item, index) => (
+                        {gridEigenschappen.map((item, index) => (
                             <GridItem
                                 name={item.name}
                                 className="karakter-item"
