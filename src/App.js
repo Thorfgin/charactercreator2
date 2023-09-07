@@ -7,6 +7,7 @@ import './App.css';
 
 const sourceData = data["Vaardigheden"];
 let totalXP = 0; // Berekende totaal waarde
+let skillOptions = sourceData.map((record) => ({ value: record.skill, label: record.skill}));
 
 const defaultProperties = [
     { name: 'hitpoints', image: 'images/image_hp.jpg', text: 'HP', value: 1 },
@@ -140,16 +141,7 @@ function App() {
 
     useEffect(() => { onUpdateTableData(); }, [tableData]);
 
-    // -- RESIZING -- //
-    const resizeOps = () => {
-        document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + "px", window.innerWidth * 0.01 + "px");
-    };
 
-    // SELECT gerelateerd
-    let skillOptions = sourceData.map((record) => ({
-        value: record.skill,
-        label: record.skill
-    }));
 
     // TABLE gerelateerd
     function getTableDataSums() {
@@ -166,8 +158,8 @@ function App() {
                     <td>Totaal: {totalXP}</td>
                     <td />
                     <td />
-                    <td className="btn-Wissen">
-                        <button className="btn-primary" onClick={() => setTableData([])}>
+                    <td>
+                        <button className="btn-secondary" onClick={() => setTableData([])}>
                             Wissen
                         </button>
                     </td>
@@ -178,6 +170,13 @@ function App() {
 
     /// --- GRID CONTENT --- ///
     function onUpdateTableData() {
+        // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
+        if (tableData.length > 0) {
+            const allOptions = sourceData.map((record) => ({ value: record.skill, label: record.skill }));
+            skillOptions = allOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value)
+            );
+        }
+        
         // karakter eigenschappen container
         const updatedGridEigenschappenContent = updateGridEigenschappenTiles(tableData).filter((property) => {
             return property.value !== 0
@@ -317,9 +316,6 @@ function App() {
 
     const closeModal = () => { setShowModal(false); };
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData, });
-
-    resizeOps();
-    window.addEventListener("resize", resizeOps);
 
     /// --- HTML CONTENT --- ///
     return (
