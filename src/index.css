@@ -1,3 +1,29 @@
+html, body {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow-y: scroll; /* Add vertical scrollbar */
+}
+
+/* For Webkit based browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the vertical scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+}
+
+/* For Firefox */
+/* You need to use -moz prefixes for Firefox */
+/* Note: Firefox has limited support for styling scrollbars */
+/* You may need to use an extension for full customization */
+/* or it may not work in all versions of Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+}
+
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;

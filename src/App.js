@@ -6,6 +6,7 @@ import data from './json/basisvaardigheden.json';
 import './App.css';
 
 const sourceData = data["Vaardigheden"];
+let totalXP = 0; // Berekende totaal waarde
 
 const defaultProperties = [
     { name: 'hitpoints', image: 'images/image_hp.jpg', text: 'HP', value: 1 },
@@ -45,15 +46,31 @@ function GridEigenschapItem({ image, text, value }) {
 }
 
 // Karakter eigenschappen griditem
-function GridSpreukItem({ text }) {
+function GridSpreukItem({ text, type }) {
+    let img = <div></div>;
+    // ADDING SPELL INFO MODAL >> SPREUKEN
+    if (type === "grid-spreuken") {
+        img = <img
+            className="grid-spreuk-image"
+            src="./images/img-info.png"
+            onMouseOver={() => console.log("this is the grid spreuken item: ", text)}
+            alt="Info">
+        </img>;
+    }
+    // ADDING RECIPY INFO MODAL >> VAARDIGHEDEN
+    else if (type === "grid-recepten") {
+        img = <img
+            className="grid-spreuk-image"
+            src="./images/img-info.png"
+            onMouseOver={() => console.log("this is the grid recept item: ", text)}
+            alt="Info">
+        </img>;
+    }
+
     return (
         <div className="grid-spreuk-item">
-            <div className="grid-spreuk-text">{"  "+text}</div>
-            <img
-                className="grid-spreuk-image"
-                src="./images/img-info.png"
-                alt="Info">
-            </img>
+            <div className="grid-spreuk-text">{"  " + text}</div>
+            {img}
         </div>
     );
 }
@@ -63,7 +80,6 @@ function updateGridEigenschappenTiles(tableData) {
     const propertySums = defaultProperties.map((property) => (
         {
             ...property, value: tableData.reduce((sum, record) => {
-                console.log(sum, record);
                 const vaardigheid = sourceData.find((vaardigheid) => vaardigheid.skill === record.skill);
                 const propertyValue = vaardigheid.Eigenschappen?.find((prop) => prop.name === property.name)?.value || 0;
                 return sum + propertyValue * record.count;
@@ -124,11 +140,41 @@ function App() {
 
     useEffect(() => { onUpdateTableData(); }, [tableData]);
 
-    // SELECT related
+    // -- RESIZING -- //
+    const resizeOps = () => {
+        document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + "px", window.innerWidth * 0.01 + "px");
+    };
+
+    // SELECT gerelateerd
     let skillOptions = sourceData.map((record) => ({
         value: record.skill,
         label: record.skill
     }));
+
+    // TABLE gerelateerd
+    function getTableDataSums() {
+        // reset
+        totalXP = 0;
+        // herberekenen op basis van tabel data.
+        const totalSkills = tableData.length;
+        tableData.forEach(skill => { totalXP += skill.xp; });
+
+        if (totalSkills > 0) {
+            return (
+                <tr>
+                    <td /><td>Aantal vaardigheden: {totalSkills} </td>
+                    <td>Totaal: {totalXP}</td>
+                    <td />
+                    <td />
+                    <td className="btn-Wissen">
+                        <button className="btn-primary" onClick={() => setTableData([])}>
+                            Wissen
+                        </button>
+                    </td>
+                </tr>
+            );
+        }
+    }
 
     /// --- GRID CONTENT --- ///
     function onUpdateTableData() {
@@ -156,41 +202,53 @@ function App() {
     /// --- TABLE CONTENT --- ///
     const handleAddToTable = () => {
         if (selectedSkill) {
-            const cannotBeAdded = tableData.some((record) => record.skill === selectedSkill.value);
+            const selectedRecord = sourceData.find((record) => record.skill === selectedSkill.value);
+            if (totalXP < 15 | selectedRecord.xp === 0) {
+                const cannotBeAdded = tableData.some((record) => record.skill === selectedSkill.value);
 
-            // exit early
-            if (cannotBeAdded) {
-                setModalMsg("Dit item is al geselecteerd en kan niet vaker aangekocht worden.");
-                setShowModal(true);
+                // exit early
+                if (cannotBeAdded) {
+                    setModalMsg("Dit item is al geselecteerd en kan niet vaker aangekocht worden.");
+                    setShowModal(true);
+                }
+                else {
+                    setTableData((prevData) => [...prevData, selectedRecord]);
+                    setSelectedSkill('');
+                }
             }
             else {
-                const selectedRecord = sourceData.find((record) => record.skill === selectedSkill.value);
-                setTableData((prevData) => [...prevData, selectedRecord]);
-                setSelectedSkill('');
+                setModalMsg("Maximum XP (15) bereikt. Dit item mag niet aangekocht worden.");
+                setShowModal(true);
             }
         }
     };
 
-    // verwijderen uit de tabel, updaten van grid
+    // Verwijderen uit de tabel, updaten van grid
     function handleDelete(row) {
         setTableData((prevData) => prevData.filter((item) => item.skill !== row.skill));
     };
 
     function handleAdd(row) {
-        // Source data
-        const sourceRecord = sourceData.find((record) => record.skill === row.skill);
-        const currentRecord = tableData.find((record) => record.skill === row.skill);
+        if (totalXP < 15) {
+            // Source data
+            const sourceRecord = sourceData.find((record) => record.skill === row.skill);
+            const currentRecord = tableData.find((record) => record.skill === row.skill);
 
-        if (currentRecord.count < sourceRecord.maxcount) {
-            // Updated Table Data here skill matches and record has multi_purchase === true
-            const updatedTableData = tableData.map((record) => record.skill === row.skill
-                ? { ...record, count: record.count + 1, xp: sourceRecord.xp * (record.count + 1) }
-                : record
-            );
-            setTableData(updatedTableData);
+            if (currentRecord.count < sourceRecord.maxcount) {
+                // Updated Table Data here skill matches and record has multi_purchase === true
+                const updatedTableData = tableData.map((record) => record.skill === row.skill
+                    ? { ...record, count: record.count + 1, xp: sourceRecord.xp * (record.count + 1) }
+                    : record
+                );
+                setTableData(updatedTableData);
+            }
+            else {
+                setModalMsg("Maximum bereikt, dit item mag niet vaker aangekocht worden.");
+                setShowModal(true);
+            }
         }
         else {
-            setModalMsg("Maximum bereikt, dit item mag niet vaker aangekocht worden.");
+            setModalMsg("Maximum XP (15) bereikt. Dit item mag niet aangekocht worden.");
             setShowModal(true);
         }
     };
@@ -206,7 +264,7 @@ function App() {
             if (currentRecord.count <= 1) {
                 handleDelete(row);
             }
-            // modify the existing item
+            // bestaande item aanpassen
             else {
                 const updatedTableData = tableData.map((record) => record.skill === row.skill && record.multi_purchase === true
                     ? { ...record, count: record.count - 1, xp: sourceRecord.xp * (record.count - 1) }
@@ -260,6 +318,9 @@ function App() {
     const closeModal = () => { setShowModal(false); };
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData, });
 
+    resizeOps();
+    window.addEventListener("resize", resizeOps);
+
     /// --- HTML CONTENT --- ///
     return (
         <div className="App">
@@ -267,33 +328,6 @@ function App() {
                 <h2>Character Creator</h2>
             </header>
             <main>
-                <div className="side-container">
-                    <div className="summary-title">
-                        <h5>Spreuken & Techieken</h5>
-                    </div>
-                    <div className="grid-spreuken">
-                        {gridSpreuken.map((item, index) => (
-                            <GridSpreukItem
-                                name={item.name}
-                                key={index}
-                                text={item.name}
-                            />
-                        ))}
-                    </div>
-
-                    <div className="summary-title">
-                        <h5>Recepten</h5>
-                    </div>
-                    <div className="grid-recepten">
-                        {gridRecepten.map((item, index) => (
-                            <GridSpreukItem
-                                name={item.name}
-                                key={index}
-                                text={item.name}
-                            />
-                        ))}
-                    </div>
-                </div>
                 <div className="main-container">
                     <div className="select-container">
                         <Select
@@ -336,6 +370,9 @@ function App() {
                                     </tr>
                                 );
                             })}
+                            {
+                                getTableDataSums()
+                            }
                         </tbody>
                     </table>
 
@@ -350,20 +387,51 @@ function App() {
                         </div>
                     )}
                 </div>
-                <div className="side-container">
-                    <div className="summary-title">
-                        <h5>Character eigenschappen</h5>
+                <div className="side-containers">
+                    <div className="side-container-b">
+                        <div className="summary-title">
+                            <h5>Character eigenschappen</h5>
+                        </div>
+                        <div className="grid-eigenschappen">
+                            {gridEigenschappen.map((item, index) => (
+                                <GridEigenschapItem
+                                    name={item.name}
+                                    key={index}
+                                    image={item.image}
+                                    text={item.text}
+                                    value={item.value}
+                                />
+                            ))}
+                        </div>
                     </div>
-                    <div className="grid-eigenschappen">
-                        {gridEigenschappen.map((item, index) => (
-                            <GridEigenschapItem
-                                name={item.name}
-                                key={index}
-                                image={item.image}
-                                text={item.text}
-                                value={item.value}
-                            />
-                        ))}
+                    <div className="side-container-a">
+                        <div className="summary-title">
+                            <h5>Spreuken & Techieken</h5>
+                        </div>
+                        <div className="grid-spreuken">
+                            {gridSpreuken.map((item, index) => (
+                                <GridSpreukItem
+                                    name={item.name}
+                                    type={"grid-spreuken"}
+                                    key={index}
+                                    text={item.name}
+                                />
+                            ))}
+                        </div>
+
+                        <div className="summary-title">
+                            <h5>Recepten</h5>
+                        </div>
+                        <div className="grid-recepten">
+                            {gridRecepten.map((item, index) => (
+                                <GridSpreukItem
+                                    name={item.name}
+                                    type={"grid-recepten"}
+                                    key={index}
+                                    text={item.name}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </main>
