@@ -2,12 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { useTable } from 'react-table';
 import Select from 'react-select';
-import data from './json/basisvaardigheden.json';
+import vaardigheden from './json/basisvaardigheden.json';
+import spreuken from './json/spreuken.json';
 import './App.css';
 
-const sourceData = data["Vaardigheden"];
+const sourceData = vaardigheden["Vaardigheden"];
 let totalXP = 0; // Berekende totaal waarde
-let skillOptions = sourceData.map((record) => ({ value: record.skill, label: record.skill}));
+let skillOptions = sourceData.map((record) => ({ value: record.skill, label: record.skill }));
 
 const defaultProperties = [
     { name: 'hitpoints', image: 'images/image_hp.jpg', text: 'HP', value: 1 },
@@ -36,6 +37,66 @@ const columns = [
     { Header: 'Aantal keer', accessor: 'count', className: "col-aantalkeer" },
 ];
 
+// Tooltip component voor GridItems
+function Tooltip({ skill, name, isSpell }) {
+    const [showTooltip, setShowTooltip] = useState(false);
+
+    const handleMouseOver = () => setShowTooltip(true);
+    const handleMouseOut = () => setShowTooltip(false);
+    const closeTooltip = () => setShowTooltip(false);
+
+    const spellData = {
+        name: name,
+        mana_cost: '',
+        incantation: '',
+        description: '',
+        spell_effect: '',
+        spell_duration: '',
+    };
+
+    const recipeData = {
+        name: name,
+        mana_cost: '',
+        description: '',
+    };
+
+    const data = isSpell ? spellData : recipeData;
+
+    return (
+        <div className="tooltip-container" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <img
+                className="grid-spreuk-image"
+                src="./images/img-info.png"
+                alt="Info"
+            />
+            {showTooltip && (
+                <div className="tooltip-overlay">
+                    <div className="tooltip" onClick={closeTooltip}>
+                        <h5>Vaardigheid: {skill}</h5>
+                        {isSpell && <h5>Spreuk: {data.name}</h5>}
+                        <table className="tooltip-table">
+                            <tbody>
+                                {[
+                                    { label: 'Mana kosten', value: data.mana_cost },
+                                    { label: 'Incantatie', value: data.incantation },
+                                    { label: 'Omschrijving', value: data.description },
+                                    { label: 'Spreuk Effect', value: data.spell_effect },
+                                    { label: 'Spreuk Duur', value: data.spell_duration },
+                                ].map((item, index) => (
+                                    <tr key={index}>
+                                        <td className="tooltip-property">{item.label}:</td>
+                                        <td>{item.value}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+}
+
 // Karakter eigenschappen griditem
 function GridEigenschapItem({ image, text, value }) {
     return (
@@ -47,25 +108,24 @@ function GridEigenschapItem({ image, text, value }) {
 }
 
 // Karakter eigenschappen griditem
-function GridSpreukItem({ text, type }) {
+function GridSpreukItem({ skill, name, text, type }) {
     let img = <div></div>;
     // ADDING SPELL INFO MODAL >> SPREUKEN
     if (type === "grid-spreuken") {
-        img = <img
-            className="grid-spreuk-image"
-            src="./images/img-info.png"
-            onMouseOver={() => console.log("this is the grid spreuken item: ", text)}
-            alt="Info">
-        </img>;
+        img = (<Tooltip
+            skill={skill}
+            name={name}
+            isSpell={true}
+        />);
     }
+
     // ADDING RECIPY INFO MODAL >> VAARDIGHEDEN
     else if (type === "grid-recepten") {
-        img = <img
-            className="grid-spreuk-image"
-            src="./images/img-info.png"
-            onMouseOver={() => console.log("this is the grid recept item: ", text)}
-            alt="Info">
-        </img>;
+        img = (<Tooltip
+            skill={skill}
+            name={name}
+            isSpell={false}
+        />);
     }
 
     return (
@@ -100,10 +160,10 @@ function updateGridSpreukenTiles(tableData) {
             if (existingSpell) {
                 existingSpell.count += spell.count;
             } else {
+                spell.skill = vaardigheid.skill;
                 spellsAccumulator.push({ ...spell });
             }
         });
-
         return spellsAccumulator;
     }, []);
     return spellProperties;
@@ -115,7 +175,7 @@ function updateGridReceptenTiles(tableData) {
         const vaardigheid = sourceData.find((vaardigheid) => vaardigheid.skill === record.skill);
         const recepten = vaardigheid.Recepten || [];
 
-        recepten.forEach((recipy) => {
+        recepten?.forEach((recipy) => {
             const existingRecipy = recipyAccumulator.find((existing) => existing.name === recipy.name);
             if (existingRecipy) {
                 existingRecipy.count += recipy.count;
@@ -171,12 +231,11 @@ function App() {
     /// --- GRID CONTENT --- ///
     function onUpdateTableData() {
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
-        if (tableData.length > 0) {
+        if (tableData.length >= 0) {
             const allOptions = sourceData.map((record) => ({ value: record.skill, label: record.skill }));
-            skillOptions = allOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value)
-            );
+            skillOptions = allOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value));
         }
-        
+
         // karakter eigenschappen container
         const updatedGridEigenschappenContent = updateGridEigenschappenTiles(tableData).filter((property) => {
             return property.value !== 0
@@ -242,6 +301,7 @@ function App() {
                 setTableData(updatedTableData);
             }
             else {
+                // Inbouwen extra zekerheid dat items niet twee keer in het grid komen.
                 setModalMsg("Maximum bereikt, dit item mag niet vaker aangekocht worden.");
                 setShowModal(true);
             }
@@ -405,8 +465,9 @@ function App() {
                             <h5>Spreuken & Techieken</h5>
                         </div>
                         <div className="grid-spreuken">
-                            {gridSpreuken.map((item, index) => (
+                            {gridSpreuken?.map((item, index) => (
                                 <GridSpreukItem
+                                    skill={item.skill}
                                     name={item.name}
                                     type={"grid-spreuken"}
                                     key={index}
@@ -421,6 +482,7 @@ function App() {
                         <div className="grid-recepten">
                             {gridRecepten.map((item, index) => (
                                 <GridSpreukItem
+                                    skill={item.skill}
                                     name={item.name}
                                     type={"grid-recepten"}
                                     key={index}

@@ -3,6 +3,7 @@
     {
       "id": 1,
       "skill": "Ambidextrie",
+      "alt_skill": "",
       "category": "Algemene vaardigheden",
       "description": "",
       "xp": 2,
@@ -17,6 +18,7 @@
     {
       "id": 2,
       "skill": "Lezen & Schrijven",
+      "alt_skill": "",
       "category": "Algemene vaardigheden",
       "description": "",
       "xp": 0,
@@ -31,6 +33,7 @@
     {
       "id": 3,
       "skill": "Runen Gebruiken",
+      "alt_skill": "",
       "category": "Algemene Vaardigheden",
       "description": "",
       "xp": 1,
@@ -50,6 +53,7 @@
     {
       "id": 4,
       "skill": "Runen Gewenning",
+      "alt_skill": "",
       "category": "Algemene Vaardigheden",
       "description": "",
       "xp": 1,
@@ -69,6 +73,7 @@
     {
       "id": 5,
       "skill": "Glyph Gebruiken",
+      "alt_skill": "",
       "category": "Algemene Vaardigheden",
       "description": "",
       "xp": 1,
@@ -88,6 +93,7 @@
     {
       "id": 6,
       "skill": "Glyph Gewenning",
+      "alt_skill": "",
       "category": "Algemene Vaardigheden",
       "description": "",
       "xp": 1,
@@ -107,6 +113,7 @@
     {
       "id": 7,
       "skill": "Rekenen",
+      "alt_skill": "",
       "category": "Algemene Vaardigheden",
       "description": "",
       "xp": 0,
@@ -121,6 +128,7 @@
     {
       "id": 8,
       "skill": "Levenskracht A",
+      "alt_skill": "",
       "category": "Algemene Vaardigheden",
       "description": "",
       "xp": 1,
@@ -140,6 +148,7 @@
     {
       "id": 9,
       "skill": "Levenskracht B",
+      "alt_skill": "",
       "category": "Algemene Vaardigheden",
       "description": "",
       "xp": 2,
@@ -159,6 +168,7 @@
     {
       "id": 10,
       "skill": "Levenskracht C",
+      "alt_skill": "",
       "category": "Algemene Vaardigheden",
       "description": "",
       "xp": 3,
@@ -178,6 +188,7 @@
     {
       "id": 11,
       "skill": "Leermeester Expertise",
+      "alt_skill": "",
       "category": "Algemene Vaardigheden",
       "description": "",
       "xp": 1,
@@ -192,6 +203,7 @@
     {
       "id": 12,
       "skill": "Schilden",
+      "alt_skill": "",
       "category": "Pantservaardigheden",
       "description": "",
       "xp": 2,
@@ -206,6 +218,7 @@
     {
       "id": 13,
       "skill": "Harnas I",
+      "alt_skill": "",
       "category": "Pantservaardigheden",
       "description": "",
       "xp": 0,
@@ -225,6 +238,7 @@
     {
       "id": 14,
       "skill": "Harnas II",
+      "alt_skill": "",
       "category": "Pantservaardigheden",
       "description": "",
       "xp": 2,
@@ -244,6 +258,7 @@
     {
       "id": 15,
       "skill": "Harnas III",
+      "alt_skill": "",
       "category": "Pantservaardigheden",
       "description": "",
       "xp": 2,
@@ -263,6 +278,7 @@
     {
       "id": 16,
       "skill": "Harnas IV",
+      "alt_skill": "",
       "category": "Pantservaardigheden",
       "description": "",
       "xp": 2,
@@ -282,6 +298,7 @@
     {
       "id": 17,
       "skill": "Spreuken in bepantsering",
+      "alt_skill": "",
       "category": "Pantservaardigheden",
       "description": "",
       "xp": 2,
@@ -296,6 +313,7 @@
     {
       "id": 18,
       "skill": "Paladijn",
+      "alt_skill": "",
       "category": "Pantservaardigheden",
       "description": "",
       "xp": 1,
@@ -310,6 +328,7 @@
     {
       "id": 19,
       "skill": "Kleine Wapens",
+      "alt_skill": "",
       "category": "Wapenvaardigheden",
       "description": "",
       "xp": 0,
@@ -324,6 +343,7 @@
     {
       "id": 20,
       "skill": "Eenhandige Wapens",
+      "alt_skill": "",
       "category": "Wapenvaardigheden",
       "description": "",
       "xp": 1,
@@ -338,6 +358,7 @@
     {
       "id": 21,
       "skill": "Tweehandige Wapens",
+      "alt_skill": "",
       "category": "Wapenvaardigheden",
       "description": "",
       "xp": 1,
@@ -352,6 +373,7 @@
     {
       "id": 22,
       "skill": "Staf Wapens",
+      "alt_skill": "",
       "category": "Wapenvaardigheden",
       "description": "",
       "xp": 1,
@@ -366,6 +388,7 @@
     {
       "id": 23,
       "skill": "Werp Wapens",
+      "alt_skill": "",
       "category": "Wapenvaardigheden",
       "description": "",
       "xp": 1,
@@ -380,6 +403,7 @@
     {
       "id": 25,
       "skill": "Boogschieten",
+      "alt_skill": "",
       "category": "Wapenvaardigheden",
       "description": "",
       "xp": 1,
@@ -394,6 +418,7 @@
     {
       "id": 26,
       "skill": "Doorzettingsvermogen",
+      "alt_skill": "",
       "category": "Vechtersvaardigheden",
       "description": "",
       "xp": 3,
@@ -416,6 +441,7 @@
     {
       "id": 27,
       "skill": "Kracht A",
+      "alt_skill": "",
       "category": "Vechtersvaardigheden",
       "description": "",
       "xp": 3,
@@ -438,6 +464,7 @@
     {
       "id": 28,
       "skill": "Taaiheid A",
+      "alt_skill": "",
       "category": "Vechtersvaardigheden",
       "description": "",
       "xp": 3,
@@ -460,6 +487,7 @@
     {
       "id": 29,
       "skill": "Leiderschap A",
+      "alt_skill": "",
       "category": "Vechtersvaardigheden",
       "description": "",
       "xp": 3,
@@ -474,7 +502,7 @@
         }
       ],
       "Spreuken": [
-        { "name": "Hold the Line"},
+        { "name": "Hold the Line" },
         { "name": "Retrieve Comrade" }
       ],
       "Recepten": []
@@ -482,6 +510,7 @@
     {
       "id": 30,
       "skill": "Bescherming A",
+      "alt_skill": "",
       "category": "Vechtersvaardigheden",
       "description": "",
       "xp": 3,
@@ -504,6 +533,7 @@
     {
       "id": 31,
       "skill": "Berserker A",
+      "alt_skill": "",
       "category": "Vechtersvaardigheden",
       "description": "",
       "xp": 3,
@@ -526,6 +556,7 @@
     {
       "id": 32,
       "skill": "Militaire training A",
+      "alt_skill": "",
       "category": "Vechtersvaardigheden",
       "description": "",
       "xp": 3,
@@ -549,6 +580,7 @@
     {
       "id": 33,
       "skill": "Eerste hulp bij gevechten",
+      "alt_skill": "",
       "category": "Heelmeestervaardigheden",
       "description": "",
       "xp": 2,
@@ -568,6 +600,7 @@
     {
       "id": 34,
       "skill": "Snelle behandeling",
+      "alt_skill": "",
       "category": "Heelmeestervaardigheden",
       "description": "",
       "xp": 1,
@@ -587,6 +620,7 @@
     {
       "id": 35,
       "skill": "Slagveld operatie",
+      "alt_skill": "",
       "category": "Heelmeestervaardigheden",
       "description": "",
       "xp": 2,
@@ -606,6 +640,7 @@
     {
       "id": 36,
       "skill": "Diagnostiek",
+      "alt_skill": "",
       "category": "Heelmeestervaardigheden",
       "description": "",
       "xp": 2,
@@ -625,6 +660,7 @@
     {
       "id": 37,
       "skill": "Humorisch Patholoog",
+      "alt_skill": "",
       "category": "Heelmeestervaardigheden",
       "description": "",
       "xp": 3,
@@ -644,6 +680,7 @@
     {
       "id": 38,
       "skill": "Bezoar specialist",
+      "alt_skill": "",
       "category": "Heelmeestervaardigheden",
       "description": "",
       "xp": 3,
@@ -663,6 +700,7 @@
     {
       "id": 39,
       "skill": "Hypnotherapie",
+      "alt_skill": "",
       "category": "Heelmeestervaardigheden",
       "description": "",
       "xp": 2,
@@ -682,6 +720,7 @@
     {
       "id": 40,
       "skill": "Schadelijke hypnose",
+      "alt_skill": "",
       "category": "Heelmeestervaardigheden",
       "description": "",
       "xp": 4,
@@ -701,6 +740,7 @@
     {
       "id": 41,
       "skill": "Kennis van Kruiden",
+      "alt_skill": "",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 1,
@@ -720,6 +760,7 @@
     {
       "id": 42,
       "skill": "Kruiden bewaren",
+      "alt_skill": "",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,
@@ -734,6 +775,7 @@
     {
       "id": 43,
       "skill": "Brouw Genezende Dranken A",
+      "alt_skill": "",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,
@@ -760,6 +802,7 @@
     {
       "id": 44,
       "skill": "Brouw Kruiden Elixers A",
+      "alt_skill": "",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,
@@ -786,6 +829,7 @@
     {
       "id": 45,
       "skill": "Brouw Magische Elixers A",
+      "alt_skill": "",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,
@@ -812,6 +856,7 @@
     {
       "id": 46,
       "skill": "Brouw Hallucinerende Elixers A",
+      "alt_skill": "",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,
@@ -838,6 +883,7 @@
     {
       "id": 47,
       "skill": "Brouw Giffen A",
+      "alt_skill": "",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,
@@ -864,6 +910,7 @@
     {
       "id": 48,
       "skill": "Meestersmid A",
+      "alt_skill": "",
       "category": "Ambachtsvaardigheden",
       "description": "",
       "xp": 2,
@@ -886,6 +933,7 @@
     {
       "id": 49,
       "skill": "Houtbewerker A",
+      "alt_skill": "",
       "category": "Ambachtsvaardigheden",
       "description": "",
       "xp": 2,
@@ -908,6 +956,7 @@
     {
       "id": 50,
       "skill": "Kleermaker A",
+      "alt_skill": "",
       "category": "Ambachtsvaardigheden",
       "description": "",
       "xp": 2,
@@ -930,6 +979,7 @@
     {
       "id": 51,
       "skill": "Boekbinder A",
+      "alt_skill": "",
       "category": "Ambachtsvaardigheden",
       "description": "",
       "xp": 2,
@@ -952,6 +1002,7 @@
     {
       "id": 52,
       "skill": "Leerbewerker A",
+      "alt_skill": "",
       "category": "Ambachtsvaardigheden",
       "description": "",
       "xp": 2,
@@ -974,6 +1025,7 @@
     {
       "id": 53,
       "skill": "Juwelier A",
+      "alt_skill": "",
       "category": "Ambachtsvaardigheden",
       "description": "",
       "xp": 2,
@@ -996,6 +1048,7 @@
     {
       "id": 54,
       "skill": "Steenzetten A",
+      "alt_skill": "",
       "category": "Ambachtsvaardigheden",
       "description": "",
       "xp": 2,
@@ -1018,6 +1071,7 @@
     {
       "id": 55,
       "skill": "Magiërspreuken A - Wit",
+      "alt_skill": "White magic",
       "category": "Magiërvaardigheden",
       "description": "",
       "xp": 4,
@@ -1043,6 +1097,7 @@
     {
       "id": 56,
       "skill": "Magiërspreuken A - Grijs",
+      "alt_skill": "Grey magic",
       "category": "Magiërvaardigheden",
       "description": "",
       "xp": 4,
@@ -1068,6 +1123,7 @@
     {
       "id": 57,
       "skill": "Magiërspreuken A - Zwart",
+      "alt_skill": "Black magic",
       "category": "Magiërvaardigheden",
       "description": "",
       "xp": 4,
@@ -1093,6 +1149,7 @@
     {
       "id": 58,
       "skill": "Magiërspreuken B - Lucht",
+      "alt_skill": "Air Magic B",
       "category": "Magiërvaardigheden",
       "description": "",
       "xp": 4,
@@ -1117,6 +1174,7 @@
     {
       "id": 59,
       "skill": "Magiërspreuken B - Metaal",
+      "alt_skill": "Metal magic B",
       "category": "Magiërvaardigheden",
       "description": "",
       "xp": 4,
@@ -1141,6 +1199,7 @@
     {
       "id": 60,
       "skill": "Magiërspreuken B - Aarde",
+      "alt_skill": "Earth magic B",
       "category": "Magiërvaardigheden",
       "description": "",
       "xp": 4,
@@ -1165,6 +1224,7 @@
     {
       "id": 61,
       "skill": "Magiërspreuken B - Water",
+      "alt_skill": "Water magic B",
       "category": "Magiërvaardigheden",
       "description": "",
       "xp": 4,
@@ -1189,6 +1249,7 @@
     {
       "id": 62,
       "skill": "Magiërspreuken B - Vuur",
+      "alt_skill": "Fire Magic B",
       "category": "Magiërvaardigheden",
       "description": "",
       "xp": 4,
@@ -1213,6 +1274,7 @@
     {
       "id": 63,
       "skill": "Magiërspreuken B - Hout",
+      "alt_skill": "Wood Magic B",
       "category": "Magiërvaardigheden",
       "description": "",
       "xp": 4,
@@ -1237,6 +1299,7 @@
     {
       "id": 64,
       "skill": "Paladijnspreuken A",
+      "alt_skill": "Paladijn A",
       "category": "Paladijnvaardigheden",
       "description": "",
       "xp": 4,
@@ -1260,6 +1323,7 @@
     {
       "id": 65,
       "skill": "Paladijnspreuken B",
+      "alt_skill": "Paladijn B",
       "category": "Paladijnvaardigheden",
       "description": "",
       "xp": 4,
@@ -1283,6 +1347,7 @@
     {
       "id": 66,
       "skill": "Priesterspreuken A - Reinheid",
+      "alt_skill": "Purity A",
       "category": "Priestervaardigheden",
       "description": "",
       "xp": 4,
@@ -1308,6 +1373,7 @@
     {
       "id": 67,
       "skill": "Priesterspreuken A - Toorn",
+      "alt_skill": "Wrath A",
       "category": "Priestervaardigheden",
       "description": "",
       "xp": 4,
@@ -1333,6 +1399,7 @@
     {
       "id": 68,
       "skill": "Priesterspreuken A - Dood",
+      "alt_skill": "Death A",
       "category": "Priestervaardigheden",
       "description": "",
       "xp": 4,
@@ -1358,6 +1425,7 @@
     {
       "id": 69,
       "skill": "Priesterspreuken B - Reinheid",
+      "alt_skill": "Purity B",
       "category": "Priestervaardigheden",
       "description": "",
       "xp": 4,
@@ -1382,6 +1450,7 @@
     {
       "id": 70,
       "skill": "Priesterspreuken B - Toorn",
+      "alt_skill": "Wrath B",
       "category": "Priestervaardigheden",
       "description": "",
       "xp": 4,
@@ -1406,6 +1475,7 @@
     {
       "id": 71,
       "skill": "Priesterspreuken B - Dood",
+      "alt_skill": "Death B",
       "category": "Priestervaardigheden",
       "description": "",
       "xp": 4,
@@ -1430,6 +1500,7 @@
     {
       "id": 72,
       "skill": "Priesterspreuken B - Geest",
+      "alt_skill": "Mind B",
       "category": "Priestervaardigheden",
       "description": "",
       "xp": 4,
@@ -1454,6 +1525,7 @@
     {
       "id": 73,
       "skill": "Priesterspreuken B - Natuur",
+      "alt_skill": "Nature B",
       "category": "Priestervaardigheden",
       "description": "",
       "xp": 4,
@@ -1478,6 +1550,7 @@
     {
       "id": 74,
       "skill": "Genezingsspreuken A (EL.)",
+      "alt_skill": "Genezing A",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
@@ -1503,6 +1576,7 @@
     {
       "id": 75,
       "skill": "Genezingsspreuken A (SP.)",
+      "alt_skill": "Genezing A",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
@@ -1528,6 +1602,7 @@
     {
       "id": 76,
       "skill": "Genezingsspreuken B (EL.)",
+      "alt_skill": "Genezing B",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
@@ -1553,6 +1628,7 @@
     {
       "id": 77,
       "skill": "Genezingsspreuken B (SP.)",
+      "alt_skill": "Genezing B",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
@@ -1578,6 +1654,7 @@
     {
       "id": 78,
       "skill": "Genezer van Giffen (EL.)",
+      "alt_skill": "Genezer van Giffen",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
@@ -1602,6 +1679,7 @@
     {
       "id": 79,
       "skill": "Genezer van Giffen (SP.)",
+      "alt_skill": "Genezer van Giffen",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
@@ -1626,6 +1704,7 @@
     {
       "id": 80,
       "skill": "Genezer van Ziekten (EL.)",
+      "alt_skill": "Genezer van Ziekten",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
@@ -1651,6 +1730,7 @@
     {
       "id": 81,
       "skill": "Genezer van Ziekten (SP.)",
+      "alt_skill": "Genezer van Ziekten",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
@@ -1676,6 +1756,7 @@
     {
       "id": 82,
       "skill": "Genezer van Geest (EL.)",
+      "alt_skill": "Genezer van Geest",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
@@ -1700,6 +1781,7 @@
     {
       "id": 83,
       "skill": "Genezer van Geest (SP.)",
+      "alt_skill": "Genezer van Geest",
       "category": "Genezingsvaardigheden",
       "description": "",
       "xp": 4,
@@ -1724,6 +1806,7 @@
     {
       "id": 84,
       "skill": "Elementair Ritualisme",
+      "alt_skill": "",
       "category": "Ritualistenvaardigheden",
       "description": "",
       "xp": 1,
@@ -1743,6 +1826,7 @@
     {
       "id": 85,
       "skill": "Spiritueel Ritualisme",
+      "alt_skill": "",
       "category": "Ritualistenvaardigheden",
       "description": "",
       "xp": 1,

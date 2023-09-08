@@ -22,6 +22,15 @@
             display: flex;
             flex-wrap: wrap;
         }
+
+    /* Tooltip overlay */
+    .tooltip-overlay {
+        min-width: 30%;
+        max-width: 80%; /* Adjust the maximum width for mobile devices */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 .App {
@@ -322,3 +331,52 @@
     border-radius: 5px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Show the tooltip when hovering over the image */
+.tooltip-container:hover .tooltip-overlay {
+    display: block;
+}
+
+/* Tooltip overlay */
+.tooltip-overlay {
+    display: none; /* Initially hide the tooltip */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; /* Background color for the tooltip */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow for a tooltip effect */
+    padding: 10px;
+    z-index: 1; /* Ensure the tooltip appears above other content */
+    max-width: 25%; /* Set maximum width to 30% of the screen width */
+}
+
+/* Tooltip content styles */
+.tooltip {
+    /* Add your styles for the tooltip content here */
+    /* Example styles: */
+    font-size: 12px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Table styles */
+.tooltip-table {
+    width: 100%; /* Ensure the table takes the full width of the tooltip */
+    table-layout: fixed; /* Fixed table layout to prevent cell content from affecting column width */
+    border-collapse: collapse; /* Collapse borders for a cleaner look */
+}
+
+    /* Style for table cells */
+    .tooltip-table td {
+        word-wrap: break-word; /* Wrap long words if necessary */
+        overflow: hidden; /* Hide overflow content */
+        text-overflow: ellipsis; /* Display ellipsis (...) for overflow text */
+        white-space: nowrap; /* Ensure text stays on one line */
+        max-width: 1%; /* Allow content to expand to fit available width */
+    }
