@@ -775,7 +775,7 @@
     {
       "id": 43,
       "skill": "Brouw Genezende Dranken A",
-      "alt_skill": "",
+      "alt_skill": "Genezende Dranken A",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,
@@ -802,7 +802,7 @@
     {
       "id": 44,
       "skill": "Brouw Kruiden Elixers A",
-      "alt_skill": "",
+      "alt_skill": "Kruiden Elixers A",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,
@@ -829,7 +829,7 @@
     {
       "id": 45,
       "skill": "Brouw Magische Elixers A",
-      "alt_skill": "",
+      "alt_skill": "Magische Elixers A",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,
@@ -856,7 +856,7 @@
     {
       "id": 46,
       "skill": "Brouw Hallucinerende Elixers A",
-      "alt_skill": "",
+      "alt_skill": "Hallucinerende Elixers A",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,
@@ -883,7 +883,7 @@
     {
       "id": 47,
       "skill": "Brouw Giffen A",
-      "alt_skill": "",
+      "alt_skill": "Giffen A",
       "category": "Alchemistenvaardigheden",
       "description": "",
       "xp": 2,

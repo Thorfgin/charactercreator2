@@ -101,7 +101,7 @@ function Tooltip({ skillName, itemName, isSpell }) {
                 </tr>
             ))
         }
-        else {
+        else if (isSpell === false) {
             return [
                 { label: 'Omschrijving', value: data.effect },
                 { label: 'Inspiratie kosten', value: data.inspiration },
@@ -112,6 +112,10 @@ function Tooltip({ skillName, itemName, isSpell }) {
                     <td className="tooltip-value">{item.value}</td>
                 </tr>
             ))
+        }
+        else
+        {
+            console.error("ArgumentError: the value of data was: ", data);
         }
     }
 

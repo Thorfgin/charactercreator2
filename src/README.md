@@ -1,16 +1,30 @@
+	
+	SPELLS & TECHNIQUES
+	Spells and Techniques can be converted by running the pdf-reader_spreuken.js
+	
+	- Download the Spreuken PDF to the downloads folder
+	- Run the pdf-reader_spreuken.js
+
+	RECIPIES
+	Recipies are created by reading the PDF files with Tabula
+	URL: https://tabula.technology/
+
+	- Start Tabula
+	- Select the PDF
+	- Create a selection over the tables
+	- Export as JSON (data)
+	- Place in Download folder
+	- Run tabula-reader_recepten.js
+
 
 	TODO:
 
 	MUST
-	- Spreuken & Technieken gives a summary of the selected skills
-	- RESET: button on TOP reset the Character Creator, clears all tables.
-	
+	- SPELLS/RECIPIES can be converted to JSON per script
 
 	SHOULD:
 	- PREREQUISITES: check for prerequisistes to prevent invalid selection of skills 
-	- SELECT: skills have tooltips
 	- button TOP: export Character >> JSON format
-	
 
 	COULD:
 	- integration with VOIDWALKER / create new characters
@@ -19,6 +33,12 @@
 
 
 	DONE:
+	
+	20230908	Spells/recipies have tooltips
+	
+	20230905	Recipty gives a summary of the selected spells aquired by skills
+	20230905	Spreuken & Technieken gives a summary of the selected spells aquired by skills
+	20230605	RESET: button on TOP reset the Character Creator, clears all tables.
 	
 	20230901 	Character eigenschappen are added/subtracted on the selection of sklls
 				if already present, than numeric values are adjusted accordinly. 
