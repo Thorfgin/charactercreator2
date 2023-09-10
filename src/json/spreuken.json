@@ -270,8 +270,8 @@
               "mana_cost": "1",
               "incantation": "By the powers of the elements, I Detect Magic!",
               "description": "Deze spreuk kan op 2 verschillende manieren gebruikt worden (maar niet tegelijkertijd). 1) Alle magische voorwerpen en personen binnen 5 meter van de magiër zullen voor hem oplichten als zijnde magisch. Personen én voorwerpen met een elementaire enchantment of glyph imbue zijn magisch. Personen die gedetecteerd worden moeten even hun hand opsteken. 2) De magiër kan een object of persoon aanraken en hierbij proberen het soort magie te identificeren. Indien het een spreuk is die hij kan doen, dan zal hij deze zelfs exact identificeren. Het is niet mogelijk met deze spreuk magiërs te identificeren. Het bezit van magische voorwerpen of het onder invloed zijn van magische spreuken en/of effecten zal een lezing van deze spreuk niet verstoren.",
-              "spell_effect": "Direct",
-              "spell_duration": "5 meter of Aanraking"
+              "spell_effect": "Direct, 5 meter of Aanraking",
+              "spell_duration": ""
             },
             {
               "id": 24,

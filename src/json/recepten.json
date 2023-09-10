@@ -1,0 +1,366 @@
+{
+  "Categories": [
+    {
+      "categorie": "Ambachtsvaardigheden",
+      "Skills": [
+        {
+          "skill": "Meestersmid A",
+          "Recipies": [
+            {
+              "name": "Meesterstuk A (Metal)",
+              "effect": "Hoeveelheid Imbue cap: 2",
+              "inspiration": "0.5",
+              "components": "Metal"
+            },
+            {
+              "name": "Wetsteen (Lvl 1)",
+              "effect": "Dit voorwerp kan gebruikt worden op een wapen van minstens 45 cm, het wapen kan vandaag 1 keer BLAST slaan. Een wapen kan onder invloed zijn van 1 wetsteen tegelijk.",
+              "inspiration": "",
+              "components": "2 inspiratie of 1 Mythical metal en 5 koperen munten."
+            }
+          ]
+        },
+        {
+          "skill": "Meestersmid B",
+          "Recipies": [
+            {
+              "name": "Meesterstuk B (Metal)",
+              "effect": "Hoeveelheid Imbue cap: 7",
+              "inspiration": "2",
+              "components": "Steel"
+            },
+            {
+              "name": "Wetsteen (Lvl 2)",
+              "effect": "Dit voorwerp kan gebruikt worden op een wapen van minstens 45 cm, het wapen kan vandaag 1 keer CRUSH slaan. Een wapen kan onder invloed zijn van 1 wetsteen tegelijk.",
+              "inspiration": "",
+              "components": "3 inspiratie voor 1 lvl 2 Wetsteen of 1 Mythical steel plus 10 koperen munten voor 2 lvl 2 Wetstenen"
+            }
+          ]
+        },
+        {
+          "skill": "Meestersmid C",
+          "Recipies": [
+            {
+              "name": "Meesterstuk C (Metal)",
+              "effect": "Hoeveelheid Imbue cap: 27",
+              "inspiration": "7",
+              "components": "Mithril"
+            },
+            {
+              "name": "Wetsteen (Lvl 3)",
+              "effect": "Dit voorwerp kan gebruikt worden op een wapen van minstens 45 cm, het wapen kan vandaag 1 keer DESTROY slaan. Een wapen kan onder invloed zijn van 1 wetsteen tegelijk.",
+              "inspiration": "",
+              "components": "4 inspiratie voor 1 lvl 3 Wetsteen of 1 Mythical mithril voor 5 Lvl 3 Wetstenen"
+            }
+          ]
+        },
+        {
+          "skill": "Houtbewerker A",
+          "Recipies": [
+            {
+              "name": "Meesterstuk A (Wood)",
+              "effect": "Hoeveelheid Imbue cap: 2",
+             "inspiration": "0.5",
+              "components": "Wood"
+            },
+            {
+              "name": "Totem van de Wolf ",
+              "effect": "Dit voorwerp kan gebruikt worden om een persoon eenmalig 1 uur immuun te maken voor fear of kan gebruikt worden tijdens een bloedwede ritueel om op 1 persoon de bloedwede 2 uur te laten duren in plaats van 1 uur.",
+              "inspiration": "",
+              "components": "1 inspiratie voor 1 Totem van de Wolf of 1 Mythical wood en 5 koperen munten voor 2 Totems van de Wolf"
+            }
+          ]
+        },
+        {
+          "skill": "Houtbewerker B",
+          "Recipies": [
+            {
+              "name": "Meesterstuk B (Wood)",
+              "effect": "Hoeveelheid Imbue cap: 7",
+              "inspiration": "2",
+              "components": "Ebony"
+            },
+            {
+              "name": "Totem van de Uil",
+              "effect": "Dit voorwerp kan gebruikt worden om een persoon immuun te maken voor het eerstvolgende geest be�nvloedende effect binnen het volgende uur of kan in combinatie met een totem van de wolf voorwerp gebruikt worden tijdens een bloedwede ritueel om op 1 persoon de bloedwede 4 uur te laten duren in plaats van 1 uur.",
+              "inspiration": "",
+              "components": "1 inspiratie voor 1 Totem van de Uil of 1 Mythical ebony voor 5 Totems van de Uil"
+            }
+          ]
+        },
+        {
+          "skill": "Houtbewerker C",
+          "Recipies": [
+            {
+              "name": "Meesterstuk C (Wood)",
+              "effect": "Hoeveelheid Imbue cap: 27",
+              "inspiration": "7",
+              "components": "Worldtree sapling"
+            },
+            {
+              "name": "Totem van de Stier",
+              "effect": "Dit voorwerp kan gebruikt worden om een persoon 1 uur lang 2 extra HP te geven of kan in combinatie met een totem van de wolf en een totem van de uil voorwerp gebruikt worden tijdens een bloedwede ritueel om op 1 persoon de bloedwede de hele dag te laten duren in plaats van 1 uur.",
+              "inspiration": "",
+              "components": "4 inspiratie voor 1 Totem van de Stier of 1 Mythical worldtree sapling voor 5 Totems van de Stier"
+            }
+          ]
+        },
+        {
+          "skill": "Kleermaker A",
+          "Recipies": [
+            {
+              "name": "Meesterstuk A (Cloth)",
+              "effect": "Hoeveelheid Imbue cap: 2",
+             "inspiration": "0.5",
+              "components": "Cloth"
+            },
+            {
+              "name": "Hoog kwaliteit Verband",
+              "effect": "Dit voorwerp kan bij het gebruik van een heelmeester vaardigheid gebruikt worden in plaats van een wilskracht.",
+              "inspiration": "",
+              "components": "1 inspiratie voor 1 Hoog kwaliteit Verband of 1 Mythical Cloth en 5 koperen munten voor 2 Hoog kwaliteit verbanden"
+            }
+          ]
+        },
+        {
+          "skill": "Kleermaker B",
+          "Recipies": [
+            {
+              "name": "Meesterstuk B (Cloth)",
+              "effect": "Hoeveelheid Imbue cap: 7",
+              "inspiration": "2",
+              "components": "Velvet"
+            },
+            {
+              "name": "Vlag van de Groep ",
+              "effect": "Dit voorwerp kan eenmalig gebruikt worden om 10 leden van een groep of gilde er aan te verbinden. Deze 10 leden kunnen binnen de tent waar deze vlag bij hangt vandaag eenmalig x energie naar keuze terugkrijgen door in de tent te rusten voor enkele minuten met minstens 1 ander lid van de groep.",
+              "inspiration": "",
+              "components": "10*x inspiratie of 2 Mythical Velvet*x"
+            }
+          ]
+        },
+        {
+          "skill": "Kleermaker C",
+          "Recipies": [
+            {
+              "name": "Meesterstuk C (Cloth)",
+              "effect": "Hoeveelheid Imbue cap: 27",
+              "inspiration": "7",
+              "components": "Spidersilk "
+            },
+            {
+              "name": "Banier van de Groep",
+              "effect": "Dit voorwerp kan eenmalig gebruikt worden om 12 leden van een groep of gilde er aan te verbinden. Deze 12 leden krijgen vandaag eenmalig na een gevecht x energie naar keuze terug dat ze uitgegeven hebben tijdens dat gevecht waarin de banier geheven werd.",
+              "inspiration": "",
+              "components": "8*x inspiratie of 1 Mythical spider silk en 40 koperen munten voor een x van 3"
+            }
+          ]
+        },
+        {
+          "skill": "Boekbinder A",
+          "Recipies": [
+            {
+              "name": "Meesterstuk A (Paper)",
+              "effect": "Hoeveelheid Imbue cap: 2",
+             "inspiration": "0.5",
+              "components": "Paper"
+            },
+            {
+              "name": "Scrollpapier",
+              "effect": "Scrollpapier dat gebruikt kan worden voor de vaardigheid �Runen scroll Vervaardigen� of �Glyph scroll Vervaardigen�. Scrollpapier verloopt niet in tegenstelling tot andere mundane voorwerpen.",
+              "inspiration": "",
+              "components": "3 inspiratie of 2 Mythical paper"
+            }
+          ]
+        },
+        {
+          "skill": "Boekbinder B",
+          "Recipies": [
+            {
+              "name": "Meesterstuk B (Paper)",
+              "effect": "Hoeveelheid Imbue cap: 7",
+              "inspiration": "2",
+              "components": "Vellum"
+            },
+            {
+              "name": "Leeg Vaardigheid Onderzoek Boek",
+              "effect": "Als een persoon 3 evenementen lang notities maakt over diens onderzoek naar een extra vaardigheid kan de persoon daarna deze extra vaardigheid leren zonder leermeester",
+              "inspiration": "",
+              "components": "12 inspiratie of 3 Mythical vellum"
+            }
+          ]
+        },
+        {
+          "skill": "Boekbinder C",
+          "Recipies": [
+            {
+              "name": "Meesterstuk C (Paper)",
+              "effect": "Hoeveelheid Imbue cap: 27",
+              "inspiration": "7",
+              "components": "Griffinskin Vellum "
+            },
+            {
+              "name": "Leeg Boek der Ervaringen",
+              "effect": "Als een persoon persoonlijke notities maakt over diens leven en ervaringen rondom dit evenement krijgt de persoon na dit evenement 0.25 extra XP. Je kunt maar 1 zo een boek gebruiken per evenement.",
+              "inspiration": "",
+              "components": "20 inspiratie of 1 Mythical griffinskin vellum"
+            }
+          ]
+        },
+        {
+          "skill": "Leerbewerker A",
+          "Recipies": [
+            {
+              "name": "Meesterstuk A (Leather)",
+              "effect": "Hoeveelheid Imbue cap: 2",
+             "inspiration": "0.5",
+              "components": "Leather"
+            },
+            {
+              "name": "Pantser Reparatie Set",
+              "effect": "Dit voorwerp kan gebruikt worden op een pantser om hetzelfde effect te bereiken als een Mend spreuk.",
+              "inspiration": "",
+              "components": "1 inspiratie voor 1 Pantser Reparatie Set of 1 Mythical leather en 5 koperen munten voor 2 Pantser Reparatie Sets."
+            }
+          ]
+        },
+        {
+          "skill": "Leerbewerker B",
+          "Recipies": [
+            {
+              "name": "Meesterstuk B (Leather)",
+              "effect": "Hoeveelheid Imbue cap: 7",
+              "inspiration": "2",
+              "components": "Scale"
+            },
+            {
+              "name": "Pantser Versterking",
+              "effect": "Dit voorwerp kan gebruikt worden op een panters om 1 extra armourpoint toe te voegen voor een dag.",
+              "inspiration": "",
+              "components": "2 inspiratie voor 1 Pantser Versterking of 1 Mythical scale voor 2 Pantser Versterkingen"
+            }
+          ]
+        },
+        {
+          "skill": "Leerbewerker C",
+          "Recipies": [
+            {
+              "name": "Meesterstuk C (Leather)",
+              "effect": "Hoeveelheid Imbue cap: 27",
+              "inspiration": "7",
+              "components": "Dragonscale"
+            },
+            {
+              "name": "Zware Pantser Versterking",
+              "effect": "Dit voorwerp kan gebruikt worden op een panters om 2 extra armourpoints toe te voegen voor een dag.",
+              "inspiration": "",
+              "components": "3 inspiratie voor 1 Zware Pantser Versterking of 1 Mythical dragon scale voor 7 Zware Pantser Versterkingen"
+            }
+          ]
+        },
+        {
+          "skill": "Juwelier A",
+          "Recipies": [
+            {
+              "name": "Meesterstuk A (Precious Metal)",
+              "effect": "Hoeveelheid Imbue cap: 2",
+             "inspiration": "0.5",
+              "components": "Metal"
+            },
+            {
+              "name": "Vriendschaps Geschenk",
+              "effect": "Je kunt iemand dit voorwerp geven en je vriendschap verklaren. Deze persoon krijgt dan 2 energie naar keuze. Als deze persoon dit evenement sterft of de vriendschap stopt verlies je de volgende speldag 4 energie naar keuze.",
+              "inspiration": "",
+              "components": "2 inspiratie of 4 copper ingots"
+            }
+          ]
+        },
+        {
+          "skill": "Juwelier B",
+          "Recipies": [
+            {
+              "name": "Meesterstuk B (Precious Metal)",
+              "effect": "Hoeveelheid Imbue cap: 7",
+              "inspiration": "2",
+              "components": "Steel"
+            },
+            {
+              "name": "Alliantie Juweel",
+              "effect": "2 gewillige personen kunnen met dit voorwerp elkaar een alliantie verklaren. Als 1 van de 2 personen dit evenement liegt tegen de ander of een belofte richting de ander breekt, breekt dit voorwerp onmiddellijk als de personen (weer) bij elkaar zijn en ontvangen beide personen een incite aggression effect.",
+              "inspiration": "",
+              "components": "5 inspiratie of 2 silver ingots"
+            }
+          ]
+        },
+        {
+          "skill": "Juwelier C",
+          "Recipies": [
+            {
+              "name": "Meesterstuk C (Precious Metal)",
+              "effect": "Hoeveelheid Imbue cap: 27",
+              "inspiration": "7",
+              "components": "Mithril"
+            },
+            {
+              "name": "Huwelijks Juweel",
+              "effect": "Iemand kan via dit voorwerp met een ander persoon een huwelijk aangaan. Vanaf dat moment tot aan het einde van het huwelijk kan je per dag 10 van jou energie naar keuze aan de ander geven als je bij elkaar bent. Als de andere persoon ooit sterft of het huwelijk stopt verliest je de volgende speldag 10 energie naar keuze. (Met 2 voorwerpen kun je de connectie naar beide kanten laten werken).",
+              "inspiration": "",
+              "components": "13 inspiratie of 1 gold ingot"
+            }
+          ]
+        },
+        {
+          "skill": "Steenzetter A",
+          "Recipies": [
+            {
+              "name": "Meesterstuk A (Gemstone)",
+              "effect": "Hoeveelheid Imbue cap: 2",
+             "inspiration": "0.5",
+              "components": "Quartz"
+            },
+            {
+              "name": "Basis Sieraad",
+              "effect": "Je maakt een sieraad van 5 dezelfde soorten quartz en verkoopt dit voor 3 goud (bij de infobalie). Elke 2 inspiratie die je hier in steekt zorgt er voor dat je 1 quartz minder nodig hebt.",
+              "inspiration": "",
+              "components": "0 tot 10 inspiratie (liggende aan de hoeveelheid dezelfde soort Quartz)"
+            }
+          ]
+        },
+        {
+          "skill": "Steenzetter B",
+          "Recipies": [
+            {
+              "name": "Meesterstuk B (Gemstone)",
+              "effect": "Hoeveelheid Imbue cap: 7",
+              "inspiration": "2",
+              "components": "Gem"
+            },
+            {
+              "name": "Duur Sieraad",
+              "effect": "Je maakt een sieraad van 5 dezelfde soorten gems en verkoopt dit voor 7 goud (bij de infobalie). Elke 4 inspiratie die je hier in steekt zorgt er voor dat je 1 gem minder nodig hebt.",
+              "inspiration": "",
+              "components": "0 tot 20 inspiratie (liggende aan de hoeveelheid dezelfde soort Gems)"
+            }
+          ]
+        },
+        {
+          "skill": "Steenzetter C",
+          "Recipies": [
+            {
+              "name": "Meesterstuk C (Gemstone)",
+              "effect": "Hoeveelheid Imbue cap: 27",
+              "inspiration": "7",
+              "components": "Flawless Gem"
+            },
+            {
+              "name": "Koninklijk Sieraad",
+              "effect": "Je maakt een sieraad van 5 dezelfde soorten flawless gems en verkoopt dit voor 15 goud (bij de infobalie). Elke 8 inspiratie die je hier in steekt zorgt er voor dat je 1 flawless gem minder nodig hebt.",
+              "inspiration": "",
+              "components": "0 tot 40 inspiratie (liggende aan de hoeveelheid dezelfde soort Flawless Gems)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -926,7 +926,7 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "Meesterstuk (Metal)" },
+        { "name": "Meesterstuk A (Metal)" },
         { "name": "Wetsteen (Lvl 1)" }
       ]
     },
@@ -949,7 +949,7 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "Meesterstuk (Wood)" },
+        { "name": "Meesterstuk A (Wood)" },
         { "name": "Totem van de Wolf" }
       ]
     },
@@ -972,7 +972,7 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "Meesterstuk (Cloth)" },
+        { "name": "Meesterstuk A (Cloth)" },
         { "name": "Hoog kwaliteit Verband" }
       ]
     },
@@ -995,7 +995,7 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "Meesterstuk (Paper)" },
+        { "name": "Meesterstuk A (Paper)" },
         { "name": "Scrollpapier" }
       ]
     },
@@ -1018,7 +1018,7 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "Meesterstuk (Leather)" },
+        { "name": "Meesterstuk A (Leather)" },
         { "name": "Pantser Reparatie Set" }
       ]
     },
@@ -1041,13 +1041,13 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "Meesterstuk (Copper)" },
+        { "name": "Meesterstuk A (Precious Metal)" },
         { "name": "Vriendschaps Geschenk" }
       ]
     },
     {
       "id": 54,
-      "skill": "Steenzetten A",
+      "skill": "Steenzetter A",
       "alt_skill": "",
       "category": "Ambachtsvaardigheden",
       "description": "",
@@ -1064,7 +1064,7 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "Meesterstuk (Quartz)" },
+        { "name": "Meesterstuk A (Gemstone)" },
         { "name": "Basis Sieraad" }
       ]
     },
@@ -1088,7 +1088,7 @@
       "Spreuken": [
         { "name": "Detect Magic" },
         { "name": "Confusion" },
-        { "name": "Wind Blast" },
+        { "name": "Wind Strike" },
         { "name": "Counter Spell" },
         { "name": "Break Enchantment" }
       ],

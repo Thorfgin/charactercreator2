@@ -6,7 +6,16 @@ import vaardigheden from './json/basisvaardigheden.json';
 import spreuken from './json/spreuken.json';
 import './App.css';
 
-const sourceData = vaardigheden["Vaardigheden"];
+const sourceData = vaardigheden.Vaardigheden;
+const sourceSpreuken = [];
+
+// Ophalen van Skills uit de Spreuken
+for (const category of spreuken.Categories) {
+    for (const skillData of category.Skills) {
+        sourceSpreuken.push(skillData);
+    }
+}
+
 let totalXP = 0; // Berekende totaal waarde
 let skillOptions = sourceData.map((record) => ({ value: record.skill, label: record.skill }));
 
@@ -37,29 +46,49 @@ const columns = [
     { Header: 'Aantal keer', accessor: 'count', className: "col-aantalkeer" },
 ];
 
-// Tooltip component voor GridItems
-function Tooltip({ skill, name, isSpell }) {
-    const [showTooltip, setShowTooltip] = useState(false);
 
+// Tooltip component voor GridItems
+function Tooltip({ skillName, itemName, isSpell }) {
+    const [showTooltip, setShowTooltip] = useState(false);
     const handleMouseOver = () => setShowTooltip(true);
     const handleMouseOut = () => setShowTooltip(false);
     const closeTooltip = () => setShowTooltip(false);
 
-    const spellData = {
-        name: name,
+    let sourceSkill = null;
+    let spellData = {
+        name: itemName,
         mana_cost: '',
         incantation: '',
-        description: '',
+        description: 'Spreuk/Techniek/Recept informatie kon niet gevonden worden.',
         spell_effect: '',
         spell_duration: '',
     };
 
     const recipeData = {
-        name: name,
-        mana_cost: '',
-        description: '',
+        name: itemName,
+        effect: '',
+        inspiratie: '',
+        benodigdheden: ''
     };
 
+    for (let i = 0; i < sourceData.length; i++) {
+        if (sourceData[i].skill === skillName) {
+            sourceSkill = sourceData[i];
+            break;
+        }
+    }
+
+    if (isSpell) {
+        const skillFound = sourceSpreuken.find((item) => item.skill === sourceSkill.skill | item.skill === sourceSkill.alt_skill);
+        if (skillFound) {
+            spellData = skillFound.Spells.find((item) => item.spell === itemName);
+        }
+    }
+    else {
+
+    }
+
+    // Set the Proper Data
     const data = isSpell ? spellData : recipeData;
 
     return (
@@ -72,20 +101,20 @@ function Tooltip({ skill, name, isSpell }) {
             {showTooltip && (
                 <div className="tooltip-overlay">
                     <div className="tooltip" onClick={closeTooltip}>
-                        <h5>Vaardigheid: {skill}</h5>
-                        {isSpell && <h5>Spreuk: {data.name}</h5>}
+                        <h5>Vaardigheid: {skillName}</h5>
+                        <h5>Item: {itemName}</h5>
                         <table className="tooltip-table">
                             <tbody>
                                 {[
                                     { label: 'Mana kosten', value: data.mana_cost },
                                     { label: 'Incantatie', value: data.incantation },
                                     { label: 'Omschrijving', value: data.description },
-                                    { label: 'Spreuk Effect', value: data.spell_effect },
-                                    { label: 'Spreuk Duur', value: data.spell_duration },
+                                    { label: 'Effect', value: data.spell_effect },
+                                    { label: 'Duur', value: data.spell_duration },
                                 ].map((item, index) => (
                                     <tr key={index}>
                                         <td className="tooltip-property">{item.label}:</td>
-                                        <td>{item.value}</td>
+                                        <td className="tooltip-value">{item.value}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -113,8 +142,8 @@ function GridSpreukItem({ skill, name, text, type }) {
     // ADDING SPELL INFO MODAL >> SPREUKEN
     if (type === "grid-spreuken") {
         img = (<Tooltip
-            skill={skill}
-            name={name}
+            skillName={skill}
+            itemName={name}
             isSpell={true}
         />);
     }
@@ -122,8 +151,8 @@ function GridSpreukItem({ skill, name, text, type }) {
     // ADDING RECIPY INFO MODAL >> VAARDIGHEDEN
     else if (type === "grid-recepten") {
         img = (<Tooltip
-            skill={skill}
-            name={name}
+            skillName={skill}
+            itemName={name}
             isSpell={false}
         />);
     }

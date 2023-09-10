@@ -212,7 +212,7 @@ function processCleanedContent() {
                             GEESTBEINVLOEDEND_UNICODE,
                             'Zelf',
                             '5 meter',
-                            '5 meter(?: of Aanraking)?',
+                            '5 meter of Aanraking',
                             '10 seconden, aanraking',
                         ];
 
