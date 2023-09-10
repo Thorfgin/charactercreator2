@@ -375,6 +375,7 @@
 
     /* Style for table cells */
     .tooltip-table td {
+        vertical-align: top;
         word-wrap: break-word; /* Wrap long words if necessary */
         max-width: 1%; /* Allow content to expand to fit available width */
         font-size: 10px;

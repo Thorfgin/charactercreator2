@@ -6,8 +6,8 @@ const fileName = "Genezende-Dranken"
 const pdfPath = 'C:\\Users\\JosvanRest\\Downloads\\'+fileName+'.pdf';
 const outputPath = './json/' + fileName +'.json';
 
-const readFrom = 0;  // ignores pages < X
-const readTo = 99;    // ignores pages >= X
+const readFrom = 2;  // ignores pages < X
+const readTo = 4;    // ignores pages >= X
 
 const allContent = [];
 let jsonData = { Categories: [] };
@@ -53,11 +53,7 @@ function processAllContent() {
         }
         let currentText = "";
 
-
-        for (let item of allContent) {
-            
-        }
-        console.log(allContent[0])
+        for (let item of allContent) { jsonData.Categories.push(item); }
     }
     else {
         console.error('Error cleaning PDF content:');

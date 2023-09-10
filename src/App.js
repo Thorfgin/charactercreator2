@@ -4,20 +4,17 @@ import { useTable } from 'react-table';
 import Select from 'react-select';
 import vaardigheden from './json/basisvaardigheden.json';
 import spreuken from './json/spreuken.json';
+import recepten from './json/recepten.json';
 import './App.css';
 
-const sourceData = vaardigheden.Vaardigheden;
-const sourceSpreuken = [];
-
-// Ophalen van Skills uit de Spreuken
-for (const category of spreuken.Categories) {
-    for (const skillData of category.Skills) {
-        sourceSpreuken.push(skillData);
-    }
-}
-
 let totalXP = 0; // Berekende totaal waarde
-let skillOptions = sourceData.map((record) => ({ value: record.skill, label: record.skill }));
+
+// Ophalen van de skills uit vaardigheden/spreuken/recepten
+const sourceVaardigheden = vaardigheden.Vaardigheden;
+let skillOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill }));
+
+const sourceSpreuken = [].concat(...spreuken.Categories.map(category => category.Skills));
+const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
 
 const defaultProperties = [
     { name: 'hitpoints', image: 'images/image_hp.jpg', text: 'HP', value: 1 },
@@ -54,42 +51,69 @@ function Tooltip({ skillName, itemName, isSpell }) {
     const handleMouseOut = () => setShowTooltip(false);
     const closeTooltip = () => setShowTooltip(false);
 
-    let sourceSkill = null;
     let spellData = {
         name: itemName,
         mana_cost: '',
         incantation: '',
-        description: 'Spreuk/Techniek/Recept informatie kon niet gevonden worden.',
+        description: 'Spreuk/Techniek informatie kon niet gevonden worden.',
         spell_effect: '',
         spell_duration: '',
     };
 
-    const recipeData = {
-        name: itemName,
-        effect: '',
-        inspiratie: '',
-        benodigdheden: ''
+    let recipeData = {
+        recipy: itemName,
+        effect: 'Recept informatie kon niet gevonden worden',
+        inspiration: '',
+        components: ''
     };
 
-    for (let i = 0; i < sourceData.length; i++) {
-        if (sourceData[i].skill === skillName) {
-            sourceSkill = sourceData[i];
-            break;
-        }
-    }
-
-    if (isSpell) {
-        const skillFound = sourceSpreuken.find((item) => item.skill === sourceSkill.skill | item.skill === sourceSkill.alt_skill);
-        if (skillFound) {
+    // ophalen Skill & Spreuk of Recept data uit bronbestand
+    let sourceSkill = sourceVaardigheden.find((item) => item.skill === skillName);
+    const skillArray = isSpell === true ? sourceSpreuken : sourceRecepten;
+    const skillFound = skillArray.find((item) => item.skill === sourceSkill.skill || item.skill === sourceSkill.alt_skill);
+    if (skillFound) {
+        if (isSpell === true) {
             spellData = skillFound.Spells.find((item) => item.spell === itemName);
+        } else {
+            recipeData = skillFound.Recipies.find((item) => item.recipy === itemName);
         }
     }
     else {
-
+        console.log("This item should have been found: ", skillName, "isSpell: ", isSpell, "Data: ", skillFound);
     }
 
-    // Set the Proper Data
+    // Data kiezen voor spreuk of recept
     const data = isSpell ? spellData : recipeData;
+
+    // Tooltip definitie voor spreuk of recept
+    function getMappingFromData(data) {
+        if (isSpell === true) {
+            return [
+                { label: 'Mana kosten', value: data.mana_cost },
+                { label: 'Incantatie', value: data.incantation },
+                { label: 'Omschrijving', value: data.description },
+                { label: 'Effect', value: data.spell_effect },
+                { label: 'Duur', value: data.spell_duration },
+            ].map((item, index) => (
+                <tr key={index}>
+                    <td className="tooltip-property">{item.label}:</td>
+                    <td className="tooltip-value">{item.value}</td>
+                </tr>
+            ))
+        }
+        else {
+            return [
+                { label: 'Omschrijving', value: data.effect },
+                { label: 'Inspiratie kosten', value: data.inspiration },
+                { label: 'Benodigdheden', value: data.components },
+            ].map((item, index) => (
+                <tr key={index}>
+                    <td className="tooltip-property">{item.label}:</td>
+                    <td className="tooltip-value">{item.value}</td>
+                </tr>
+            ))
+        }
+    }
 
     return (
         <div className="tooltip-container" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
@@ -105,18 +129,7 @@ function Tooltip({ skillName, itemName, isSpell }) {
                         <h5>Item: {itemName}</h5>
                         <table className="tooltip-table">
                             <tbody>
-                                {[
-                                    { label: 'Mana kosten', value: data.mana_cost },
-                                    { label: 'Incantatie', value: data.incantation },
-                                    { label: 'Omschrijving', value: data.description },
-                                    { label: 'Effect', value: data.spell_effect },
-                                    { label: 'Duur', value: data.spell_duration },
-                                ].map((item, index) => (
-                                    <tr key={index}>
-                                        <td className="tooltip-property">{item.label}:</td>
-                                        <td className="tooltip-value">{item.value}</td>
-                                    </tr>
-                                ))}
+                                {getMappingFromData(data)}
                             </tbody>
                         </table>
                     </div>
@@ -170,7 +183,7 @@ function updateGridEigenschappenTiles(tableData) {
     const propertySums = defaultProperties.map((property) => (
         {
             ...property, value: tableData.reduce((sum, record) => {
-                const vaardigheid = sourceData.find((vaardigheid) => vaardigheid.skill === record.skill);
+                const vaardigheid = sourceVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
                 const propertyValue = vaardigheid.Eigenschappen?.find((prop) => prop.name === property.name)?.value || 0;
                 return sum + propertyValue * record.count;
             }, property.name === "hitpoints" ? 1 : 0)
@@ -181,7 +194,7 @@ function updateGridEigenschappenTiles(tableData) {
 // Op basis van de Spreuken, voeg nieuwe tegels toe.
 function updateGridSpreukenTiles(tableData) {
     const spellProperties = tableData.reduce((spellsAccumulator, record) => {
-        const vaardigheid = sourceData.find((vaardigheid) => vaardigheid.skill === record.skill);
+        const vaardigheid = sourceVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
         const spells = vaardigheid.Spreuken || [];
 
         spells.forEach((spell) => {
@@ -201,7 +214,7 @@ function updateGridSpreukenTiles(tableData) {
 // Op basis van de Recepten, voeg nieuwe tegels toe.
 function updateGridReceptenTiles(tableData) {
     const recipyProperties = tableData.reduce((recipyAccumulator, record) => {
-        const vaardigheid = sourceData.find((vaardigheid) => vaardigheid.skill === record.skill);
+        const vaardigheid = sourceVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
         const recepten = vaardigheid.Recepten || [];
 
         recepten?.forEach((recipy) => {
@@ -209,6 +222,7 @@ function updateGridReceptenTiles(tableData) {
             if (existingRecipy) {
                 existingRecipy.count += recipy.count;
             } else {
+                recipy.skill = vaardigheid.skill;
                 recipyAccumulator.push({ ...recipy });
             }
         });
@@ -261,7 +275,7 @@ function App() {
     function onUpdateTableData() {
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
         if (tableData.length >= 0) {
-            const allOptions = sourceData.map((record) => ({ value: record.skill, label: record.skill }));
+            const allOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill }));
             skillOptions = allOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value));
         }
 
@@ -279,7 +293,7 @@ function App() {
         });
         setGridSpreuken(updatedGridSpreukenContent);
 
-        // spreuken & techieken container
+        // receptne container
         const updatedGridReceptenContent = updateGridReceptenTiles(tableData).filter((property) => {
             return property.value !== ""
         });
@@ -289,7 +303,7 @@ function App() {
     /// --- TABLE CONTENT --- ///
     const handleAddToTable = () => {
         if (selectedSkill) {
-            const selectedRecord = sourceData.find((record) => record.skill === selectedSkill.value);
+            const selectedRecord = sourceVaardigheden.find((record) => record.skill === selectedSkill.value);
             if (totalXP < 15 | selectedRecord.xp === 0) {
                 const cannotBeAdded = tableData.some((record) => record.skill === selectedSkill.value);
 
@@ -318,7 +332,7 @@ function App() {
     function handleAdd(row) {
         if (totalXP < 15) {
             // Source data
-            const sourceRecord = sourceData.find((record) => record.skill === row.skill);
+            const sourceRecord = sourceVaardigheden.find((record) => record.skill === row.skill);
             const currentRecord = tableData.find((record) => record.skill === row.skill);
 
             if (currentRecord.count < sourceRecord.maxcount) {
@@ -343,7 +357,7 @@ function App() {
 
     function handleSubtract(row) {
         // Source data
-        const sourceRecord = sourceData.find((record) => record.skill === row.skill);
+        const sourceRecord = sourceVaardigheden.find((record) => record.skill === row.skill);
         const isPresent = tableData.some((record) => record.skill === row.skill);
         const currentRecord = tableData.find((record) => record.skill === row.skill);
 
@@ -364,7 +378,7 @@ function App() {
     };
 
     const requestActions = (row) => {
-        const currentItem = sourceData.find((record) => record.id === row.original.id);
+        const currentItem = sourceVaardigheden.find((record) => record.id === row.original.id);
         if (currentItem.multi_purchase) {
             return (
                 <div className="image-cell">
