@@ -4,6 +4,7 @@
 	
 	- Download the Spreuken PDF to the downloads folder
 	- Run the pdf-reader_spreuken.js
+	- Check the spells/technique tooltips for faults
 
 	RECIPIES
 	Recipies are created by reading the PDF files with Tabula
@@ -14,13 +15,15 @@
 	- Create a selection over the tables
 	- Export as JSON (data)
 	- Place in Download folder
-	- Run tabula-reader_recepten.js
+	- Run tabula-reader_recepten.js for each loresheet
+	- Copy the results into recepten.json
+	- Check the tooltips for faults
 
 
 	TODO:
 
 	MUST
-	- SPELLS/RECIPIES can be converted to JSON per script
+
 
 	SHOULD:
 	- PREREQUISITES: check for prerequisistes to prevent invalid selection of skills 
@@ -31,16 +34,20 @@
 		> this requires integration on perhaps and API level
 		> Needs to be done from within a player portal?
 
+	WOULD: 
+	- Sleur en Pleur in de skill tabel of andere manier van herschikken.
+
 
 	DONE:
+	20230911    SPELLS/RECIPIES can be converted to JSON per script
 	
-	20230908	Spells/recipies have tooltips
+	20230908	SPELLS/RECIPIES have tooltips
 	
-	20230905	Recipty gives a summary of the selected spells aquired by skills
-	20230905	Spreuken & Technieken gives a summary of the selected spells aquired by skills
+	20230905	RECIPY gives a summary of the selected spells aquired by skills
+	20230905	SPELLS & TECHNIQUE gives a summary of the selected spells aquired by skills
 	20230605	RESET: button on TOP reset the Character Creator, clears all tables.
 	
-	20230901 	Character eigenschappen are added/subtracted on the selection of sklls
+	20230901 	Character properties are added/subtracted on the selection of sklls
 				if already present, than numeric values are adjusted accordinly. 
 				JSON should contain the relevant properties under 'Eigenschappen':
 				"Eigenschappen": {

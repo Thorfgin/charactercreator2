@@ -503,7 +503,7 @@
       ],
       "Spreuken": [
         { "name": "Hold the Line" },
-        { "name": "Retrieve Comrade" }
+        { "name": "Rescue Comrade" }
       ],
       "Recepten": []
     },
@@ -548,7 +548,7 @@
         }
       ],
       "Spreuken": [
-        { "name": "Fearful presence" },
+        { "name": "Fearful Presence" },
         { "name": "Withstand Slow" }
       ],
       "Recepten": []
@@ -1214,8 +1214,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Harden Minor" },
-        { "name": "Reinforcement Cascade" },
+        { "name": "Harden" },
+        { "name": "Minor Reinforcement Cascade" },
         { "name": "Sleep" },
         { "name": "Boon of Mending" }
       ],
@@ -1242,7 +1242,7 @@
         { "name": "Mind Protection" },
         { "name": "Force Truth" },
         { "name": "Corrupt the Flow of Life" },
-        { "name": "Ice Blast" }
+        { "name": "Iceblast" }
       ],
       "Recepten": []
     },
@@ -1265,7 +1265,7 @@
       ],
       "Spreuken": [
         { "name": "Cleansed by Fire" },
-        { "name": "Fire Blast" },
+        { "name": "Fireblast" },
         { "name": "Inner Fire" },
         { "name": "Imbue Blast" }
       ],
@@ -1365,7 +1365,7 @@
         { "name": "Endure Poison" },
         { "name": "Minor Reinforcement" },
         { "name": "Break Enchantment" },
-        { "name": "Shield Spirit" },
+        { "name": "Counter Spell" },
         { "name": "Detect Spiritual influence" }
       ],
       "Recepten": []
@@ -1417,8 +1417,8 @@
         { "name": "Discern Soul" },
         { "name": "Sanctuary" },
         { "name": "Lay to Rest" },
-        { "name": "Ancestral Mind Protection" },
-        { "name": "Reveal All Undead" }
+        { "name": "Ancestral mind protection" },
+        { "name": "Reveal all undead" }
       ],
       "Recepten": []
     },
@@ -1567,7 +1567,7 @@
       "Spreuken": [
         { "name": "Discern Wounds" },
         { "name": "Discern Poisons" },
-        { "name": "Discern Disease" },
+        { "name": "Discern Diseases" },
         { "name": "Heal Wounds" },
         { "name": "Remove Paralysis" }
       ],
@@ -1593,7 +1593,7 @@
       "Spreuken": [
         { "name": "Discern Wounds" },
         { "name": "Discern Poisons" },
-        { "name": "Discern Disease" },
+        { "name": "Discern Diseases" },
         { "name": "Heal Wounds" },
         { "name": "Remove Paralysis" }
       ],
@@ -1617,8 +1617,7 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal" },
-        { "name": "Fatal Wound" },
+        { "name": "Heal Fatal Wound" },
         { "name": "Strengthen Body" },
         { "name": "Total Healing" },
         { "name": "Boon of Minor Healing" }
@@ -1643,8 +1642,7 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal" },
-        { "name": "Fatal Wound" },
+        { "name": "Heal Fatal Wound" },
         { "name": "Strengthen Body" },
         { "name": "Total Healing" },
         { "name": "Boon of Minor Healing" }
@@ -1719,11 +1717,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal" },
-        { "name": "Fatal Wound" },
+        { "name": "Heal Fatal Wound" },
         { "name": "Protection from Disease" },
         { "name": "Cure Diseases" },
-        { "name": "Purge all Diseases" }
+        { "name": "Cure All Diseases" }
       ],
       "Recepten": []
     },
@@ -1745,11 +1742,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal" },
-        { "name": "Fatal Wound" },
+        { "name": "Heal Fatal Wound" },
         { "name": "Protection from Disease" },
         { "name": "Cure Diseases" },
-        { "name": "Purge all Diseases" }
+        { "name": "Cure All Diseases" }
       ],
       "Recepten": []
     },

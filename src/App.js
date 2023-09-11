@@ -70,23 +70,29 @@ function Tooltip({ skillName, itemName, isSpell }) {
     // ophalen Skill & Spreuk of Recept data uit bronbestand
     let sourceSkill = sourceVaardigheden.find((item) => item.skill === skillName);
     const skillArray = isSpell === true ? sourceSpreuken : sourceRecepten;
-    const skillFound = skillArray.find((item) => item.skill === sourceSkill.skill || item.skill === sourceSkill.alt_skill);
+    const skillFound = skillArray.find((item) =>
+        item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
+        item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase()
+    );
+
     if (skillFound) {
         if (isSpell === true) {
-            spellData = skillFound.Spells.find((item) => item.spell === itemName);
+            spellData = skillFound.Spells.find((item) => item.spell.toLowerCase() === itemName.toLowerCase());
         } else {
-            recipeData = skillFound.Recipies.find((item) => item.recipy === itemName);
+            recipeData = skillFound.Recipies.find((item) => item.recipy.toLowerCase() === itemName.toLowerCase());
         }
     }
     else {
-        console.log("This item should have been found: ", skillName, "isSpell: ", isSpell, "Data: ", skillFound);
+        console.error("This item should have been found: ", skillName, "isSpell: ", isSpell, "Data: ", skillFound);
     }
 
     // Data kiezen voor spreuk of recept
     const data = isSpell ? spellData : recipeData;
 
+
     // Tooltip definitie voor spreuk of recept
     function getMappingFromData(data) {
+        if (!data) { return; }
         if (isSpell === true) {
             return [
                 { label: 'Mana kosten', value: data.mana_cost },
@@ -101,7 +107,7 @@ function Tooltip({ skillName, itemName, isSpell }) {
                 </tr>
             ))
         }
-        else if (isSpell === false) {
+        else {
             return [
                 { label: 'Omschrijving', value: data.effect },
                 { label: 'Inspiratie kosten', value: data.inspiration },
@@ -112,10 +118,6 @@ function Tooltip({ skillName, itemName, isSpell }) {
                     <td className="tooltip-value">{item.value}</td>
                 </tr>
             ))
-        }
-        else
-        {
-            console.error("ArgumentError: the value of data was: ", data);
         }
     }
 

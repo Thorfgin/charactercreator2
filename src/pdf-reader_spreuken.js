@@ -3,7 +3,7 @@ const pdfjs = require('pdfjs-dist');
 
 // Define the URL or local path to your PDF file
 const pdfPath = 'C:\\Users\\JosvanRest\\Downloads\\Spreuken.pdf';
-const outputPath = './json/spreuken.json';
+const outputPath = './json/spreuken_dubbelcheck.json';
 
 const readFrom = 17;  // ignores pages < 17
 const readTo = 76;    // ignores pages >= 76
@@ -98,7 +98,7 @@ function processCleanedContent() {
 
             if (pageIndex < readFrom | pageIndex >= readTo) { continue; }
             else {
-                //if (str.includes("Paladijnspreuken")) { console.log(item); }
+                //if (str.includes("Discern Diseases 0")) { console.log(item); }
                 // When a Categorie is found
                 if (fontName === 'g_d0_f2' & height === 18) {
                     // Push/Add a Categorie into jsonData.Categories
@@ -139,7 +139,7 @@ function processCleanedContent() {
                     (fontName === 'g_d0_f1' & height === 11.00000025)
                 ) {
                     // Push/Add a Spell into SkillBlock
-                    const regex = /^([\w\s&]+(?: [\w\s&]+){0,3}) (\d)$/;;
+                    const regex = /^([\w\s&'&-]+(?: [\w\s&'&-]+){0,3}) (\d)$/;
                     const result = str.match(regex);
                     if (result) {
                         const [fullMatch, stringValue, digitValue] = result;
