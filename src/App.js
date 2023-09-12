@@ -45,97 +45,31 @@ const columns = [
 
 
 // Tooltip component voor GridItems
-function Tooltip({ skillName, itemName, isSpell }) {
+function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill }) {
     const [showTooltip, setShowTooltip] = useState(false);
     const handleMouseOver = () => setShowTooltip(true);
     const handleMouseOut = () => setShowTooltip(false);
     const closeTooltip = () => setShowTooltip(false);
 
-    let spellData = {
-        name: itemName,
-        mana_cost: '',
-        incantation: '',
-        description: 'Spreuk/Techniek informatie kon niet gevonden worden.',
-        spell_effect: '',
-        spell_duration: '',
-    };
-
-    let recipeData = {
-        recipy: itemName,
-        effect: 'Recept informatie kon niet gevonden worden',
-        inspiration: '',
-        components: ''
-    };
-
     // ophalen Skill & Spreuk of Recept data uit bronbestand
     let sourceSkill = sourceVaardigheden.find((item) => item.skill === skillName);
-    const skillArray = isSpell === true ? sourceSpreuken : sourceRecepten;
-    const skillFound = skillArray.find((item) =>
-        item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
-        item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase()
-    );
-
-    if (skillFound) {
-        if (isSpell === true) {
-            spellData = skillFound.Spells.find((item) => item.spell.toLowerCase() === itemName.toLowerCase());
-        } else {
-            recipeData = skillFound.Recipies.find((item) => item.recipy.toLowerCase() === itemName.toLowerCase());
-        }
-    }
-    else {
-        console.error("This item should have been found: ", skillName, "isSpell: ", isSpell, "Data: ", skillFound);
-    }
-
-    // Data kiezen voor spreuk of recept
-    const data = isSpell ? spellData : recipeData;
-
-
-    // Tooltip definitie voor spreuk of recept
-    function getMappingFromData(data) {
-        if (!data) { return; }
-        if (isSpell === true) {
-            return [
-                { label: 'Mana kosten', value: data.mana_cost },
-                { label: 'Incantatie', value: data.incantation },
-                { label: 'Omschrijving', value: data.description },
-                { label: 'Effect', value: data.spell_effect },
-                { label: 'Duur', value: data.spell_duration },
-            ].map((item, index) => (
-                <tr key={index}>
-                    <td className="tooltip-property">{item.label}:</td>
-                    <td className="tooltip-value">{item.value}</td>
-                </tr>
-            ))
-        }
-        else {
-            return [
-                { label: 'Omschrijving', value: data.effect },
-                { label: 'Inspiratie kosten', value: data.inspiration },
-                { label: 'Benodigdheden', value: data.components },
-            ].map((item, index) => (
-                <tr key={index}>
-                    <td className="tooltip-property">{item.label}:</td>
-                    <td className="tooltip-value">{item.value}</td>
-                </tr>
-            ))
-        }
-    }
+    let data = getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName);
 
     return (
         <div className="tooltip-container" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
             <img
-                className="grid-spreuk-image"
+                className="btn-image"
                 src="./images/img-info.png"
-                alt="Info"
+                alt="info"
             />
             {showTooltip && (
                 <div className="tooltip-overlay">
                     <div className="tooltip" onClick={closeTooltip}>
                         <h5>Vaardigheid: {skillName}</h5>
-                        <h5>Item: {itemName}</h5>
+                        {isSpell ? <h5>Spreuk/Techniek: {itemName}</h5> : isRecipy ? <h5>Recept: {itemName}</h5> : null}
                         <table className="tooltip-table">
                             <tbody>
-                                {getMappingFromData(data)}
+                                {getMappingFromData(data, isSkill, isSpell, isRecipy)}
                             </tbody>
                         </table>
                     </div>
@@ -143,6 +77,108 @@ function Tooltip({ skillName, itemName, isSpell }) {
             )}
         </div>
     );
+}
+
+// Data ophalen uit basisvaardigheden, spreuken of recepten
+function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
+    let data = {};
+
+    // Data kiezen voor spreuk, recept of vaardigheid
+    // Tooltip spreuk
+    if (isSpell === true) {
+        const skillFound = sourceSpreuken.find((item) => item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
+            item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
+
+        data = skillFound.Spells.find((item) => item.spell.toLowerCase() === itemName.toLowerCase());
+        data = data !== {} ? data : {
+            name: itemName ? itemName : '',
+            description: 'Spreuk/Techniek informatie kon niet gevonden worden.'
+        };
+    }
+
+    // Tooltip recept
+    else if (isRecipy === true) {
+        const skillFound = sourceRecepten.find((item) => item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
+            item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
+
+        data = skillFound.Recipies.find((item) => item.recipy.toLowerCase() === itemName.toLowerCase());
+        data = data !== {} ? data : {
+            recipy: itemName ? itemName : '',
+            effect: 'Recept informatie kon niet gevonden worden.'
+        };
+    }
+
+    // Tooltip vaardigheid
+    else if (isSkill === true) {
+        let requirements = "";
+        if (sourceSkill.Requirements.skill.length > 0) {
+            sourceSkill.Requirements.skill.join(", ");
+        }
+        if (sourceSkill.Requirements.skill.any_list > 0) {
+            requirements += ", een van de " + sourceSkill.Requirements.any_list.join(", een van de ");
+        }
+
+        data = [
+            { label: 'xp', value: sourceSkill.xp },
+            { label: 'requirements', value: requirements },
+            { label: 'description', value: sourceSkill.description }
+        ].map((item) => (data[item.label] = item.value));
+
+        data = data !== {} ? data : {
+            description: 'Vaardigheid informatie kon niet gevonden worden.'
+        };
+    }
+    else {
+        console.warn("This item should have been found: ", skillName, "isSpell: ", isSpell, "isSkill: ", isSkill, "Data: ", sourceSkill);
+    }
+    return data;
+}
+
+// Data verwerken tot een Tooltip definitie voor basisvaardigheid, spreuk of recept
+function getMappingFromData(data, isSkill, isSpell, isRecipy) {
+    if (!data) { return; }
+
+    if (isSkill === true) {
+        return [
+            { label: 'XP kosten', value: data.xp },
+            { label: 'Vereisten', value: data.requirements },
+            { label: 'Omschrijving', value: data.description },
+        ].map((item, index) => (
+            <tr key={index}>
+                <td className="tooltip-property">{item.label}:</td>
+                <td className="tooltip-value">{item.value}</td>
+            </tr>
+        ))
+    }
+    else if (isSpell === true) {
+        return [
+            { label: 'Mana kosten', value: data.mana_cost },
+            { label: 'Incantatie', value: data.incantation },
+            { label: 'Omschrijving', value: data.description },
+            { label: 'Effect', value: data.spell_effect },
+            { label: 'Duur', value: data.spell_duration },
+        ].map((item, index) => (
+            <tr key={index}>
+                <td className="tooltip-property">{item.label}:</td>
+                <td className="tooltip-value">{item.value}</td>
+            </tr>
+        ))
+    }
+    else if (isRecipy === true) {
+        return [
+            { label: 'Omschrijving', value: data.effect },
+            { label: 'Inspiratie kosten', value: data.inspiration },
+            { label: 'Benodigdheden', value: data.components },
+        ].map((item, index) => (
+            <tr key={index}>
+                <td className="tooltip-property">{item.label}:</td>
+                <td className="tooltip-value">{item.value}</td>
+            </tr>
+        ))
+    }
+    else {
+        console.warn("Expected either isSkill, isSpell or isRecipy to be true, but found none")
+    }
 }
 
 // Karakter eigenschappen griditem
@@ -155,24 +191,29 @@ function GridEigenschapItem({ image, text, value }) {
     );
 }
 
-// Karakter eigenschappen griditem
-function GridSpreukItem({ skill, name, text, type }) {
+// Generiek aanmaken van een tooltip knop op basis van type
+function GenericTooltipItem({ skill, name, text, type }) {
     let img = <div></div>;
-    // ADDING SPELL INFO MODAL >> SPREUKEN
+
+    // Toevoegen INFO MODAL >>  Spreuken
     if (type === "grid-spreuken") {
         img = (<Tooltip
             skillName={skill}
             itemName={name}
             isSpell={true}
+            isRecipy={false}
+            isSkill={false}
         />);
     }
 
-    // ADDING RECIPY INFO MODAL >> VAARDIGHEDEN
+    // Toevoegen INFO MODAL >> Recepten
     else if (type === "grid-recepten") {
         img = (<Tooltip
             skillName={skill}
             itemName={name}
             isSpell={false}
+            isRecipy={true}
+            isSkill={false}
         />);
     }
 
@@ -383,45 +424,97 @@ function App() {
         }
     };
 
-    const requestActions = (row) => {
+    // Plaats Acties in de kolom op basis van de multipurchase property
+    function requestActions(row) {
         const currentItem = sourceVaardigheden.find((record) => record.id === row.original.id);
         if (currentItem.multi_purchase) {
             return (
-                <div className="image-cell">
-                    <img
-                        className="row-image"
-                        onClick={() => handleAdd(currentItem)}
-                        src="./images/button_add.png"
-                        alt="Add">
+                <div className="acties">
+                    <div className="acties-tooltip">
+                        <Tooltip
+                            skillName={currentItem.skill}
+                            isSpell={false}
+                            isRecipy={false}
+                            isSkill={true}
+                        />
+                    </div>
+                    <div className="acties-overige">
+                        <img
+                            className="btn-image"
+                            onClick={() => handleAdd(currentItem)}
+                            src="./images/button_add.png"
+                            alt="Add">
 
-                    </img>
-                    <img
-                        className="row-image"
-                        onClick={() => handleSubtract(currentItem)}
-                        src="./images/button_subtract.png"
-                        alt="Subtract">
-                    </img>
-                    <img
-                        className="row-image"
-                        onClick={() => handleDelete(currentItem)}
-                        src="./images/button_remove.png"
-                        alt="Remove">
-                    </img>
+                        </img>
+                        <img
+                            className="btn-image"
+                            onClick={() => handleSubtract(currentItem)}
+                            src="./images/button_subtract.png"
+                            alt="Subtract">
+                        </img>
+                        <img
+                            className="btn-image"
+                            onClick={() => handleDelete(currentItem)}
+                            src="./images/button_remove.png"
+                            alt="Remove">
+                        </img>
+                    </div>
                 </div>
             );
         }
-        return (
-            <div className="image-cell">
-                <img
-                    className="row-image"
-                    onClick={() => handleDelete(currentItem)}
-                    src="./images/button_remove.png"
-                    alt="Remove">
-                </img>
-            </div>
-        )
+        else {
+            return (
+                <div className="acties">
+                    <div className="acties-tooltip">
+                        <Tooltip
+                            skillName={currentItem.skill}
+                            isSpell={false}
+                            isRecipy={false}
+                            isSkill={true}
+                        />
+                    </div>
+                    <div className="acties-overige">
+                        <img
+                            className="btn-image"
+                            onClick={() => handleDelete(currentItem)}
+                            src="./images/button_remove.png"
+                            alt="Remove">
+                        </img>
+                    </div>
+                </div>
+            );
+        }
+    }
 
-    };
+    function showDisclaimer() {
+        setModalMsg(
+            "De character creator geeft een indicatie van de mogelijkheden.\n " +
+            "Er kunnen altijd afwijkingen zitten tussen de teksten\n" +
+            "in de character creator en de VA regelset.\n\n" +
+            "Check altijd de laatste versie van de regelset op:\n" +
+            "https://the-vortex.nl/het-spel/regels/" +
+            "\n");
+        setShowModal(true);
+    }
+
+    function modalContent(modalMsg, closeModal) {
+        const msgBlocks = modalMsg.split('\n');
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+        return (
+            <div className="modal-overlay">
+                <div className="modal">
+                    {msgBlocks.map((block, index) => (
+                        <div key={index} className="modal-block">
+                            {block === '' ? <br /> : block.match(urlRegex) ? <a target="_blank" rel="noopener noreferrer" href={block}>{block}</a> : block}
+                        </div>
+                    ))}
+                    <button className="btn-primary" onClick={closeModal}>
+                        OK
+                    </button>
+                </div>
+            </div>);
+    }
 
     const closeModal = () => { setShowModal(false); };
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData, });
@@ -481,16 +574,7 @@ function App() {
                         </tbody>
                     </table>
 
-                    {showModal && (
-                        <div className="modal-overlay">
-                            <div className="modal">
-                                <p>{modalMsg}</p>
-                                <button className="btn-primary" onClick={closeModal}>
-                                    OK
-                                </button>
-                            </div>
-                        </div>
-                    )}
+                    {showModal && modalContent(modalMsg, closeModal)}
                 </div>
                 <div className="side-containers">
                     <div className="side-container-b">
@@ -515,7 +599,7 @@ function App() {
                         </div>
                         <div className="grid-spreuken">
                             {gridSpreuken?.map((item, index) => (
-                                <GridSpreukItem
+                                <GenericTooltipItem
                                     skill={item.skill}
                                     name={item.name}
                                     type={"grid-spreuken"}
@@ -530,7 +614,7 @@ function App() {
                         </div>
                         <div className="grid-recepten">
                             {gridRecepten.map((item, index) => (
-                                <GridSpreukItem
+                                <GenericTooltipItem
                                     skill={item.skill}
                                     name={item.name}
                                     type={"grid-recepten"}
@@ -542,9 +626,16 @@ function App() {
                     </div>
                 </div>
             </main>
-            <footer></footer>
+            <div className="flex-filler"></div>
+            <footer>
+                <div>2023 v1</div>
+                <div>Design by Deprecated Dodo{'\u2122'}</div>
+                <div className="disclaimer" onClick={showDisclaimer}>Disclaimer</div>
+            </footer>
         </div>
     );
 }
 
 export default App;
+
+

@@ -3,6 +3,7 @@
         display: flex;
         width: 100%;
         max-width: 100%;
+        height: 100%;
         justify-content: center;
         margin: 10px;
     }
@@ -31,6 +32,17 @@
         left: 0%;
         transform: translate(-75%, -50%);
     }
+
+    .modal {
+        background-color: white;
+        text-align: center;
+        min-width: 40%;
+        max-width: 50%;
+        font-size: 12px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    }
 }
 
 .App {
@@ -40,13 +52,45 @@
     flex-wrap: wrap;
     margin: 0px;
     padding: 0px;
+    margin-bottom: 50px;
 }
+
+    .App main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
     .App header {
         display: grid;
         width: 100%;
+        margin: 15px;
         justify-content: center;
     }
+
+    .App footer {
+        position: fixed;
+        bottom: 0;
+        width: 110%;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        font-family: 'Inknut Antiqua', serif;
+        padding: 0px;
+        font-size: 12px;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+    }
+
+        .App footer div {
+            width: 30%;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+.disclaimer {
+    cursor: pointer;
+}
 
 .h1, h2, h3, h4, h5 {
     white-space: nowrap;
@@ -56,10 +100,49 @@
     line-height: 24px;
 }
 
-.App main {
+/* Adjust the width of the select component and the button */
+.select-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.select {
+    display: flex;
+    height: 24px;
+}
+
+.form-select {
+    max-width: 80%;
+    width: 100%;
+    margin: 5px;
+    padding: 0px;
+    font-size: 12px;
+}
+
+
+.App-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+.App-table th {
+    background-color: #f0f0f0;
+}
+
+.App-table th,
+.App-table td {
+    margin: 2px;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: .35rem;
+    max-height: 12px;
+    text-align: left;
+    white-space: nowrap; /* Prevent text from wrapping within cells */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
 }
 
 .side-containers {
@@ -140,13 +223,6 @@
     line-height: 24px;
 }
 
-.grid-spreuk-image {
-    max-width: 16px;
-    max-height: 16px;
-    object-fit: contain;
-    cursor: pointer;
-}
-
 .grid-eigenschappen {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two items per row */
@@ -183,26 +259,6 @@
     background-position: center;
 }
 
-.App-table table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ccc;
-}
-
-.App-table th,
-.App-table td {
-    margin: 2px;
-    padding: 3px;
-    border: 2px solid #ccc;
-    border-radius: .35rem;
-    max-height: 12px;
-    text-align: left;
-    white-space: nowrap; /* Prevent text from wrapping within cells */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 12px;
-}
-
 .col-vaardigheid {
     min-width: 250px;
 }
@@ -211,43 +267,37 @@
     min-width: 50px;
 }
 
-.App-table th {
-    background-color: #f0f0f0;
+.actie {
+    width: 100%;
 }
 
-.image-cell {
+.acties {
     display: flex;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.acties-tooltip {
+    display: flex;
+    left: 0px;
+    width: 16px;
+    justify-content: flex-start;
+}
+
+.acties-overige {
+    display: flex; 
+    right: 0px;
+    width: 48px;
     justify-content: flex-end;
 }
 
-.row-image {
-    max-width: 100%;
-    max-height: 16px; /* Adjust this value to control the maximum height of the image */
+.btn-image {
+    max-width: 16px;
+    max-height: 16px;
     object-fit: contain;
     cursor: pointer;
 }
-
-/* Adjust the width of the select component and the button */
-.select-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.select {
-    display: flex;
-    height: 24px;
-}
-
-.form-select {
-    max-width: 80%;
-    width: 100%;
-    margin: 5px;
-    padding: 0px;
-    font-size: 12px;
-}
-
 
 .btn-primary {
     width: auto;
@@ -261,6 +311,7 @@
 
 .btn-primary,
 .btn-secondary {
+    display: inline-flex;
     align-items: center;
     background-color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -269,7 +320,6 @@
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.85);
     cursor: pointer;
-    display: inline-flex;
     font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 12px;
     font-weight: 600;
@@ -326,15 +376,11 @@
 .modal {
     background-color: white;
     text-align: center;
+    max-width: 25%;
     font-size: 12px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.tooltip-container {
-    position: relative;
-    display: inline-block;
 }
 
 /* Show the tooltip when hovering over the image */
@@ -358,31 +404,28 @@
 
 /* Tooltip content styles */
 .tooltip {
-    /* Add your styles for the tooltip content here */
-    /* Example styles: */
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 1.2;
     color: #333;
 }
 
 /* Table styles */
 .tooltip-table {
-    width: 100%; /* Ensure the table takes the full width of the tooltip */
-    table-layout: auto; /* Fixed table layout to prevent cell content from affecting column width */
-    border-collapse: collapse; /* Collapse borders for a cleaner look */
-    vertical-align: top;
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
 }
 
     /* Style for table cells */
     .tooltip-table td {
         vertical-align: top;
-        word-wrap: break-word; /* Wrap long words if necessary */
-        max-width: 1%; /* Allow content to expand to fit available width */
-        font-size: 10px;
+        word-wrap: break-word;
+        max-width: 1%;
+        font-size: 12px;
     }
 
     .tooltip-table tooltip-property {
         justify-content: flex-start;
         text-align: left;
-        width: 15%;
+        min-width: 15%;
     }

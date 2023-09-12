@@ -19,7 +19,7 @@
 	- Copy the results into recepten.json
 	- Check the tooltips for faults
 
-
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 	TODO:
 
 	MUST
@@ -27,6 +27,8 @@
 
 	SHOULD:
 	- PREREQUISITES: check for prerequisistes to prevent invalid selection of skills 
+	- PREREQUISITES: stop removing of a skill when other skills are dependant on it as requirement
+	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
 	- button TOP: export Character >> JSON format
 
 	COULD:
