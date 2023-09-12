@@ -41,6 +41,8 @@
 
 
 	DONE:
+	20230912	SKILLS have Tooltips available
+	
 	20230911    SPELLS/RECIPIES can be converted to JSON per script
 	
 	20230908	SPELLS/RECIPIES have tooltips

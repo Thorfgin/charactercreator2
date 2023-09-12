@@ -86,7 +86,8 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
     // Data kiezen voor spreuk, recept of vaardigheid
     // Tooltip spreuk
     if (isSpell === true) {
-        const skillFound = sourceSpreuken.find((item) => item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
+        const skillFound = sourceSpreuken.find((item) =>
+            item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
             item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
 
         data = skillFound.Spells.find((item) => item.spell.toLowerCase() === itemName.toLowerCase());
@@ -98,12 +99,13 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
 
     // Tooltip recept
     else if (isRecipy === true) {
-        const skillFound = sourceRecepten.find((item) => item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
+        const skillFound = sourceRecepten.find((item) =>
+            item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
             item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
 
         data = skillFound.Recipies.find((item) => item.recipy.toLowerCase() === itemName.toLowerCase());
         data = data !== {} ? data : {
-            recipy: itemName ? itemName : '',
+            recipy: itemName ? itemName : '', 
             effect: 'Recept informatie kon niet gevonden worden.'
         };
     }
@@ -111,10 +113,8 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
     // Tooltip vaardigheid
     else if (isSkill === true) {
         let requirements = "";
-        if (sourceSkill.Requirements.skill.length > 0) {
-            sourceSkill.Requirements.skill.join(", ");
-        }
-        if (sourceSkill.Requirements.skill.any_list > 0) {
+        if (sourceSkill.Requirements.skill.length > 0) { sourceSkill.Requirements.skill.join(", "); }
+        if (sourceSkill.Requirements.any_list.length > 0) {
             requirements += ", een van de " + sourceSkill.Requirements.any_list.join(", een van de ");
         }
 
@@ -124,9 +124,7 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
             { label: 'description', value: sourceSkill.description }
         ].map((item) => (data[item.label] = item.value));
 
-        data = data !== {} ? data : {
-            description: 'Vaardigheid informatie kon niet gevonden worden.'
-        };
+        data = data !== {} ? data : { description: 'Vaardigheid informatie kon niet gevonden worden.' };
     }
     else {
         console.warn("This item should have been found: ", skillName, "isSpell: ", isSpell, "isSkill: ", isSkill, "Data: ", sourceSkill);

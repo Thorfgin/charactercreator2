@@ -297,6 +297,7 @@
     max-height: 16px;
     object-fit: contain;
     cursor: pointer;
+    vertical-align: middle;
 }
 
 .btn-primary {
@@ -381,6 +382,16 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 24px;
 }
 
 /* Show the tooltip when hovering over the image */
