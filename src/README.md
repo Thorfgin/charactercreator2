@@ -3,6 +3,9 @@
     - To begin the development, run `npm start` or `yarn start`.
     - To create a production bundle, use `npm run build` or `yarn build`.
 	
+	SKILLS
+	Sadly it's still all manual
+
 	SPELLS & TECHNIQUES
 	Spells and Techniques can be converted by running the pdf-reader_spreuken.js
 	
@@ -21,7 +24,7 @@
 	- Place in Download folder
 	- Run tabula-reader_recepten.js for each loresheet
 	- Copy the results into recepten.json
-	- Check the tooltips for faults
+	- Check the recipy tooltips for faults
 
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -46,6 +49,7 @@
 	- IMPORT BUILD: Import a local file and set it as the current skillset
 	- PRESETS: Ability to click some preset-character builds somewhere
 	- EXPORT CHARACTER: Export the character overview as a PDF, for easy use at the event.
+	- LORESHEET: column contains an actual link to the loresheet itself
 
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 

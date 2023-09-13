@@ -26,17 +26,18 @@
 
     /* Tooltip overlay */
     .tooltip-overlay {
-        min-width: 50%;
+        min-width: 25rem;
         max-width: 80%; /* Adjust the maximum width for mobile devices */
         top: 50%;
         left: 0%;
         transform: translate(-75%, -50%);
+        overflow-y: scroll;
     }
 
     .modal {
         background-color: white;
         text-align: center;
-        min-width: 40%;
+        min-width: 30%;
         max-width: 50%;
         font-size: 12px;
         padding: 20px;
@@ -137,7 +138,7 @@
     border-radius: .35rem;
     max-height: 12px;
     text-align: left;
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 12px;
@@ -375,6 +376,7 @@
     background-color: white;
     text-align: center;
     max-width: 25%;
+    max-height: 75%;
     font-size: 12px;
     padding: 20px;
     border-radius: 5px;
@@ -396,16 +398,24 @@
     }
 
 .tooltip-overlay {
-    display: none; 
+    display: none;
     position: fixed;
-    top: 50%;
+    top: 25%;
     left: 50%;
+    min-width: 25rem;
+    width: fit-content;
     max-width: 25%;
-    transform: translate(-50%, -50%);
+    max-height: 65%;
+    transform: translate(-52%, -25%);
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 10px;
     z-index: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.tooltip {
 }
 
 /* tooltip tabel eigenschapen */
@@ -423,4 +433,3 @@
         border: hidden;
         white-space: normal;
     }
-

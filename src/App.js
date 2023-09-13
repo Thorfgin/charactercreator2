@@ -2,6 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import { useTable } from 'react-table';
 import Select from 'react-select';
+import { Tooltip } from './tooltip.js'
+import {
+    GridEigenschapItem,
+    GenericTooltipItem,
+    updateGridEigenschappenTiles,
+    updateGridSpreukenTiles,
+    updateGridReceptenTiles
+} from './griditem.js'
+
 import vaardigheden from './json/basisvaardigheden.json';
 import spreuken from './json/spreuken.json';
 import recepten from './json/recepten.json';
@@ -10,13 +19,12 @@ import './App.css';
 let totalXP = 0; // Berekende totaal waarde
 
 // Ophalen van de skills uit vaardigheden/spreuken/recepten
-const sourceVaardigheden = vaardigheden.Vaardigheden;
+export const sourceVaardigheden = vaardigheden.Vaardigheden;
+export const sourceSpreuken = [].concat(...spreuken.Categories.map(category => category.Skills));
+export const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
 let skillOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill }));
 
-const sourceSpreuken = [].concat(...spreuken.Categories.map(category => category.Skills));
-const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
-
-const defaultProperties = [
+export const defaultProperties = [
     { name: 'hitpoints', image: 'images/image_hp.jpg', text: 'HP', value: 1 },
     { name: 'armourpoints', image: 'images/image_ap.jpg', text: 'Max AP', value: 0 },
     { name: 'elemental_mana', image: 'images/image_em.jpg', text: 'Elementaire Mana', value: 0 },
@@ -44,245 +52,6 @@ const columns = [
 ];
 
 
-// Tooltip component voor GridItems
-function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill }) {
-    const [showTooltip, setShowTooltip] = useState(false);
-    const handleMouseOver = () => setShowTooltip(true);
-    const handleMouseOut = () => setShowTooltip(false);
-    const closeTooltip = () => setShowTooltip(false);
-
-    // ophalen Skill & Spreuk of Recept data uit bronbestand
-    let sourceSkill = sourceVaardigheden.find((item) => item.skill === skillName);
-    let data = getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName);
-
-    return (
-        <div className="tooltip-container" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-            <img
-                className="btn-image"
-                src="./images/img-info.png"
-                alt="info"
-            />
-            {showTooltip && (
-                <div className="tooltip-overlay">
-                    <div className="tooltip" onClick={closeTooltip}>
-                        <h5>Vaardigheid: {skillName}</h5>
-                        {isSpell ? <h5>Spreuk/Techniek: {itemName}</h5> : isRecipy ? <h5>Recept: {itemName}</h5> : null}
-                        <table className="tooltip-table">
-                            <tbody>
-                                {getMappingFromData(data, isSkill, isSpell, isRecipy)}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-}
-
-// Data ophalen uit basisvaardigheden, spreuken of recepten
-function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
-    let data = {};
-
-    // Data kiezen voor spreuk, recept of vaardigheid
-    // Tooltip spreuk
-    if (isSpell === true) {
-        const skillFound = sourceSpreuken.find((item) =>
-            item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
-            item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
-
-        data = skillFound.Spells.find((item) => item.spell.toLowerCase() === itemName.toLowerCase());
-        data = data !== {} ? data : {
-            name: itemName ? itemName : '',
-            description: 'Spreuk/Techniek informatie kon niet gevonden worden.'
-        };
-    }
-
-    // Tooltip recept
-    else if (isRecipy === true) {
-        const skillFound = sourceRecepten.find((item) =>
-            item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
-            item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
-
-        data = skillFound.Recipies.find((item) => item.recipy.toLowerCase() === itemName.toLowerCase());
-        data = data !== {} ? data : {
-            recipy: itemName ? itemName : '', 
-            effect: 'Recept informatie kon niet gevonden worden.'
-        };
-    }
-
-    // Tooltip vaardigheid
-    else if (isSkill === true) {
-        let newRequirements = "";
-        const requiredSkills = sourceSkill.Requirements.skill;
-        const requiredAny = sourceSkill.Requirements.any_list;
-
-        // check skills
-        if (sourceSkill.Requirements.skill.length > 0) {
-            requiredSkills.forEach((item) => newRequirements += (newRequirements === "" ? item : ", " +item ))
-        };
-
-        // check any_list
-        if (sourceSkill.Requirements.any_list.length > 0) {
-            requiredAny.forEach((item) => newRequirements += (newRequirements === "" ? "Een van de " + item : ", een van de " + item))
-        };
-
-        data = {
-            xp: sourceSkill.xp,
-            requirements: newRequirements,
-            description: sourceSkill.description
-        };
-    }
-    else {
-        console.warn("This item should have been found: ", skillName, "isSpell: ", isSpell, "isSkill: ", isSkill, "Data: ", sourceSkill);
-    }
-    return data;
-}
-
-// Data verwerken tot een Tooltip definitie voor basisvaardigheid, spreuk of recept
-function getMappingFromData(data, isSkill, isSpell, isRecipy) {
-    if (!data) { return; }
-
-    if (isSkill === true) {
-        return [
-            { label: 'XP kosten', value: data.xp },
-            { label: 'Vereisten', value: data.requirements },
-            { label: 'Omschrijving', value: data.description },
-        ].map((item, index) => (
-            <tr key={index}>
-                <td className="tooltip-property">{item.label}:</td>
-                <td className="tooltip-value">{item.value}</td>
-            </tr>
-        ));
-    }
-    else if (isSpell === true) {
-        return [
-            { label: 'Mana kosten', value: data.mana_cost },
-            { label: 'Incantatie', value: data.incantation },
-            { label: 'Omschrijving', value: data.description },
-            { label: 'Effect', value: data.spell_effect },
-            { label: 'Duur', value: data.spell_duration },
-        ].map((item, index) => (
-            <tr key={index}>
-                <td className="tooltip-property">{item.label}:</td>
-                <td className="tooltip-value">{item.value}</td>
-            </tr>
-        ));
-    }
-    else if (isRecipy === true) {
-        return [
-            { label: 'Omschrijving', value: data.effect },
-            { label: 'Inspiratie kosten', value: data.inspiration },
-            { label: 'Benodigdheden', value: data.components },
-        ].map((item, index) => (
-            <tr key={index}>
-                <td className="tooltip-property">{item.label}:</td>
-                <td className="tooltip-value">{item.value}</td>
-            </tr>
-        ));
-    }
-    else {
-        console.warn("Expected either isSkill, isSpell or isRecipy to be true, but found none")
-    }
-}
-
-// Karakter eigenschappen griditem
-function GridEigenschapItem({ image, text, value }) {
-    return (
-        <div className="grid-eigenschap-item">
-            <div className="grid-eigenschap-image" style={{ backgroundImage: `url(${image})` }} />
-            <div className="grid-eigenschap-text">{text}: {value}</div>
-        </div>
-    );
-}
-
-// Generiek aanmaken van een tooltip knop op basis van type
-function GenericTooltipItem({ skill, name, text, type }) {
-    let img = <div></div>;
-
-    // Toevoegen INFO MODAL >>  Spreuken
-    if (type === "grid-spreuken") {
-        img = (<Tooltip
-            skillName={skill}
-            itemName={name}
-            isSpell={true}
-            isRecipy={false}
-            isSkill={false}
-        />);
-    }
-
-    // Toevoegen INFO MODAL >> Recepten
-    else if (type === "grid-recepten") {
-        img = (<Tooltip
-            skillName={skill}
-            itemName={name}
-            isSpell={false}
-            isRecipy={true}
-            isSkill={false}
-        />);
-    }
-
-    return (
-        <div className="grid-spreuk-item">
-            <div className="grid-spreuk-text">{"  " + text}</div>
-            {img}
-        </div>
-    );
-}
-
-// Op basis van de Eigenschappen, voeg nieuwe tegels toe.
-function updateGridEigenschappenTiles(tableData) {
-    const propertySums = defaultProperties.map((property) => (
-        {
-            ...property, value: tableData.reduce((sum, record) => {
-                const vaardigheid = sourceVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
-                const propertyValue = vaardigheid.Eigenschappen?.find((prop) => prop.name === property.name)?.value || 0;
-                return sum + propertyValue * record.count;
-            }, property.name === "hitpoints" ? 1 : 0)
-        }));
-    return propertySums;
-}
-
-// Op basis van de Spreuken, voeg nieuwe tegels toe.
-function updateGridSpreukenTiles(tableData) {
-    const spellProperties = tableData.reduce((spellsAccumulator, record) => {
-        const vaardigheid = sourceVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
-        const spells = vaardigheid.Spreuken || [];
-
-        spells.forEach((spell) => {
-            const existingSpell = spellsAccumulator.find((existing) => existing.name === spell.name);
-            if (existingSpell) {
-                existingSpell.count += spell.count;
-            } else {
-                spell.skill = vaardigheid.skill;
-                spellsAccumulator.push({ ...spell });
-            }
-        });
-        return spellsAccumulator;
-    }, []);
-    return spellProperties;
-}
-
-// Op basis van de Recepten, voeg nieuwe tegels toe.
-function updateGridReceptenTiles(tableData) {
-    const recipyProperties = tableData.reduce((recipyAccumulator, record) => {
-        const vaardigheid = sourceVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
-        const recepten = vaardigheid.Recepten || [];
-
-        recepten?.forEach((recipy) => {
-            const existingRecipy = recipyAccumulator.find((existing) => existing.name === recipy.name);
-            if (existingRecipy) {
-                existingRecipy.count += recipy.count;
-            } else {
-                recipy.skill = vaardigheid.skill;
-                recipyAccumulator.push({ ...recipy });
-            }
-        });
-
-        return recipyAccumulator;
-    }, []);
-    return recipyProperties;
-}
-
 /// --- MAIN APP --- ///
 function App() {
     const [tableData, setTableData] = useState(emptyData);
@@ -294,8 +63,6 @@ function App() {
     const [gridRecepten, setGridRecepten] = useState(emptyData)
 
     useEffect(() => { onUpdateTableData(); }, [tableData]);
-
-
 
     // TABLE gerelateerd
     function getTableDataSums() {
@@ -351,25 +118,113 @@ function App() {
         setGridRecepten(updatedGridReceptenContent);
     };
 
+    // Check of de Skill aan de vereisten vodloet
+    function meetsAllPrerequisites(selectedSkill) {
+        let result = false;
+        if (selectedSkill) {
+            const reqSkill = selectedSkill.Requirements.skill;
+            const reqAny = selectedSkill.Requirements.any_list;
+
+            // exit early
+            if (reqSkill.length === 0 & reqAny.length === 0) { result = true; }
+            else {
+                result = true;
+
+                // skill
+                for (let i = 0; i < reqSkill.length; i++) {
+                    let requiredSkill = tableData.some((record) => record.skill === reqSkill[i])
+                    if (!requiredSkill) {
+                        result = false;
+                        setModalMsg("Dit item mist de vereiste vaardigheid: \n" + reqSkill[i] + ". \nToevoegen is niet toegestaan.\n");
+                        break;
+                    }
+                }
+                // any_list
+                for (let i = 0; i < reqAny.length; i++) {
+                    let requiredSkill = tableData.some((record) => record.skill.includes(reqAny[i]))
+                    if (!requiredSkill) {
+                        result = false;
+                        setModalMsg("Dit item mist de vereiste vaardigheid: \neen van de " + reqAny[i] + ". \nToevoegen is niet toegestaan.\n");
+                        break;
+                    }
+                }
+            }
+        }
+        else {
+            console.warn("This skill should have been found, but was undefined");
+        }
+        return result;
+    }
+
+    // Check of de skill een vereiste is voor een van de gekozen skills
+    function isSkillAPrerequisiteToAnotherSkill(skillName) {
+        let isPrerequisite = false;
+        // exist early
+        if (tableData.length > 1) {
+            for (const item of tableData) {
+                if (item.skill === skillName) { continue; }
+                else if (item.Requirements.skill.length === 0 &
+                    item.Requirements.any_list.length === 0) { continue; }
+                else {
+                    // skill
+                    const reqSkill = item.Requirements.skill;
+                    for (let i = 0; i < reqSkill.length; i++) {
+                        if (skillName === reqSkill[i]) {
+                            isPrerequisite = true;
+                            setModalMsg("Dit item is een vereiste voor vaardigheid:\n " + item.skill + " \nVerwijderen is niet toegestaan.\n");
+                            break;
+                        }
+                    }
+                    // any_list
+                    const reqAny = item.Requirements.any_list;
+                    for (let i = 0; i < reqAny.length; i++) {
+                        if (skillName.includes(reqAny[i])) {
+                            isPrerequisite = true;
+                            setModalMsg("Dit item is een vereiste voor vaardigheid: \n" + item.skill + " \nVerwijderen is niet toegestaan.\n");
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return isPrerequisite;
+    }
+
     /// --- TABLE CONTENT --- ///
-    const handleAddToTable = () => {
+    function handleAddToTable() {
         if (selectedSkill) {
             const selectedRecord = sourceVaardigheden.find((record) => record.skill === selectedSkill.value);
-            if (totalXP < 15 | selectedRecord.xp === 0) {
+            const hasRequiredSkills = meetsAllPrerequisites(selectedRecord);
+
+            // Check de XP limiet
+            if ((totalXP + selectedRecord.xp) <= 15 | selectedRecord.xp === 0) {
                 const cannotBeAdded = tableData.some((record) => record.skill === selectedSkill.value);
 
                 // exit early
                 if (cannotBeAdded) {
-                    setModalMsg("Dit item is al geselecteerd en kan niet vaker aangekocht worden.");
+                    setModalMsg("Dit item is al geselecteerd. \nToevoegen is niet toegestaan.\n");
                     setShowModal(true);
                 }
+                else if (!hasRequiredSkills) { setShowModal(true); }
                 else {
                     setTableData((prevData) => [...prevData, selectedRecord]);
                     setSelectedSkill('');
                 }
             }
             else {
-                setModalMsg("Maximum XP (15) bereikt. Dit item mag niet aangekocht worden.");
+                if (!hasRequiredSkills) {
+                    // function heeft de modal msg al gezet.
+                }
+                else if (totalXP < 15) {
+                    setModalMsg("Maximum xp (15) zal worden overschreden. \nDeze skill kost: " + selectedRecord.xp + ". \nToevoegen is niet toegestaan.\n");
+                }
+                else if (totalXP === 15) {
+                    setModalMsg("Maximum XP (15) bereikt. \nToevoegen is niet toegestaan.\n");
+                }
+                else {
+                    console.warn("There should be a reason, but no reason was set.")
+                    setModalMsg("Er ging iets fout...");
+                }
                 setShowModal(true);
             }
         }
@@ -377,7 +232,13 @@ function App() {
 
     // Verwijderen uit de tabel, updaten van grid
     function handleDelete(row) {
-        setTableData((prevData) => prevData.filter((item) => item.skill !== row.skill));
+        // check of het een vereiste is
+        const isPrerequiriste = isSkillAPrerequisiteToAnotherSkill(row.skill);
+        if (isPrerequiriste) { setShowModal(true); }
+        else {
+            // Item weghalen uit grid
+            setTableData((prevData) => prevData.filter((item) => item.skill !== row.skill));
+        }
     };
 
     function handleAdd(row) {
@@ -396,12 +257,12 @@ function App() {
             }
             else {
                 // Inbouwen extra zekerheid dat items niet twee keer in het grid komen.
-                setModalMsg("Maximum bereikt, dit item mag niet vaker aangekocht worden.");
+                setModalMsg("Maximum bereikt. \nToevoegen is niet toegestaan.\n");
                 setShowModal(true);
             }
         }
         else {
-            setModalMsg("Maximum XP (15) bereikt. Dit item mag niet aangekocht worden.");
+            setModalMsg("Maximum XP (15) bereikt. \nToevoegen is niet toegestaan.\n");
             setShowModal(true);
         }
     };
