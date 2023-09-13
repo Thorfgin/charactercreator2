@@ -112,19 +112,25 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
 
     // Tooltip vaardigheid
     else if (isSkill === true) {
-        let requirements = "";
-        if (sourceSkill.Requirements.skill.length > 0) { sourceSkill.Requirements.skill.join(", "); }
+        let newRequirements = "";
+        const requiredSkills = sourceSkill.Requirements.skill;
+        const requiredAny = sourceSkill.Requirements.any_list;
+
+        // check skills
+        if (sourceSkill.Requirements.skill.length > 0) {
+            requiredSkills.forEach((item) => newRequirements += (newRequirements === "" ? item : ", " +item ))
+        };
+
+        // check any_list
         if (sourceSkill.Requirements.any_list.length > 0) {
-            requirements += ", een van de " + sourceSkill.Requirements.any_list.join(", een van de ");
-        }
+            requiredAny.forEach((item) => newRequirements += (newRequirements === "" ? "Een van de " + item : ", een van de " + item))
+        };
 
-        data = [
-            { label: 'xp', value: sourceSkill.xp },
-            { label: 'requirements', value: requirements },
-            { label: 'description', value: sourceSkill.description }
-        ].map((item) => (data[item.label] = item.value));
-
-        data = data !== {} ? data : { description: 'Vaardigheid informatie kon niet gevonden worden.' };
+        data = {
+            xp: sourceSkill.xp,
+            requirements: newRequirements,
+            description: sourceSkill.description
+        };
     }
     else {
         console.warn("This item should have been found: ", skillName, "isSpell: ", isSpell, "isSkill: ", isSkill, "Data: ", sourceSkill);
@@ -146,7 +152,7 @@ function getMappingFromData(data, isSkill, isSpell, isRecipy) {
                 <td className="tooltip-property">{item.label}:</td>
                 <td className="tooltip-value">{item.value}</td>
             </tr>
-        ))
+        ));
     }
     else if (isSpell === true) {
         return [
@@ -160,7 +166,7 @@ function getMappingFromData(data, isSkill, isSpell, isRecipy) {
                 <td className="tooltip-property">{item.label}:</td>
                 <td className="tooltip-value">{item.value}</td>
             </tr>
-        ))
+        ));
     }
     else if (isRecipy === true) {
         return [
@@ -172,7 +178,7 @@ function getMappingFromData(data, isSkill, isSpell, isRecipy) {
                 <td className="tooltip-property">{item.label}:</td>
                 <td className="tooltip-value">{item.value}</td>
             </tr>
-        ))
+        ));
     }
     else {
         console.warn("Expected either isSkill, isSpell or isRecipy to be true, but found none")

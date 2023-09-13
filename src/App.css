@@ -8,7 +8,7 @@
         margin: 10px;
     }
 
-        .App header, h1, h2, h3, h4, h5 {
+        .App header, h1, h2, h3, h4, h5, h6 {
             display: block;
             justify-content: center;
             width: 100%;
@@ -79,7 +79,6 @@
         font-family: 'Inknut Antiqua', serif;
         padding: 0px;
         font-size: 12px;
-        border: 2px solid rgba(0, 0, 0, 0.2);
     }
 
         .App footer div {
@@ -100,7 +99,7 @@
     line-height: 24px;
 }
 
-/* Adjust the width of the select component and the button */
+/* select component */
 .select-container {
     display: flex;
     align-items: center;
@@ -120,11 +119,10 @@
     font-size: 12px;
 }
 
-
+/* main skill table*/
 .App-table table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #ccc;
 }
 
 .App-table th {
@@ -139,12 +137,45 @@
     border-radius: .35rem;
     max-height: 12px;
     text-align: left;
-    white-space: nowrap; /* Prevent text from wrapping within cells */
+    white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 12px;
 }
 
+/* main skill table - tabel rij eigenschappen */
+.col-vaardigheid {
+    min-width: 250px;
+}
+
+.col-acties {
+    min-width: 50px;
+}
+
+.acties {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.acties-tooltip {
+    display: flex;
+    left: 0px;
+    width: 16px;
+    justify-content: flex-start;
+}
+
+.acties-overige {
+    display: flex;
+    right: 0px;
+    width: 48px;
+    justify-content: flex-end;
+    margin-left: 12px;
+}
+
+
+/* Character eigenschappen + Spreuken, Technieken & Recepten */
 .side-containers {
     display: flex;
     justify-content: center;
@@ -182,47 +213,7 @@
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.grid-spreuken, .grid-recepten {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr); /* One item per row */
-    gap: 2px;
-    width: 100%;
-    margin: 2px;
-    padding: 0px;
-}
-
-.grid-spreuk-item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    min-width: 200px;
-    width: 100% auto;
-    height: 18px;
-    padding-left: 5px;
-    padding-right: 5px;
-    background-color: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: .35rem;
-}
-
-.grid-spreuk-text {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-family: 'Inknut Antiqua', serif;
-    font-size: 10px;
-    font-display: auto;
-    line-height: 24px;
-}
-
+/* Grid Eigenschappen */
 .grid-eigenschappen {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two items per row */
@@ -259,45 +250,51 @@
     background-position: center;
 }
 
-.col-vaardigheid {
-    min-width: 250px;
-}
-
-.col-acties {
-    min-width: 50px;
-}
-
-.actie {
+/* Grid Spreuk & Recepten */
+.grid-spreuken, .grid-recepten {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* One item per row */
+    gap: 2px;
     width: 100%;
+    margin: 2px;
+    padding: 0px;
 }
 
-.acties {
+.grid-spreuk-item {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
-}
-
-.acties-tooltip {
-    display: flex;
-    left: 0px;
-    width: 16px;
     justify-content: flex-start;
+    min-width: 200px;
+    width: 100% auto;
+    height: 18px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: .35rem;
 }
 
-.acties-overige {
-    display: flex; 
-    right: 0px;
-    width: 48px;
-    justify-content: flex-end;
+.grid-spreuk-text {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 10px;
+    font-display: auto;
 }
 
+/* btn eigenschappen */
 .btn-image {
     max-width: 16px;
     max-height: 16px;
     object-fit: contain;
     cursor: pointer;
     vertical-align: middle;
+    padding-left: 2px;
 }
 
 .btn-primary {
@@ -359,7 +356,7 @@
         transform: translateY(0);
     }
 
-/* Styles for the modal */
+/* modal eigenschappen */
 .modal-overlay {
     display: flex;
     position: fixed;
@@ -384,59 +381,46 @@
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* tooltip eigenschappen */
 .tooltip-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     height: 100%;
     margin: 0;
     padding: 0;
     line-height: 24px;
 }
 
-/* Show the tooltip when hovering over the image */
-.tooltip-container:hover .tooltip-overlay {
-    display: block;
-}
+    .tooltip-container:hover .tooltip-overlay {
+        display: block;
+    }
 
-/* Tooltip overlay */
 .tooltip-overlay {
-    display: none; /* Initially hide the tooltip */
+    display: none; 
     position: fixed;
     top: 50%;
     left: 50%;
+    max-width: 25%;
     transform: translate(-50%, -50%);
-    background-color: #fff; /* Background color for the tooltip */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow for a tooltip effect */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 10px;
-    z-index: 1; /* Ensure the tooltip appears above other content */
-    max-width: 25%; /* Set maximum width to 30% of the screen width */
+    z-index: 1;
 }
 
-/* Tooltip content styles */
-.tooltip {
+/* tooltip tabel eigenschapen */
+.tooltip-table {
+    display: initial;
     font-size: 12px;
     line-height: 1.2;
     color: #333;
+    background-color: #fff;
+    border: hidden;
 }
 
-/* Table styles */
-.tooltip-table {
-    width: 100%;
-    table-layout: auto;
-    border-collapse: collapse;
-}
-
-    /* Style for table cells */
     .tooltip-table td {
         vertical-align: top;
-        word-wrap: break-word;
-        max-width: 1%;
-        font-size: 12px;
+        border: hidden;
+        white-space: normal;
     }
 
-    .tooltip-table tooltip-property {
-        justify-content: flex-start;
-        text-align: left;
-        min-width: 15%;
-    }

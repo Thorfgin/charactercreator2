@@ -1,3 +1,7 @@
+
+	DEV or PROD BUILDS
+    - To begin the development, run `npm start` or `yarn start`.
+    - To create a production bundle, use `npm run build` or `yarn build`.
 	
 	SPELLS & TECHNIQUES
 	Spells and Techniques can be converted by running the pdf-reader_spreuken.js
@@ -20,16 +24,16 @@
 	- Check the tooltips for faults
 
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
 	TODO:
 
 	MUST
-
+	
 
 	SHOULD:
 	- PREREQUISITES: check for prerequisistes to prevent invalid selection of skills 
 	- PREREQUISITES: stop removing of a skill when other skills are dependant on it as requirement
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
-	- button TOP: export Character >> JSON format
 
 	COULD:
 	- integration with VOIDWALKER / create new characters
@@ -37,10 +41,16 @@
 		> Needs to be done from within a player portal?
 
 	WOULD: 
-	- Sleur en Pleur in de skill tabel of andere manier van herschikken.
+	- Drag and Drop in the skill table, or other method of rearranging item
+	- EXPORT BUILD: Export the current skillset into a downloadable file
+	- IMPORT BUILD: Import a local file and set it as the current skillset
+	- PRESETS: Ability to click some preset-character builds somewhere
+	- EXPORT CHARACTER: Export the character overview as a PDF, for easy use at the event.
 
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+	20230913	SKILLS: Tooltip is properly formatted and shows the right content.
 	20230912	SKILLS have Tooltips available
 	
 	20230911    SPELLS/RECIPIES can be converted to JSON per script
