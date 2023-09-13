@@ -35,7 +35,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: |
-            build/* # Change this to the path where your build artifacts are generated
+            build/**
           tag_name: v${{ github.run_number }}
           release_name: Release ${{ github.run_number }}
 
