@@ -1,73 +1,87 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+	DEV or PROD BUILDS
+    - To begin the development, run `npm start` or `yarn start`.
+    - To create a production bundle, use `npm run build` or `yarn build`.
+	
+	SKILLS
+	Sadly it's still all manual, might attempt to automate it somewhat in the future.
+	For now: it's sadly-peanutbutter.
 
-## Available Scripts
+	SPELLS & TECHNIQUES
+	Spells and Techniques can be converted by running the pdf-reader_spreuken.js
+	
+	- Download the Spreuken PDF to the downloads folder
+	- Run the pdf-reader_spreuken.js
+	- Check the spells/technique tooltips for faults
 
-In the project directory, you can run:
+	RECIPIES
+	Recipies are created by reading the PDF files with Tabula
+	URL: https://tabula.technology/
 
-### `npm start`
+	- Start Tabula
+	- Select the PDF
+	- Create a selection over the tables
+	- Export as JSON (data)
+	- Place in Download folder
+	- Run tabula-reader_recepten.js for each loresheet
+	- Copy the results into recepten.json
+	- Check the recipy tooltips for faults
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+	TODO:
 
-### 'npx kill-port 3000'
-Stops the current proces on port 3000
+	MUST
+	
 
-### `npm test`
+	SHOULD:
+	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+	COULD:
+	- integration with VOIDWALKER / create new characters
+		> this requires integration on perhaps and API level
+		> Needs to be done from within a player portal?
 
-### `npm run build`
+	WOULD: 
+	- Drag and Drop in the skill table, or other method of rearranging item
+	- EXPORT BUILD: Export the current skillset into a downloadable file
+	- IMPORT BUILD: Import a local file and set it as the current skillset
+	- PRESETS: Ability to click some preset-character builds somewhere
+	- EXPORT CHARACTER: Export the character overview as a PDF, for easy use at the event.
+	- LORESHEET: column contains an actual link to the loresheet itself
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+	DONE:
+	
+	20230913	PREREQUISITES: check for prerequisistes to prevent invalid selection of skills 
+				PREREQUISITES: stop removing of a skill when other skills are dependant on it as requirement
+				SKILLS: Tooltip is properly formatted and shows the right content.
+	
+	20230912	SKILLS have Tooltips available
+	
+	20230911    SPELLS/RECIPIES can be converted to JSON per script
+	
+	20230908	SPELLS/RECIPIES have tooltips
+	
+	20230905	RECIPY gives a summary of the selected spells aquired by skills
+				SPELLS & TECHNIQUE gives a summary of the selected spells aquired by skills
+				RESET: button on TOP reset the Character Creator, clears all tables.
+	
+	20230901 	Character properties are added/subtracted on the selection of sklls
+				if already present, than numeric values are adjusted accordinly. 
+				JSON should contain the relevant properties under 'Eigenschappen':
+				"Eigenschappen": {
+					"hitpoints": 0,
+					"armourpoints": 0,
+					"elemental_mana": 0,
+					"elemental_ritual_mana": 0,
+					"spiritual_mana": 0,
+					"spiritual_ritual_mana": 0,
+					"inspiration": 0,
+					"willpower": 0,
+					"glyph_cap": 0,
+					"glyph_imbue_cap": 0,
+					"rune_cap": 0,
+					"rune_imbue_cap": 0
+				  }
