@@ -36,11 +36,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Debug Token Permissions
-        run: |
-          echo "GITHUB_TOKEN: $GITHUB_TOKEN"
-          curl -H "Authorization: token $GITHUB_TOKEN"
-
       - name: Create Release
         id: Create_Release
         uses: actions/create-release@v1
