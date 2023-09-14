@@ -5,7 +5,6 @@ import { sourceVaardigheden, sourceSpreuken, sourceRecepten } from './App.js'
 export function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill }) {
     const [showTooltip, setShowTooltip] = useState(false);
     const handleMouseOver = () => setShowTooltip(true);
-    const handleMouseOut = () => setShowTooltip(false);
     const closeTooltip = () => setShowTooltip(false);
 
     // ophalen Skill & Spreuk of Recept data uit bronbestand
@@ -13,7 +12,7 @@ export function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill }) {
     let data = getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName);  
 
     return (
-        <div className="tooltip-container" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        <div className="tooltip-container" onMouseEnter={handleMouseOver}>
             <img
                 className="btn-image"
                 src="./images/img-info.png"
