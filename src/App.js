@@ -22,7 +22,7 @@ let totalXP = 0; // Berekende totaal waarde
 export const sourceVaardigheden = vaardigheden.Vaardigheden;
 export const sourceSpreuken = [].concat(...spreuken.Categories.map(category => category.Skills));
 export const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
-let skillOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill }));
+let skillOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
 
 export const defaultProperties = [
     { name: 'hitpoints', image: 'images/image_hp.jpg', text: 'HP', value: 1 },
@@ -93,8 +93,9 @@ function App() {
     function onUpdateTableData() {
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
         if (tableData.length >= 0) {
-            const allOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill }));
+            const allOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
             skillOptions = allOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value));
+            console.log(skillOptions);
         }
 
         // karakter eigenschappen container
