@@ -1,5 +1,5 @@
 
-	[![CI/CD Master](https://github.com/Thorfgin/charactercreator/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/Thorfgin/charactercreator/actions/workflows/node.js.yml)
+	[![node.js](https://github.com/Thorfgin/charactercreator/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/Thorfgin/charactercreator/actions/workflows/node.js.yml)
 	![License](https://img.shields.io/github/license/Thorfgin/charactercreator)
 
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
