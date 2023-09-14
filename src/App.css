@@ -26,8 +26,8 @@
 
     /* Tooltip overlay */
     .tooltip-overlay {
-        min-width: 25rem;
-        max-width: 80%; /* Adjust the maximum width for mobile devices */
+        display: fixed;
+        width: 35rem;
         top: 50%;
         left: 0%;
         transform: translate(-75%, -50%);
