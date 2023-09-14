@@ -1,32 +1,6 @@
 
-	DEV or PROD BUILDS
-    - To begin the development, run `npm start` or `yarn start`.
-    - To create a production bundle, use `npm run build` or `yarn build`.
-	- To see the production build use `serve -s build`
-
-	SKILLS
-	Sadly it's still all manual, might attempt to automate it somewhat in the future.
-	For now: it's sadly-peanutbutter.
-
-	SPELLS & TECHNIQUES
-	Spells and Techniques can be converted by running the pdf-reader_spreuken.js
-	
-	- Download the Spreuken PDF to the downloads folder
-	- Run the pdf-reader_spreuken.js
-	- Check the spells/technique tooltips for faults
-
-	RECIPIES
-	Recipies are created by reading the PDF files with Tabula
-	URL: https://tabula.technology/
-
-	- Start Tabula
-	- Select the PDF
-	- Create a selection over the tables
-	- Export as JSON (data)
-	- Place in Download folder
-	- Run tabula-reader_recepten.js for each loresheet
-	- Copy the results into recepten.json
-	- Check the recipy tooltips for faults
+	![CI/CD](https://github.com/Thorfgin/charactercreator/workflows/CI/CD Master/badge.svg)
+	![License](https://img.shields.io/github/license/Thorfgin/charactercreator)
 
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
