@@ -25,7 +25,7 @@ export const sourceRecepten = [].concat(...recepten.Categories.map(category => c
 let skillOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
 
 export const defaultProperties = [
-    { name: "hitpoints", image: "./images/image_hp.png", text: "HP", value: 1 },
+    { name: "hitpoints", image: "./images/image_hp.png", text: "Totaal HP", value: 1 },
     { name: "armourpoints", image: "./images/image_ap.png", text: "Max AP", value: 0 },
     { name: "elemental_mana", image: "./images/image_em.png", text: "Elementaire Mana", value: 0 },
     { name: "elemental_ritual_mana", image: "./images/image_erm.png", text: "Rituele Elementaire Mana", value: 0 },
