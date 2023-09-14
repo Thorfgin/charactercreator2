@@ -27,15 +27,22 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
+
     steps:
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Debug Token Permissions
+        run: |
+          echo "GITHUB_TOKEN: $GITHUB_TOKEN"
+          curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/user/repos
+
+      - name: Create Pre-release
+        id: Create_pre-release
+        uses: actions/create-pre-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
+          tag_name: v0.${{ github.run_number }}
+          release_name: Pre-release 0.${{ github.run_number }}
           draft: false
           prerelease: true
+
 
