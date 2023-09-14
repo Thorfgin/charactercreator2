@@ -5,7 +5,7 @@ import { sourceVaardigheden, defaultProperties } from './App.js'
 export function GridEigenschapItem({ image, text, value }) {
     return (
         <div className="grid-eigenschap-item">
-            <div className="grid-eigenschap-image" style={{ backgroundImage: `url(${image})` }} />
+            <div className="grid-eigenschap-image" style={{ backgroundImage: "url(" + image + ")" }} />
             <div className="grid-eigenschap-text">{text}: {value}</div>
         </div>
     );

@@ -201,8 +201,8 @@
 .side-container-b {
     display: flex;
     flex-direction: column;
-    min-width: 200px;
-    width: 200px auto;
+    min-width: 275px;
+    width: 275px auto;
     max-width: 25%;
     height: auto;
     align-items: center;
@@ -217,28 +217,39 @@
 /* Grid Eigenschappen */
 .grid-eigenschappen {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two items per row */
+    grid-template-columns: repeat(3, 1fr); /* Two items per row */
     gap: 10px;
     margin: 10px;
     padding: 0px;
 }
 
 .grid-eigenschap-item {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
     width: 75px;
-    height: 75px;
+    min-height: 75px; 
+    height: 100%;
     background-color: #ffffff;
     border: 2px solid rgba(0, 0, 0, 0.2);
     border-radius: .35rem;
 }
 
+.grid-eigenschap-image {
+    background-position: top;
+    background-repeat: no-repeat;
+    width: 75px;
+    min-height: 65px;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+}
+
 .grid-eigenschap-text {
-    display: flex;
-    align-items: flex-end;
     justify-content: center;
-    width: 95%;
-    height: 95%;
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    height: auto;
     text-align: center;
     font-family: 'Inknut Antiqua', serif;
     font-size: 10px;
@@ -246,10 +257,6 @@
     line-height: 12px;
 }
 
-.grid-eigenschap-image {
-    background-size: cover;
-    background-position: center;
-}
 
 /* Grid Spreuk & Recepten */
 .grid-spreuken, .grid-recepten {

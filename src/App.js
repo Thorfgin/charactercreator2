@@ -25,37 +25,37 @@ export const sourceRecepten = [].concat(...recepten.Categories.map(category => c
 let skillOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
 
 export const defaultProperties = [
-    { name: 'hitpoints', image: 'images/image_hp.jpg', text: 'HP', value: 1 },
-    { name: 'armourpoints', image: 'images/image_ap.jpg', text: 'Max AP', value: 0 },
-    { name: 'elemental_mana', image: 'images/image_em.jpg', text: 'Elementaire Mana', value: 0 },
-    { name: 'elemental_ritual_mana', image: 'images/image_erm.jpg', text: 'Rituele Elementaire Mana', value: 0 },
-    { name: "spiritual_mana", image: 'images/image_sm.jpg', text: 'Spirituele Mana', value: 0 },
-    { name: "spiritual_ritual_mana", image: 'images/image_srm.jpg', text: 'Rituele Spirituele Mana', value: 0 },
-    { name: "inspiration", image: 'images/image_ins.jpg', text: 'Inspiratie', value: 0 },
-    { name: "willpower", image: 'images/image_wil.jpg', text: 'Wilskracht', value: 0 },
-    { name: "glyph_craft_cap", image: 'images/image_glp.jpg', text: 'Glyph cap', value: 0 },
-    { name: "glyph_imbue_cap", image: 'images/image_glp_imb.jpg', text: 'Glyph Imbue cap', value: 0 },
-    { name: "rune_craft_cap", image: 'images/image_run.jpg', text: 'Rune cap', value: 0 },
-    { name: "rune_imbue_cap", image: 'images/image_run_imb_.jpg', text: 'Rune Imbue cap', value: 0 }
-]
+    { name: "hitpoints", image: "./images/image_hp.png", text: "HP", value: 1 },
+    { name: "armourpoints", image: "./images/image_ap.png", text: "Max AP", value: 0 },
+    { name: "elemental_mana", image: "./images/image_em.png", text: "Elementaire Mana", value: 0 },
+    { name: "elemental_ritual_mana", image: "./images/image_erm.png", text: "Rituele Elementaire Mana", value: 0 },
+    { name: "spiritual_mana", image: "./images/image_sm.png", text: "Spirituele Mana", value: 0 },
+    { name: "spiritual_ritual_mana", image: "./images/image_srm.png", text: "Rituele Spirituele Mana", value: 0 },
+    { name: "inspiration", image: "./images/image_ins.png", text: "Inspiratie", value: 0 },
+    { name: "willpower", image: "./images/image_wil.png", text: "Wilskracht", value: 0 },
+    { name: "glyph_craft_cap", image: "./images/image_glp.png", text: "Glyph cap", value: 0 },
+    { name: "glyph_imbue_cap", image: "./images/image_glp_imb.png", text: "Glyph Imbue cap", value: 0 },
+    { name: "rune_craft_cap", image: "./images/image_run.png", text: "Rune cap", value: 0 },
+    { name: "rune_imbue_cap", image: "./images/image_run_imb.png", text: "Rune Imbue cap", value: 0 }
+];
 
 const gridData = [defaultProperties[0], defaultProperties[1]];
 const emptyData = [];
 
 // Tabel Vaardigheden
 const columns = [
-    { Header: 'ID', accessor: 'id', className: "col-id" },
-    { Header: 'Vaardigheid', accessor: 'skill', className: "col-vaardigheid" },
-    { Header: 'XP Kosten', accessor: 'xp', className: "col-xp" },
-    { Header: 'Loresheet', accessor: 'loresheet', className: "col-loresheet", Cell: ({ value }) => (value ? 'Ja' : ''), },
-    { Header: 'Aantal keer', accessor: 'count', className: "col-aantalkeer" },
+    { Header: "ID", accessor: "id", className: "col-id" },
+    { Header: "Vaardigheid", accessor: "skill", className: "col-vaardigheid" },
+    { Header: "XP Kosten", accessor: "xp", className: "col-xp" },
+    { Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: ({ value }) => (value ? "Ja" : ""), },
+    { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
 ];
 
 
 /// --- MAIN APP --- ///
 function App() {
     const [tableData, setTableData] = useState(emptyData);
-    const [selectedSkill, setSelectedSkill] = useState('');
+    const [selectedSkill, setSelectedSkill] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("")
     const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
@@ -95,7 +95,6 @@ function App() {
         if (tableData.length >= 0) {
             const allOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
             skillOptions = allOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value));
-            console.log(skillOptions);
         }
 
         // karakter eigenschappen container
