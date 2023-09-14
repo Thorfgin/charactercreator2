@@ -9,6 +9,7 @@
 	MUST
 
 	SHOULD:
+
 	- Change Error messages (modals) to a (!) img with mouseover 
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
 
@@ -28,8 +29,9 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
-	
-	20230914	Created CI/CD to build and deploy to GitHub Pages:
+	20230914	GRID CHAR PROPERTIES Each block should have an image	
+				SELECT: Added XP cost to each skill label
+				Created CI/CD to build and deploy to GitHub Pages:
 				https://thorfgin.github.io/charactercreator/
 
 	20230913	PREREQUISITES: check for prerequisistes to prevent invalid selection of skills 
