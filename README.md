@@ -1,5 +1,5 @@
 
-	![CI/CD Master](https://github.com/Thorfgin/charactercreator/workflows/CI/CD Master/badge.svg)
+	![CI/CD Master](https://github.com/Thorfgin/charactercreator/workflows/CI/CD%20Master/badge.svg)
 	![License](https://img.shields.io/github/license/Thorfgin/charactercreator)
 
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -29,6 +29,9 @@
 
 	DONE:
 	
+	20230914	Created CI/CD to build and deploy to GitHub Pages:
+				https://thorfgin.github.io/charactercreator/
+
 	20230913	PREREQUISITES: check for prerequisistes to prevent invalid selection of skills 
 				PREREQUISITES: stop removing of a skill when other skills are dependant on it as requirement
 				SKILLS: Tooltip is properly formatted and shows the right content.
