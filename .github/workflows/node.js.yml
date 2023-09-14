@@ -13,12 +13,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x, 20.x]
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: npm install
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      -  run: npm ci
 
       - name: Build
         run: npm run build
@@ -26,22 +34,21 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
-
-
+    
     steps:
       - name: Debug Token Permissions
         run: |
           echo "GITHUB_TOKEN: $GITHUB_TOKEN"
-          curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/user/repos
+          curl -H "Authorization: token $GITHUB_TOKEN"
 
-      - name: Create Pre-release
-        id: Create_pre-release
-        uses: actions/create-pre-release@v1
+      - name: Create Release
+        id: Create_Release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v0.${{ github.run_number }}
-          release_name: Pre-release 0.${{ github.run_number }}
+          release_name: release 0.${{ github.run_number }}
           draft: false
           prerelease: true
 
