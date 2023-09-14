@@ -1,5 +1,5 @@
 
-	![CI/CD](https://github.com/Thorfgin/charactercreator/workflows/CI/CD Master/badge.svg)
+	![CI/CD Master](https://github.com/Thorfgin/charactercreator/workflows/CI/CD Master/badge.svg)
 	![License](https://img.shields.io/github/license/Thorfgin/charactercreator)
 
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -7,9 +7,9 @@
 	TODO:
 
 	MUST
-	
 
 	SHOULD:
+	- Change Error messages (modals) to a (!) img with mouseover 
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
 
 	COULD:
