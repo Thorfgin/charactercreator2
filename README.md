@@ -2,7 +2,8 @@
 	DEV or PROD BUILDS
     - To begin the development, run `npm start` or `yarn start`.
     - To create a production bundle, use `npm run build` or `yarn build`.
-	
+	- To see the production build use `serve -s build`
+
 	SKILLS
 	Sadly it's still all manual, might attempt to automate it somewhat in the future.
 	For now: it's sadly-peanutbutter.
