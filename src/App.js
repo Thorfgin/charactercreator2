@@ -460,7 +460,7 @@ function App() {
                     </div>
                     <div className="side-container-a">
                         <div className="summary-title">
-                            <h5>Spreuken & Techieken</h5>
+                            <h5>Spreuken & Technieken</h5>
                         </div>
                         <div className="grid-spreuken">
                             {gridSpreuken?.map((item, index) => (
