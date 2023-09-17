@@ -2185,7 +2185,126 @@
       "description": "Je kunt ‘Andere wezens’ (OTHER BEINGS) genezen. Dit zijn wezens zoals Servitars, Spirits, Elementals, Ondoden, etc. Deze zijn normaliter niet te genezen met reguliere genezing, al zijn hier uitzonderingen op. Met deze vaardigheid kun je deze wezens, ondanks dat ze anders zijn, dus wel genezen. Een genezer met deze vaardigheid kan met het uitvoeren van een DISCERN-spreuk, of de diagnostiek vaardigheid vaststellen of de ontvanger een OTHER BEING is. DISCERN-spreuken zijn Discern Wounds, Discern Diseases, Discern Diseases & Afflictions en Discern Poisons. Een caster kan het wezen vervolgens genezen door zijn reguliere incantatie aan te passen en ergens in het tweede deel van de incantatie de woorden ‘other being’ te stoppen. Met deze aangepaste incantatie kan een niet-’other being’ niet genezen worden.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Genezingspreuken A", "Diagnostiek", "Priesterspreuken A", "Magiërspreuken A" ]
+        "any_list": [ "Genezingsspreuken A", "Diagnostiek", "Priesterspreuken A", "Magiërspreuken A" ]
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 87,
+      "skill": "Extra Wilskracht",
+      "alt_skill": "",
+      "category": "Extra Heelmeestervaardigheden",
+      "description": "Je krijgt 2 extra willpower per dag. \n\nJe hebt geleerd om met je innerlijke kracht meer technieken en acties te kunnen uitvoeren. Je krijgt geen toegang tot extra technieken.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Doorzettingsvermogen", "Eerste hulp bij gevechten" ]
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 89,
+      "skill": "",
+      "alt_skill": "",
+      "category": "",
+      "description": "",
+      "Requirements": {
+        "skill": [],
+        "any_list": []
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 90,
+      "skill": "",
+      "alt_skill": "",
+      "category": "",
+      "description": "",
+      "Requirements": {
+        "skill": [],
+        "any_list": []
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 91,
+      "skill": "",
+      "alt_skill": "",
+      "category": "",
+      "description": "",
+      "Requirements": {
+        "skill": [],
+        "any_list": []
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 92,
+      "skill": "",
+      "alt_skill": "",
+      "category": "",
+      "description": "",
+      "Requirements": {
+        "skill": [],
+        "any_list": []
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 93,
+      "skill": "",
+      "alt_skill": "",
+      "category": "",
+      "description": "",
+      "Requirements": {
+        "skill": [],
+        "any_list": []
       },
       "xp": 1,
       "loresheet": false,

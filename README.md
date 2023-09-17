@@ -7,9 +7,12 @@
 	TODO:
 
 	MUST
+	- SKILL: ExtraSkill selection
+	- SKILL: ExtraSkill removal
+	- PREREQUISITES: Extend check on pre-requisites with ExtraSkill
+	- XP: Set a custom MAX_XP
 
 	SHOULD:
-
 	- Change Error messages (modals) to a (!) img with mouseover 
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
 

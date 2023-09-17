@@ -1,5 +1,9 @@
 import { Tooltip } from './tooltip.js'
-import { sourceBasisVaardigheden, defaultProperties } from './App.js'
+import {
+    sourceBasisVaardigheden,
+    sourceExtraVaardigheden,
+    defaultProperties
+} from './App.js'
 
 // Karakter eigenschappen griditem
 export function GridEigenschapItem({ image, text, value }) {
@@ -50,7 +54,9 @@ export function updateGridEigenschappenTiles(tableData) {
     const propertySums = defaultProperties.map((property) => (
         {
             ...property, value: tableData.reduce((sum, record) => {
-                const vaardigheid = sourceBasisVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
+                let vaardigheid = sourceBasisVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
+                if (!vaardigheid) { vaardigheid = sourceExtraVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill); }
+
                 const propertyValue = vaardigheid.Eigenschappen?.find((prop) => prop.name === property.name)?.value || 0;
                 return sum + propertyValue * record.count;
             }, property.name === "hitpoints" ? 1 : 0)
@@ -61,7 +67,9 @@ export function updateGridEigenschappenTiles(tableData) {
 // Op basis van de Spreuken, voeg nieuwe tegels toe.
 export function updateGridSpreukenTiles(tableData) {
     const spellProperties = tableData.reduce((spellsAccumulator, record) => {
-        const vaardigheid = sourceBasisVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
+        let vaardigheid = sourceBasisVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
+        if (!vaardigheid) { vaardigheid = sourceExtraVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill); }
+
         const spells = vaardigheid.Spreuken || [];
 
         spells.forEach((spell) => {
@@ -81,7 +89,9 @@ export function updateGridSpreukenTiles(tableData) {
 // Op basis van de Recepten, voeg nieuwe tegels toe.
 export function updateGridReceptenTiles(tableData) {
     const recipyProperties = tableData.reduce((recipyAccumulator, record) => {
-        const vaardigheid = sourceBasisVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
+        let vaardigheid = sourceBasisVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill);
+        if (!vaardigheid) { vaardigheid = sourceExtraVaardigheden.find((vaardigheid) => vaardigheid.skill === record.skill); }
+
         const recepten = vaardigheid.Recepten || [];
 
         recepten?.forEach((recipy) => {

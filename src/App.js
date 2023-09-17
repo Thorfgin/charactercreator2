@@ -17,6 +17,7 @@ import recepten from './json/recepten.json';
 import './App.css';
 
 let totalXP = 0; // Berekende totaal waarde
+let MAX_XP = 15;
 
 // Ophalen van de skills uit vaardigheden/spreuken/recepten
 export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
@@ -98,8 +99,11 @@ function App() {
     function onUpdateTableData() {
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
         if (tableData.length >= 0) {
-            const allOptions = sourceBasisVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
-            optionsBasisVaardigheden = allOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value));
+            const allBasicOptions = sourceBasisVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
+            optionsBasisVaardigheden = allBasicOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value));
+
+            const allExtraOptions = sourceExtraVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
+            optionsExtraVaardigheden = allExtraOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value));
         }
 
         // karakter eigenschappen container
@@ -123,7 +127,7 @@ function App() {
         setGridRecepten(updatedGridReceptenContent);
     };
 
-    // Check of de Skill aan de vereisten vodloet
+    // Check of de Skill aan de vereisten voldoet
     function meetsAllPrerequisites(selectedSkill) {
         let result = false;
         if (selectedSkill) {
@@ -131,26 +135,60 @@ function App() {
             const reqAny = selectedSkill.Requirements.any_list;
 
             // exit early
-            if (reqSkill.length === 0 & reqAny.length === 0) { result = true; }
+            if (reqSkill.length === 0 &&
+                reqAny.length === 0 &&
+                selectedSkill.skill !== "Leermeester Expertise") {
+                result = true;
+            }
             else {
                 result = true;
 
-                // skill
-                for (let i = 0; i < reqSkill.length; i++) {
-                    let requiredSkill = tableData.some((record) => record.skill === reqSkill[i])
-                    if (!requiredSkill) {
+                // Exception Early
+                if (selectedSkill.skill === "Leermeester Expertise") {
+                    let containsSkill = false;
+                    for (const item of tableData) {
+                        const requiredSkill = sourceExtraVaardigheden.some((record) => record.skill === item.skill);
+                        if (requiredSkill) {
+                            containsSkill = true;
+                            break;
+                        }
+                    }
+                    if (containsSkill === false) {
+                        setModalMsg("Deze vaardigheid kan alleen geselecteerd worden \n wanneer een Extra vaardigheid aangeleerd is.");
                         result = false;
-                        setModalMsg("Dit item mist de vereiste vaardigheid: \n" + reqSkill[i] + ". \nToevoegen is niet toegestaan.\n");
-                        break;
                     }
                 }
+
+                // skill
+                if (reqSkill.length > 0) {
+                    for (let i = 0; i < reqSkill.length; i++) {
+                        let requiredSkill = tableData.some((record) => record.skill === reqSkill[i])
+                        if (!requiredSkill) {
+                            result = false;
+                            setModalMsg("Deze vaardigheid mist een vereiste vaardigheid: \n" + reqSkill[i] + ". \nToevoegen is niet toegestaan.\n");
+                            break;
+                        }
+                    }
+                }
+
                 // any_list
-                for (let i = 0; i < reqAny.length; i++) {
-                    let requiredSkill = tableData.some((record) => record.skill.includes(reqAny[i]))
-                    if (!requiredSkill) {
+                if (reqAny.length > 0) {
+                    let reqAnySkill = false;
+                    for (let i = 0; i < reqAny.length; i++) {
+                        let requiredSkill = tableData.some((record) => record.skill.includes(reqAny[i]))
+                        if (requiredSkill === true) {
+                            reqAnySkill = true;
+                            break;
+                        }
+
+                    }
+                    // wanneer er niet voldaan is aan een van de Any_list dan niet vrijgeven.
+                    if (reqAnySkill === false && result === true) {
                         result = false;
-                        setModalMsg("Dit item mist de vereiste vaardigheid: \neen van de " + reqAny[i] + ". \nToevoegen is niet toegestaan.\n");
-                        break;
+                        setModalMsg("Dit item mist een vereiste vaardigheid. \n" +
+                            "een van de volgende:" +
+                            reqAny.map((item) => "\n" + item) + "\n" +
+                            "Toevoegen is niet toegestaan.\n");
                     }
                 }
             }
@@ -164,29 +202,47 @@ function App() {
     // Check of de skill een vereiste is voor een van de gekozen skills
     function isSkillAPrerequisiteToAnotherSkill(skillName) {
         let isPrerequisite = false;
-        // exist early
+        const containsTeacherSkill = tableData.some((record) => record.skill === "Leermeester Expertise");
+
         if (tableData.length > 1) {
-            for (const item of tableData) {
-                if (item.skill === skillName) { continue; }
-                else if (item.Requirements.skill.length === 0 &
-                    item.Requirements.any_list.length === 0) { continue; }
-                else {
-                    // skill
-                    const reqSkill = item.Requirements.skill;
-                    for (let i = 0; i < reqSkill.length; i++) {
-                        if (skillName === reqSkill[i]) {
-                            isPrerequisite = true;
-                            setModalMsg("Dit item is een vereiste voor vaardigheid:\n " + item.skill + " \nVerwijderen is niet toegestaan.\n");
-                            break;
-                        }
+            let extraSkill = [];
+            // Check leermeester expertise afhankelijkheden
+            if (containsTeacherSkill) {
+                for (const tableSkill of tableData) {
+                    const isExtraSkill = sourceExtraVaardigheden.some((record) => record.skill === tableSkill.skill)
+                    if (isExtraSkill) {
+                        extraSkill.push(tableSkill.skill);
                     }
-                    // any_list
-                    const reqAny = item.Requirements.any_list;
-                    for (let i = 0; i < reqAny.length; i++) {
-                        if (skillName.includes(reqAny[i])) {
-                            isPrerequisite = true;
-                            setModalMsg("Dit item is een vereiste voor vaardigheid: \n" + item.skill + " \nVerwijderen is niet toegestaan.\n");
-                            break;
+                }
+                if (extraSkill.length === 1) {
+                    isPrerequisite = true;
+                    setModalMsg("Dit item is een vereiste voor vaardigheid:\n Leermeester Expertise \nVerwijderen is niet toegestaan.\n");
+                }
+            }
+            // check overige vereisten
+            else if (!containsTeacherSkill || extraSkill.length > 1) {
+                for (const item of tableData) {
+                    if (item.skill === skillName) { continue; }
+                    else if (item.Requirements.skill.length === 0 &&
+                        item.Requirements.any_list.length === 0) { continue; }
+                    else {
+                        // skill
+                        const reqSkill = item.Requirements.skill;
+                        for (let i = 0; i < reqSkill.length; i++) {
+                            if (skillName === reqSkill[i]) {
+                                isPrerequisite = true;
+                                setModalMsg("Dit item is een vereiste voor vaardigheid:\n " + item.skill + " \nVerwijderen is niet toegestaan.\n");
+                                break;
+                            }
+                        }
+                        // any_list
+                        const reqAny = item.Requirements.any_list;
+                        for (let i = 0; i < reqAny.length; i++) {
+                            if (skillName.includes(reqAny[i])) {
+                                isPrerequisite = true;
+                                setModalMsg("Dit item is een vereiste voor vaardigheid: \n" + item.skill + " \nVerwijderen is niet toegestaan.\n");
+                                break;
+                            }
                         }
                     }
                 }
@@ -195,61 +251,84 @@ function App() {
         return isPrerequisite;
     }
 
+
     /// --- TABLE CONTENT --- ///
-    function handleAddToTable() {
+
+    // Voeg de geselecteerde Basis vaardigheid toe aan de tabel
+    function handleBasicSkillSelection() {
         if (selectedBasicSkill) {
-            const selectedRecord = sourceBasisVaardigheden.find((record) => record.skill === selectedBasicSkill.value);
-            const hasRequiredSkills = meetsAllPrerequisites(selectedRecord);
+            const selectedBasicRecord = sourceBasisVaardigheden.find((record) => record.skill === selectedBasicSkill.value);
+            const wasSuccesfull = handleAddToTable(selectedBasicRecord)
+            if (wasSuccesfull) { setSelectedBasicSkill(''); }
+        }
+        else {
+            console.warn("Selected Basic skill could not be found.")
+        }
+    }
 
-            // Check de XP limiet
-            if ((totalXP + selectedRecord.xp) <= 15 | selectedRecord.xp === 0) {
-                const cannotBeAdded = tableData.some((record) => record.skill === selectedBasicSkill.value);
+    // Voeg de geselecteerde Extra vaardigheid toe aan de tabel
+    function handleExtraSkillSelection() {
+        if (selectedExtraSkill) {
+            const selectedExtraRecord = sourceExtraVaardigheden.find((record) => record.skill === selectedExtraSkill.value);
+            const wasSuccesfull = handleAddToTable(selectedExtraRecord)
+            if (wasSuccesfull) { setSelectedExtraSkill(''); }
+        }
+        else {
+            console.warn("Selected Extra skill could not be found.")
+        }
+    }
 
-                // exit early
-                if (cannotBeAdded) {
-                    setModalMsg("Dit item is al geselecteerd. \nToevoegen is niet toegestaan.\n");
-                    setShowModal(true);
-                }
-                else if (!hasRequiredSkills) { setShowModal(true); }
-                else {
-                    setTableData((prevData) => [...prevData, selectedRecord]);
-                    setSelectedBasicSkill('');
-                }
+    // Handel alle controles af, alvorens het opgevoerde Record toe te voegen aan de tabel
+    function handleAddToTable(selectedRecord) {
+        const wasAlreadySelected = tableData.some((record) => record.skill === selectedRecord.skill);
+        const hasSufficientFreeXP = (totalXP + selectedRecord.xp) <= MAX_XP || selectedRecord.xp === 0;
+
+        if (wasAlreadySelected) {
+            setModalMsg("Dit item is al geselecteerd. \nToevoegen is niet toegestaan.\n");
+            setShowModal(true);
+        }
+        else if (!meetsAllPrerequisites(selectedRecord)) { setShowModal(true); }
+        else if (!hasSufficientFreeXP) {
+            if (totalXP === MAX_XP) {
+                setModalMsg(
+                    "Maximum XP (" + MAX_XP + ") bereikt. \n" +
+                    "Toevoegen is niet toegestaan.\n");
             }
-            else {
-                if (!hasRequiredSkills) {
-                    // function heeft de modal msg al gezet.
-                }
-                else if (totalXP < 15) {
-                    setModalMsg("Maximum xp (15) zal worden overschreden. \nDeze skill kost: " + selectedRecord.xp + ". \nToevoegen is niet toegestaan.\n");
-                }
-                else if (totalXP === 15) {
-                    setModalMsg("Maximum XP (15) bereikt. \nToevoegen is niet toegestaan.\n");
-                }
-                else {
-                    console.warn("There should be a reason, but no reason was set.")
-                    setModalMsg("Er ging iets fout...");
-                }
-                setShowModal(true);
+            else if (totalXP < MAX_XP) {
+                setModalMsg(
+                    "Maximum xp (" + MAX_XP + ") zal worden overschreden. \n" +
+                    "Deze skill kost: " + selectedRecord.xp + ". \n" +
+                    "Toevoegen is niet toegestaan.\n");
+            } else {
+                console.warn("There should be a reason, but no reason was set.")
+                setModalMsg("Er ging iets fout...");
             }
+            setShowModal(true);
+            return false;
+        }
+        else {
+            setTableData((prevData) => [...prevData, selectedRecord]);
+            return true;
         }
     };
 
     // Verwijderen uit de tabel, updaten van grid
     function handleDelete(row) {
         // check of het een vereiste is
-        const isPrerequiriste = isSkillAPrerequisiteToAnotherSkill(row.skill);
-        if (isPrerequiriste) { setShowModal(true); }
+        const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.skill);
+        if (isPrerequisite) { setShowModal(true); }
         else {
             // Item weghalen uit grid
             setTableData((prevData) => prevData.filter((item) => item.skill !== row.skill));
         }
     };
 
+    // Aanvullende aankopen van reeds bestaande vaardigheid
     function handleAdd(row) {
-        if (totalXP < 15) {
+        if (totalXP < MAX_XP) {
             // Source data
-            const sourceRecord = sourceBasisVaardigheden.find((record) => record.skill === row.skill);
+            let sourceRecord = sourceBasisVaardigheden.find((record) => record.skill === row.skill);
+            if (!sourceRecord) { sourceRecord = sourceExtraVaardigheden.find((record) => record.skill === row.skill) };
             const currentRecord = tableData.find((record) => record.skill === row.skill);
 
             if (currentRecord.count < sourceRecord.maxcount) {
@@ -262,19 +341,20 @@ function App() {
             }
             else {
                 // Inbouwen extra zekerheid dat items niet twee keer in het grid komen.
-                setModalMsg("Maximum bereikt. \nToevoegen is niet toegestaan.\n");
+                setModalMsg("Maximum aantal aankopen bereikt. \nToevoegen is niet toegestaan.\n");
                 setShowModal(true);
             }
         }
         else {
-            setModalMsg("Maximum XP (15) bereikt. \nToevoegen is niet toegestaan.\n");
+            setModalMsg("Maximum XP (" + MAX_XP + ") bereikt. \nToevoegen is niet toegestaan.\n");
             setShowModal(true);
         }
     };
 
     function handleSubtract(row) {
         // Source data
-        const sourceRecord = sourceBasisVaardigheden.find((record) => record.skill === row.skill);
+        let sourceRecord = sourceBasisVaardigheden.find((record) => record.skill === row.skill);
+        if (!sourceRecord) { sourceRecord = sourceExtraVaardigheden.find((record) => record.skill === row.skill) };
         const isPresent = tableData.some((record) => record.skill === row.skill);
         const currentRecord = tableData.find((record) => record.skill === row.skill);
 
@@ -296,8 +376,10 @@ function App() {
 
     // Plaats Acties in de kolom op basis van de multipurchase property
     function requestActions(row) {
-        const currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
-        if (currentItem.multi_purchase) {
+        let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
+        if (!currentItem) { currentItem = sourceExtraVaardigheden.find((record) => record.id === row.original.id); }
+
+        if (currentItem && currentItem.multi_purchase === true) {
             return (
                 <div className="acties">
                     <div className="acties-tooltip">
@@ -407,7 +489,7 @@ function App() {
                             isClearable
                             isSearchable
                         />
-                        <button className="btn-primary" onClick={handleAddToTable}>
+                        <button className="btn-primary" onClick={handleBasicSkillSelection}>
                             Toevoegen
                         </button>
                     </div>
@@ -422,7 +504,7 @@ function App() {
                             isClearable
                             isSearchable
                         />
-                        <button className="btn-primary">
+                        <button className="btn-primary" onClick={handleExtraSkillSelection}>
                             Toevoegen
                         </button>
                     </div>
