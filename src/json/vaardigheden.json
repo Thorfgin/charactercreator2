@@ -1,5 +1,5 @@
 {
-  "Vaardigheden": [
+  "BasisVaardigheden": [
     {
       "id": 1,
       "skill": "Ambidextrie",
@@ -9,7 +9,7 @@
       "Requirements": {
         "skill": [],
         "any_list": []
-       },
+      },
       "xp": 2,
       "loresheet": false,
       "multi_purchase": false,
@@ -385,7 +385,7 @@
       "category": "Pantservaardigheden",
       "description": "Een paladijn is een krijger die de zwakkeren tracht te helpen en vaak gebonden is aan een code van ridderlijkheid. Tijdens gevechten uit zich dat vaak in een combinatie van het dragen van pantser en genezersvaardigheden. \n\nDeze vaardigheid maakt het makkelijker om genezingspreuken te gebruiken in bepantsering. Om de bepantsering te kunnen dragen heb je ook de betreffende vaardigheid nodig! Je kunt met deze vaardigheid 4 armourpoints pantser dragen en nog altijd al je levels aan genezingsspreuken en paladijnspreuken gebruiken. \n\nJe kan deze vaardigheid 3 keer kopen om zo ook bij 8 armourpoints als paladijn je genezings- en paladijnspreuken te kunnen doen. Per stapje komt er een mogelijkheid voor 2 armourpoints bij namelijk.",
       "Requirements": {
-        "skill": ["Harnas I"],
+        "skill": [ "Harnas I" ],
         "any_list": [ "Genezingsspreuken A" ]
       },
       "xp": 1,
@@ -2172,6 +2172,27 @@
           "value": 2
         }
       ],
+      "Spreuken": [],
+      "Recepten": []
+    }
+  ],
+  "ExtraVaardigheden": [
+    {
+      "id": 86,
+      "skill": "Genees andere wezens",
+      "alt_skill": "",
+      "category": "Extra Algemene vaardigheden",
+      "description": "Je kunt ‘Andere wezens’ (OTHER BEINGS) genezen. Dit zijn wezens zoals Servitars, Spirits, Elementals, Ondoden, etc. Deze zijn normaliter niet te genezen met reguliere genezing, al zijn hier uitzonderingen op. Met deze vaardigheid kun je deze wezens, ondanks dat ze anders zijn, dus wel genezen. Een genezer met deze vaardigheid kan met het uitvoeren van een DISCERN-spreuk, of de diagnostiek vaardigheid vaststellen of de ontvanger een OTHER BEING is. DISCERN-spreuken zijn Discern Wounds, Discern Diseases, Discern Diseases & Afflictions en Discern Poisons. Een caster kan het wezen vervolgens genezen door zijn reguliere incantatie aan te passen en ergens in het tweede deel van de incantatie de woorden ‘other being’ te stoppen. Met deze aangepaste incantatie kan een niet-’other being’ niet genezen worden.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Genezingspreuken A", "Diagnostiek", "Priesterspreuken A", "Magiërspreuken A" ]
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
       "Spreuken": [],
       "Recepten": []
     }

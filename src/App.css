@@ -101,7 +101,8 @@
 }
 
 /* select component */
-.select-container {
+.select-basic-container, 
+.select-extra-container {
     display: flex;
     align-items: center;
     width: 100%;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { sourceVaardigheden, sourceSpreuken, sourceRecepten } from './App.js'
+import { sourceBasisVaardigheden, sourceSpreuken, sourceRecepten } from './App.js'
 
 // Tooltip component voor GridItems
 export function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill }) {
@@ -8,7 +8,7 @@ export function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill }) {
     const closeTooltip = () => setShowTooltip(false);
 
     // ophalen Skill & Spreuk of Recept data uit bronbestand
-    let sourceSkill = sourceVaardigheden.find((item) => item.skill === skillName);
+    let sourceSkill = sourceBasisVaardigheden.find((item) => item.skill === skillName);
     let data = getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName);  
 
     return (
