@@ -11,7 +11,7 @@ import {
     updateGridReceptenTiles
 } from './griditem.js'
 
-import vaardigheden from './json/basisvaardigheden.json';
+import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
 import recepten from './json/recepten.json';
 import './App.css';
@@ -19,10 +19,14 @@ import './App.css';
 let totalXP = 0; // Berekende totaal waarde
 
 // Ophalen van de skills uit vaardigheden/spreuken/recepten
-export const sourceVaardigheden = vaardigheden.Vaardigheden;
+export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
+let optionsBasisVaardigheden = sourceBasisVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
+
+export const sourceExtraVaardigheden = vaardigheden.ExtraVaardigheden;
+let optionsExtraVaardigheden = sourceExtraVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
+
 export const sourceSpreuken = [].concat(...spreuken.Categories.map(category => category.Skills));
 export const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
-let skillOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
 
 export const defaultProperties = [
     { name: "hitpoints", image: "./images/image_hp.png", text: "Totaal HP", value: 1 },
@@ -55,7 +59,8 @@ const columns = [
 /// --- MAIN APP --- ///
 function App() {
     const [tableData, setTableData] = useState(emptyData);
-    const [selectedSkill, setSelectedSkill] = useState("");
+    const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
+    const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("")
     const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
@@ -93,8 +98,8 @@ function App() {
     function onUpdateTableData() {
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
         if (tableData.length >= 0) {
-            const allOptions = sourceVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
-            skillOptions = allOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value));
+            const allOptions = sourceBasisVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
+            optionsBasisVaardigheden = allOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value));
         }
 
         // karakter eigenschappen container
@@ -192,13 +197,13 @@ function App() {
 
     /// --- TABLE CONTENT --- ///
     function handleAddToTable() {
-        if (selectedSkill) {
-            const selectedRecord = sourceVaardigheden.find((record) => record.skill === selectedSkill.value);
+        if (selectedBasicSkill) {
+            const selectedRecord = sourceBasisVaardigheden.find((record) => record.skill === selectedBasicSkill.value);
             const hasRequiredSkills = meetsAllPrerequisites(selectedRecord);
 
             // Check de XP limiet
             if ((totalXP + selectedRecord.xp) <= 15 | selectedRecord.xp === 0) {
-                const cannotBeAdded = tableData.some((record) => record.skill === selectedSkill.value);
+                const cannotBeAdded = tableData.some((record) => record.skill === selectedBasicSkill.value);
 
                 // exit early
                 if (cannotBeAdded) {
@@ -208,7 +213,7 @@ function App() {
                 else if (!hasRequiredSkills) { setShowModal(true); }
                 else {
                     setTableData((prevData) => [...prevData, selectedRecord]);
-                    setSelectedSkill('');
+                    setSelectedBasicSkill('');
                 }
             }
             else {
@@ -244,7 +249,7 @@ function App() {
     function handleAdd(row) {
         if (totalXP < 15) {
             // Source data
-            const sourceRecord = sourceVaardigheden.find((record) => record.skill === row.skill);
+            const sourceRecord = sourceBasisVaardigheden.find((record) => record.skill === row.skill);
             const currentRecord = tableData.find((record) => record.skill === row.skill);
 
             if (currentRecord.count < sourceRecord.maxcount) {
@@ -269,7 +274,7 @@ function App() {
 
     function handleSubtract(row) {
         // Source data
-        const sourceRecord = sourceVaardigheden.find((record) => record.skill === row.skill);
+        const sourceRecord = sourceBasisVaardigheden.find((record) => record.skill === row.skill);
         const isPresent = tableData.some((record) => record.skill === row.skill);
         const currentRecord = tableData.find((record) => record.skill === row.skill);
 
@@ -291,7 +296,7 @@ function App() {
 
     // Plaats Acties in de kolom op basis van de multipurchase property
     function requestActions(row) {
-        const currentItem = sourceVaardigheden.find((record) => record.id === row.original.id);
+        const currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
         if (currentItem.multi_purchase) {
             return (
                 <div className="acties">
@@ -392,17 +397,32 @@ function App() {
             </header>
             <main>
                 <div className="main-container">
-                    <div className="select-container">
+                    <div className="select-basic-container">
                         <Select
                             className="form-select"
-                            options={skillOptions}
-                            value={selectedSkill}
-                            onChange={(selectedOption) => setSelectedSkill(selectedOption)}
-                            placeholder="Selecteer een vaardigheid"
+                            options={optionsBasisVaardigheden}
+                            value={selectedBasicSkill}
+                            onChange={(selectedBasicOption) => setSelectedBasicSkill(selectedBasicOption)}
+                            placeholder="Selecteer een Basis vaardigheid"
                             isClearable
                             isSearchable
                         />
                         <button className="btn-primary" onClick={handleAddToTable}>
+                            Toevoegen
+                        </button>
+                    </div>
+
+                    <div className="select-extra-container">
+                        <Select
+                            className="form-select"
+                            options={optionsExtraVaardigheden}
+                            value={selectedExtraSkill}
+                            onChange={(selectedExtraOption) => setSelectedExtraSkill(selectedExtraOption)}
+                            placeholder="Selecteer een Extra vaardigheid"
+                            isClearable
+                            isSearchable
+                        />
+                        <button className="btn-primary">
                             Toevoegen
                         </button>
                     </div>
