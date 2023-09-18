@@ -2222,77 +2222,97 @@
     },
     {
       "id": 89,
-      "skill": "",
+      "skill": "Combineer lichamen",
       "alt_skill": "",
-      "category": "",
-      "description": "",
+      "category": "Extra Heelmeestervaardigheden",
+      "description": "Je krijgt 2 extra wilskracht per dag. \n\nJe kunt bij een ander persoon opereren gedurende een operatie van 5 minuten. Tijdens de operatie combineer je tijdelijk extra lichaamsdelen of reserve orgaan van een lijk met de patiënt. Dit resulteert er in dat de patiënt voor de rest van de dag 2 extra hitpoints heeft, 2 energie naar keuze verliest elke keer dat de patiënt uitgeschakeld (dus op 0 HP) raakt en onmiddellijk sterft als deze uitgeschakeld raakt zonder energie. De patiënt verliest slechts 1 energie als de heelmeester er voor kiest om 3 wilskracht uit te geven gedurende de operatie.\n(let op dat extra hitpoints niet stacken met bijvoorbeeld extra hitpoints van spreuken)\n\nVoor deze vaardigheid zijn physreps vereist! Zoals een operatiekit en smink/protheses.",
       "Requirements": {
-        "skill": [],
+        "skill": [ "Slagveld operatie", "Diagnostiek" ],
         "any_list": []
       },
-      "xp": 1,
+      "xp": 2,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
-      "Eigenschappen": [],
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 2
+        }
+      ],
       "Spreuken": [],
       "Recepten": []
     },
     {
       "id": 90,
-      "skill": "",
+      "skill": "Afscheidbaar gezwel",
       "alt_skill": "",
-      "category": "",
-      "description": "",
+      "category": "Extra Heelmeestervaardigheden",
+      "description": "Je krijgt 3 extra wilskracht per dag. \n\nJe kunt bij een ander persoon opereren gedurende een operatie van 5 minuten. Tijdens de operatie plaats je een afscheidbaar gezwel ergens op het lichaam van de patiënt. Als de patiënt deze dag na de operatie 3 seconden en 3 energie naar keuze spendeert dan kan deze een gif of ziekte in het gezwel forceren en daarna het gezwel doen afsterven waardoor de enchantment, gif of ziekte, en het effect ervan verdwijnt. Het gezwel is daarna ook weg en om dit nogmaals te gebruiken zou ook een nieuw gezwel geplaatst moeten worden. \n\nDe patiënt kan dit altijd doen onder invloed van een gif of ziekte (zo kan dus bijvoorbeeld een sleep poison zelf opgelost worden zonder hulp). De heelmeester kan er voor kiezen om tijdens de operatie wilskracht uit te geven om de energiekosten voor de patiënt te verlagen. Dit kost 1 wilskracht per energie.\n\nVoor deze vaardigheid zijn physreps vereist! Zoals een operatiekit en smink/protheses.",
       "Requirements": {
-        "skill": [],
+        "skill": [ "Combineer lichamen" ],
         "any_list": []
       },
-      "xp": 1,
+      "xp": 3,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
-      "Eigenschappen": [],
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
       "Spreuken": [],
       "Recepten": []
     },
     {
       "id": 91,
-      "skill": "",
+      "skill": "Creeër abominatie",
       "alt_skill": "",
-      "category": "",
-      "description": "",
+      "category": "Extra Heelmeestervaardigheden",
+      "description": "Je krijgt 3 extra wilskracht per dag. \n\nDeze vaardigheid mag maar 1 maal per evenement gebruikt worden. Je kunt bij een (buitenspels gewillig) persoon opereren gedurende een operatie van minstens een kwartier met een team van minstens 4 heelmeesters met de slagveld operatie vaardigheid. Deze operatie kost 10 wilskracht en deze koste mag verdeeld worden onder de aanwezige heelmeesters. De patiënt zal omgevormd worden tot een sterke maar afzichtelijke abominatie. De patiënt krijgt de “abominatie” condition. \n\nAbomination condition: \nDe patiënt heeft 2 extra hitpoints. De patiënt verliest 2 energie naar keuze elke keer dat de patiënt uitgeschakeld (dus op 0 HP) raakt en sterft als deze uitgeschakeld raakt zonder energie. De patiënt heeft een afscheidbaar gezwel dat na gebruik terug groeit na 5 minuten. De patiënt kan niet genezen worden tenzij de genezer de “genees andere wezens” vaardigheid heeft. (let op dat extra hitpoints niet stacken met bijvoorbeeld extra hitpoints van spreuken)\n\n Voor deze vaardigheid zijn physreps vereist! Zoals een operatiekit en smink/protheses. \nLet op dat deze vaardigheid het uiterlijk van een personage permanent drastisch veranderd, vandaar dat dit alleen uitgevoerd mag worden op een buitenspels gewillige speler.",
       "Requirements": {
-        "skill": [],
+        "skill": [ "Combineer lichamen" ],
         "any_list": []
       },
-      "xp": 1,
+      "xp": 3,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
-      "Eigenschappen": [],
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
       "Spreuken": [],
       "Recepten": []
     },
     {
       "id": 92,
-      "skill": "",
+      "skill": "Brouw Expertise",
       "alt_skill": "",
-      "category": "",
-      "description": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 2 extra Inspiratie per dag. \n\nJe hebt geleerd om met je vaardigheden meer drankjes te kunnen brouwen. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. Je krijgt geen toegang tot extra recepten.\n\nDeze vaardigheid mag je meerdere keren aankopen.",
       "Requirements": {
-        "skill": [],
-        "any_list": []
+        "skill": [ "Kennis van Kruiden" ],
+        "any_list": [ "Brouw ... A" ]
       },
       "xp": 1,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1,
-      "Eigenschappen": [],
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 2
+        }
+      ],
       "Spreuken": [],
       "Recepten": []
     },

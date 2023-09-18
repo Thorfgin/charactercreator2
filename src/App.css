@@ -61,13 +61,12 @@
         flex-direction: column;
         justify-content: center;
     }
-
-    .App header {
-        display: grid;
-        width: 100%;
-        margin: 15px;
-        justify-content: center;
-    }
+        .App header {
+            display: grid;
+            width: 100%;
+            margin: 15px;
+            justify-content: center;
+        }
 
     .App footer {
         position: fixed;
@@ -96,8 +95,30 @@
     white-space: nowrap;
     font-family: 'Inknut Antiqua', serif;
     margin: 3px;
-    padding: 0;
+    padding: 0px;
     line-height: 24px;
+}
+
+/* select-settings */
+.select-settings {
+    display: flex;
+}
+
+.main-container label {
+    white-space: nowrap;
+    font-size: 12px;
+    font-family: 'Arial', serif;
+    margin: 0px;
+    margin-left: 5px;
+    padding: 0px;
+    line-height: 14px;
+}
+
+.settings-input-xp {
+    width: 55px;
+    margin: 0px;
+    margin-left: 5px;
+    padding: 0px;
 }
 
 /* select component */

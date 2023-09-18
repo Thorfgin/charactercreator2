@@ -17,7 +17,6 @@ import recepten from './json/recepten.json';
 import './App.css';
 
 let totalXP = 0; // Berekende totaal waarde
-let MAX_XP = 15;
 
 // Ophalen van de skills uit vaardigheden/spreuken/recepten
 export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
@@ -56,7 +55,6 @@ const columns = [
     { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
 ];
 
-
 /// --- MAIN APP --- ///
 function App() {
     const [tableData, setTableData] = useState(emptyData);
@@ -67,8 +65,35 @@ function App() {
     const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
     const [gridSpreuken, setGridSpreuken] = useState(emptyData)
     const [gridRecepten, setGridRecepten] = useState(emptyData)
+    const [isChecked, setIsChecked] = useState(true);
+    const [MAX_XP, setMAX_XP] = useState(15);
 
     useEffect(() => { onUpdateTableData(); }, [tableData]);
+
+    // CHECKBOX
+    const handleCheckboxChange = () => {
+        setIsChecked(!isChecked);
+        if (!isChecked) {
+            setMAX_XP(15);
+            setTableData([]);
+        }
+    };
+
+    // INPUT    
+    const handleInputChange = (event) => {
+        if (isChecked) { event.preventDefault(); } // stop bewerking 
+        else if (event.target.value && event.target.value > event.target.min) {
+            const newValue = parseFloat(event.target.value);
+            let roundedValue = Math.floor(newValue * 4) / 4;
+            roundedValue = roundedValue.toFixed(2)
+
+            if (roundedValue > parseFloat(event.target.max)) {
+                roundedValue = event.target.max;
+            }
+            setMAX_XP(roundedValue);
+        }
+        else { setMAX_XP(1); }
+    };
 
     // TABLE gerelateerd
     function getTableDataSums() {
@@ -99,11 +124,17 @@ function App() {
     function onUpdateTableData() {
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
         if (tableData.length >= 0) {
-            const allBasicOptions = sourceBasisVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
-            optionsBasisVaardigheden = allBasicOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value));
+            const allBasicOptions = sourceBasisVaardigheden.map((record) =>
+                ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
+            optionsBasisVaardigheden = allBasicOptions.filter((currentSkill) =>
+                !tableData.some((record) =>
+                    record.skill.toLowerCase() === currentSkill.value.toLowerCase()));
 
-            const allExtraOptions = sourceExtraVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
-            optionsExtraVaardigheden = allExtraOptions.filter((currentSkill) => !tableData.some((record) => record.skill === currentSkill.value));
+            const allExtraOptions = sourceExtraVaardigheden.map((record) =>
+                ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
+            optionsExtraVaardigheden = allExtraOptions.filter((currentSkill) =>
+                !tableData.some((record) =>
+                    record.skill.toLowerCase() === currentSkill.value.toLowerCase()));
         }
 
         // karakter eigenschappen container
@@ -147,7 +178,8 @@ function App() {
                 if (selectedSkill.skill === "Leermeester Expertise") {
                     let containsSkill = false;
                     for (const item of tableData) {
-                        const requiredSkill = sourceExtraVaardigheden.some((record) => record.skill === item.skill);
+                        const requiredSkill = sourceExtraVaardigheden.some((record) =>
+                            record.skill.toLowerCase() === item.skill.toLowerCase());
                         if (requiredSkill) {
                             containsSkill = true;
                             break;
@@ -162,7 +194,8 @@ function App() {
                 // skill
                 if (reqSkill.length > 0) {
                     for (let i = 0; i < reqSkill.length; i++) {
-                        let requiredSkill = tableData.some((record) => record.skill === reqSkill[i])
+                        const requiredSkill = tableData.some((record) =>
+                            record.skill.toLowerCase() === reqSkill[i].toLowerCase())
                         if (!requiredSkill) {
                             result = false;
                             setModalMsg("Deze vaardigheid mist een vereiste vaardigheid: \n" + reqSkill[i] + ". \nToevoegen is niet toegestaan.\n");
@@ -175,13 +208,26 @@ function App() {
                 if (reqAny.length > 0) {
                     let reqAnySkill = false;
                     for (let i = 0; i < reqAny.length; i++) {
-                        let requiredSkill = tableData.some((record) => record.skill.includes(reqAny[i]))
+                        let requiredSkill = false;
+                        // Check de 'Brouw' pre-requisites
+                        if (reqAny[i] === "Brouw ... A") {
+                            const regex = /^Brouw [A-Z][a-zA-Z ]+ A$/;
+                            for (const item of tableData) {
+                                if (regex.test(item.skill)) { requiredSkill = true; }
+                                console.log(regex.test(item), item.skill, requiredSkill);
+                            }
+                        }
+                        // Overige
+                        else {
+                            requiredSkill = tableData.some((record) =>
+                                record.skill.toLowerCase().includes(reqAny[i].toLowerCase()));
+                        }
                         if (requiredSkill === true) {
                             reqAnySkill = true;
                             break;
                         }
-
                     }
+
                     // wanneer er niet voldaan is aan een van de Any_list dan niet vrijgeven.
                     if (reqAnySkill === false && result === true) {
                         result = false;
@@ -209,10 +255,9 @@ function App() {
             // Check leermeester expertise afhankelijkheden
             if (containsTeacherSkill) {
                 for (const tableSkill of tableData) {
-                    const isExtraSkill = sourceExtraVaardigheden.some((record) => record.skill === tableSkill.skill)
-                    if (isExtraSkill) {
-                        extraSkill.push(tableSkill.skill);
-                    }
+                    const isExtraSkill = sourceExtraVaardigheden.some((record) =>
+                        record.skill.toLowerCase() === tableSkill.skill.toLowerCase())
+                    if (isExtraSkill) { extraSkill.push(tableSkill.skill); }
                 }
                 if (extraSkill.length === 1) {
                     isPrerequisite = true;
@@ -222,14 +267,14 @@ function App() {
             // check overige vereisten
             else if (!containsTeacherSkill || extraSkill.length > 1) {
                 for (const item of tableData) {
-                    if (item.skill === skillName) { continue; }
+                    if (item.skill.toLowerCase() === skillName.toLowerCase()) { continue; }
                     else if (item.Requirements.skill.length === 0 &&
                         item.Requirements.any_list.length === 0) { continue; }
                     else {
                         // skill
                         const reqSkill = item.Requirements.skill;
                         for (let i = 0; i < reqSkill.length; i++) {
-                            if (skillName === reqSkill[i]) {
+                            if (skillName.toLowerCase() === reqSkill[i].toLowerCase()) {
                                 isPrerequisite = true;
                                 setModalMsg("Dit item is een vereiste voor vaardigheid:\n " + item.skill + " \nVerwijderen is niet toegestaan.\n");
                                 break;
@@ -238,7 +283,7 @@ function App() {
                         // any_list
                         const reqAny = item.Requirements.any_list;
                         for (let i = 0; i < reqAny.length; i++) {
-                            if (skillName.includes(reqAny[i])) {
+                            if (skillName.toLowerCase().includes(reqAny[i].toLowerCase())) {
                                 isPrerequisite = true;
                                 setModalMsg("Dit item is een vereiste voor vaardigheid: \n" + item.skill + " \nVerwijderen is niet toegestaan.\n");
                                 break;
@@ -251,13 +296,13 @@ function App() {
         return isPrerequisite;
     }
 
-
     /// --- TABLE CONTENT --- ///
 
     // Voeg de geselecteerde Basis vaardigheid toe aan de tabel
     function handleBasicSkillSelection() {
         if (selectedBasicSkill) {
-            const selectedBasicRecord = sourceBasisVaardigheden.find((record) => record.skill === selectedBasicSkill.value);
+            const selectedBasicRecord = sourceBasisVaardigheden.find((record) =>
+                record.skill.toLowerCase() === selectedBasicSkill.value.toLowerCase());
             const wasSuccesfull = handleAddToTable(selectedBasicRecord)
             if (wasSuccesfull) { setSelectedBasicSkill(''); }
         }
@@ -269,7 +314,8 @@ function App() {
     // Voeg de geselecteerde Extra vaardigheid toe aan de tabel
     function handleExtraSkillSelection() {
         if (selectedExtraSkill) {
-            const selectedExtraRecord = sourceExtraVaardigheden.find((record) => record.skill === selectedExtraSkill.value);
+            const selectedExtraRecord = sourceExtraVaardigheden.find((record) =>
+                record.skill.toLowerCase() === selectedExtraSkill.value.toLowerCase());
             const wasSuccesfull = handleAddToTable(selectedExtraRecord)
             if (wasSuccesfull) { setSelectedExtraSkill(''); }
         }
@@ -280,8 +326,9 @@ function App() {
 
     // Handel alle controles af, alvorens het opgevoerde Record toe te voegen aan de tabel
     function handleAddToTable(selectedRecord) {
-        const wasAlreadySelected = tableData.some((record) => record.skill === selectedRecord.skill);
-        const hasSufficientFreeXP = (totalXP + selectedRecord.xp) <= MAX_XP || selectedRecord.xp === 0;
+        const wasAlreadySelected = tableData.some((record) =>
+            record.skill.toLowerCase() === selectedRecord.skill.toLowerCase());
+        const hasSufficientFreeXP = (totalXP + selectedRecord.xp) <= Math.floor(MAX_XP) || selectedRecord.xp === 0;
 
         if (wasAlreadySelected) {
             setModalMsg("Dit item is al geselecteerd. \nToevoegen is niet toegestaan.\n");
@@ -289,12 +336,12 @@ function App() {
         }
         else if (!meetsAllPrerequisites(selectedRecord)) { setShowModal(true); }
         else if (!hasSufficientFreeXP) {
-            if (totalXP === MAX_XP) {
+            if (totalXP === Math.floor(MAX_XP)) {
                 setModalMsg(
                     "Maximum XP (" + MAX_XP + ") bereikt. \n" +
                     "Toevoegen is niet toegestaan.\n");
             }
-            else if (totalXP < MAX_XP) {
+            else if (totalXP < Math.floor(MAX_XP)) {
                 setModalMsg(
                     "Maximum xp (" + MAX_XP + ") zal worden overschreden. \n" +
                     "Deze skill kost: " + selectedRecord.xp + ". \n" +
@@ -319,21 +366,28 @@ function App() {
         if (isPrerequisite) { setShowModal(true); }
         else {
             // Item weghalen uit grid
-            setTableData((prevData) => prevData.filter((item) => item.skill !== row.skill));
+            setTableData((prevData) => prevData.filter((item) =>
+                item.skill.toLowerCase() !== row.skill.toLowerCase()));
         }
     };
 
     // Aanvullende aankopen van reeds bestaande vaardigheid
     function handleAdd(row) {
-        if (totalXP < MAX_XP) {
+        if (totalXP < Math.floor(MAX_XP)) {
             // Source data
-            let sourceRecord = sourceBasisVaardigheden.find((record) => record.skill === row.skill);
-            if (!sourceRecord) { sourceRecord = sourceExtraVaardigheden.find((record) => record.skill === row.skill) };
-            const currentRecord = tableData.find((record) => record.skill === row.skill);
+            let sourceRecord = sourceBasisVaardigheden.find((record) =>
+                record.skill.toLowerCase() === row.skill.toLowerCase());
+            if (!sourceRecord) {
+                sourceRecord = sourceExtraVaardigheden.find((record) =>
+                    record.skill.toLowerCase() === row.skill.toLowerCase())
+            };
+            const currentRecord = tableData.find((record) =>
+                record.skill.toLowerCase() === row.skill.toLowerCase());
 
             if (currentRecord.count < sourceRecord.maxcount) {
                 // Updated Table Data here skill matches and record has multi_purchase === true
-                const updatedTableData = tableData.map((record) => record.skill === row.skill
+                const updatedTableData = tableData.map((record) =>
+                    record.skill.toLowerCase() === row.skill.toLowerCase()
                     ? { ...record, count: record.count + 1, xp: sourceRecord.xp * (record.count + 1) }
                     : record
                 );
@@ -353,10 +407,16 @@ function App() {
 
     function handleSubtract(row) {
         // Source data
-        let sourceRecord = sourceBasisVaardigheden.find((record) => record.skill === row.skill);
-        if (!sourceRecord) { sourceRecord = sourceExtraVaardigheden.find((record) => record.skill === row.skill) };
-        const isPresent = tableData.some((record) => record.skill === row.skill);
-        const currentRecord = tableData.find((record) => record.skill === row.skill);
+        let sourceRecord = sourceBasisVaardigheden.find((record) =>
+            record.skill.toLowerCase() === row.skill.toLowerCase());
+        if (!sourceRecord) {
+            sourceRecord = sourceExtraVaardigheden.find((record) =>
+                record.skill.toLowerCase() === row.skill.toLowerCase())
+        };
+        const isPresent = tableData.some((record) =>
+            record.skill.toLowerCase() === row.skill.toLowerCase());
+        const currentRecord = tableData.find((record) =>
+            record.skill.toLowerCase() === row.skill.toLowerCase());
 
         // exit early
         if (isPresent) {
@@ -365,7 +425,9 @@ function App() {
             }
             // bestaande item aanpassen
             else {
-                const updatedTableData = tableData.map((record) => record.skill === row.skill && record.multi_purchase === true
+                const updatedTableData = tableData.map((record) =>
+                    record.skill.toLowerCase() === row.skill.toLowerCase() &&
+                        record.multi_purchase === true
                     ? { ...record, count: record.count - 1, xp: sourceRecord.xp * (record.count - 1) }
                     : record
                 );
@@ -479,6 +541,32 @@ function App() {
             </header>
             <main>
                 <div className="main-container">
+                    <div className="select-settings">
+                        <div>
+                            <label className="settings-label">
+                                Nieuw personage:
+                            </label>
+                            <input className="settings-checkbox"
+                                type="checkbox"
+                                checked={isChecked}
+                                onChange={handleCheckboxChange}
+                            />{' '}
+                        </div>
+                        <div>
+                            <label className="settings-label">
+                                Max XP:
+                            </label>
+                            <input className="settings-input-xp"
+                                type="number"
+                                value={MAX_XP}
+                                min={1}
+                                max={100}
+                                onChange={handleInputChange}
+                                disabled={isChecked}
+                                step={0.25}
+                            />
+                        </div>
+                    </div>
                     <div className="select-basic-container">
                         <Select
                             className="form-select"
@@ -494,20 +582,22 @@ function App() {
                         </button>
                     </div>
 
-                    <div className="select-extra-container">
-                        <Select
-                            className="form-select"
-                            options={optionsExtraVaardigheden}
-                            value={selectedExtraSkill}
-                            onChange={(selectedExtraOption) => setSelectedExtraSkill(selectedExtraOption)}
-                            placeholder="Selecteer een Extra vaardigheid"
-                            isClearable
-                            isSearchable
-                        />
-                        <button className="btn-primary" onClick={handleExtraSkillSelection}>
-                            Toevoegen
-                        </button>
-                    </div>
+                    {!isChecked && (
+                        <div className="select-extra-container">
+                            <Select
+                                className="form-select"
+                                options={optionsExtraVaardigheden}
+                                value={selectedExtraSkill}
+                                onChange={(selectedExtraOption) => setSelectedExtraSkill(selectedExtraOption)}
+                                placeholder="Selecteer een Extra vaardigheid"
+                                isClearable
+                                isSearchable
+                            />
+                            <button className="btn-primary" onClick={handleExtraSkillSelection}>
+                                Toevoegen
+                            </button>
+                        </div>
+                    )}
 
                     <table {...getTableProps()} className="App-table">
                         <thead>
