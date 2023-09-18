@@ -94,12 +94,12 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
         // check any_list
         if (sourceSkill.Requirements.any_list.length > 0) {
             requiredAny.forEach((item) => newAnyRequirements += (newAnyRequirements === "" ? item : ", \n" + item))
-            newAnyRequirements = "\nEen van de volgende: \n" + newAnyRequirements;
+            newAnyRequirements = "Een van de volgende: \n" + newAnyRequirements;
         };
 
         data = {
             xp: sourceSkill.xp,
-            requirements: newRequirements += newAnyRequirements,
+            requirements: newRequirements === "" ? newAnyRequirements : newRequirements += "\n" + newAnyRequirements,
             description: sourceSkill.description
         };
     }

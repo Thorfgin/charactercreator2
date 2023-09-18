@@ -10,7 +10,7 @@
               "recipy": "Meesterstuk A (Metal)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Metal"
+              "components": "Mythical Metal"
             },
             {
               "recipy": "Wetsteen (Lvl 1)",
@@ -24,10 +24,10 @@
           "skill": "Meestersmid B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Metal)",
+              "recipy": "Meesterstuk B (Steel)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Steel"
+              "components": "Mythical Steel"
             },
             {
               "recipy": "Wetsteen (Lvl 2)",
@@ -41,10 +41,10 @@
           "skill": "Meestersmid C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Metal)",
+              "recipy": "Meesterstuk C (Mithril)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Mithril"
+              "components": "Mythical Mithril"
             },
             {
               "recipy": "Wetsteen (Lvl 3)",
@@ -61,7 +61,7 @@
               "recipy": "Meesterstuk A (Wood)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Wood"
+              "components": "Mythical Wood"
             },
             {
               "recipy": "Totem van de Wolf",
@@ -75,14 +75,14 @@
           "skill": "Houtbewerker B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Wood)",
+              "recipy": "Meesterstuk B (Ebony)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Ebony"
+              "components": "Mythical Ebony"
             },
             {
               "recipy": "Totem van de Uil",
-              "effect": "Dit voorwerp kan gebruikt worden om een persoon immuun te maken voor het eerstvolgende geest be�nvloedende effect binnen het volgende uur of kan in combinatie met een totem van de wolf voorwerp gebruikt worden tijdens een bloedwede ritueel om op 1 persoon de bloedwede 4 uur te laten duren in plaats van 1 uur.",
+              "effect": "Dit voorwerp kan gebruikt worden om een persoon immuun te maken voor het eerstvolgende geest beïnvloedende effect binnen het volgende uur of kan in combinatie met een totem van de wolf voorwerp gebruikt worden tijdens een bloedwede ritueel om op 1 persoon de bloedwede 4 uur te laten duren in plaats van 1 uur.",
               "inspiration": "",
               "components": "1 inspiratie voor 1 Totem van de Uil of 1 Mythical ebony voor 5 Totems van de Uil"
             }
@@ -92,16 +92,16 @@
           "skill": "Houtbewerker C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Wood)",
+              "recipy": "Meesterstuk C (Worldtree Sapling)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Worldtree sapling"
+              "components": "Mythical Worldtree Sapling"
             },
             {
               "recipy": "Totem van de Stier",
               "effect": "Dit voorwerp kan gebruikt worden om een persoon 1 uur lang 2 extra HP te geven of kan in combinatie met een totem van de wolf en een totem van de uil voorwerp gebruikt worden tijdens een bloedwede ritueel om op 1 persoon de bloedwede de hele dag te laten duren in plaats van 1 uur.",
               "inspiration": "",
-              "components": "4 inspiratie voor 1 Totem van de Stier of 1 Mythical worldtree sapling voor 5 Totems van de Stier"
+              "components": "4 inspiratie voor 1 Totem van de Stier of 1 Mythical Worldtree Sapling voor 5 Totems van de Stier"
             }
           ]
         },
@@ -112,7 +112,7 @@
               "recipy": "Meesterstuk A (Cloth)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Cloth"
+              "components": "Mythical Cloth"
             },
             {
               "recipy": "Hoog kwaliteit Verband",
@@ -126,10 +126,10 @@
           "skill": "Kleermaker B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Cloth)",
+              "recipy": "Meesterstuk B (Velvet)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Velvet"
+              "components": "Mythical Velvet"
             },
             {
               "recipy": "Vlag van de Groep ",
@@ -143,16 +143,16 @@
           "skill": "Kleermaker C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Cloth)",
+              "recipy": "Meesterstuk C (Spidersilk)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Spidersilk "
+              "components": "Mythical Spidersilk "
             },
             {
               "recipy": "Banier van de Groep",
               "effect": "Dit voorwerp kan eenmalig gebruikt worden om 12 leden van een groep of gilde er aan te verbinden. Deze 12 leden krijgen vandaag eenmalig na een gevecht x energie naar keuze terug dat ze uitgegeven hebben tijdens dat gevecht waarin de banier geheven werd.",
               "inspiration": "",
-              "components": "8*x inspiratie of 1 Mythical spider silk en 40 koperen munten voor een x van 3"
+              "components": "8*x inspiratie of 1 Mythical Spidersilk en 40 koperen munten voor een x van 3"
             }
           ]
         },
@@ -163,7 +163,7 @@
               "recipy": "Meesterstuk A (Paper)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Paper"
+              "components": "Mythical Paper"
             },
             {
               "recipy": "Scrollpapier",
@@ -177,10 +177,10 @@
           "skill": "Boekbinder B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Paper)",
+              "recipy": "Meesterstuk B (Vellum)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Vellum"
+              "components": "Mythical Vellum"
             },
             {
               "recipy": "Leeg Vaardigheid Onderzoek Boek",
@@ -194,10 +194,10 @@
           "skill": "Boekbinder C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Paper)",
+              "recipy": "Meesterstuk C (Griffinskin Vellum)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Griffinskin Vellum "
+              "components": "Mythical Griffinskin Vellum"
             },
             {
               "recipy": "Leeg Boek der Ervaringen",
@@ -214,7 +214,7 @@
               "recipy": "Meesterstuk A (Leather)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Leather"
+              "components": "Mythical Leather"
             },
             {
               "recipy": "Pantser Reparatie Set",
@@ -228,10 +228,10 @@
           "skill": "Leerbewerker B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Leather)",
+              "recipy": "Meesterstuk B (Scale)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Scale"
+              "components": "Mythical Scale"
             },
             {
               "recipy": "Pantser Versterking",
@@ -245,10 +245,10 @@
           "skill": "Leerbewerker C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Leather)",
+              "recipy": "Meesterstuk C (Dragonscale)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Dragonscale"
+              "components": "Mythical Dragonscale"
             },
             {
               "recipy": "Zware Pantser Versterking",
@@ -262,10 +262,10 @@
           "skill": "Juwelier A",
           "Recipies": [
             {
-              "recipy": "Meesterstuk A (Precious Metal)",
+              "recipy": "Meesterstuk A (Copper Ingot)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Metal"
+              "components": "Copper Ingot"
             },
             {
               "recipy": "Vriendschaps Geschenk",
@@ -279,10 +279,10 @@
           "skill": "Juwelier B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Precious Metal)",
+              "recipy": "Meesterstuk B (Silver Ingot)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Steel"
+              "components": "Silver Ingot"
             },
             {
               "recipy": "Alliantie Juweel",
@@ -296,10 +296,10 @@
           "skill": "Juwelier C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Precious Metal)",
+              "recipy": "Meesterstuk C (Golden Ingot)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Mithril"
+              "components": "Gold Ingot"
             },
             {
               "recipy": "Huwelijks Juweel",
@@ -313,7 +313,7 @@
           "skill": "Steenzetter A",
           "Recipies": [
             {
-              "recipy": "Meesterstuk A (Gemstone)",
+              "recipy": "Meesterstuk A (Quartz)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
               "components": "Quartz"
@@ -330,9 +330,9 @@
           "skill": "Steenzetter B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Gemstone)",
-              "effect": "Hoeveelheid Imbue cap: 7",
-              "inspiration": "2",
+              "recipy": "Meesterstuk B (Gems)",
+              "effect": "Hoeveelheid Imbue cap: 5",
+              "inspiration": "1",
               "components": "Gem"
             },
             {
@@ -347,9 +347,9 @@
           "skill": "Steenzetter C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Gemstone)",
-              "effect": "Hoeveelheid Imbue cap: 27",
-              "inspiration": "7",
+              "recipy": "Meesterstuk C (Flawless Gems)",
+              "effect": "Hoeveelheid Imbue cap: 10",
+              "inspiration": "2",
               "components": "Flawless Gem"
             },
             {

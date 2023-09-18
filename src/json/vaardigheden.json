@@ -1249,7 +1249,7 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "Meesterstuk A (Precious Metal)" },
+        { "name": "Meesterstuk A (Copper Ingot)" },
         { "name": "Vriendschaps Geschenk" }
       ]
     },
@@ -1258,7 +1258,7 @@
       "skill": "Steenzetter A",
       "alt_skill": "",
       "category": "Ambachtsvaardigheden",
-      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Quartz verwerkt. Elke Quartz in een voorwerp verwerken kost 1 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Quartz geeft het voorwerp 3 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om Basis Sieraad te maken. \n\nZie de loresheet voor meer details.",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Quartz verwerkt. Elke Quartz in een voorwerp verwerken kost 1 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Quartz geeft het voorwerp 3 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Basis Sieraad te maken. \n\nZie de loresheet voor meer details.",
       "Requirements": {
         "skill": [],
         "any_list": []
@@ -1276,7 +1276,7 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "Meesterstuk A (Gemstone)" },
+        { "name": "Meesterstuk A (Quartz)" },
         { "name": "Basis Sieraad" }
       ]
     },
@@ -2667,12 +2667,12 @@
     },
     {
       "id": 104,
-      "skill": "",
+      "skill": "Meestersmid B",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
-      "description": "Je krijgt 2 Inspiratie per dag. \n\n",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Steel verwerkt. Elke Mythical Steel in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Steel geeft het voorwerp 7 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Lvl 2 Wetsteen te maken. \n\nZie de loresheet voor meer details.",
       "Requirements": {
-        "skill": [],
+        "skill": [ "Meestersmid A" ],
         "any_list": []
       },
       "xp": 2,
@@ -2688,13 +2688,385 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "" },
-        { "name": "" },
-        { "name": "" },
-        { "name": "" },
-        { "name": "" },
-        { "name": "" }
+        { "name": "Meesterstuk B (Steel)" },
+        { "name": "Wetsteen (Lvl 2)" }
       ]
+    },
+    {
+      "id": 105,
+      "skill": "Meestersmid C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Mithril verwerkt. Elke Mythical Mithril in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Mithril geeft het voorwerp 27 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Lvl 3 Wetsteen te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Meestersmid B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Mithril)" },
+        { "name": "Wetsteen (Lvl 3)" }
+      ]
+    },
+    {
+      "id": 106,
+      "skill": "Houtbewerker B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Ebony verwerkt. Elke Mythical Ebony in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Ebony geeft het voorwerp 7 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Totem van de Uil te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Houtbewerker A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Ebony)" },
+        { "name": "Totem van de Uil" }
+      ]
+    },
+    {
+      "id": 107,
+      "skill": "Houtbewerker C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Worldtree Sapling verwerkt. Elke Mythical Worldtree Sapling in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Ebony geeft het voorwerp 27 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Totem van de Stier te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Houtbewerker B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Worldtree Sapling)" },
+        { "name": "Totem van de Stier" }
+      ]
+    },
+    {
+      "id": 108,
+      "skill": "Kleermaker B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Velvet verwerkt. Elk Mythical Velvet in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Velvet geeft het voorwerp 7 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om Vlag van de Groep te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Kleermaker A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Velvet)" },
+        { "name": "Vlag van de Groep" }
+      ]
+    },
+    {
+      "id": 109,
+      "skill": "Kleermaker C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Spidersilk verwerkt. Elk Mythical Spidersilk in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Spidersilk geeft het voorwerp 27 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om Banier van de Groep te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Kleermaker B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Spidersilk)" },
+        { "name": "Banier van de Groep" }
+      ]
+    },
+    {
+      "id": 110,
+      "skill": "Boekbinder B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Vellum verwerkt. Elk Mythical Vellum in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Vellum geeft het voorwerp 7 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Leeg Vaardigheid Onderzoek Boek te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Boekbinder A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Vellum)" },
+        { "name": "Leeg Vaardigheid Onderzoek Boek" }
+      ]
+    },
+    {
+      "id": 111,
+      "skill": "Boekbinder C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Griffinskin Vellum verwerkt. Elk Mythical Griffinskin Vellum in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Griffinskin Vellum geeft het voorwerp 27 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Boek der Ervaringen te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Boekbinder B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Griffinskin Vellum)" },
+        { "name": "Boek der Ervaringen" }
+      ]
+    },
+    {
+      "id": 112,
+      "skill": "Leerbewerker B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Scale verwerkt. Elk Mythical Scale in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Scale geeft het voorwerp 7 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Pantser Versterking te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Leerbewerker A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Scale)" },
+        { "name": "Pantser Versterking" }
+      ]
+    },
+    {
+      "id": 113,
+      "skill": "Leerbewerker C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Dragonscale verwerkt. Elk Mythical Dragonscale in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Dragonscale geeft het voorwerp 27 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Zware Pantser Versterking te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Leerbewerker B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Dragonscale)" },
+        { "name": "Zware Pantser Versterking" }
+      ]
+    },
+    {
+      "id": 114,
+      "skill": "Juwelier B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Silver Ingots verwerkt. Elke 2 Silver Ingot in een voorwerp verwerken kost 3 inspiratie  (of 2 inspiratie voor 1 Silver ingot). Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Silver Ingot geeft het voorwerp 4 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Alliantie Juweel te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Juwelier A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Silver Ingot)" },
+        { "name": "Alliantie Juweel" }
+      ]
+    },
+    {
+      "id": 115,
+      "skill": "Juwelier C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Golden Ingots verwerkt. Elke 2 Golden Ingots in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Golden Ingots geeft het voorwerp 16 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Huwelijks Jueweel te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Juwelier B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Golden Ingot)" },
+        { "name": "Huwelijks Juweel" }
+      ]
+    },
+    {
+      "id": 116,
+      "skill": "Steenzetter B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Gems verwerkt. Elke Gem in een voorwerp verwerken kost 1 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Gem geeft het voorwerp 5 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Duur Sieraad te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Steenzetter A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Gems)" },
+        { "name": "Duur Sieraad" }
+      ]
+    },
+    {
+      "id": 117,
+      "skill": "Steenzetter C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Flawless Gems verwerkt. Elke Flawless Gem in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Flawless Gem geeft het voorwerp 10 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Koninklijk Sieraad te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Steenzetter B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Flawless Gems)" },
+        { "name": "Koninklijk Sieraad" }
+      ]
+    },
+
+    {
+      "id": 118,
+      "skill": "",
+      "alt_skill": "",
+      "category": "Extra Genezervaardigheden",
+      "description": "",
+      "Requirements": {
+        "skill": [],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
     }
   ]
 }
