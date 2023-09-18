@@ -2,14 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { useTable } from 'react-table';
 import Select from 'react-select';
-import { Tooltip } from './tooltip.js'
+import { Tooltip } from './tooltip.js';
 import {
     GridEigenschapItem,
     GenericTooltipItem,
     updateGridEigenschappenTiles,
     updateGridSpreukenTiles,
     updateGridReceptenTiles
-} from './griditem.js'
+} from './griditem.js';
 
 import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
@@ -20,10 +20,18 @@ let totalXP = 0; // Berekende totaal waarde
 
 // Ophalen van de skills uit vaardigheden/spreuken/recepten
 export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
-let optionsBasisVaardigheden = sourceBasisVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
+let optionsBasisVaardigheden = sourceBasisVaardigheden.map((record) => (
+    {
+        value: record.skill,
+        label: record.skill + " (" + record.xp + " xp)"
+    }));
 
 export const sourceExtraVaardigheden = vaardigheden.ExtraVaardigheden;
-let optionsExtraVaardigheden = sourceExtraVaardigheden.map((record) => ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
+let optionsExtraVaardigheden = sourceExtraVaardigheden.map((record) => (
+    {
+        value: record.skill,
+        label: record.skill + " (" + record.xp + " xp)"
+    }));
 
 export const sourceSpreuken = [].concat(...spreuken.Categories.map(category => category.Skills));
 export const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
@@ -174,7 +182,7 @@ function App() {
             else {
                 result = true;
 
-                // Exception Early
+                // uitzondering eerst
                 if (selectedSkill.skill === "Leermeester Expertise") {
                     let containsSkill = false;
                     for (const item of tableData) {
@@ -208,20 +216,9 @@ function App() {
                 if (reqAny.length > 0) {
                     let reqAnySkill = false;
                     for (let i = 0; i < reqAny.length; i++) {
-                        let requiredSkill = false;
-                        // Check de 'Brouw' pre-requisites
-                        if (reqAny[i] === "Brouw ... A") {
-                            const regex = /^Brouw [A-Z][a-zA-Z ]+ A$/;
-                            for (const item of tableData) {
-                                if (regex.test(item.skill)) { requiredSkill = true; }
-                                console.log(regex.test(item), item.skill, requiredSkill);
-                            }
-                        }
-                        // Overige
-                        else {
-                            requiredSkill = tableData.some((record) =>
-                                record.skill.toLowerCase().includes(reqAny[i].toLowerCase()));
-                        }
+                        const requiredSkill = tableData.some((record) =>
+                            record.skill.toLowerCase().includes(reqAny[i].toLowerCase()));
+
                         if (requiredSkill === true) {
                             reqAnySkill = true;
                             break;
@@ -334,6 +331,7 @@ function App() {
             setModalMsg("Dit item is al geselecteerd. \nToevoegen is niet toegestaan.\n");
             setShowModal(true);
         }
+        // TODO: UNCOMMENT THE CODE
         else if (!meetsAllPrerequisites(selectedRecord)) { setShowModal(true); }
         else if (!hasSufficientFreeXP) {
             if (totalXP === Math.floor(MAX_XP)) {
@@ -388,8 +386,8 @@ function App() {
                 // Updated Table Data here skill matches and record has multi_purchase === true
                 const updatedTableData = tableData.map((record) =>
                     record.skill.toLowerCase() === row.skill.toLowerCase()
-                    ? { ...record, count: record.count + 1, xp: sourceRecord.xp * (record.count + 1) }
-                    : record
+                        ? { ...record, count: record.count + 1, xp: sourceRecord.xp * (record.count + 1) }
+                        : record
                 );
                 setTableData(updatedTableData);
             }
@@ -428,8 +426,8 @@ function App() {
                 const updatedTableData = tableData.map((record) =>
                     record.skill.toLowerCase() === row.skill.toLowerCase() &&
                         record.multi_purchase === true
-                    ? { ...record, count: record.count - 1, xp: sourceRecord.xp * (record.count - 1) }
-                    : record
+                        ? { ...record, count: record.count - 1, xp: sourceRecord.xp * (record.count - 1) }
+                        : record
                 );
                 setTableData(updatedTableData);
             }
@@ -577,27 +575,57 @@ function App() {
                             isClearable
                             isSearchable
                         />
+
+                        {   // Conditionele tooltip
+                            selectedBasicSkill &&
+                            selectedBasicSkill.value !== "" &&
+                            <div className="select-info">
+                                <Tooltip
+                                    skillName={selectedBasicSkill.value}
+                                    isSpell={false}
+                                    isRecipy={false}
+                                    isSkill={true}
+                                />
+                            </div>
+                        }
+
                         <button className="btn-primary" onClick={handleBasicSkillSelection}>
                             Toevoegen
                         </button>
                     </div>
 
-                    {!isChecked && (
-                        <div className="select-extra-container">
-                            <Select
-                                className="form-select"
-                                options={optionsExtraVaardigheden}
-                                value={selectedExtraSkill}
-                                onChange={(selectedExtraOption) => setSelectedExtraSkill(selectedExtraOption)}
-                                placeholder="Selecteer een Extra vaardigheid"
-                                isClearable
-                                isSearchable
-                            />
-                            <button className="btn-primary" onClick={handleExtraSkillSelection}>
-                                Toevoegen
-                            </button>
-                        </div>
-                    )}
+                    {
+                        // Bij uitzettend Checkbox worden Extra skills beschikbaar
+                        !isChecked && (
+                            <div className="select-extra-container">
+                                <Select
+                                    className="form-select"
+                                    options={optionsExtraVaardigheden}
+                                    value={selectedExtraSkill}
+                                    onChange={(selectedExtraOption) => setSelectedExtraSkill(selectedExtraOption)}
+                                    placeholder="Selecteer een Extra vaardigheid"
+                                    isClearable
+                                    isSearchable
+                                />
+
+                                {   // Conditionele tooltip
+                                    selectedExtraSkill &&
+                                    selectedExtraSkill.value !== "" &&
+                                    <div className="select-info">
+                                        <Tooltip
+                                            skillName={selectedExtraSkill.value}
+                                            isSpell={false}
+                                            isRecipy={false}
+                                            isSkill={true}
+                                        />
+                                    </div>
+                                }
+
+                                <button className="btn-primary" onClick={handleExtraSkillSelection}>
+                                    Toevoegen
+                                </button>
+                            </div>
+                        )}
 
                     <table {...getTableProps()} className="App-table">
                         <thead>
@@ -685,7 +713,7 @@ function App() {
             </main>
             <div className="flex-filler"></div>
             <footer>
-                <div>2023 v1</div>
+                <div>2023 v1-alpha</div>
                 <div>Design by Deprecated Dodo{'\u2122'}</div>
                 <div className="disclaimer" onClick={showDisclaimer}>Disclaimer</div>
             </footer>

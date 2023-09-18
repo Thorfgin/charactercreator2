@@ -2300,7 +2300,13 @@
       "description": "Je krijgt 2 extra Inspiratie per dag. \n\nJe hebt geleerd om met je vaardigheden meer drankjes te kunnen brouwen. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. Je krijgt geen toegang tot extra recepten.\n\nDeze vaardigheid mag je meerdere keren aankopen.",
       "Requirements": {
         "skill": [ "Kennis van Kruiden" ],
-        "any_list": [ "Brouw ... A" ]
+        "any_list": [
+          "Brouw Genezende Dranken A",
+          "Brouw Kruiden Elixers A",
+          "Brouw Magische Elixers A",
+          "Brouw Hallucinerende Elixers A",
+          "Brouw Giffen A"
+        ]
       },
       "xp": 1,
       "loresheet": false,
@@ -2309,7 +2315,7 @@
       "maxcount": 99,
       "Eigenschappen": [
         {
-          "name": "willpower",
+          "name": "inspiration",
           "value": 2
         }
       ],
@@ -2318,22 +2324,377 @@
     },
     {
       "id": 93,
-      "skill": "",
+      "skill": "Brouw Genezende Dranken B",
       "alt_skill": "",
-      "category": "",
-      "description": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale genezende drankjes te brouwen die niet op jou thuiswereld bekend zijn. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Heal deadly wound potion”, “Cure weak disease potion”, “Cure disease potion”, “Courage potion” and “Wakeful potion”, “Cure heartache”",
+      "Requirements": {
+        "skill": [ "Brouw Genezende Dranken A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Heal deadly wound potion" },
+        { "name": "Cure weak disease potion" },
+        { "name": "Cure disease potion" },
+        { "name": "Courage potion" },
+        { "name": "Wakeful potion" },
+        { "name": "Cure heartache" }
+      ]
+    },
+    {
+      "id": 94,
+      "skill": "Brouw Genezende Dranken C",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale geavanceerde genezende drankjes te brouwen. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \\nJe krijgt toegang tot de recepten: \n“Heal all wounds potion”, “Cure strong disease potion”, “Muscle control potion”, “Concentration potion” and “Reroute blood potion”, “Cure amnesia”.",
+      "Requirements": {
+        "skill": [ "Brouw Genezende Dranken B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Heal all wounds potion" },
+        { "name": "Cure strong disease potion" },
+        { "name": "Muscle control potion" },
+        { "name": "Concentration potion" },
+        { "name": "Reroute blood potion" },
+        { "name": "Cure amnesia" }
+      ]
+    },
+    {
+      "id": 95,
+      "skill": "Brouw Kruiden Elixers B",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale kruiden elixers te brouwen die niet op jou thuiswereld bekend zijn. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Healing spit”, “Strengthen body potion”, “Long lasting strengthen body”, “Strengthen will potion” and “Focus potion”, “Empathy potion”.",
+      "Requirements": {
+        "skill": [ "Brouw Kruiden Elixers A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Healing spit" },
+        { "name": "Strengthen body potion" },
+        { "name": "Long lasting strengthen body potion" },
+        { "name": "Strengthen will potion" },
+        { "name": "Focus potion" },
+        { "name": "Empathy potion" }
+      ]
+    },
+    {
+      "id": 96,
+      "skill": "Brouw Kruiden Elixers C",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale geavanceerde kruiden elixers te brouwen. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Healing blood”, “Major strengthen body potion”, “Anti-magic skin oil”, “Major strengthen will potion” and “Major focus potion”, “Happyness drink”.",
+      "Requirements": {
+        "skill": [ "Brouw Kruiden Elixers B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Healing blood" },
+        { "name": "Major strengthen body potion" },
+        { "name": "Anti-magic skin oil" },
+        { "name": "Major strengthen will potion" },
+        { "name": "Major focus potion" },
+        { "name": "Happiness drink" }
+      ]
+    },
+    {
+      "id": 97,
+      "skill": "Brouw Magische Elixers B",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale magische elixers te brouwen die niet op jou thuiswereld bekend zij. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Magical inspiration potion”, “Potion of divine connection”, “Potion of magic veins”, “Divine inspiration potion” and “Inspiration of the magi potion”, “Magical skin dye”.",
+      "Requirements": {
+        "skill": [ "Brouw Magische Elixers A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Magical inspiration potion" },
+        { "name": "Potion of the divine connection" },
+        { "name": "Potion of magic veins" },
+        { "name": "Divine inspiration potion" },
+        { "name": "Inspiration of the magi potion" },
+        { "name": "Magical skin dye" }
+      ]
+    },
+    {
+      "id": 98,
+      "skill": "Brouw Magische Elixers C",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\n Je hebt geleerd om de lokale geavanceerde magische elixers te brouwen. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Major magical inspiration potion”, “Major potion of divine connection”, “Major potion of magic veins”, “Major divine inspiration potion” and “Major inspiration of the magi potion”, “Mirror personality potion”.",
+      "Requirements": {
+        "skill": [ "Brouw Magische Elixers B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Major magical inspiration potion" },
+        { "name": "Major potion of divine connection" },
+        { "name": "Major potion of magic veins" },
+        { "name": "Major divine inspiration potion" },
+        { "name": "Major inspiration of the magi potion" },
+        { "name": "Mirror personality potion" }
+      ]
+    },
+    {
+      "id": 99,
+      "skill": "Brouw Hallucinerende Elixers B",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale hallucinerende elixers te brouwen die niet op jou thuiswereld bekend zijn. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Fever potion”, “Visions of glowing symbols”, “Visions of magic”, “Visions of numen” and “Visions of the past”, “Relive other potion”.",
+      "Requirements": {
+        "skill": [ "Brouw Hallucinerende Elixers A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Fever potion" },
+        { "name": "Visions of glowing symbols" },
+        { "name": "Visions of magic" },
+        { "name": "Visions of numen" },
+        { "name": "Visions of the past" },
+        { "name": "Relive other potion" }
+      ]
+    },
+    {
+      "id": 100,
+      "skill": "Brouw Hallucinerende Elixers C",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale geavanceerde hallucinerende elixers te brouwen. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Major fever potion”, “Visions of death”, “Visions of the zeitgeist”, “Visions of present” and “Future visions”, “Be other potion”.",
+      "Requirements": {
+        "skill": [ "Brouw Hallucinerende Elixers B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Major fever potion" },
+        { "name": "Visions of death" },
+        { "name": "Visions of the zeitgeist" },
+        { "name": "Visions of present" },
+        { "name": "Future visions" },
+        { "name": "Be other potion" }
+      ]
+    },
+    {
+      "id": 101,
+      "skill": "Brouw Giffen B",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\n Je hebt geleerd om de lokale giffen te brouwen die niet op jou thuiswereld bekend zijn. Giffen die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten:\n“Venom”, “Weapon oil”, “Mute venom”, “Muscle lock venom” and “Agonizing poison”, “Sorrow drink”.",
+      "Requirements": {
+        "skill": [ "Brouw Giffen A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Venom" },
+        { "name": "Weapon oil" },
+        { "name": "Mute venom" },
+        { "name": "Muscle lock venom" },
+        { "name": "Agonizing poison" },
+        { "name": "Sorrow drink" }
+      ]
+    },
+    {
+      "id": 102,
+      "skill": "Brouw Giffen C",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale geavanceerde giffen te brouwen. Giffen die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Batch of venom”, “Major weapon oil”, “Confuse venom”, “Fatal venom” and “Fatal poison”, “Drink of willed death”.",
+      "Requirements": {
+        "skill": [ "Brouw Giffen B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Batch of venom" },
+        { "name": "Major weapon oil" },
+        { "name": "Confuse venom" },
+        { "name": "Fatal venom" },
+        { "name": "Fatal poison" },
+        { "name": "Drink of willed death" }
+      ]
+    },
+    {
+      "id": 103,
+      "skill": "Ambachts Expertise",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \n\nDeze vaardigheid mag je meerdere keren aankopen.",
       "Requirements": {
         "skill": [],
-        "any_list": []
+        "any_list": [
+          "Meestersmid A",
+          "Houtbewerker  A",
+          "Houtbewerker A",
+          "Kleermaker A",
+          "Boekbinder A",
+          "Leerbewerker A",
+          "Juwelier A",
+          "Steenzetter A"
+        ]
       },
       "xp": 1,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
-      "maxcount": 1,
-      "Eigenschappen": [],
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
       "Spreuken": [],
       "Recepten": []
+    },
+    {
+      "id": 104,
+      "skill": "",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \n\n",
+      "Requirements": {
+        "skill": [],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "" },
+        { "name": "" },
+        { "name": "" },
+        { "name": "" },
+        { "name": "" },
+        { "name": "" }
+      ]
     }
   ]
 }

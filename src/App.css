@@ -99,11 +99,6 @@
     line-height: 24px;
 }
 
-/* select-settings */
-.select-settings {
-    display: flex;
-}
-
 .main-container label {
     white-space: nowrap;
     font-size: 12px;
@@ -122,11 +117,14 @@
 }
 
 /* select component */
-.select-basic-container, 
-.select-extra-container {
+.select-basic-container,
+.select-extra-container,
+.select-settings {
     display: flex;
     align-items: center;
+    justify-content: left;
     width: 100%;
+    margin-left: 17px;
 }
 
 .select {
@@ -135,11 +133,17 @@
 }
 
 .form-select {
-    max-width: 80%;
-    width: 100%;
+    min-width: 75%;
+    max-width: 75%;
+    width: 75% auto;
     margin: 5px;
     padding: 0px;
     font-size: 12px;
+}
+
+.select-info {
+    width: 25px;
+    justify-content: center;
 }
 
 /* main skill table*/
@@ -172,7 +176,7 @@
 }
 
 .col-acties {
-    min-width: 50px;
+    min-width: 75px;
 }
 
 .acties {
@@ -430,7 +434,7 @@
 .tooltip-overlay {
     display: none;
     position: fixed;
-    top: 25%;
+    top: 30%;
     left: 50%;
     min-width: 30rem;
     width: fit-content;

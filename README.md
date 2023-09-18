@@ -7,10 +7,7 @@
 	TODO:
 
 	MUST
-	- SKILL: ExtraSkill selection
-	- SKILL: ExtraSkill removal
-	- PREREQUISITES: Extend check on pre-requisites with ExtraSkill
-	- XP: Set a custom MAX_XP
+	
 
 	SHOULD:
 	- Change Error messages (modals) to a (!) img with mouseover 
@@ -32,6 +29,13 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+	20230918	SELECT: customized the Selects to show a tooltip with the Skill description
+
+	20230917	SKILL: ExtraSkill selection
+				SKILL: ExtraSkill removal
+				PREREQUISITES: Extend check on pre-requisites with ExtraSkill
+				XP: Set a custom MAX_XP
+
 	20230914	GRID CHAR PROPERTIES Each block should have an image	
 				SELECT: Added XP cost to each skill label
 				Created CI/CD to build and deploy to GitHub Pages:
