@@ -1837,9 +1837,9 @@
     },
     {
       "id": 74,
-      "skill": "Genezingsspreuken A (EL.)",
+      "skill": "Genezingsspreuken A (EL)",
       "alt_skill": "Genezing A",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (EL)",
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nDiscern Wounds, Discern Poisons, Discern Diseases, Heal Wounds en Remove Paralysis.",
       "Requirements": {
         "skill": [],
@@ -1867,9 +1867,9 @@
     },
     {
       "id": 75,
-      "skill": "Genezingsspreuken A (SP.)",
+      "skill": "Genezingsspreuken A (SP)",
       "alt_skill": "Genezing A",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (SP)",
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Discern Wounds, Discern Poisons, Discern Diseases, Heal Wounds en Remove Paralysis.",
       "Requirements": {
         "skill": [],
@@ -1897,13 +1897,13 @@
     },
     {
       "id": 76,
-      "skill": "Genezingsspreuken B (EL.)",
+      "skill": "Genezingsspreuken B (EL)",
       "alt_skill": "Genezing B",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (EL)",
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Strengthen Body, Total Healing en Boon of Minor Healing.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (EL)" ],
+        "any_list": [ ]
       },
       "xp": 4,
       "loresheet": false,
@@ -1926,13 +1926,13 @@
     },
     {
       "id": 77,
-      "skill": "Genezingsspreuken B (SP.)",
+      "skill": "Genezingsspreuken B (SP)",
       "alt_skill": "Genezing B",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (SP)",
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Strengthen Body, Total Healing en Boon of Minor Healing.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (SP)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -1955,13 +1955,13 @@
     },
     {
       "id": 78,
-      "skill": "Genezer van Giffen (EL.)",
+      "skill": "Genezer van Giffen (EL)",
       "alt_skill": "Genezer van Giffen",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (EL)",
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Protection from Poison, Neutralise Poisons en Purge all Poisons.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (EL)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -1984,13 +1984,13 @@
     },
     {
       "id": 79,
-      "skill": "Genezer van Giffen (SP.)",
+      "skill": "Genezer van Giffen (SP)",
       "alt_skill": "Genezer van Giffen",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (SP)",
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Protection from Poison, Neutralise Poisons en Purge all Poisons.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (SP)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -2013,13 +2013,13 @@
     },
     {
       "id": 80,
-      "skill": "Genezer van Ziekten (EL.)",
+      "skill": "Genezer van Ziekten (EL)",
       "alt_skill": "Genezer van Ziekten",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (EL)",
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Protection from Disease, Cure Diseases en Cure all Diseases.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (EL)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -2042,13 +2042,13 @@
     },
     {
       "id": 81,
-      "skill": "Genezer van Ziekten (SP.)",
+      "skill": "Genezer van Ziekten (SP)",
       "alt_skill": "Genezer van Ziekten",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (SP)",
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Protection from Disease, Cure Diseases en Cure all Diseases.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (SP)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -2071,13 +2071,13 @@
     },
     {
       "id": 82,
-      "skill": "Genezer van Geest (EL.)",
+      "skill": "Genezer van Geest (EL)",
       "alt_skill": "Genezer van Geest",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (EL)",
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Discern Mind-Affecting, Protection from Fear en Break Enchantment Cascade.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (EL)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -2100,13 +2100,13 @@
     },
     {
       "id": 83,
-      "skill": "Genezer van Geest (SP.)",
+      "skill": "Genezer van Geest (SP)",
       "alt_skill": "Genezer van Geest",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (SP)",
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Discern Mind-Affecting, Protection from Fear en Break Enchantment Cascade.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (SP)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -2640,16 +2640,11 @@
       "description": "Je krijgt 2 Inspiratie per dag. \n\nDeze vaardigheid mag je meerdere keren aankopen.",
       "Requirements": {
         "skill": [],
-        "any_list": [
-          "Meestersmid A",
-          "Houtbewerker  A",
-          "Houtbewerker A",
-          "Kleermaker A",
-          "Boekbinder A",
-          "Leerbewerker A",
-          "Juwelier A",
-          "Steenzetter A"
-        ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Ambachtsvaardigheden" ],
+          "value": 2
+        }
       },
       "xp": 1,
       "loresheet": false,
@@ -3043,16 +3038,394 @@
         { "name": "Koninklijk Sieraad" }
       ]
     },
-
     {
       "id": 118,
-      "skill": "",
+      "skill": "Extra Genezingsmana (EL)",
       "alt_skill": "",
-      "category": "Extra Genezervaardigheden",
-      "description": "",
+      "category": "Extra Genezingsvaardigheden (EL)",
+      "description": "Je krijgt 2 elementaire mana extra. \nJe krijgt geen toegang tot extra spreuken.\n\nDeze vaardigheid mag je meerdere keren aankopen.",
+      "Requirements": {
+        "skill": [ "Genezingsspreuken A" ],
+        "any_list": []
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 119,
+      "skill": "Extra Genezingsmana (SP)",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden (SP)",
+      "description": "Je krijgt 2 spirituele mana extra. \nJe krijgt geen toegang tot extra spreuken.\n\nDeze vaardigheid mag je meerdere keren aankopen.",
+      "Requirements": {
+        "skill": [ "Genezingsspreuken A" ],
+        "any_list": []
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 120,
+      "skill": "Genezingsspreuken C (EL)",
+      "alt_skill": "Genezing C",
+      "category": "Extra Genezingsvaardigheden (EL)",
+      "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nDiscern Diseases and Afflictions, Major Regeneration en Purify Body.",
       "Requirements": {
         "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Genezingsvaardigheden (EL)" ],
+          "value": 8
+        }
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Discern Diseases and Afflictions" },
+        { "name": "Major Regeneration" },
+        { "name": "Purify Body" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 121,
+      "skill": "Genezingsspreuken C (SP)",
+      "alt_skill": "Genezing C",
+      "category": "Extra Genezingsvaardigheden (SP)",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \nDiscern Diseases and Afflictions, Major Regeneration en Purify Body.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Genezingsvaardigheden (SP)" ],
+          "value": 8
+        }
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Discern Diseases and Afflictions" },
+        { "name": "Major Regeneration" },
+        { "name": "Purify Body" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 122,
+      "skill": "Immuun voor Giffen",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden",
+      "description": "Je bent zelf immuun voor alle giffen.",
+      "Requirements": {
+        "skill": [ "Genezing van giffen" ],
         "any_list": []
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 123,
+      "skill": "Immuun voor Ziekten",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden",
+      "description": "Je bent zelf immuun voor alle ziekten.",
+      "Requirements": {
+        "skill": [ "Genezing van ziekten" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 124,
+      "skill": "Immuun voor Geest Beïnvloedend A",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden",
+      "description": "Je bent zelf immuun Fear, Confuse en Sleep.",
+      "Requirements": {
+        "skill": [ "Genezing van Geest" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 125,
+      "skill": "Immuun voor Geest Beïnvloedend B",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden",
+      "description": "Je bent zelf immuun voor alle Geestbeïnvloedende effecten:\n Command, Confuse, Fascinate, Fear, incite aggression, Sleep, Force Truth",
+      "Requirements": {
+        "skill": [ "Immuun voor Geest Beïnvloedend A" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+
+    {
+      "id": 126,
+      "skill": "Extra Elementaire mana",
+      "alt_skill": "",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 2 elementaire mana extra. \nJe krijgt geen toegang tot extra spreuken.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 127,
+      "skill": "Magiërspreuken C - Lucht",
+      "alt_skill": "Air Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nForce Field en Break All Enchantments.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Lucht" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Force Field" },
+        { "name": "Break All Enchantments" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 128,
+      "skill": "Magiërspreuken C - Metaal",
+      "alt_skill": "Metal Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nAura of Fear en Elemental Bolt.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Metaal" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Auru of Fear" },
+        { "name": "Elemental Bolt" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 129,
+      "skill": "Magiërspreuken C - Aarde",
+      "alt_skill": "Earth Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \n Stoneskin en Imbue Crush.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Aarde" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Stoneskin" },
+        { "name": "Imbue Crush" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 130,
+      "skill": "Magiërspreuken C - Water",
+      "alt_skill": "Water Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nGift of Knowledge en Paralyzing Touch.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Water" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Gift of Knowledge" },
+        { "name": "Paralyzing Touch" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 131,
+      "skill": "Magiërspreuken C - Vuur",
+      "alt_skill": "Fire Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nAspect of the Efreet en Incinerate.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Vuur" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Aspect of the Efreet" },
+        { "name": "Incinerate" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 132,
+      "skill": "Magiërspreuken C - Hout",
+      "alt_skill": "Wood Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nPrimal Rage en Aspect of the Viper.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Hout" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Primal Rage" },
+        { "name": "Aspect of the Viper" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 133,
+      "skill": "Magiërspreuken D - Vernietiging",
+      "alt_skill": "Speciale Magiërspreuken",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 2 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuk: \nWave of Destruction.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Magiërspreuken C" ]
       },
       "xp": 2,
       "loresheet": false,
@@ -3061,10 +3434,134 @@
       "maxcount": 1,
       "Eigenschappen": [
         {
-          "name": "mana",
+          "name": "elemental_mana",
           "value": 2
         }
       ],
+      "Spreuken": [
+        { "name": "Wave of Destruction" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 134,
+      "skill": "Magiërspreuken D - Dominatie",
+      "alt_skill": "Speciale Magiërspreuken",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 2 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuk: \nDominate the Weak.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Magiërspreuken C" ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [
+        { "name": "Dominate the Weak" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 135,
+      "skill": "Magiërspreuken D - Epidemie",
+      "alt_skill": "Speciale Magiërspreuken",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 2 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuk: \nEpidemic.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Magiërspreuken C" ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [
+        { "name": "Epidemic" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 136,
+      "skill": "Glyphs scroll Vervaardigen",
+      "alt_skill": "",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je kunt een scroll met glyphs beschrijven met 1 elementaire spreuk die je zelf beheerst. Het kan ook een spreuk zijn waartoe je slechts toegang hebt door middel van glyphs, een rang, een power of een condition. Voor het maken van een scroll is speciaal scroll-papier nodig. Scroll-papier is te herkennen aan de officiële VA-stempel rechtsonder op het papier.\n\nJe schrijft de gehele incantatie in glyphs nauwgezet op de scroll om hierna de spreuk te doen op deze geprepareerde scroll. Na het doen van de spreuk schrijf je onderaan de scroll, links naast de stempel, je PLIN, je CHIN en de datum waarop je de scroll beschreven hebt.\n\nEen dergelijke scroll is een item met 1 lading en kan gebruikt worden door personages met de vaardigheid GLYPHS GEBRUIKEN. De volledige incantatie van de spreuk moet je personage oplezen vanaf de scroll om de spreuk te casten. De scroll wordt vernietigd wanneer de spreuk wordt gebruikt. Scheur deze door en lever deze in bij spelleiding na gebruik.",
+      "Requirements": {
+        "skill": [ "Glyph Gebruiken" ],
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden", "Genezingsvaardigheden (EL)" ],
+          "value": 4
+        }
+      },
+      "xp": 1,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 137,
+      "skill": "Glyphs Meesterschap",
+      "alt_skill": "",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je kunt voorwerpen of personen beschrijven met Glyphs en doordringen met magie, een zogenaamde ‘imbue’. Zie het imbue loresheet voor meer informatie. \n\nMet deze vaardigheid kun je een voorwerp of persoon met maximaal 10 elementaire mana imbuen. Je mag hiervoor de mana gebruiken van de resterende dagen op het evenement.\n\nJe kunt deze vaardigheid meerdere keren nemen. Per keer dat je deze vaardigheid extra geleerd hebt, verhoog je je maximum te imbuen hoeveelheid mana met 10. Zo kun je de hoeveelheid mana die je kunt gebruiken om voorwerpen te doordringen met elementaire energie, verhogen. Als het effect wat je wilt imbuen te veel mana vereist dan zul je samen moeten werken met andere personen met deze vaardigheid.\nDeze vaardigheid mag je meerdere keren aankopen.",
+      "Requirements": {
+        "skill": [ "Glyphs scroll Vervaardigen" ],
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden", "Genezingsvaardigheden (EL)" ],
+          "value": 8
+        }
+      },
+      "xp": 1,
+      "loresheet": true,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "glyph_craft_cap",
+          "value": 10
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 10000,
+      "skill": "",
+      "alt_skill": "",
+      "category": "Extra Magiërvaardigheden",
+      "description": "",
+      "Requirements": {
+        "skill": [],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
       "Spreuken": [],
       "Recepten": []
     }

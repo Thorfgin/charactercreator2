@@ -45,9 +45,9 @@ export const defaultProperties = [
     { name: "spiritual_ritual_mana", image: "./images/image_srm.png", text: "Rituele Spirituele Mana", value: 0 },
     { name: "inspiration", image: "./images/image_ins.png", text: "Inspiratie", value: 0 },
     { name: "willpower", image: "./images/image_wil.png", text: "Wilskracht", value: 0 },
-    { name: "glyph_craft_cap", image: "./images/image_glp.png", text: "Glyph cap", value: 0 },
+    { name: "glyph_craft_cap", image: "./images/image_glp.png", text: "Glyph Mastery cap", value: 0 },
     { name: "glyph_imbue_cap", image: "./images/image_glp_imb.png", text: "Glyph Imbue cap", value: 0 },
-    { name: "rune_craft_cap", image: "./images/image_run.png", text: "Rune cap", value: 0 },
+    { name: "rune_craft_cap", image: "./images/image_run.png", text: "Rune Mastery cap", value: 0 },
     { name: "rune_imbue_cap", image: "./images/image_run_imb.png", text: "Rune Imbue cap", value: 0 }
 ];
 
@@ -172,10 +172,12 @@ function App() {
         if (selectedSkill) {
             const reqSkill = selectedSkill.Requirements.skill;
             const reqAny = selectedSkill.Requirements.any_list;
+            const reqCategory = selectedSkill.Requirements.Category;
 
             // exit early
             if (reqSkill.length === 0 &&
                 reqAny.length === 0 &&
+                (!reqCategory || (reqCategory && reqCategory.name.length === 0)) &&
                 selectedSkill.skill !== "Leermeester Expertise") {
                 result = true;
             }
@@ -234,6 +236,26 @@ function App() {
                             "Toevoegen is niet toegestaan.\n");
                     }
                 }
+
+                // category
+                if (reqCategory)
+                {
+                    let selectedSkillsXP = 0;
+                    const categories = reqCategory.name;
+                    const totalReqXP = reqCategory.value;
+
+                    const selectedSkills = tableData.filter(item =>
+                        categories.includes(item.category) &&                       // van de juiste categorie
+                        (item.Spreuken.length > 0 || item.Recepten.length > 0)) ;   // alleen skills met recepten of spreuken zijn doorgaans relevant
+                    selectedSkills.forEach(item => selectedSkillsXP += item.xp);
+
+                    if (totalReqXP > selectedSkillsXP) {
+                        result = false;
+                        setModalMsg("Dit item mist de vereiste XP (" + totalReqXP + ") in een van de volgende categorien:" +
+                            categories.map((item) => "\n" + item ) +
+                            "\nToevoegen is niet toegestaan.");
+                    }
+                }
             }
         }
         else {
@@ -264,26 +286,66 @@ function App() {
             // check overige vereisten
             else if (!containsTeacherSkill || extraSkill.length > 1) {
                 for (const item of tableData) {
+                    const reqSkill = item.Requirements.skill;
+                    const reqAny = item.Requirements.any_list;
+                    const reqCategory = item.Requirements.Category;
+
                     if (item.skill.toLowerCase() === skillName.toLowerCase()) { continue; }
-                    else if (item.Requirements.skill.length === 0 &&
-                        item.Requirements.any_list.length === 0) { continue; }
+                    else if (
+                        reqSkill.length === 0 &&
+                        reqAny.length === 0 &&
+                        (!reqCategory || (reqCategory && reqCategory.name.length === 0))
+                    ) { continue; }
                     else {
+
                         // skill
-                        const reqSkill = item.Requirements.skill;
-                        for (let i = 0; i < reqSkill.length; i++) {
-                            if (skillName.toLowerCase() === reqSkill[i].toLowerCase()) {
-                                isPrerequisite = true;
-                                setModalMsg("Dit item is een vereiste voor vaardigheid:\n " + item.skill + " \nVerwijderen is niet toegestaan.\n");
-                                break;
+                        if (reqSkill.length > 0) {
+                            for (let i = 0; i < reqSkill.length; i++) {
+                                if (skillName.toLowerCase() === reqSkill[i].toLowerCase()) {
+                                    isPrerequisite = true;
+                                    setModalMsg("Dit item is een vereiste voor vaardigheid:\n " + item.skill + " \nVerwijderen is niet toegestaan.\n");
+                                    break;
+                                }
                             }
                         }
+
                         // any_list
-                        const reqAny = item.Requirements.any_list;
-                        for (let i = 0; i < reqAny.length; i++) {
-                            if (skillName.toLowerCase().includes(reqAny[i].toLowerCase())) {
+                        if (reqAny.length > 0) {
+                            let countMultipleAny = 0;
+                            for (let i = 0; i < reqAny.length; i++) {
+                                const skills = tableData.filter(item => item.skill.toLowerCase().includes(reqAny[i].toLowerCase()));
+                                if (skills.length === 0) { continue; }
+                                else if (skills.length === 1) { countMultipleAny += 1; }
+                                else if (skills.length > 1) {
+                                    countMultipleAny = skills.length;
+                                    break;
+                                }
+                            }
+                            if (countMultipleAny <= 1) {
                                 isPrerequisite = true;
                                 setModalMsg("Dit item is een vereiste voor vaardigheid: \n" + item.skill + " \nVerwijderen is niet toegestaan.\n");
                                 break;
+                            }
+                        }                        
+
+                        // category
+                        if (reqCategory) {
+                            let selectedSkillsXP = 0;
+                            const categories = reqCategory.name;
+                            const totalReqXP = reqCategory.value;
+
+                            const selectedSkills = tableData.filter(item =>
+                                categories.includes(item.category) &&                       // van de juiste categorie
+                                (item.Spreuken.length > 0 || item.Recepten.length > 0) &&   // Alleen skills met recepten of spreuken zijn doorgaans relevant
+                                item.skill !== skillName);                                  // Skip zelf, deze wordt verwijdert.
+
+                            selectedSkills.forEach(item => selectedSkillsXP += item.xp);
+
+                            if (totalReqXP > selectedSkillsXP) {
+                                isPrerequisite = true;
+                                setModalMsg("Dit item is nodig voor de vereiste XP (" + totalReqXP + ")\n" +
+                                "voor de vaardigheid " + item.skill +
+                                "\nVerwijderen is niet toegestaan.");
                             }
                         }
                     }
@@ -713,7 +775,7 @@ function App() {
             </main>
             <div className="flex-filler"></div>
             <footer>
-                <div>2023 v1-alpha</div>
+                <div>2023 v0.1-alpha</div>
                 <div>Design by Deprecated Dodo{'\u2122'}</div>
                 <div className="disclaimer" onClick={showDisclaimer}>Disclaimer</div>
             </footer>
