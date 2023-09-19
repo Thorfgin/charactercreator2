@@ -81,25 +81,38 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
 
     // Tooltip vaardigheid
     else if (isSkill === true) {
-        let newRequirements = "";
-        let newAnyRequirements = "";
-        const requiredSkills = sourceSkill.Requirements.skill;
-        const requiredAny = sourceSkill.Requirements.any_list;
+        let fullRequirementsBlock = "";
 
         // check skills
-        if (sourceSkill.Requirements.skill.length > 0) {
-            requiredSkills.forEach((item) => newRequirements += (newRequirements === "" ? item : ", \n" + item))
+        let newRequirements = "";
+        const reqSkills = sourceSkill.Requirements.skill;
+        if (reqSkills.length > 0) {
+            reqSkills.forEach((item) => newRequirements += (newRequirements === "" ? item : ", \n" + item))
+            fullRequirementsBlock += newRequirements + "\n";
         };
 
         // check any_list
-        if (sourceSkill.Requirements.any_list.length > 0) {
-            requiredAny.forEach((item) => newAnyRequirements += (newAnyRequirements === "" ? item : ", \n" + item))
+        let newAnyRequirements = "";
+        const reqAny = sourceSkill.Requirements.any_list;
+        if (reqAny.length > 0) {
+            reqAny.forEach((item) => newAnyRequirements += (newAnyRequirements === "" ? item : ", \n" + item))
             newAnyRequirements = "Een van de volgende: \n" + newAnyRequirements;
+            fullRequirementsBlock += newAnyRequirements + "\n";
         };
+
+
+        let newCategoryRequirements = "";
+        const reqCategory = sourceSkill.Requirements.Category;        
+        if (reqCategory && reqCategory.name.length > 0)
+        {
+            reqCategory.name.forEach((item) => newCategoryRequirements += (newCategoryRequirements === "" ? item : ", \n" + item))
+            newCategoryRequirements = "" + reqCategory.value + " xp in de volgende categorie(n): \n" + newCategoryRequirements;
+            fullRequirementsBlock += newCategoryRequirements + "\n";
+        }        
 
         data = {
             xp: sourceSkill.xp,
-            requirements: newRequirements === "" ? newAnyRequirements : newRequirements += "\n" + newAnyRequirements,
+            requirements: fullRequirementsBlock,
             description: sourceSkill.description
         };
     }

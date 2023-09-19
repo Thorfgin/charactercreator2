@@ -1378,7 +1378,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken:\n Hidden Object, Chilling Winds, Freedom of Movement en Strike Cascade.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1407,7 +1411,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken:\n Strengthen Armour, Horrific Revelation, Boon of Disease en Life Draw",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1436,7 +1444,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nHarden, Minor Reinforcement Cascade, Sleep en Boon of Mending.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1465,7 +1477,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nMind Protection, Force Truth, Corrupt the Flow of Life en Iceblast.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1494,7 +1510,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nCleansed by Fire, Fire Blast, Inner Fire en Imbue Blast.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1523,7 +1543,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nRend Enchantment, Shatter Armour, Nature’s Protection en Charm Person.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1698,7 +1722,11 @@
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \nDisease of temperance, Minor Regeneration, Pure Body and Mind, Protection from Impairment.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Priesterspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1727,7 +1755,11 @@
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \nMute Cascade, Shatter Armour, Boon of Break Enchantment, Curse Life.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Priesterspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1756,7 +1788,11 @@
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \nParalyze Undead, Speak with the Dead, Sanctuary Ward en Life Draw.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Priesterspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1785,7 +1821,11 @@
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \nFascinate, Discern Pattern, Mind Protection en Command.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Priesterspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1814,7 +1854,11 @@
       "description": "Je krijgt 5 spirituele mana per dag.\n\n Je krijgt toegang tot de spreuken: \nHex Weapon, Freedom of Movement, Resist Special Damage, Aspect of the Dryad",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Priesterspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1903,7 +1947,7 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Strengthen Body, Total Healing en Boon of Minor Healing.",
       "Requirements": {
         "skill": [ "Genezingsspreuken A (EL)" ],
-        "any_list": [ ]
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -2131,7 +2175,7 @@
       "id": 84,
       "skill": "Elementair Ritualisme",
       "alt_skill": "",
-      "category": "Ritualistenvaardigheden",
+      "category": "Ritualisme",
       "description": "Met deze vaardigheid kun je rituelen uitvoeren. \n\nMet 1 of 2 punten in Elementair Ritualisme kun je enkel rituelen van andere ondersteunen. \nVanaf 3 punten kun je zelf rituelen initiëren en leiden. \n\nJe krijgt 2 elementaire rituele mana per dag. \nJe mag in een ritueel 1 van je eigen niet-rituele energie gebruiken per 2 rituele energie die je gebruikt. Deze telt dan als 1 elementaire rituele mana. \n\nHet is toegestaan om energie van resterende dagen van het evenement te gebruiken in je ritueel. \nHet combineren van Elementaire en Spirituele mana is toegestaan in een ritueel. \n\nDeze vaardigheid kan je meerdere malen kopen. ",
       "Requirements": {
         "skill": [],
@@ -2155,7 +2199,7 @@
       "id": 85,
       "skill": "Spiritueel Ritualisme",
       "alt_skill": "",
-      "category": "Ritualistenvaardigheden",
+      "category": "Ritualisme",
       "description": "Met deze vaardigheid kun je rituelen uitvoeren. \n\nMet 1 of 2 punten in Spiritueel Ritualisme kun je enkel rituelen van andere ondersteunen. \nVanaf 3 punten kun je zelf rituelen initiëren en leiden. \n\nJe krijgt 2 spirituele rituele mana per dag. \nJe mag in een ritueel 1 van je eigen niet-rituele energie gebruiken per 2 rituele energie die je gebruikt. Deze telt dan als 1 Spiritueel rituele mana. \n\nHet is toegestaan om energie van resterende dagen van het evenement te gebruiken in je ritueel. \nHet combineren van Elementaire en Spirituele mana is toegestaan in een ritueel. \n\nDeze vaardigheid kan je meerdere malen kopen",
       "Requirements": {
         "skill": [],
@@ -3547,10 +3591,420 @@
       "Recepten": []
     },
     {
+      "id": 138,
+      "skill": "Extra Spirituele mana",
+      "alt_skill": "",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 2 spirituele mana extra. \nJe krijgt geen toegang tot extra spreuken.\nDeze vaardigheid mag je meerdere keren aankopen",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 139,
+      "skill": "Uitdrijving",
+      "alt_skill": "",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je kan een ceremonie uitvoeren om spirituele invloeden, of de bezetenheid door een ondode, servitar, spirit of een chaos-taint te verwijderen van een persoon of voorwerp. \nJe moet deze uitdrijving uitvoeren met je eigen spirituele mana. \n\nDe ceremonie werkt hetzelfde als rituelen van de ritualisme vaardigheid, alleen gebruikt het personage spirituele mana in plaats van spirituele rituelen mana.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Priesterspreuken A" ],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 140,
+      "skill": "Priesterspreuken C - Reinheid",
+      "alt_skill": "Purity C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nHoly Bolt en Divine Armour.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Reinheid" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Holy Bolt" },
+        { "name": "Divine Armour" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 141,
+      "skill": "Priesterspreuken C - Toorn",
+      "alt_skill": "Wrath C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nTorture en Divine Weapon.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Toorn" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Torture" },
+        { "name": "Divine Weapon" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 142,
+      "skill": "Priesterspreuken C - Dood",
+      "alt_skill": "Death C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nDestroy en Septic Weapon.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Dood" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Destroy" },
+        { "name": "Septic Weapon" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 143,
+      "skill": "Priesterspreuken C - Geest",
+      "alt_skill": "Mind C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nGift of Wisdom en Spell Shield.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Geest" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Gift of Wisdom" },
+        { "name": "Spell Shield" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 144,
+      "skill": "Priesterspreuken C - Natuur",
+      "alt_skill": "Nature C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nBarkskin en Blast Disease.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Natuur" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Barkskin" },
+        { "name": "Blast Disease" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 145,
+      "skill": "Priesterspreuken C - Natuur",
+      "alt_skill": "Nature C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nBarkskin en Blast Disease.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Natuur" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Barkskin" },
+        { "name": "Blast Disease" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 146,
+      "skill": "Priesterspreuken D - Inwijden",
+      "alt_skill": "Speciale Priesterspreuken",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 2 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuk:\n Miracle of Consecration.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Priesterspreuken C" ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [
+        { "name": "Miracle of Consecration" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 147,
+      "skill": "Priesterspreuken D - Gebedsgenezing",
+      "alt_skill": "Speciale Priesterspreuken",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 2 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuk:\n Miracle of Healing.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Priesterspreuken C" ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [
+        { "name": "Miracle of Healing" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 148,
+      "skill": "Priesterspreuken D - Toorn van de Goden",
+      "alt_skill": "Speciale Priesterspreuken",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 2 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuk:\n Wrath of the Gods.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Priesterspreuken C" ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [
+        { "name": "Wrath of the Gods" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 149,
+      "skill": "Runen scroll Vervaardigen",
+      "alt_skill": "",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je kunt een scroll met runen beschrijven met 1 spirituele spreuk die je zelf beheerst. Het kan ook een spreuk zijn waartoe je slechts toegang hebt door middel van runen, een rang, een power of een condition. Voor het maken van een scroll is speciaal scroll-papier nodig. Scroll-papier is te herkennen aan de officiële VA-stempel rechtsonder op het papier.\n\nJe schrijft de gehele incantatie in runen nauwgezet op de scroll om hierna de spreuk te doen op deze geprepareerde scroll. Na het doen van de spreuk schrijf je onderaan de scroll, links naast de stempel, je PLIN, je CHIN en de datum waarop je de scroll beschreven hebt.\n\nEen dergelijke scroll is een item met 1 lading en kan gebruikt worden door personages met de vaardigheid RUNEN GEBRUIKEN. De volledige incantatie van de spreuk moet je personage oplezen vanaf de scroll om de spreuk te casten. De scroll wordt vernietigd wanneer de spreuk wordt gebruikt. Scheur deze door en lever deze in bij spelleiding na gebruik.",
+      "Requirements": {
+        "skill": [ "Runen Gebruiken" ],
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden", "Genezingsvaardigheden (SP)" ],
+          "value": 4
+        }
+      },
+      "xp": 1,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 150,
+      "skill": "Runen Meesterschap",
+      "alt_skill": "",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je kunt voorwerpen of personen beschrijven met Runen en doordringen met magie, een zogenaamde ‘imbue’. Zie het imbue loresheet voor meer informatie. Met deze vaardigheid kun je een voorwerp of persoon met maximaal 10 spirituele mana imbuen. Je mag hiervoor de mana gebruiken van de resterende dagen op het evenement.\n\nJe kunt deze vaardigheid meerdere keren nemen. Per keer dat je deze vaardigheid extra geleerd hebt, verhoog je je maximum te imbuen hoeveelheid mana met 10. Zo kun je de hoeveelheid mana die je kunt gebruiken om voorwerpen te doordringen met spirituele energie, verhogen. Als het effect wat je wilt imbuen te veel mana vereist dan zul je samen moeten werken met andere personen met deze vaardigheid.\nDeze vaardigheid mag je meerdere keren aankopen",
+      "Requirements": {
+        "skill": [ "Runen scroll Vervaardigen" ],
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden", "Genezingsvaardigheden (SP)" ],
+          "value": 8
+        }
+      },
+      "xp": 1,
+      "loresheet": true,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "rune_craft_cap",
+          "value": 10
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 151,
+      "skill": "Bloedwede",
+      "alt_skill": "",
+      "category": "Extra Ritualistenvaardigheden",
+      "description": "Je kunt wedes aanbrengen op jezelf en anderen met het bloed van dieren. \nIedere bloedwede kost rituele mana om aan te brengen. Het aanbrengen van een wede moet in een ceremonie of ritueel gebeuren en een dergelijke ceremonie duurt minimaal 5 minuten (maar er kunnen meerdere wedes in 1 ceremonie aangebracht worden). Het is niet mogelijk om meerdere wedes tegelijk te dragen en iedere wede dient duidelijk op het gezicht aangebracht te worden met verf of nepbloed.\n\n1 rituele mana:\n Rat - Immuun voor ziekten; bestaande ziekten blijven. Duratie 1 uur\n  Wolf - Immuun voor angst (fear). duratie 1 uur\nUil - Immuun zijn voor het eerstvolgende geest beïnvloedende effect.\nduratie 1 uur of tot gebruik.\nOs - Immuun voor strike en slow. duratie 1 uur\nSlang - Immuun voor giffen; bestaande giffen blijven; duratie 1 uur\nDas - De ontvanger heeft 1 extra hitpoint die niet genezen kan worden; duratie 1 uur.\n\n2 rituele mana (vereist Ritualisme 4)\nBeer - De eerstvolgende klap van de ontvanger zal met het effect BLAST zijn. Dit mag alleen met een wapen wat groter is dan 45 cm. Duratie 1 uur of tot gebruik.\nHertebok - De ontvanger zal gedurende de duratie van deze woad 4 maal STRIKE slagen mogen doen. Dit mag alleen met een wapen wat groter is dan 45 cm. Duratie 1 uur of tot op gebruikt.\nEverzwijn - De ontvanger heeft 1 extra hitpoint. Duratie 1 uur.\nPauw - De ontvanger kan 1 keer per 5 minuten het FASCINATE effect veroorzaken door gracieus te dansen en in de eerste zin daarna (zowel ic als oc) uit te leggen dat dat zo werkt; duratie 1 uur.\nGordeldier - De ontvanger heeft 1 extra armourpoint. Duratie 1 uur\n",
+      "Requirements": {
+        "skill": [],
+        "any_list": [
+          "Elementair Ritualisme",
+          "Spiritueel Ritualisme"
+        ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 152,
+      "skill": "Ritueel Leider",
+      "alt_skill": "",
+      "category": "Extra Ritualistenvaardigheden",
+      "description": "Indien je een ritueel leidt en hier zelf 3 rituele mana in spendeert krijgt het ritueel 7 bonuspunten (vergelijkbaar met 7 mana) als er minstens 3 andere actieve participanten meedoen met het ritueel. Deze personen hoeven niet per se energie te spenderen aan het ritueel maar moeten wel bijdragen aan de symboliek van het ritueel door bijvoorbeeld iets uit te beelden. Je kunt dit 1 keer per dag toepassen voor elke keer dat je deze vaardigheid aankoopt, als je hem meerdere keren tijdens hetzelfde ritueel toepast heb je voor elke toepassing weer 3 extra mensen nodig.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Ritualisme" ],
+          "value": 3
+        }
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 153,
+      "skill": "Puur Ritueel",
+      "alt_skill": "",
+      "category": "Extra Ritualistenvaardigheden",
+      "description": "Als deze vaardigheid gekozen wordt moet er een vorm van energie gekozen worden (wilskracht, spirituele mana, elementaire mana of inspiratie). Indien je een ritueel leidt waar (naast 1 vorm van rituele mana) minstens 3 mana in van alleen deze vorm van energie in gestoken wordt, dan krijgt het ritueel 7 bonuspunten (vergelijkbaar met 7 mana).\n\nDeze vaardigheid werkt niet als spiritueel en elementair door elkaar gebruikt wordt in dit ritueel.\n\nJe kunt dit 1 keer per dag toepassen voor elke keer dat je deze vaardigheid aankoopt. Let op dat elke keer dat je deze vaardigheid aankoopt je opnieuw een vorm van energie kiest. Je kunt ook meerdere keren dezelfde vorm kiezen.\nDeze vaardigheid kan 4 maal gekozen worden, 1 maal voor elke vorm van energie",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Ritualisme" ],
+          "value": 3
+        }
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 4,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
       "id": 10000,
       "skill": "",
       "alt_skill": "",
-      "category": "Extra Magiërvaardigheden",
+      "category": "Extra Priestervaardigheden",
       "description": "",
       "Requirements": {
         "skill": [],
