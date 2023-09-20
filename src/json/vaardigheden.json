@@ -4001,10 +4001,487 @@
       "Recepten": []
     },
     {
+      "id": 154,
+      "skill": "Cirkel Vinden",
+      "alt_skill": "",
+      "category": "Extra Ritualistenvaardigheden",
+      "description": "Je kunt na een kort ritueel (zonder cirkel) en het spenderen van 1 rituele mana op zoek gaan naar nabije geschikte rituele plekken waar vervolgens een cirkel getrokken kan worden door jou. Dit gebeurt altijd in overleg met spelleiding en werkt alleen als spelleiders de tijd hebben om ook op deze nieuwe plek rituelen te beoordelen. Het kan daarom ook zijn dat zo een plek slechts tijdelijk is. (spelleider vereist)",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Ritualisme" ],
+          "value": 5
+        }
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 155,
+      "skill": "Extra Wilskracht",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 2 extra willpower per dag.\nJe hebt geleerd om met je innerlijke kracht meer technieken en acties te kunnen uitvoeren. Je krijgt geen toegang tot extra technieken.\n\nDeze vaardigheid mag je meerdere keren aankopen.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Doorzettingsvermogen", "Eerste hulp bij gevechten" ]
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 156,
+      "skill": "Kracht B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe krijgt toegang tot de technieken:\nHeavy Blow en Withstand Strike.",
+      "Requirements": {
+        "skill": [ "Kracht A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [
+        { "name": "Heavy Blow" },
+        { "name": "Withstand Strike" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 157,
+      "skill": "Taaiheid B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe krijgt toegang tot de technieken:\nPoison & Disease Protection en Resist Crush",
+      "Requirements": {
+        "skill": [ "Taaiheid A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [
+        { "name": "Poison & Disease Protection" },
+        { "name": "Resist Crush" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 158,
+      "skill": "Leiderschap B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe krijgt toegang tot de technieken:\nInspect Armour en Insight.",
+      "Requirements": {
+        "skill": [ "Leiderschap A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [
+        { "name": "Inspect Armour" },
+        { "name": "Insight" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 159,
+      "skill": "Bescherming B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe krijgt toegang tot de technieken:\nDefensive Stance en Withstand Torture.",
+      "Requirements": {
+        "skill": [ "Bescherming A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [
+        { "name": "Defensive Stance" },
+        { "name": "Withstand Torture" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 160,
+      "skill": "Berserker B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe krijgt toegang tot de technieken:\nRage en Withstand Fear.",
+      "Requirements": {
+        "skill": [ "Berserker A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [
+        { "name": "Rage" },
+        { "name": "Withstand Fear" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 161,
+      "skill": "Militaire training B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe hebt 1 hitpoint meer",
+      "Requirements": {
+        "skill": [ "Militaire training A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        },
+        {
+          "name": "hitpoints",
+          "value": 1
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 162,
+      "skill": "Demonologist A",
+      "alt_skill": "Demonoloog A",
+      "category": "Demonologie",
+      "description": "De demonoloog kan zijn spreuken van \"Fire\" casten met Spirituele mana en zijn spreuken van \"Purity\" casten met Elementaire mana. \n\nJe krijgt toegang tot de spreuken:\n “Detect Servitar”, “Reveal All Servitars” “Break Minor Possession” en “Faustian Deal”.\n\nDaarnaast mag een demonoloog de vereisten om \"Fire\" en \"Purity\" aan te leren, negeren.\n\nTot slot krijgt de demonoloog 5 extra punten (vergelijkbaar met 5 energie) voor een ritueel als de demonoloog een ritueel leidt dat als effect heeft:\n* Een servitar contract verbreken\n* Een servitar possession verbreken\n* Een specifieke servitar oproepen\n* Iemand een servitar maken (kan alleen met toestemming van een godheid uiteraard)\n* Sommige andere rituelen in overleg met rituele spelleiding",
+      "Requirements": {
+        "skill": [],
+        "any_list": [
+          "Magiërspreuken B - Vuur",
+          "Priesterspreuken B - Reinheid"
+        ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [
+        { "name": "Detect Servitar" },
+        { "name": "Reveal All Servitars" },
+        { "name": "Break Minor Possession" },
+        { "name": "Faustian Deal" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 163,
+      "skill": "Demonologist B (EL)",
+      "alt_skill": "Demonoloog B",
+      "category": "Demonologie",
+      "description": "Je krijgt 5 Elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken:\n“Demonic Eye”, “Command Servitar”, “Banish Servitar” “Smite Servitar”, en “Invite Demon”.",
+      "Requirements": {
+        "skill": [
+          "Magiërspreuken B - Vuur",
+          "Demonologist A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Demonic Eye" },
+        { "name": "Command Servitar" },
+        { "name": "Banish Servitar" },
+        { "name": "Smite Servitar" },
+        { "name": "Invite Demon" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 164,
+      "skill": "Demonologist B (SP)",
+      "alt_skill": "Demonoloog B",
+      "category": "Demonologie",
+      "description": "Je krijgt 5 Spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\n“Demonic Eye”, “Command Servitar”, “Banish Servitar” “Smite Servitar”, en “Invite Demon”.",
+      "Requirements": {
+        "skill": [
+          "Priesterspreuken B - Reinheid",
+          "Demonologist A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Demonic Eye" },
+        { "name": "Command Servitar" },
+        { "name": "Banish Servitar" },
+        { "name": "Smite Servitar" },
+        { "name": "Invite Demon" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 165,
+      "skill": "Demonologist C (EL)",
+      "alt_skill": "Demonoloog C",
+      "category": "Demonologie",
+      "description": "Je krijgt 5 Elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken:\n“Greater Demonic Eye”, “Invite Greater Demon” en “Transfer Contract”.",
+      "Requirements": {
+        "skill": [ "Demonologist B (EL)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Greater Demonic Eye" },
+        { "name": "Invite Greater Demon" },
+        { "name": "Transfer Contract" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 166,
+      "skill": "Demonologist C (SP)",
+      "alt_skill": "Demonoloog C",
+      "category": "Demonologie",
+      "description": "Je krijgt 5 Spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\n“Greater Demonic Eye”, “Invite Greater Demon” en “Transfer Contract”.",
+      "Requirements": {
+        "skill": [ "Demonologist B (SP)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Greater Demonic Eye" },
+        { "name": "Invite Greater Demon" },
+        { "name": "Transfer Contract" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 167,
+      "skill": "Levens Druidisme A",
+      "alt_skill": "Druid A",
+      "category": "Druidisme",
+      "description": "De druïde kan zijn spreuken van \"Wood\" casten met Spirituele mana en zijn spreuken van \"Nature\" casten met Elementaire mana. \n\nJe krijgt toegang tot de spreuken:\n “Detect Spirit”, “Reveal All Spirits” “Break Minor Possession” en “Create Personal Grove”.\n Daarnaast mag een druïde de vereisten die nodig zijn voor het hierna aanleren van “Wood” en “Nature” vaardigheden negeren.\n\nTot slot krijg de druide 5 extra punten (vergelijkbaar met 5 energie) voor een ritueel als de druïde een ritueel leidt dat als effect heeft:\n* Een onnatuurlijke invloed van een plek verwijderen\n* Het ecosysteem, als in balans tussen leven en dood bij planten en dieren beïnvloeden\n* Te reizen van Grove naar Grove\n* Sommige andere rituelen in overleg met rituele spelleiding",
+      "Requirements": {
+        "skill": [],
+        "any_list": [
+          "Magiërspreuken B - Hout",
+          "Priesterspreuken B - Natuur"
+        ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [
+        { "name": "Detect Spirit" },
+        { "name": "Reveal All Spirits" },
+        { "name": "Break Minor Possession" },
+        { "name": "Create Personal Grove" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 168,
+      "skill": "Doods Druidisme A",
+      "alt_skill": "Druid A",
+      "category": "Druidisme",
+      "description": "De druïde kan zijn spreuken van \"Metal\" casten met Spirituele mana en zijn spreuken van \"Death\" casten met Elementaire mana. \n\nJe krijgt toegang tot de spreuken:\n “Detect Spirit”, “Reveal All Spirits” “Break Minor Possession” en “Create Personal Grove”.\n Daarnaast mag een druïde de vereisten die nodig zijn voor het hierna aanleren van “Metal” en “Death” vaardigheden negeren.\n\nTot slot krijg de druide 5 extra punten (vergelijkbaar met 5 energie) voor een ritueel als de druïde een ritueel leidt dat als effect heeft:\n* Een onnatuurlijke invloed van een plek verwijderen\n* Het ecosysteem, als in balans tussen leven en dood bij planten en dieren beïnvloeden\n* Te reizen van Grove naar Grove\n* Sommige andere rituelen in overleg met rituele spelleiding",
+      "Requirements": {
+        "skill": [],
+        "any_list": [
+          "Magiërspreuken B - Metaal",
+          "Priesterspreuken B - Dood"
+        ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [
+        { "name": "Detect Spirit" },
+        { "name": "Reveal All Spirits" },
+        { "name": "Break Minor Possession" },
+        { "name": "Create Personal Grove" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 169,
+      "skill": "Levens Druidisme B (EL)",
+      "alt_skill": "Druid B",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Detect Impurity”, “Reveal All Impurities”, “Protection of the Grove” en “Invite Nature Spirit”.",
+      "Requirements": {
+        "skill": [
+          "Magiërspreuken B - Hout",
+          "Levens Druidisme A"
+        ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Detect Impurity" },
+        { "name": "Reveal All Impurities" },
+        { "name": "Protection of the Grove" },
+        { "name": "Invite Nature Spirit" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 170,
+      "skill": "Levens Druidisme B (SP)",
+      "alt_skill": "Druid B",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Spirituele mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Detect Impurity”, “Reveal All Impurities”, “Protection of the Grove” en “Invite Nature Spirit”.",
+      "Requirements": {
+        "skill": [
+          "Priesterspreuken B - Natuur",
+          "Levens Druidisme A"
+        ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Detect Impurity" },
+        { "name": "Reveal All Impurities" },
+        { "name": "Protection of the Grove" },
+        { "name": "Invite Nature Spirit" }
+      ],
+      "Recepten": []
+    },
+    {
       "id": 10000,
       "skill": "",
       "alt_skill": "",
-      "category": "Extra Priestervaardigheden",
+      "category": "Extra Vechtervaardigheden",
       "description": "",
       "Requirements": {
         "skill": [],
