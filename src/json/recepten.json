@@ -7,12 +7,14 @@
           "skill": "Meestersmid A",
           "Recipies": [
             {
+              "id": 1,
               "recipy": "Meesterstuk A (Metal)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Metal"
+              "components": "Mythical Metal"
             },
             {
+              "id": 2,
               "recipy": "Wetsteen (Lvl 1)",
               "effect": "Dit voorwerp kan gebruikt worden op een wapen van minstens 45 cm, het wapen kan vandaag 1 keer BLAST slaan. Een wapen kan onder invloed zijn van 1 wetsteen tegelijk.",
               "inspiration": "",
@@ -24,12 +26,14 @@
           "skill": "Meestersmid B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Metal)",
+              "id": 3,
+              "recipy": "Meesterstuk B (Steel)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Steel"
+              "components": "Mythical Steel"
             },
             {
+              "id": 4,
               "recipy": "Wetsteen (Lvl 2)",
               "effect": "Dit voorwerp kan gebruikt worden op een wapen van minstens 45 cm, het wapen kan vandaag 1 keer CRUSH slaan. Een wapen kan onder invloed zijn van 1 wetsteen tegelijk.",
               "inspiration": "",
@@ -41,12 +45,14 @@
           "skill": "Meestersmid C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Metal)",
+              "id": 5,
+              "recipy": "Meesterstuk C (Mithril)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Mithril"
+              "components": "Mythical Mithril"
             },
             {
+              "id": 6,
               "recipy": "Wetsteen (Lvl 3)",
               "effect": "Dit voorwerp kan gebruikt worden op een wapen van minstens 45 cm, het wapen kan vandaag 1 keer DESTROY slaan. Een wapen kan onder invloed zijn van 1 wetsteen tegelijk.",
               "inspiration": "",
@@ -58,12 +64,14 @@
           "skill": "Houtbewerker A",
           "Recipies": [
             {
+              "id": 7,
               "recipy": "Meesterstuk A (Wood)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Wood"
+              "components": "Mythical Wood"
             },
             {
+              "id": 8,
               "recipy": "Totem van de Wolf",
               "effect": "Dit voorwerp kan gebruikt worden om een persoon eenmalig 1 uur immuun te maken voor fear of kan gebruikt worden tijdens een bloedwede ritueel om op 1 persoon de bloedwede 2 uur te laten duren in plaats van 1 uur.",
               "inspiration": "",
@@ -75,14 +83,16 @@
           "skill": "Houtbewerker B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Wood)",
+              "id": 9,
+              "recipy": "Meesterstuk B (Ebony)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Ebony"
+              "components": "Mythical Ebony"
             },
             {
+              "id": 10,
               "recipy": "Totem van de Uil",
-              "effect": "Dit voorwerp kan gebruikt worden om een persoon immuun te maken voor het eerstvolgende geest be�nvloedende effect binnen het volgende uur of kan in combinatie met een totem van de wolf voorwerp gebruikt worden tijdens een bloedwede ritueel om op 1 persoon de bloedwede 4 uur te laten duren in plaats van 1 uur.",
+              "effect": "Dit voorwerp kan gebruikt worden om een persoon immuun te maken voor het eerstvolgende geest beïnvloedende effect binnen het volgende uur of kan in combinatie met een totem van de wolf voorwerp gebruikt worden tijdens een bloedwede ritueel om op 1 persoon de bloedwede 4 uur te laten duren in plaats van 1 uur.",
               "inspiration": "",
               "components": "1 inspiratie voor 1 Totem van de Uil of 1 Mythical ebony voor 5 Totems van de Uil"
             }
@@ -92,16 +102,18 @@
           "skill": "Houtbewerker C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Wood)",
+              "id": 11,
+              "recipy": "Meesterstuk C (Worldtree Sapling)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Worldtree sapling"
+              "components": "Mythical Worldtree Sapling"
             },
             {
+              "id": 12,
               "recipy": "Totem van de Stier",
               "effect": "Dit voorwerp kan gebruikt worden om een persoon 1 uur lang 2 extra HP te geven of kan in combinatie met een totem van de wolf en een totem van de uil voorwerp gebruikt worden tijdens een bloedwede ritueel om op 1 persoon de bloedwede de hele dag te laten duren in plaats van 1 uur.",
               "inspiration": "",
-              "components": "4 inspiratie voor 1 Totem van de Stier of 1 Mythical worldtree sapling voor 5 Totems van de Stier"
+              "components": "4 inspiratie voor 1 Totem van de Stier of 1 Mythical Worldtree Sapling voor 5 Totems van de Stier"
             }
           ]
         },
@@ -109,12 +121,14 @@
           "skill": "Kleermaker A",
           "Recipies": [
             {
+              "id": 13,
               "recipy": "Meesterstuk A (Cloth)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Cloth"
+              "components": "Mythical Cloth"
             },
             {
+              "id": 14,
               "recipy": "Hoog kwaliteit Verband",
               "effect": "Dit voorwerp kan bij het gebruik van een heelmeester vaardigheid gebruikt worden in plaats van een wilskracht.",
               "inspiration": "",
@@ -126,12 +140,14 @@
           "skill": "Kleermaker B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Cloth)",
+              "id": 15,
+              "recipy": "Meesterstuk B (Velvet)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Velvet"
+              "components": "Mythical Velvet"
             },
             {
+              "id": 16,
               "recipy": "Vlag van de Groep ",
               "effect": "Dit voorwerp kan eenmalig gebruikt worden om 10 leden van een groep of gilde er aan te verbinden. Deze 10 leden kunnen binnen de tent waar deze vlag bij hangt vandaag eenmalig x energie naar keuze terugkrijgen door in de tent te rusten voor enkele minuten met minstens 1 ander lid van de groep.",
               "inspiration": "",
@@ -143,16 +159,18 @@
           "skill": "Kleermaker C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Cloth)",
+              "id": 17,
+              "recipy": "Meesterstuk C (Spidersilk)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Spidersilk "
+              "components": "Mythical Spidersilk "
             },
             {
+              "id": 18,
               "recipy": "Banier van de Groep",
               "effect": "Dit voorwerp kan eenmalig gebruikt worden om 12 leden van een groep of gilde er aan te verbinden. Deze 12 leden krijgen vandaag eenmalig na een gevecht x energie naar keuze terug dat ze uitgegeven hebben tijdens dat gevecht waarin de banier geheven werd.",
               "inspiration": "",
-              "components": "8*x inspiratie of 1 Mythical spider silk en 40 koperen munten voor een x van 3"
+              "components": "8*x inspiratie of 1 Mythical Spidersilk en 40 koperen munten voor een x van 3"
             }
           ]
         },
@@ -160,12 +178,14 @@
           "skill": "Boekbinder A",
           "Recipies": [
             {
+              "id": 19,
               "recipy": "Meesterstuk A (Paper)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Paper"
+              "components": "Mythical Paper"
             },
             {
+              "id": 20,
               "recipy": "Scrollpapier",
               "effect": "Scrollpapier dat gebruikt kan worden voor de vaardigheid 'Runen scroll Vervaardigen' of 'Glyph scroll Vervaardigen'. Scrollpapier verloopt niet in tegenstelling tot andere mundane voorwerpen.",
               "inspiration": "",
@@ -177,12 +197,14 @@
           "skill": "Boekbinder B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Paper)",
+              "id": 21,
+              "recipy": "Meesterstuk B (Vellum)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Vellum"
+              "components": "Mythical Vellum"
             },
             {
+              "id": 22,
               "recipy": "Leeg Vaardigheid Onderzoek Boek",
               "effect": "Als een persoon 3 evenementen lang notities maakt over diens onderzoek naar een extra vaardigheid kan de persoon daarna deze extra vaardigheid leren zonder leermeester",
               "inspiration": "",
@@ -194,12 +216,14 @@
           "skill": "Boekbinder C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Paper)",
+              "id": 23,
+              "recipy": "Meesterstuk C (Griffinskin Vellum)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Griffinskin Vellum "
+              "components": "Mythical Griffinskin Vellum"
             },
             {
+              "id": 24,
               "recipy": "Leeg Boek der Ervaringen",
               "effect": "Als een persoon persoonlijke notities maakt over diens leven en ervaringen rondom dit evenement krijgt de persoon na dit evenement 0.25 extra XP. Je kunt maar 1 zo een boek gebruiken per evenement.",
               "inspiration": "",
@@ -211,12 +235,14 @@
           "skill": "Leerbewerker A",
           "Recipies": [
             {
+              "id": 25,
               "recipy": "Meesterstuk A (Leather)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Leather"
+              "components": "Mythical Leather"
             },
             {
+              "id": 26,
               "recipy": "Pantser Reparatie Set",
               "effect": "Dit voorwerp kan gebruikt worden op een pantser om hetzelfde effect te bereiken als een Mend spreuk.",
               "inspiration": "",
@@ -228,12 +254,14 @@
           "skill": "Leerbewerker B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Leather)",
+              "id": 27,
+              "recipy": "Meesterstuk B (Scale)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Scale"
+              "components": "Mythical Scale"
             },
             {
+              "id": 28,
               "recipy": "Pantser Versterking",
               "effect": "Dit voorwerp kan gebruikt worden op een panters om 1 extra armourpoint toe te voegen voor een dag.",
               "inspiration": "",
@@ -245,12 +273,14 @@
           "skill": "Leerbewerker C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Leather)",
+              "id": 29,
+              "recipy": "Meesterstuk C (Dragonscale)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Dragonscale"
+              "components": "Mythical Dragonscale"
             },
             {
+              "id": 30,
               "recipy": "Zware Pantser Versterking",
               "effect": "Dit voorwerp kan gebruikt worden op een panters om 2 extra armourpoints toe te voegen voor een dag.",
               "inspiration": "",
@@ -262,12 +292,14 @@
           "skill": "Juwelier A",
           "Recipies": [
             {
-              "recipy": "Meesterstuk A (Precious Metal)",
+              "id": 31,
+              "recipy": "Meesterstuk A (Copper Ingot)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
-              "components": "Metal"
+              "components": "Copper Ingot"
             },
             {
+              "id": 32,
               "recipy": "Vriendschaps Geschenk",
               "effect": "Je kunt iemand dit voorwerp geven en je vriendschap verklaren. Deze persoon krijgt dan 2 energie naar keuze. Als deze persoon dit evenement sterft of de vriendschap stopt verlies je de volgende speldag 4 energie naar keuze.",
               "inspiration": "",
@@ -279,12 +311,14 @@
           "skill": "Juwelier B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Precious Metal)",
+              "id": 33,
+              "recipy": "Meesterstuk B (Silver Ingot)",
               "effect": "Hoeveelheid Imbue cap: 7",
               "inspiration": "2",
-              "components": "Steel"
+              "components": "Silver Ingot"
             },
             {
+              "id": 34,
               "recipy": "Alliantie Juweel",
               "effect": "2 gewillige personen kunnen met dit voorwerp elkaar een alliantie verklaren. Als 1 van de 2 personen dit evenement liegt tegen de ander of een belofte richting de ander breekt, breekt dit voorwerp onmiddellijk als de personen (weer) bij elkaar zijn en ontvangen beide personen een incite aggression effect.",
               "inspiration": "",
@@ -296,12 +330,14 @@
           "skill": "Juwelier C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Precious Metal)",
+              "id": 35,
+              "recipy": "Meesterstuk C (Golden Ingot)",
               "effect": "Hoeveelheid Imbue cap: 27",
               "inspiration": "7",
-              "components": "Mithril"
+              "components": "Gold Ingot"
             },
             {
+              "id": 36,
               "recipy": "Huwelijks Juweel",
               "effect": "Iemand kan via dit voorwerp met een ander persoon een huwelijk aangaan. Vanaf dat moment tot aan het einde van het huwelijk kan je per dag 10 van jou energie naar keuze aan de ander geven als je bij elkaar bent. Als de andere persoon ooit sterft of het huwelijk stopt verliest je de volgende speldag 10 energie naar keuze. (Met 2 voorwerpen kun je de connectie naar beide kanten laten werken).",
               "inspiration": "",
@@ -313,12 +349,14 @@
           "skill": "Steenzetter A",
           "Recipies": [
             {
-              "recipy": "Meesterstuk A (Gemstone)",
+              "id": 37,
+              "recipy": "Meesterstuk A (Quartz)",
               "effect": "Hoeveelheid Imbue cap: 2",
               "inspiration": "0.5",
               "components": "Quartz"
             },
             {
+              "id": 38,
               "recipy": "Basis Sieraad",
               "effect": "Je maakt een sieraad van 5 dezelfde soorten quartz en verkoopt dit voor 3 goud (bij de infobalie). Elke 2 inspiratie die je hier in steekt zorgt er voor dat je 1 quartz minder nodig hebt.",
               "inspiration": "",
@@ -330,12 +368,14 @@
           "skill": "Steenzetter B",
           "Recipies": [
             {
-              "recipy": "Meesterstuk B (Gemstone)",
-              "effect": "Hoeveelheid Imbue cap: 7",
-              "inspiration": "2",
+              "id": 39,
+              "recipy": "Meesterstuk B (Gems)",
+              "effect": "Hoeveelheid Imbue cap: 5",
+              "inspiration": "1",
               "components": "Gem"
             },
             {
+              "id": 40,
               "recipy": "Duur Sieraad",
               "effect": "Je maakt een sieraad van 5 dezelfde soorten gems en verkoopt dit voor 7 goud (bij de infobalie). Elke 4 inspiratie die je hier in steekt zorgt er voor dat je 1 gem minder nodig hebt.",
               "inspiration": "",
@@ -347,12 +387,14 @@
           "skill": "Steenzetter C",
           "Recipies": [
             {
-              "recipy": "Meesterstuk C (Gemstone)",
-              "effect": "Hoeveelheid Imbue cap: 27",
-              "inspiration": "7",
+              "id": 41,
+              "recipy": "Meesterstuk C (Flawless Gems)",
+              "effect": "Hoeveelheid Imbue cap: 10",
+              "inspiration": "2",
               "components": "Flawless Gem"
             },
             {
+              "id": 42,
               "recipy": "Koninklijk Sieraad",
               "effect": "Je maakt een sieraad van 5 dezelfde soorten flawless gems en verkoopt dit voor 15 goud (bij de infobalie). Elke 8 inspiratie die je hier in steekt zorgt er voor dat je 1 flawless gem minder nodig hebt.",
               "inspiration": "",
@@ -366,39 +408,45 @@
       "categorie": "Alchemistenvaardigheden",
       "Skills": [
         {
-          "skill": "Genezende Dranken A",
+          "skill": "Brouw Genezende Dranken A",
           "Recipies": [
             {
+              "id": 43,
               "recipy": "Heal scrape potion",
               "effect": "Geneest 1 HP. Werkt niet als de drinker uitgeschakeld of stervende is.",
               "inspiration": "1",
               "components": "-"
             },
             {
+              "id": 44,
               "recipy": "Heal wound potion",
               "effect": "Geneest 3 HP. Werkt niet als de drinker uitgeschakeld of stervende is.",
               "inspiration": "1",
               "components": "1 Catnip"
             },
             {
+              "id": 45,
               "recipy": "Minor potion of heal crippling wound",
               "effect": "Geneest 1 HP als je niet stervende bent.",
               "inspiration": "1",
               "components": "1 Catnip 1 Ivan’s hood"
             },
             {
+              "id": 46,
               "recipy": "Heal crippling wound potion",
               "effect": "Geneest 3 HP als je niet stervende bent.",
               "inspiration": "1",
               "components": "1 Catnip 2 Ivan’s hood"
             },
             {
+              "id": 47,
               "recipy": "Bleed salve",
               "effect": "Verlengt de grace periode met 10 minuten. Werkt alleen op stervende personen.",
               "inspiration": "1",
               "components": "1 Catnip 1 Fools stem"
             },
             {
+              "id": 48,
               "recipy": "Heal hangover",
               "effect": "Geneest effecten van een kater.",
               "inspiration": "1",
@@ -407,39 +455,45 @@
           ]
         },
         {
-          "skill": "Genezende Dranken B",
+          "skill": "Brouw Genezende Dranken B",
           "Recipies": [
             {
-              "recipy": "Heal deadly wound",
+              "id": 49,
+              "recipy": "Heal deadly wound potion",
               "effect": "Geneest FATAL en 1 HP.",
               "inspiration": "1",
               "components": "1 Catnip 1 Fools stem 1 Ivan’s hood"
             },
             {
-              "recipy": "Cure weak disease",
+              "id": 50,
+              "recipy": "Cure weak disease potion",
               "effect": "Geneest een HIT DISEASE (inclusief de schade)",
               "inspiration": "1",
               "components": "1 Catnip"
             },
             {
-              "recipy": "Cure disease",
+              "id": 51,
+              "recipy": "Cure disease potion",
               "effect": "Geneest een disease naar keuze (inclusief het effect of schade)",
               "inspiration": "1",
               "components": "2 Catnip"
             },
             {
-              "recipy": "Courage",
+              "id": 52,
+              "recipy": "Courage potion",
               "effect": "Geneest of voorkomt de eerstvolgende 2 Fear of Fear poisons vandaag.",
               "inspiration": "1",
               "components": "1 Catnip"
             },
             {
-              "recipy": "Wakeful",
+              "id": 53,
+              "recipy": "Wakeful potion",
               "effect": "Geneest of voorkomt de eerstvolgende Sleep of Sleep poison vandaag.",
               "inspiration": "1",
               "components": "1 Catnip"
             },
             {
+              "id": 54,
               "recipy": "Cure Heartache",
               "effect": "Versterkt voor een uur maar verwijdert vervolgens, onbeantwoorde verliefde gevoelens.",
               "inspiration": "1",
@@ -448,39 +502,45 @@
           ]
         },
         {
-          "skill": "Genezende Dranken C",
+          "skill": "Brouw Genezende Dranken C",
           "Recipies": [
             {
-              "recipy": "Heal all wounds",
+              "id": 55,
+              "recipy": "Heal all wounds potion",
               "effect": "Geneest FATAL en geeft alle HP terug. Laat ook ritueel verwijderde ledematen teruggroeien.",
               "inspiration": "2",
               "components": "2 Catnip 1 Fools stem 1 Ivan’s hood 1 Nimpf’s blossom"
             },
             {
-              "recipy": "Cure strong disease",
+              "id": 56,
+              "recipy": "Cure strong disease potion",
               "effect": "Geneest alle diseases en de effecten en schade daar door veroorzaakt.",
               "inspiration": "1",
               "components": "1 Catnip 1 Nimph’s blossom"
             },
             {
-              "recipy": "Muscle control",
+              "id": 57,
+              "recipy": "Muscle control potion",
               "effect": "Geneest of voorkomt de eerstvolgende Paralyze, Paralyze poison, Torture of Torture poison vandaag.",
               "inspiration": "1",
               "components": "1 Catnip 1 Raven’s eye"
             },
             {
-              "recipy": "Concentration",
+              "id": 58,
+              "recipy": "Concentration potion",
               "effect": "Geneest of voorkomt de eerstvolgende Confuse of Confuse poison vandaag.",
               "inspiration": "1",
               "components": "1 Catnip"
             },
             {
-              "recipy": "Reroute blood",
+              "id": 59,
+              "recipy": "Reroute blood potion",
               "effect": "Geneest of voorkomt de eerstvolgende Fatal poison vandaag.",
               "inspiration": "1",
               "components": "1 Catnip 1 Nimpf’s blossom"
             },
             {
+              "id": 60,
               "recipy": "Cure Amnesia",
               "effect": "Verwijdert mentale blokkades die je dingen doen vergeten (zoals bijv. hypnose).",
               "inspiration": "1",
@@ -489,39 +549,45 @@
           ]
         },
         {
-          "skill": "Giffen A",
+          "skill": "Brouw Giffen A",
           "Recipies": [
             {
+              "id": 61,
               "recipy": "Minor weapon oil",
               "effect": "Je volgende slag met een wapen van minstens 45cm slaat STRIKE",
               "inspiration": "1",
               "components": "-"
             },
             {
+              "id": 62,
               "recipy": "Minor venom",
               "effect": "Je volgende slag slaat HIT POISON",
               "inspiration": "1",
               "components": "1 Spiderleaf"
             },
             {
+              "id": 63,
               "recipy": "Fright venom",
               "effect": "Je volgende slag slaat FEAR POISON",
               "inspiration": "1",
               "components": "1 Spiderleaf 1 Fools stem"
             },
             {
+              "id": 64,
               "recipy": "Sleep poison",
               "effect": "Vergiftigt voedsel of drank met een SLEEP POISON",
               "inspiration": "1",
               "components": "1 Spiderleaf"
             },
             {
+              "id": 65,
               "recipy": "Muscle lock poison",
               "effect": "Vergiftigt voedsel of drank met een PARALYZE POISON",
               "inspiration": "1",
               "components": "1 Spiderleaf 1 Raven’s eye"
             },
             {
+              "id": 66,
               "recipy": "Abortion poison",
               "effect": "Als de ongedwongen gewillige zwangere persoon dit wenst en meewerkt dan sterft de vrucht",
               "inspiration": "1",
@@ -530,109 +596,139 @@
           ]
         },
         {
-          "skill": "Giffen B",
+          "skill": "Brouw Giffen B",
           "Recipies": [
             {
+              "id": 67,
               "recipy": "Venom",
               "effect": "Je volgende slag slaat BLAST POISON",
               "inspiration": "1",
               "components": "1 Spiderleaf 2 Fools stem"
             },
             {
+              "id": 68,
               "recipy": "Weapon oil",
               "effect": "Je volgende slag met een wapen van minstens 45 cm slaat BLAST",
               "inspiration": "1",
               "components": "1 Spiderleaf"
             },
             {
+              "id": 69,
               "recipy": "Mute venom",
               "effect": "Je volgende slag slaat MUTE POISON",
               "inspiration": "1",
               "components": "1 Spiderleaf"
             },
             {
+              "id": 70,
               "recipy": "Muscle lock venom",
               "effect": "Je volgende slag slaat PARALYZE POISON",
               "inspiration": "1",
               "components": "1 Spiderleaf 1 Bael’sammon’s rose"
             },
             {
+              "id": 71,
               "recipy": "Agonizing poison",
               "effect": "Vergiftigt voedsel of drank met een TORTURE POISON",
               "inspiration": "1",
               "components": "1 Spiderleaf 1 Fools stem 1 Raven’s eye"
+            },
+            {
+              "id": 72,
+              "recipy": "Sorrow drink",
+              "effect": "Vergiftigt voedsel of drank, maakt een persoon voor een uur lang depressief.",
+              "inspiration": "1",
+              "components": "-"
             }
           ]
         },
         {
-          "skill": "Giffen C",
+          "skill": "Brouw Giffen C",
           "Recipies": [
             {
+              "id": 73,
               "recipy": "Batch of venom",
               "effect": "Je volgende 2 slagen slaan BLAST POISON",
               "inspiration": "1",
               "components": "1 Spiderleaf 1 Fools stem 1 Bael’sammon’s rose"
             },
             {
+              "id": 74,
               "recipy": "Major weapon oil",
               "effect": "Je volgende slag met een wapen van minstens 45 cm slaat CRUSH",
               "inspiration": "1",
               "components": "5 Spiderleaf"
             },
             {
+              "id": 75,
               "recipy": "Confuse venom",
               "effect": "Je volgende 3 slagen slaan CONFUSE POISON",
               "inspiration": "2",
               "components": "2 Spiderleaf 2 Fools stem 1 Bael’sammon’s rose"
             },
             {
+              "id": 76,
               "recipy": "Fatal venom",
               "effect": "Je volgende slag slaat FATAL POISON",
               "inspiration": "2",
               "components": "2 Spiderleaf 2 Bael’sammon’s rose"
             },
             {
+              "id": 77,
               "recipy": "Fatal poison",
               "effect": "Vergiftigt voedsel of drank met een FATAL POISON",
               "inspiration": "1",
               "components": "1 Spiderleaf 1 Bael’sammon’s rose"
+            },
+            {
+              "id": 78,
+              "recipy": "Drink of willed death",
+              "effect": "Als de ongedwongen gewillig drinker het wilt kan hij beslissen ergens deze dag spontaan te sterven.",
+              "inspiration": "1",
+              "components": "-"
             }
           ]
         },
         {
-          "skill": "Hallucinerende Elixers A",
+          "skill": "Brouw Hallucinerende Elixers A",
           "Recipies": [
             {
+              "id": 79,
               "recipy": "Smell of confusion",
               "effect": "Wanneer deze potion geopend wordt ontvangt de opener en een persoon naar keuze die binnen 5 meter staat een CONFUSE effect",
               "inspiration": "1",
               "components": "-"
             },
             {
+              "id": 80,
               "recipy": "Minor fever potion",
-              "effect": "Je krijgt 1 rituele mana naar keuze terug. Deze potion kan je niet langer houdbaar maken",
+              "effect": "Je krijgt 1 rituele mana naar keuze terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Nodens Veil"
             },
             {
+              "id": 81,
               "recipy": "Vision of the soul",
-              "effect": "Je kunt binnen 5 minuten eenmalig een DISCERN SOUL spreuk casten. Er is geen mana nodig om deze spreuk te casten.",
+              "effect": "Je kunt binnen 5 minuten eenmalig een DISCERN SOUL spreuk casten. \nEr is geen mana nodig om deze spreuk te casten.",
               "inspiration": "1",
               "components": "1 Nodens Veil"
             },
             {
+              "id": 82,
               "recipy": "Vision of symbols",
               "effect": "Je kunt vandaag eenmalig een scroll gebruiken zonder dat je hiervoor de RUNE USE of GLYPH USE vaardigheid nodig hebt.",
               "inspiration": "1",
               "components": "1 Nodens Veil"
             },
             {
+              "id": 83,
               "recipy": "Visions of the lifted veil",
               "effect": "Wanneer deze potion gebruikt wordt op een rituele plek met een band met de spirit world (bv. een grove) kun je mogelijk visioenen van de spirits ervaren om een inzicht te krijgen in de huidige stand van zaken. Bij gebruik is een spelleider vereist.",
               "inspiration": "1",
               "components": "1 Nodens Veil 1 Oracle’s tung"
             },
             {
+              "id": 84,
               "recipy": "Relive potion",
               "effect": "Je herleeft in detail een eigen herinnering naar keuze. (Zolang jij of een ander speler zich dit OC herinnert. Deze potion kan niet gebruikt worden om informatie na te vragen bij spelleiding).",
               "inspiration": "1",
@@ -641,75 +737,93 @@
           ]
         },
         {
-          "skill": "Hallucinerende Elixers B",
+          "skill": "Brouw Hallucinerende Elixers B",
           "Recipies": [
             {
-              "recipy": "Fever",
-              "effect": "Je krijgt 2 rituele mana naar keuze terug. Deze potion kan je niet langer houdbaar maken",
+              "id": 85,
+              "recipy": "Fever potion",
+              "effect": "Je krijgt 2 rituele mana naar keuze terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Nodens Veil 1 Ivan’s hood"
             },
             {
+              "id": 86,
               "recipy": "Visions of glowing symbols",
               "effect": "Je krijgt tot zonsopkomst toegang tot de vaardigheden RUNE USE en GLYPH USE.",
               "inspiration": "1",
               "components": "1 Nodens Veil 1 Oracle’s tung"
             },
             {
+              "id": 87,
               "recipy": "Visions of magic",
-              "effect": "Je kan binnen 5 minuten een DETECT MAGIC spreuk casten. Er is geen mana nodig om deze spreuk te casten.",
+              "effect": "Je kan binnen 5 minuten een DETECT MAGIC spreuk casten. \nEr is geen mana nodig om deze spreuk te casten.",
               "inspiration": "1",
               "components": "1 Nodens Veil"
             },
             {
+              "id": 88,
               "recipy": "Visions of numen",
-              "effect": "Je kan binnen 5 minuten een DETECT SPIRITUAL INFLUENCE spreuk casten. Er is geen mana nodig om deze spreuk te casten.",
+              "effect": "Je kan binnen 5 minuten een DETECT SPIRITUAL INFLUENCE spreuk casten. \nEr is geen mana nodig om deze spreuk te casten.",
               "inspiration": "1",
               "components": "1 Nodens Veil"
             },
             {
+              "id": 89,
               "recipy": "Visions of the past",
               "effect": "Wanneer deze potion gebruikt wordt op een rituele plek met een band met de spirit world (bv. een grove) kun je mogelijk visioenen van de spirits om een inzicht te krijgen over de geschiedenis van een aangeraakt persoon of voorwerp. Hiervoor is een spelleider vereist.",
               "inspiration": "2",
               "components": "2 Nodens Veil 1 Raven’s eye 1 Nimpf’s blossom"
+            },
+            {
+              "id": 90,
+              "recipy": "Relive other potion",
+              "effect": "Je herleeft in detail een herinnering van een aangeraakt persoon die hiervoor ongedwongen medewerking verleent. (Zolang de speler zich dit OC herinnert. Deze potion kan niet gebruikt worden om informatie na te vragen bij spelleiding).",
+              "inspiration": "1",
+              "components": "-"
             }
           ]
         },
         {
-          "skill": "Hallucinerende Elixers C",
+          "skill": "Brouw Hallucinerende Elixers C",
           "Recipies": [
             {
-              "recipy": "Major fever",
-              "effect": "Je krijgt 3 rituele mana naar keuze terug. Deze potion kan je niet langer houdbaar maken",
+              "id": 91,
+              "recipy": "Major fever potion",
+              "effect": "Je krijgt 3 rituele mana naar keuze terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Nodens Veil 2 Ivan’s hood"
             },
             {
+              "id": 92,
               "recipy": "Visions of death",
               "effect": "Je kunt binnen een kwartier vrijelijk spreken met de lichamen van gewillige dode om je heen. Je giet ook een gedeelte van de potion in hun monden (maximaal 10 lichamen)",
               "inspiration": "2",
               "components": "2 Nodens Veil 1 Fools stem 1 Raven’s eye 1 Nimpf’s blossom"
             },
             {
+              "id": 93,
               "recipy": "Visions of the zeitgeist",
               "effect": "Je kunt binnen een kwartier (maximaal 10 keer) DISCERN SOUL spreuken casten. Er is geen mana nodig om deze spreuken te casten.",
               "inspiration": "2",
               "components": "2 Nodens Veil 1 Ivan’s hood 1 Raven’s eye 1 Oracle’s tung"
             },
             {
+              "id": 94,
               "recipy": "Visions of present",
               "effect": "Wanneer dit brouwsels gedeelt wordt op een rituele plek met een band met de spirit world (bv. een grove) kunnen tot 10 mensen mogelijk visioenen van de spirits ervaren om een inzicht te krijgen in de huidige stand van zaken. Bij gebruik is een spelleider vereist.",
               "inspiration": "2",
               "components": "2 Nodens Veil 2 Ivan’s hood 1 Oracle’s tung"
             },
             {
+              "id": 95,
               "recipy": "Future visions",
               "effect": "Wanneer deze potion gebruikt wordt op een rituele plek met een band met de spirit world (bv. een grove) kun je mogelijk visioenen van de spirits ervaren om een inzicht te krijgen in zaken die nog staan te gebeuren. Bij gebruik is een spelleider vereist.",
               "inspiration": "3",
               "components": "3 Nodens Veil 1 Ivan’s hood 1 Fools stem 1 Oracle’s tung"
             },
             {
-              "recipy": "Be other",
+              "id": 96,
+              "recipy": "Be other potion",
               "effect": "Je geest smelt gedurende 5 minuten samen met een aangeraakt persoon die hiervoor ongedwongen medewerking verleent. Beide personen ervaren elkaars gedachten, emoties en standpunten. Dit kan achteraf leiden tot kleine verandering in persoonlijkheden.",
               "inspiration": "1",
               "components": "-"
@@ -717,39 +831,45 @@
           ]
         },
         {
-          "skill": "Kruiden Elixers A",
+          "skill": "Brouw Kruiden Elixers A",
           "Recipies": [
             {
+              "id": 97,
               "recipy": "Martial skill potion",
               "effect": "Geeft je de vaardigheid om 5 minuten 1 wapen of schild te gebruiken zonder de correcte vaardigheid",
               "inspiration": "1",
               "components": "-"
             },
             {
+              "id": 98,
               "recipy": "Minor potion of strengthen will",
-              "effect": "Je krijgt 1 wilskracht terug. Deze potion kan je niet langer houdbaar maken",
+              "effect": "Je krijgt 1 wilskracht terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Bobost"
             },
             {
+              "id": 99,
               "recipy": "Minor potion of focus",
-              "effect": "Je krijgt 1 inspiratie terug. Deze potion kan je niet langer houdbaar maken",
+              "effect": "Je krijgt 1 inspiratie terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Bobost"
             },
             {
+              "id": 100,
               "recipy": "Retreat potion",
               "effect": "Voor 10 minuten kun je jezelf verdedigen en wegrennen terwijl je uitgeschakeld bent. Je kunt niet aanvallen of spreuken casten. Als je 1 schade oploopt verdwijnt dit effect.",
               "inspiration": "1",
               "components": "1 Bobost"
             },
             {
+              "id": 101,
               "recipy": "Minor potion of strengthen body",
               "effect": "Geeft 1 extra HP voor 5 minuten (geneesbaar)",
               "inspiration": "1",
               "components": "1 Bobost 1 Ivan’s hood"
             },
             {
+              "id": 102,
               "recipy": "Confidence potion",
               "effect": "Maakt je zelfverzekerd (maar helpt niet tegen het fear effect)",
               "inspiration": "1",
@@ -758,40 +878,46 @@
           ]
         },
         {
-          "skill": "Kruiden Elixers B",
+          "skill": "Brouw Kruiden Elixers B",
           "Recipies": [
             {
+              "id": 103,
               "recipy": "Healing spit",
               "effect": "Geeft je de mogelijkheid om eerste hulp bij gevechten toe te passen (als de vaardigheid) vandaag, met behulp van geneeskrachtig spuug",
               "inspiration": "1",
               "components": "1 Bobost 2 Raven’s eye"
             },
             {
-              "recipy": "Strengthen body",
+              "id": 104,
+              "recipy": "Strengthen body potion",
               "effect": "Geeft 2 extra HP voor 5 minuten (geneesbaar)",
               "inspiration": "1",
               "components": "1 Bobost 2 Ivan’s hood"
             },
             {
-              "recipy": "Long lasting strengthen body",
+              "id": 105,
+              "recipy": "Long lasting strengthen body potion",
               "effect": "Geeft 1 extra HP voor deze dag (geneesbaar)",
               "inspiration": "1",
               "components": "1 Bobost 1 Ivan’s hood 1 Fools stem"
             },
             {
-              "recipy": "Strengthen will",
-              "effect": "Je krijgt 2 wilskracht terug. Deze potion kan je niet langer houdbaar maken",
+              "id": 106,
+              "recipy": "Strengthen will potion",
+              "effect": "Je krijgt 2 wilskracht terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Bobost 1 Ivan’s hood"
             },
             {
-              "recipy": "Focus",
-              "effect": "Je krijgt 2 inspiratie terug. Deze potion kan je niet langer houdbaar maken",
+              "id": 107,
+              "recipy": "Focus potion",
+              "effect": "Je krijgt 2 inspiratie terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Bobost 1 Raven’s eye"
             },
             {
-              "recipy": "Empathy",
+              "id": 108,
+              "recipy": "Empathy potion",
               "effect": "Verhoogt je gevoelens van empathie en naastenliefde",
               "inspiration": "1",
               "components": "-"
@@ -799,39 +925,45 @@
           ]
         },
         {
-          "skill": "Kruiden Elixers C",
+          "skill": "Brouw Kruiden Elixers C",
           "Recipies": [
             {
+              "id": 109,
               "recipy": "Healing blood",
               "effect": "Geeft je de mogelijkheid om battlefield surgery toe te passen (als de vaardigheid) vandaag, met behulp van geneeskrachtig bloed",
               "inspiration": "1",
               "components": "1 Bobost 1 Raven’s eye 1 Nimpf’s blossom"
             },
             {
-              "recipy": "Major strengthen body",
+              "id": 110,
+              "recipy": "Major strengthen body potion",
               "effect": "Geeft 3 extra HP voor 5 minuten (geneesbaar)",
               "inspiration": "1",
               "components": "1 Bobost 2 Ivan’s hood 1 Bael’sammon’s rose"
             },
             {
-              "recipy": "Anti-magic skin",
+              "id": 111,
+              "recipy": "Anti-magic skin oil",
               "effect": "Immuun voor de volgende spreuk die op je gecaste wordt binnen een uur",
               "inspiration": "1",
               "components": "1 Bobost 1 Nimpf’s blossom"
             },
             {
-              "recipy": "Major strengthen will",
-              "effect": "Je krijgt 3 wilskracht terug. Deze potion kan je niet langer houdbaar maken",
+              "id": 112,
+              "recipy": "Major strengthen will potion",
+              "effect": "Je krijgt 3 wilskracht terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Bobost 2 Ivan’s hood"
             },
             {
-              "recipy": "Major focus",
-              "effect": "Je krijgt 3 inspiratie terug. Deze potion kan je niet langer houdbaar maken",
+              "id": 113,
+              "recipy": "Major focus potion",
+              "effect": "Je krijgt 3 inspiratie terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Bobost 2 Raven’s eye"
             },
             {
+              "id": 114,
               "recipy": "Happiness drink",
               "effect": "Maakt je gelukkig voor een uur. Verslavend voor sommige personen (mag je zelf beslissen).",
               "inspiration": "1",
@@ -840,39 +972,45 @@
           ]
         },
         {
-          "skill": "Magische Elixers A",
+          "skill": "Brouw Magische Elixers A",
           "Recipies": [
             {
+              "id": 115,
               "recipy": "Fire breath potion",
               "effect": "Je kunt vandaag eenmalig een Fireblast-spreuk casten, maar ontvangt na afloop zelf een BLAST effect.",
               "inspiration": "1",
               "components": "-"
             },
             {
+              "id": 116,
               "recipy": "Minor potion of divine connection",
-              "effect": "Je krijgt 1 spirituele mana terug. Deze potion kan je niet langer houdbaar maken",
+              "effect": "Je krijgt 1 spirituele mana terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Allysa’s bane"
             },
             {
+              "id": 117,
               "recipy": "Minor potion of magic veins",
-              "effect": "Je krijgt 1 elementaire mana terug. Deze potion kan je niet langer houdbaar maken",
+              "effect": "Je krijgt 1 elementaire mana terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Allysa’s bane"
             },
             {
+              "id": 118,
               "recipy": "Minor potion of divine inspiration",
-              "effect": "Je kunt vandaag eenmalig een niveau 1 priesterspreuk naar keuze casten. Er is geen mana nodig om de spreuk te casten.",
+              "effect": "Je kunt vandaag eenmalig een niveau 1 priesterspreuk naar keuze casten. \nEr is geen mana nodig om de spreuk te casten.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 1 Raven’s eye"
             },
             {
+              "id": 119,
               "recipy": "Minor potion of inspiration of the magi",
-              "effect": "Je kunt vandaag eenmalig een niveau 1 magierspreuk naar keuze casten. Er is geen mana nodig om de spreuk te casten",
+              "effect": "Je kunt vandaag eenmalig een niveau 1 magierspreuk naar keuze casten. \nEr is geen mana nodig om de spreuk te casten.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 1 Fools stem"
             },
             {
+              "id": 120,
               "recipy": "Magical hair dye",
               "effect": "Als je dit ongedwongen wilt, kun je er voor kiezen om eenmalig permanent je haarkleur te veranderen.",
               "inspiration": "1",
@@ -881,39 +1019,45 @@
           ]
         },
         {
-          "skill": "Magische Elixers B",
+          "skill": "Brouw Magische Elixers B",
           "Recipies": [
             {
-              "recipy": "Magical inspiration",
+              "id": 121,
+              "recipy": "Magical inspiration potion",
               "effect": "Je kunt vandaag onbeperkt een niveau 1 spreuk naar keuze casten. Dit kost wel de correcte mana.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 1 Raven’s eye 1 Fools stem"
             },
             {
-              "recipy": "Divine connection",
-              "effect": "Je krijgt 2 spirituele mana terug. Deze potion kan je niet langer houdbaar maken",
+              "id": 122,
+              "recipy": "Potion of the divine connection",
+              "effect": "Je krijgt 2 spirituele mana terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 1 Raven’s eye"
             },
             {
-              "recipy": "Magic veins",
-              "effect": "Je krijgt 2 elementaire mana terug. Deze potion kan je niet langer houdbaar maken",
+              "id": 123,
+              "recipy": "Potion of magic veins",
+              "effect": "Je krijgt 2 elementaire mana terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 1 Fools stem"
             },
             {
-              "recipy": "Divine inspiration",
-              "effect": "Je kunt vandaag eenmalig een niveau 2 priesterspreuk naar keuze casten. Er is geen mana nodig om de spreuk te casten.",
+              "id": 124,
+              "recipy": "Divine inspiration potion",
+              "effect": "Je kunt vandaag eenmalig een niveau 2 priesterspreuk naar keuze casten. \nEr is geen mana nodig om de spreuk te casten.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 1 Raven’s eye"
             },
             {
-              "recipy": "Inspiration of the magi",
-              "effect": "Je kunt vandaag eenmalig een niveau 2 magierspreuk naar keuze casten. Er is geen mana nodig om de spreuk te casten",
+              "id": 125,
+              "recipy": "Inspiration of the magi potion",
+              "effect": "Je kunt vandaag eenmalig een niveau 2 magierspreuk naar keuze casten. \nEr is geen mana nodig om de spreuk te casten.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 1 Fools stem"
             },
             {
+              "id": 126,
               "recipy": "Magical skin dye",
               "effect": "Als je dit ongedwongen wil, kun je er voor kiezen om eenmalig permanent je huidskleur te veranderen.",
               "inspiration": "1",
@@ -922,48 +1066,52 @@
           ]
         },
         {
-          "skill": "Magische Elixers C",
+          "skill": "Brouw Magische Elixers C",
           "Recipies": [
             {
-              "recipy": "Major magical inspiration",
+              "id": 127,
+              "recipy": "Major magical inspiration potion",
               "effect": "Je kunt vandaag onbeperkt een niveau 2 spreuk naar keuze casten. Dit kost wel de correcte mana.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 1 Raven’s eye 1 Fools stem 1 Oracle’s tung"
             },
             {
-              "recipy": "Major divine connection",
-              "effect": "Je krijgt 3 spirituele mana terug. Deze potion kan je niet langer houdbaar maken",
+              "id": 128,
+              "recipy": "Major potion of divine connection",
+              "effect": "Je krijgt 3 spirituele mana terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 2 Raven’s eye"
             },
             {
-              "recipy": "Major magic veins",
-              "effect": "Je krijgt 3 elementaire mana terug. Deze potion kan je niet langer houdbaar maken",
+              "id": 129,
+              "recipy": "Major potion of magic veins",
+              "effect": "Je krijgt 3 elementaire mana terug. \nDeze potion kan je niet langer houdbaar maken.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 2 Fools stem"
             },
             {
-              "recipy": "Major divine inspiration",
-              "effect": "Je kunt vandaag eenmalig een niveau 3 priesterspreuk naar keuze casten. Er is geen mana nodig om de spreuk te casten.",
+              "id": 130,
+              "recipy": "Major divine inspiration potion",
+              "effect": "Je kunt vandaag eenmalig een niveau 3 priesterspreuk naar keuze casten. \nEr is geen mana nodig om de spreuk te casten.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 2 Raven’s eye 1 Oracle’s tung"
             },
             {
-              "recipy": "Major inspiration of the magi",
-              "effect": "Je kunt vandaag eenmalig een niveau 3 magierspreuk naar keuze casten. Er is geen mana nodig om de spreuk te casten",
+              "id": 131,
+              "recipy": "Major inspiration of the magi potion",
+              "effect": "Je kunt vandaag eenmalig een niveau 3 magierspreuk naar keuze casten. \nEr is geen mana nodig om de spreuk te casten.",
               "inspiration": "1",
               "components": "1 Allysa’s bane 2 Fools stem 1 Oracle’s tung"
             },
             {
-              "recipy": "Mirror personality",
+              "id": 132,
+              "recipy": "Mirror personality potion",
               "effect": "Gedurende een uur zullen je karaktertrekken en gedrag zich eenmalig aanpassen aan een persoon die voor je staat.",
               "inspiration": "1",
               "components": "-"
             }
           ]
         }
-
-
       ]
     }
   ]
