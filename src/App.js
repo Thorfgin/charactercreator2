@@ -333,9 +333,12 @@ function App() {
                         if (reqAny.length > 0) {
                             let containsAtLeastOneOfAny = false;
                             for (let i = 0; i < reqAny.length; i++) {
+                                // Verwijder (EL)/(SP)
+                                const cleanSkillName = skillName.includes("(") ? skillName.split(" (")[0] : skillName;
+
                                 // Check of de verwijderde skill vereist is.
-                                if (!reqAny.includes(skillName)) {
-                                    containsAtLeastOneOfAny = true; 
+                                if (!reqAny.includes(cleanSkillName)) {
+                                    containsAtLeastOneOfAny = true;
                                     continue;
                                 }
                                 // Wanneer in een vereiste, check of de vereiste nog voldoen
@@ -358,7 +361,7 @@ function App() {
                         }
 
                         // category
-                        if (reqCategory && reqCategory.length > 0) {
+                        if (reqCategory) {
                             let selectedSkillsXP = 0;
                             const categories = reqCategory.name;
                             const totalReqXP = reqCategory.value;
@@ -392,7 +395,7 @@ function App() {
                                             }
                                         }
                                     }
-
+                                    // Afhandelen modal
                                     if (canBeRemoved === false) {
                                         isPrerequisite = true;
                                         setModalMsg("Dit item is nodig voor de vereiste XP (" + totalReqXP + ")\n" +
@@ -674,6 +677,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
+                <img src="./images/logo_100.png" alt="Logo" />
                 <h2>Character Creator</h2>
             </header>
             <main>

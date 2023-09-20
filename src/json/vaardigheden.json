@@ -4426,7 +4426,7 @@
         ],
         "any_list": []
       },
-      "xp": 2,
+      "xp": 4,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
@@ -4458,7 +4458,7 @@
         ],
         "any_list": []
       },
-      "xp": 2,
+      "xp": 4,
       "loresheet": false,
       "multi_purchase": false,
       "count": 1,
@@ -4478,13 +4478,16 @@
       "Recepten": []
     },
     {
-      "id": 10000,
-      "skill": "",
-      "alt_skill": "",
-      "category": "Extra Vechtervaardigheden",
-      "description": "",
+      "id": 171,
+      "skill": "Doods Druidisme B (EL)",
+      "alt_skill": "Druid B",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Detect Impurity”, “Reveal All Impurities”, “Protection of the Grove” en “Invite Nature Spirit”.",
       "Requirements": {
-        "skill": [],
+        "skill": [
+          "Magiërspreuken B - Metaal",
+          "Doods Druidisme A"
+        ],
         "any_list": []
       },
       "xp": 4,
@@ -4492,8 +4495,310 @@
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Detect Impurity" },
+        { "name": "Reveal All Impurities" },
+        { "name": "Protection of the Grove" },
+        { "name": "Invite Nature Spirit" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 172,
+      "skill": "Doods Druidisme B (SP)",
+      "alt_skill": "Druid B",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Spirituele mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Detect Impurity”, “Reveal All Impurities”, “Protection of the Grove” en “Invite Nature Spirit”.",
+      "Requirements": {
+        "skill": [
+          "Priesterspreuken B - Death",
+          "Doods Druidisme A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Detect Impurity" },
+        { "name": "Reveal All Impurities" },
+        { "name": "Protection of the Grove" },
+        { "name": "Invite Nature Spirit" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 173,
+      "skill": "Levens Druidisme C (EL)",
+      "alt_skill": "Druid C",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Grove Meditation”, “Restore the Cycle” en “Invite Avatar of the Cycle”.",
+      "Requirements": {
+        "skill": [ "Levens Druidisme B (EL)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Grove Meditation" },
+        { "name": "Restore the Cycle" },
+        { "name": "“Invite Avatar of the Cycle" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 174,
+      "skill": "Levens Druidisme C (SP)",
+      "alt_skill": "Druid C",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Spirituele mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Grove Meditation”, “Restore the Cycle” en “Invite Avatar of the Cycle”.",
+      "Requirements": {
+        "skill": [ "Levens Druidisme B (SP)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Grove Meditation" },
+        { "name": "Restore the Cycle" },
+        { "name": "“Invite Avatar of the Cycle" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 175,
+      "skill": "Doods Druidisme C (EL)",
+      "alt_skill": "Druid C",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Grove Meditation”, “Restore the Cycle” en “Invite Avatar of the Cycle”.",
+      "Requirements": {
+        "skill": [ "Doods Druidisme B (EL)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Grove Meditation" },
+        { "name": "Restore the Cycle" },
+        { "name": "“Invite Avatar of the Cycle" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 176,
+      "skill": "Doods Druidisme C (SP)",
+      "alt_skill": "Druid C",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Spirituele mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Grove Meditation”, “Restore the Cycle” en “Invite Avatar of the Cycle”.",
+      "Requirements": {
+        "skill": [ "Doods Druidisme B (SP)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Grove Meditation" },
+        { "name": "Restore the Cycle" },
+        { "name": "“Invite Avatar of the Cycle" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 177,
+      "skill": "Necromancer A",
+      "alt_skill": "",
+      "category": "Necromantie",
+      "description": "De necromancer kan zijn spreuken van \"Metal\" casten met Spirituele mana en zijn spreuken van \"Death\" casten met Elementaire mana.\n\nDe necromancer krijgt ook toegang tot de spreuken:\n“Detect Undead”, “Reveal all Undead”, “Break Minor Possession”, “Create Zombie” en “Minor Reconstruct”.\nDaarnaast mag een necromancer de vereisten om \"Metal\" en \"Death\" aan te leren, negeren.\n\nTot slot krijg de Necromancer 5 extra punten (vergelijkbaar met 5 energie) voor een ritueel als de Necromancer een ritueel leidt dat als effect heeft:\n* Iemand ondood maken\n* Het \"leven\" van een ondode in stand houden\n* Spreken met lang dode wezens (soms zelfs zonder dat hun lichaam aanwezig is)\n* Het dodenrijk betreden\n* Sommige andere rituelen in overleg met rituele spelleiding\n",
+      "Requirements": {
+        "skill": [],
+        "any_list": [
+          "Magiërspreuken B - Metaal",
+          "Priesterspreuken B - Dood"
+        ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
       "Eigenschappen": [],
-      "Spreuken": [],
+      "Spreuken": [
+        { "name": "Detect Undead" },
+        { "name": "Reveal All Undead" },
+        { "name": "Break Minor Possession" },
+        { "name": "Create Zombie" },
+        { "name": "Minor Reconstruct" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 178,
+      "skill": "Necromancer B (EL)",
+      "alt_skill": "Necromancer B",
+      "category": "Necromantie",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Reconstruct”, “Chilling Fear”, “Bone Armour” en “Invite Spirit of the Dead”.",
+      "Requirements": {
+        "skill": [
+          "Magiërspreuken B - Metaal",
+          "Necromancer A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Reconstruct" },
+        { "name": "Chilling Feat" },
+        { "name": "Bone Armour" },
+        { "name": "Invite Spirit of the Dead" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 179,
+      "skill": "Necromancer B (SP)",
+      "alt_skill": "Necromancer B",
+      "category": "Necromantie",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Reconstruct”, “Chilling Fear”, “Bone Armour” en “Invite Spirit of the Dead”.",
+      "Requirements": {
+        "skill": [
+          "Priesterspreuken B - Death",
+          "Necromancer A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Reconstruct" },
+        { "name": "Chilling Feat" },
+        { "name": "Bone Armour" },
+        { "name": "Invite Spirit of the Dead" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 180,
+      "skill": "Necromancer C (EL)",
+      "alt_skill": "Necromancer C",
+      "category": "Necromantie",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Ghostly Shackles”, “Unholy Bolt” en “Invite Ancestor”.",
+      "Requirements": {
+        "skill": [ "Necromancer B" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Ghostly Shackles" },
+        { "name": "Unholy Bolt" },
+        { "name": "Invite Ancestor" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 181,
+      "skill": "Necromancer C (SP)",
+      "alt_skill": "Necromancer C",
+      "category": "Necromantie",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Ghostly Shackles”, “Unholy Bolt” en “Invite Ancestor”.",
+      "Requirements": {
+        "skill": [ "Necromancer A" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Ghostly Shackles" },
+        { "name": "Unholy Bolt" },
+        { "name": "Invite Ancestor" }
+      ],
       "Recepten": []
     }
   ]

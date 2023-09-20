@@ -8,16 +8,20 @@
         margin: 10px;
     }
 
-        .App header, h1, h2, h3, h4, h5, h6 {
-            display: block;
+        .App header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             justify-content: center;
             width: 100%;
-            white-space: nowrap;
-            font-family: 'Inknut Antiqua', serif;
-            margin: 3px;
-            padding: 0;
-            line-height: 24px;
+            margin: 15px;
+            justify-content: center;
         }
+
+            .App header img {
+                max-width: 50px;
+                max-height: 50px;
+            }
 
         .App main {
             display: flex;
@@ -61,31 +65,41 @@
         flex-direction: column;
         justify-content: center;
     }
-        .App header {
-            display: grid;
-            width: 100%;
-            margin: 15px;
-            justify-content: center;
-        }
 
-    .App footer {
-        position: fixed;
-        bottom: 0;
-        width: 110%;
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        white-space: nowrap;
-        font-family: 'Inknut Antiqua', serif;
-        padding: 0px;
-        font-size: 12px;
+    .App header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 15px;
+        justify-content: center;
+    }
+    
+    .App header img {
+        max-width: 50px;
+        max-height: 50px;
     }
 
-        .App footer div {
-            width: 30%;
-            display: inline-block;
-            box-sizing: border-box;
-        }
+
+.App footer {
+    position: fixed;
+    bottom: 0;
+    width: 110%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Inknut Antiqua', serif;
+    padding: 0px;
+    font-size: 12px;
+}
+
+    .App footer div {
+        width: 30%;
+        display: inline-block;
+        box-sizing: border-box;
+    }
 
 .disclaimer {
     cursor: pointer;
@@ -255,7 +269,7 @@
     margin: 0px;
     padding: 0px;
     width: 75px;
-    min-height: 75px; 
+    min-height: 75px;
     height: 100%;
     background-color: #ffffff;
     border: 2px solid rgba(0, 0, 0, 0.2);
