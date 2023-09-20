@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { sourceBasisVaardigheden, sourceSpreuken, sourceRecepten } from './App.js'
+import {
+    sourceBasisVaardigheden,
+    sourceExtraVaardigheden,
+    sourceSpreuken,
+    sourceRecepten
+} from './App.js'
 
 // Tooltip component voor GridItems
 export function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill }) {
@@ -8,7 +13,14 @@ export function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill }) {
     const closeTooltip = () => setShowTooltip(false);
 
     // ophalen Skill & Spreuk of Recept data uit bronbestand
-    let sourceSkill = sourceBasisVaardigheden.find((item) => item.skill === skillName);
+    let sourceSkill = sourceBasisVaardigheden.find((item) =>
+        item.skill.toLowerCase() === skillName.toLowerCase());
+    if (!sourceSkill) {
+        sourceSkill = sourceExtraVaardigheden.find((item) =>
+            item.skill.toLowerCase() === skillName.toLowerCase());
+    }
+    if (!sourceSkill) { return null; } // Exit early.
+
     let data = getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName);  
 
     return (
@@ -59,7 +71,8 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
             item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
             item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
 
-        data = skillFound.Recipies.find((item) => item.recipy.toLowerCase() === itemName.toLowerCase());
+        data = skillFound.Recipies.find((item) =>
+            item.recipy.toLowerCase() === itemName.toLowerCase());
         data = data !== {} ? data : {
             recipy: itemName ? itemName : '',
             effect: 'Recept informatie kon niet gevonden worden.'
@@ -68,23 +81,38 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
 
     // Tooltip vaardigheid
     else if (isSkill === true) {
-        let newRequirements = "";
-        const requiredSkills = sourceSkill.Requirements.skill;
-        const requiredAny = sourceSkill.Requirements.any_list;
+        let fullRequirementsBlock = "";
 
         // check skills
-        if (sourceSkill.Requirements.skill.length > 0) {
-            requiredSkills.forEach((item) => newRequirements += (newRequirements === "" ? item : ", " + item))
+        let newRequirements = "";
+        const reqSkills = sourceSkill.Requirements.skill;
+        if (reqSkills.length > 0) {
+            reqSkills.forEach((item) => newRequirements += (newRequirements === "" ? item : ", \n" + item))
+            fullRequirementsBlock += newRequirements + "\n";
         };
 
         // check any_list
-        if (sourceSkill.Requirements.any_list.length > 0) {
-            requiredAny.forEach((item) => newRequirements += (newRequirements === "" ? "Een van de " + item : ", een van de " + item))
+        let newAnyRequirements = "";
+        const reqAny = sourceSkill.Requirements.any_list;
+        if (reqAny.length > 0) {
+            reqAny.forEach((item) => newAnyRequirements += (newAnyRequirements === "" ? item : ", \n" + item))
+            newAnyRequirements = "Een van de volgende: \n" + newAnyRequirements;
+            fullRequirementsBlock += newAnyRequirements + "\n";
         };
+
+
+        let newCategoryRequirements = "";
+        const reqCategory = sourceSkill.Requirements.Category;        
+        if (reqCategory && reqCategory.name.length > 0)
+        {
+            reqCategory.name.forEach((item) => newCategoryRequirements += (newCategoryRequirements === "" ? item : ", \n" + item))
+            newCategoryRequirements = "" + reqCategory.value + " xp in de volgende categorie(n): \n" + newCategoryRequirements;
+            fullRequirementsBlock += newCategoryRequirements + "\n";
+        }        
 
         data = {
             xp: sourceSkill.xp,
-            requirements: newRequirements,
+            requirements: fullRequirementsBlock,
             description: sourceSkill.description
         };
     }
@@ -104,9 +132,14 @@ function getMappingFromData(data, isSkill, isSpell, isRecipy) {
             <div key={index} className="description-block"> {block === '' ? <br /> : block} </div>
         ))    
 
+        let reqBlock = data.requirements.split('\n');
+        const requirements = reqBlock.map((block, index) => (
+            <div key={index} className="requirements-block"> {block === '' ? <br /> : block} </div>
+        ))    
+
         return [
             { label: 'XP kosten', value: data.xp },
-            { label: 'Vereisten', value: data.requirements },
+            { label: 'Vereisten', value: requirements },
             { label: 'Omschrijving', value: description },
         ].map((item, index) => (
             <tr key={index}>
@@ -136,8 +169,13 @@ function getMappingFromData(data, isSkill, isSpell, isRecipy) {
         ));
     }
     else if (isRecipy === true) {
+        let descriptionBlock = data.effect.split('\n');
+        const description = descriptionBlock.map((block, index) => (
+            <div key={index} className="description-block"> {block === '' ? <br /> : block} </div>
+        ))  
+
         return [
-            { label: 'Omschrijving', value: data.effect },
+            { label: 'Omschrijving', value: description },
             { label: 'Inspiratie kosten', value: data.inspiration },
             { label: 'Benodigdheden', value: data.components },
         ].map((item, index) => (

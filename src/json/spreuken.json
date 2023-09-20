@@ -820,9 +820,9 @@
               "id": 75,
               "spell": "Epidemic",
               "mana_cost": "3",
-              "incantation": "By the powers of the elements, You will spread Disease, Plague andPestilence! FATAL DISEASE!",
+              "incantation": "By the powers of the elements, You will spread Disease, Plague and Pestilence! FATAL DISEASE!",
               "description": "De ontvanger van deze spreuk moet uitgeschakeld zijn. De ontvanger krijgt een FATAL DISEASE effect. Zolang de fatal disease nog actief is zullen de eerste 3 personen die de ontvanger van deze spreuk daarna aanraken een BLAST DISEASE ontvangen. (deze call moet de ontvanger van de spreuk geven aan de eerste 3 personen die hem/haar aanraken. Dit wordt door de magiër uitgelegd aan de ontvanger van de spreuk!) \nDeze spreuk kan niet gecountered worden.",
-              "spell_effect": "aanraking",
+              "spell_effect": "Aanraking",
               "spell_duration": "10 seconden"
             }
           ]
@@ -1622,10 +1622,10 @@
           "id": 150,
           "spell": "Discern Diseases and Afflictions",
           "mana_cost": "0",
-          "incantation": "",
-          "description": "",
-          "spell_effect": "",
-          "spell_duration": "By my healing powersI Discern your WoundsPoisonsDiseases and Afflictions!"
+          "incantation": "By my healing powers, I Discern your Wounds, Poisons, Diseases and Afflictions!",
+          "description": "De genezer komt alle wonden, giffen, ziektes en aandoeningen van de ontvanger te weten.",
+          "spell_effect": "Direct, Aanraking",
+          "spell_duration": "30 seconden incantatie tijd"
         },
         {
           "id": 151,
@@ -1666,7 +1666,7 @@
             },
             {
               "id": 154,
-              "spell": "Reveal all servitar",
+              "spell": "Reveal all servitars",
               "mana_cost": "1",
               "incantation": "By the power of... , I reveal all servitars!",
               "description": "Deze spreuk laat servitars of lichamen bezeten door servitars even opgloeien. Dit is voor iedereen eromheen zichtbaar. \n\nAlle servitars of lichamen bezeten door servitars binnen 5 meter antwoorden met “Servitar”.",

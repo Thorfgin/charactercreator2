@@ -1249,7 +1249,7 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "Meesterstuk A (Precious Metal)" },
+        { "name": "Meesterstuk A (Copper Ingot)" },
         { "name": "Vriendschaps Geschenk" }
       ]
     },
@@ -1258,7 +1258,7 @@
       "skill": "Steenzetter A",
       "alt_skill": "",
       "category": "Ambachtsvaardigheden",
-      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Quartz verwerkt. Elke Quartz in een voorwerp verwerken kost 1 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Quartz geeft het voorwerp 3 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om Basis Sieraad te maken. \n\nZie de loresheet voor meer details.",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Quartz verwerkt. Elke Quartz in een voorwerp verwerken kost 1 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Quartz geeft het voorwerp 3 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Basis Sieraad te maken. \n\nZie de loresheet voor meer details.",
       "Requirements": {
         "skill": [],
         "any_list": []
@@ -1276,7 +1276,7 @@
       ],
       "Spreuken": [],
       "Recepten": [
-        { "name": "Meesterstuk A (Gemstone)" },
+        { "name": "Meesterstuk A (Quartz)" },
         { "name": "Basis Sieraad" }
       ]
     },
@@ -1378,7 +1378,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken:\n Hidden Object, Chilling Winds, Freedom of Movement en Strike Cascade.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1407,7 +1411,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken:\n Strengthen Armour, Horrific Revelation, Boon of Disease en Life Draw",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1436,7 +1444,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nHarden, Minor Reinforcement Cascade, Sleep en Boon of Mending.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1465,7 +1477,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nMind Protection, Force Truth, Corrupt the Flow of Life en Iceblast.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1494,7 +1510,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nCleansed by Fire, Fire Blast, Inner Fire en Imbue Blast.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1523,7 +1543,11 @@
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nRend Enchantment, Shatter Armour, Nature’s Protection en Charm Person.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Magiërspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1698,7 +1722,11 @@
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \nDisease of temperance, Minor Regeneration, Pure Body and Mind, Protection from Impairment.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Priesterspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1727,7 +1755,11 @@
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \nMute Cascade, Shatter Armour, Boon of Break Enchantment, Curse Life.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Priesterspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1756,7 +1788,11 @@
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \nParalyze Undead, Speak with the Dead, Sanctuary Ward en Life Draw.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Priesterspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1785,7 +1821,11 @@
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \nFascinate, Discern Pattern, Mind Protection en Command.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Priesterspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1814,7 +1854,11 @@
       "description": "Je krijgt 5 spirituele mana per dag.\n\n Je krijgt toegang tot de spreuken: \nHex Weapon, Freedom of Movement, Resist Special Damage, Aspect of the Dryad",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Priesterspreuken A" ]
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
       },
       "xp": 4,
       "loresheet": false,
@@ -1837,9 +1881,9 @@
     },
     {
       "id": 74,
-      "skill": "Genezingsspreuken A (EL.)",
+      "skill": "Genezingsspreuken A (EL)",
       "alt_skill": "Genezing A",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (EL)",
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nDiscern Wounds, Discern Poisons, Discern Diseases, Heal Wounds en Remove Paralysis.",
       "Requirements": {
         "skill": [],
@@ -1867,9 +1911,9 @@
     },
     {
       "id": 75,
-      "skill": "Genezingsspreuken A (SP.)",
+      "skill": "Genezingsspreuken A (SP)",
       "alt_skill": "Genezing A",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (SP)",
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Discern Wounds, Discern Poisons, Discern Diseases, Heal Wounds en Remove Paralysis.",
       "Requirements": {
         "skill": [],
@@ -1897,13 +1941,13 @@
     },
     {
       "id": 76,
-      "skill": "Genezingsspreuken B (EL.)",
+      "skill": "Genezingsspreuken B (EL)",
       "alt_skill": "Genezing B",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (EL)",
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Strengthen Body, Total Healing en Boon of Minor Healing.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (EL)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -1926,13 +1970,13 @@
     },
     {
       "id": 77,
-      "skill": "Genezingsspreuken B (SP.)",
+      "skill": "Genezingsspreuken B (SP)",
       "alt_skill": "Genezing B",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (SP)",
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Strengthen Body, Total Healing en Boon of Minor Healing.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (SP)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -1955,13 +1999,13 @@
     },
     {
       "id": 78,
-      "skill": "Genezer van Giffen (EL.)",
+      "skill": "Genezer van Giffen (EL)",
       "alt_skill": "Genezer van Giffen",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (EL)",
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Protection from Poison, Neutralise Poisons en Purge all Poisons.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (EL)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -1984,13 +2028,13 @@
     },
     {
       "id": 79,
-      "skill": "Genezer van Giffen (SP.)",
+      "skill": "Genezer van Giffen (SP)",
       "alt_skill": "Genezer van Giffen",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (SP)",
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Protection from Poison, Neutralise Poisons en Purge all Poisons.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (SP)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -2013,13 +2057,13 @@
     },
     {
       "id": 80,
-      "skill": "Genezer van Ziekten (EL.)",
+      "skill": "Genezer van Ziekten (EL)",
       "alt_skill": "Genezer van Ziekten",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (EL)",
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Protection from Disease, Cure Diseases en Cure all Diseases.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (EL)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -2042,13 +2086,13 @@
     },
     {
       "id": 81,
-      "skill": "Genezer van Ziekten (SP.)",
+      "skill": "Genezer van Ziekten (SP)",
       "alt_skill": "Genezer van Ziekten",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (SP)",
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Protection from Disease, Cure Diseases en Cure all Diseases.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (SP)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -2071,13 +2115,13 @@
     },
     {
       "id": 82,
-      "skill": "Genezer van Geest (EL.)",
+      "skill": "Genezer van Geest (EL)",
       "alt_skill": "Genezer van Geest",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (EL)",
       "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Discern Mind-Affecting, Protection from Fear en Break Enchantment Cascade.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (EL)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -2100,13 +2144,13 @@
     },
     {
       "id": 83,
-      "skill": "Genezer van Geest (SP.)",
+      "skill": "Genezer van Geest (SP)",
       "alt_skill": "Genezer van Geest",
-      "category": "Genezingsvaardigheden",
+      "category": "Genezingsvaardigheden (SP)",
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \n Heal Fatal Wound, Discern Mind-Affecting, Protection from Fear en Break Enchantment Cascade.",
       "Requirements": {
-        "skill": [],
-        "any_list": [ "Genezingsspreuken A" ]
+        "skill": [ "Genezingsspreuken A (SP)" ],
+        "any_list": []
       },
       "xp": 4,
       "loresheet": false,
@@ -2131,7 +2175,7 @@
       "id": 84,
       "skill": "Elementair Ritualisme",
       "alt_skill": "",
-      "category": "Ritualistenvaardigheden",
+      "category": "Ritualisme",
       "description": "Met deze vaardigheid kun je rituelen uitvoeren. \n\nMet 1 of 2 punten in Elementair Ritualisme kun je enkel rituelen van andere ondersteunen. \nVanaf 3 punten kun je zelf rituelen initiëren en leiden. \n\nJe krijgt 2 elementaire rituele mana per dag. \nJe mag in een ritueel 1 van je eigen niet-rituele energie gebruiken per 2 rituele energie die je gebruikt. Deze telt dan als 1 elementaire rituele mana. \n\nHet is toegestaan om energie van resterende dagen van het evenement te gebruiken in je ritueel. \nHet combineren van Elementaire en Spirituele mana is toegestaan in een ritueel. \n\nDeze vaardigheid kan je meerdere malen kopen. ",
       "Requirements": {
         "skill": [],
@@ -2155,7 +2199,7 @@
       "id": 85,
       "skill": "Spiritueel Ritualisme",
       "alt_skill": "",
-      "category": "Ritualistenvaardigheden",
+      "category": "Ritualisme",
       "description": "Met deze vaardigheid kun je rituelen uitvoeren. \n\nMet 1 of 2 punten in Spiritueel Ritualisme kun je enkel rituelen van andere ondersteunen. \nVanaf 3 punten kun je zelf rituelen initiëren en leiden. \n\nJe krijgt 2 spirituele rituele mana per dag. \nJe mag in een ritueel 1 van je eigen niet-rituele energie gebruiken per 2 rituele energie die je gebruikt. Deze telt dan als 1 Spiritueel rituele mana. \n\nHet is toegestaan om energie van resterende dagen van het evenement te gebruiken in je ritueel. \nHet combineren van Elementaire en Spirituele mana is toegestaan in een ritueel. \n\nDeze vaardigheid kan je meerdere malen kopen",
       "Requirements": {
         "skill": [],
@@ -2185,7 +2229,7 @@
       "description": "Je kunt ‘Andere wezens’ (OTHER BEINGS) genezen. Dit zijn wezens zoals Servitars, Spirits, Elementals, Ondoden, etc. Deze zijn normaliter niet te genezen met reguliere genezing, al zijn hier uitzonderingen op. Met deze vaardigheid kun je deze wezens, ondanks dat ze anders zijn, dus wel genezen. Een genezer met deze vaardigheid kan met het uitvoeren van een DISCERN-spreuk, of de diagnostiek vaardigheid vaststellen of de ontvanger een OTHER BEING is. DISCERN-spreuken zijn Discern Wounds, Discern Diseases, Discern Diseases & Afflictions en Discern Poisons. Een caster kan het wezen vervolgens genezen door zijn reguliere incantatie aan te passen en ergens in het tweede deel van de incantatie de woorden ‘other being’ te stoppen. Met deze aangepaste incantatie kan een niet-’other being’ niet genezen worden.",
       "Requirements": {
         "skill": [],
-        "any_list": [ "Genezingspreuken A", "Diagnostiek", "Priesterspreuken A", "Magiërspreuken A" ]
+        "any_list": [ "Genezingsspreuken A", "Diagnostiek", "Priesterspreuken A", "Magiërspreuken A" ]
       },
       "xp": 1,
       "loresheet": false,
@@ -2194,6 +2238,2567 @@
       "maxcount": 1,
       "Eigenschappen": [],
       "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 87,
+      "skill": "Extra Wilskracht",
+      "alt_skill": "",
+      "category": "Extra Heelmeestervaardigheden",
+      "description": "Je krijgt 2 extra willpower per dag. \n\nJe hebt geleerd om met je innerlijke kracht meer technieken en acties te kunnen uitvoeren. Je krijgt geen toegang tot extra technieken.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Doorzettingsvermogen", "Eerste hulp bij gevechten" ]
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 89,
+      "skill": "Combineer lichamen",
+      "alt_skill": "",
+      "category": "Extra Heelmeestervaardigheden",
+      "description": "Je krijgt 2 extra wilskracht per dag. \n\nJe kunt bij een ander persoon opereren gedurende een operatie van 5 minuten. Tijdens de operatie combineer je tijdelijk extra lichaamsdelen of reserve orgaan van een lijk met de patiënt. Dit resulteert er in dat de patiënt voor de rest van de dag 2 extra hitpoints heeft, 2 energie naar keuze verliest elke keer dat de patiënt uitgeschakeld (dus op 0 HP) raakt en onmiddellijk sterft als deze uitgeschakeld raakt zonder energie. De patiënt verliest slechts 1 energie als de heelmeester er voor kiest om 3 wilskracht uit te geven gedurende de operatie.\n(let op dat extra hitpoints niet stacken met bijvoorbeeld extra hitpoints van spreuken)\n\nVoor deze vaardigheid zijn physreps vereist! Zoals een operatiekit en smink/protheses.",
+      "Requirements": {
+        "skill": [ "Slagveld operatie", "Diagnostiek" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 90,
+      "skill": "Afscheidbaar gezwel",
+      "alt_skill": "",
+      "category": "Extra Heelmeestervaardigheden",
+      "description": "Je krijgt 3 extra wilskracht per dag. \n\nJe kunt bij een ander persoon opereren gedurende een operatie van 5 minuten. Tijdens de operatie plaats je een afscheidbaar gezwel ergens op het lichaam van de patiënt. Als de patiënt deze dag na de operatie 3 seconden en 3 energie naar keuze spendeert dan kan deze een gif of ziekte in het gezwel forceren en daarna het gezwel doen afsterven waardoor de enchantment, gif of ziekte, en het effect ervan verdwijnt. Het gezwel is daarna ook weg en om dit nogmaals te gebruiken zou ook een nieuw gezwel geplaatst moeten worden. \n\nDe patiënt kan dit altijd doen onder invloed van een gif of ziekte (zo kan dus bijvoorbeeld een sleep poison zelf opgelost worden zonder hulp). De heelmeester kan er voor kiezen om tijdens de operatie wilskracht uit te geven om de energiekosten voor de patiënt te verlagen. Dit kost 1 wilskracht per energie.\n\nVoor deze vaardigheid zijn physreps vereist! Zoals een operatiekit en smink/protheses.",
+      "Requirements": {
+        "skill": [ "Combineer lichamen" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 91,
+      "skill": "Creeër abominatie",
+      "alt_skill": "",
+      "category": "Extra Heelmeestervaardigheden",
+      "description": "Je krijgt 3 extra wilskracht per dag. \n\nDeze vaardigheid mag maar 1 maal per evenement gebruikt worden. Je kunt bij een (buitenspels gewillig) persoon opereren gedurende een operatie van minstens een kwartier met een team van minstens 4 heelmeesters met de slagveld operatie vaardigheid. Deze operatie kost 10 wilskracht en deze koste mag verdeeld worden onder de aanwezige heelmeesters. De patiënt zal omgevormd worden tot een sterke maar afzichtelijke abominatie. De patiënt krijgt de “abominatie” condition. \n\nAbomination condition: \nDe patiënt heeft 2 extra hitpoints. De patiënt verliest 2 energie naar keuze elke keer dat de patiënt uitgeschakeld (dus op 0 HP) raakt en sterft als deze uitgeschakeld raakt zonder energie. De patiënt heeft een afscheidbaar gezwel dat na gebruik terug groeit na 5 minuten. De patiënt kan niet genezen worden tenzij de genezer de “genees andere wezens” vaardigheid heeft. (let op dat extra hitpoints niet stacken met bijvoorbeeld extra hitpoints van spreuken)\n\n Voor deze vaardigheid zijn physreps vereist! Zoals een operatiekit en smink/protheses. \nLet op dat deze vaardigheid het uiterlijk van een personage permanent drastisch veranderd, vandaar dat dit alleen uitgevoerd mag worden op een buitenspels gewillige speler.",
+      "Requirements": {
+        "skill": [ "Combineer lichamen" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 92,
+      "skill": "Brouw Expertise",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 2 extra Inspiratie per dag. \n\nJe hebt geleerd om met je vaardigheden meer drankjes te kunnen brouwen. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. Je krijgt geen toegang tot extra recepten.\n\nDeze vaardigheid mag je meerdere keren aankopen.",
+      "Requirements": {
+        "skill": [ "Kennis van Kruiden" ],
+        "any_list": [
+          "Brouw Genezende Dranken A",
+          "Brouw Kruiden Elixers A",
+          "Brouw Magische Elixers A",
+          "Brouw Hallucinerende Elixers A",
+          "Brouw Giffen A"
+        ]
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 93,
+      "skill": "Brouw Genezende Dranken B",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale genezende drankjes te brouwen die niet op jou thuiswereld bekend zijn. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Heal deadly wound potion”, “Cure weak disease potion”, “Cure disease potion”, “Courage potion” and “Wakeful potion”, “Cure heartache”",
+      "Requirements": {
+        "skill": [ "Brouw Genezende Dranken A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Heal deadly wound potion" },
+        { "name": "Cure weak disease potion" },
+        { "name": "Cure disease potion" },
+        { "name": "Courage potion" },
+        { "name": "Wakeful potion" },
+        { "name": "Cure heartache" }
+      ]
+    },
+    {
+      "id": 94,
+      "skill": "Brouw Genezende Dranken C",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale geavanceerde genezende drankjes te brouwen. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \\nJe krijgt toegang tot de recepten: \n“Heal all wounds potion”, “Cure strong disease potion”, “Muscle control potion”, “Concentration potion” and “Reroute blood potion”, “Cure amnesia”.",
+      "Requirements": {
+        "skill": [ "Brouw Genezende Dranken B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Heal all wounds potion" },
+        { "name": "Cure strong disease potion" },
+        { "name": "Muscle control potion" },
+        { "name": "Concentration potion" },
+        { "name": "Reroute blood potion" },
+        { "name": "Cure amnesia" }
+      ]
+    },
+    {
+      "id": 95,
+      "skill": "Brouw Kruiden Elixers B",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale kruiden elixers te brouwen die niet op jou thuiswereld bekend zijn. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Healing spit”, “Strengthen body potion”, “Long lasting strengthen body”, “Strengthen will potion” and “Focus potion”, “Empathy potion”.",
+      "Requirements": {
+        "skill": [ "Brouw Kruiden Elixers A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Healing spit" },
+        { "name": "Strengthen body potion" },
+        { "name": "Long lasting strengthen body potion" },
+        { "name": "Strengthen will potion" },
+        { "name": "Focus potion" },
+        { "name": "Empathy potion" }
+      ]
+    },
+    {
+      "id": 96,
+      "skill": "Brouw Kruiden Elixers C",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale geavanceerde kruiden elixers te brouwen. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Healing blood”, “Major strengthen body potion”, “Anti-magic skin oil”, “Major strengthen will potion” and “Major focus potion”, “Happyness drink”.",
+      "Requirements": {
+        "skill": [ "Brouw Kruiden Elixers B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Healing blood" },
+        { "name": "Major strengthen body potion" },
+        { "name": "Anti-magic skin oil" },
+        { "name": "Major strengthen will potion" },
+        { "name": "Major focus potion" },
+        { "name": "Happiness drink" }
+      ]
+    },
+    {
+      "id": 97,
+      "skill": "Brouw Magische Elixers B",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale magische elixers te brouwen die niet op jou thuiswereld bekend zij. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Magical inspiration potion”, “Potion of divine connection”, “Potion of magic veins”, “Divine inspiration potion” and “Inspiration of the magi potion”, “Magical skin dye”.",
+      "Requirements": {
+        "skill": [ "Brouw Magische Elixers A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Magical inspiration potion" },
+        { "name": "Potion of the divine connection" },
+        { "name": "Potion of magic veins" },
+        { "name": "Divine inspiration potion" },
+        { "name": "Inspiration of the magi potion" },
+        { "name": "Magical skin dye" }
+      ]
+    },
+    {
+      "id": 98,
+      "skill": "Brouw Magische Elixers C",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\n Je hebt geleerd om de lokale geavanceerde magische elixers te brouwen. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Major magical inspiration potion”, “Major potion of divine connection”, “Major potion of magic veins”, “Major divine inspiration potion” and “Major inspiration of the magi potion”, “Mirror personality potion”.",
+      "Requirements": {
+        "skill": [ "Brouw Magische Elixers B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Major magical inspiration potion" },
+        { "name": "Major potion of divine connection" },
+        { "name": "Major potion of magic veins" },
+        { "name": "Major divine inspiration potion" },
+        { "name": "Major inspiration of the magi potion" },
+        { "name": "Mirror personality potion" }
+      ]
+    },
+    {
+      "id": 99,
+      "skill": "Brouw Hallucinerende Elixers B",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale hallucinerende elixers te brouwen die niet op jou thuiswereld bekend zijn. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Fever potion”, “Visions of glowing symbols”, “Visions of magic”, “Visions of numen” and “Visions of the past”, “Relive other potion”.",
+      "Requirements": {
+        "skill": [ "Brouw Hallucinerende Elixers A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Fever potion" },
+        { "name": "Visions of glowing symbols" },
+        { "name": "Visions of magic" },
+        { "name": "Visions of numen" },
+        { "name": "Visions of the past" },
+        { "name": "Relive other potion" }
+      ]
+    },
+    {
+      "id": 100,
+      "skill": "Brouw Hallucinerende Elixers C",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale geavanceerde hallucinerende elixers te brouwen. Drankjes die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Major fever potion”, “Visions of death”, “Visions of the zeitgeist”, “Visions of present” and “Future visions”, “Be other potion”.",
+      "Requirements": {
+        "skill": [ "Brouw Hallucinerende Elixers B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Major fever potion" },
+        { "name": "Visions of death" },
+        { "name": "Visions of the zeitgeist" },
+        { "name": "Visions of present" },
+        { "name": "Future visions" },
+        { "name": "Be other potion" }
+      ]
+    },
+    {
+      "id": 101,
+      "skill": "Brouw Giffen B",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\n Je hebt geleerd om de lokale giffen te brouwen die niet op jou thuiswereld bekend zijn. Giffen die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten:\n“Venom”, “Weapon oil”, “Mute venom”, “Muscle lock venom” and “Agonizing poison”, “Sorrow drink”.",
+      "Requirements": {
+        "skill": [ "Brouw Giffen A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Venom" },
+        { "name": "Weapon oil" },
+        { "name": "Mute venom" },
+        { "name": "Muscle lock venom" },
+        { "name": "Agonizing poison" },
+        { "name": "Sorrow drink" }
+      ]
+    },
+    {
+      "id": 102,
+      "skill": "Brouw Giffen C",
+      "alt_skill": "",
+      "category": "Extra Alchemistenvaardigheden",
+      "description": "Je krijgt 3 Inspiratie per dag. \n\nJe hebt geleerd om de lokale geavanceerde giffen te brouwen. Giffen die op deze wijze gemaakt zijn, blijven 1 week houdbaar tenzij een specifiek ingrediënt toegevoegd wordt. Voor het gebruik van deze vaardigheid heb je een laboratorium nodig. \n\nJe krijgt toegang tot de recepten: \n“Batch of venom”, “Major weapon oil”, “Confuse venom”, “Fatal venom” and “Fatal poison”, “Drink of willed death”.",
+      "Requirements": {
+        "skill": [ "Brouw Giffen B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 3
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Batch of venom" },
+        { "name": "Major weapon oil" },
+        { "name": "Confuse venom" },
+        { "name": "Fatal venom" },
+        { "name": "Fatal poison" },
+        { "name": "Drink of willed death" }
+      ]
+    },
+    {
+      "id": 103,
+      "skill": "Ambachts Expertise",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \n\nDeze vaardigheid mag je meerdere keren aankopen.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Ambachtsvaardigheden" ],
+          "value": 2
+        }
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 104,
+      "skill": "Meestersmid B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Steel verwerkt. Elke Mythical Steel in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Steel geeft het voorwerp 7 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Lvl 2 Wetsteen te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Meestersmid A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Steel)" },
+        { "name": "Wetsteen (Lvl 2)" }
+      ]
+    },
+    {
+      "id": 105,
+      "skill": "Meestersmid C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Mithril verwerkt. Elke Mythical Mithril in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Mithril geeft het voorwerp 27 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Lvl 3 Wetsteen te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Meestersmid B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Mithril)" },
+        { "name": "Wetsteen (Lvl 3)" }
+      ]
+    },
+    {
+      "id": 106,
+      "skill": "Houtbewerker B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Ebony verwerkt. Elke Mythical Ebony in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Ebony geeft het voorwerp 7 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Totem van de Uil te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Houtbewerker A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Ebony)" },
+        { "name": "Totem van de Uil" }
+      ]
+    },
+    {
+      "id": 107,
+      "skill": "Houtbewerker C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Worldtree Sapling verwerkt. Elke Mythical Worldtree Sapling in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Ebony geeft het voorwerp 27 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Totem van de Stier te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Houtbewerker B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Worldtree Sapling)" },
+        { "name": "Totem van de Stier" }
+      ]
+    },
+    {
+      "id": 108,
+      "skill": "Kleermaker B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Velvet verwerkt. Elk Mythical Velvet in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Velvet geeft het voorwerp 7 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om Vlag van de Groep te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Kleermaker A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Velvet)" },
+        { "name": "Vlag van de Groep" }
+      ]
+    },
+    {
+      "id": 109,
+      "skill": "Kleermaker C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Spidersilk verwerkt. Elk Mythical Spidersilk in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Spidersilk geeft het voorwerp 27 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om Banier van de Groep te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Kleermaker B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Spidersilk)" },
+        { "name": "Banier van de Groep" }
+      ]
+    },
+    {
+      "id": 110,
+      "skill": "Boekbinder B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Vellum verwerkt. Elk Mythical Vellum in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Vellum geeft het voorwerp 7 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Leeg Vaardigheid Onderzoek Boek te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Boekbinder A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Vellum)" },
+        { "name": "Leeg Vaardigheid Onderzoek Boek" }
+      ]
+    },
+    {
+      "id": 111,
+      "skill": "Boekbinder C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Griffinskin Vellum verwerkt. Elk Mythical Griffinskin Vellum in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Griffinskin Vellum geeft het voorwerp 27 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Boek der Ervaringen te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Boekbinder B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Griffinskin Vellum)" },
+        { "name": "Boek der Ervaringen" }
+      ]
+    },
+    {
+      "id": 112,
+      "skill": "Leerbewerker B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Scale verwerkt. Elk Mythical Scale in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Scale geeft het voorwerp 7 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Pantser Versterking te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Leerbewerker A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Scale)" },
+        { "name": "Pantser Versterking" }
+      ]
+    },
+    {
+      "id": 113,
+      "skill": "Leerbewerker C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Mythical Dragonscale verwerkt. Elk Mythical Dragonscale in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Mythical Dragonscale geeft het voorwerp 27 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Zware Pantser Versterking te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Leerbewerker B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Dragonscale)" },
+        { "name": "Zware Pantser Versterking" }
+      ]
+    },
+    {
+      "id": 114,
+      "skill": "Juwelier B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Silver Ingots verwerkt. Elke 2 Silver Ingot in een voorwerp verwerken kost 3 inspiratie  (of 2 inspiratie voor 1 Silver ingot). Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Silver Ingot geeft het voorwerp 4 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Alliantie Juweel te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Juwelier A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Silver Ingot)" },
+        { "name": "Alliantie Juweel" }
+      ]
+    },
+    {
+      "id": 115,
+      "skill": "Juwelier C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Golden Ingots verwerkt. Elke 2 Golden Ingots in een voorwerp verwerken kost 7 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Golden Ingots geeft het voorwerp 16 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Huwelijks Jueweel te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Juwelier B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Golden Ingot)" },
+        { "name": "Huwelijks Juweel" }
+      ]
+    },
+    {
+      "id": 116,
+      "skill": "Steenzetter B",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Gems verwerkt. Elke Gem in een voorwerp verwerken kost 1 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Gem geeft het voorwerp 5 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Duur Sieraad te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Steenzetter A" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk B (Gems)" },
+        { "name": "Duur Sieraad" }
+      ]
+    },
+    {
+      "id": 117,
+      "skill": "Steenzetter C",
+      "alt_skill": "",
+      "category": "Extra Ambachtsvaardigheden",
+      "description": "Je krijgt 2 Inspiratie per dag. \nJe kunt voorwerpen vervaardigen met daarin Flawless Gems verwerkt. Elke Flawless Gem in een voorwerp verwerken kost 2 inspiratie. Je mag hiervoor de inspiratie gebruiken van alle dagen op het evenement. Elke Flawless Gem geeft het voorwerp 10 hogere imbue capaciteit. \n\nDeze vaardigheid geeft je ook de mogelijkheid om een Koninklijk Sieraad te maken. \n\nZie de loresheet voor meer details.",
+      "Requirements": {
+        "skill": [ "Steenzetter B" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "inspiration",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": [
+        { "name": "Meesterstuk C (Flawless Gems)" },
+        { "name": "Koninklijk Sieraad" }
+      ]
+    },
+    {
+      "id": 118,
+      "skill": "Extra Genezingsmana (EL)",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden (EL)",
+      "description": "Je krijgt 2 elementaire mana extra. \nJe krijgt geen toegang tot extra spreuken.\n\nDeze vaardigheid mag je meerdere keren aankopen.",
+      "Requirements": {
+        "skill": [ "Genezingsspreuken A" ],
+        "any_list": []
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 119,
+      "skill": "Extra Genezingsmana (SP)",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden (SP)",
+      "description": "Je krijgt 2 spirituele mana extra. \nJe krijgt geen toegang tot extra spreuken.\n\nDeze vaardigheid mag je meerdere keren aankopen.",
+      "Requirements": {
+        "skill": [ "Genezingsspreuken A" ],
+        "any_list": []
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 120,
+      "skill": "Genezingsspreuken C (EL)",
+      "alt_skill": "Genezing C",
+      "category": "Extra Genezingsvaardigheden (EL)",
+      "description": "Je krijgt 5 elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken: \nDiscern Diseases and Afflictions, Major Regeneration en Purify Body.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Genezingsvaardigheden (EL)" ],
+          "value": 8
+        }
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Discern Diseases and Afflictions" },
+        { "name": "Major Regeneration" },
+        { "name": "Purify Body" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 121,
+      "skill": "Genezingsspreuken C (SP)",
+      "alt_skill": "Genezing C",
+      "category": "Extra Genezingsvaardigheden (SP)",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken: \nDiscern Diseases and Afflictions, Major Regeneration en Purify Body.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Genezingsvaardigheden (SP)" ],
+          "value": 8
+        }
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Discern Diseases and Afflictions" },
+        { "name": "Major Regeneration" },
+        { "name": "Purify Body" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 122,
+      "skill": "Immuun voor Giffen",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden",
+      "description": "Je bent zelf immuun voor alle giffen.",
+      "Requirements": {
+        "skill": [ "Genezing van giffen" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 123,
+      "skill": "Immuun voor Ziekten",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden",
+      "description": "Je bent zelf immuun voor alle ziekten.",
+      "Requirements": {
+        "skill": [ "Genezing van ziekten" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 124,
+      "skill": "Immuun voor Geest Beïnvloedend A",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden",
+      "description": "Je bent zelf immuun Fear, Confuse en Sleep.",
+      "Requirements": {
+        "skill": [ "Genezing van Geest" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 125,
+      "skill": "Immuun voor Geest Beïnvloedend B",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden",
+      "description": "Je bent zelf immuun voor alle Geestbeïnvloedende effecten:\n Command, Confuse, Fascinate, Fear, incite aggression, Sleep, Force Truth",
+      "Requirements": {
+        "skill": [ "Immuun voor Geest Beïnvloedend A" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+
+    {
+      "id": 126,
+      "skill": "Extra Elementaire mana",
+      "alt_skill": "",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 2 elementaire mana extra. \nJe krijgt geen toegang tot extra spreuken.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden" ],
+          "value": 4
+        }
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 127,
+      "skill": "Magiërspreuken C - Lucht",
+      "alt_skill": "Air Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nForce Field en Break All Enchantments.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Lucht" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Force Field" },
+        { "name": "Break All Enchantments" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 128,
+      "skill": "Magiërspreuken C - Metaal",
+      "alt_skill": "Metal Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nAura of Fear en Elemental Bolt.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Metaal" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Auru of Fear" },
+        { "name": "Elemental Bolt" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 129,
+      "skill": "Magiërspreuken C - Aarde",
+      "alt_skill": "Earth Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \n Stoneskin en Imbue Crush.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Aarde" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Stoneskin" },
+        { "name": "Imbue Crush" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 130,
+      "skill": "Magiërspreuken C - Water",
+      "alt_skill": "Water Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nGift of Knowledge en Paralyzing Touch.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Water" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Gift of Knowledge" },
+        { "name": "Paralyzing Touch" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 131,
+      "skill": "Magiërspreuken C - Vuur",
+      "alt_skill": "Fire Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nAspect of the Efreet en Incinerate.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Vuur" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Aspect of the Efreet" },
+        { "name": "Incinerate" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 132,
+      "skill": "Magiërspreuken C - Hout",
+      "alt_skill": "Wood Magic C",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nPrimal Rage en Aspect of the Viper.",
+      "Requirements": {
+        "skill": [ "Magiërspreuken B - Hout" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Primal Rage" },
+        { "name": "Aspect of the Viper" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 133,
+      "skill": "Magiërspreuken D - Vernietiging",
+      "alt_skill": "Speciale Magiërspreuken",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 2 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuk: \nWave of Destruction.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Magiërspreuken C" ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [
+        { "name": "Wave of Destruction" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 134,
+      "skill": "Magiërspreuken D - Dominatie",
+      "alt_skill": "Speciale Magiërspreuken",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 2 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuk: \nDominate the Weak.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Magiërspreuken C" ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [
+        { "name": "Dominate the Weak" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 135,
+      "skill": "Magiërspreuken D - Epidemie",
+      "alt_skill": "Speciale Magiërspreuken",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je krijgt 2 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuk: \nEpidemic.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Magiërspreuken C" ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [
+        { "name": "Epidemic" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 136,
+      "skill": "Glyphs scroll Vervaardigen",
+      "alt_skill": "",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je kunt een scroll met glyphs beschrijven met 1 elementaire spreuk die je zelf beheerst. Het kan ook een spreuk zijn waartoe je slechts toegang hebt door middel van glyphs, een rang, een power of een condition. Voor het maken van een scroll is speciaal scroll-papier nodig. Scroll-papier is te herkennen aan de officiële VA-stempel rechtsonder op het papier.\n\nJe schrijft de gehele incantatie in glyphs nauwgezet op de scroll om hierna de spreuk te doen op deze geprepareerde scroll. Na het doen van de spreuk schrijf je onderaan de scroll, links naast de stempel, je PLIN, je CHIN en de datum waarop je de scroll beschreven hebt.\n\nEen dergelijke scroll is een item met 1 lading en kan gebruikt worden door personages met de vaardigheid GLYPHS GEBRUIKEN. De volledige incantatie van de spreuk moet je personage oplezen vanaf de scroll om de spreuk te casten. De scroll wordt vernietigd wanneer de spreuk wordt gebruikt. Scheur deze door en lever deze in bij spelleiding na gebruik.",
+      "Requirements": {
+        "skill": [ "Glyph Gebruiken" ],
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden", "Genezingsvaardigheden (EL)" ],
+          "value": 4
+        }
+      },
+      "xp": 1,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 137,
+      "skill": "Glyphs Meesterschap",
+      "alt_skill": "",
+      "category": "Extra Magiërvaardigheden",
+      "description": "Je kunt voorwerpen of personen beschrijven met Glyphs en doordringen met magie, een zogenaamde ‘imbue’. Zie het imbue loresheet voor meer informatie. \n\nMet deze vaardigheid kun je een voorwerp of persoon met maximaal 10 elementaire mana imbuen. Je mag hiervoor de mana gebruiken van de resterende dagen op het evenement.\n\nJe kunt deze vaardigheid meerdere keren nemen. Per keer dat je deze vaardigheid extra geleerd hebt, verhoog je je maximum te imbuen hoeveelheid mana met 10. Zo kun je de hoeveelheid mana die je kunt gebruiken om voorwerpen te doordringen met elementaire energie, verhogen. Als het effect wat je wilt imbuen te veel mana vereist dan zul je samen moeten werken met andere personen met deze vaardigheid.\nDeze vaardigheid mag je meerdere keren aankopen.",
+      "Requirements": {
+        "skill": [ "Glyphs scroll Vervaardigen" ],
+        "any_list": [],
+        "Category": {
+          "name": [ "Magiërvaardigheden", "Genezingsvaardigheden (EL)" ],
+          "value": 8
+        }
+      },
+      "xp": 1,
+      "loresheet": true,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "glyph_craft_cap",
+          "value": 10
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 138,
+      "skill": "Extra Spirituele mana",
+      "alt_skill": "",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 2 spirituele mana extra. \nJe krijgt geen toegang tot extra spreuken.\nDeze vaardigheid mag je meerdere keren aankopen",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 139,
+      "skill": "Uitdrijving",
+      "alt_skill": "",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je kan een ceremonie uitvoeren om spirituele invloeden, of de bezetenheid door een ondode, servitar, spirit of een chaos-taint te verwijderen van een persoon of voorwerp. \nJe moet deze uitdrijving uitvoeren met je eigen spirituele mana. \n\nDe ceremonie werkt hetzelfde als rituelen van de ritualisme vaardigheid, alleen gebruikt het personage spirituele mana in plaats van spirituele rituelen mana.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Priesterspreuken A" ],
+        "Category": {
+          "name": [ "Priestervaardigheden" ],
+          "value": 4
+        }
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 140,
+      "skill": "Priesterspreuken C - Reinheid",
+      "alt_skill": "Purity C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nHoly Bolt en Divine Armour.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Reinheid" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Holy Bolt" },
+        { "name": "Divine Armour" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 141,
+      "skill": "Priesterspreuken C - Toorn",
+      "alt_skill": "Wrath C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nTorture en Divine Weapon.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Toorn" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Torture" },
+        { "name": "Divine Weapon" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 142,
+      "skill": "Priesterspreuken C - Dood",
+      "alt_skill": "Death C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nDestroy en Septic Weapon.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Dood" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Destroy" },
+        { "name": "Septic Weapon" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 143,
+      "skill": "Priesterspreuken C - Geest",
+      "alt_skill": "Mind C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nGift of Wisdom en Spell Shield.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Geest" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Gift of Wisdom" },
+        { "name": "Spell Shield" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 144,
+      "skill": "Priesterspreuken C - Natuur",
+      "alt_skill": "Nature C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nBarkskin en Blast Disease.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Natuur" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Barkskin" },
+        { "name": "Blast Disease" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 145,
+      "skill": "Priesterspreuken C - Natuur",
+      "alt_skill": "Nature C",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nBarkskin en Blast Disease.",
+      "Requirements": {
+        "skill": [ "Priesterspreuken B - Natuur" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Barkskin" },
+        { "name": "Blast Disease" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 146,
+      "skill": "Priesterspreuken D - Inwijden",
+      "alt_skill": "Speciale Priesterspreuken",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 2 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuk:\n Miracle of Consecration.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Priesterspreuken C" ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [
+        { "name": "Miracle of Consecration" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 147,
+      "skill": "Priesterspreuken D - Gebedsgenezing",
+      "alt_skill": "Speciale Priesterspreuken",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 2 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuk:\n Miracle of Healing.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Priesterspreuken C" ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [
+        { "name": "Miracle of Healing" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 148,
+      "skill": "Priesterspreuken D - Toorn van de Goden",
+      "alt_skill": "Speciale Priesterspreuken",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je krijgt 2 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuk:\n Wrath of the Gods.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Priesterspreuken C" ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 2
+        }
+      ],
+      "Spreuken": [
+        { "name": "Wrath of the Gods" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 149,
+      "skill": "Runen scroll Vervaardigen",
+      "alt_skill": "",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je kunt een scroll met runen beschrijven met 1 spirituele spreuk die je zelf beheerst. Het kan ook een spreuk zijn waartoe je slechts toegang hebt door middel van runen, een rang, een power of een condition. Voor het maken van een scroll is speciaal scroll-papier nodig. Scroll-papier is te herkennen aan de officiële VA-stempel rechtsonder op het papier.\n\nJe schrijft de gehele incantatie in runen nauwgezet op de scroll om hierna de spreuk te doen op deze geprepareerde scroll. Na het doen van de spreuk schrijf je onderaan de scroll, links naast de stempel, je PLIN, je CHIN en de datum waarop je de scroll beschreven hebt.\n\nEen dergelijke scroll is een item met 1 lading en kan gebruikt worden door personages met de vaardigheid RUNEN GEBRUIKEN. De volledige incantatie van de spreuk moet je personage oplezen vanaf de scroll om de spreuk te casten. De scroll wordt vernietigd wanneer de spreuk wordt gebruikt. Scheur deze door en lever deze in bij spelleiding na gebruik.",
+      "Requirements": {
+        "skill": [ "Runen Gebruiken" ],
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden", "Genezingsvaardigheden (SP)" ],
+          "value": 4
+        }
+      },
+      "xp": 1,
+      "loresheet": true,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 150,
+      "skill": "Runen Meesterschap",
+      "alt_skill": "",
+      "category": "Extra Priestervaardigheden",
+      "description": "Je kunt voorwerpen of personen beschrijven met Runen en doordringen met magie, een zogenaamde ‘imbue’. Zie het imbue loresheet voor meer informatie. Met deze vaardigheid kun je een voorwerp of persoon met maximaal 10 spirituele mana imbuen. Je mag hiervoor de mana gebruiken van de resterende dagen op het evenement.\n\nJe kunt deze vaardigheid meerdere keren nemen. Per keer dat je deze vaardigheid extra geleerd hebt, verhoog je je maximum te imbuen hoeveelheid mana met 10. Zo kun je de hoeveelheid mana die je kunt gebruiken om voorwerpen te doordringen met spirituele energie, verhogen. Als het effect wat je wilt imbuen te veel mana vereist dan zul je samen moeten werken met andere personen met deze vaardigheid.\nDeze vaardigheid mag je meerdere keren aankopen",
+      "Requirements": {
+        "skill": [ "Runen scroll Vervaardigen" ],
+        "any_list": [],
+        "Category": {
+          "name": [ "Priestervaardigheden", "Genezingsvaardigheden (SP)" ],
+          "value": 8
+        }
+      },
+      "xp": 1,
+      "loresheet": true,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "rune_craft_cap",
+          "value": 10
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 151,
+      "skill": "Bloedwede",
+      "alt_skill": "",
+      "category": "Extra Ritualistenvaardigheden",
+      "description": "Je kunt wedes aanbrengen op jezelf en anderen met het bloed van dieren. \nIedere bloedwede kost rituele mana om aan te brengen. Het aanbrengen van een wede moet in een ceremonie of ritueel gebeuren en een dergelijke ceremonie duurt minimaal 5 minuten (maar er kunnen meerdere wedes in 1 ceremonie aangebracht worden). Het is niet mogelijk om meerdere wedes tegelijk te dragen en iedere wede dient duidelijk op het gezicht aangebracht te worden met verf of nepbloed.\n\n1 rituele mana:\n Rat - Immuun voor ziekten; bestaande ziekten blijven. Duratie 1 uur\n  Wolf - Immuun voor angst (fear). duratie 1 uur\nUil - Immuun zijn voor het eerstvolgende geest beïnvloedende effect.\nduratie 1 uur of tot gebruik.\nOs - Immuun voor strike en slow. duratie 1 uur\nSlang - Immuun voor giffen; bestaande giffen blijven; duratie 1 uur\nDas - De ontvanger heeft 1 extra hitpoint die niet genezen kan worden; duratie 1 uur.\n\n2 rituele mana (vereist Ritualisme 4)\nBeer - De eerstvolgende klap van de ontvanger zal met het effect BLAST zijn. Dit mag alleen met een wapen wat groter is dan 45 cm. Duratie 1 uur of tot gebruik.\nHertebok - De ontvanger zal gedurende de duratie van deze woad 4 maal STRIKE slagen mogen doen. Dit mag alleen met een wapen wat groter is dan 45 cm. Duratie 1 uur of tot op gebruikt.\nEverzwijn - De ontvanger heeft 1 extra hitpoint. Duratie 1 uur.\nPauw - De ontvanger kan 1 keer per 5 minuten het FASCINATE effect veroorzaken door gracieus te dansen en in de eerste zin daarna (zowel ic als oc) uit te leggen dat dat zo werkt; duratie 1 uur.\nGordeldier - De ontvanger heeft 1 extra armourpoint. Duratie 1 uur\n",
+      "Requirements": {
+        "skill": [],
+        "any_list": [
+          "Elementair Ritualisme",
+          "Spiritueel Ritualisme"
+        ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 152,
+      "skill": "Ritueel Leider",
+      "alt_skill": "",
+      "category": "Extra Ritualistenvaardigheden",
+      "description": "Indien je een ritueel leidt en hier zelf 3 rituele mana in spendeert krijgt het ritueel 7 bonuspunten (vergelijkbaar met 7 mana) als er minstens 3 andere actieve participanten meedoen met het ritueel. Deze personen hoeven niet per se energie te spenderen aan het ritueel maar moeten wel bijdragen aan de symboliek van het ritueel door bijvoorbeeld iets uit te beelden. Je kunt dit 1 keer per dag toepassen voor elke keer dat je deze vaardigheid aankoopt, als je hem meerdere keren tijdens hetzelfde ritueel toepast heb je voor elke toepassing weer 3 extra mensen nodig.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Ritualisme" ],
+          "value": 3
+        }
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 153,
+      "skill": "Puur Ritueel",
+      "alt_skill": "",
+      "category": "Extra Ritualistenvaardigheden",
+      "description": "Als deze vaardigheid gekozen wordt moet er een vorm van energie gekozen worden (wilskracht, spirituele mana, elementaire mana of inspiratie). Indien je een ritueel leidt waar (naast 1 vorm van rituele mana) minstens 3 mana in van alleen deze vorm van energie in gestoken wordt, dan krijgt het ritueel 7 bonuspunten (vergelijkbaar met 7 mana).\n\nDeze vaardigheid werkt niet als spiritueel en elementair door elkaar gebruikt wordt in dit ritueel.\n\nJe kunt dit 1 keer per dag toepassen voor elke keer dat je deze vaardigheid aankoopt. Let op dat elke keer dat je deze vaardigheid aankoopt je opnieuw een vorm van energie kiest. Je kunt ook meerdere keren dezelfde vorm kiezen.\nDeze vaardigheid kan 4 maal gekozen worden, 1 maal voor elke vorm van energie",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Ritualisme" ],
+          "value": 3
+        }
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 4,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 154,
+      "skill": "Cirkel Vinden",
+      "alt_skill": "",
+      "category": "Extra Ritualistenvaardigheden",
+      "description": "Je kunt na een kort ritueel (zonder cirkel) en het spenderen van 1 rituele mana op zoek gaan naar nabije geschikte rituele plekken waar vervolgens een cirkel getrokken kan worden door jou. Dit gebeurt altijd in overleg met spelleiding en werkt alleen als spelleiders de tijd hebben om ook op deze nieuwe plek rituelen te beoordelen. Het kan daarom ook zijn dat zo een plek slechts tijdelijk is. (spelleider vereist)",
+      "Requirements": {
+        "skill": [],
+        "any_list": [],
+        "Category": {
+          "name": [ "Ritualisme" ],
+          "value": 5
+        }
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 155,
+      "skill": "Extra Wilskracht",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 2 extra willpower per dag.\nJe hebt geleerd om met je innerlijke kracht meer technieken en acties te kunnen uitvoeren. Je krijgt geen toegang tot extra technieken.\n\nDeze vaardigheid mag je meerdere keren aankopen.",
+      "Requirements": {
+        "skill": [],
+        "any_list": [ "Doorzettingsvermogen", "Eerste hulp bij gevechten" ]
+      },
+      "xp": 1,
+      "loresheet": false,
+      "multi_purchase": true,
+      "count": 1,
+      "maxcount": 99,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 2
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 156,
+      "skill": "Kracht B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe krijgt toegang tot de technieken:\nHeavy Blow en Withstand Strike.",
+      "Requirements": {
+        "skill": [ "Kracht A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [
+        { "name": "Heavy Blow" },
+        { "name": "Withstand Strike" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 157,
+      "skill": "Taaiheid B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe krijgt toegang tot de technieken:\nPoison & Disease Protection en Resist Crush",
+      "Requirements": {
+        "skill": [ "Taaiheid A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [
+        { "name": "Poison & Disease Protection" },
+        { "name": "Resist Crush" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 158,
+      "skill": "Leiderschap B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe krijgt toegang tot de technieken:\nInspect Armour en Insight.",
+      "Requirements": {
+        "skill": [ "Leiderschap A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [
+        { "name": "Inspect Armour" },
+        { "name": "Insight" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 159,
+      "skill": "Bescherming B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe krijgt toegang tot de technieken:\nDefensive Stance en Withstand Torture.",
+      "Requirements": {
+        "skill": [ "Bescherming A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [
+        { "name": "Defensive Stance" },
+        { "name": "Withstand Torture" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 160,
+      "skill": "Berserker B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe krijgt toegang tot de technieken:\nRage en Withstand Fear.",
+      "Requirements": {
+        "skill": [ "Berserker A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        }
+      ],
+      "Spreuken": [
+        { "name": "Rage" },
+        { "name": "Withstand Fear" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 161,
+      "skill": "Militaire training B",
+      "alt_skill": "",
+      "category": "Extra Vechtervaardigheden",
+      "description": "Je krijgt 3 wilskracht per dag.\n\nJe hebt 1 hitpoint meer",
+      "Requirements": {
+        "skill": [ "Militaire training A" ],
+        "any_list": []
+      },
+      "xp": 3,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "willpower",
+          "value": 3
+        },
+        {
+          "name": "hitpoints",
+          "value": 1
+        }
+      ],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 162,
+      "skill": "Demonologist A",
+      "alt_skill": "Demonoloog A",
+      "category": "Demonologie",
+      "description": "De demonoloog kan zijn spreuken van \"Fire\" casten met Spirituele mana en zijn spreuken van \"Purity\" casten met Elementaire mana. \n\nJe krijgt toegang tot de spreuken:\n “Detect Servitar”, “Reveal All Servitars” “Break Minor Possession” en “Faustian Deal”.\n\nDaarnaast mag een demonoloog de vereisten om \"Fire\" en \"Purity\" aan te leren, negeren.\n\nTot slot krijgt de demonoloog 5 extra punten (vergelijkbaar met 5 energie) voor een ritueel als de demonoloog een ritueel leidt dat als effect heeft:\n* Een servitar contract verbreken\n* Een servitar possession verbreken\n* Een specifieke servitar oproepen\n* Iemand een servitar maken (kan alleen met toestemming van een godheid uiteraard)\n* Sommige andere rituelen in overleg met rituele spelleiding",
+      "Requirements": {
+        "skill": [],
+        "any_list": [
+          "Magiërspreuken B - Vuur",
+          "Priesterspreuken B - Reinheid"
+        ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [
+        { "name": "Detect Servitar" },
+        { "name": "Reveal All Servitars" },
+        { "name": "Break Minor Possession" },
+        { "name": "Faustian Deal" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 163,
+      "skill": "Demonologist B (EL)",
+      "alt_skill": "Demonoloog B",
+      "category": "Demonologie",
+      "description": "Je krijgt 5 Elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken:\n“Demonic Eye”, “Command Servitar”, “Banish Servitar” “Smite Servitar”, en “Invite Demon”.",
+      "Requirements": {
+        "skill": [
+          "Magiërspreuken B - Vuur",
+          "Demonologist A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Demonic Eye" },
+        { "name": "Command Servitar" },
+        { "name": "Banish Servitar" },
+        { "name": "Smite Servitar" },
+        { "name": "Invite Demon" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 164,
+      "skill": "Demonologist B (SP)",
+      "alt_skill": "Demonoloog B",
+      "category": "Demonologie",
+      "description": "Je krijgt 5 Spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\n“Demonic Eye”, “Command Servitar”, “Banish Servitar” “Smite Servitar”, en “Invite Demon”.",
+      "Requirements": {
+        "skill": [
+          "Priesterspreuken B - Reinheid",
+          "Demonologist A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Demonic Eye" },
+        { "name": "Command Servitar" },
+        { "name": "Banish Servitar" },
+        { "name": "Smite Servitar" },
+        { "name": "Invite Demon" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 165,
+      "skill": "Demonologist C (EL)",
+      "alt_skill": "Demonoloog C",
+      "category": "Demonologie",
+      "description": "Je krijgt 5 Elementaire mana per dag. \n\nJe krijgt toegang tot de spreuken:\n“Greater Demonic Eye”, “Invite Greater Demon” en “Transfer Contract”.",
+      "Requirements": {
+        "skill": [ "Demonologist B (EL)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Greater Demonic Eye" },
+        { "name": "Invite Greater Demon" },
+        { "name": "Transfer Contract" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 166,
+      "skill": "Demonologist C (SP)",
+      "alt_skill": "Demonoloog C",
+      "category": "Demonologie",
+      "description": "Je krijgt 5 Spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\n“Greater Demonic Eye”, “Invite Greater Demon” en “Transfer Contract”.",
+      "Requirements": {
+        "skill": [ "Demonologist B (SP)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Greater Demonic Eye" },
+        { "name": "Invite Greater Demon" },
+        { "name": "Transfer Contract" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 167,
+      "skill": "Levens Druidisme A",
+      "alt_skill": "Druid A",
+      "category": "Druidisme",
+      "description": "De druïde kan zijn spreuken van \"Wood\" casten met Spirituele mana en zijn spreuken van \"Nature\" casten met Elementaire mana. \n\nJe krijgt toegang tot de spreuken:\n “Detect Spirit”, “Reveal All Spirits” “Break Minor Possession” en “Create Personal Grove”.\n Daarnaast mag een druïde de vereisten die nodig zijn voor het hierna aanleren van “Wood” en “Nature” vaardigheden negeren.\n\nTot slot krijg de druide 5 extra punten (vergelijkbaar met 5 energie) voor een ritueel als de druïde een ritueel leidt dat als effect heeft:\n* Een onnatuurlijke invloed van een plek verwijderen\n* Het ecosysteem, als in balans tussen leven en dood bij planten en dieren beïnvloeden\n* Te reizen van Grove naar Grove\n* Sommige andere rituelen in overleg met rituele spelleiding",
+      "Requirements": {
+        "skill": [],
+        "any_list": [
+          "Magiërspreuken B - Hout",
+          "Priesterspreuken B - Natuur"
+        ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [
+        { "name": "Detect Spirit" },
+        { "name": "Reveal All Spirits" },
+        { "name": "Break Minor Possession" },
+        { "name": "Create Personal Grove" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 168,
+      "skill": "Doods Druidisme A",
+      "alt_skill": "Druid A",
+      "category": "Druidisme",
+      "description": "De druïde kan zijn spreuken van \"Metal\" casten met Spirituele mana en zijn spreuken van \"Death\" casten met Elementaire mana. \n\nJe krijgt toegang tot de spreuken:\n “Detect Spirit”, “Reveal All Spirits” “Break Minor Possession” en “Create Personal Grove”.\n Daarnaast mag een druïde de vereisten die nodig zijn voor het hierna aanleren van “Metal” en “Death” vaardigheden negeren.\n\nTot slot krijg de druide 5 extra punten (vergelijkbaar met 5 energie) voor een ritueel als de druïde een ritueel leidt dat als effect heeft:\n* Een onnatuurlijke invloed van een plek verwijderen\n* Het ecosysteem, als in balans tussen leven en dood bij planten en dieren beïnvloeden\n* Te reizen van Grove naar Grove\n* Sommige andere rituelen in overleg met rituele spelleiding",
+      "Requirements": {
+        "skill": [],
+        "any_list": [
+          "Magiërspreuken B - Metaal",
+          "Priesterspreuken B - Dood"
+        ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [
+        { "name": "Detect Spirit" },
+        { "name": "Reveal All Spirits" },
+        { "name": "Break Minor Possession" },
+        { "name": "Create Personal Grove" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 169,
+      "skill": "Levens Druidisme B (EL)",
+      "alt_skill": "Druid B",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Detect Impurity”, “Reveal All Impurities”, “Protection of the Grove” en “Invite Nature Spirit”.",
+      "Requirements": {
+        "skill": [
+          "Magiërspreuken B - Hout",
+          "Levens Druidisme A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Detect Impurity" },
+        { "name": "Reveal All Impurities" },
+        { "name": "Protection of the Grove" },
+        { "name": "Invite Nature Spirit" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 170,
+      "skill": "Levens Druidisme B (SP)",
+      "alt_skill": "Druid B",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Spirituele mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Detect Impurity”, “Reveal All Impurities”, “Protection of the Grove” en “Invite Nature Spirit”.",
+      "Requirements": {
+        "skill": [
+          "Priesterspreuken B - Natuur",
+          "Levens Druidisme A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Detect Impurity" },
+        { "name": "Reveal All Impurities" },
+        { "name": "Protection of the Grove" },
+        { "name": "Invite Nature Spirit" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 171,
+      "skill": "Doods Druidisme B (EL)",
+      "alt_skill": "Druid B",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Detect Impurity”, “Reveal All Impurities”, “Protection of the Grove” en “Invite Nature Spirit”.",
+      "Requirements": {
+        "skill": [
+          "Magiërspreuken B - Metaal",
+          "Doods Druidisme A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Detect Impurity" },
+        { "name": "Reveal All Impurities" },
+        { "name": "Protection of the Grove" },
+        { "name": "Invite Nature Spirit" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 172,
+      "skill": "Doods Druidisme B (SP)",
+      "alt_skill": "Druid B",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Spirituele mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Detect Impurity”, “Reveal All Impurities”, “Protection of the Grove” en “Invite Nature Spirit”.",
+      "Requirements": {
+        "skill": [
+          "Priesterspreuken B - Death",
+          "Doods Druidisme A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Detect Impurity" },
+        { "name": "Reveal All Impurities" },
+        { "name": "Protection of the Grove" },
+        { "name": "Invite Nature Spirit" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 173,
+      "skill": "Levens Druidisme C (EL)",
+      "alt_skill": "Druid C",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Grove Meditation”, “Restore the Cycle” en “Invite Avatar of the Cycle”.",
+      "Requirements": {
+        "skill": [ "Levens Druidisme B (EL)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Grove Meditation" },
+        { "name": "Restore the Cycle" },
+        { "name": "“Invite Avatar of the Cycle" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 174,
+      "skill": "Levens Druidisme C (SP)",
+      "alt_skill": "Druid C",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Spirituele mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Grove Meditation”, “Restore the Cycle” en “Invite Avatar of the Cycle”.",
+      "Requirements": {
+        "skill": [ "Levens Druidisme B (SP)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Grove Meditation" },
+        { "name": "Restore the Cycle" },
+        { "name": "“Invite Avatar of the Cycle" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 175,
+      "skill": "Doods Druidisme C (EL)",
+      "alt_skill": "Druid C",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Grove Meditation”, “Restore the Cycle” en “Invite Avatar of the Cycle”.",
+      "Requirements": {
+        "skill": [ "Doods Druidisme B (EL)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Grove Meditation" },
+        { "name": "Restore the Cycle" },
+        { "name": "“Invite Avatar of the Cycle" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 176,
+      "skill": "Doods Druidisme C (SP)",
+      "alt_skill": "Druid C",
+      "category": "Druidisme",
+      "description": "Je krijgt 5 Spirituele mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Grove Meditation”, “Restore the Cycle” en “Invite Avatar of the Cycle”.",
+      "Requirements": {
+        "skill": [ "Doods Druidisme B (SP)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Grove Meditation" },
+        { "name": "Restore the Cycle" },
+        { "name": "“Invite Avatar of the Cycle" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 177,
+      "skill": "Necromancer A",
+      "alt_skill": "",
+      "category": "Necromantie",
+      "description": "De necromancer kan zijn spreuken van \"Metal\" casten met Spirituele mana en zijn spreuken van \"Death\" casten met Elementaire mana.\n\nDe necromancer krijgt ook toegang tot de spreuken:\n“Detect Undead”, “Reveal all Undead”, “Break Minor Possession”, “Create Zombie” en “Minor Reconstruct”.\nDaarnaast mag een necromancer de vereisten om \"Metal\" en \"Death\" aan te leren, negeren.\n\nTot slot krijg de Necromancer 5 extra punten (vergelijkbaar met 5 energie) voor een ritueel als de Necromancer een ritueel leidt dat als effect heeft:\n* Iemand ondood maken\n* Het \"leven\" van een ondode in stand houden\n* Spreken met lang dode wezens (soms zelfs zonder dat hun lichaam aanwezig is)\n* Het dodenrijk betreden\n* Sommige andere rituelen in overleg met rituele spelleiding\n",
+      "Requirements": {
+        "skill": [],
+        "any_list": [
+          "Magiërspreuken B - Metaal",
+          "Priesterspreuken B - Dood"
+        ]
+      },
+      "xp": 2,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [
+        { "name": "Detect Undead" },
+        { "name": "Reveal All Undead" },
+        { "name": "Break Minor Possession" },
+        { "name": "Create Zombie" },
+        { "name": "Minor Reconstruct" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 178,
+      "skill": "Necromancer B (EL)",
+      "alt_skill": "Necromancer B",
+      "category": "Necromantie",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Reconstruct”, “Chilling Fear”, “Bone Armour” en “Invite Spirit of the Dead”.",
+      "Requirements": {
+        "skill": [
+          "Magiërspreuken B - Metaal",
+          "Necromancer A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Reconstruct" },
+        { "name": "Chilling Feat" },
+        { "name": "Bone Armour" },
+        { "name": "Invite Spirit of the Dead" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 179,
+      "skill": "Necromancer B (SP)",
+      "alt_skill": "Necromancer B",
+      "category": "Necromantie",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Reconstruct”, “Chilling Fear”, “Bone Armour” en “Invite Spirit of the Dead”.",
+      "Requirements": {
+        "skill": [
+          "Priesterspreuken B - Death",
+          "Necromancer A"
+        ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Reconstruct" },
+        { "name": "Chilling Feat" },
+        { "name": "Bone Armour" },
+        { "name": "Invite Spirit of the Dead" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 180,
+      "skill": "Necromancer C (EL)",
+      "alt_skill": "Necromancer C",
+      "category": "Necromantie",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Ghostly Shackles”, “Unholy Bolt” en “Invite Ancestor”.",
+      "Requirements": {
+        "skill": [ "Necromancer B" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "elemental_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Ghostly Shackles" },
+        { "name": "Unholy Bolt" },
+        { "name": "Invite Ancestor" }
+      ],
+      "Recepten": []
+    },
+    {
+      "id": 181,
+      "skill": "Necromancer C (SP)",
+      "alt_skill": "Necromancer C",
+      "category": "Necromantie",
+      "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Ghostly Shackles”, “Unholy Bolt” en “Invite Ancestor”.",
+      "Requirements": {
+        "skill": [ "Necromancer A" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": false,
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [
+        {
+          "name": "spiritual_mana",
+          "value": 5
+        }
+      ],
+      "Spreuken": [
+        { "name": "Ghostly Shackles" },
+        { "name": "Unholy Bolt" },
+        { "name": "Invite Ancestor" }
+      ],
       "Recepten": []
     }
   ]

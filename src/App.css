@@ -8,16 +8,20 @@
         margin: 10px;
     }
 
-        .App header, h1, h2, h3, h4, h5, h6 {
-            display: block;
+        .App header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             justify-content: center;
             width: 100%;
-            white-space: nowrap;
-            font-family: 'Inknut Antiqua', serif;
-            margin: 3px;
-            padding: 0;
-            line-height: 24px;
+            margin: 15px;
+            justify-content: center;
         }
+
+            .App header img {
+                max-width: 50px;
+                max-height: 50px;
+            }
 
         .App main {
             display: flex;
@@ -63,30 +67,39 @@
     }
 
     .App header {
-        display: grid;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         margin: 15px;
         justify-content: center;
     }
-
-    .App footer {
-        position: fixed;
-        bottom: 0;
-        width: 110%;
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        white-space: nowrap;
-        font-family: 'Inknut Antiqua', serif;
-        padding: 0px;
-        font-size: 12px;
+    
+    .App header img {
+        max-width: 50px;
+        max-height: 50px;
     }
 
-        .App footer div {
-            width: 30%;
-            display: inline-block;
-            box-sizing: border-box;
-        }
+
+.App footer {
+    position: fixed;
+    bottom: 0;
+    width: 110%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Inknut Antiqua', serif;
+    padding: 0px;
+    font-size: 12px;
+}
+
+    .App footer div {
+        width: 30%;
+        display: inline-block;
+        box-sizing: border-box;
+    }
 
 .disclaimer {
     cursor: pointer;
@@ -96,16 +109,36 @@
     white-space: nowrap;
     font-family: 'Inknut Antiqua', serif;
     margin: 3px;
-    padding: 0;
+    padding: 0px;
     line-height: 24px;
 }
 
+.main-container label {
+    white-space: nowrap;
+    font-size: 12px;
+    font-family: 'Arial', serif;
+    margin: 0px;
+    margin-left: 5px;
+    padding: 0px;
+    line-height: 14px;
+}
+
+.settings-input-xp {
+    width: 55px;
+    margin: 0px;
+    margin-left: 5px;
+    padding: 0px;
+}
+
 /* select component */
-.select-basic-container, 
-.select-extra-container {
+.select-basic-container,
+.select-extra-container,
+.select-settings {
     display: flex;
     align-items: center;
+    justify-content: left;
     width: 100%;
+    margin-left: 17px;
 }
 
 .select {
@@ -114,11 +147,17 @@
 }
 
 .form-select {
-    max-width: 80%;
-    width: 100%;
+    min-width: 75%;
+    max-width: 75%;
+    width: 75% auto;
     margin: 5px;
     padding: 0px;
     font-size: 12px;
+}
+
+.select-info {
+    width: 25px;
+    justify-content: center;
 }
 
 /* main skill table*/
@@ -151,7 +190,7 @@
 }
 
 .col-acties {
-    min-width: 50px;
+    min-width: 75px;
 }
 
 .acties {
@@ -230,7 +269,7 @@
     margin: 0px;
     padding: 0px;
     width: 75px;
-    min-height: 75px; 
+    min-height: 75px;
     height: 100%;
     background-color: #ffffff;
     border: 2px solid rgba(0, 0, 0, 0.2);
@@ -409,7 +448,7 @@
 .tooltip-overlay {
     display: none;
     position: fixed;
-    top: 25%;
+    top: 30%;
     left: 50%;
     min-width: 30rem;
     width: fit-content;
