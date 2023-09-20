@@ -29,6 +29,10 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+	20230920	Major upgrade, all extra skills have been added.
+				Several prerequisite checks have been updated.
+				PREQUISITES: added option to select a category and XP value
+
 	20230918	SELECT: customized the Selects to show a tooltip with the Skill description
 
 	20230917	SKILL: ExtraSkill selection
