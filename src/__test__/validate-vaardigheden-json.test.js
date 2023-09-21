@@ -1,4 +1,4 @@
-import sourceVaardigheden from '../src/json/vaardigheden.json';
+import sourceVaardigheden from '../../src/json/vaardigheden.json';
 
 // Test for Unique Skill id's
 function hasUniqueSpellIDs(jsonArray) {

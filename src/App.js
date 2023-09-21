@@ -63,8 +63,322 @@ const columns = [
     { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
 ];
 
+// Handel alle controles af, alvorens het opgevoerde Record toe te voegen aan de tabel
+// Werkt voor zowel de basis- als extra vaardigheden.
+export function handleAddToTable(selectedRecord, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal], [MAX_XP, setMAP_XP]) {
+    const wasAlreadySelected = tableData.some((record) =>
+        record.skill.toLowerCase() === selectedRecord.skill.toLowerCase());
+    const hasSufficientFreeXP = (totalXP + selectedRecord.xp) <= Math.floor(MAX_XP) || selectedRecord.xp === 0;
+
+    if (wasAlreadySelected) {
+        setModalMsg("Dit item is al geselecteerd. \nToevoegen is niet toegestaan.\n");
+        setShowModal(true);
+    }
+    // TODO: COMMENT OUT THIS CODEBLOCK TO DISABLE REQUIREMENTS
+    else if (!meetsAllPrerequisites(selectedRecord, tableData, setModalMsg)) { setShowModal(true); }
+    else if (!hasSufficientFreeXP) {
+        if (totalXP === Math.floor(MAX_XP)) {
+            setModalMsg(
+                "Maximum XP (" + MAX_XP + ") bereikt. \n" +
+                "Toevoegen is niet toegestaan.\n");
+        }
+        else if (totalXP < Math.floor(MAX_XP)) {
+            setModalMsg(
+                "Maximum xp (" + MAX_XP + ") zal worden overschreden. \n" +
+                "Deze skill kost: " + selectedRecord.xp + ". \n" +
+                "Toevoegen is niet toegestaan.\n");
+        } else {
+            console.warn("There should be a reason, but no reason was set.")
+            setModalMsg("Er ging iets fout...");
+        }
+        setShowModal(true);
+        return false;
+    }
+    else {
+        setTableData((prevData) => [...prevData, selectedRecord]);
+        return true;
+    }
+};
+
+
+// Verwijderen uit de tabel, updaten van grid
+export function handleDelete(row, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal]) {
+    // check of het een vereiste is
+    const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.skill, true, tableData, setModalMsg);
+    if (isPrerequisite) { setShowModal(true); }
+    else {
+        // Item weghalen uit grid
+        setTableData((prevData) => prevData.filter((item) =>
+            item.skill.toLowerCase() !== row.skill.toLowerCase()));
+    }
+};
+
+
+// Check of de Skill aan de vereisten voldoet
+export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
+    let result = false;
+    if (selectedSkill) {
+        const reqSkill = selectedSkill.Requirements.skill;
+        const reqAny = selectedSkill.Requirements.any_list;
+        const reqCategory = selectedSkill.Requirements.Category;
+
+        // exit early
+        if (reqSkill.length === 0 &&
+            reqAny.length === 0 &&
+            (!reqCategory || (reqCategory && reqCategory.name.length === 0)) &&
+            selectedSkill.skill !== "Leermeester Expertise") {
+            result = true;
+        }
+        else {
+            result = true;
+
+            // uitzondering eerst
+            if (selectedSkill.skill === "Leermeester Expertise") {
+                let containsSkill = false;
+                for (const item of tableData) {
+                    const requiredSkill = sourceExtraVaardigheden.some((record) =>
+                        record.skill.toLowerCase() === item.skill.toLowerCase());
+                    if (requiredSkill) {
+                        containsSkill = true;
+                        break;
+                    }
+                }
+                if (containsSkill === false) {
+                    setModalMsg("Deze vaardigheid kan alleen geselecteerd worden \n wanneer een Extra vaardigheid aangeleerd is.");
+                    result = false;
+                }
+            }
+
+            // skill
+            if (reqSkill.length > 0) {
+                for (let i = 0; i < reqSkill.length; i++) {
+                    const requiredSkill = tableData.some((record) =>
+                        record.skill.toLowerCase() === reqSkill[i].toLowerCase())
+                    if (!requiredSkill) {
+                        result = false;
+                        setModalMsg("Deze vaardigheid mist een vereiste vaardigheid: \n" + reqSkill[i] + ". \nToevoegen is niet toegestaan.\n");
+                        break;
+                    }
+                }
+            }
+
+            // any_list
+            if (reqAny.length > 0) {
+                let reqAnySkill = false;
+                for (let i = 0; i < reqAny.length; i++) {
+                    const requiredSkill = tableData.some((record) =>
+                        record.skill.toLowerCase().includes(reqAny[i].toLowerCase()));
+
+                    if (requiredSkill === true) {
+                        reqAnySkill = true;
+                        break;
+                    }
+                }
+
+                // wanneer er niet voldaan is aan een van de Any_list dan niet vrijgeven.
+                if (reqAnySkill === false && result === true) {
+                    result = false;
+                    setModalMsg("Dit item mist een vereiste vaardigheid. \n" +
+                        "een van de volgende:" +
+                        reqAny.map((item) => "\n" + item) + "\n" +
+                        "Toevoegen is niet toegestaan.\n");
+                }
+            }
+
+            // category
+            if (reqCategory) {
+                let selectedSkillsXP = 0;
+                const categories = reqCategory.name;
+                const totalReqXP = reqCategory.value;
+
+                // Afhandelen uitzondering
+                if (categories.length === 1 &&
+                    categories.includes("Ritualisme")) {
+                    const selectedSkills = tableData.filter(tableItem => categories.includes(tableItem.category));
+
+                    let meetsPreReq = false;
+                    for (const skill of selectedSkills) {
+                        if (skill.xp >= totalReqXP) {
+                            meetsPreReq = true;
+                            break;
+                        }
+                    };
+                    if (meetsPreReq === false) {
+                        result = false;
+                        setModalMsg("Dit item mist de vereiste XP (" + totalReqXP + ") in een van de volgende categorien:" +
+                            categories.map((item) => "\n" + item) +
+                            "\nToevoegen is niet toegestaan.");
+                    }
+                }
+                // Standaard werking categorie
+                else {
+                    const selectedSkills = tableData.filter(item =>
+                        categories.includes(item.category) &&                       // van de juiste categorie
+                        (item.Spreuken.length > 0 || item.Recepten.length > 0));    // alleen skills met recepten of spreuken zijn doorgaans relevant
+                    selectedSkills.forEach(item => selectedSkillsXP += item.xp);
+
+                    if (totalReqXP > selectedSkillsXP) {
+                        result = false;
+                        setModalMsg("Dit item mist de vereiste XP (" + totalReqXP + ") in een van de volgende categorien:" +
+                            categories.map((item) => "\n" + item) +
+                            "\nToevoegen is niet toegestaan.");
+                    }
+                }
+            }
+        }
+    }
+    else {
+        console.warn("This skill should have been found, but was undefined");
+    }
+    return result;
+}
+
+// Check of de skill een vereiste is voor een van de gekozen skills
+export function isSkillAPrerequisiteToAnotherSkill(skillName, isRemoved, tableData, setModalMsg) {
+    let isPrerequisite = false;
+    const containsTeacherSkill = tableData.some((record) => record.skill === "Leermeester Expertise");
+
+    if (tableData.length > 1) {
+        let extraSkill = [];
+        // Check leermeester expertise afhankelijkheden
+        if (containsTeacherSkill) {
+            for (const tableSkill of tableData) {
+                const isExtraSkill = sourceExtraVaardigheden.some((record) =>
+                    record.skill.toLowerCase() === tableSkill.skill.toLowerCase())
+                if (isExtraSkill) { extraSkill.push(tableSkill.skill); }
+            }
+            if (extraSkill.length === 1) {
+                isPrerequisite = true;
+                setModalMsg("Dit item is een vereiste voor vaardigheid:\n Leermeester Expertise \nVerwijderen is niet toegestaan.\n");
+            }
+        }
+        // check overige vereisten
+        if (!containsTeacherSkill || extraSkill.length > 1) {
+            for (const item of tableData) {
+                const reqSkill = item.Requirements.skill;
+                const reqAny = item.Requirements.any_list;
+                const reqCategory = item.Requirements.Category;
+
+                if (item.skill.toLowerCase() === skillName.toLowerCase()) { continue; }
+                else if (
+                    reqSkill.length === 0 &&
+                    reqAny.length === 0 &&
+                    (!reqCategory || (reqCategory && reqCategory.name.length === 0))
+                ) { continue; }
+                else {
+                    // skill
+                    if (reqSkill.length > 0) {
+                        for (let i = 0; i < reqSkill.length; i++) {
+                            if (skillName.toLowerCase() === reqSkill[i].toLowerCase()) {
+                                isPrerequisite = true;
+                                setModalMsg("Dit item is een vereiste voor vaardigheid:\n " + item.skill + " \nVerwijderen is niet toegestaan.\n");
+                                break;
+                            }
+                        }
+                    }
+
+                    // any_list
+                    if (reqAny.length > 0) {
+                        let containsAtLeastOneOfAny = false;
+                        for (let i = 0; i < reqAny.length; i++) {
+                            // Verwijder (EL)/(SP)
+                            const cleanSkillName = skillName.includes("(") ? skillName.split(" (")[0] : skillName;
+
+                            // Check of de verwijderde skill vereist is.
+                            if (!reqAny.includes(cleanSkillName)) {
+                                containsAtLeastOneOfAny = true;
+                                continue;
+                            }
+                            // Wanneer in een vereiste, check of de vereiste nog voldoen
+                            else {
+                                const requiredSkill = tableData.some((record) =>
+                                    record.skill.toLowerCase().includes(reqAny[i].toLowerCase()) &&
+                                    record.skill.toLowerCase() !== skillName.toLowerCase());
+
+                                if (requiredSkill === true) {
+                                    containsAtLeastOneOfAny = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (containsAtLeastOneOfAny === false) {
+                            isPrerequisite = true;
+                            setModalMsg("Dit item is een vereiste voor vaardigheid: \n" + item.skill + " \nVerwijderen is niet toegestaan.\n");
+                            break;
+                        }
+                    }
+
+                    // category
+                    if (reqCategory) {
+                        let selectedSkillsXP = 0;
+                        const categories = reqCategory.name;
+                        const totalReqXP = reqCategory.value;
+
+                        // Afhandelen uitzondering
+                        if (categories.length === 1 &&
+                            categories.includes("Ritualisme")) {
+
+                            if (skillName.includes("Ritualisme")) {
+                                let canBeRemoved = false;
+
+                                // Filter alleen ritualisme skills eruit
+                                const selectedSkills = tableData.filter(tableItem => tableItem.category.includes("Ritualism"));
+                                // exit early
+                                if (isRemoved === true && selectedSkills.length === 1) { canBeRemoved = false; }
+                                else {
+                                    for (const item of selectedSkills) {
+                                        // Checkt of skill die vermindert wordt nog voldoet
+                                        if (item.skill === skillName) {
+                                            if (!isRemoved) {
+                                                selectedSkillsXP = item.xp - (item.xp / item.count);
+                                                canBeRemoved = selectedSkillsXP >= totalReqXP;
+                                            }
+                                        }
+                                        // Checkt of andere ritualisme skills garant staan voor pre-reqs
+                                        else {
+                                            if (item.xp >= totalReqXP) {
+                                                canBeRemoved = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                                // Afhandelen modal
+                                if (canBeRemoved === false) {
+                                    isPrerequisite = true;
+                                    setModalMsg("Dit item is nodig voor de vereiste XP (" + totalReqXP + ")\n" +
+                                        "voor de vaardigheid: \n" + item.skill + "\n" +
+                                        "Verwijderen is niet toegestaan.");
+                                }
+                            }
+                        }
+                        // Standaard werking categorie
+                        else {
+                            const selectedSkills = tableData.filter(tableItem =>
+                                categories.includes(tableItem.category) &&                              // van de juiste categorie
+                                (tableItem.Spreuken.length > 2 || tableItem.Recepten.length > 2) &&     // alleen skills met recepten of spreuken zijn doorgaans relevant                             
+                                tableItem.skill.toLowerCase() !== item.skill.toLowerCase() &&           // item waarvan pre-reqs gecheckt worden uitsluiten
+                                tableItem.skill.toLowerCase() !== skillName.toLowerCase());             // Skip zelf, deze is wordt verwijderd.
+
+                            selectedSkills.forEach(item => selectedSkillsXP += item.xp);                // calculate XP
+
+                            if (totalReqXP > selectedSkillsXP) {
+                                isPrerequisite = true;
+                                setModalMsg("Dit item is nodig voor de vereiste XP (" + totalReqXP + ")\n" +
+                                    "voor de vaardigheid: \n" + item.skill + "\n" +
+                                    "Verwijderen is niet toegestaan.");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return isPrerequisite;
+}
+
 /// --- MAIN APP --- ///
-function App() {
+export default function App() {
     const [tableData, setTableData] = useState(emptyData);
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
@@ -102,31 +416,6 @@ function App() {
         }
         else { setMAX_XP(1); }
     };
-
-    // TABLE gerelateerd
-    function getTableDataSums() {
-        // reset
-        totalXP = 0;
-        // herberekenen op basis van tabel data.
-        const totalSkills = tableData.length;
-        tableData.forEach(skill => { totalXP += skill.xp; });
-
-        if (totalSkills > 0) {
-            return (
-                <tr>
-                    <td /><td>Aantal vaardigheden: {totalSkills} </td>
-                    <td>Totaal: {totalXP}</td>
-                    <td />
-                    <td />
-                    <td>
-                        <button className="btn-secondary" onClick={() => setTableData([])}>
-                            Wissen
-                        </button>
-                    </td>
-                </tr>
-            );
-        }
-    }
 
     /// --- GRID CONTENT --- ///
     function onUpdateTableData() {
@@ -166,277 +455,37 @@ function App() {
         setGridRecepten(updatedGridReceptenContent);
     };
 
-    // Check of de Skill aan de vereisten voldoet
-    function meetsAllPrerequisites(selectedSkill) {
-        let result = false;
-        if (selectedSkill) {
-            const reqSkill = selectedSkill.Requirements.skill;
-            const reqAny = selectedSkill.Requirements.any_list;
-            const reqCategory = selectedSkill.Requirements.Category;
-
-            // exit early
-            if (reqSkill.length === 0 &&
-                reqAny.length === 0 &&
-                (!reqCategory || (reqCategory && reqCategory.name.length === 0)) &&
-                selectedSkill.skill !== "Leermeester Expertise") {
-                result = true;
-            }
-            else {
-                result = true;
-
-                // uitzondering eerst
-                if (selectedSkill.skill === "Leermeester Expertise") {
-                    let containsSkill = false;
-                    for (const item of tableData) {
-                        const requiredSkill = sourceExtraVaardigheden.some((record) =>
-                            record.skill.toLowerCase() === item.skill.toLowerCase());
-                        if (requiredSkill) {
-                            containsSkill = true;
-                            break;
-                        }
-                    }
-                    if (containsSkill === false) {
-                        setModalMsg("Deze vaardigheid kan alleen geselecteerd worden \n wanneer een Extra vaardigheid aangeleerd is.");
-                        result = false;
-                    }
-                }
-
-                // skill
-                if (reqSkill.length > 0) {
-                    for (let i = 0; i < reqSkill.length; i++) {
-                        const requiredSkill = tableData.some((record) =>
-                            record.skill.toLowerCase() === reqSkill[i].toLowerCase())
-                        if (!requiredSkill) {
-                            result = false;
-                            setModalMsg("Deze vaardigheid mist een vereiste vaardigheid: \n" + reqSkill[i] + ". \nToevoegen is niet toegestaan.\n");
-                            break;
-                        }
-                    }
-                }
-
-                // any_list
-                if (reqAny.length > 0) {
-                    let reqAnySkill = false;
-                    for (let i = 0; i < reqAny.length; i++) {
-                        const requiredSkill = tableData.some((record) =>
-                            record.skill.toLowerCase().includes(reqAny[i].toLowerCase()));
-
-                        if (requiredSkill === true) {
-                            reqAnySkill = true;
-                            break;
-                        }
-                    }
-
-                    // wanneer er niet voldaan is aan een van de Any_list dan niet vrijgeven.
-                    if (reqAnySkill === false && result === true) {
-                        result = false;
-                        setModalMsg("Dit item mist een vereiste vaardigheid. \n" +
-                            "een van de volgende:" +
-                            reqAny.map((item) => "\n" + item) + "\n" +
-                            "Toevoegen is niet toegestaan.\n");
-                    }
-                }
-
-                // category
-                if (reqCategory) {
-                    let selectedSkillsXP = 0;
-                    const categories = reqCategory.name;
-                    const totalReqXP = reqCategory.value;
-
-                    // Afhandelen uitzondering
-                    if (categories.length === 1 &&
-                        categories.includes("Ritualisme")) {
-                        const selectedSkills = tableData.filter(tableItem => categories.includes(tableItem.category));
-
-                        let meetsPreReq = false;
-                        for (const skill of selectedSkills) {
-                            if (skill.xp >= totalReqXP) {
-                                meetsPreReq = true;
-                                break;
-                            }
-                        };
-                        if (meetsPreReq === false) {
-                            result = false;
-                            setModalMsg("Dit item mist de vereiste XP (" + totalReqXP + ") in een van de volgende categorien:" +
-                                categories.map((item) => "\n" + item) +
-                                "\nToevoegen is niet toegestaan.");
-                        }
-                    }
-                    // Standaard werking categorie
-                    else {
-                        const selectedSkills = tableData.filter(item =>
-                            categories.includes(item.category) &&                       // van de juiste categorie
-                            (item.Spreuken.length > 0 || item.Recepten.length > 0));    // alleen skills met recepten of spreuken zijn doorgaans relevant
-                        selectedSkills.forEach(item => selectedSkillsXP += item.xp);
-
-                        if (totalReqXP > selectedSkillsXP) {
-                            result = false;
-                            setModalMsg("Dit item mist de vereiste XP (" + totalReqXP + ") in een van de volgende categorien:" +
-                                categories.map((item) => "\n" + item) +
-                                "\nToevoegen is niet toegestaan.");
-                        }
-                    }
-                }
-            }
-        }
-        else {
-            console.warn("This skill should have been found, but was undefined");
-        }
-        return result;
-    }
-
-    // Check of de skill een vereiste is voor een van de gekozen skills
-    function isSkillAPrerequisiteToAnotherSkill(skillName, isRemoved) {
-        let isPrerequisite = false;
-        const containsTeacherSkill = tableData.some((record) => record.skill === "Leermeester Expertise");
-
-        if (tableData.length > 1) {
-            let extraSkill = [];
-            // Check leermeester expertise afhankelijkheden
-            if (containsTeacherSkill) {
-                for (const tableSkill of tableData) {
-                    const isExtraSkill = sourceExtraVaardigheden.some((record) =>
-                        record.skill.toLowerCase() === tableSkill.skill.toLowerCase())
-                    if (isExtraSkill) { extraSkill.push(tableSkill.skill); }
-                }
-                if (extraSkill.length === 1) {
-                    isPrerequisite = true;
-                    setModalMsg("Dit item is een vereiste voor vaardigheid:\n Leermeester Expertise \nVerwijderen is niet toegestaan.\n");
-                }
-            }
-            // check overige vereisten
-            if (!containsTeacherSkill || extraSkill.length > 1) {
-                for (const item of tableData) {
-                    const reqSkill = item.Requirements.skill;
-                    const reqAny = item.Requirements.any_list;
-                    const reqCategory = item.Requirements.Category;
-
-                    if (item.skill.toLowerCase() === skillName.toLowerCase()) { continue; }
-                    else if (
-                        reqSkill.length === 0 &&
-                        reqAny.length === 0 &&
-                        (!reqCategory || (reqCategory && reqCategory.name.length === 0))
-                    ) { continue; }
-                    else {
-                        // skill
-                        if (reqSkill.length > 0) {
-                            for (let i = 0; i < reqSkill.length; i++) {
-                                if (skillName.toLowerCase() === reqSkill[i].toLowerCase()) {
-                                    isPrerequisite = true;
-                                    setModalMsg("Dit item is een vereiste voor vaardigheid:\n " + item.skill + " \nVerwijderen is niet toegestaan.\n");
-                                    break;
-                                }
-                            }
-                        }
-
-                        // any_list
-                        if (reqAny.length > 0) {
-                            let containsAtLeastOneOfAny = false;
-                            for (let i = 0; i < reqAny.length; i++) {
-                                // Verwijder (EL)/(SP)
-                                const cleanSkillName = skillName.includes("(") ? skillName.split(" (")[0] : skillName;
-
-                                // Check of de verwijderde skill vereist is.
-                                if (!reqAny.includes(cleanSkillName)) {
-                                    containsAtLeastOneOfAny = true;
-                                    continue;
-                                }
-                                // Wanneer in een vereiste, check of de vereiste nog voldoen
-                                else {
-                                    const requiredSkill = tableData.some((record) =>
-                                        record.skill.toLowerCase().includes(reqAny[i].toLowerCase()) &&
-                                        record.skill.toLowerCase() !== skillName.toLowerCase());
-
-                                    if (requiredSkill === true) {
-                                        containsAtLeastOneOfAny = true;
-                                        break;
-                                    }
-                                }
-                            }
-                            if (containsAtLeastOneOfAny === false) {
-                                isPrerequisite = true;
-                                setModalMsg("Dit item is een vereiste voor vaardigheid: \n" + item.skill + " \nVerwijderen is niet toegestaan.\n");
-                                break;
-                            }
-                        }
-
-                        // category
-                        if (reqCategory) {
-                            let selectedSkillsXP = 0;
-                            const categories = reqCategory.name;
-                            const totalReqXP = reqCategory.value;
-
-                            // Afhandelen uitzondering
-                            if (categories.length === 1 &&
-                                categories.includes("Ritualisme")) {
-
-                                if (skillName.includes("Ritualisme")) {
-                                    let canBeRemoved = false;
-
-                                    // Filter alleen ritualisme skills eruit
-                                    const selectedSkills = tableData.filter(tableItem => tableItem.category.includes("Ritualism"));
-                                    // exit early
-                                    if (isRemoved === true && selectedSkills.length === 1) { canBeRemoved = false; }
-                                    else {
-                                        for (const item of selectedSkills) {
-                                            // Checkt of skill die vermindert wordt nog voldoet
-                                            if (item.skill === skillName) {
-                                                if (!isRemoved) {
-                                                    selectedSkillsXP = item.xp - (item.xp / item.count);
-                                                    canBeRemoved = selectedSkillsXP >= totalReqXP;
-                                                }
-                                            }
-                                            // Checkt of andere ritualisme skills garant staan voor pre-reqs
-                                            else {
-                                                if (item.xp >= totalReqXP) {
-                                                    canBeRemoved = true;
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    // Afhandelen modal
-                                    if (canBeRemoved === false) {
-                                        isPrerequisite = true;
-                                        setModalMsg("Dit item is nodig voor de vereiste XP (" + totalReqXP + ")\n" +
-                                            "voor de vaardigheid: \n" + item.skill + "\n" +
-                                            "Verwijderen is niet toegestaan.");
-                                    }
-                                }
-                            }
-                            // Standaard werking categorie
-                            else {
-                                const selectedSkills = tableData.filter(tableItem =>
-                                    categories.includes(tableItem.category) &&                              // van de juiste categorie
-                                    (tableItem.Spreuken.length > 2 || tableItem.Recepten.length > 2) &&     // alleen skills met recepten of spreuken zijn doorgaans relevant                             
-                                    tableItem.skill.toLowerCase() !== item.skill.toLowerCase() &&           // item waarvan pre-reqs gecheckt worden uitsluiten
-                                    tableItem.skill.toLowerCase() !== skillName.toLowerCase());             // Skip zelf, deze is wordt verwijderd.
-
-                                selectedSkills.forEach(item => selectedSkillsXP += item.xp);                // calculate XP
-
-                                if (totalReqXP > selectedSkillsXP) {
-                                    isPrerequisite = true;
-                                    setModalMsg("Dit item is nodig voor de vereiste XP (" + totalReqXP + ")\n" +
-                                        "voor de vaardigheid: \n" + item.skill + "\n" +
-                                        "Verwijderen is niet toegestaan.");
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return isPrerequisite;
-    }
-
     /// --- TABLE CONTENT --- ///
+    function getTableDataSums() {
+        // reset
+        totalXP = 0;
+        // herberekenen op basis van tabel data.
+        const totalSkills = tableData.length;
+        tableData.forEach(skill => { totalXP += skill.xp; });
+
+        if (totalSkills > 0) {
+            return (
+                <tr>
+                    <td /><td>Aantal vaardigheden: {totalSkills} </td>
+                    <td>Totaal: {totalXP}</td>
+                    <td />
+                    <td />
+                    <td>
+                        <button className="btn-secondary" onClick={() => setTableData([])}>
+                            Wissen
+                        </button>
+                    </td>
+                </tr>
+            );
+        }
+    }
 
     // Voeg de geselecteerde Basis vaardigheid toe aan de tabel
     function handleBasicSkillSelection() {
         if (selectedBasicSkill) {
             const selectedBasicRecord = sourceBasisVaardigheden.find((record) =>
                 record.skill.toLowerCase() === selectedBasicSkill.value.toLowerCase());
-            const wasSuccesfull = handleAddToTable(selectedBasicRecord)
+            const wasSuccesfull = handleAddToTable(selectedBasicRecord, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal], [MAX_XP, setMAX_XP])
             if (wasSuccesfull) { setSelectedBasicSkill(''); }
         }
         else {
@@ -449,61 +498,13 @@ function App() {
         if (selectedExtraSkill) {
             const selectedExtraRecord = sourceExtraVaardigheden.find((record) =>
                 record.skill.toLowerCase() === selectedExtraSkill.value.toLowerCase());
-            const wasSuccesfull = handleAddToTable(selectedExtraRecord)
+            const wasSuccesfull = handleAddToTable(selectedExtraRecord, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal], [MAX_XP, setMAX_XP])
             if (wasSuccesfull) { setSelectedExtraSkill(''); }
         }
         else {
             console.warn("Selected Extra skill could not be found.")
         }
     }
-
-    // Handel alle controles af, alvorens het opgevoerde Record toe te voegen aan de tabel
-    function handleAddToTable(selectedRecord) {
-        const wasAlreadySelected = tableData.some((record) =>
-            record.skill.toLowerCase() === selectedRecord.skill.toLowerCase());
-        const hasSufficientFreeXP = (totalXP + selectedRecord.xp) <= Math.floor(MAX_XP) || selectedRecord.xp === 0;
-
-        if (wasAlreadySelected) {
-            setModalMsg("Dit item is al geselecteerd. \nToevoegen is niet toegestaan.\n");
-            setShowModal(true);
-        }
-        // TODO: COMMENT OUT THIS CODEBLOCK TO DISABLE REQUIREMENTS
-        else if (!meetsAllPrerequisites(selectedRecord)) { setShowModal(true); }
-        else if (!hasSufficientFreeXP) {
-            if (totalXP === Math.floor(MAX_XP)) {
-                setModalMsg(
-                    "Maximum XP (" + MAX_XP + ") bereikt. \n" +
-                    "Toevoegen is niet toegestaan.\n");
-            }
-            else if (totalXP < Math.floor(MAX_XP)) {
-                setModalMsg(
-                    "Maximum xp (" + MAX_XP + ") zal worden overschreden. \n" +
-                    "Deze skill kost: " + selectedRecord.xp + ". \n" +
-                    "Toevoegen is niet toegestaan.\n");
-            } else {
-                console.warn("There should be a reason, but no reason was set.")
-                setModalMsg("Er ging iets fout...");
-            }
-            setShowModal(true);
-            return false;
-        }
-        else {
-            setTableData((prevData) => [...prevData, selectedRecord]);
-            return true;
-        }
-    };
-
-    // Verwijderen uit de tabel, updaten van grid
-    function handleDelete(row) {
-        // check of het een vereiste is
-        const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.skill, true);
-        if (isPrerequisite) { setShowModal(true); }
-        else {
-            // Item weghalen uit grid
-            setTableData((prevData) => prevData.filter((item) =>
-                item.skill.toLowerCase() !== row.skill.toLowerCase()));
-        }
-    };
 
     // Aanvullende aankopen van reeds bestaande vaardigheid
     function handleAdd(row) {
@@ -540,9 +541,8 @@ function App() {
     };
 
     function handleSubtract(row) {
-
         // check of het een vereiste is
-        const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.skill, false);
+        const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.skill, false, tableData, setModalMsg);
         if (isPrerequisite) { setShowModal(true); }
         else {
             // Source data
@@ -608,7 +608,7 @@ function App() {
                         </img>
                         <img
                             className="btn-image"
-                            onClick={() => handleDelete(currentItem)}
+                            onClick={() => handleDelete(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
                             src="./images/button_remove.png"
                             alt="Remove">
                         </img>
@@ -630,7 +630,7 @@ function App() {
                     <div className="acties-overige">
                         <img
                             className="btn-image"
-                            onClick={() => handleDelete(currentItem)}
+                            onClick={() => handleDelete(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
                             src="./images/button_remove.png"
                             alt="Remove">
                         </img>
@@ -863,7 +863,5 @@ function App() {
         </div>
     );
 }
-
-export default App;
 
 

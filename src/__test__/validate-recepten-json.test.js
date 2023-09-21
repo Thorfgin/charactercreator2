@@ -1,4 +1,4 @@
-import sourceRecepten from '../src/json/recepten.json';
+import sourceRecepten from '../../src/json/recepten.json';
 
 // Test for Unique Recipy id's
 function hasUniqueRecipyIDs(json) {

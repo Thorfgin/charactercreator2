@@ -7,13 +7,16 @@
 	TODO:
 
 	MUST
-	
 
 	SHOULD:
+	- SKILL/SPELL: Add a Source/Page reference to each skill/spell
+	- SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
+	(SIZE, COLOR, ANIMATION, ETC)
 	- Change Error messages (modals) to a (!) img with mouseover 
-	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
+	- XP: add a reverse counter to show the ammount of free xp.
 
 	COULD:
+	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
 	- integration with VOIDWALKER / create new characters
 		> this requires integration on perhaps and API level
 		> Needs to be done from within a player portal?
