@@ -11,7 +11,7 @@ jest.mock('react', () => ({
     ...jest.requireActual('react'),
     useState: jest.fn()
 }))
-const setState = jest.fn();
+const setModalMsg = jest.fn();
 
 
 // Replace ë with the Unicode
@@ -41,12 +41,11 @@ function getSkillsFromExtraVaardigheden(skillNames) {
 
 describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
     beforeEach(() => {
-        useState.mockImplementation((init) => [init, setState])
+        useState.mockImplementation((init) => [init, setModalMsg])
     })
 
     // No Prerequisites
     test('Can remove a Skill that has no prerequisites', () => {
-        const [modalMsg, setModalMsg] = useState("");
         const mockTableData = getSkillsFromBasisVaardigheden(["Runen Gebruiken"]);
 
         let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Runen Gebruiken", true, mockTableData, setModalMsg);
@@ -55,8 +54,6 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
 
     // Single Skill
     test('Cannot remove a Skill that is a prerequisite of type: skill', () => {
-        const [modalMsg, setModalMsg] = useState("");
-
         const mockTableData = getSkillsFromBasisVaardigheden(["Runen Gebruiken", "Runen Gewenning"]);
 
         let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Runen Gebruiken", true, mockTableData, setModalMsg);
@@ -68,8 +65,6 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
 
     // Any-List
     test('Cannot remove a Skill that is the only matching prerequisite of type: any-list', () => {
-        const [modalMsg, setModalMsg] = useState("");
-
         const skills = [
             "Harnas I",
             "Genezingsspreuken A (EL)",
@@ -83,8 +78,6 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
     });
 
     test('Can remove a Skill that still has a skill matching same prerequisite of type: any-list', () => {
-        const [modalMsg, setModalMsg] = useState("");
-
         const skills = [
             "Harnas I",
             "Genezingsspreuken A (EL)",
@@ -99,8 +92,6 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
     });
 
     test('Can remove a Skill that still has a skill matching a different prerequisite of type: any-list', () => {
-        const [modalMsg, setModalMsg] = useState("");
-
         const basisSkills = ["Genezingsspreuken A (EL)", "Eerste hulp bij gevechten", "Diagnostiek"];
         const extraSkills = ["Genees andere wezens"]
 
@@ -124,8 +115,6 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
 
     // Category
     test('Cannot remove a Skill that is a prerequisite of type: by Category: 4 XP', () => {
-        const [modalMsg, setModalMsg] = useState("");
-
         const mageA = replaceChar("Magiërspreuken A - Wit");
         const mageB = replaceChar("Magiërspreuken B - Metaal");
         const mockTableData = getSkillsFromBasisVaardigheden([mageA, mageB]);
@@ -138,8 +127,6 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
     });
 
     test('Cannot remove a Skill that is a prerequisite of type: by Category: 8 XP', () => {
-        const [modalMsg, setModalMsg] = useState("");
-
         const basisSkills = ["Genezingsspreuken A (EL)", "Genezingsspreuken B (EL)"];
         const extraSkills = ["Genezingsspreuken C (EL)"]
 
@@ -160,8 +147,6 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
 
     // Exception: Leermeester Expertise
     test('Cannot remove a extra skill that is a prerequisite to Teacher Expertise', () => {
-        const [modalMsg, setModalMsg] = useState("");
-
         const basisSkills = ["Doorzettingsvermogen", "Leermeester expertise"];
         const extraSkills = ["Extra wilskracht"]
 
