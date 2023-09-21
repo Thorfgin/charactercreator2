@@ -1,20 +1,21 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import {
     meetsAllPrerequisites,
     isSkillAPrerequisiteToAnotherSkill,
     sourceBasisVaardigheden,
     sourceExtraVaardigheden
-    } from '../../src/App.js';
+} from '../../src/App.js';
 
+// Moke the setState function
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
-    useState: jest.fn(),
+    useState: jest.fn()
 }))
+const setState = jest.fn();
 
 
 // Replace ë with the Unicode
 function replaceChar(word) { return word.replace(/ë/g, '\u00EB') }
-
 
 // Fetch skills from BasisVaardigheden
 function getSkillsFromBasisVaardigheden(skillNames) {
@@ -36,128 +37,149 @@ function getSkillsFromExtraVaardigheden(skillNames) {
     return mockTableData;
 }
 
-
 /// --- Pre-Requisites --- ///
 
-// DELETE SKILL // 
+describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
+    beforeEach(() => {
+        useState.mockImplementation((init) => [init, setState])
+    })
 
-// Single Skill
-test('Cannot remove a Skill that is a prerequisite of type: skill', () => {
-    const setStateMock = jest.fn();
-    useState.mockImplementation(init => [init, setStateMock])
-    const [modalMsg, setModalMsg] = useState("");    
+    // No Prerequisites
+    test('Can remove a Skill that has no prerequisites', () => {
+        const [modalMsg, setModalMsg] = useState("");
+        const mockTableData = getSkillsFromBasisVaardigheden(["Runen Gebruiken"]);
 
-    const mockTableData = getSkillsFromBasisVaardigheden(["Runen Gebruiken", "Runen Gewenning"]);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Runen Gebruiken", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(false);
+    });
 
-    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Runen Gebruiken", true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(true);
+    // Single Skill
+    test('Cannot remove a Skill that is a prerequisite of type: skill', () => {
+        const [modalMsg, setModalMsg] = useState("");
 
-    isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Runen Gewenning", true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(false);
-})
+        const mockTableData = getSkillsFromBasisVaardigheden(["Runen Gebruiken", "Runen Gewenning"]);
 
-// Any-List
-test('Cannot remove a Skill that is the only matching prerequisite of type: any-list', () => {
-    const setStateMock = jest.fn();
-    useState.mockImplementation(init => [init, setStateMock])
-    const [modalMsg, setModalMsg] = useState("");
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Runen Gebruiken", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(true);
 
-    const skills = [
-        "Harnas I",
-        "Genezingsspreuken A (EL)",
-        "Paladijn",
-        "Paladijnspreuken A"
-]
-    const mockTableData = getSkillsFromBasisVaardigheden(skills);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Runen Gewenning", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(false);
+    });
 
-    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken A (EL)", true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(true);
-})
+    // Any-List
+    test('Cannot remove a Skill that is the only matching prerequisite of type: any-list', () => {
+        const [modalMsg, setModalMsg] = useState("");
 
-test('Can remove a Skill that still has a skill matching same prerequisite of type: any-list', () => {
-    const setStateMock = jest.fn();
-    useState.mockImplementation(init => [init, setStateMock])
-    const [modalMsg, setModalMsg] = useState("");
+        const skills = [
+            "Harnas I",
+            "Genezingsspreuken A (EL)",
+            "Paladijn",
+            "Paladijnspreuken A"
+        ]
+        const mockTableData = getSkillsFromBasisVaardigheden(skills);
 
-    const skills = [
-        "Harnas I",
-        "Genezingsspreuken A (EL)",
-        "Genezingsspreuken A (SP)",
-        "Paladijn",
-        "Paladijnspreuken A"
-    ];
-    const mockTableData = getSkillsFromBasisVaardigheden(skills);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken A (EL)", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(true);
+    });
 
-    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken A (EL)", true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(false);
-})
+    test('Can remove a Skill that still has a skill matching same prerequisite of type: any-list', () => {
+        const [modalMsg, setModalMsg] = useState("");
 
-test('Can remove a Skill that still has a skill matching a different prerequisite of type: any-list', () => {
-    const setStateMock = jest.fn();
-    useState.mockImplementation(init => [init, setStateMock])
-    const [modalMsg, setModalMsg] = useState("");
+        const skills = [
+            "Harnas I",
+            "Genezingsspreuken A (EL)",
+            "Genezingsspreuken A (SP)",
+            "Paladijn",
+            "Paladijnspreuken A"
+        ];
+        const mockTableData = getSkillsFromBasisVaardigheden(skills);
 
-    const basisSkills = [ "Genezingsspreuken A (EL)", "Eerste hulp bij gevechten", "Diagnostiek" ];
-    const extraSkills = [ "Genees andere wezens" ]
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken A (EL)", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(false);
+    });
 
-    const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
-    const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
+    test('Can remove a Skill that still has a skill matching a different prerequisite of type: any-list', () => {
+        const [modalMsg, setModalMsg] = useState("");
 
-    const mockTableData = [...tableDataBasis, ...tableDataExtra]
+        const basisSkills = ["Genezingsspreuken A (EL)", "Eerste hulp bij gevechten", "Diagnostiek"];
+        const extraSkills = ["Genees andere wezens"]
 
-    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken A (EL)", true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(false);
+        const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
+        const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
 
-    isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Eerste hulp bij gevechten", true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(true);
+        const mockTableData = [...tableDataBasis, ...tableDataExtra]
 
-    isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Diagnostiek", true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(false);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken A (EL)", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(false);
 
-    isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genees andere wezens", true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(false);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Eerste hulp bij gevechten", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(true);
 
-})
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Diagnostiek", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(false);
 
-// Category
-test('Cannot remove a Skill that is a prerequisite of type: by Category: 4 XP', () => {
-    const setStateMock = jest.fn();
-    useState.mockImplementation(init => [init, setStateMock])
-    const [modalMsg, setModalMsg] = useState("");
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genees andere wezens", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(false);
+    });
 
-    const mageA = replaceChar("Magiërspreuken A - Wit");
-    const mageB = replaceChar("Magiërspreuken B - Metaal");
-    const mockTableData = getSkillsFromBasisVaardigheden([mageA, mageB]);
+    // Category
+    test('Cannot remove a Skill that is a prerequisite of type: by Category: 4 XP', () => {
+        const [modalMsg, setModalMsg] = useState("");
 
-    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(mageA, true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(true);
+        const mageA = replaceChar("Magiërspreuken A - Wit");
+        const mageB = replaceChar("Magiërspreuken B - Metaal");
+        const mockTableData = getSkillsFromBasisVaardigheden([mageA, mageB]);
 
-    isPrerequisite = isSkillAPrerequisiteToAnotherSkill(mageB, true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(false);
-})
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(mageA, true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(true);
 
-test('Cannot remove a Skill that is a prerequisite of type: by Category: 8 XP', () => {
-    const setStateMock = jest.fn();
-    useState.mockImplementation(init => [init, setStateMock])
-    const [modalMsg, setModalMsg] = useState("");
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(mageB, true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(false);
+    });
 
-    const basisSkills = [ "Genezingsspreuken A (EL)", "Genezingsspreuken B (EL)" ];
-    const extraSkills = [ "Genezingsspreuken C (EL)" ]
+    test('Cannot remove a Skill that is a prerequisite of type: by Category: 8 XP', () => {
+        const [modalMsg, setModalMsg] = useState("");
 
-    const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
-    const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
+        const basisSkills = ["Genezingsspreuken A (EL)", "Genezingsspreuken B (EL)"];
+        const extraSkills = ["Genezingsspreuken C (EL)"]
 
-    const mockTableData = [...tableDataBasis, ...tableDataExtra]
+        const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
+        const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
 
-    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(basisSkills[0], true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(true);
+        const mockTableData = [...tableDataBasis, ...tableDataExtra]
 
-    isPrerequisite = isSkillAPrerequisiteToAnotherSkill(basisSkills[1], true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(true);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken A (EL)", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(true);
 
-    isPrerequisite = isSkillAPrerequisiteToAnotherSkill(extraSkills[0], true, mockTableData, setModalMsg);
-    expect(isPrerequisite).toBe(false);
-})
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken B (EL)", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(true);
+
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken C (EL)", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(false);
+    });
+
+    // Exception: Leermeester Expertise
+    test('Cannot remove a extra skill that is a prerequisite to Teacher Expertise', () => {
+        const [modalMsg, setModalMsg] = useState("");
+
+        const basisSkills = ["Doorzettingsvermogen", "Leermeester expertise"];
+        const extraSkills = ["Extra wilskracht"]
+
+        const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
+        const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
+
+        const mockTableData = [...tableDataBasis, ...tableDataExtra]
+
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Doorzettingsvermogen", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(true);
+
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Leermeester expertise", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(false);
+
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Extra wilskracht", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(true);
+    });
+});
 
 // SUBTRACT SKILL //
 

@@ -63,57 +63,6 @@ const columns = [
     { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
 ];
 
-// Handel alle controles af, alvorens het opgevoerde Record toe te voegen aan de tabel
-// Werkt voor zowel de basis- als extra vaardigheden.
-export function handleAddToTable(selectedRecord, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal], [MAX_XP, setMAP_XP]) {
-    const wasAlreadySelected = tableData.some((record) =>
-        record.skill.toLowerCase() === selectedRecord.skill.toLowerCase());
-    const hasSufficientFreeXP = (totalXP + selectedRecord.xp) <= Math.floor(MAX_XP) || selectedRecord.xp === 0;
-
-    if (wasAlreadySelected) {
-        setModalMsg("Dit item is al geselecteerd. \nToevoegen is niet toegestaan.\n");
-        setShowModal(true);
-    }
-    // TODO: COMMENT OUT THIS CODEBLOCK TO DISABLE REQUIREMENTS
-    else if (!meetsAllPrerequisites(selectedRecord, tableData, setModalMsg)) { setShowModal(true); }
-    else if (!hasSufficientFreeXP) {
-        if (totalXP === Math.floor(MAX_XP)) {
-            setModalMsg(
-                "Maximum XP (" + MAX_XP + ") bereikt. \n" +
-                "Toevoegen is niet toegestaan.\n");
-        }
-        else if (totalXP < Math.floor(MAX_XP)) {
-            setModalMsg(
-                "Maximum xp (" + MAX_XP + ") zal worden overschreden. \n" +
-                "Deze skill kost: " + selectedRecord.xp + ". \n" +
-                "Toevoegen is niet toegestaan.\n");
-        } else {
-            console.warn("There should be a reason, but no reason was set.")
-            setModalMsg("Er ging iets fout...");
-        }
-        setShowModal(true);
-        return false;
-    }
-    else {
-        setTableData((prevData) => [...prevData, selectedRecord]);
-        return true;
-    }
-};
-
-
-// Verwijderen uit de tabel, updaten van grid
-export function handleDelete(row, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal]) {
-    // check of het een vereiste is
-    const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.skill, true, tableData, setModalMsg);
-    if (isPrerequisite) { setShowModal(true); }
-    else {
-        // Item weghalen uit grid
-        setTableData((prevData) => prevData.filter((item) =>
-            item.skill.toLowerCase() !== row.skill.toLowerCase()));
-    }
-};
-
-
 // Check of de Skill aan de vereisten voldoet
 export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
     let result = false;
@@ -134,101 +83,123 @@ export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
 
             // uitzondering eerst
             if (selectedSkill.skill === "Leermeester Expertise") {
-                let containsSkill = false;
-                for (const item of tableData) {
-                    const requiredSkill = sourceExtraVaardigheden.some((record) =>
-                        record.skill.toLowerCase() === item.skill.toLowerCase());
-                    if (requiredSkill) {
-                        containsSkill = true;
-                        break;
-                    }
-                }
-                if (containsSkill === false) {
-                    setModalMsg("Deze vaardigheid kan alleen geselecteerd worden \n wanneer een Extra vaardigheid aangeleerd is.");
-                    result = false;
-                }
+                result = verifyTableContainsExtraSkill(tableData, setModalMsg);
             }
 
             // skill
             if (reqSkill.length > 0) {
-                for (let i = 0; i < reqSkill.length; i++) {
-                    const requiredSkill = tableData.some((record) =>
-                        record.skill.toLowerCase() === reqSkill[i].toLowerCase())
-                    if (!requiredSkill) {
-                        result = false;
-                        setModalMsg("Deze vaardigheid mist een vereiste vaardigheid: \n" + reqSkill[i] + ". \nToevoegen is niet toegestaan.\n");
-                        break;
-                    }
-                }
+                result = verifyTableContainsRequiredSkills(reqSkill, tableData, setModalMsg);
             }
 
             // any_list
             if (reqAny.length > 0) {
-                let reqAnySkill = false;
-                for (let i = 0; i < reqAny.length; i++) {
-                    const requiredSkill = tableData.some((record) =>
-                        record.skill.toLowerCase().includes(reqAny[i].toLowerCase()));
-
-                    if (requiredSkill === true) {
-                        reqAnySkill = true;
-                        break;
-                    }
-                }
-
-                // wanneer er niet voldaan is aan een van de Any_list dan niet vrijgeven.
-                if (reqAnySkill === false && result === true) {
-                    result = false;
-                    setModalMsg("Dit item mist een vereiste vaardigheid. \n" +
-                        "een van de volgende:" +
-                        reqAny.map((item) => "\n" + item) + "\n" +
-                        "Toevoegen is niet toegestaan.\n");
-                }
+                result = verifyTableContainsOneofAnyList(reqAny, tableData, result, setModalMsg);
             }
 
             // category
             if (reqCategory) {
-                let selectedSkillsXP = 0;
-                const categories = reqCategory.name;
-                const totalReqXP = reqCategory.value;
-
-                // Afhandelen uitzondering
-                if (categories.length === 1 &&
-                    categories.includes("Ritualisme")) {
-                    const selectedSkills = tableData.filter(tableItem => categories.includes(tableItem.category));
-
-                    let meetsPreReq = false;
-                    for (const skill of selectedSkills) {
-                        if (skill.xp >= totalReqXP) {
-                            meetsPreReq = true;
-                            break;
-                        }
-                    };
-                    if (meetsPreReq === false) {
-                        result = false;
-                        setModalMsg("Dit item mist de vereiste XP (" + totalReqXP + ") in een van de volgende categorien:" +
-                            categories.map((item) => "\n" + item) +
-                            "\nToevoegen is niet toegestaan.");
-                    }
-                }
-                // Standaard werking categorie
-                else {
-                    const selectedSkills = tableData.filter(item =>
-                        categories.includes(item.category) &&                       // van de juiste categorie
-                        (item.Spreuken.length > 0 || item.Recepten.length > 0));    // alleen skills met recepten of spreuken zijn doorgaans relevant
-                    selectedSkills.forEach(item => selectedSkillsXP += item.xp);
-
-                    if (totalReqXP > selectedSkillsXP) {
-                        result = false;
-                        setModalMsg("Dit item mist de vereiste XP (" + totalReqXP + ") in een van de volgende categorien:" +
-                            categories.map((item) => "\n" + item) +
-                            "\nToevoegen is niet toegestaan.");
-                    }
-                }
+                result = verifyTableContainsCategoryXP(reqCategory, tableData, setModalMsg);
             }
         }
     }
     else {
         console.warn("This skill should have been found, but was undefined");
+    }
+    return result;
+}
+
+
+// Check of er minimaal 1 vaardigheid uit de extra vaardigheden aanwezig is in de tabel
+function verifyTableContainsExtraSkill(tableData, setModalMsg) {
+    let containsSkill = false;
+    for (const item of tableData) {
+        const requiredSkill = sourceExtraVaardigheden.some((record) => record.skill.toLowerCase() === item.skill.toLowerCase());
+        if (requiredSkill) {
+            containsSkill = true;
+            break;
+        }
+    }
+    if (containsSkill === false) {
+        setModalMsg("Deze vaardigheid kan alleen geselecteerd worden \n wanneer een Extra vaardigheid aangeleerd is.");
+    }
+    return containsSkill;
+}
+
+// Check of de skills in Requirements.skill aanwezig zijn in de tabel
+function verifyTableContainsRequiredSkills(reqSkill, tableData, setModalMsg) {
+    let containsSkills = true;
+    for (let i = 0; i < reqSkill.length; i++) {
+        const requiredSkill = tableData.some((record) => record.skill.toLowerCase() === reqSkill[i].toLowerCase());
+        if (!requiredSkill) {
+            containsSkills = false;
+            setModalMsg("Deze vaardigheid mist een vereiste vaardigheid: \n" + reqSkill[i] + ". \nToevoegen is niet toegestaan.\n");
+            break;
+        }
+    }
+    return containsSkills;
+}
+
+// Check of tenminste een van de skills in Requirements.any_list aanwezig zijn in de tabel
+function verifyTableContainsOneofAnyList(reqAny, tableData, result, setModalMsg) {
+    let containsAnySkill = false;
+    for (let i = 0; i < reqAny.length; i++) {
+        const requiredSkill = tableData.some((record) => record.skill.toLowerCase().includes(reqAny[i].toLowerCase()));
+
+        if (requiredSkill === true) {
+            containsAnySkill = true;
+            break;
+        }
+    }
+
+    // wanneer er niet voldaan is aan een van de Any_list dan niet vrijgeven.
+    if (containsAnySkill === false && result === true) {
+        setModalMsg("Dit item mist een vereiste vaardigheid. \n" +
+            "een van de volgende:" +
+            reqAny.map((item) => "\n" + item) + "\n" +
+            "Toevoegen is niet toegestaan.\n");
+    }
+    return containsAnySkill;
+}
+
+// Check of het minimum totaal aan XP van de Requirements.Category aanwezig is in de tabel 
+function verifyTableContainsCategoryXP(reqCategory, tableData, setModalMsg) {
+    let result = true;
+    let selectedSkillsXP = 0;
+    const categories = reqCategory.name;
+    const totalReqXP = reqCategory.value;
+
+    // Afhandelen uitzondering
+    if (categories.length === 1 &&
+        categories.includes("Ritualisme")) {
+        const selectedSkills = tableData.filter(tableItem => categories.includes(tableItem.category));
+
+        let meetsPreReq = false;
+        for (const skill of selectedSkills) {
+            if (skill.xp >= totalReqXP) {
+                meetsPreReq = true;
+                break;
+            }
+        };
+        if (meetsPreReq === false) {
+            result = false;
+            setModalMsg("Dit item mist de vereiste XP (" + totalReqXP + ") in een van de volgende categorien:" +
+                categories.map((item) => "\n" + item) +
+                "\nToevoegen is niet toegestaan.");
+        }
+    }
+
+    // Standaard werking categorie
+    else {
+        const selectedSkills = tableData.filter(item => categories.includes(item.category) && // van de juiste categorie
+            (item.Spreuken.length > 0 || item.Recepten.length > 0)); // alleen skills met recepten of spreuken zijn doorgaans relevant
+        selectedSkills.forEach(item => selectedSkillsXP += item.xp);
+
+        if (totalReqXP > selectedSkillsXP) {
+            result = false;
+            setModalMsg("Dit item mist de vereiste XP (" + totalReqXP + ") in een van de volgende categorien:" +
+                categories.map((item) => "\n" + item) +
+                "\nToevoegen is niet toegestaan.");
+        }
     }
     return result;
 }
@@ -506,6 +477,57 @@ export default function App() {
         }
     }
 
+
+    // Handel alle controles af, alvorens het opgevoerde Record toe te voegen aan de tabel
+    // Werkt voor zowel de basis- als extra vaardigheden.
+    function handleAddToTable(selectedRecord) {
+        const wasAlreadySelected = tableData.some((record) =>
+            record.skill.toLowerCase() === selectedRecord.skill.toLowerCase());
+        const hasSufficientFreeXP = (totalXP + selectedRecord.xp) <= Math.floor(MAX_XP) || selectedRecord.xp === 0;
+
+        if (wasAlreadySelected) {
+            setModalMsg("Dit item is al geselecteerd. \nToevoegen is niet toegestaan.\n");
+            setShowModal(true);
+        }
+        // TODO: COMMENT OUT THIS CODEBLOCK TO DISABLE REQUIREMENTS
+        else if (!meetsAllPrerequisites(selectedRecord, tableData, setModalMsg)) { setShowModal(true); }
+        else if (!hasSufficientFreeXP) {
+            if (totalXP === Math.floor(MAX_XP)) {
+                setModalMsg(
+                    "Maximum XP (" + MAX_XP + ") bereikt. \n" +
+                    "Toevoegen is niet toegestaan.\n");
+            }
+            else if (totalXP < Math.floor(MAX_XP)) {
+                setModalMsg(
+                    "Maximum xp (" + MAX_XP + ") zal worden overschreden. \n" +
+                    "Deze skill kost: " + selectedRecord.xp + ". \n" +
+                    "Toevoegen is niet toegestaan.\n");
+            } else {
+                console.warn("There should be a reason, but no reason was set.")
+                setModalMsg("Er ging iets fout...");
+            }
+            setShowModal(true);
+            return false;
+        }
+        else {
+            setTableData((prevData) => [...prevData, selectedRecord]);
+            return true;
+        }
+    };
+
+
+    // Verwijderen uit de tabel, updaten van grid
+    function handleDelete(row) {
+        // check of het een vereiste is
+        const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.skill, true, tableData, setModalMsg);
+        if (isPrerequisite) { setShowModal(true); }
+        else {
+            // Item weghalen uit grid
+            setTableData((prevData) => prevData.filter((item) =>
+                item.skill.toLowerCase() !== row.skill.toLowerCase()));
+        }
+    };
+
     // Aanvullende aankopen van reeds bestaande vaardigheid
     function handleAdd(row) {
         if (totalXP < Math.floor(MAX_XP)) {
@@ -595,7 +617,7 @@ export default function App() {
                     <div className="acties-overige">
                         <img
                             className="btn-image"
-                            onClick={() => handleAdd(currentItem)}
+                            onClick={() => handleAdd(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
                             src="./images/button_add.png"
                             alt="Add">
 
