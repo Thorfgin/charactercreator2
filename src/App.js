@@ -595,8 +595,11 @@ export default function App() {
         const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.skill, false, tableData, setModalMsg);
         if (isPrerequisite) { setShowModal(true); }
         else {
-            if (row.count <= 1) {
-                handleDelete(row);
+            const currentSkill = tableData.find(currentSkill => currentSkill.skill === row.skill);
+            if (currentSkill.count === 1) {
+                // Item weghalen uit grid
+                setTableData((prevData) => prevData.filter((item) =>
+                    item.skill.toLowerCase() !== row.skill.toLowerCase()));
             }
             else {
                 const updatedTableData = tableData.map((record) =>
