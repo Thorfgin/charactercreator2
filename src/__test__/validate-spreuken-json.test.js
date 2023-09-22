@@ -1,4 +1,4 @@
-import sourceSpreuken from '../src/json/spreuken.json';
+import sourceSpreuken from '../../src/json/spreuken.json';
 
 // Test for Unique Spell id's
 function hasUniqueSpellIDs(json) {

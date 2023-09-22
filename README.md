@@ -7,13 +7,16 @@
 	TODO:
 
 	MUST
-	
 
 	SHOULD:
+	- SKILL/SPELL: Add a Source/Page reference to each skill/spell
+	- SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
+	(SIZE, COLOR, ANIMATION, ETC)
 	- Change Error messages (modals) to a (!) img with mouseover 
-	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
+	- XP: add a reverse counter to show the ammount of free xp.
 
 	COULD:
+	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
 	- integration with VOIDWALKER / create new characters
 		> this requires integration on perhaps and API level
 		> Needs to be done from within a player portal?
@@ -29,6 +32,11 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+	20230922	REFACTOR: Major overhaul and seperation of functionality into functions for maintainability
+				UNITTESTING: Added __test__ folder and implemented unittesting on prerequisites
+				SELECT: Upgraded Select to add on an Enter, and blank on Escape
+				bugfixes: several minor bugs in the prerequisites were fixed.
+
 	20230920	Major upgrade, all extra skills have been added.
 				Several prerequisite checks have been updated.
 				PREQUISITES: added option to select a category and XP value
