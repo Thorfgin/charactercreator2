@@ -145,10 +145,31 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
         expect(isPrerequisite).toBe(false);
     });
 
-    // Exception: Leermeester Expertise
+    test('Cannot remove a Ritualism Skill that is a prerequisite of type: by Category: 5 XP', () => {
+        const basisSkills = ["Elementair Ritualisme", "Spiritueel Ritualisme"];
+        const extraSkills = ["Cirkel Vinden"]
+
+        const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
+        tableDataBasis[0].xp = 5;
+        tableDataBasis[0].count = 5;
+        const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
+
+        const mockTableData = [...tableDataBasis, ...tableDataExtra]
+
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Elementair Ritualisme", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(true);
+
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Spiritueel Ritualisme", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(false);
+
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Cirkel Vinden", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(false);
+    });
+
+    // TODO: Fix Exception: Leermeester Expertise
     test('Cannot remove a extra skill that is a prerequisite to Teacher Expertise', () => {
-        const basisSkills = ["Doorzettingsvermogen", "Leermeester expertise"];
-        const extraSkills = ["Extra wilskracht"]
+        const basisSkills = ["Doorzettingsvermogen", "Leermeester Expertise"];
+        const extraSkills = ["Extra Wilskracht"]
 
         const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
         const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
@@ -158,10 +179,10 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
         let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Doorzettingsvermogen", true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Leermeester expertise", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Leermeester Expertise", true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Extra wilskracht", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Extra Wilskracht", true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
     });
 });
@@ -175,3 +196,68 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
 
 
     // Category
+
+
+describe('Using meetsAllPrerequisites', () => {
+
+    // Teacher
+    test('Can add Teacher Expertise', () => {
+        const basisSkills = ["Doorzettingsvermogen"];
+        const extraSkills = ["Extra Wilskracht"]
+
+        const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
+        const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
+        const mockTeacherExpertise = getSkillsFromBasisVaardigheden(["Leermeester Expertise"])[0];
+
+        const mockTableData = [...tableDataBasis, ...tableDataExtra]
+
+        let meetsPrerequisite = meetsAllPrerequisites(mockTeacherExpertise, mockTableData, setModalMsg);
+        expect(meetsPrerequisite).toBe(true);
+    });
+
+    // Single Skill
+
+
+    // Any-list
+    test('Can add an extra skill that meets its Any-List prerequisite', () => {
+        const basisSkills = ["Doorzettingsvermogen"];
+        const extraSkills = ["Extra wilskracht"]
+
+        const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
+        const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
+
+        const mockExtraWilskracht = tableDataExtra[0]
+
+        let meetsPrerequisites = meetsAllPrerequisites(mockExtraWilskracht, mockTableData, setModalMsg);
+        expect(meetsPrerequisites).toBe(true);
+    });
+
+    test('Cannot add an extra skill that does not meets its Any-List prerequisite', () => {
+        const basisSkills = ["Rekenen"];
+        const extraSkills = ["Extra wilskracht"]
+
+        const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
+        const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
+
+        const mockExtraWilskracht = tableDataExtra[0]
+
+        let meetsPrerequisites = meetsAllPrerequisites(mockExtraWilskracht, mockTableData, setModalMsg);
+        expect(meetsPrerequisites).toBe(false);
+    });
+
+    // Category
+    test('Cannot add an extra Ritualism skill that does not meet its Categorie prerequisite', () => {
+        const basisSkills = [];
+        const extraSkills = ["Cirkel Vinden"]
+
+        const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
+        const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
+
+        const mockTableData = [...tableDataBasis, ...tableDataExtra]
+        const mockCirkelVinden = tableDataExtra[0];
+
+        let meetsPrerequisites = meetsAllPrerequisites(mockCirkelVinden, mockTableData, setModalMsg);
+        expect(meetsPrerequisites).toBe(false);
+    });
+
+})
