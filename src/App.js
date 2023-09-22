@@ -141,15 +141,17 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
                 setModalMsg("Dit item is een vereiste voor vaardigheid:\n Leermeester Expertise \nVerwijderen is niet toegestaan.\n");
             }
         }
+
         // check overige vereisten
         if (isPrerequisite === false &&
             (!containsTeacherSkill || tableData.length > 1)) {
-            for (const item of tableData) {
-                const reqSkill = item.Requirements.skill;
-                const reqAny = item.Requirements.any_list;
-                const reqCategory = item.Requirements.Category;
+            for (const skillTableData of tableData) {
+                const reqSkill = skillTableData.Requirements.skill;
+                const reqAny = skillTableData.Requirements.any_list;
+                const reqCategory = skillTableData.Requirements.Category;
 
-                if (item.skill.toLowerCase() === nameSkillToRemove.toLowerCase()) { continue; }
+                if (isRemoved === true &&
+                    skillTableData.skill.toLowerCase() === nameSkillToRemove.toLowerCase()) { continue; }
                 else if (
                     reqSkill.length === 0 &&
                     reqAny.length === 0 &&
@@ -158,9 +160,9 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
                 else {
                     // skill
                     if (reqSkill.length > 0 && isPrerequisite === false) {
-                        isPrerequisite = verifyRemovedSkillIsNotSkillPrerequisite(reqSkill, nameSkillToRemove);
+                        isPrerequisite = verifyRemovedSkillIsNotSkillPrerequisite(reqSkill, skillTableData, nameSkillToRemove, isRemoved);
                         if (isPrerequisite === true) {
-                            setModalMsg("Dit item is een vereiste voor vaardigheid:\n " + item.skill + " \nVerwijderen is niet toegestaan.\n");
+                            setModalMsg("Dit item is een vereiste voor vaardigheid:\n " + skillTableData.skill + " \nVerwijderen is niet toegestaan.\n");
                             break;
                         }
                     }
@@ -169,7 +171,7 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
                     if (reqAny.length > 0 && isPrerequisite === false) {
                         isPrerequisite = verifyRemovedSkillIsNotOnlyAnyListPrerequisite(reqAny, nameSkillToRemove, tableData);
                         if (isPrerequisite === true) {
-                            setModalMsg("Dit item is een vereiste voor vaardigheid: \n" + item.skill + " \nVerwijderen is niet toegestaan.\n");
+                            setModalMsg("Dit item is een vereiste voor vaardigheid: \n" + skillTableData.skill + " \nVerwijderen is niet toegestaan.\n");
                             break;
                         }
                     }
@@ -186,12 +188,12 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
                         }
                         // Standaard werking categorie
                         else {
-                            isPrerequisite = verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, item, nameSkillToRemove, totalReqXP);
+                            isPrerequisite = verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, skillTableData, nameSkillToRemove, totalReqXP);
                         }
 
                         if (isPrerequisite === true) {
                             setModalMsg("Dit item is nodig voor de vereiste XP (" + totalReqXP + ")\n" +
-                                "voor de vaardigheid: \n" + item.skill + "\n" +
+                                "voor de vaardigheid: \n" + skillTableData.skill + "\n" +
                                 "Verwijderen is niet toegestaan.");
                         }
                     }
@@ -239,12 +241,21 @@ function verifyTableContainsRequiredSkills(reqSkill, tableData, setModalMsg) {
 }
 
 // Check of de skill niet een prequisite is uit de Any_Skill
-function verifyRemovedSkillIsNotSkillPrerequisite(reqSkill, nameSkillToRemove) {
+function verifyRemovedSkillIsNotSkillPrerequisite(reqSkill, currentSkill, nameSkillToRemove, isRemoved) {
     let isPrerequisite = false;
     for (let i = 0; i < reqSkill.length; i++) {
-        if (nameSkillToRemove.toLowerCase() === reqSkill[i].toLowerCase()) {
-            isPrerequisite = true;
-            break;
+        if (isRemoved) {
+            if (nameSkillToRemove.toLowerCase() === reqSkill[i].toLowerCase()) {
+                isPrerequisite = true;
+                break;
+            }
+
+        }
+        else {
+            if (!isRemoved &&
+                currentSkill.skill.toLowerCase() === nameSkillToRemove.toLowerCase()) {
+                if (currentSkill.count === 1) { isPrerequisite = true; }
+            }
         }
     }
     return isPrerequisite;
@@ -292,7 +303,7 @@ function verifyTableMeetsPrerequisiteCategoryXP(reqCategory, tableData) {
     if (categories.length === 1 &&
         categories.includes("Ritualisme")) {
         const tableDataSkills = tableData.filter(tableItem => categories.includes(tableItem.category));
-        
+
         for (const skill of tableDataSkills) {
             if (skill.xp > totalReqXP) {
                 meetsPrerequisite = true;
@@ -462,7 +473,7 @@ export default function App() {
         if (selectedBasicSkill) {
             const selectedBasicRecord = sourceBasisVaardigheden.find((record) =>
                 record.skill.toLowerCase() === selectedBasicSkill.value.toLowerCase());
-            const wasSuccesfull = handleAddToTable(selectedBasicRecord, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal], [MAX_XP, setMAX_XP])
+            const wasSuccesfull = handleAddToTable(selectedBasicRecord)
             if (wasSuccesfull) { setSelectedBasicSkill(''); }
         }
         else {
@@ -470,12 +481,18 @@ export default function App() {
         }
     }
 
+    // Acteer op een Key Press op de geselecteerde Basis vaaardigheid
+    const handleBasicSkillSelectKeyPress = (event) => {
+        if (event.key === "Enter") { handleBasicSkillSelection(); }
+        else if (event.key === "Escape") { setSelectedBasicSkill(''); }
+    };
+
     // Voeg de geselecteerde Extra vaardigheid toe aan de tabel
     function handleExtraSkillSelection() {
         if (selectedExtraSkill) {
             const selectedExtraRecord = sourceExtraVaardigheden.find((record) =>
                 record.skill.toLowerCase() === selectedExtraSkill.value.toLowerCase());
-            const wasSuccesfull = handleAddToTable(selectedExtraRecord, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal], [MAX_XP, setMAX_XP])
+            const wasSuccesfull = handleAddToTable(selectedExtraRecord)
             if (wasSuccesfull) { setSelectedExtraSkill(''); }
         }
         else {
@@ -483,6 +500,11 @@ export default function App() {
         }
     }
 
+    // Acteer op een Key Press op de geselecteerde Extra vaaardigheid
+    const handleExtraSkillSelectKeyPress = (event) => {
+        if (event.key === "Enter") { handleExtraSkillSelection(); }
+        else if (event.key === "Escape") { setSelectedExtraSkill(''); }
+    };
 
     // Handel alle controles af, alvorens het opgevoerde Record toe te voegen aan de tabel
     // Werkt voor zowel de basis- als extra vaardigheden.
@@ -573,33 +595,17 @@ export default function App() {
         const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.skill, false, tableData, setModalMsg);
         if (isPrerequisite) { setShowModal(true); }
         else {
-            // Source data
-            let sourceRecord = sourceBasisVaardigheden.find((record) =>
-                record.skill.toLowerCase() === row.skill.toLowerCase());
-            if (!sourceRecord) {
-                sourceRecord = sourceExtraVaardigheden.find((record) =>
-                    record.skill.toLowerCase() === row.skill.toLowerCase())
-            };
-            const isPresent = tableData.some((record) =>
-                record.skill.toLowerCase() === row.skill.toLowerCase());
-            const currentRecord = tableData.find((record) =>
-                record.skill.toLowerCase() === row.skill.toLowerCase());
-
-            // exit early
-            if (isPresent) {
-                if (currentRecord.count <= 1) {
-                    handleDelete(row);
-                }
-                // bestaande item aanpassen
-                else {
-                    const updatedTableData = tableData.map((record) =>
-                        record.skill.toLowerCase() === row.skill.toLowerCase() &&
-                            record.multi_purchase === true
-                            ? { ...record, count: record.count - 1, xp: sourceRecord.xp * (record.count - 1) }
-                            : record
-                    );
-                    setTableData(updatedTableData);
-                }
+            if (row.count <= 1) {
+                handleDelete(row);
+            }
+            else {
+                const updatedTableData = tableData.map((record) =>
+                    record.skill.toLowerCase() === row.skill.toLowerCase() &&
+                        record.multi_purchase === true
+                        ? { ...record, count: record.count - 1, xp: (record.xp / record.count) * (record.count - 1) }
+                        : record
+                );
+                setTableData(updatedTableData);
             }
         }
     };
@@ -742,6 +748,7 @@ export default function App() {
                             options={optionsBasisVaardigheden}
                             value={selectedBasicSkill}
                             onChange={(selectedBasicOption) => setSelectedBasicSkill(selectedBasicOption)}
+                            onKeyDown={handleBasicSkillSelectKeyPress}
                             placeholder="Selecteer een Basis vaardigheid"
                             isClearable
                             isSearchable
@@ -774,6 +781,7 @@ export default function App() {
                                     options={optionsExtraVaardigheden}
                                     value={selectedExtraSkill}
                                     onChange={(selectedExtraOption) => setSelectedExtraSkill(selectedExtraOption)}
+                                    onKeyDown={handleExtraSkillSelectKeyPress}
                                     placeholder="Selecteer een Extra vaardigheid"
                                     isClearable
                                     isSearchable

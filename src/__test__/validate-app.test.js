@@ -166,7 +166,6 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
         expect(isPrerequisite).toBe(false);
     });
 
-    // TODO: Fix Exception: Leermeester Expertise
     test('Cannot remove a extra skill that is a prerequisite to Teacher Expertise', () => {
         const basisSkills = ["Doorzettingsvermogen", "Leermeester Expertise"];
         const extraSkills = ["Extra Wilskracht"]
@@ -189,19 +188,39 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
 
 // SUBTRACT SKILL //
 
-    // Single Skill
+// Single Skill
+test('Can remove a Skill Count when it is a Skill prerequisite with Count > 1', () => {
+    const basisSkills = ["Harnas I", "Genezingsspreuken A (EL)", "Paladijn", "Paladijnspreuken A", "Paladijnspreuken B"];
+    const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
+    let mockPaladijn = mockTableData[2];
+    mockPaladijn.xp = 3;
+    mockPaladijn.count = 3;
+
+    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Paladijn", false, mockTableData, setModalMsg);
+    expect(isPrerequisite).toBe(false);
+});
+
+test('Cannot remove a Skill Count when it is a Skill prerequisite with Count = 1', () => {
+    const basisSkills = ["Harnas I", "Genezingsspreuken A (EL)", "Paladijn", "Paladijnspreuken A", "Paladijnspreuken B"];
+    const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
+    let mockPaladijn = mockTableData[2];
+    mockPaladijn.xp = 1;
+    mockPaladijn.count = 1;
+
+    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Paladijn", false, mockTableData, setModalMsg);
+    expect(isPrerequisite).toBe(true);
+});
+
+// Any-list
 
 
-    // Any-list
-
-
-    // Category
+// Category
 
 
 describe('Using meetsAllPrerequisites', () => {
 
     // Teacher
-    test('Can add Teacher Expertise', () => {
+    test('Can add Teacher Expertise when an Extra Skill is present', () => {
         const basisSkills = ["Doorzettingsvermogen"];
         const extraSkills = ["Extra Wilskracht"]
 
@@ -215,8 +234,34 @@ describe('Using meetsAllPrerequisites', () => {
         expect(meetsPrerequisite).toBe(true);
     });
 
-    // Single Skill
+    test('Cannot add Teacher Expertise when an Extra Skill is not present', () => {
+        const basisSkills = ["Doorzettingsvermogen"];
 
+        const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
+        const mockTeacherExpertise = getSkillsFromBasisVaardigheden(["Leermeester Expertise"])[0];
+
+        let meetsPrerequisite = meetsAllPrerequisites(mockTeacherExpertise, mockTableData, setModalMsg);
+        expect(meetsPrerequisite).toBe(false);
+    });
+
+    // Single Skill
+    test('Can add a Skill that meets its Skill prerequisite', () => {
+        const basisSkills = ["Harnas I"];
+        const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
+        const mockHarnasII = getSkillsFromBasisVaardigheden(["Harnas II"])[0];
+
+        let meetsPrerequisite = meetsAllPrerequisites(mockHarnasII, mockTableData, setModalMsg);
+        expect(meetsPrerequisite).toBe(true);
+    });
+
+    test('Cannot add a Skill that does not meet its Skill prerequisite', () => {
+        const basisSkills = ["Rekenen"];
+        const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
+        const mockHarnasII = getSkillsFromBasisVaardigheden(["Harnas II"])[0];
+
+        let meetsPrerequisite = meetsAllPrerequisites(mockHarnasII, mockTableData, setModalMsg);
+        expect(meetsPrerequisite).toBe(false);
+    });
 
     // Any-list
     test('Can add an extra skill that meets its Any-List prerequisite', () => {

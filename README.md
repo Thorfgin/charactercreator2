@@ -32,6 +32,10 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+	202309		REFACTOR: Major overhaul and seperation of functionality into functions for maintainability
+				UNITTESTING: Added __test__ folder and implemented unittesting on prerequisites
+				SELECT: Upgraded Select to add on an Enter, and blank on Escape
+
 	20230920	Major upgrade, all extra skills have been added.
 				Several prerequisite checks have been updated.
 				PREQUISITES: added option to select a category and XP value
