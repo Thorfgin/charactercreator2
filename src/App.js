@@ -295,7 +295,6 @@ function verifyRemovedSkillIsNotOnlyAnyListPrerequisite(reqAny, nameSkillToRemov
 // Check of het minimum totaal aan XP van de Requirements.Category aanwezig is in de tabel 
 function verifyTableMeetsPrerequisiteCategoryXP(reqCategory, tableData) {
     let meetsPrerequisite = false;
-    let selectedSkillsXP = 0;
     const categories = reqCategory.name;
     const totalReqXP = reqCategory.value;
 
@@ -313,11 +312,13 @@ function verifyTableMeetsPrerequisiteCategoryXP(reqCategory, tableData) {
     }
     // Standaard werking categorie
     else {
-        const selectedSkills = tableData.filter(item =>
-            categories.includes(item.category) &&                       // van de juiste categorie
-            (item.Spreuken.length > 0 || item.Recepten.length > 0));    // alleen skills met recepten of spreuken zijn doorgaans relevant
-        selectedSkills.forEach(item => selectedSkillsXP += item.xp);    // optellen totaal XP
-        if (totalReqXP > selectedSkillsXP) { meetsPrerequisite = false; }
+        let selectedSkillsXP = 0;
+        const selectedSkills = tableData.filter(skillTableData =>
+            categories.includes(skillTableData.category) &&                                 // van de juiste categorie
+            (skillTableData.Spreuken.length > 0 || skillTableData.Recepten.length > 0));    // alleen skills met recepten of spreuken zijn doorgaans relevant
+        selectedSkills.forEach(item => selectedSkillsXP += item.xp);                        // optellen totaal XP
+        console.log(selectedSkills, selectedSkillsXP);
+        if (selectedSkillsXP >= totalReqXP) { meetsPrerequisite = true; }
     }
     return meetsPrerequisite;
 }

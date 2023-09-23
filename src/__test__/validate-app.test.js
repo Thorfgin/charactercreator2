@@ -305,4 +305,34 @@ describe('Using meetsAllPrerequisites', () => {
         expect(meetsPrerequisites).toBe(false);
     });
 
+    test('Can add a Skill that meets its prerequisite of type: by Category: 4 XP', () => {
+        const mageA = replaceChar("Magiërspreuken A - Wit");
+        const mageB = replaceChar("Magiërspreuken B - Metaal");
+        const mockTableData = getSkillsFromBasisVaardigheden([mageA]);
+        const mockMageB = getSkillsFromBasisVaardigheden([mageB])[0];
+
+        let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData, setModalMsg);
+        expect(meetsPrerequisite).toBe(true);
+    });
+
+    test('Cannot add a Skill does not meet its prerequisite of type: by Category: 4 XP', () => {
+        const math = replaceChar("Rekenen");
+        const mageB = replaceChar("Magiërspreuken B - Metaal");
+        const mockTableData = getSkillsFromBasisVaardigheden([math]);
+        const mockMageB = getSkillsFromBasisVaardigheden([mageB])[0];
+
+        let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData, setModalMsg);
+        expect(meetsPrerequisite).toBe(false);
+    });
+
+    test('Can add a Skill that meets its prerequisite of type: by Category: 8 XP', () => {
+        const basisSkills = ["Genezingsspreuken A (EL)", "Genezingsspreuken B (EL)"];
+
+        const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
+        const mockGenezingsSpreukenC = getSkillsFromExtraVaardigheden(["Genezingsspreuken C (EL)"])[0];
+
+        let meetsPrerequisite = meetsAllPrerequisites(mockGenezingsSpreukenC, mockTableData, setModalMsg);
+        expect(meetsPrerequisite).toBe(true);
+    });
+
 })
