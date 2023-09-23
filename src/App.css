@@ -189,30 +189,41 @@
     min-width: 250px;
 }
 
+.col-info {
+    min-width: 40px;
+}
+
 .col-acties {
-    min-width: 75px;
+    min-width: 60px;
+}
+
+.info {
+    align-items: center;
+    justify-content: center;
+    max-width: 40px;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 4px;
+}
+
+.acties-info {
+    display: flex;
+    width: 30px;
+    justify-content: center;
 }
 
 .acties {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-}
-
-.acties-tooltip {
-    display: flex;
-    left: 0px;
-    width: 16px;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    margin-right: 8px;
 }
 
 .acties-overige {
     display: flex;
-    right: 0px;
-    width: 48px;
+    width: 32px;
     justify-content: flex-end;
-    margin-left: 12px;
 }
 
 
@@ -382,10 +393,7 @@
     vertical-align: baseline;
 }
 
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-secondary:hover,
-    .btn-secondary:focus {
+    .btn-primary:hover, .btn-primary:focus, .btn-secondary:hover, .btn-secondary:focus {
         border-color: rgba(0, 0, 0, 0.15);
         box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
         color: rgba(0, 0, 0, 0.65);

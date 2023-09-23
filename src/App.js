@@ -458,6 +458,7 @@ export default function App() {
                     <td>Totaal: {totalXP}</td>
                     <td />
                     <td />
+                    <td />
                     <td>
                         <button className="btn-secondary" onClick={() => setTableData([])}>
                             Wissen
@@ -613,6 +614,38 @@ export default function App() {
         }
     };
 
+    // Open het vaardigheden boekje op de juiste pagina
+    function openPdfOnPage(pdfName, pageNumber) {
+        const rootURL = "https://the-vortex.nl/wp-content/uploads/2022/04/"
+        const fullURL = rootURL + pdfName + "#page=" + pageNumber;
+        window.open(fullURL, '_blank');
+    }
+
+    // Plaats Info in de kolom
+    function requestInfo(row) {
+        let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
+        if (!currentItem) { currentItem = sourceExtraVaardigheden.find((record) => record.id === row.original.id); }
+
+        return (
+            <div className="info">
+                <div className="acties-info">
+                    <Tooltip
+                        skillName={currentItem.skill}
+                        isSpell={false}
+                        isRecipy={false}
+                        isSkill={true}
+                    />
+                    <img
+                        className="btn-image"
+                        onClick={() => openPdfOnPage('Vaardigheden.pdf', currentItem.page)}
+                        src="./images/img-pdf.png"
+                        alt="PDF">
+                    </img>
+                </div>
+            </div>
+        )
+    }
+
     // Plaats Acties in de kolom op basis van de multipurchase property
     function requestActions(row) {
         let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
@@ -621,14 +654,6 @@ export default function App() {
         if (currentItem && currentItem.multi_purchase === true) {
             return (
                 <div className="acties">
-                    <div className="acties-tooltip">
-                        <Tooltip
-                            skillName={currentItem.skill}
-                            isSpell={false}
-                            isRecipy={false}
-                            isSkill={true}
-                        />
-                    </div>
                     <div className="acties-overige">
                         <img
                             className="btn-image"
@@ -656,14 +681,6 @@ export default function App() {
         else {
             return (
                 <div className="acties">
-                    <div className="acties-tooltip">
-                        <Tooltip
-                            skillName={currentItem.skill}
-                            isSpell={false}
-                            isRecipy={false}
-                            isSkill={true}
-                        />
-                    </div>
                     <div className="acties-overige">
                         <img
                             className="btn-image"
@@ -816,6 +833,7 @@ export default function App() {
                                     {headerGroup.headers.map((column) => (
                                         <th {...column.getHeaderProps()} className={column.className}>{column.render('Header')}</th>
                                     ))}
+                                    <th className="col-info">Info</th>
                                     <th className="col-acties">Acties</th>
                                 </tr>
                             ))}
@@ -828,8 +846,10 @@ export default function App() {
                                         {row.cells.map((cell) => {
                                             return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
                                         })}
-
-                                        <td>
+                                        <td role="cell">
+                                            {requestInfo(row)}
+                                        </td>
+                                        <td role="cell">
                                             {requestActions(row)}
                                         </td>
                                     </tr>

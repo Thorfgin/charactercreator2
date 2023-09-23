@@ -32,6 +32,8 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+	20230923	bugfixes: fixed some inconsistencies in the skills, causing minor bugs
+
 	20230922	REFACTOR: Major overhaul and seperation of functionality into functions for maintainability
 				UNITTESTING: Added __test__ folder and implemented unittesting on prerequisites
 				SELECT: Upgraded Select to add on an Enter, and blank on Escape
