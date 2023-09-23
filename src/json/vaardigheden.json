@@ -4752,7 +4752,7 @@
       "category": "Necromantie",
       "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Ghostly Shackles”, “Unholy Bolt” en “Invite Ancestor”.",
       "Requirements": {
-        "skill": [ "Necromancer B" ],
+        "skill": [ "Necromancer B (EL)" ],
         "any_list": []
       },
       "xp": 4,
@@ -4780,7 +4780,7 @@
       "category": "Necromantie",
       "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Ghostly Shackles”, “Unholy Bolt” en “Invite Ancestor”.",
       "Requirements": {
-        "skill": [ "Necromancer A" ],
+        "skill": [ "Necromancer B (SP)" ],
         "any_list": []
       },
       "xp": 4,
