@@ -317,7 +317,6 @@ function verifyTableMeetsPrerequisiteCategoryXP(reqCategory, tableData) {
             categories.includes(skillTableData.category) &&                                 // van de juiste categorie
             (skillTableData.Spreuken.length > 0 || skillTableData.Recepten.length > 0));    // alleen skills met recepten of spreuken zijn doorgaans relevant
         selectedSkills.forEach(item => selectedSkillsXP += item.xp);                        // optellen totaal XP
-        console.log(selectedSkills, selectedSkillsXP);
         if (selectedSkillsXP >= totalReqXP) { meetsPrerequisite = true; }
     }
     return meetsPrerequisite;
