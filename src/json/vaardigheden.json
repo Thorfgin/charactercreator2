@@ -4517,7 +4517,7 @@
       "description": "Je krijgt 5 Spirituele mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Detect Impurity”, “Reveal All Impurities”, “Protection of the Grove” en “Invite Nature Spirit”.",
       "Requirements": {
         "skill": [
-          "Priesterspreuken B - Death",
+          "Priesterspreuken B - Dood",
           "Doods Druidisme A"
         ],
         "any_list": []
@@ -4721,7 +4721,7 @@
       "description": "Je krijgt 5 Elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken:\n“Reconstruct”, “Chilling Fear”, “Bone Armour” en “Invite Spirit of the Dead”.",
       "Requirements": {
         "skill": [
-          "Priesterspreuken B - Death",
+          "Priesterspreuken B - Dood",
           "Necromancer A"
         ],
         "any_list": []
