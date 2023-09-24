@@ -347,6 +347,13 @@
     font-display: auto;
 }
 
+.grid-spreuk-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 /* btn eigenschappen */
 .btn-image {
     max-width: 16px;

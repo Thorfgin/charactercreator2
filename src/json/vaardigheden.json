@@ -558,8 +558,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Minor Resilience" },
-        { "name": "Crippling Blow" }
+        { "name": "Minor Resilience", "page": 17 },
+        { "name": "Crippling Blow", "page": 17 }
       ],
       "Recepten": []
     },
@@ -586,8 +586,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Striking Blow" },
-        { "name": "Confusing Blow" }
+        { "name": "Striking Blow", "page": 17 },
+        { "name": "Confusing Blow", "page": 18 }
       ],
       "Recepten": []
     },
@@ -614,8 +614,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Resist Blast" },
-        { "name": "Pain Suppression" }
+        { "name": "Resist Blast", "page": 19 },
+        { "name": "Pain Suppression", "page": 19 }
       ],
       "Recepten": []
     },
@@ -642,8 +642,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Hold the Line" },
-        { "name": "Rescue Comrade" }
+        { "name": "Hold the Line", "page": 20 },
+        { "name": "Rescue Comrade", "page": 20 }
       ],
       "Recepten": []
     },
@@ -670,8 +670,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Block Spell" },
-        { "name": "Withstand Freeze" }
+        { "name": "Block Spell", "page": 21 },
+        { "name": "Withstand Freeze", "page": 21 }
       ],
       "Recepten": []
     },
@@ -698,8 +698,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Fearful Presence" },
-        { "name": "Withstand Slow" }
+        { "name": "Fearful Presence", "page": 22 },
+        { "name": "Withstand Slow", "page": 22 }
       ],
       "Recepten": []
     },
@@ -1356,11 +1356,11 @@
         }
       ],
       "Spreuken": [
-        { "name": "Detect Magic" },
-        { "name": "Confusion" },
-        { "name": "Wind Strike" },
-        { "name": "Counter Spell" },
-        { "name": "Break Enchantment" }
+        { "name": "Detect Magic", "page": 23 },
+        { "name": "Confusion", "page": 23 },
+        { "name": "Wind Strike", "page": 23 },
+        { "name": "Counter Spell", "page": 24 },
+        { "name": "Break Enchantment", "page": 24 }
       ],
       "Recepten": []
     },
@@ -1387,11 +1387,11 @@
         }
       ],
       "Spreuken": [
-        { "name": "Mend" },
-        { "name": "Minor Reinforcement" },
-        { "name": "Imbue Strike" },
-        { "name": "Iron Will" },
-        { "name": "Slow" }
+        { "name": "Mend", "page": 24 },
+        { "name": "Minor Reinforcement", "page": 24 },
+        { "name": "Imbue Strike", "page": 25 },
+        { "name": "Iron Will", "page": 25 },
+        { "name": "Slow", "page": 25 }
       ],
       "Recepten": []
     },
@@ -1418,11 +1418,11 @@
         }
       ],
       "Spreuken": [
-        { "name": "Magic Blast" },
-        { "name": "Fear" },
-        { "name": "Incite Aggression" },
-        { "name": "Mute" },
-        { "name": "Steal" }
+        { "name": "Magic Blast", "page": 26 },
+        { "name": "Fear", "page": 26 },
+        { "name": "Incite Aggression", "page": 26 },
+        { "name": "Mute", "page": 26 },
+        { "name": "Steal", "page": 26 }
       ],
       "Recepten": []
     },
@@ -1453,10 +1453,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Hidden Object" },
-        { "name": "Chilling Winds" },
-        { "name": "Freedom of Movement" },
-        { "name": "Strike Cascade" }
+        { "name": "Hidden Object", "page": 27 },
+        { "name": "Chilling Winds", "page": 27 },
+        { "name": "Freedom of Movement", "page": 27 },
+        { "name": "Strike Cascade", "page": 28 }
       ],
       "Recepten": []
     },
@@ -1473,7 +1473,8 @@
         "Category": {
           "name": [ "Magiërvaardigheden" ],
           "value": 4
-        }
+        },
+        "exception": ["Doods Druidisme A", "Necromancer A"]  
       },
       "xp": 4,
       "loresheet": false,
@@ -1487,10 +1488,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Strengthen Armour" },
-        { "name": "Horrific Revelation" },
-        { "name": "Boon of Disease" },
-        { "name": "Life Draw" }
+        { "name": "Strengthen Armour", "page": 29 },
+        { "name": "Horrific Revelation", "page": 29 },
+        { "name": "Boon of Disease", "page": 29 },
+        { "name": "Life Draw", "page": 30 }
       ],
       "Recepten": []
     },
@@ -1521,10 +1522,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Harden" },
-        { "name": "Minor Reinforcement Cascade" },
-        { "name": "Sleep" },
-        { "name": "Boon of Mending" }
+        { "name": "Harden", "page": 31 },
+        { "name": "Minor Reinforcement Cascade", "page": 31 },
+        { "name": "Sleep", "page": 31 },
+        { "name": "Boon of Mending", "page": 31 }
       ],
       "Recepten": []
     },
@@ -1555,10 +1556,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Mind Protection" },
-        { "name": "Force Truth" },
-        { "name": "Corrupt the Flow of Life" },
-        { "name": "Iceblast" }
+        { "name": "Mind Protection", "page": 33 },
+        { "name": "Force Truth", "page": 33 },
+        { "name": "Corrupt the Flow of Life", "page": 33 },
+        { "name": "Iceblast", "page": 33 }
       ],
       "Recepten": []
     },
@@ -1589,10 +1590,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Cleansed by Fire" },
-        { "name": "Fireblast" },
-        { "name": "Inner Fire" },
-        { "name": "Imbue Blast" }
+        { "name": "Cleansed by Fire", "page": 35 },
+        { "name": "Fireblast", "page": 35 },
+        { "name": "Inner Fire", "page": 35 },
+        { "name": "Imbue Blast", "page": 35 }
       ],
       "Recepten": []
     },
@@ -1609,7 +1610,8 @@
         "Category": {
           "name": [ "Magiërvaardigheden" ],
           "value": 4
-        }
+        },
+        "exception": [ "Levens Druidisme A" ]
       },
       "xp": 4,
       "loresheet": false,
@@ -1623,10 +1625,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Rend Enchantment" },
-        { "name": "Shatter Armour" },
-        { "name": "Nature’s Protection" },
-        { "name": "Charm Person" }
+        { "name": "Rend Enchantment", "page": 36 },
+        { "name": "Shatter Armour", "page": 36 },
+        { "name": "Nature’s Protection", "page": 36 },
+        { "name": "Charm Person", "page": 36 }
       ],
       "Recepten": []
     },
@@ -1653,9 +1655,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Hammer of Righteousness" },
-        { "name": "Honorable challenge" },
-        { "name": "Mercy call" }
+        { "name": "Hammer of Righteousness", "page": 39 },
+        { "name": "Honorable challenge", "page": 39 },
+        { "name": "Mercy call", "page": 39 }
       ],
       "Recepten": []
     },
@@ -1682,9 +1684,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Divine Heroism" },
-        { "name": "Divine Blessing" },
-        { "name": "Sanctuary" }
+        { "name": "Divine Heroism", "page": 39 },
+        { "name": "Divine Blessing", "page": 40 },
+        { "name": "Sanctuary", "page": 40 }
       ],
       "Recepten": []
     },
@@ -1711,11 +1713,11 @@
         }
       ],
       "Spreuken": [
-        { "name": "Endure Poison" },
-        { "name": "Minor Reinforcement" },
-        { "name": "Break Enchantment" },
-        { "name": "Counter Spell" },
-        { "name": "Detect Spiritual influence" }
+        { "name": "Endure Poison", "page": 41 },
+        { "name": "Minor Reinforcement", "page": 41 },
+        { "name": "Break Enchantment", "page": 41 },
+        { "name": "Counter Spell", "page": 41 },
+        { "name": "Detect Spiritual influence", "page": 42 }
       ],
       "Recepten": []
     },
@@ -1742,11 +1744,11 @@
         }
       ],
       "Spreuken": [
-        { "name": "Shattering Touch" },
-        { "name": "Endure Disease" },
-        { "name": "Fear" },
-        { "name": "Hit Disease" },
-        { "name": "Crave" }
+        { "name": "Shattering Touch", "page": 44 },
+        { "name": "Endure Disease", "page": 44 },
+        { "name": "Fear", "page": 44 },
+        { "name": "Hit Disease", "page": 44 },
+        { "name": "Crave", "page": 44 }
       ],
       "Recepten": []
     },
@@ -1773,11 +1775,11 @@
         }
       ],
       "Spreuken": [
-        { "name": "Discern Soul" },
-        { "name": "Sanctuary" },
-        { "name": "Lay to Rest" },
-        { "name": "Ancestral mind protection" },
-        { "name": "Reveal all undead" }
+        { "name": "Discern Soul", "page": 47 },
+        { "name": "Sanctuary", "page": 47 },
+        { "name": "Lay to Rest", "page": 47 },
+        { "name": "Ancestral mind protection", "page": 47 },
+        { "name": "Reveal all undead", "page": 47 }
       ],
       "Recepten": []
     },
@@ -1808,10 +1810,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Disease of temperance" },
-        { "name": "Minor Regeneration" },
-        { "name": "Pure Body and Mind" },
-        { "name": "Protection from Impairment" }
+        { "name": "Disease of temperance", "page": 42 },
+        { "name": "Minor Regeneration", "page": 42 },
+        { "name": "Pure Body and Mind", "page": 42 },
+        { "name": "Protection from Impairment", "page": 43 }
       ],
       "Recepten": []
     },
@@ -1842,10 +1844,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Mute Cascade" },
-        { "name": "Shatter Armour" },
-        { "name": "Boon of Break Enchantment" },
-        { "name": "Curse Life" }
+        { "name": "Mute Cascade", "page": 44 },
+        { "name": "Shatter Armour", "page": 45 },
+        { "name": "Boon of Break Enchantment", "page": 45 },
+        { "name": "Curse Life", "page": 45 }
       ],
       "Recepten": []
     },
@@ -1862,7 +1864,8 @@
         "Category": {
           "name": [ "Priestervaardigheden" ],
           "value": 4
-        }
+        },
+        "exception": [ "Doods Druidisme A", "Necromancer A" ]
       },
       "xp": 4,
       "loresheet": false,
@@ -1876,10 +1879,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Paralyze Undead" },
-        { "name": "Speak with the Dead" },
-        { "name": "Sanctuary Ward" },
-        { "name": "Life Draw" }
+        { "name": "Paralyze Undead", "page": 48 },
+        { "name": "Speak with the Dead", "page": 48 },
+        { "name": "Sanctuary Ward", "page": 48 },
+        { "name": "Life Draw", "page": 49 }
       ],
       "Recepten": []
     },
@@ -1910,10 +1913,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Fascinate" },
-        { "name": "Discern Pattern" },
-        { "name": "Mind Protection" },
-        { "name": "Command" }
+        { "name": "Fascinate", "page": 49 },
+        { "name": "Discern Pattern", "page": 50 },
+        { "name": "Mind Protection", "page": 50 },
+        { "name": "Command", "page": 50 }
       ],
       "Recepten": []
     },
@@ -1930,7 +1933,8 @@
         "Category": {
           "name": [ "Priestervaardigheden" ],
           "value": 4
-        }
+        },
+        "exception": [ "Levens Druidisme A" ]
       },
       "xp": 4,
       "loresheet": false,
@@ -1944,10 +1948,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Hex Weapon" },
-        { "name": "Freedom of Movement" },
-        { "name": "Resist Special Damage" },
-        { "name": "Aspect of the Dryad" }
+        { "name": "Hex Weapon", "page": 51 },
+        { "name": "Freedom of Movement", "page": 52 },
+        { "name": "Resist Special Damage", "page": 52 },
+        { "name": "Aspect of the Dryad", "page": 52 }
       ],
       "Recepten": []
     },
@@ -1974,11 +1978,11 @@
         }
       ],
       "Spreuken": [
-        { "name": "Discern Wounds" },
-        { "name": "Discern Poisons" },
-        { "name": "Discern Diseases" },
-        { "name": "Heal Wounds" },
-        { "name": "Remove Paralysis" }
+        { "name": "Discern Wounds", "page": 55 },
+        { "name": "Discern Poisons", "page": 55 },
+        { "name": "Discern Diseases", "page": 55 },
+        { "name": "Heal Wounds", "page": 55 },
+        { "name": "Remove Paralysis", "page": 55 }
       ],
       "Recepten": []
     },
@@ -2005,11 +2009,11 @@
         }
       ],
       "Spreuken": [
-        { "name": "Discern Wounds" },
-        { "name": "Discern Poisons" },
-        { "name": "Discern Diseases" },
-        { "name": "Heal Wounds" },
-        { "name": "Remove Paralysis" }
+        { "name": "Discern Wounds", "page": 55 },
+        { "name": "Discern Poisons", "page": 55 },
+        { "name": "Discern Diseases", "page": 55 },
+        { "name": "Heal Wounds", "page": 55 },
+        { "name": "Remove Paralysis", "page": 55 }
       ],
       "Recepten": []
     },
@@ -2036,10 +2040,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound" },
-        { "name": "Strengthen Body" },
-        { "name": "Total Healing" },
-        { "name": "Boon of Minor Healing" }
+        { "name": "Heal Fatal Wound", "page": 55 },
+        { "name": "Strengthen Body", "page": 56 },
+        { "name": "Total Healing", "page": 56 },
+        { "name": "Boon of Minor Healing", "page": 56 }
       ],
       "Recepten": []
     },
@@ -2066,10 +2070,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound" },
-        { "name": "Strengthen Body" },
-        { "name": "Total Healing" },
-        { "name": "Boon of Minor Healing" }
+        { "name": "Heal Fatal Wound", "page": 55 },
+        { "name": "Strengthen Body", "page": 56 },
+        { "name": "Total Healing", "page": 56 },
+        { "name": "Boon of Minor Healing", "page": 56 }
       ],
       "Recepten": []
     },
@@ -2096,10 +2100,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound" },
-        { "name": "Protection from Poison" },
-        { "name": "Neutralise Poisons" },
-        { "name": "Purge all Poisons" }
+        { "name": "Heal Fatal Wound", "page": 57 },
+        { "name": "Protection from Poison", "page": 57 },
+        { "name": "Neutralise Poisons", "page": 57 },
+        { "name": "Purge all Poisons", "page": 57 }
       ],
       "Recepten": []
     },
@@ -2126,10 +2130,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound" },
-        { "name": "Protection from Poison" },
-        { "name": "Neutralise Poisons" },
-        { "name": "Purge all Poisons" }
+        { "name": "Heal Fatal Wound", "page": 57 },
+        { "name": "Protection from Poison", "page": 57 },
+        { "name": "Neutralise Poisons", "page": 57 },
+        { "name": "Purge all Poisons", "page": 57 }
       ],
       "Recepten": []
     },
@@ -2156,10 +2160,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound" },
-        { "name": "Protection from Disease" },
-        { "name": "Cure Diseases" },
-        { "name": "Cure All Diseases" }
+        { "name": "Heal Fatal Wound", "page": 57 },
+        { "name": "Protection from Disease", "page": 58 },
+        { "name": "Cure Diseases", "page": 58 },
+        { "name": "Cure All Diseases", "page": 58 }
       ],
       "Recepten": []
     },
@@ -2186,10 +2190,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound" },
-        { "name": "Protection from Disease" },
-        { "name": "Cure Diseases" },
-        { "name": "Cure All Diseases" }
+        { "name": "Heal Fatal Wound", "page": 57 },
+        { "name": "Protection from Disease", "page": 58 },
+        { "name": "Cure Diseases", "page": 58 },
+        { "name": "Cure All Diseases", "page": 58 }
       ],
       "Recepten": []
     },
@@ -2216,10 +2220,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound" },
-        { "name": "Discern Mind-Affecting" },
-        { "name": "Protection from Fear" },
-        { "name": "Break Enchantment Cascade" }
+        { "name": "Heal Fatal Wound", "page": 58 },
+        { "name": "Discern Mind-Affecting", "page": 59 },
+        { "name": "Protection from Fear", "page": 59 },
+        { "name": "Break Enchantment Cascade", "page": 59 }
       ],
       "Recepten": []
     },
@@ -2246,10 +2250,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound" },
-        { "name": "Discern Mind-Affecting" },
-        { "name": "Protection from Fear" },
-        { "name": "Break Enchantment Cascade" }
+        { "name": "Heal Fatal Wound", "page": 58 },
+        { "name": "Discern Mind-Affecting", "page": 59 },
+        { "name": "Protection from Fear", "page": 59 },
+        { "name": "Break Enchantment Cascade", "page": 59 }
       ],
       "Recepten": []
     },
@@ -3274,9 +3278,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Discern Diseases and Afflictions" },
-        { "name": "Major Regeneration" },
-        { "name": "Purify Body" }
+        { "name": "Discern Diseases and Afflictions", "page": 59 },
+        { "name": "Major Regeneration", "page": 60 },
+        { "name": "Purify Body", "page": 60 }
       ],
       "Recepten": []
     },
@@ -3307,9 +3311,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Discern Diseases and Afflictions" },
-        { "name": "Major Regeneration" },
-        { "name": "Purify Body" }
+        { "name": "Discern Diseases and Afflictions", "page": 59 },
+        { "name": "Major Regeneration", "page": 60 },
+        { "name": "Purify Body", "page": 60 }
       ],
       "Recepten": []
     },
@@ -3446,8 +3450,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Force Field" },
-        { "name": "Break All Enchantments" }
+        { "name": "Force Field", "page": 28 },
+        { "name": "Break All Enchantments", "page": 28 }
       ],
       "Recepten": []
     },
@@ -3460,7 +3464,8 @@
       "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nAura of Fear en Elemental Bolt.",
       "Requirements": {
         "skill": [ "Magiërspreuken B - Metaal" ],
-        "any_list": []
+        "any_list": [],
+        "exception": [ "Doods Druidisme A", "Necromancer A" ]
       },
       "xp": 4,
       "loresheet": false,
@@ -3474,8 +3479,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Auru of Fear" },
-        { "name": "Elemental Bolt" }
+        { "name": "Auru of Fear", "page": 30 },
+        { "name": "Elemental Bolt", "page": 30 }
       ],
       "Recepten": []
     },
@@ -3502,8 +3507,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Stoneskin" },
-        { "name": "Imbue Crush" }
+        { "name": "Stoneskin", "page": 32 },
+        { "name": "Imbue Crush", "page": 32 }
       ],
       "Recepten": []
     },
@@ -3530,8 +3535,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Gift of Knowledge" },
-        { "name": "Paralyzing Touch" }
+        { "name": "Gift of Knowledge", "page": 34 },
+        { "name": "Paralyzing Touch", "page": 34 }
       ],
       "Recepten": []
     },
@@ -3558,8 +3563,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Aspect of the Efreet" },
-        { "name": "Incinerate" }
+        { "name": "Aspect of the Efreet", "page": 35 },
+        { "name": "Incinerate", "page": 36 }
       ],
       "Recepten": []
     },
@@ -3572,7 +3577,8 @@
       "description": "Je krijgt 5 elementaire mana per dag.\n\nJe krijgt toegang tot de spreuken: \nPrimal Rage en Aspect of the Viper.",
       "Requirements": {
         "skill": [ "Magiërspreuken B - Hout" ],
-        "any_list": []
+        "any_list": [],
+        "exception": [ "Levens Druidisme A"]
       },
       "xp": 4,
       "loresheet": false,
@@ -3586,8 +3592,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Primal Rage" },
-        { "name": "Aspect of the Viper" }
+        { "name": "Primal Rage", "page": 37 },
+        { "name": "Aspect of the Viper", "page": 37 }
       ],
       "Recepten": []
     },
@@ -3614,7 +3620,7 @@
         }
       ],
       "Spreuken": [
-        { "name": "Wave of Destruction" }
+        { "name": "Wave of Destruction", "page": 38 }
       ],
       "Recepten": []
     },
@@ -3641,7 +3647,7 @@
         }
       ],
       "Spreuken": [
-        { "name": "Dominate the Weak" }
+        { "name": "Dominate the Weak", "page": 38 }
       ],
       "Recepten": []
     },
@@ -3668,7 +3674,7 @@
         }
       ],
       "Spreuken": [
-        { "name": "Epidemic" }
+        { "name": "Epidemic", "page": 38 }
       ],
       "Recepten": []
     },
@@ -3801,8 +3807,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Holy Bolt" },
-        { "name": "Divine Armour" }
+        { "name": "Holy Bolt", "page": 43 },
+        { "name": "Divine Armour", "page": 43 }
       ],
       "Recepten": []
     },
@@ -3829,8 +3835,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Torture" },
-        { "name": "Divine Weapon" }
+        { "name": "Torture", "page": 45 },
+        { "name": "Divine Weapon", "page": 46 }
       ],
       "Recepten": []
     },
@@ -3843,7 +3849,8 @@
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nDestroy en Septic Weapon.",
       "Requirements": {
         "skill": [ "Priesterspreuken B - Dood" ],
-        "any_list": []
+        "any_list": [],
+        "exception": [ "Doods Druidisme A", "Necromancer A" ]
       },
       "xp": 4,
       "loresheet": false,
@@ -3857,8 +3864,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Destroy" },
-        { "name": "Septic Weapon" }
+        { "name": "Destroy", "page": 49 },
+        { "name": "Septic Weapon", "page": 49 }
       ],
       "Recepten": []
     },
@@ -3885,8 +3892,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Gift of Wisdom" },
-        { "name": "Spell Shield" }
+        { "name": "Gift of Wisdom", "page": 51 },
+        { "name": "Spell Shield", "page": 51 }
       ],
       "Recepten": []
     },
@@ -3899,7 +3906,8 @@
       "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nBarkskin en Blast Disease.",
       "Requirements": {
         "skill": [ "Priesterspreuken B - Natuur" ],
-        "any_list": []
+        "any_list": [],
+        "exception": [ "Levens Druidisme A"]
       },
       "xp": 4,
       "loresheet": false,
@@ -3913,36 +3921,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Barkskin" },
-        { "name": "Blast Disease" }
-      ],
-      "Recepten": []
-    },
-    {
-      "id": 145,
-      "skill": "Priesterspreuken C - Natuur",
-      "alt_skill": "Nature C",
-      "category": "Extra Priestervaardigheden",
-      "page": 60,
-      "description": "Je krijgt 5 spirituele mana per dag. \n\nJe krijgt toegang tot de spreuken:\nBarkskin en Blast Disease.",
-      "Requirements": {
-        "skill": [ "Priesterspreuken B - Natuur" ],
-        "any_list": []
-      },
-      "xp": 4,
-      "loresheet": false,
-      "multi_purchase": false,
-      "count": 1,
-      "maxcount": 1,
-      "Eigenschappen": [
-        {
-          "name": "spiritual_mana",
-          "value": 5
-        }
-      ],
-      "Spreuken": [
-        { "name": "Barkskin" },
-        { "name": "Blast Disease" }
+        { "name": "Barkskin", "page": 52 },
+        { "name": "Blast Disease", "page": 52 }
       ],
       "Recepten": []
     },
@@ -3969,7 +3949,7 @@
         }
       ],
       "Spreuken": [
-        { "name": "Miracle of Consecration" }
+        { "name": "Miracle of Consecration", "page": 53 }
       ],
       "Recepten": []
     },
@@ -3996,7 +3976,7 @@
         }
       ],
       "Spreuken": [
-        { "name": "Miracle of Healing" }
+        { "name": "Miracle of Healing", "page": 53 }
       ],
       "Recepten": []
     },
@@ -4023,7 +4003,7 @@
         }
       ],
       "Spreuken": [
-        { "name": "Wrath of the Gods" }
+        { "name": "Wrath of the Gods", "page": 54 }
       ],
       "Recepten": []
     },
@@ -4223,8 +4203,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heavy Blow" },
-        { "name": "Withstand Strike" }
+        { "name": "Heavy Blow", "page": 18 },
+        { "name": "Withstand Strike", "page": 18 }
       ],
       "Recepten": []
     },
@@ -4251,8 +4231,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Poison & Disease Protection" },
-        { "name": "Resist Crush" }
+        { "name": "Poison & Disease Protection", "page": 19 },
+        { "name": "Resist Crush", "page": 19 }
       ],
       "Recepten": []
     },
@@ -4279,8 +4259,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Inspect Armour" },
-        { "name": "Insight" }
+        { "name": "Inspect Armour", "page": 20 },
+        { "name": "Insight", "page": 20 }
       ],
       "Recepten": []
     },
@@ -4307,8 +4287,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Defensive Stance" },
-        { "name": "Withstand Torture" }
+        { "name": "Defensive Stance", "page": 21 },
+        { "name": "Withstand Torture", "page": 21 }
       ],
       "Recepten": []
     },
@@ -4335,8 +4315,8 @@
         }
       ],
       "Spreuken": [
-        { "name": "Rage" },
-        { "name": "Withstand Fear" }
+        { "name": "Rage", "page": 22 },
+        { "name": "Withstand Fear", "page": 22 }
       ],
       "Recepten": []
     },
@@ -4390,10 +4370,10 @@
       "maxcount": 1,
       "Eigenschappen": [],
       "Spreuken": [
-        { "name": "Detect Servitar" },
-        { "name": "Reveal All Servitars" },
-        { "name": "Break Minor Possession" },
-        { "name": "Faustian Deal" }
+        { "name": "Detect Servitar", "page": 60 },
+        { "name": "Reveal All Servitars", "page": 61 },
+        { "name": "Break Minor Possession", "page": 61 },
+        { "name": "Faustian Deal", "page": 61 }
       ],
       "Recepten": []
     },
@@ -4423,11 +4403,11 @@
         }
       ],
       "Spreuken": [
-        { "name": "Demonic Eye" },
-        { "name": "Command Servitar" },
-        { "name": "Banish Servitar" },
-        { "name": "Smite Servitar" },
-        { "name": "Invite Demon" }
+        { "name": "Demonic Eye", "page": 61 },
+        { "name": "Command Servitar", "page": 62 },
+        { "name": "Banish Servitar", "page": 62 },
+        { "name": "Smite Servitar", "page": 62 },
+        { "name": "Invite Demon", "page": 63}
       ],
       "Recepten": []
     },
@@ -4457,11 +4437,11 @@
         }
       ],
       "Spreuken": [
-        { "name": "Demonic Eye" },
-        { "name": "Command Servitar" },
-        { "name": "Banish Servitar" },
-        { "name": "Smite Servitar" },
-        { "name": "Invite Demon" }
+        { "name": "Demonic Eye", "page": 61 },
+        { "name": "Command Servitar", "page": 62 },
+        { "name": "Banish Servitar", "page": 62 },
+        { "name": "Smite Servitar", "page": 62 },
+        { "name": "Invite Demon", "page": 63}
       ],
       "Recepten": []
     },
@@ -4488,9 +4468,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Greater Demonic Eye" },
-        { "name": "Invite Greater Demon" },
-        { "name": "Transfer Contract" }
+        { "name": "Greater Demonic Eye", "page": 63 },
+        { "name": "Invite Greater Demon", "page": 63 },
+        { "name": "Transfer Contract", "page": 64 }
       ],
       "Recepten": []
     },
@@ -4517,9 +4497,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Greater Demonic Eye" },
-        { "name": "Invite Greater Demon" },
-        { "name": "Transfer Contract" }
+        { "name": "Greater Demonic Eye", "page": 63 },
+        { "name": "Invite Greater Demon", "page": 63 },
+        { "name": "Transfer Contract", "page": 64 }
       ],
       "Recepten": []
     },
@@ -4544,10 +4524,10 @@
       "maxcount": 1,
       "Eigenschappen": [],
       "Spreuken": [
-        { "name": "Detect Spirit" },
-        { "name": "Reveal All Spirits" },
-        { "name": "Break Minor Possession" },
-        { "name": "Create Personal Grove" }
+        { "name": "Detect Spirit", "page": 64 },
+        { "name": "Reveal All Spirits", "page": 65 },
+        { "name": "Break Minor Possession", "page": 65 },
+        { "name": "Create Personal Grove", "page": 65 }
       ],
       "Recepten": []
     },
@@ -4572,10 +4552,10 @@
       "maxcount": 1,
       "Eigenschappen": [],
       "Spreuken": [
-        { "name": "Detect Spirit" },
-        { "name": "Reveal All Spirits" },
-        { "name": "Break Minor Possession" },
-        { "name": "Create Personal Grove" }
+        { "name": "Detect Spirit", "page": 64 },
+        { "name": "Reveal All Spirits", "page": 65 },
+        { "name": "Break Minor Possession", "page": 65 },
+        { "name": "Create Personal Grove", "page": 65 }
       ],
       "Recepten": []
     },
@@ -4605,10 +4585,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Detect Impurity" },
-        { "name": "Reveal All Impurities" },
-        { "name": "Protection of the Grove" },
-        { "name": "Invite Nature Spirit" }
+        { "name": "Detect Impurity", "page": 66 },
+        { "name": "Reveal All Impurities", "page": 66 },
+        { "name": "Protection of the Grove", "page": 66 },
+        { "name": "Invite Nature Spirit", "page": 67 }
       ],
       "Recepten": []
     },
@@ -4638,10 +4618,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Detect Impurity" },
-        { "name": "Reveal All Impurities" },
-        { "name": "Protection of the Grove" },
-        { "name": "Invite Nature Spirit" }
+        { "name": "Detect Impurity", "page": 66 },
+        { "name": "Reveal All Impurities", "page": 66 },
+        { "name": "Protection of the Grove", "page": 66 },
+        { "name": "Invite Nature Spirit", "page": 67 }
       ],
       "Recepten": []
     },
@@ -4671,10 +4651,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Detect Impurity" },
-        { "name": "Reveal All Impurities" },
-        { "name": "Protection of the Grove" },
-        { "name": "Invite Nature Spirit" }
+        { "name": "Detect Impurity", "page": 66 },
+        { "name": "Reveal All Impurities", "page": 66 },
+        { "name": "Protection of the Grove", "page": 66 },
+        { "name": "Invite Nature Spirit", "page": 67 }
       ],
       "Recepten": []
     },
@@ -4704,10 +4684,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Detect Impurity" },
-        { "name": "Reveal All Impurities" },
-        { "name": "Protection of the Grove" },
-        { "name": "Invite Nature Spirit" }
+        { "name": "Detect Impurity", "page": 66 },
+        { "name": "Reveal All Impurities", "page": 66 },
+        { "name": "Protection of the Grove", "page": 66 },
+        { "name": "Invite Nature Spirit", "page": 67 }
       ],
       "Recepten": []
     },
@@ -4734,9 +4714,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Grove Meditation" },
-        { "name": "Restore the Cycle" },
-        { "name": "“Invite Avatar of the Cycle" }
+        { "name": "Grove Meditation", "page": 67 },
+        { "name": "Restore the Cycle", "page": 68 },
+        { "name": "“Invite Avatar of the Cycle", "page": 68 }
       ],
       "Recepten": []
     },
@@ -4763,9 +4743,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Grove Meditation" },
-        { "name": "Restore the Cycle" },
-        { "name": "“Invite Avatar of the Cycle" }
+        { "name": "Grove Meditation", "page": 67 },
+        { "name": "Restore the Cycle", "page": 68 },
+        { "name": "“Invite Avatar of the Cycle", "page": 68 }
       ],
       "Recepten": []
     },
@@ -4792,9 +4772,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Grove Meditation" },
-        { "name": "Restore the Cycle" },
-        { "name": "“Invite Avatar of the Cycle" }
+        { "name": "Grove Meditation", "page": 67 },
+        { "name": "Restore the Cycle", "page": 68 },
+        { "name": "“Invite Avatar of the Cycle", "page": 68 }
       ],
       "Recepten": []
     },
@@ -4821,9 +4801,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Grove Meditation" },
-        { "name": "Restore the Cycle" },
-        { "name": "“Invite Avatar of the Cycle" }
+        { "name": "Grove Meditation", "page": 67 },
+        { "name": "Restore the Cycle", "page": 68 },
+        { "name": "“Invite Avatar of the Cycle", "page": 68 }
       ],
       "Recepten": []
     },
@@ -4848,11 +4828,11 @@
       "maxcount": 1,
       "Eigenschappen": [],
       "Spreuken": [
-        { "name": "Detect Undead" },
-        { "name": "Reveal All Undead" },
-        { "name": "Break Minor Possession" },
-        { "name": "Create Zombie" },
-        { "name": "Minor Reconstruct" }
+        { "name": "Detect Undead", "page": 69 },
+        { "name": "Reveal All Undead", "page": 70 },
+        { "name": "Break Minor Possession", "page": 70 },
+        { "name": "Create Zombie", "page": 71 },
+        { "name": "Minor Reconstruct", "page": 71 }
       ],
       "Recepten": []
     },
@@ -4882,10 +4862,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Reconstruct" },
-        { "name": "Chilling Feat" },
-        { "name": "Bone Armour" },
-        { "name": "Invite Spirit of the Dead" }
+        { "name": "Reconstruct", "page": 71 },
+        { "name": "Chilling Feat", "page": 71 },
+        { "name": "Bone Armour", "page": 72 },
+        { "name": "Invite Spirit of the Dead", "page": 72 }
       ],
       "Recepten": []
     },
@@ -4915,10 +4895,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Reconstruct" },
-        { "name": "Chilling Feat" },
-        { "name": "Bone Armour" },
-        { "name": "Invite Spirit of the Dead" }
+        { "name": "Reconstruct", "page": 71 },
+        { "name": "Chilling Feat", "page": 71 },
+        { "name": "Bone Armour", "page": 72 },
+        { "name": "Invite Spirit of the Dead", "page": 72 }
       ],
       "Recepten": []
     },
@@ -4945,9 +4925,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Ghostly Shackles" },
-        { "name": "Unholy Bolt" },
-        { "name": "Invite Ancestor" }
+        { "name": "Ghostly Shackles", "page": 73 },
+        { "name": "Unholy Bolt", "page": 73 },
+        { "name": "Invite Ancestor", "page": 73 }
       ],
       "Recepten": []
     },
@@ -4974,9 +4954,9 @@
         }
       ],
       "Spreuken": [
-        { "name": "Ghostly Shackles" },
-        { "name": "Unholy Bolt" },
-        { "name": "Invite Ancestor" }
+        { "name": "Ghostly Shackles", "page": 73 },
+        { "name": "Unholy Bolt", "page": 73 },
+        { "name": "Invite Ancestor", "page": 74 }
       ],
       "Recepten": []
     }

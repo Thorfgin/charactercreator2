@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useTable } from 'react-table';
 import Select from 'react-select';
 import { Tooltip } from './tooltip.js';
+import openPage from './openPdf.js';
 import {
     GridEigenschapItem,
     GenericTooltipItem,
@@ -70,6 +71,8 @@ export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
         const reqSkill = selectedSkill.Requirements.skill;
         const reqAny = selectedSkill.Requirements.any_list;
         const reqCategory = selectedSkill.Requirements.Category;
+        const reqException = selectedSkill.Requirements.exception;
+
 
         // exit early
         if (reqSkill.length === 0 &&
@@ -115,6 +118,16 @@ export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
                         "\nToevoegen is niet toegestaan.");
                 }
             }
+
+            // exception
+            if (reqException && meetsPrerequisite === false) {
+                const isValidException = verifyTableMeetsPrerequisiteException(reqException, tableData);
+                if (isValidException === true) {
+                    meetsPrerequisite = true
+                    setModalMsg('');
+                }
+            }
+
         }
     }
     else {
@@ -149,6 +162,7 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
                 const reqSkill = skillTableData.Requirements.skill;
                 const reqAny = skillTableData.Requirements.any_list;
                 const reqCategory = skillTableData.Requirements.Category;
+                const reqException = skillTableData.Requirements.exception;
 
                 if (isRemoved === true &&
                     skillTableData.skill.toLowerCase() === nameSkillToRemove.toLowerCase()) { continue; }
@@ -194,6 +208,16 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
                         if (isPrerequisite === true) {
                             setModalMsg("Dit item is nodig voor de vereiste XP (" + totalReqXP + ")\n" +
                                 "voor de vaardigheid: \n" + skillTableData.skill + "\n" +
+                                "Verwijderen is niet toegestaan.");
+                        }
+                    }
+
+                    // exception
+                    if (reqException && isPrerequisite === false) {
+                        isPrerequisite = verifyTableExceptionSkillMeetsPrerequisite(tableData, reqException, skillTableData, nameSkillToRemove, setModalMsg);
+                        if (isPrerequisite === true) {
+                            setModalMsg("Dit item is nodig voor als uitzondering" +
+                                " voor de vaardigheid: \n" + skillTableData.skill + "\n" +
                                 "Verwijderen is niet toegestaan.");
                         }
                     }
@@ -322,6 +346,20 @@ function verifyTableMeetsPrerequisiteCategoryXP(reqCategory, tableData) {
     return meetsPrerequisite;
 }
 
+// Als er een vaardigheid is (Druid/Necro) die prerequisite mag negeren
+function verifyTableMeetsPrerequisiteException(reqExceptions, tableData) {
+    let meetsException = false;
+    for (const reqException of reqExceptions) {
+        const matchingSkills = tableData.filter(skillTableData =>
+            skillTableData.skill.toLowerCase().includes(reqException.toLowerCase()));
+        if (matchingSkills.length > 0) {
+            meetsException = true;
+            break;
+        }
+    }
+    return meetsException;
+}
+
 // Check of een Category prerequisite behouden wordt wanneer de skill verwijdert/verlaagd wordt
 function verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, item, nameSkillToRemove, totalReqXP) {
     let isPrerequisite = false;
@@ -335,6 +373,34 @@ function verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, ite
     selectedSkills.forEach(item => selectedSkillsXP += item.xp); // calculate XP
     if (totalReqXP > selectedSkillsXP) { isPrerequisite = true; }
     return isPrerequisite;
+}
+
+// Check of de uitgezonderde skills aanwezig zijn in tableData en of deze nog voldoen zonder verwijderde vaardigheid
+// Dit is specifiek voor Druid/Necro die bepaalde vereisten mogen negeren
+function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, skillTableData, nameSkillToRemove, setModalMsg) {
+    let isExceptionPrerequisite = false;
+
+    // console.log(nameSkillToRemove, reqExceptions, skillTableData)
+
+    for (const exception of reqExceptions)
+    {
+        if (nameSkillToRemove.toLowerCase() === exception.toLowerCase())
+        {
+            const filteredTableData = []
+            for (const oldSkill of tableData) {
+                if (oldSkill.skill.toLowerCase() !== skillTableData.skill.toLowerCase() &&
+                    oldSkill.skill.toLowerCase() !== nameSkillToRemove.toLowerCase())
+                    filteredTableData.push(oldSkill)
+            }
+
+            const meetsPrequisites = meetsAllPrerequisites(skillTableData, filteredTableData, setModalMsg)
+            if (meetsPrequisites === false) {
+                isExceptionPrerequisite = true;
+                break;
+            }            
+        }
+    }
+    return isExceptionPrerequisite;
 }
 
 // Check of de ritualisme vaardigheid verwijdert wordt, en zo ja of deze een prerequisite is.
@@ -614,13 +680,6 @@ export default function App() {
         }
     };
 
-    // Open het vaardigheden boekje op de juiste pagina
-    function openPdfOnPage(pdfName, pageNumber) {
-        const rootURL = "https://the-vortex.nl/wp-content/uploads/2022/04/"
-        const fullURL = rootURL + pdfName + "#page=" + pageNumber;
-        window.open(fullURL, '_blank');
-    }
-
     // Plaats Info in de kolom
     function requestInfo(row) {
         let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
@@ -637,7 +696,7 @@ export default function App() {
                     />
                     <img
                         className="btn-image"
-                        onClick={() => openPdfOnPage('Vaardigheden.pdf', currentItem.page)}
+                        onClick={() => openPage('Vaardigheden.pdf', currentItem.page)}
                         src="./images/img-pdf.png"
                         alt="PDF">
                     </img>
@@ -890,6 +949,7 @@ export default function App() {
                                     skill={item.skill}
                                     name={item.name}
                                     type={"grid-spreuken"}
+                                    page={item.page}
                                     key={index}
                                     text={item.name}
                                 />

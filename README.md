@@ -9,7 +9,6 @@
 	MUST
 
 	SHOULD:
-	- SKILL/SPELL: Add a Source/Page reference to each skill/spell
 	- SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
 	(SIZE, COLOR, ANIMATION, ETC)
 	- Change Error messages (modals) to a (!) img with mouseover 
@@ -32,7 +31,9 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
-	20230923	bugfixes: fixed some inconsistencies in the skills, causing minor bugs
+	20230923	SPELL: Add a PDF Source/Page reference to each GridItem
+				SKILL: Add a PDF Source/Page reference to each row
+				bugfixes: fixed some inconsistencies in the skills, causing minor bugs
 
 	20230922	REFACTOR: Major overhaul and seperation of functionality into functions for maintainability
 				UNITTESTING: Added __test__ folder and implemented unittesting on prerequisites
