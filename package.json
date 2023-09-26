@@ -1,6 +1,7 @@
 {
   "name": "charactercreator",
-  "version": "0.1.0",
+  "version": "2023 v0.1-alpha",
+  "creator": "Design by Deprecated Dodo",
   "private": true,
   "homepage": ".",
   "dependencies": {

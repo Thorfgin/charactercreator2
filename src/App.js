@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTable } from 'react-table';
 import Select from 'react-select';
-import { Tooltip } from './tooltip.js';
+import Tooltip from './tooltip.js';
 import openPage from './openPdf.js';
 import {
     GridEigenschapItem,
@@ -15,6 +15,7 @@ import {
 import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
 import recepten from './json/recepten.json';
+import packageInfo from '../package.json';
 import './App.css';
 
 let totalXP = 0; // Berekende totaal waarde
@@ -382,10 +383,8 @@ function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, sk
 
     // console.log(nameSkillToRemove, reqExceptions, skillTableData)
 
-    for (const exception of reqExceptions)
-    {
-        if (nameSkillToRemove.toLowerCase() === exception.toLowerCase())
-        {
+    for (const exception of reqExceptions) {
+        if (nameSkillToRemove.toLowerCase() === exception.toLowerCase()) {
             const filteredTableData = []
             for (const oldSkill of tableData) {
                 if (oldSkill.skill.toLowerCase() !== skillTableData.skill.toLowerCase() &&
@@ -397,7 +396,7 @@ function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, sk
             if (meetsPrequisites === false) {
                 isExceptionPrerequisite = true;
                 break;
-            }            
+            }
         }
     }
     return isExceptionPrerequisite;
@@ -470,6 +469,62 @@ export default function App() {
         }
         else { setMAX_XP(1); }
     };
+
+    // SELECT & INFO
+    const imageSrc = ["./images/img-info.png", "./images/img-info_red.png"]
+    const [currentBasicImageIndex, setCurrentBasicImageIndex] = useState(0);
+    const [currentExtraImageIndex, setCurrentExtraImageIndex] = useState(0);
+
+    useEffect(() => { onSelectSkill(true, selectedBasicSkill); }, [selectedBasicSkill]);
+    useEffect(() => { onSelectSkill(false, selectedExtraSkill); }, [selectedExtraSkill]);
+
+    // Op basis van de geselecteerde skill, bepaald de bijbehorende (i) afbeelding
+    function onSelectSkill(isBasicSkill, selectedSkill) {
+        let meetsPrerequisites;
+
+        if (selectedSkill && selectedSkill.value !== "") {
+            let selectedRecord = sourceBasisVaardigheden.find((record) =>
+                record.skill.toLowerCase() === selectedSkill.value.toLowerCase());
+            if (!selectedRecord) {
+                selectedRecord = sourceExtraVaardigheden.find((record) =>
+                    record.skill.toLowerCase() === selectedSkill.value.toLowerCase());
+            }
+
+            meetsPrerequisites = meetsAllPrerequisites(selectedRecord, tableData, setModalMsg);
+
+            if (meetsPrerequisites === false) { loop(isBasicSkill); }
+            isBasicSkill ? setCurrentBasicImageIndex(0) : setCurrentExtraImageIndex(0);
+        }
+    }
+
+    // TOOLTIP ICON
+    // Laat het icoontje flitsen van zwart > rood
+    function loop(isBasicSkill, counter = 0) {
+        const maxIterations = 8;
+        const delay = 100;
+
+        if (isBasicSkill === true) {
+            setTimeout(() => {
+                setCurrentBasicImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+                if (counter < maxIterations) {
+                    setTimeout(() => {
+                        loop(isBasicSkill, counter + 1);
+                    }, delay);
+                };
+            })
+        }
+        else {
+            setTimeout(() => {
+                setCurrentExtraImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+                if (counter < maxIterations) {
+                    setTimeout(() => {
+                        loop(isBasicSkill, counter + 1);
+                    }, delay);
+                };
+            })
+        }
+    }
+
 
     /// --- GRID CONTENT --- ///
     function onUpdateTableData() {
@@ -835,18 +890,20 @@ export default function App() {
 
                         {   // Conditionele tooltip
                             selectedBasicSkill &&
-                            selectedBasicSkill.value !== "" &&
                             <div className="select-info">
                                 <Tooltip
                                     skillName={selectedBasicSkill.value}
                                     isSpell={false}
                                     isRecipy={false}
                                     isSkill={true}
+                                    image={imageSrc[currentBasicImageIndex]}
                                 />
                             </div>
                         }
 
-                        <button className="btn-primary" onClick={handleBasicSkillSelection}>
+                        <button
+                            className="btn-primary"
+                            onClick={handleBasicSkillSelection}>
                             Toevoegen
                         </button>
                     </div>
@@ -875,11 +932,14 @@ export default function App() {
                                             isSpell={false}
                                             isRecipy={false}
                                             isSkill={true}
+                                            image={imageSrc[currentExtraImageIndex]}
                                         />
                                     </div>
                                 }
 
-                                <button className="btn-primary" onClick={handleExtraSkillSelection}>
+                                <button
+                                    className="btn-primary"
+                                    onClick={handleExtraSkillSelection}>
                                     Toevoegen
                                 </button>
                             </div>
@@ -975,12 +1035,10 @@ export default function App() {
             </main>
             <div className="flex-filler"></div>
             <footer>
-                <div>2023 v0.1-alpha</div>
-                <div>Design by Deprecated Dodo{'\u2122'}</div>
+                <div>{packageInfo.version}</div>
+                <div>{packageInfo.creator}{'\u2122'}</div>
                 <div className="disclaimer" onClick={showDisclaimer}>Disclaimer</div>
             </footer>
         </div>
     );
 }
-
-

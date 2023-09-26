@@ -1,4 +1,4 @@
-import { Tooltip } from './tooltip.js'
+import Tooltip from './tooltip.js'
 import openPage from './openPdf.js'
 import {
     sourceBasisVaardigheden,
