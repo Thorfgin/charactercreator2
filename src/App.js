@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from 'react';
-import { useTable } from 'react-table';
+import { useTable, useSortBy } from 'react-table';
 import Select from 'react-select';
 import Tooltip from './tooltip.js';
 import openPage from './openPdf.js';
@@ -74,7 +74,6 @@ export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
         const reqAny = selectedSkill.Requirements.any_list;
         const reqCategory = selectedSkill.Requirements.Category;
         const reqException = selectedSkill.Requirements.exception;
-
 
         // exit early
         if (reqSkill.length === 0 &&
@@ -875,7 +874,7 @@ export default function App() {
     }
 
     const closeModal = () => { setShowModal(false); };
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData, });
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData, }, useSortBy);
 
     /// --- HTML CONTENT --- ///
     return (
@@ -999,7 +998,15 @@ export default function App() {
                             {headerGroups.map((headerGroup) => (
                                 <tr {...headerGroup.getHeaderGroupProps()}>
                                     {headerGroup.headers.map((column) => (
-                                        <th {...column.getHeaderProps()} className={column.className}>{column.render('Header')}</th>
+                                        <th
+                                            {...column.getHeaderProps(column.getSortByToggleProps())}
+                                            className={column.className}
+                                        >
+                                            {column.render('Header')}
+                                            <span>
+                                                {column.isSorted ? (column.isSortedDesc ? ' \u25BC' : ' \u25B2') : ''}
+                                            </span>
+                                        </th>
                                     ))}
                                     <th className="col-acties">Acties</th>
                                 </tr>

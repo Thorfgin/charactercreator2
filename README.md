@@ -1,4 +1,3 @@
-
 [![CI/CD Master](https://github.com/Thorfgin/charactercreator/actions/workflows/node.js.yml/badge.svg)](https://github.com/Thorfgin/charactercreator/actions/workflows/node.js.yml)
 ![License](https://img.shields.io/github/license/Thorfgin/charactercreator)
 
@@ -27,7 +26,7 @@
 
 	DONE:
 	20230927	LORESHEET: column contains an actual link to the loresheet itself
-				
+				TABLE: columns are sortable by clicking the header
 
 	20230926	SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
 				(SIZE, COLOR, ANIMATION, ETC)
