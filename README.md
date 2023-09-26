@@ -16,7 +16,6 @@
 		> Needs to be done from within a player portal?
 
 	WOULD: 
-	- Drag and Drop in the skill table, or other method of rearranging item
 	- EXPORT BUILD: Export the current skillset into a downloadable file
 	- IMPORT BUILD: Import a local file and set it as the current skillset
 	- PRESETS: Ability to click some preset-character builds somewhere
@@ -27,6 +26,7 @@
 	DONE:
 	20230927	LORESHEET: column contains an actual link to the loresheet itself
 				TABLE: columns are sortable by clicking the header
+				TABLE: Drag and Drop in the skill table, as method of rearranging items
 
 	20230926	SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
 				(SIZE, COLOR, ANIMATION, ETC)
