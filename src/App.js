@@ -500,15 +500,13 @@ export default function App() {
                 loop(isBasicSkill);
             }
             else {
-                isBasicSkill ? btnAddBasicRef.current.disabled = false : btnAddExtraRef.current.disabled = false;
+                isBasicSkill === true ? btnAddBasicRef.current.disabled = false : btnAddExtraRef.current.disabled = false;
             }
-            isBasicSkill ? setCurrentBasicImageIndex(0) : setCurrentExtraImageIndex(0);
+            isBasicSkill === true ? setCurrentBasicImageIndex(0) : setCurrentExtraImageIndex(0);
         }
         else {
-            if (isBasicSkill) {
-                isBasicSkill ? btnAddBasicRef.current.disabled = false : btnAddExtraRef.current.disabled = false;
-            }
-            
+            if (btnAddBasicRef.current) { btnAddBasicRef.current.disabled = false }
+            if (btnAddExtraRef.current) { btnAddExtraRef.current.disabled = false; }
         }
     }
 
@@ -878,7 +876,7 @@ export default function App() {
                         </div>
                         <div>
                             <label className="settings-label">
-                                Max XP: 
+                                Max XP:
                             </label>
                             <input className="settings-input-xp"
                                 type="number"
@@ -891,7 +889,7 @@ export default function App() {
                             />
 
                             <label className="settings-label">
-                                XP over: 
+                                XP over:
                             </label>
                             <input className="settings-input-xp"
                                 type="number"
