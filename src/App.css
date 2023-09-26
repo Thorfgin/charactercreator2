@@ -75,31 +75,31 @@
         margin: 15px;
         justify-content: center;
     }
-    
-    .App header img {
-        max-width: 50px;
-        max-height: 50px;
+
+        .App header img {
+            max-width: 50px;
+            max-height: 50px;
+        }
+
+
+    .App footer {
+        position: fixed;
+        bottom: 0;
+        width: 110%;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        font-family: 'Inknut Antiqua', serif;
+        padding: 0px;
+        font-size: 12px;
     }
 
-
-.App footer {
-    position: fixed;
-    bottom: 0;
-    width: 110%;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    font-family: 'Inknut Antiqua', serif;
-    padding: 0px;
-    font-size: 12px;
-}
-
-    .App footer div {
-        width: 30%;
-        display: inline-block;
-        box-sizing: border-box;
-    }
+        .App footer div {
+            width: 30%;
+            display: inline-block;
+            box-sizing: border-box;
+        }
 
 .disclaimer {
     cursor: pointer;
@@ -418,6 +418,17 @@
         box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
         color: rgba(0, 0, 0, 0.65);
         transform: translateY(0);
+    }
+
+    .btn-primary:disabled,
+    .btn-secondary:disabled {
+        background-color: #ccc;
+        border-color: rgba(0, 0, 0, 0.15);
+        box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+        color: rgba(0, 0, 0, 0.65);
+        transform: translateY(0);
+        opacity: 0.5;
+        cursor: not-allowed;
     }
 
 /* modal eigenschappen */

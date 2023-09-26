@@ -475,6 +475,9 @@ export default function App() {
     const [currentBasicImageIndex, setCurrentBasicImageIndex] = useState(0);
     const [currentExtraImageIndex, setCurrentExtraImageIndex] = useState(0);
 
+    const btnAddBasicRef = useRef(null);
+    const btnAddExtraRef = useRef(null);
+
     useEffect(() => { onSelectSkill(true, selectedBasicSkill); }, [selectedBasicSkill]);
     useEffect(() => { onSelectSkill(false, selectedExtraSkill); }, [selectedExtraSkill]);
 
@@ -492,8 +495,20 @@ export default function App() {
 
             meetsPrerequisites = meetsAllPrerequisites(selectedRecord, tableData, setModalMsg);
 
-            if (meetsPrerequisites === false) { loop(isBasicSkill); }
+            if (meetsPrerequisites === false) {
+                isBasicSkill ? btnAddBasicRef.current.disabled = true : btnAddExtraRef.current.disabled = true;
+                loop(isBasicSkill);
+            }
+            else {
+                isBasicSkill ? btnAddBasicRef.current.disabled = false : btnAddExtraRef.current.disabled = false;
+            }
             isBasicSkill ? setCurrentBasicImageIndex(0) : setCurrentExtraImageIndex(0);
+        }
+        else {
+            if (isBasicSkill) {
+                isBasicSkill ? btnAddBasicRef.current.disabled = false : btnAddExtraRef.current.disabled = false;
+            }
+            
         }
     }
 
@@ -902,6 +917,7 @@ export default function App() {
                         }
 
                         <button
+                            ref={btnAddBasicRef}
                             className="btn-primary"
                             onClick={handleBasicSkillSelection}>
                             Toevoegen
@@ -938,6 +954,7 @@ export default function App() {
                                 }
 
                                 <button
+                                    ref={btnAddExtraRef}
                                     className="btn-primary"
                                     onClick={handleExtraSkillSelection}>
                                     Toevoegen
