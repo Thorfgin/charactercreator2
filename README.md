@@ -22,11 +22,13 @@
 	- IMPORT BUILD: Import a local file and set it as the current skillset
 	- PRESETS: Ability to click some preset-character builds somewhere
 	- EXPORT CHARACTER: Export the character overview as a PDF, for easy use at the event.
-	- LORESHEET: column contains an actual link to the loresheet itself
-
+	
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+	20230927	LORESHEET: column contains an actual link to the loresheet itself
+				
+
 	20230926	SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
 				(SIZE, COLOR, ANIMATION, ETC)
 				WONT DO: Change Error messages (modals) to a (!) img with mouseover.

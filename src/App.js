@@ -61,8 +61,9 @@ const columns = [
     { Header: "ID", accessor: "id", className: "col-id" },
     { Header: "Vaardigheid", accessor: "skill", className: "col-vaardigheid" },
     { Header: "XP Kosten", accessor: "xp", className: "col-xp" },
-    { Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: ({ value }) => (value ? "Ja" : ""), },
-    { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
+    { Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: ({ value }) => (requestLoreSheet(value)), },
+    { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" }, 
+    { Header: "Info", className: "col-info", Cell: ({ row }) => requestInfo(row) },
 ];
 
 // Check of de Skill aan de vereisten voldoet
@@ -430,6 +431,53 @@ function verifyRemovedSkillIsNotARitualismPrerequisite(nameSkillToRemove, tableD
     return isPrerequisite;
 }
 
+// Plaats Info in de kolom
+function requestInfo(row) {
+    let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
+    if (!currentItem) { currentItem = sourceExtraVaardigheden.find((record) => record.id === row.original.id); }
+
+    return (
+        <div className="info">
+            <div className="acties-info">
+                <Tooltip
+                    skillName={currentItem.skill}
+                    isSpell={false}
+                    isRecipy={false}
+                    isSkill={true}
+                />
+                <img
+                    className="btn-image"
+                    onClick={() => openPage('Vaardigheden.pdf', currentItem.page)}
+                    src="./images/img-pdf.png"
+                    alt="PDF">
+                </img>
+            </div>
+        </div>
+    )
+}
+
+// Open PDF op basis van loresheet uit de vaardigheden.json
+function requestLoreSheet({ pdf, page }) {
+
+    if (!pdf || pdf === "") {
+        <div className="info"/>
+    }
+    else {
+        return (
+            <div className="info">
+                <div className="loresheet-info">
+                    <img
+                        className="btn-image"
+                        onClick={() => openPage(pdf, page ? page : 1)}
+                        src="./images/img-pdf.png"
+                        alt="PDF">
+                    </img>
+                </div>
+            </div>
+        )
+    }
+}
+
 /// --- MAIN APP --- ///
 export default function App() {
     const [tableData, setTableData] = useState(emptyData);
@@ -748,31 +796,6 @@ export default function App() {
         }
     };
 
-    // Plaats Info in de kolom
-    function requestInfo(row) {
-        let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
-        if (!currentItem) { currentItem = sourceExtraVaardigheden.find((record) => record.id === row.original.id); }
-
-        return (
-            <div className="info">
-                <div className="acties-info">
-                    <Tooltip
-                        skillName={currentItem.skill}
-                        isSpell={false}
-                        isRecipy={false}
-                        isSkill={true}
-                    />
-                    <img
-                        className="btn-image"
-                        onClick={() => openPage('Vaardigheden.pdf', currentItem.page)}
-                        src="./images/img-pdf.png"
-                        alt="PDF">
-                    </img>
-                </div>
-            </div>
-        )
-    }
-
     // Plaats Acties in de kolom op basis van de multipurchase property
     function requestActions(row) {
         let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
@@ -978,7 +1001,6 @@ export default function App() {
                                     {headerGroup.headers.map((column) => (
                                         <th {...column.getHeaderProps()} className={column.className}>{column.render('Header')}</th>
                                     ))}
-                                    <th className="col-info">Info</th>
                                     <th className="col-acties">Acties</th>
                                 </tr>
                             ))}
@@ -991,9 +1013,6 @@ export default function App() {
                                         {row.cells.map((cell) => {
                                             return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
                                         })}
-                                        <td role="cell">
-                                            {requestInfo(row)}
-                                        </td>
                                         <td role="cell">
                                             {requestActions(row)}
                                         </td>
