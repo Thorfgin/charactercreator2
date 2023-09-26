@@ -9,7 +9,6 @@
 	MUST
 
 	SHOULD:
-	- XP: add a reverse counter to show the ammount of free xp.
 
 	COULD:
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
@@ -33,6 +32,7 @@
 				WONT DO: Change Error messages (modals) to a (!) img with mouseover.
 				This is done already above, as the only messages/modals are shown when adding/removing items.
 				Removing has no valid option to show another (!).
+				XP: add a reverse counter to show the ammount of free xp.
 
 	20230924	SPELL: Add a PDF Source/Page reference to each GridItem
 				SKILL: Add a PDF Source/Page reference to each row
