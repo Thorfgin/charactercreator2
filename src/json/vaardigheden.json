@@ -12,7 +12,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -32,7 +32,7 @@
         "any_list": []
       },
       "xp": 0,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -52,7 +52,10 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Priest-Runes.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -77,7 +80,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -102,7 +105,10 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Mage-Glyphs.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -127,7 +133,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -152,7 +158,7 @@
         "any_list": []
       },
       "xp": 0,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -172,7 +178,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -197,7 +203,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -222,7 +228,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -247,7 +253,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 3,
@@ -267,7 +273,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -287,7 +293,7 @@
         "any_list": []
       },
       "xp": 0,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -312,7 +318,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -337,7 +343,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -362,7 +368,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -387,7 +393,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 1,
@@ -407,7 +413,7 @@
         "any_list": [ "Genezingsspreuken A" ]
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 3,
@@ -427,7 +433,7 @@
         "any_list": []
       },
       "xp": 0,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -447,7 +453,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -467,7 +473,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -487,7 +493,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -507,7 +513,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -527,7 +533,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -547,7 +553,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -558,8 +564,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Minor Resilience", "page": 17 },
-        { "name": "Crippling Blow", "page": 17 }
+        {
+          "name": "Minor Resilience",
+          "page": 17
+        },
+        {
+          "name": "Crippling Blow",
+          "page": 17
+        }
       ],
       "Recepten": []
     },
@@ -575,7 +587,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -586,8 +598,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Striking Blow", "page": 17 },
-        { "name": "Confusing Blow", "page": 18 }
+        {
+          "name": "Striking Blow",
+          "page": 17
+        },
+        {
+          "name": "Confusing Blow",
+          "page": 18
+        }
       ],
       "Recepten": []
     },
@@ -603,7 +621,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -614,8 +632,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Resist Blast", "page": 19 },
-        { "name": "Pain Suppression", "page": 19 }
+        {
+          "name": "Resist Blast",
+          "page": 19
+        },
+        {
+          "name": "Pain Suppression",
+          "page": 19
+        }
       ],
       "Recepten": []
     },
@@ -631,7 +655,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -642,8 +666,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Hold the Line", "page": 20 },
-        { "name": "Rescue Comrade", "page": 20 }
+        {
+          "name": "Hold the Line",
+          "page": 20
+        },
+        {
+          "name": "Rescue Comrade",
+          "page": 20
+        }
       ],
       "Recepten": []
     },
@@ -659,7 +689,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -670,8 +700,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Block Spell", "page": 21 },
-        { "name": "Withstand Freeze", "page": 21 }
+        {
+          "name": "Block Spell",
+          "page": 21
+        },
+        {
+          "name": "Withstand Freeze",
+          "page": 21
+        }
       ],
       "Recepten": []
     },
@@ -687,7 +723,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -698,8 +734,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Fearful Presence", "page": 22 },
-        { "name": "Withstand Slow", "page": 22 }
+        {
+          "name": "Fearful Presence",
+          "page": 22
+        },
+        {
+          "name": "Withstand Slow",
+          "page": 22
+        }
       ],
       "Recepten": []
     },
@@ -715,7 +757,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -744,7 +786,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -769,7 +811,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -794,7 +836,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -819,7 +861,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -844,7 +886,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -869,7 +911,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -894,7 +936,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -919,7 +961,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -944,7 +986,10 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Kennis-van-kruiden.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -969,7 +1014,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -989,7 +1034,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Genezende-Dranken.pdf",
+        "page": 2
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1021,7 +1069,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Kruiden-Elixers.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1053,7 +1104,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Magische-Elixers.pdf",
+        "page": 2
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1085,7 +1139,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Hallucinerende-Elixers.pdf",
+        "page": 2
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1117,7 +1174,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Giffen.pdf",
+        "page": 2
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1149,7 +1209,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1177,7 +1240,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1205,7 +1271,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1233,7 +1302,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1261,7 +1333,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1289,7 +1364,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1317,7 +1395,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1345,7 +1426,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1356,11 +1437,26 @@
         }
       ],
       "Spreuken": [
-        { "name": "Detect Magic", "page": 23 },
-        { "name": "Confusion", "page": 23 },
-        { "name": "Wind Strike", "page": 23 },
-        { "name": "Counter Spell", "page": 24 },
-        { "name": "Break Enchantment", "page": 24 }
+        {
+          "name": "Detect Magic",
+          "page": 23
+        },
+        {
+          "name": "Confusion",
+          "page": 23
+        },
+        {
+          "name": "Wind Strike",
+          "page": 23
+        },
+        {
+          "name": "Counter Spell",
+          "page": 24
+        },
+        {
+          "name": "Break Enchantment",
+          "page": 24
+        }
       ],
       "Recepten": []
     },
@@ -1376,7 +1472,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1387,11 +1483,26 @@
         }
       ],
       "Spreuken": [
-        { "name": "Mend", "page": 24 },
-        { "name": "Minor Reinforcement", "page": 24 },
-        { "name": "Imbue Strike", "page": 25 },
-        { "name": "Iron Will", "page": 25 },
-        { "name": "Slow", "page": 25 }
+        {
+          "name": "Mend",
+          "page": 24
+        },
+        {
+          "name": "Minor Reinforcement",
+          "page": 24
+        },
+        {
+          "name": "Imbue Strike",
+          "page": 25
+        },
+        {
+          "name": "Iron Will",
+          "page": 25
+        },
+        {
+          "name": "Slow",
+          "page": 25
+        }
       ],
       "Recepten": []
     },
@@ -1407,7 +1518,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1418,11 +1529,26 @@
         }
       ],
       "Spreuken": [
-        { "name": "Magic Blast", "page": 26 },
-        { "name": "Fear", "page": 26 },
-        { "name": "Incite Aggression", "page": 26 },
-        { "name": "Mute", "page": 26 },
-        { "name": "Steal", "page": 26 }
+        {
+          "name": "Magic Blast",
+          "page": 26
+        },
+        {
+          "name": "Fear",
+          "page": 26
+        },
+        {
+          "name": "Incite Aggression",
+          "page": 26
+        },
+        {
+          "name": "Mute",
+          "page": 26
+        },
+        {
+          "name": "Steal",
+          "page": 26
+        }
       ],
       "Recepten": []
     },
@@ -1442,7 +1568,7 @@
         }
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1453,10 +1579,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Hidden Object", "page": 27 },
-        { "name": "Chilling Winds", "page": 27 },
-        { "name": "Freedom of Movement", "page": 27 },
-        { "name": "Strike Cascade", "page": 28 }
+        {
+          "name": "Hidden Object",
+          "page": 27
+        },
+        {
+          "name": "Chilling Winds",
+          "page": 27
+        },
+        {
+          "name": "Freedom of Movement",
+          "page": 27
+        },
+        {
+          "name": "Strike Cascade",
+          "page": 28
+        }
       ],
       "Recepten": []
     },
@@ -1474,10 +1612,10 @@
           "name": [ "Magiërvaardigheden" ],
           "value": 4
         },
-        "exception": ["Doods Druidisme A", "Necromancer A"]  
+        "exception": [ "Doods Druidisme A", "Necromancer A" ]
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1488,10 +1626,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Strengthen Armour", "page": 29 },
-        { "name": "Horrific Revelation", "page": 29 },
-        { "name": "Boon of Disease", "page": 29 },
-        { "name": "Life Draw", "page": 30 }
+        {
+          "name": "Strengthen Armour",
+          "page": 29
+        },
+        {
+          "name": "Horrific Revelation",
+          "page": 29
+        },
+        {
+          "name": "Boon of Disease",
+          "page": 29
+        },
+        {
+          "name": "Life Draw",
+          "page": 30
+        }
       ],
       "Recepten": []
     },
@@ -1511,7 +1661,7 @@
         }
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1522,10 +1672,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Harden", "page": 31 },
-        { "name": "Minor Reinforcement Cascade", "page": 31 },
-        { "name": "Sleep", "page": 31 },
-        { "name": "Boon of Mending", "page": 31 }
+        {
+          "name": "Harden",
+          "page": 31
+        },
+        {
+          "name": "Minor Reinforcement Cascade",
+          "page": 31
+        },
+        {
+          "name": "Sleep",
+          "page": 31
+        },
+        {
+          "name": "Boon of Mending",
+          "page": 31
+        }
       ],
       "Recepten": []
     },
@@ -1545,7 +1707,7 @@
         }
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1556,10 +1718,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Mind Protection", "page": 33 },
-        { "name": "Force Truth", "page": 33 },
-        { "name": "Corrupt the Flow of Life", "page": 33 },
-        { "name": "Iceblast", "page": 33 }
+        {
+          "name": "Mind Protection",
+          "page": 33
+        },
+        {
+          "name": "Force Truth",
+          "page": 33
+        },
+        {
+          "name": "Corrupt the Flow of Life",
+          "page": 33
+        },
+        {
+          "name": "Iceblast",
+          "page": 33
+        }
       ],
       "Recepten": []
     },
@@ -1579,7 +1753,7 @@
         }
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1590,10 +1764,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Cleansed by Fire", "page": 35 },
-        { "name": "Fireblast", "page": 35 },
-        { "name": "Inner Fire", "page": 35 },
-        { "name": "Imbue Blast", "page": 35 }
+        {
+          "name": "Cleansed by Fire",
+          "page": 35
+        },
+        {
+          "name": "Fireblast",
+          "page": 35
+        },
+        {
+          "name": "Inner Fire",
+          "page": 35
+        },
+        {
+          "name": "Imbue Blast",
+          "page": 35
+        }
       ],
       "Recepten": []
     },
@@ -1614,7 +1800,7 @@
         "exception": [ "Levens Druidisme A" ]
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1625,10 +1811,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Rend Enchantment", "page": 36 },
-        { "name": "Shatter Armour", "page": 36 },
-        { "name": "Nature’s Protection", "page": 36 },
-        { "name": "Charm Person", "page": 36 }
+        {
+          "name": "Rend Enchantment",
+          "page": 36
+        },
+        {
+          "name": "Shatter Armour",
+          "page": 36
+        },
+        {
+          "name": "Nature’s Protection",
+          "page": 36
+        },
+        {
+          "name": "Charm Person",
+          "page": 36
+        }
       ],
       "Recepten": []
     },
@@ -1644,7 +1842,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1655,9 +1853,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Hammer of Righteousness", "page": 39 },
-        { "name": "Honorable challenge", "page": 39 },
-        { "name": "Mercy call", "page": 39 }
+        {
+          "name": "Hammer of Righteousness",
+          "page": 39
+        },
+        {
+          "name": "Honorable challenge",
+          "page": 39
+        },
+        {
+          "name": "Mercy call",
+          "page": 39
+        }
       ],
       "Recepten": []
     },
@@ -1673,7 +1880,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1684,9 +1891,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Divine Heroism", "page": 39 },
-        { "name": "Divine Blessing", "page": 40 },
-        { "name": "Sanctuary", "page": 40 }
+        {
+          "name": "Divine Heroism",
+          "page": 39
+        },
+        {
+          "name": "Divine Blessing",
+          "page": 40
+        },
+        {
+          "name": "Sanctuary",
+          "page": 40
+        }
       ],
       "Recepten": []
     },
@@ -1702,7 +1918,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1713,11 +1929,26 @@
         }
       ],
       "Spreuken": [
-        { "name": "Endure Poison", "page": 41 },
-        { "name": "Minor Reinforcement", "page": 41 },
-        { "name": "Break Enchantment", "page": 41 },
-        { "name": "Counter Spell", "page": 41 },
-        { "name": "Detect Spiritual influence", "page": 42 }
+        {
+          "name": "Endure Poison",
+          "page": 41
+        },
+        {
+          "name": "Minor Reinforcement",
+          "page": 41
+        },
+        {
+          "name": "Break Enchantment",
+          "page": 41
+        },
+        {
+          "name": "Counter Spell",
+          "page": 41
+        },
+        {
+          "name": "Detect Spiritual influence",
+          "page": 42
+        }
       ],
       "Recepten": []
     },
@@ -1733,7 +1964,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1744,11 +1975,26 @@
         }
       ],
       "Spreuken": [
-        { "name": "Shattering Touch", "page": 44 },
-        { "name": "Endure Disease", "page": 44 },
-        { "name": "Fear", "page": 44 },
-        { "name": "Hit Disease", "page": 44 },
-        { "name": "Crave", "page": 44 }
+        {
+          "name": "Shattering Touch",
+          "page": 44
+        },
+        {
+          "name": "Endure Disease",
+          "page": 44
+        },
+        {
+          "name": "Fear",
+          "page": 44
+        },
+        {
+          "name": "Hit Disease",
+          "page": 44
+        },
+        {
+          "name": "Crave",
+          "page": 44
+        }
       ],
       "Recepten": []
     },
@@ -1764,7 +2010,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1775,11 +2021,26 @@
         }
       ],
       "Spreuken": [
-        { "name": "Discern Soul", "page": 47 },
-        { "name": "Sanctuary", "page": 47 },
-        { "name": "Lay to Rest", "page": 47 },
-        { "name": "Ancestral mind protection", "page": 47 },
-        { "name": "Reveal all undead", "page": 47 }
+        {
+          "name": "Discern Soul",
+          "page": 47
+        },
+        {
+          "name": "Sanctuary",
+          "page": 47
+        },
+        {
+          "name": "Lay to Rest",
+          "page": 47
+        },
+        {
+          "name": "Ancestral mind protection",
+          "page": 47
+        },
+        {
+          "name": "Reveal all undead",
+          "page": 47
+        }
       ],
       "Recepten": []
     },
@@ -1799,7 +2060,7 @@
         }
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1810,10 +2071,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Disease of temperance", "page": 42 },
-        { "name": "Minor Regeneration", "page": 42 },
-        { "name": "Pure Body and Mind", "page": 42 },
-        { "name": "Protection from Impairment", "page": 43 }
+        {
+          "name": "Disease of temperance",
+          "page": 42
+        },
+        {
+          "name": "Minor Regeneration",
+          "page": 42
+        },
+        {
+          "name": "Pure Body and Mind",
+          "page": 42
+        },
+        {
+          "name": "Protection from Impairment",
+          "page": 43
+        }
       ],
       "Recepten": []
     },
@@ -1833,7 +2106,7 @@
         }
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1844,10 +2117,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Mute Cascade", "page": 44 },
-        { "name": "Shatter Armour", "page": 45 },
-        { "name": "Boon of Break Enchantment", "page": 45 },
-        { "name": "Curse Life", "page": 45 }
+        {
+          "name": "Mute Cascade",
+          "page": 44
+        },
+        {
+          "name": "Shatter Armour",
+          "page": 45
+        },
+        {
+          "name": "Boon of Break Enchantment",
+          "page": 45
+        },
+        {
+          "name": "Curse Life",
+          "page": 45
+        }
       ],
       "Recepten": []
     },
@@ -1868,7 +2153,7 @@
         "exception": [ "Doods Druidisme A", "Necromancer A" ]
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1879,10 +2164,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Paralyze Undead", "page": 48 },
-        { "name": "Speak with the Dead", "page": 48 },
-        { "name": "Sanctuary Ward", "page": 48 },
-        { "name": "Life Draw", "page": 49 }
+        {
+          "name": "Paralyze Undead",
+          "page": 48
+        },
+        {
+          "name": "Speak with the Dead",
+          "page": 48
+        },
+        {
+          "name": "Sanctuary Ward",
+          "page": 48
+        },
+        {
+          "name": "Life Draw",
+          "page": 49
+        }
       ],
       "Recepten": []
     },
@@ -1902,7 +2199,7 @@
         }
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1913,10 +2210,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Fascinate", "page": 49 },
-        { "name": "Discern Pattern", "page": 50 },
-        { "name": "Mind Protection", "page": 50 },
-        { "name": "Command", "page": 50 }
+        {
+          "name": "Fascinate",
+          "page": 49
+        },
+        {
+          "name": "Discern Pattern",
+          "page": 50
+        },
+        {
+          "name": "Mind Protection",
+          "page": 50
+        },
+        {
+          "name": "Command",
+          "page": 50
+        }
       ],
       "Recepten": []
     },
@@ -1937,7 +2246,7 @@
         "exception": [ "Levens Druidisme A" ]
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1948,10 +2257,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Hex Weapon", "page": 51 },
-        { "name": "Freedom of Movement", "page": 52 },
-        { "name": "Resist Special Damage", "page": 52 },
-        { "name": "Aspect of the Dryad", "page": 52 }
+        {
+          "name": "Hex Weapon",
+          "page": 51
+        },
+        {
+          "name": "Freedom of Movement",
+          "page": 52
+        },
+        {
+          "name": "Resist Special Damage",
+          "page": 52
+        },
+        {
+          "name": "Aspect of the Dryad",
+          "page": 52
+        }
       ],
       "Recepten": []
     },
@@ -1967,7 +2288,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1978,11 +2299,26 @@
         }
       ],
       "Spreuken": [
-        { "name": "Discern Wounds", "page": 55 },
-        { "name": "Discern Poisons", "page": 55 },
-        { "name": "Discern Diseases", "page": 55 },
-        { "name": "Heal Wounds", "page": 55 },
-        { "name": "Remove Paralysis", "page": 55 }
+        {
+          "name": "Discern Wounds",
+          "page": 55
+        },
+        {
+          "name": "Discern Poisons",
+          "page": 55
+        },
+        {
+          "name": "Discern Diseases",
+          "page": 55
+        },
+        {
+          "name": "Heal Wounds",
+          "page": 55
+        },
+        {
+          "name": "Remove Paralysis",
+          "page": 55
+        }
       ],
       "Recepten": []
     },
@@ -1998,7 +2334,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2009,11 +2345,26 @@
         }
       ],
       "Spreuken": [
-        { "name": "Discern Wounds", "page": 55 },
-        { "name": "Discern Poisons", "page": 55 },
-        { "name": "Discern Diseases", "page": 55 },
-        { "name": "Heal Wounds", "page": 55 },
-        { "name": "Remove Paralysis", "page": 55 }
+        {
+          "name": "Discern Wounds",
+          "page": 55
+        },
+        {
+          "name": "Discern Poisons",
+          "page": 55
+        },
+        {
+          "name": "Discern Diseases",
+          "page": 55
+        },
+        {
+          "name": "Heal Wounds",
+          "page": 55
+        },
+        {
+          "name": "Remove Paralysis",
+          "page": 55
+        }
       ],
       "Recepten": []
     },
@@ -2029,7 +2380,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2040,10 +2391,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound", "page": 55 },
-        { "name": "Strengthen Body", "page": 56 },
-        { "name": "Total Healing", "page": 56 },
-        { "name": "Boon of Minor Healing", "page": 56 }
+        {
+          "name": "Heal Fatal Wound",
+          "page": 55
+        },
+        {
+          "name": "Strengthen Body",
+          "page": 56
+        },
+        {
+          "name": "Total Healing",
+          "page": 56
+        },
+        {
+          "name": "Boon of Minor Healing",
+          "page": 56
+        }
       ],
       "Recepten": []
     },
@@ -2059,7 +2422,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2070,10 +2433,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound", "page": 55 },
-        { "name": "Strengthen Body", "page": 56 },
-        { "name": "Total Healing", "page": 56 },
-        { "name": "Boon of Minor Healing", "page": 56 }
+        {
+          "name": "Heal Fatal Wound",
+          "page": 55
+        },
+        {
+          "name": "Strengthen Body",
+          "page": 56
+        },
+        {
+          "name": "Total Healing",
+          "page": 56
+        },
+        {
+          "name": "Boon of Minor Healing",
+          "page": 56
+        }
       ],
       "Recepten": []
     },
@@ -2089,7 +2464,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2100,10 +2475,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound", "page": 57 },
-        { "name": "Protection from Poison", "page": 57 },
-        { "name": "Neutralise Poisons", "page": 57 },
-        { "name": "Purge all Poisons", "page": 57 }
+        {
+          "name": "Heal Fatal Wound",
+          "page": 57
+        },
+        {
+          "name": "Protection from Poison",
+          "page": 57
+        },
+        {
+          "name": "Neutralise Poisons",
+          "page": 57
+        },
+        {
+          "name": "Purge all Poisons",
+          "page": 57
+        }
       ],
       "Recepten": []
     },
@@ -2119,7 +2506,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2130,10 +2517,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound", "page": 57 },
-        { "name": "Protection from Poison", "page": 57 },
-        { "name": "Neutralise Poisons", "page": 57 },
-        { "name": "Purge all Poisons", "page": 57 }
+        {
+          "name": "Heal Fatal Wound",
+          "page": 57
+        },
+        {
+          "name": "Protection from Poison",
+          "page": 57
+        },
+        {
+          "name": "Neutralise Poisons",
+          "page": 57
+        },
+        {
+          "name": "Purge all Poisons",
+          "page": 57
+        }
       ],
       "Recepten": []
     },
@@ -2149,7 +2548,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2160,10 +2559,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound", "page": 57 },
-        { "name": "Protection from Disease", "page": 58 },
-        { "name": "Cure Diseases", "page": 58 },
-        { "name": "Cure All Diseases", "page": 58 }
+        {
+          "name": "Heal Fatal Wound",
+          "page": 57
+        },
+        {
+          "name": "Protection from Disease",
+          "page": 58
+        },
+        {
+          "name": "Cure Diseases",
+          "page": 58
+        },
+        {
+          "name": "Cure All Diseases",
+          "page": 58
+        }
       ],
       "Recepten": []
     },
@@ -2179,7 +2590,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2190,10 +2601,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound", "page": 57 },
-        { "name": "Protection from Disease", "page": 58 },
-        { "name": "Cure Diseases", "page": 58 },
-        { "name": "Cure All Diseases", "page": 58 }
+        {
+          "name": "Heal Fatal Wound",
+          "page": 57
+        },
+        {
+          "name": "Protection from Disease",
+          "page": 58
+        },
+        {
+          "name": "Cure Diseases",
+          "page": 58
+        },
+        {
+          "name": "Cure All Diseases",
+          "page": 58
+        }
       ],
       "Recepten": []
     },
@@ -2209,7 +2632,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2220,10 +2643,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound", "page": 58 },
-        { "name": "Discern Mind-Affecting", "page": 59 },
-        { "name": "Protection from Fear", "page": 59 },
-        { "name": "Break Enchantment Cascade", "page": 59 }
+        {
+          "name": "Heal Fatal Wound",
+          "page": 58
+        },
+        {
+          "name": "Discern Mind-Affecting",
+          "page": 59
+        },
+        {
+          "name": "Protection from Fear",
+          "page": 59
+        },
+        {
+          "name": "Break Enchantment Cascade",
+          "page": 59
+        }
       ],
       "Recepten": []
     },
@@ -2239,7 +2674,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2250,10 +2685,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heal Fatal Wound", "page": 58 },
-        { "name": "Discern Mind-Affecting", "page": 59 },
-        { "name": "Protection from Fear", "page": 59 },
-        { "name": "Break Enchantment Cascade", "page": 59 }
+        {
+          "name": "Heal Fatal Wound",
+          "page": 58
+        },
+        {
+          "name": "Discern Mind-Affecting",
+          "page": 59
+        },
+        {
+          "name": "Protection from Fear",
+          "page": 59
+        },
+        {
+          "name": "Break Enchantment Cascade",
+          "page": 59
+        }
       ],
       "Recepten": []
     },
@@ -2269,7 +2716,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -2294,7 +2741,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -2321,7 +2768,7 @@
         "any_list": [ "Genezingsspreuken A", "Diagnostiek", "Priesterspreuken A", "Magiërspreuken A" ]
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2341,7 +2788,7 @@
         "any_list": [ "Doorzettingsvermogen", "Eerste hulp bij gevechten" ]
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -2366,7 +2813,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2391,7 +2838,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2416,7 +2863,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2447,7 +2894,7 @@
         ]
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 99,
@@ -2472,7 +2919,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Genezende-Dranken.pdf",
+        "page": 3
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2504,7 +2954,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Genezende-Dranken.pdf",
+        "page": 4
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2536,7 +2989,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Kruiden-Elixers.pdf",
+        "page": 3
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2568,7 +3024,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Kruiden-Elixers.pdf",
+        "page": 4
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2600,7 +3059,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Magische-Elixers.pdf",
+        "page": 3
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2632,7 +3094,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Magische-Elixers.pdf",
+        "page": 4
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2664,7 +3129,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Hallucinerende-Elixers.pdf",
+        "page": 3
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2696,7 +3164,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Hallucinerende-Elixers.pdf",
+        "page": 4
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2728,7 +3199,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Giffen.pdf",
+        "page": 3
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2760,7 +3234,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Giffen.pdf",
+        "page": 4
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2796,7 +3273,7 @@
         }
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 99,
@@ -2821,7 +3298,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2849,7 +3329,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2877,7 +3360,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2905,7 +3391,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2933,7 +3422,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2961,7 +3453,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2989,7 +3484,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3017,7 +3515,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3045,7 +3546,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3073,7 +3577,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3101,7 +3608,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3129,7 +3639,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3157,7 +3670,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3185,7 +3701,10 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Crafting-loresheets.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3213,7 +3732,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -3238,7 +3757,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -3267,7 +3786,7 @@
         }
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3278,9 +3797,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Discern Diseases and Afflictions", "page": 59 },
-        { "name": "Major Regeneration", "page": 60 },
-        { "name": "Purify Body", "page": 60 }
+        {
+          "name": "Discern Diseases and Afflictions",
+          "page": 59
+        },
+        {
+          "name": "Major Regeneration",
+          "page": 60
+        },
+        {
+          "name": "Purify Body",
+          "page": 60
+        }
       ],
       "Recepten": []
     },
@@ -3300,7 +3828,7 @@
         }
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3311,9 +3839,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Discern Diseases and Afflictions", "page": 59 },
-        { "name": "Major Regeneration", "page": 60 },
-        { "name": "Purify Body", "page": 60 }
+        {
+          "name": "Discern Diseases and Afflictions",
+          "page": 59
+        },
+        {
+          "name": "Major Regeneration",
+          "page": 60
+        },
+        {
+          "name": "Purify Body",
+          "page": 60
+        }
       ],
       "Recepten": []
     },
@@ -3329,7 +3866,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3349,7 +3886,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3369,7 +3906,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3389,7 +3926,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3414,7 +3951,7 @@
         }
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -3439,7 +3976,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3450,8 +3987,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Force Field", "page": 28 },
-        { "name": "Break All Enchantments", "page": 28 }
+        {
+          "name": "Force Field",
+          "page": 28
+        },
+        {
+          "name": "Break All Enchantments",
+          "page": 28
+        }
       ],
       "Recepten": []
     },
@@ -3468,7 +4011,7 @@
         "exception": [ "Doods Druidisme A", "Necromancer A" ]
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3479,8 +4022,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Auru of Fear", "page": 30 },
-        { "name": "Elemental Bolt", "page": 30 }
+        {
+          "name": "Auru of Fear",
+          "page": 30
+        },
+        {
+          "name": "Elemental Bolt",
+          "page": 30
+        }
       ],
       "Recepten": []
     },
@@ -3496,7 +4045,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3507,8 +4056,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Stoneskin", "page": 32 },
-        { "name": "Imbue Crush", "page": 32 }
+        {
+          "name": "Stoneskin",
+          "page": 32
+        },
+        {
+          "name": "Imbue Crush",
+          "page": 32
+        }
       ],
       "Recepten": []
     },
@@ -3524,7 +4079,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3535,8 +4090,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Gift of Knowledge", "page": 34 },
-        { "name": "Paralyzing Touch", "page": 34 }
+        {
+          "name": "Gift of Knowledge",
+          "page": 34
+        },
+        {
+          "name": "Paralyzing Touch",
+          "page": 34
+        }
       ],
       "Recepten": []
     },
@@ -3552,7 +4113,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3563,8 +4124,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Aspect of the Efreet", "page": 35 },
-        { "name": "Incinerate", "page": 36 }
+        {
+          "name": "Aspect of the Efreet",
+          "page": 35
+        },
+        {
+          "name": "Incinerate",
+          "page": 36
+        }
       ],
       "Recepten": []
     },
@@ -3578,10 +4145,10 @@
       "Requirements": {
         "skill": [ "Magiërspreuken B - Hout" ],
         "any_list": [],
-        "exception": [ "Levens Druidisme A"]
+        "exception": [ "Levens Druidisme A" ]
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3592,8 +4159,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Primal Rage", "page": 37 },
-        { "name": "Aspect of the Viper", "page": 37 }
+        {
+          "name": "Primal Rage",
+          "page": 37
+        },
+        {
+          "name": "Aspect of the Viper",
+          "page": 37
+        }
       ],
       "Recepten": []
     },
@@ -3609,7 +4182,7 @@
         "any_list": [ "Magiërspreuken C" ]
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3620,7 +4193,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Wave of Destruction", "page": 38 }
+        {
+          "name": "Wave of Destruction",
+          "page": 38
+        }
       ],
       "Recepten": []
     },
@@ -3636,7 +4212,7 @@
         "any_list": [ "Magiërspreuken C" ]
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3647,7 +4223,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Dominate the Weak", "page": 38 }
+        {
+          "name": "Dominate the Weak",
+          "page": 38
+        }
       ],
       "Recepten": []
     },
@@ -3663,7 +4242,7 @@
         "any_list": [ "Magiërspreuken C" ]
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3674,7 +4253,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Epidemic", "page": 38 }
+        {
+          "name": "Epidemic",
+          "page": 38
+        }
       ],
       "Recepten": []
     },
@@ -3694,7 +4276,10 @@
         }
       },
       "xp": 1,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Imbue-loresheet.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3718,7 +4303,10 @@
         }
       },
       "xp": 1,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Imbue-loresheet.pdf",
+        "page": 1
+      },
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -3747,7 +4335,7 @@
         }
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -3776,7 +4364,7 @@
         }
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3796,7 +4384,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3807,8 +4395,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Holy Bolt", "page": 43 },
-        { "name": "Divine Armour", "page": 43 }
+        {
+          "name": "Holy Bolt",
+          "page": 43
+        },
+        {
+          "name": "Divine Armour",
+          "page": 43
+        }
       ],
       "Recepten": []
     },
@@ -3824,7 +4418,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3835,8 +4429,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Torture", "page": 45 },
-        { "name": "Divine Weapon", "page": 46 }
+        {
+          "name": "Torture",
+          "page": 45
+        },
+        {
+          "name": "Divine Weapon",
+          "page": 46
+        }
       ],
       "Recepten": []
     },
@@ -3853,7 +4453,7 @@
         "exception": [ "Doods Druidisme A", "Necromancer A" ]
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3864,8 +4464,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Destroy", "page": 49 },
-        { "name": "Septic Weapon", "page": 49 }
+        {
+          "name": "Destroy",
+          "page": 49
+        },
+        {
+          "name": "Septic Weapon",
+          "page": 49
+        }
       ],
       "Recepten": []
     },
@@ -3881,7 +4487,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3892,8 +4498,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Gift of Wisdom", "page": 51 },
-        { "name": "Spell Shield", "page": 51 }
+        {
+          "name": "Gift of Wisdom",
+          "page": 51
+        },
+        {
+          "name": "Spell Shield",
+          "page": 51
+        }
       ],
       "Recepten": []
     },
@@ -3907,10 +4519,10 @@
       "Requirements": {
         "skill": [ "Priesterspreuken B - Natuur" ],
         "any_list": [],
-        "exception": [ "Levens Druidisme A"]
+        "exception": [ "Levens Druidisme A" ]
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3921,8 +4533,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Barkskin", "page": 52 },
-        { "name": "Blast Disease", "page": 52 }
+        {
+          "name": "Barkskin",
+          "page": 52
+        },
+        {
+          "name": "Blast Disease",
+          "page": 52
+        }
       ],
       "Recepten": []
     },
@@ -3938,7 +4556,7 @@
         "any_list": [ "Priesterspreuken C" ]
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3949,7 +4567,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Miracle of Consecration", "page": 53 }
+        {
+          "name": "Miracle of Consecration",
+          "page": 53
+        }
       ],
       "Recepten": []
     },
@@ -3965,7 +4586,7 @@
         "any_list": [ "Priesterspreuken C" ]
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3976,7 +4597,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Miracle of Healing", "page": 53 }
+        {
+          "name": "Miracle of Healing",
+          "page": 53
+        }
       ],
       "Recepten": []
     },
@@ -3992,7 +4616,7 @@
         "any_list": [ "Priesterspreuken C" ]
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4003,7 +4627,10 @@
         }
       ],
       "Spreuken": [
-        { "name": "Wrath of the Gods", "page": 54 }
+        {
+          "name": "Wrath of the Gods",
+          "page": 54
+        }
       ],
       "Recepten": []
     },
@@ -4023,7 +4650,10 @@
         }
       },
       "xp": 1,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Imbue-loresheet.pdf",
+        "page": 1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4047,7 +4677,10 @@
         }
       },
       "xp": 1,
-      "loresheet": true,
+      "loresheet": {
+        "pdf": "Imbue-loresheet.pdf",
+        "page": 1
+      },
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -4075,7 +4708,7 @@
         ]
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4099,7 +4732,7 @@
         }
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -4123,7 +4756,7 @@
         }
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 4,
@@ -4147,7 +4780,7 @@
         }
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4167,7 +4800,7 @@
         "any_list": [ "Doorzettingsvermogen", "Eerste hulp bij gevechten" ]
       },
       "xp": 1,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -4192,7 +4825,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4203,8 +4836,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Heavy Blow", "page": 18 },
-        { "name": "Withstand Strike", "page": 18 }
+        {
+          "name": "Heavy Blow",
+          "page": 18
+        },
+        {
+          "name": "Withstand Strike",
+          "page": 18
+        }
       ],
       "Recepten": []
     },
@@ -4220,7 +4859,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4231,8 +4870,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Poison & Disease Protection", "page": 19 },
-        { "name": "Resist Crush", "page": 19 }
+        {
+          "name": "Poison & Disease Protection",
+          "page": 19
+        },
+        {
+          "name": "Resist Crush",
+          "page": 19
+        }
       ],
       "Recepten": []
     },
@@ -4248,7 +4893,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4259,8 +4904,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Inspect Armour", "page": 20 },
-        { "name": "Insight", "page": 20 }
+        {
+          "name": "Inspect Armour",
+          "page": 20
+        },
+        {
+          "name": "Insight",
+          "page": 20
+        }
       ],
       "Recepten": []
     },
@@ -4276,7 +4927,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4287,8 +4938,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Defensive Stance", "page": 21 },
-        { "name": "Withstand Torture", "page": 21 }
+        {
+          "name": "Defensive Stance",
+          "page": 21
+        },
+        {
+          "name": "Withstand Torture",
+          "page": 21
+        }
       ],
       "Recepten": []
     },
@@ -4304,7 +4961,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4315,8 +4972,14 @@
         }
       ],
       "Spreuken": [
-        { "name": "Rage", "page": 22 },
-        { "name": "Withstand Fear", "page": 22 }
+        {
+          "name": "Rage",
+          "page": 22
+        },
+        {
+          "name": "Withstand Fear",
+          "page": 22
+        }
       ],
       "Recepten": []
     },
@@ -4332,7 +4995,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4364,16 +5027,28 @@
         ]
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
       "Eigenschappen": [],
       "Spreuken": [
-        { "name": "Detect Servitar", "page": 60 },
-        { "name": "Reveal All Servitars", "page": 61 },
-        { "name": "Break Minor Possession", "page": 61 },
-        { "name": "Faustian Deal", "page": 61 }
+        {
+          "name": "Detect Servitar",
+          "page": 60
+        },
+        {
+          "name": "Reveal All Servitars",
+          "page": 61
+        },
+        {
+          "name": "Break Minor Possession",
+          "page": 61
+        },
+        {
+          "name": "Faustian Deal",
+          "page": 61
+        }
       ],
       "Recepten": []
     },
@@ -4392,7 +5067,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4403,11 +5078,26 @@
         }
       ],
       "Spreuken": [
-        { "name": "Demonic Eye", "page": 61 },
-        { "name": "Command Servitar", "page": 62 },
-        { "name": "Banish Servitar", "page": 62 },
-        { "name": "Smite Servitar", "page": 62 },
-        { "name": "Invite Demon", "page": 63}
+        {
+          "name": "Demonic Eye",
+          "page": 61
+        },
+        {
+          "name": "Command Servitar",
+          "page": 62
+        },
+        {
+          "name": "Banish Servitar",
+          "page": 62
+        },
+        {
+          "name": "Smite Servitar",
+          "page": 62
+        },
+        {
+          "name": "Invite Demon",
+          "page": 63
+        }
       ],
       "Recepten": []
     },
@@ -4426,7 +5116,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4437,11 +5127,26 @@
         }
       ],
       "Spreuken": [
-        { "name": "Demonic Eye", "page": 61 },
-        { "name": "Command Servitar", "page": 62 },
-        { "name": "Banish Servitar", "page": 62 },
-        { "name": "Smite Servitar", "page": 62 },
-        { "name": "Invite Demon", "page": 63}
+        {
+          "name": "Demonic Eye",
+          "page": 61
+        },
+        {
+          "name": "Command Servitar",
+          "page": 62
+        },
+        {
+          "name": "Banish Servitar",
+          "page": 62
+        },
+        {
+          "name": "Smite Servitar",
+          "page": 62
+        },
+        {
+          "name": "Invite Demon",
+          "page": 63
+        }
       ],
       "Recepten": []
     },
@@ -4457,7 +5162,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4468,9 +5173,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Greater Demonic Eye", "page": 63 },
-        { "name": "Invite Greater Demon", "page": 63 },
-        { "name": "Transfer Contract", "page": 64 }
+        {
+          "name": "Greater Demonic Eye",
+          "page": 63
+        },
+        {
+          "name": "Invite Greater Demon",
+          "page": 63
+        },
+        {
+          "name": "Transfer Contract",
+          "page": 64
+        }
       ],
       "Recepten": []
     },
@@ -4486,7 +5200,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4497,9 +5211,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Greater Demonic Eye", "page": 63 },
-        { "name": "Invite Greater Demon", "page": 63 },
-        { "name": "Transfer Contract", "page": 64 }
+        {
+          "name": "Greater Demonic Eye",
+          "page": 63
+        },
+        {
+          "name": "Invite Greater Demon",
+          "page": 63
+        },
+        {
+          "name": "Transfer Contract",
+          "page": 64
+        }
       ],
       "Recepten": []
     },
@@ -4518,16 +5241,28 @@
         ]
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
       "Eigenschappen": [],
       "Spreuken": [
-        { "name": "Detect Spirit", "page": 64 },
-        { "name": "Reveal All Spirits", "page": 65 },
-        { "name": "Break Minor Possession", "page": 65 },
-        { "name": "Create Personal Grove", "page": 65 }
+        {
+          "name": "Detect Spirit",
+          "page": 64
+        },
+        {
+          "name": "Reveal All Spirits",
+          "page": 65
+        },
+        {
+          "name": "Break Minor Possession",
+          "page": 65
+        },
+        {
+          "name": "Create Personal Grove",
+          "page": 65
+        }
       ],
       "Recepten": []
     },
@@ -4546,16 +5281,28 @@
         ]
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
       "Eigenschappen": [],
       "Spreuken": [
-        { "name": "Detect Spirit", "page": 64 },
-        { "name": "Reveal All Spirits", "page": 65 },
-        { "name": "Break Minor Possession", "page": 65 },
-        { "name": "Create Personal Grove", "page": 65 }
+        {
+          "name": "Detect Spirit",
+          "page": 64
+        },
+        {
+          "name": "Reveal All Spirits",
+          "page": 65
+        },
+        {
+          "name": "Break Minor Possession",
+          "page": 65
+        },
+        {
+          "name": "Create Personal Grove",
+          "page": 65
+        }
       ],
       "Recepten": []
     },
@@ -4574,7 +5321,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4585,10 +5332,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Detect Impurity", "page": 66 },
-        { "name": "Reveal All Impurities", "page": 66 },
-        { "name": "Protection of the Grove", "page": 66 },
-        { "name": "Invite Nature Spirit", "page": 67 }
+        {
+          "name": "Detect Impurity",
+          "page": 66
+        },
+        {
+          "name": "Reveal All Impurities",
+          "page": 66
+        },
+        {
+          "name": "Protection of the Grove",
+          "page": 66
+        },
+        {
+          "name": "Invite Nature Spirit",
+          "page": 67
+        }
       ],
       "Recepten": []
     },
@@ -4607,7 +5366,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4618,10 +5377,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Detect Impurity", "page": 66 },
-        { "name": "Reveal All Impurities", "page": 66 },
-        { "name": "Protection of the Grove", "page": 66 },
-        { "name": "Invite Nature Spirit", "page": 67 }
+        {
+          "name": "Detect Impurity",
+          "page": 66
+        },
+        {
+          "name": "Reveal All Impurities",
+          "page": 66
+        },
+        {
+          "name": "Protection of the Grove",
+          "page": 66
+        },
+        {
+          "name": "Invite Nature Spirit",
+          "page": 67
+        }
       ],
       "Recepten": []
     },
@@ -4640,7 +5411,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4651,10 +5422,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Detect Impurity", "page": 66 },
-        { "name": "Reveal All Impurities", "page": 66 },
-        { "name": "Protection of the Grove", "page": 66 },
-        { "name": "Invite Nature Spirit", "page": 67 }
+        {
+          "name": "Detect Impurity",
+          "page": 66
+        },
+        {
+          "name": "Reveal All Impurities",
+          "page": 66
+        },
+        {
+          "name": "Protection of the Grove",
+          "page": 66
+        },
+        {
+          "name": "Invite Nature Spirit",
+          "page": 67
+        }
       ],
       "Recepten": []
     },
@@ -4673,7 +5456,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4684,10 +5467,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Detect Impurity", "page": 66 },
-        { "name": "Reveal All Impurities", "page": 66 },
-        { "name": "Protection of the Grove", "page": 66 },
-        { "name": "Invite Nature Spirit", "page": 67 }
+        {
+          "name": "Detect Impurity",
+          "page": 66
+        },
+        {
+          "name": "Reveal All Impurities",
+          "page": 66
+        },
+        {
+          "name": "Protection of the Grove",
+          "page": 66
+        },
+        {
+          "name": "Invite Nature Spirit",
+          "page": 67
+        }
       ],
       "Recepten": []
     },
@@ -4703,7 +5498,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4714,9 +5509,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Grove Meditation", "page": 67 },
-        { "name": "Restore the Cycle", "page": 68 },
-        { "name": "“Invite Avatar of the Cycle", "page": 68 }
+        {
+          "name": "Grove Meditation",
+          "page": 67
+        },
+        {
+          "name": "Restore the Cycle",
+          "page": 68
+        },
+        {
+          "name": "“Invite Avatar of the Cycle",
+          "page": 68
+        }
       ],
       "Recepten": []
     },
@@ -4732,7 +5536,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4743,9 +5547,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Grove Meditation", "page": 67 },
-        { "name": "Restore the Cycle", "page": 68 },
-        { "name": "“Invite Avatar of the Cycle", "page": 68 }
+        {
+          "name": "Grove Meditation",
+          "page": 67
+        },
+        {
+          "name": "Restore the Cycle",
+          "page": 68
+        },
+        {
+          "name": "“Invite Avatar of the Cycle",
+          "page": 68
+        }
       ],
       "Recepten": []
     },
@@ -4761,7 +5574,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4772,9 +5585,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Grove Meditation", "page": 67 },
-        { "name": "Restore the Cycle", "page": 68 },
-        { "name": "“Invite Avatar of the Cycle", "page": 68 }
+        {
+          "name": "Grove Meditation",
+          "page": 67
+        },
+        {
+          "name": "Restore the Cycle",
+          "page": 68
+        },
+        {
+          "name": "“Invite Avatar of the Cycle",
+          "page": 68
+        }
       ],
       "Recepten": []
     },
@@ -4790,7 +5612,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4801,9 +5623,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Grove Meditation", "page": 67 },
-        { "name": "Restore the Cycle", "page": 68 },
-        { "name": "“Invite Avatar of the Cycle", "page": 68 }
+        {
+          "name": "Grove Meditation",
+          "page": 67
+        },
+        {
+          "name": "Restore the Cycle",
+          "page": 68
+        },
+        {
+          "name": "“Invite Avatar of the Cycle",
+          "page": 68
+        }
       ],
       "Recepten": []
     },
@@ -4822,17 +5653,32 @@
         ]
       },
       "xp": 2,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
       "Eigenschappen": [],
       "Spreuken": [
-        { "name": "Detect Undead", "page": 69 },
-        { "name": "Reveal All Undead", "page": 70 },
-        { "name": "Break Minor Possession", "page": 70 },
-        { "name": "Create Zombie", "page": 71 },
-        { "name": "Minor Reconstruct", "page": 71 }
+        {
+          "name": "Detect Undead",
+          "page": 69
+        },
+        {
+          "name": "Reveal All Undead",
+          "page": 70
+        },
+        {
+          "name": "Break Minor Possession",
+          "page": 70
+        },
+        {
+          "name": "Create Zombie",
+          "page": 71
+        },
+        {
+          "name": "Minor Reconstruct",
+          "page": 71
+        }
       ],
       "Recepten": []
     },
@@ -4851,7 +5697,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4862,10 +5708,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Reconstruct", "page": 71 },
-        { "name": "Chilling Feat", "page": 71 },
-        { "name": "Bone Armour", "page": 72 },
-        { "name": "Invite Spirit of the Dead", "page": 72 }
+        {
+          "name": "Reconstruct",
+          "page": 71
+        },
+        {
+          "name": "Chilling Feat",
+          "page": 71
+        },
+        {
+          "name": "Bone Armour",
+          "page": 72
+        },
+        {
+          "name": "Invite Spirit of the Dead",
+          "page": 72
+        }
       ],
       "Recepten": []
     },
@@ -4884,7 +5742,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4895,10 +5753,22 @@
         }
       ],
       "Spreuken": [
-        { "name": "Reconstruct", "page": 71 },
-        { "name": "Chilling Feat", "page": 71 },
-        { "name": "Bone Armour", "page": 72 },
-        { "name": "Invite Spirit of the Dead", "page": 72 }
+        {
+          "name": "Reconstruct",
+          "page": 71
+        },
+        {
+          "name": "Chilling Feat",
+          "page": 71
+        },
+        {
+          "name": "Bone Armour",
+          "page": 72
+        },
+        {
+          "name": "Invite Spirit of the Dead",
+          "page": 72
+        }
       ],
       "Recepten": []
     },
@@ -4914,7 +5784,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4925,9 +5795,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Ghostly Shackles", "page": 73 },
-        { "name": "Unholy Bolt", "page": 73 },
-        { "name": "Invite Ancestor", "page": 73 }
+        {
+          "name": "Ghostly Shackles",
+          "page": 73
+        },
+        {
+          "name": "Unholy Bolt",
+          "page": 73
+        },
+        {
+          "name": "Invite Ancestor",
+          "page": 73
+        }
       ],
       "Recepten": []
     },
@@ -4943,7 +5822,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": false,
+      "loresheet": "",
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4954,9 +5833,18 @@
         }
       ],
       "Spreuken": [
-        { "name": "Ghostly Shackles", "page": 73 },
-        { "name": "Unholy Bolt", "page": 73 },
-        { "name": "Invite Ancestor", "page": 74 }
+        {
+          "name": "Ghostly Shackles",
+          "page": 73
+        },
+        {
+          "name": "Unholy Bolt",
+          "page": 73
+        },
+        {
+          "name": "Invite Ancestor",
+          "page": 74
+        }
       ],
       "Recepten": []
     }

@@ -1,4 +1,3 @@
-
 [![CI/CD Master](https://github.com/Thorfgin/charactercreator/actions/workflows/node.js.yml/badge.svg)](https://github.com/Thorfgin/charactercreator/actions/workflows/node.js.yml)
 ![License](https://img.shields.io/github/license/Thorfgin/charactercreator)
 
@@ -17,16 +16,18 @@
 		> Needs to be done from within a player portal?
 
 	WOULD: 
-	- Drag and Drop in the skill table, or other method of rearranging item
 	- EXPORT BUILD: Export the current skillset into a downloadable file
 	- IMPORT BUILD: Import a local file and set it as the current skillset
 	- PRESETS: Ability to click some preset-character builds somewhere
 	- EXPORT CHARACTER: Export the character overview as a PDF, for easy use at the event.
-	- LORESHEET: column contains an actual link to the loresheet itself
-
+	
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+	20230927	LORESHEET: column contains an actual link to the loresheet itself
+				TABLE: columns are sortable by clicking the header
+				TABLE: Drag and Drop in the skill table, as method of rearranging items
+
 	20230926	SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
 				(SIZE, COLOR, ANIMATION, ETC)
 				WONT DO: Change Error messages (modals) to a (!) img with mouseover.
