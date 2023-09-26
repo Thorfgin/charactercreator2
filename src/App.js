@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from 'react';
-import { useTable } from 'react-table';
+import { useTable, useSortBy } from 'react-table';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import Select from 'react-select';
 import Tooltip from './tooltip.js';
 import openPage from './openPdf.js';
@@ -62,7 +63,7 @@ const columns = [
     { Header: "Vaardigheid", accessor: "skill", className: "col-vaardigheid" },
     { Header: "XP Kosten", accessor: "xp", className: "col-xp" },
     { Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: ({ value }) => (requestLoreSheet(value)), },
-    { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" }, 
+    { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
     { Header: "Info", className: "col-info", Cell: ({ row }) => requestInfo(row) },
 ];
 
@@ -74,7 +75,6 @@ export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
         const reqAny = selectedSkill.Requirements.any_list;
         const reqCategory = selectedSkill.Requirements.Category;
         const reqException = selectedSkill.Requirements.exception;
-
 
         // exit early
         if (reqSkill.length === 0 &&
@@ -460,7 +460,7 @@ function requestInfo(row) {
 function requestLoreSheet({ pdf, page }) {
 
     if (!pdf || pdf === "") {
-        <div className="info"/>
+        <div className="info" />
     }
     else {
         return (
@@ -844,6 +844,18 @@ export default function App() {
         }
     }
 
+    // TableData aanpassen op basis van Drag & Drop
+    const handleDragEnd = (result) => {
+        if (!result.destination) return;
+
+        const updatedTableData = [...tableData];
+        const [reorderedRow] = updatedTableData.splice(result.source.index, 1);
+        updatedTableData.splice(result.destination.index, 0, reorderedRow);
+
+        setTableData(updatedTableData);
+    };
+
+
     function showDisclaimer() {
         setModalMsg(
             "De character creator geeft een indicatie van de mogelijkheden.\n " +
@@ -875,7 +887,7 @@ export default function App() {
     }
 
     const closeModal = () => { setShowModal(false); };
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData, });
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData }, useSortBy);
 
     /// --- HTML CONTENT --- ///
     return (
@@ -994,36 +1006,66 @@ export default function App() {
                             </div>
                         )}
 
-                    <table {...getTableProps()} className="App-table">
-                        <thead>
-                            {headerGroups.map((headerGroup) => (
-                                <tr {...headerGroup.getHeaderGroupProps()}>
-                                    {headerGroup.headers.map((column) => (
-                                        <th {...column.getHeaderProps()} className={column.className}>{column.render('Header')}</th>
-                                    ))}
-                                    <th className="col-acties">Acties</th>
-                                </tr>
-                            ))}
-                        </thead>
-                        <tbody {...getTableBodyProps()}>
-                            {rows.map((row) => {
-                                prepareRow(row);
-                                return (
-                                    <tr {...row.getRowProps()}>
-                                        {row.cells.map((cell) => {
-                                            return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
-                                        })}
-                                        <td role="cell">
-                                            {requestActions(row)}
-                                        </td>
+                    <DragDropContext onDragEnd={handleDragEnd}>
+                        <table {...getTableProps()} className="App-table">
+                            <thead>
+                                {headerGroups.map((headerGroup) => (
+                                    <tr {...headerGroup.getHeaderGroupProps()}>
+                                        {headerGroup.headers.map((column) => (
+                                            <th
+                                                {...column.getHeaderProps(column.getSortByToggleProps())}
+                                                className={column.className}
+                                            >
+                                                {column.render('Header')}
+                                                <span>
+                                                    {column.isSorted ? (column.isSortedDesc ? ' \u25BC' : ' \u25B2') : ''}
+                                                </span>
+                                            </th>
+                                        ))}
+                                        <th className="col-acties">Acties</th>
                                     </tr>
-                                );
-                            })}
-                            {
-                                getTableDataSums()
-                            }
-                        </tbody>
-                    </table>
+                                ))}
+                            </thead>
+                            <Droppable droppableId="skillsDataTable">
+                                {(provided) => (
+                                    <tbody
+                                        {...getTableBodyProps()}
+                                        ref={provided.innerRef}
+                                        {...provided.droppableProps}
+                                    >
+                                        {rows.map((row, index) => {
+                                            prepareRow(row);
+                                            return (
+                                                <Draggable
+                                                    key={row.id.toString()}
+                                                    draggableId={row.id.toString()}
+                                                    index={index}>
+                                                    {(provided) => (
+                                                        <tr
+                                                            ref={provided.innerRef}
+                                                            {...provided.draggableProps}
+                                                            {...provided.dragHandleProps}
+                                                        >
+                                                            {row.cells.map((cell) => (
+                                                                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                                            ))}
+                                                            <td role="cell">
+                                                                {requestActions(row)}
+                                                            </td>
+                                                        </tr>
+                                                    )}
+                                                </Draggable>
+                                            );
+                                        })}
+                                        {
+                                            getTableDataSums()
+                                        }
+                                        {provided.placeholder}
+                                    </tbody>
+                                )}
+                            </Droppable>
+                        </table>
+                    </DragDropContext>
 
                     {showModal && modalContent(modalMsg, closeModal)}
                 </div>
@@ -1077,13 +1119,13 @@ export default function App() {
                         </div>
                     </div>
                 </div>
-            </main>
+            </main >
             <div className="flex-filler"></div>
             <footer>
                 <div>{packageInfo.version}</div>
                 <div>{packageInfo.creator}{'\u2122'}</div>
                 <div className="disclaimer" onClick={showDisclaimer}>Disclaimer</div>
             </footer>
-        </div>
+        </div >
     );
 }
