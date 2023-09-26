@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTable } from 'react-table';
 import Select from 'react-select';
-import { Tooltip } from './tooltip.js';
+import Tooltip from './tooltip.js';
+import openPage from './openPdf.js';
 import {
     GridEigenschapItem,
     GenericTooltipItem,
@@ -14,6 +15,7 @@ import {
 import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
 import recepten from './json/recepten.json';
+import packageInfo from '../package.json';
 import './App.css';
 
 let totalXP = 0; // Berekende totaal waarde
@@ -70,6 +72,8 @@ export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
         const reqSkill = selectedSkill.Requirements.skill;
         const reqAny = selectedSkill.Requirements.any_list;
         const reqCategory = selectedSkill.Requirements.Category;
+        const reqException = selectedSkill.Requirements.exception;
+
 
         // exit early
         if (reqSkill.length === 0 &&
@@ -115,6 +119,16 @@ export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
                         "\nToevoegen is niet toegestaan.");
                 }
             }
+
+            // exception
+            if (reqException && meetsPrerequisite === false) {
+                const isValidException = verifyTableMeetsPrerequisiteException(reqException, tableData);
+                if (isValidException === true) {
+                    meetsPrerequisite = true
+                    setModalMsg('');
+                }
+            }
+
         }
     }
     else {
@@ -149,6 +163,7 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
                 const reqSkill = skillTableData.Requirements.skill;
                 const reqAny = skillTableData.Requirements.any_list;
                 const reqCategory = skillTableData.Requirements.Category;
+                const reqException = skillTableData.Requirements.exception;
 
                 if (isRemoved === true &&
                     skillTableData.skill.toLowerCase() === nameSkillToRemove.toLowerCase()) { continue; }
@@ -194,6 +209,16 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
                         if (isPrerequisite === true) {
                             setModalMsg("Dit item is nodig voor de vereiste XP (" + totalReqXP + ")\n" +
                                 "voor de vaardigheid: \n" + skillTableData.skill + "\n" +
+                                "Verwijderen is niet toegestaan.");
+                        }
+                    }
+
+                    // exception
+                    if (reqException && isPrerequisite === false) {
+                        isPrerequisite = verifyTableExceptionSkillMeetsPrerequisite(tableData, reqException, skillTableData, nameSkillToRemove, setModalMsg);
+                        if (isPrerequisite === true) {
+                            setModalMsg("Dit item is nodig voor als uitzondering" +
+                                " voor de vaardigheid: \n" + skillTableData.skill + "\n" +
                                 "Verwijderen is niet toegestaan.");
                         }
                     }
@@ -317,10 +342,23 @@ function verifyTableMeetsPrerequisiteCategoryXP(reqCategory, tableData) {
             categories.includes(skillTableData.category) &&                                 // van de juiste categorie
             (skillTableData.Spreuken.length > 0 || skillTableData.Recepten.length > 0));    // alleen skills met recepten of spreuken zijn doorgaans relevant
         selectedSkills.forEach(item => selectedSkillsXP += item.xp);                        // optellen totaal XP
-        console.log(selectedSkills, selectedSkillsXP);
         if (selectedSkillsXP >= totalReqXP) { meetsPrerequisite = true; }
     }
     return meetsPrerequisite;
+}
+
+// Als er een vaardigheid is (Druid/Necro) die prerequisite mag negeren
+function verifyTableMeetsPrerequisiteException(reqExceptions, tableData) {
+    let meetsException = false;
+    for (const reqException of reqExceptions) {
+        const matchingSkills = tableData.filter(skillTableData =>
+            skillTableData.skill.toLowerCase().includes(reqException.toLowerCase()));
+        if (matchingSkills.length > 0) {
+            meetsException = true;
+            break;
+        }
+    }
+    return meetsException;
 }
 
 // Check of een Category prerequisite behouden wordt wanneer de skill verwijdert/verlaagd wordt
@@ -336,6 +374,32 @@ function verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, ite
     selectedSkills.forEach(item => selectedSkillsXP += item.xp); // calculate XP
     if (totalReqXP > selectedSkillsXP) { isPrerequisite = true; }
     return isPrerequisite;
+}
+
+// Check of de uitgezonderde skills aanwezig zijn in tableData en of deze nog voldoen zonder verwijderde vaardigheid
+// Dit is specifiek voor Druid/Necro die bepaalde vereisten mogen negeren
+function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, skillTableData, nameSkillToRemove, setModalMsg) {
+    let isExceptionPrerequisite = false;
+
+    // console.log(nameSkillToRemove, reqExceptions, skillTableData)
+
+    for (const exception of reqExceptions) {
+        if (nameSkillToRemove.toLowerCase() === exception.toLowerCase()) {
+            const filteredTableData = []
+            for (const oldSkill of tableData) {
+                if (oldSkill.skill.toLowerCase() !== skillTableData.skill.toLowerCase() &&
+                    oldSkill.skill.toLowerCase() !== nameSkillToRemove.toLowerCase())
+                    filteredTableData.push(oldSkill)
+            }
+
+            const meetsPrequisites = meetsAllPrerequisites(skillTableData, filteredTableData, setModalMsg)
+            if (meetsPrequisites === false) {
+                isExceptionPrerequisite = true;
+                break;
+            }
+        }
+    }
+    return isExceptionPrerequisite;
 }
 
 // Check of de ritualisme vaardigheid verwijdert wordt, en zo ja of deze een prerequisite is.
@@ -406,6 +470,77 @@ export default function App() {
         else { setMAX_XP(1); }
     };
 
+    // SELECT & INFO
+    const imageSrc = ["./images/img-info.png", "./images/img-info_red.png"]
+    const [currentBasicImageIndex, setCurrentBasicImageIndex] = useState(0);
+    const [currentExtraImageIndex, setCurrentExtraImageIndex] = useState(0);
+
+    const btnAddBasicRef = useRef(null);
+    const btnAddExtraRef = useRef(null);
+
+    useEffect(() => { onSelectSkill(true, selectedBasicSkill); }, [selectedBasicSkill]);
+    useEffect(() => { onSelectSkill(false, selectedExtraSkill); }, [selectedExtraSkill]);
+
+    // Op basis van de geselecteerde skill, bepaald de bijbehorende (i) afbeelding
+    function onSelectSkill(isBasicSkill, selectedSkill) {
+        let meetsPrerequisites;
+
+        if (selectedSkill && selectedSkill.value !== "") {
+            let selectedRecord = sourceBasisVaardigheden.find((record) =>
+                record.skill.toLowerCase() === selectedSkill.value.toLowerCase());
+            if (!selectedRecord) {
+                selectedRecord = sourceExtraVaardigheden.find((record) =>
+                    record.skill.toLowerCase() === selectedSkill.value.toLowerCase());
+            }
+
+            meetsPrerequisites = meetsAllPrerequisites(selectedRecord, tableData, setModalMsg);
+
+            if (meetsPrerequisites === false) {
+                isBasicSkill ? btnAddBasicRef.current.disabled = true : btnAddExtraRef.current.disabled = true;
+                loop(isBasicSkill);
+            }
+            else {
+                isBasicSkill ? btnAddBasicRef.current.disabled = false : btnAddExtraRef.current.disabled = false;
+            }
+            isBasicSkill ? setCurrentBasicImageIndex(0) : setCurrentExtraImageIndex(0);
+        }
+        else {
+            if (isBasicSkill) {
+                isBasicSkill ? btnAddBasicRef.current.disabled = false : btnAddExtraRef.current.disabled = false;
+            }
+            
+        }
+    }
+
+    // TOOLTIP ICON
+    // Laat het icoontje flitsen van zwart > rood
+    function loop(isBasicSkill, counter = 0) {
+        const maxIterations = 8;
+        const delay = 100;
+
+        if (isBasicSkill === true) {
+            setTimeout(() => {
+                setCurrentBasicImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+                if (counter < maxIterations) {
+                    setTimeout(() => {
+                        loop(isBasicSkill, counter + 1);
+                    }, delay);
+                };
+            })
+        }
+        else {
+            setTimeout(() => {
+                setCurrentExtraImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+                if (counter < maxIterations) {
+                    setTimeout(() => {
+                        loop(isBasicSkill, counter + 1);
+                    }, delay);
+                };
+            })
+        }
+    }
+
+
     /// --- GRID CONTENT --- ///
     function onUpdateTableData() {
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
@@ -457,6 +592,7 @@ export default function App() {
                 <tr>
                     <td /><td>Aantal vaardigheden: {totalSkills} </td>
                     <td>Totaal: {totalXP}</td>
+                    <td />
                     <td />
                     <td />
                     <td>
@@ -614,6 +750,31 @@ export default function App() {
         }
     };
 
+    // Plaats Info in de kolom
+    function requestInfo(row) {
+        let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
+        if (!currentItem) { currentItem = sourceExtraVaardigheden.find((record) => record.id === row.original.id); }
+
+        return (
+            <div className="info">
+                <div className="acties-info">
+                    <Tooltip
+                        skillName={currentItem.skill}
+                        isSpell={false}
+                        isRecipy={false}
+                        isSkill={true}
+                    />
+                    <img
+                        className="btn-image"
+                        onClick={() => openPage('Vaardigheden.pdf', currentItem.page)}
+                        src="./images/img-pdf.png"
+                        alt="PDF">
+                    </img>
+                </div>
+            </div>
+        )
+    }
+
     // Plaats Acties in de kolom op basis van de multipurchase property
     function requestActions(row) {
         let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
@@ -622,14 +783,6 @@ export default function App() {
         if (currentItem && currentItem.multi_purchase === true) {
             return (
                 <div className="acties">
-                    <div className="acties-tooltip">
-                        <Tooltip
-                            skillName={currentItem.skill}
-                            isSpell={false}
-                            isRecipy={false}
-                            isSkill={true}
-                        />
-                    </div>
                     <div className="acties-overige">
                         <img
                             className="btn-image"
@@ -657,14 +810,6 @@ export default function App() {
         else {
             return (
                 <div className="acties">
-                    <div className="acties-tooltip">
-                        <Tooltip
-                            skillName={currentItem.skill}
-                            isSpell={false}
-                            isRecipy={false}
-                            isSkill={true}
-                        />
-                    </div>
                     <div className="acties-overige">
                         <img
                             className="btn-image"
@@ -733,7 +878,7 @@ export default function App() {
                         </div>
                         <div>
                             <label className="settings-label">
-                                Max XP:
+                                Max XP: 
                             </label>
                             <input className="settings-input-xp"
                                 type="number"
@@ -743,6 +888,17 @@ export default function App() {
                                 onChange={handleInputChange}
                                 disabled={isChecked}
                                 step={0.25}
+                            />
+
+                            <label className="settings-label">
+                                XP over: 
+                            </label>
+                            <input className="settings-input-xp"
+                                type="number"
+                                value={MAX_XP - totalXP}
+                                min={1}
+                                max={100}
+                                disabled={true}
                             />
                         </div>
                     </div>
@@ -760,18 +916,21 @@ export default function App() {
 
                         {   // Conditionele tooltip
                             selectedBasicSkill &&
-                            selectedBasicSkill.value !== "" &&
                             <div className="select-info">
                                 <Tooltip
                                     skillName={selectedBasicSkill.value}
                                     isSpell={false}
                                     isRecipy={false}
                                     isSkill={true}
+                                    image={imageSrc[currentBasicImageIndex]}
                                 />
                             </div>
                         }
 
-                        <button className="btn-primary" onClick={handleBasicSkillSelection}>
+                        <button
+                            ref={btnAddBasicRef}
+                            className="btn-primary"
+                            onClick={handleBasicSkillSelection}>
                             Toevoegen
                         </button>
                     </div>
@@ -800,11 +959,15 @@ export default function App() {
                                             isSpell={false}
                                             isRecipy={false}
                                             isSkill={true}
+                                            image={imageSrc[currentExtraImageIndex]}
                                         />
                                     </div>
                                 }
 
-                                <button className="btn-primary" onClick={handleExtraSkillSelection}>
+                                <button
+                                    ref={btnAddExtraRef}
+                                    className="btn-primary"
+                                    onClick={handleExtraSkillSelection}>
                                     Toevoegen
                                 </button>
                             </div>
@@ -817,6 +980,7 @@ export default function App() {
                                     {headerGroup.headers.map((column) => (
                                         <th {...column.getHeaderProps()} className={column.className}>{column.render('Header')}</th>
                                     ))}
+                                    <th className="col-info">Info</th>
                                     <th className="col-acties">Acties</th>
                                 </tr>
                             ))}
@@ -829,8 +993,10 @@ export default function App() {
                                         {row.cells.map((cell) => {
                                             return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
                                         })}
-
-                                        <td>
+                                        <td role="cell">
+                                            {requestInfo(row)}
+                                        </td>
+                                        <td role="cell">
                                             {requestActions(row)}
                                         </td>
                                     </tr>
@@ -871,6 +1037,7 @@ export default function App() {
                                     skill={item.skill}
                                     name={item.name}
                                     type={"grid-spreuken"}
+                                    page={item.page}
                                     key={index}
                                     text={item.name}
                                 />
@@ -896,12 +1063,10 @@ export default function App() {
             </main>
             <div className="flex-filler"></div>
             <footer>
-                <div>2023 v0.1-alpha</div>
-                <div>Design by Deprecated Dodo{'\u2122'}</div>
+                <div>{packageInfo.version}</div>
+                <div>{packageInfo.creator}{'\u2122'}</div>
                 <div className="disclaimer" onClick={showDisclaimer}>Disclaimer</div>
             </footer>
         </div>
     );
 }
-
-

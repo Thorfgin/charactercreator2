@@ -9,11 +9,6 @@
 	MUST
 
 	SHOULD:
-	- SKILL/SPELL: Add a Source/Page reference to each skill/spell
-	- SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
-	(SIZE, COLOR, ANIMATION, ETC)
-	- Change Error messages (modals) to a (!) img with mouseover 
-	- XP: add a reverse counter to show the ammount of free xp.
 
 	COULD:
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
@@ -32,6 +27,18 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+	20230926	SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
+				(SIZE, COLOR, ANIMATION, ETC)
+				WONT DO: Change Error messages (modals) to a (!) img with mouseover.
+				This is done already above, as the only messages/modals are shown when adding/removing items.
+				Removing has no valid option to show another (!).
+				XP: add a reverse counter to show the ammount of free xp.
+
+	20230924	SPELL: Add a PDF Source/Page reference to each GridItem
+				SKILL: Add a PDF Source/Page reference to each row
+				feature: Added and exception clause so certain skills are alllowed to bypass prerequisites
+				bugfixes: fixed some inconsistencies in the skills, causing minor bugs
+
 	20230922	REFACTOR: Major overhaul and seperation of functionality into functions for maintainability
 				UNITTESTING: Added __test__ folder and implemented unittesting on prerequisites
 				SELECT: Upgraded Select to add on an Enter, and blank on Escape
