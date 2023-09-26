@@ -878,7 +878,7 @@ export default function App() {
                         </div>
                         <div>
                             <label className="settings-label">
-                                Max XP:
+                                Max XP: 
                             </label>
                             <input className="settings-input-xp"
                                 type="number"
@@ -888,6 +888,17 @@ export default function App() {
                                 onChange={handleInputChange}
                                 disabled={isChecked}
                                 step={0.25}
+                            />
+
+                            <label className="settings-label">
+                                XP over: 
+                            </label>
+                            <input className="settings-input-xp"
+                                type="number"
+                                value={MAX_XP - totalXP}
+                                min={1}
+                                max={100}
+                                disabled={true}
                             />
                         </div>
                     </div>
