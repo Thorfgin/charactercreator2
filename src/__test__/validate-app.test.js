@@ -6,6 +6,8 @@ import {
     sourceExtraVaardigheden
 } from '../../src/App.js';
 
+
+
 // Moke the setState function
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
@@ -184,6 +186,20 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
         isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Extra Wilskracht", true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
     });
+
+    // Exception (Druid/Necro)
+    test('Cannot remove a Skill that is an Exception to the prerequisites', () => {
+        const mageB = replaceChar("Magiërspreuken B - Metaal");
+        const basisSkills = ["Priesterspreuken A - Dood", "Priesterspreuken B - Dood", mageB];
+        const extraSkills = ["Doods Druidisme A"] 
+
+        const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
+        const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
+        const mockTableData = [...tableDataBasis, ...tableDataExtra]
+        
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Doods Druidisme A", true, mockTableData, setModalMsg);
+        expect(isPrerequisite).toBe(true);
+    });
 });
 
 // SUBTRACT SKILL //
@@ -335,4 +351,20 @@ describe('Using meetsAllPrerequisites', () => {
         expect(meetsPrerequisite).toBe(true);
     });
 
+    // Exception (Druid/Necro)
+    test('Can add a Skill that is an Exception to the prerequisites', () => {
+        const basisSkills = ["Priesterspreuken A - Dood", "Priesterspreuken B - Dood"];
+        const extraSkills = ["Doods Druidisme A"]
+
+        const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
+        const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
+
+        const mockTableData = [...tableDataBasis, ...tableDataExtra]
+
+        const mageB = replaceChar("Magiërspreuken B - Metaal");
+        const mockMageB = getSkillsFromBasisVaardigheden([mageB])[0];
+
+        let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData, setModalMsg);
+        expect(meetsPrerequisite).toBe(true);
+    });
 })

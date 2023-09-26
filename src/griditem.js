@@ -1,4 +1,5 @@
-import { Tooltip } from './tooltip.js'
+import Tooltip from './tooltip.js'
+import openPage from './openPdf.js'
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
@@ -16,30 +17,10 @@ export function GridEigenschapItem({ image, text, value }) {
 }
 
 // Generiek aanmaken van een tooltip knop op basis van type
-export function GenericTooltipItem({ skill, name, text, type }) {
+export function GenericTooltipItem({ skill, name, text, type, page }) {
     let result = <div></div>;
-
-    // Toevoegen INFO MODAL >>  Spreuken
-    if (type === "grid-spreuken") {
-        result = (<Tooltip
-            skillName={skill}
-            itemName={name}
-            isSpell={true}
-            isRecipy={false}
-            isSkill={false}
-        />);
-    }
-
-    // Toevoegen INFO MODAL >> Recepten
-    else if (type === "grid-recepten") {
-        result = (<Tooltip
-            skillName={skill}
-            itemName={name}
-            isSpell={false}
-            isRecipy={true}
-            isSkill={false}
-        />);
-    }
+    if (type === "grid-spreuken") { result = getTooltip(skill, name, type, page); }
+    if (type === "grid-recepten") { result = getTooltip(skill, name, type); }
 
     return (
         <div className="grid-spreuk-item">
@@ -47,6 +28,35 @@ export function GenericTooltipItem({ skill, name, text, type }) {
             {result}
         </div>
     );
+}
+
+function getTooltip(skill, name, type, page) {
+    let isSpell = false;
+    let isRecipy = false;
+
+    if (type === "grid-spreuken") { isSpell = true; }
+    else if (type === "grid-recepten") { isRecipy = true; }
+    else { console.log("Type was not recognized")}
+
+    return (
+        <div className="grid-spreuk-icons">
+            <Tooltip
+                skillName={skill}
+                itemName={name}
+                isSpell={isSpell}
+                isRecipy={isRecipy}
+                isSkill={false} />
+            {isSpell &&
+             page && (
+                <img
+                    className="btn-image"
+                    onClick={() => openPage('Spreuken.pdf', page)}
+                    src="./images/img-pdf.png"
+                    alt="PDF">
+                </img>
+            )}
+        </div>
+    )
 }
 
 // Op basis van de Eigenschappen, voeg nieuwe tegels toe.

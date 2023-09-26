@@ -7,7 +7,8 @@ import {
 } from './App.js'
 
 // Tooltip component voor GridItems
-export function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill }) {
+// Gebruikt OF skillName OF de combinatioe van skillName/itemName (spell/technique/recipy e.d.)
+function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill, image }) {
     const [showTooltip, setShowTooltip] = useState(false);
     const handleMouseOver = () => setShowTooltip(true);
     const closeTooltip = () => setShowTooltip(false);
@@ -21,13 +22,14 @@ export function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill }) {
     }
     if (!sourceSkill) { return null; } // Exit early.
 
-    let data = getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName);  
+    let data = getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName);   
+    if (!image) { image = './images/img-info.png' }
 
     return (
         <div className="tooltip-container" onMouseEnter={handleMouseOver}>
             <img
                 className="btn-image"
-                src="./images/img-info.png"
+                src={image}
                 alt="info"
             />
             {showTooltip && (
@@ -45,7 +47,9 @@ export function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill }) {
             )}
         </div>
     );
-}
+};
+
+export default Tooltip;
 
 // Data ophalen uit basisvaardigheden, spreuken of recepten
 function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
@@ -102,13 +106,12 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
 
 
         let newCategoryRequirements = "";
-        const reqCategory = sourceSkill.Requirements.Category;        
-        if (reqCategory && reqCategory.name.length > 0)
-        {
+        const reqCategory = sourceSkill.Requirements.Category;
+        if (reqCategory && reqCategory.name.length > 0) {
             reqCategory.name.forEach((item) => newCategoryRequirements += (newCategoryRequirements === "" ? item : ", \n" + item))
             newCategoryRequirements = "" + reqCategory.value + " xp in de volgende categorie(n): \n" + newCategoryRequirements;
             fullRequirementsBlock += newCategoryRequirements + "\n";
-        }        
+        }
 
         data = {
             xp: sourceSkill.xp,
@@ -130,12 +133,12 @@ function getMappingFromData(data, isSkill, isSpell, isRecipy) {
         let descriptionBlock = data.description.split('\n');
         const description = descriptionBlock.map((block, index) => (
             <div key={index} className="description-block"> {block === '' ? <br /> : block} </div>
-        ))    
+        ))
 
         let reqBlock = data.requirements.split('\n');
         const requirements = reqBlock.map((block, index) => (
             <div key={index} className="requirements-block"> {block === '' ? <br /> : block} </div>
-        ))    
+        ))
 
         return [
             { label: 'XP kosten', value: data.xp },
@@ -153,7 +156,7 @@ function getMappingFromData(data, isSkill, isSpell, isRecipy) {
         let descriptionBlock = data.description.split('\n');
         const description = descriptionBlock.map((block, index) => (
             <div key={index} className="description-block"> {block === '' ? <br /> : block} </div>
-        ))   
+        ))
 
         return [
             { label: 'Mana kosten', value: data.mana_cost },
@@ -172,7 +175,7 @@ function getMappingFromData(data, isSkill, isSpell, isRecipy) {
         let descriptionBlock = data.effect.split('\n');
         const description = descriptionBlock.map((block, index) => (
             <div key={index} className="description-block"> {block === '' ? <br /> : block} </div>
-        ))  
+        ))
 
         return [
             { label: 'Omschrijving', value: description },
