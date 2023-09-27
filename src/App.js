@@ -330,7 +330,7 @@ function verifyTableMeetsPrerequisiteCategoryXP(reqCategory, tableData) {
         const tableDataSkills = tableData.filter(tableItem => categories.includes(tableItem.category));
 
         for (const skill of tableDataSkills) {
-            if (skill.xp > totalReqXP) {
+            if (skill.xp >= totalReqXP) {
                 meetsPrerequisite = true;
                 break;
             }
