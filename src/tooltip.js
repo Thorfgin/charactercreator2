@@ -94,6 +94,8 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
             reqSkills.forEach((item) => newRequirements += (newRequirements === "" ? item : ", \n" + item))
             fullRequirementsBlock += newRequirements + "\n";
         };
+        // uitzondering - deze staat niet in de vaardigheden.json
+        if (sourceSkill.skill === "Leermeester Expertise") { fullRequirementsBlock += "1 Extra vaardigheid"; }
 
         // check any_list
         let newAnyRequirements = "";
