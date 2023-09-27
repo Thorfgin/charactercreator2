@@ -382,8 +382,6 @@ function verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, ite
 function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, skillTableData, nameSkillToRemove, setModalMsg) {
     let isExceptionPrerequisite = false;
 
-    // console.log(nameSkillToRemove, reqExceptions, skillTableData)
-
     for (const exception of reqExceptions) {
         if (nameSkillToRemove.toLowerCase() === exception.toLowerCase()) {
             const filteredTableData = []
@@ -893,7 +891,7 @@ export default function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <img src="./images/logo_100.png" alt="Logo" />
+                <img id="App-VA-logo" src="./images/logo_100.png" alt="Logo"/>
                 <h2>Character Creator</h2>
             </header>
             <main>

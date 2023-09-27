@@ -1,17 +1,66 @@
-import Tooltip from './tooltip.js'
-import openPage from './openPdf.js'
+import React, { useState } from 'react';
+import Tooltip from './tooltip.js';
+import openPage from './openPdf.js';
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
     defaultProperties
-} from './App.js'
+} from './App.js';
+import { SpiderController } from './additions/bug.js';
+import './css/heart.css';
+
 
 // Karakter eigenschappen griditem
 export function GridEigenschapItem({ image, text, value }) {
+    const [clicked, setClicked] = useState(false);
+    const [counter, setCounter] = useState(0);
+    let reqClicks = 2;
+
+    const handleItemClick = () => {
+        setClicked(!clicked);
+        setCounter(counter + 1);
+    };
+
+    const getContent = () => {
+        if (text.trim() === "Totaal HP" && clicked && counter >= reqClicks) {
+            const jstoggle = document.getElementById("App-VA-logo");
+            let hiddenContent;
+
+            // event listenis op Logo. Werkt wanneer hartje aanwezig is.
+            jstoggle.addEventListener('click', () => {
+                const pulsingHeart = document.getElementById("pulsingheart");
+                if (pulsingHeart) {
+                    var spiderInstance = new SpiderController({ 'minBugs': 2, 'maxBugs': 6 });
+
+                    hiddenContent =
+                        <div>
+                            {spiderInstance}
+                        </div>
+                }
+                console.log("CLICK!")
+            });
+
+            return (
+                <div id="wrapper">
+                    <div id="pulsingheart"></div>
+                    {hiddenContent}
+                </div>
+            );
+        }
+        else {
+            if (counter > reqClicks) { setCounter(0); }
+            return (
+                <div>
+                    <div className="grid-eigenschap-image" style={{ backgroundImage: "url(" + image + ")" }} />
+                    <div className="grid-eigenschap-text">{text}: {value}</div>
+                </div>
+            )
+        }
+    }
+
     return (
-        <div className="grid-eigenschap-item">
-            <div className="grid-eigenschap-image" style={{ backgroundImage: "url(" + image + ")" }} />
-            <div className="grid-eigenschap-text">{text}: {value}</div>
+        <div className={`grid-eigenschap-item ${clicked ? 'clicked' : ''}`} onClick={handleItemClick}>
+            {getContent()}
         </div>
     );
 }
@@ -36,7 +85,7 @@ function getTooltip(skill, name, type, page) {
 
     if (type === "grid-spreuken") { isSpell = true; }
     else if (type === "grid-recepten") { isRecipy = true; }
-    else { console.log("Type was not recognized")}
+    else { console.log("Type was not recognized") }
 
     return (
         <div className="grid-spreuk-icons">
@@ -47,14 +96,14 @@ function getTooltip(skill, name, type, page) {
                 isRecipy={isRecipy}
                 isSkill={false} />
             {isSpell &&
-             page && (
-                <img
-                    className="btn-image"
-                    onClick={() => openPage('Spreuken.pdf', page)}
-                    src="./images/img-pdf.png"
-                    alt="PDF">
-                </img>
-            )}
+                page && (
+                    <img
+                        className="btn-image"
+                        onClick={() => openPage('Spreuken.pdf', page)}
+                        src="./images/img-pdf.png"
+                        alt="PDF">
+                    </img>
+                )}
         </div>
     )
 }
