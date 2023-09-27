@@ -307,6 +307,20 @@ describe('Using meetsAllPrerequisites', () => {
     });
 
     // Category
+    test('Can add an extra Ritualism skill that meets its Categorie prerequisite', () => {
+        const basisSkills = ["Elementair Ritualisme"];
+        const extraSkills = ["Ritueel Leider"]
+
+        const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
+        const mockRitualLeader = getSkillsFromExtraVaardigheden(extraSkills)[0];
+
+        mockTableData[0].xp = 3;
+        mockTableData[0].count = 3;
+
+        let meetsPrerequisites = meetsAllPrerequisites(mockRitualLeader, mockTableData, setModalMsg);
+        expect(meetsPrerequisites).toBe(true);
+    });
+
     test('Cannot add an extra Ritualism skill that does not meet its Categorie prerequisite', () => {
         const basisSkills = [];
         const extraSkills = ["Cirkel Vinden"]

@@ -8,6 +8,7 @@
 	MUST
 
 	SHOULD:
+	SESSION: Store the current session in a cookie to be resumed after closing
 
 	COULD:
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
@@ -24,6 +25,11 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+	20230928	
+				bugfixes: fixed some minor inconsistencies
+				- added special prereq to teacher expertise in tooltip
+				- fixed check on extra skills for ritualism
+
 	20230927	LORESHEET: column contains an actual link to the loresheet itself
 				TABLE: columns are sortable by clicking the header
 				TABLE: Drag and Drop in the skill table, as method of rearranging items
