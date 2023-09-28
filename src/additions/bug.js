@@ -328,7 +328,7 @@ BugController.prototype = BugDispatch;
 
 export function SpiderController() {
     var spiderOptions = {
-        imageSprite: './images/spider-sprite.png',
+        imageSprite: './images/sabioth-sprite.png',
         bugWidth: 69,
         bugHeight: 90,
         num_frames: 7,

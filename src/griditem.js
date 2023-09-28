@@ -41,9 +41,14 @@ export function GridEigenschapItem({ image, text, value }) {
             });
 
             return (
-                <div id="wrapper">
-                    <div id="pulsingheart"></div>
-                    {hiddenContent}
+                <div>
+                    <div className="grid-eigenschap-image" style={{ backgroundImage: "url(" + image + ")" }}>
+                        <div id="wrapper">
+                            <div id="pulsingheart"></div>
+                            {hiddenContent}
+                        </div>
+                    </div >
+                    <div className="grid-eigenschap-text">{text}: {value}</div>
                 </div>
             );
         }
