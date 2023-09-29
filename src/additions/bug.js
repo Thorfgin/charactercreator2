@@ -335,7 +335,7 @@ export function SpiderController() {
         canFly: false,
         canDie: true,
         numDeathTypes: 2,
-        zoom: 6,
+        zoom: 10,
         minDelay: 200,
         maxDelay: 3000,
         minSpeed: 6,
@@ -348,6 +348,54 @@ export function SpiderController() {
 }
 
 SpiderController.prototype = BugDispatch;
+
+
+export function GhostController() {
+    var spiderOptions = {
+        imageSprite: './images/ghost-sprite.png',
+        bugWidth: 26,
+        bugHeight: 28,
+        canFly: true,
+        canDie: true,
+        numDeathTypes: 3,
+        zoom: 10,
+        minDelay: 200,
+        maxDelay: 3000,
+        minSpeed: 10,
+        maxSpeed: 25,
+        minBugs: 5,
+        maxBugs: 15,
+        num_frames: 5,
+    };
+    this.options = mergeOptions(this.options, spiderOptions);
+    this.initialize.apply(this, arguments);
+}
+
+GhostController.prototype = BugDispatch;
+
+export function SkeletonController() {
+    var spiderOptions = {
+        imageSprite: './images/skeleton-sprite.png',
+        bugWidth: 26,
+        bugHeight: 28,
+        canFly: false,
+        canDie: true,
+        numDeathTypes: 3,
+        zoom: 10,
+        minDelay: 200,
+        maxDelay: 3000,
+        minSpeed: 10,
+        maxSpeed: 16,
+        minBugs: 10,
+        maxBugs: 20,
+        num_frames: 5,
+    };
+    this.options = mergeOptions(this.options, spiderOptions);
+    this.initialize.apply(this, arguments);
+}
+
+SkeletonController.prototype = BugDispatch;
+
 
 /***************/
 /**    Bug    **/

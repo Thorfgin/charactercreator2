@@ -8,7 +8,8 @@ import {
 } from './App.js';
 import {
     SpiderController,
-    BugController
+    GhostController,
+    SkeletonController,
 } from './additions/bug.js';
 import './css/heart.css';
 
@@ -19,7 +20,8 @@ export function GridEigenschapItem({ image, text, value }) {
     const [clicked, setClicked] = useState(false);
     const [counter, setCounter] = useState(0);
     const [spiderController, setSpiderController] = useState(null);
-    const [bugController, setBugController] = useState(null);
+    const [ghostController, setGhostController] = useState(null);
+    const [skeletonController, setSkeletonController] = useState(null);
 
     let reqClicks = 2;
     
@@ -40,10 +42,12 @@ export function GridEigenschapItem({ image, text, value }) {
 
                 if (pulsingHeart && bugsActive === false) {
                     bugsActive = true;
-                    const spider = new SpiderController({minBugs: 1, maxBugs: 3});
+                    const spider = new SpiderController({minBugs: 3, maxBugs: 5});
                     setSpiderController(spider);
-                    const bug = new BugController({ minBugs: 10, maxBugs: 15 });
-                    setBugController(bug);
+                    const ghost = new GhostController();
+                    setGhostController(ghost);
+                    const skeleton = new SkeletonController();
+                    setSkeletonController(skeleton);
                 }
             });
 
@@ -63,8 +67,11 @@ export function GridEigenschapItem({ image, text, value }) {
                 setCounter(0);
                 setClicked(false);
                 bugsActive = false;
-                setTimeout(() => { spiderController.end(); }, 1000);
-                setTimeout(() => { bugController.end(); }, 1000);
+                setTimeout(() => {
+                    spiderController.end();
+                    ghostController.end();
+                    skeletonController.end();
+                }, 1000);
             }
             return (
                 <div>
