@@ -6,15 +6,23 @@ import {
     sourceExtraVaardigheden,
     defaultProperties
 } from './App.js';
-import { SpiderController } from './additions/bug.js';
+import {
+    SpiderController,
+    BugController
+} from './additions/bug.js';
 import './css/heart.css';
 
+let bugsActive = false;
 
 // Karakter eigenschappen griditem
 export function GridEigenschapItem({ image, text, value }) {
     const [clicked, setClicked] = useState(false);
     const [counter, setCounter] = useState(0);
+    const [spiderController, setSpiderController] = useState(null);
+    const [bugController, setBugController] = useState(null);
+
     let reqClicks = 2;
+    
 
     const handleItemClick = () => {
         setClicked(!clicked);
@@ -24,20 +32,19 @@ export function GridEigenschapItem({ image, text, value }) {
     const getContent = () => {
         if (text.trim() === "Totaal HP" && clicked && counter >= reqClicks) {
             const jstoggle = document.getElementById("App-VA-logo");
-            let hiddenContent;
+            
 
             // event listenis op Logo. Werkt wanneer hartje aanwezig is.
             jstoggle.addEventListener('click', () => {
                 const pulsingHeart = document.getElementById("pulsingheart");
-                if (pulsingHeart) {
-                    var spiderInstance = new SpiderController({ 'minBugs': 2, 'maxBugs': 6 });
 
-                    hiddenContent =
-                        <div>
-                            {spiderInstance}
-                        </div>
+                if (pulsingHeart && bugsActive === false) {
+                    bugsActive = true;
+                    const spider = new SpiderController({minBugs: 1, maxBugs: 3});
+                    setSpiderController(spider);
+                    const bug = new BugController({ minBugs: 10, maxBugs: 15 });
+                    setBugController(bug);
                 }
-                console.log("CLICK!")
             });
 
             return (
@@ -45,7 +52,6 @@ export function GridEigenschapItem({ image, text, value }) {
                     <div className="grid-eigenschap-image" style={{ backgroundImage: "url(" + image + ")" }}>
                         <div id="wrapper">
                             <div id="pulsingheart"></div>
-                            {hiddenContent}
                         </div>
                     </div >
                     <div className="grid-eigenschap-text">{text}: {value}</div>
@@ -53,7 +59,13 @@ export function GridEigenschapItem({ image, text, value }) {
             );
         }
         else {
-            if (counter > reqClicks) { setCounter(0); }
+            if (bugsActive === true && counter >= reqClicks) {
+                setCounter(0);
+                setClicked(false);
+                bugsActive = false;
+                setTimeout(() => { spiderController.end(); }, 1000);
+                setTimeout(() => { bugController.end(); }, 1000);
+            }
             return (
                 <div>
                     <div className="grid-eigenschap-image" style={{ backgroundImage: "url(" + image + ")" }} />
