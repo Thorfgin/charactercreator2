@@ -11,6 +11,9 @@ import {
     GhostController,
     SkeletonController,
 } from './additions/bug.js';
+import { 
+    StoneController
+} from './additions/stone.js';
 import './css/heart.css';
 
 let bugsActive = false;
@@ -22,6 +25,7 @@ export function GridEigenschapItem({ image, text, value }) {
     const [spiderController, setSpiderController] = useState(null);
     const [ghostController, setGhostController] = useState(null);
     const [skeletonController, setSkeletonController] = useState(null);
+    const [stoneController, setStoneController] = useState(null);
 
     let reqClicks = 2;
     
@@ -48,6 +52,9 @@ export function GridEigenschapItem({ image, text, value }) {
                     setGhostController(ghost);
                     const skeleton = new SkeletonController();
                     setSkeletonController(skeleton);
+                    const stone = new StoneController();
+                    setStoneController(stone);
+
                 }
             });
 
@@ -71,6 +78,7 @@ export function GridEigenschapItem({ image, text, value }) {
                     spiderController.end();
                     ghostController.end();
                     skeletonController.end();
+                    stoneController.end();
                 }, 1000);
             }
             return (
