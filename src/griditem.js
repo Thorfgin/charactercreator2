@@ -74,12 +74,19 @@ export function GridEigenschapItem({ image, text, value }) {
                 setCounter(0);
                 setClicked(false);
                 bugsActive = false;
+
+                setTimeout(() => {
+                    spiderController.killAll();
+                    ghostController.killAll();
+                    skeletonController.killAll();
+                }, 1000);
+
                 setTimeout(() => {
                     spiderController.end();
                     ghostController.end();
                     skeletonController.end();
                     stoneController.end();
-                }, 1000);
+                }, 3000);
             }
             return (
                 <div>

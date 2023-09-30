@@ -79,7 +79,7 @@ function StoneDispatch(options) {
 
         setTimeout(function () {
             header.parentNode.removeChild(header);
-        }, 3000)
+        }, 5000)
     };
 
     this.createHeader = function (options) {
