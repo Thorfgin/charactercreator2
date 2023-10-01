@@ -16,14 +16,15 @@
 		> Needs to be done from within a player portal?
 
 	WOULD: 
-	- EXPORT BUILD: Export the current skillset into a downloadable file
-	- IMPORT BUILD: Import a local file and set it as the current skillset
 	- PRESETS: Ability to click some preset-character builds somewhere
 	- EXPORT CHARACTER: Export the character overview as a PDF, for easy use at the event.
 	
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+	20231002	EXPORT BUILD: Export the current skillset into a downloadable file
+				IMPORT BUILD: Import a local file and set it as the current skillset
+
 	20231001	SESSION: the latest build data is stored the localstorage
 
 	20230928	bugfixes: fixed some minor inconsistencies
