@@ -611,7 +611,7 @@ export default function App() {
 
     function setLocalStorage() {
         if (typeof (Storage) !== "undefined") {
-            if (tableData.length > 0) { localStorage.setObject('VACC_tableData', tableData); }
+            if (tableData.length > 0) { localStorage.setObject('VACC_tableData', JSON.stringify(tableData)); }
             else { localStorage.removeItem('VACC_tableData'); }
         }
     }
