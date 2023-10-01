@@ -54,6 +54,22 @@ export const defaultProperties = [
     { name: "rune_imbue_cap", image: "./images/image_run_imb.png", text: "Rune Imbue cap", value: 0 }
 ];
 
+// LOCALSTORAGE
+Storage.prototype.setObject = function (key, value) {
+    if (!key || !value) { return; }
+    if (typeof value === "object") { value = JSON.stringify(value); }
+    localStorage.setItem(key, value);
+}
+
+Storage.prototype.getObject = function (key) {
+    if (!key) { return; }
+    var value = this.getItem(key);
+    if (!value) { return; }
+    if (value[0] === "{") { value = JSON.parse(value); }
+    return value;
+}
+
+
 const gridData = [defaultProperties[0], defaultProperties[1]];
 const emptyData = [];
 
@@ -382,8 +398,6 @@ function verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, ite
 function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, skillTableData, nameSkillToRemove, setModalMsg) {
     let isExceptionPrerequisite = false;
 
-    // console.log(nameSkillToRemove, reqExceptions, skillTableData)
-
     for (const exception of reqExceptions) {
         if (nameSkillToRemove.toLowerCase() === exception.toLowerCase()) {
             const filteredTableData = []
@@ -479,8 +493,8 @@ function requestLoreSheet({ pdf, page }) {
 }
 
 /// --- MAIN APP --- ///
-export default function App() {
-    const [tableData, setTableData] = useState(emptyData);
+export default function App() {  
+    const [tableData, setTableData] = useState(getLocalStorage());
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
     const [showModal, setShowModal] = useState(false);
@@ -491,7 +505,7 @@ export default function App() {
     const [isChecked, setIsChecked] = useState(true);
     const [MAX_XP, setMAX_XP] = useState(15);
 
-    useEffect(() => { onUpdateTableData(); }, [tableData]);
+    useEffect(() => { onUpdateTableData(); }, [tableData]);    
 
     // CHECKBOX
     const handleCheckboxChange = () => {
@@ -578,17 +592,34 @@ export default function App() {
             setTimeout(() => {
                 setCurrentExtraImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
                 if (counter < maxIterations) {
-                    setTimeout(() => {
-                        loop(isBasicSkill, counter + 1);
-                    }, delay);
+                    setTimeout(() => { loop(isBasicSkill, counter + 1); }, delay);
                 };
             })
         }
     }
 
-
     /// --- GRID CONTENT --- ///
+    // LocalStorage uitlezen en inladen
+    function getLocalStorage() {
+        if (typeof (Storage) !== "undefined") {
+            const storedData = localStorage.getObject('VACC_tableData');
+            if (storedData) { return JSON.parse(storedData); }
+            else { return []; }
+        }
+        else { return []; }
+    };
+
+    function setLocalStorage() {
+        if (typeof (Storage) !== "undefined") {
+            if (tableData.length > 0) { localStorage.setObject('VACC_tableData', JSON.stringify(tableData)); }
+            else { localStorage.removeItem('VACC_tableData'); }
+        }
+    }
+
     function onUpdateTableData() {
+        // LocalStorage bijwerken
+        setLocalStorage();
+
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
         if (tableData.length >= 0) {
             const allBasicOptions = sourceBasisVaardigheden.map((record) =>
@@ -893,7 +924,7 @@ export default function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <img src="./images/logo_100.png" alt="Logo" />
+                <img id="App-VA-logo" src="./images/logo_100.png" alt="Logo"/>
                 <h2>Character Creator</h2>
             </header>
             <main>

@@ -1,0 +1,45 @@
+#wrapper {
+    position: absolute;
+    margin-left: 18px;
+    margin-top: 20px;
+    animation: pulse 1s infinite;
+}
+
+#pulsingheart {
+    position: relative;
+    width: 40px;
+    height: 36px;
+}
+
+    #pulsingheart:before, #pulsingheart:after {
+        position: absolute;
+        content: "";
+        left: 20px;
+        top: 0;
+        width: 20px;
+        height: 30px;
+        background: #aa0000;
+        border-radius: 50px 50px 0 0;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+        animation: pulsecolor 1s infinite;
+    }
+
+    #pulsingheart:after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+        animation: pulsecolor 1s infinite;
+    }
+
+@keyframes pulse {
+    10% {
+        transform: scale(1.1)
+    }
+}
+
+@keyframes pulsecolor {
+    10% {
+        background: #dd0000
+    }
+}

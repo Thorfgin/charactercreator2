@@ -8,7 +8,6 @@
 	MUST
 
 	SHOULD:
-	SESSION: Store the current session in a cookie to be resumed after closing
 
 	COULD:
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
@@ -25,8 +24,9 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
-	20230928	
-				bugfixes: fixed some minor inconsistencies
+	20231001	SESSION: the latest build data is stored the localstorage
+
+	20230928	bugfixes: fixed some minor inconsistencies
 				- added special prereq to teacher expertise in tooltip
 				- fixed check on extra skills for ritualism
 
