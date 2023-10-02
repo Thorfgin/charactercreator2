@@ -24,6 +24,8 @@
 	DONE:
 	20231002	EXPORT BUILD: Export the current skillset into a downloadable file
 				IMPORT BUILD: Import a local file and set it as the current skillset
+				SESSION: obfuscated the data, to somewhat prevent tinkering
+				BUGREPORT: added option to report bugs
 
 	20231001	SESSION: the latest build data is stored the localstorage
 

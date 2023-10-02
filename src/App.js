@@ -4,6 +4,7 @@ import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import Select from 'react-select';
 import Tooltip from './tooltip.js';
+import BugReportForm from './bugReport.js'
 import openPage from './openPdf.js';
 import {
     GridEigenschapItem,
@@ -54,22 +55,26 @@ export const defaultProperties = [
     { name: "rune_imbue_cap", image: "./images/image_run_imb.png", text: "Rune Imbue cap", value: 0 }
 ];
 
-// LOCALSTORAGE
+// Local storage
 Storage.prototype.setObject = function (key, value) {
     if (!key || !value) { return; }
     if (typeof value === "object") { value = JSON.stringify(value); }
-    localStorage.setItem(key, value);
+    var encodedValue = encodeURIComponent(value);
+    var unreadableValue = btoa(encodedValue);
+    localStorage.setItem(key, unreadableValue);
 }
 
 Storage.prototype.getObject = function (key) {
     if (!key) { return; }
     var value = this.getItem(key);
     if (!value) { return; }
-    if (value[0] === "{") { value = JSON.parse(value); }
-    return value;
+    var readableValue = atob(value);
+    var decodedValue = decodeURIComponent(readableValue);
+    if (decodedValue[0] === "{" || decodedValue[1] === "{") { decodedValue = JSON.parse(decodedValue); }
+    return decodedValue;
 }
 
-
+// Tabel Data
 const gridData = [defaultProperties[0], defaultProperties[1]];
 const emptyData = [];
 
@@ -493,11 +498,12 @@ function requestLoreSheet({ pdf, page }) {
 }
 
 /// --- MAIN APP --- ///
-export default function App() {  
+export default function App() {
     const [tableData, setTableData] = useState(getLocalStorage());
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
     const [showModal, setShowModal] = useState(false);
+    const [showBugModal, setShowBugModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("")
     const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
     const [gridSpreuken, setGridSpreuken] = useState(emptyData)
@@ -505,7 +511,7 @@ export default function App() {
     const [isChecked, setIsChecked] = useState(true);
     const [MAX_XP, setMAX_XP] = useState(15);
 
-    useEffect(() => { onUpdateTableData(); }, [tableData]);    
+    useEffect(() => { onUpdateTableData(); }, [tableData]);
 
     // CHECKBOX
     const handleCheckboxChange = () => {
@@ -599,20 +605,19 @@ export default function App() {
     }
 
     /// --- GRID CONTENT --- ///
-    // LocalStorage uitlezen en inladen
     function getLocalStorage() {
         if (typeof (Storage) !== "undefined") {
-            const storedData = localStorage.getObject('VACC_tableData');
-            if (storedData) { return JSON.parse(storedData); }
+            const storedData = localStorage.getObject('CCdata');
+            if (storedData) { return storedData; }
             else { return []; }
         }
-        else { return []; }
-    };
+        else { return []; };
+    }
 
-    function setLocalStorage() {
+    function setLocalStorage(data) {
         if (typeof (Storage) !== "undefined") {
-            if (tableData.length > 0) { localStorage.setObject('VACC_tableData', JSON.stringify(tableData)); }
-            else { localStorage.removeItem('VACC_tableData'); }
+            if (tableData.length > 0) { localStorage.setObject('CCdata', tableData); }
+            else { localStorage.removeItem('CCdata'); }
         }
     }
 
@@ -886,6 +891,9 @@ export default function App() {
         setTableData(updatedTableData);
     };
 
+    function showBugReport() {
+        setShowBugModal(true);
+    }
 
     function showDisclaimer() {
         setModalMsg(
@@ -917,14 +925,18 @@ export default function App() {
             </div>);
     }
 
+
+
     const closeModal = () => { setShowModal(false); };
+    const closeBugModal = () => { setShowBugModal(false); };
+
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData }, useSortBy);
 
     /// --- HTML CONTENT --- ///
     return (
         <div className="App">
             <header className="App-header">
-                <img id="App-VA-logo" src="./images/logo_100.png" alt="Logo"/>
+                <img id="App-VA-logo" src="./images/logo_100.png" alt="Logo" />
                 <h2>Character Creator</h2>
             </header>
             <main>
@@ -1099,6 +1111,8 @@ export default function App() {
                     </DragDropContext>
 
                     {showModal && modalContent(modalMsg, closeModal)}
+                    {showBugModal && BugReportForm(closeBugModal)}
+
                 </div>
                 <div className="side-containers">
                     <div className="side-container-b">
@@ -1155,7 +1169,11 @@ export default function App() {
             <footer>
                 <div>{packageInfo.version}</div>
                 <div>{packageInfo.creator}{'\u2122'}</div>
-                <div className="disclaimer" onClick={showDisclaimer}>Disclaimer</div>
+                <div>
+                    <label className="disclaimer" onClick={showDisclaimer}>Disclaimer</label>
+                    <label className="bugreport" onClick={showBugReport}>Bug melden</label>
+                </div>
+                
             </footer>
         </div >
     );
