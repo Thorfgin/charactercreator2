@@ -418,7 +418,7 @@
 
 .btn-primary,
 .btn-secondary {
-    margin: 0;
+    margin: 2px;
     padding: calc(.7rem - 1px) calc(1rem - 1px);
 }
 
@@ -506,6 +506,21 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-modal {
+    background-color: white;
+    text-align: center;
+    min-width: 20%;
+    min-height: 15%;
+    font-size: 12px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-modal-block {
+    margin: 10px;
 }
 
 .bug-modal {

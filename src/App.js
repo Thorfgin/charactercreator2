@@ -2,9 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+
 import Tooltip from './tooltip.js';
 import Toolbar from './toolbar.js';
 import BugReportForm from './bugReport.js'
+import FileUploadModal from './fileupload.js'
+
 import openPage from './openPdf.js';
 import {
     GridEigenschapItem,
@@ -13,6 +16,8 @@ import {
     updateGridSpreukenTiles,
     updateGridReceptenTiles
 } from './griditem.js';
+
+import { setLocalStorage, getLocalStorage } from './localstorage.js';
 
 import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
@@ -56,25 +61,6 @@ export const defaultProperties = [
     { name: "rune_imbue_cap", image: "./images/image_run_imb.png", text: "Rune Imbue cap", value: 0 }
 ];
 
-// Local storage
-Storage.prototype.setObject = function (key, value) {
-    if (!key || !value) { return; }
-    if (typeof value === "object") { value = JSON.stringify(value); }
-    var encodedValue = encodeURIComponent(value);
-    var unreadableValue = btoa(encodedValue);
-    localStorage.setItem(key, unreadableValue);
-}
-
-Storage.prototype.getObject = function (key) {
-    if (!key) { return; }
-    var value = this.getItem(key);
-    if (!value) { return; }
-    var readableValue = atob(value);
-    var decodedValue = decodeURIComponent(readableValue);
-    if (decodedValue[0] === "{" || decodedValue[1] === "{") { decodedValue = JSON.parse(decodedValue); }
-    return decodedValue;
-}
-
 // Tabel Data
 const gridData = [defaultProperties[0], defaultProperties[1]];
 const emptyData = [];
@@ -88,6 +74,36 @@ const columns = [
     { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
     { Header: "Info", className: "col-info", Cell: ({ row }) => requestInfo(row) },
 ];
+
+/// --- LOCAL STORAGE --- ///
+
+// De locale storage with gemarkeerd met een regelset versie, zoals opgenomen in de packageInfo
+// Hiermee kan (in de toekomst) onderscheid gemaakt worden tussen verschillende versies van regels 
+if (typeof (Storage) !== "undefined") {
+    Storage.prototype.setObject = function (key, value) {
+        if (!key || !value) { return; }
+        if (typeof value === "object") { value = JSON.stringify(value); }
+        var encodedValue = encodeURIComponent(packageInfo.ruleset_version + "|+|"+ value);
+        var unreadableValue = btoa(encodedValue);
+        localStorage.setItem(key, unreadableValue);
+    }
+
+    // Op dit moment wordt alleen de versie uitgelezen. Afwijkende versie nummers worden vooralsnog niet getoond.
+    Storage.prototype.getObject = function (key) {
+        if (!key) { return; }
+        var value = this.getItem(key);
+        if (!value) { return; }
+        var readableValue = atob(value);
+        var [version, decodedValue] = decodeURIComponent(readableValue).split("|+|");
+        if (version === packageInfo.ruleset_version) {
+            if (decodedValue[0] === "{" || decodedValue[1] === "{") { decodedValue = JSON.parse(decodedValue); }
+            return decodedValue;
+        }
+        else {
+            return [];
+        }
+    }
+};
 
 // Check of de Skill aan de vereisten voldoet
 export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
@@ -489,7 +505,7 @@ function requestLoreSheet({ pdf, page }) {
                 <div className="loresheet-info">
                     <img
                         className="btn-image"
-                        title={"Open "+pdf}
+                        title={"Open " + pdf}
                         onClick={() => openPage(pdf, page ? page : 1)}
                         src="./images/img-pdf.png"
                         alt="PDF">
@@ -505,35 +521,21 @@ export default function App() {
     const [tableData, setTableData] = useState(getLocalStorage('CCdata'));
     const [showModal, setShowModal] = useState(false);
     const [showBugModal, setShowBugModal] = useState(false);
+    const [showUploadModal, setShowUploadModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("")
     const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
     const [gridSpreuken, setGridSpreuken] = useState(emptyData)
     const [gridRecepten, setGridRecepten] = useState(emptyData)
+    const [MAX_XP, setMAX_XP] = useState(15);
 
     useEffect(() => { onUpdateTableData(); }, [tableData]);
 
-    const toolbarContainer = getToolbarContainer();
-
-    function getToolbarContainer() {
-        return new Toolbar(tableData, setTableData, setModalMsg, setShowModal)
-    }
-
-    /// --- LOCAL STORAGE --- ///
-    function getLocalStorage(key) {
-        if (typeof (Storage) !== "undefined") {
-            const storedData = localStorage.getObject(key);
-            if (storedData) { return storedData; }
-            else { return []; }
-        }
-        else { return []; };
-    }
-
-    function setLocalStorage(key, data) {
-        if (typeof (Storage) !== "undefined") {
-            if (data.length > 0) { localStorage.setObject(key, data); }
-            else { localStorage.removeItem(key); }
-        }
-    }
+    const toolbarContainer = new Toolbar(
+        [tableData, setTableData],
+        [MAX_XP, setMAX_XP],
+        setModalMsg,
+        setShowModal,
+        setShowUploadModal);
 
     /// --- GRID CONTENT --- ///
     function onUpdateTableData() {
@@ -605,8 +607,6 @@ export default function App() {
         }
     }
 
-
-
     // Verwijderen uit de tabel, updaten van grid
     function handleDelete(row) {
         // check of het een vereiste is
@@ -621,7 +621,6 @@ export default function App() {
 
     // Aanvullende aankopen van reeds bestaande vaardigheid
     function handleAdd(row) {
-        const MAX_XP = toolbarContainer.MAX_XP;
         if (totalXP < Math.floor(MAX_XP)) {
             // Source data
             let sourceRecord = sourceBasisVaardigheden.find((record) =>
@@ -775,6 +774,7 @@ export default function App() {
 
     const closeModal = () => { setShowModal(false); };
     const closeBugModal = () => { setShowBugModal(false); };
+    const closeUploadModal = () => { setShowUploadModal(false); };
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData }, useSortBy);
 
@@ -852,6 +852,7 @@ export default function App() {
 
                     {showModal && modalContent(modalMsg, closeModal)}
                     {showBugModal && BugReportForm(closeBugModal)}
+                    {showUploadModal && FileUploadModal(closeUploadModal, packageInfo.ruleset_version, setTableData)}
 
                 </div>
                 <div className="side-containers">

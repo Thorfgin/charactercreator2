@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Select from 'react-select';
 import Tooltip from './tooltip.js';
+
 import {
     totalXP,
     sourceBasisVaardigheden,
@@ -11,12 +12,20 @@ import {
     meetsAllPrerequisites
 }
     from './App.js'
+import {
+    setLocalStorage,
+    getLocalStorage,
+    getAllLocalStorageKeys
+} from './localstorage.js';
+import packageInfo from '../package.json';
 
-function Toolbar(tableData, setTableData, setModalMsg, setShowModal) {
+function Toolbar([tableData, setTableData], [MAX_XP, setMAX_XP], setModalMsg, setShowModal, setShowUploadModal) {
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
     const [isChecked, setIsChecked] = useState(true);
-    const [MAX_XP, setMAX_XP] = useState(15);
+
+    // UPLOAD MODAL
+    const showUploadModal = () => { setShowUploadModal(true); }
 
     // CHECKBOX
     const handleCheckboxChange = () => {
@@ -186,17 +195,57 @@ function Toolbar(tableData, setTableData, setModalMsg, setShowModal) {
         }
     }
 
-    function showDisclaimer() {
-        setModalMsg(
-            "De character creator geeft een indicatie van de mogelijkheden.\n " +
-            "Er kunnen altijd afwijkingen zitten tussen de teksten\n" +
-            "in de character creator en de VA regelset.\n\n" +
-            "Check altijd de laatste versie van de regelset op:\n" +
-            "https://the-vortex.nl/het-spel/regels/" +
-            "\n");
-        setShowModal(true);
+    /// --- BUTTONS --- ///
+
+    // Opslaan in de local storage van de browser
+    // TODO: Toevoegen van een modal met een naam invoer
+    function saveCharacterToLocalStorage() {
+        const prefix = "CC"
+        const value = "character"
+        const counter = getAllLocalStorageKeys("character").length + 1;
+        setLocalStorage(prefix + value + counter, tableData);
     }
 
+    // Laden uit de local storage van de browser
+    // TODO: Toevoegen van een modal met een lijst van opgeslagen personages
+    function loadCharacterToLocalStorage() {
+        const key = getAllLocalStorageKeys("CCcharacter1");
+        const charTableData = getLocalStorage(key);
+        setTableData(charTableData);
+    }
+
+    // Verwijderen uit de local storage van de browser
+    // TODO: Toevoegen van een modal met een lijst van opgeslagen personages
+    function removeCharacterToLocalStorage() {
+        const key = getAllLocalStorageKeys("CCcharacter1");
+        if (key) { setLocalStorage(key, null); }
+    }
+
+    // Exporteren naar .dat bestand
+    // Markup: ruleset versie |+| [json]
+    function exportCharacter() {
+        if (tableData.length > 0) {
+            const value = JSON.stringify(tableData);
+            const encodedValue = encodeURIComponent(packageInfo.ruleset_version + "|+|" + value);
+            const unreadableValue = btoa(encodedValue);
+            const blob = new Blob([unreadableValue], { type: 'application/octet-stream' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `VA_character.dat`;
+            a.click();
+            // Opruimen na download
+            URL.revokeObjectURL(url);
+        }
+    }
+
+    // Exporteren van de gegevens in de tableData en Grids naar PDF
+    // TODO: Export bouwen
+    function exportCharacterToPDF() {
+    }
+
+
+    // RETURN
     return (
         <div className="toolbar-container">
             <div className="select-settings">
@@ -240,29 +289,30 @@ function Toolbar(tableData, setTableData, setModalMsg, setShowModal) {
                 </div>
                 <div className="settings-btns">
                     <div className="settings-btns-row">
-                        <button className="btn-toolbar" title="Personage opslaan" onClick={showDisclaimer}>
+                        <button className="btn-toolbar" title="Personage opslaan" onClick={saveCharacterToLocalStorage}>
                             <img className="btn-image" src="./images/button_save.png" alt="Save Button" />
                         </button>
-                        <button className="btn-toolbar" title="Laad personage" onClick={showDisclaimer}>
+                        <button className="btn-toolbar" title="Laad personage" onClick={loadCharacterToLocalStorage}>
                             <img className="btn-image" src="./images/button_load.png" alt="Load Button" />
                         </button>
-                        <button className="btn-toolbar" title="Verwijder personage" onClick={showDisclaimer}>
+                        <button className="btn-toolbar" title="Verwijder personage" onClick={removeCharacterToLocalStorage}>
                             <img className="btn-image" src="./images/button_trash.png" alt="Trash Button" />
                         </button>
                     </div>
                     <div className="btns-row">
-                        <button className="btn-toolbar" title="Lokaal opslaan" onClick={showDisclaimer}>
-                            <img className="btn-image" src="./images/button_download.png" alt="Download Button" />
+                        <button className="btn-toolbar" title="Exporteer personage" onClick={exportCharacter}>
+                            <img className="btn-image" src="./images/button_download.png" alt="Export Button" />
+
                         </button>
-                        <button className="btn-toolbar" title="Lokaal laden" onClick={showDisclaimer}>
-                            <img className="btn-image" src="./images/button_upload.png" alt="Upload Button" />
+                        <button className="btn-toolbar" title="Importeer personage" onClick={showUploadModal}>
+                            <img className="btn-image" src="./images/button_upload.png" alt="Import Button" />
                         </button>
-                        <button className="btn-toolbar" title="Exporteer naar PDF" onClick={showDisclaimer}>
+                        <button className="btn-toolbar" title="Exporteer naar PDF" onClick={exportCharacterToPDF}>
                             <img className="btn-image" src="./images/button_export-pdf.png" alt="Export PDF Button" />
                         </button>
                     </div>
                 </div>
-                
+
             </div>
             <div className="select-basic-container">
                 <Select
