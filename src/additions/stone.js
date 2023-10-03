@@ -90,6 +90,7 @@ function StoneDispatch(options) {
         header.style.top = Math.round(window.innerHeight * options.pos.y) + 'px';
         header.style.left = Math.round(window.innerWidth * options.pos.x) + 'px';
         header.style.zIndex = '99999999';
+        header.style.backgroundColor = 'white';
         document.body.appendChild(header);
         return header;
     };

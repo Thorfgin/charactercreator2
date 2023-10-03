@@ -125,11 +125,29 @@
     line-height: 14px;
 }
 
+.settings-XP {
+    display: flex;
+    flex-direction: column;
+    width: 51%;
+    margin-right: 3px;
+}
+
+.settings-personage,
 .settings-input-xp {
-    width: 55px;
-    margin: 0px;
-    margin-left: 5px;
-    padding: 0px;
+    max-width: 150px;
+    margin-right:35px;
+}
+
+.settings-input-xp {
+    max-width: 60px;
+}
+
+.settings-btns {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: right;
+    right: 0px;
 }
 
 /* select component */
@@ -357,6 +375,15 @@
 }
 
 /* btn eigenschappen */
+.btn-img24 {
+    max-width: 20px;
+    max-height: 20px;
+    object-fit: contain;
+    cursor: pointer;
+    vertical-align: middle;
+    padding-left: 2px;
+}
+
 .btn-image {
     max-width: 16px;
     max-height: 16px;
@@ -375,9 +402,20 @@
     width: 100%;
     height: 24px;
 }
+.btn-toolbar {
+    margin: 2px;
+    padding: calc(.3rem - 1px) calc(0.3rem - 1px);
+}
 
 .btn-primary,
 .btn-secondary {
+    margin: 0;
+    padding: calc(.7rem - 1px) calc(1rem - 1px);
+}
+
+.btn-primary, 
+.btn-secondary,
+.btn-toolbar {
     display: inline-flex;
     align-items: center;
     background-color: #FFFFFF;
@@ -391,8 +429,7 @@
     font-size: 12px;
     font-weight: 600;
     justify-content: center;
-    margin: 0;
-    padding: calc(.7rem - 1px) calc(1rem - 1px);
+
     position: relative;
     text-decoration: none;
     transition: all 250ms;
@@ -403,21 +440,18 @@
 }
 
     .btn-primary:hover, .btn-primary:focus, .btn-secondary:hover, .btn-secondary:focus,
-    .close:hover, .close:focus, .close:hover, .close:focus {
+    .close:hover, .close:focus, .btn-toolbar:hover, .btn-toolbar:focus {
         border-color: rgba(0, 0, 0, 0.15);
-        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 4px 12px;
         color: rgba(0, 0, 0, 0.65);
-    }
-
-    .btn-primary:hover,
-    .btn-secondary:hover,
-    .close:hover {
         transform: translateY(-1px);
     }
 
     .btn-primary:active,
     .btn-secondary:active,
-    .close:active {
+    .close:active,
+    .btn-toolbar:active
+    {
         background-color: #F0F0F1;
         border-color: rgba(0, 0, 0, 0.15);
         box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
@@ -427,7 +461,8 @@
 
     .btn-primary:disabled,
     .btn-secondary:disabled,
-    .close:disabled {
+    .close:disabled,
+    .btn-toolbar:disabled {
         background-color: #ccc;
         border-color: rgba(0, 0, 0, 0.15);
         box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;

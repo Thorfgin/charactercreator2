@@ -11,7 +11,7 @@ import {
     GhostController,
     SkeletonController,
 } from './additions/bug.js';
-import { 
+import {
     StoneController
 } from './additions/stone.js';
 import './css/heart.css';
@@ -28,7 +28,7 @@ export function GridEigenschapItem({ image, text, value }) {
     const [stoneController, setStoneController] = useState(null);
 
     let reqClicks = 2;
-    
+
 
     const handleItemClick = () => {
         setClicked(!clicked);
@@ -38,7 +38,6 @@ export function GridEigenschapItem({ image, text, value }) {
     const getContent = () => {
         if (text.trim() === "Totaal HP" && clicked && counter >= reqClicks) {
             const jstoggle = document.getElementById("App-VA-logo");
-            
 
             // event listenis op Logo. Werkt wanneer hartje aanwezig is.
             jstoggle.addEventListener('click', () => {
@@ -46,7 +45,7 @@ export function GridEigenschapItem({ image, text, value }) {
 
                 if (pulsingHeart && bugsActive === false) {
                     bugsActive = true;
-                    const spider = new SpiderController({minBugs: 3, maxBugs: 5});
+                    const spider = new SpiderController({ minBugs: 3, maxBugs: 5 });
                     setSpiderController(spider);
                     const ghost = new GhostController();
                     setGhostController(ghost);
@@ -54,7 +53,6 @@ export function GridEigenschapItem({ image, text, value }) {
                     setSkeletonController(skeleton);
                     const stone = new StoneController();
                     setStoneController(stone);
-
                 }
             });
 
@@ -138,6 +136,7 @@ function getTooltip(skill, name, type, page) {
                 page && (
                     <img
                         className="btn-image"
+                        title={"Open Spreuken.pdf - pagina "+page}
                         onClick={() => openPage('Spreuken.pdf', page)}
                         src="./images/img-pdf.png"
                         alt="PDF">

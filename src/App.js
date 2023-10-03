@@ -4,6 +4,7 @@ import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import Select from 'react-select';
 import Tooltip from './tooltip.js';
+import Toolbar from './toolbar.js';
 import BugReportForm from './bugReport.js'
 import openPage from './openPdf.js';
 import {
@@ -466,6 +467,7 @@ function requestInfo(row) {
                 />
                 <img
                     className="btn-image"
+                    title={"Open Vaardigheden.pdf - pagina " + currentItem.page}
                     onClick={() => openPage('Vaardigheden.pdf', currentItem.page)}
                     src="./images/img-pdf.png"
                     alt="PDF">
@@ -487,6 +489,7 @@ function requestLoreSheet({ pdf, page }) {
                 <div className="loresheet-info">
                     <img
                         className="btn-image"
+                        title={"Open "+pdf}
                         onClick={() => openPage(pdf, page ? page : 1)}
                         src="./images/img-pdf.png"
                         alt="PDF">
@@ -678,7 +681,10 @@ export default function App() {
                     <td />
                     <td />
                     <td>
-                        <button className="btn-secondary" onClick={() => setTableData([])}>
+                        <button
+                            title="Alle vaardigheden verwijderen"
+                            className="btn-secondary"
+                            onClick={() => setTableData([])}>
                             Wissen
                         </button>
                     </td>
@@ -843,19 +849,21 @@ export default function App() {
                     <div className="acties-overige">
                         <img
                             className="btn-image"
+                            title="Toevoegen"
                             onClick={() => handleAdd(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
                             src="./images/button_add.png"
                             alt="Add">
-
                         </img>
                         <img
                             className="btn-image"
+                            title="Verminderen"
                             onClick={() => handleSubtract(currentItem)}
                             src="./images/button_subtract.png"
                             alt="Subtract">
                         </img>
                         <img
                             className="btn-image"
+                            title={currentItem.skill + " verwijderen"}
                             onClick={() => handleDelete(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
                             src="./images/button_remove.png"
                             alt="Remove">
@@ -870,6 +878,7 @@ export default function App() {
                     <div className="acties-overige">
                         <img
                             className="btn-image"
+                            title={currentItem.skill + " verwijderen"}
                             onClick={() => handleDelete(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
                             src="./images/button_remove.png"
                             alt="Remove">
@@ -941,43 +950,13 @@ export default function App() {
             </header>
             <main>
                 <div className="main-container">
-                    <div className="select-settings">
-                        <div>
-                            <label className="settings-label">
-                                Nieuw personage:
-                            </label>
-                            <input className="settings-checkbox"
-                                type="checkbox"
-                                checked={isChecked}
-                                onChange={handleCheckboxChange}
-                            />{' '}
-                        </div>
-                        <div>
-                            <label className="settings-label">
-                                Max XP:
-                            </label>
-                            <input className="settings-input-xp"
-                                type="number"
-                                value={MAX_XP}
-                                min={1}
-                                max={100}
-                                onChange={handleInputChange}
-                                disabled={isChecked}
-                                step={0.25}
-                            />
-
-                            <label className="settings-label">
-                                XP over:
-                            </label>
-                            <input className="settings-input-xp"
-                                type="number"
-                                value={MAX_XP - totalXP}
-                                min={1}
-                                max={100}
-                                disabled={true}
-                            />
-                        </div>
-                    </div>
+                    <Toolbar isChecked={isChecked}
+                        MAX_XP={MAX_XP}
+                        totalXP={totalXP}
+                        handleCheckboxChange={handleCheckboxChange}
+                        handleInputChange={handleInputChange}
+                        showDisclaimer={showDisclaimer}
+                    /> 
                     <div className="select-basic-container">
                         <Select
                             className="form-select"
@@ -1005,6 +984,7 @@ export default function App() {
 
                         <button
                             ref={btnAddBasicRef}
+                            title="Basis vaardigheid toevoegen"
                             className="btn-primary"
                             onClick={handleBasicSkillSelection}>
                             Toevoegen
@@ -1042,6 +1022,7 @@ export default function App() {
 
                                 <button
                                     ref={btnAddExtraRef}
+                                    title="Extra vaardigheid toevoegen"
                                     className="btn-primary"
                                     onClick={handleExtraSkillSelection}>
                                     Toevoegen
@@ -1173,7 +1154,7 @@ export default function App() {
                     <label className="disclaimer" onClick={showDisclaimer}>Disclaimer</label>
                     <label className="bugreport" onClick={showBugReport}>Bug melden</label>
                 </div>
-                
+
             </footer>
         </div >
     );
