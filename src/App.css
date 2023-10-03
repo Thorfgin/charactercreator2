@@ -115,6 +115,15 @@
     line-height: 24px;
 }
 
+.toolbar-container {
+    margin: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    border-radius: .35rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.015);
+}
+
 .main-container label {
     white-space: nowrap;
     font-size: 12px;
@@ -135,7 +144,7 @@
 .settings-personage,
 .settings-input-xp {
     max-width: 150px;
-    margin-right:35px;
+    margin-right: 5%;
 }
 
 .settings-input-xp {
