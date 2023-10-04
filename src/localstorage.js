@@ -9,7 +9,9 @@ export function getLocalStorage(key) {
 
 export function setLocalStorage(key, data) {
     if (typeof (Storage) !== "undefined") {
-        if (data && data.length > 0) { localStorage.setObject(key, data); }
+        if (data && data.length > 0) {
+            localStorage.setObject(key, data);
+        }
         else { localStorage.removeItem(key); }
     }
 }

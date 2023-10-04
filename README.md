@@ -22,8 +22,9 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
-	20231003	EXPORT BUILD: Export the current skillset into a downloadable file
+	20231004	EXPORT BUILD: Export the current skillset into a downloadable file
 				IMPORT BUILD: Import a local file and set it as the current skillset
+				LOCALSTORAGE: Store a character under its own name. Make it reloadable by a pick-list
 				LOCALSTORAGE: obfuscated the data, to somewhat prevent tinkering
 				BUGREPORT: added option to report bugs
 

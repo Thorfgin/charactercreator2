@@ -1,6 +1,6 @@
 import React from 'react';
 
-function BugReportForm(closeModal) {
+function BugReportForm({ closeModal }) {
     let title = "";
     let description = "";
 

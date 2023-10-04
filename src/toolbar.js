@@ -14,18 +14,21 @@ import {
     from './App.js'
 import {
     setLocalStorage,
-    getLocalStorage,
     getAllLocalStorageKeys
 } from './localstorage.js';
 import packageInfo from '../package.json';
 
-function Toolbar([tableData, setTableData], [MAX_XP, setMAX_XP], setModalMsg, setShowModal, setShowUploadModal) {
+
+function Toolbar(
+    [tableData, setTableData], [MAX_XP, setMAX_XP], [charName, setCharName], [isChecked, setIsChecked],
+    setModalMsg, setShowModal, setShowUploadModal, setShowLoadCharacterModal, clearCharacterBuild) {
+
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
-    const [isChecked, setIsChecked] = useState(true);
 
     // UPLOAD MODAL
     const showUploadModal = () => { setShowUploadModal(true); }
+    const showLoadCharacterModal = () => { setShowLoadCharacterModal(true); }
 
     // CHECKBOX
     const handleCheckboxChange = () => {
@@ -37,6 +40,18 @@ function Toolbar([tableData, setTableData], [MAX_XP, setMAX_XP], setModalMsg, se
     };
 
     // INPUT    
+    const sanitizeInput = (input) => { return input.replace(/[^a-zA-Z0-9._ -]/g, ''); };
+
+    const handleTextChange = (event) => {
+        if (event.target.value && event.target.value !== "") {
+            const sanitizedValue = sanitizeInput(event.target.value)
+            setCharName(sanitizedValue);
+        }
+        else {
+            setCharName("");
+        }
+    }
+
     const handleInputChange = (event) => {
         if (isChecked) { event.preventDefault(); } // stop bewerking 
         else if (event.target.value && event.target.value > event.target.min) {
@@ -198,41 +213,54 @@ function Toolbar([tableData, setTableData], [MAX_XP, setMAX_XP], setModalMsg, se
     /// --- BUTTONS --- ///
 
     // Opslaan in de local storage van de browser
-    // TODO: Toevoegen van een modal met een naam invoer
     function saveCharacterToLocalStorage() {
-        const prefix = "CC"
-        const value = "character"
-        const counter = getAllLocalStorageKeys("character").length + 1;
-        setLocalStorage(prefix + value + counter, tableData);
-    }
+        const prefix = "CC-"
+        const result = getAllLocalStorageKeys(charName);
+        let override = true;
+        if (result.length > 0) {
+            override = false;
+            let msg = "De naam van het personage '" + charName + "' komt al voor.";
+            if (charName === "") { msg = "Vul de naam van het personage in." }
+            setModalMsg(msg);
+            setShowModal(true);
+        }
 
-    // Laden uit de local storage van de browser
-    // TODO: Toevoegen van een modal met een lijst van opgeslagen personages
-    function loadCharacterToLocalStorage() {
-        const key = getAllLocalStorageKeys("CCcharacter1");
-        const charTableData = getLocalStorage(key);
-        setTableData(charTableData);
+        if (result.length === 0 || override === true) {
+            setLocalStorage(prefix + charName,
+                [{
+                    ruleset_version: packageInfo.ruleset_version,
+                    isChecked: isChecked,
+                    MAX_XP: MAX_XP,
+                    data: tableData
+                }]);
+        }       
     }
 
     // Verwijderen uit de local storage van de browser
-    // TODO: Toevoegen van een modal met een lijst van opgeslagen personages
     function removeCharacterToLocalStorage() {
-        const key = getAllLocalStorageKeys("CCcharacter1");
+        const key = getAllLocalStorageKeys(charName);
         if (key) { setLocalStorage(key, null); }
+        clearCharacterBuild();
     }
 
     // Exporteren naar .dat bestand
-    // Markup: ruleset versie |+| [json]
     function exportCharacter() {
         if (tableData.length > 0) {
-            const value = JSON.stringify(tableData);
-            const encodedValue = encodeURIComponent(packageInfo.ruleset_version + "|+|" + value);
+            const dataSet = [{
+                ruleset_version: packageInfo.ruleset_version,
+                isChecked: isChecked,
+                MAX_XP: MAX_XP,
+                data: tableData
+            }];
+            const value = JSON.stringify(dataSet);
+            const encodedValue = encodeURIComponent(value);
             const unreadableValue = btoa(encodedValue);
             const blob = new Blob([unreadableValue], { type: 'application/octet-stream' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `VA_character.dat`;
+            const downloadName = charName !== "" ? charName : "character";
+            a.download = "VA_" + downloadName.toString() +".dat";
             a.click();
             // Opruimen na download
             URL.revokeObjectURL(url);
@@ -244,47 +272,61 @@ function Toolbar([tableData, setTableData], [MAX_XP, setMAX_XP], setModalMsg, se
     function exportCharacterToPDF() {
     }
 
-
     // RETURN
     return (
         <div className="toolbar-container">
-            <div className="select-settings">
-                <div className="settings-personage">
-                    <label className="settings-label">
-                        Nieuw personage:
-                    </label>
-                    <input className="settings-checkbox"
-                        type="checkbox"
-                        checked={isChecked}
-                        onChange={handleCheckboxChange}
-                    />{' '}
-                </div>
-                <div className="settings-XP">
+            <div className="character-container">
+                <div className="character-settings">
                     <div>
-                        <label>
-                            Max XP:
-                        </label>
-                        <input className="settings-input-xp"
-                            type="number"
-                            value={MAX_XP}
-                            min={1}
-                            max={100}
-                            onChange={handleInputChange}
-                            disabled={isChecked}
-                            step={0.25}
-                        />
+                        <div>
+                            <label>
+                                Naam:
+                            </label>
+                            <input className="settings-personage"
+                                type="text"
+                                maxLength="20"
+                                value={charName}
+                                onChange={handleTextChange}
+                            />
+                        </div>
+                        <div>
+                            <label>
+                                Nieuw personage:
+                            </label>
+                            <input className="settings-checkbox"
+                                type="checkbox"
+                                checked={isChecked}
+                                onChange={handleCheckboxChange}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <label>
-                            XP over:
-                        </label>
-                        <input className="settings-input-xp"
-                            type="number"
-                            value={MAX_XP - totalXP}
-                            min={1}
-                            max={100}
-                            disabled={true}
-                        />
+                    <div className="settings-inputs">
+                        <div>
+                            <label>
+                                Max XP:
+                            </label>
+                            <input
+                                type="number"
+                                value={MAX_XP}
+                                min={1}
+                                max={100}
+                                onChange={handleInputChange}
+                                disabled={isChecked}
+                                step={0.25}
+                            />
+                        </div>
+                        <div>
+                            <label>
+                                XP over:
+                            </label>
+                            <input
+                                type="number"
+                                value={MAX_XP - totalXP}
+                                min={1}
+                                max={100}
+                                disabled={true}
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className="settings-btns">
@@ -292,7 +334,7 @@ function Toolbar([tableData, setTableData], [MAX_XP, setMAX_XP], setModalMsg, se
                         <button className="btn-toolbar" title="Personage opslaan" onClick={saveCharacterToLocalStorage}>
                             <img className="btn-image" src="./images/button_save.png" alt="Save Button" />
                         </button>
-                        <button className="btn-toolbar" title="Laad personage" onClick={loadCharacterToLocalStorage}>
+                        <button className="btn-toolbar" title="Laad personage" onClick={showLoadCharacterModal}>
                             <img className="btn-image" src="./images/button_load.png" alt="Load Button" />
                         </button>
                         <button className="btn-toolbar" title="Verwijder personage" onClick={removeCharacterToLocalStorage}>

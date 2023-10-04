@@ -116,12 +116,13 @@
 }
 
 .toolbar-container {
-    margin: 5px;
+    margin: 2px;
     border: 2px solid rgba(0, 0, 0, 0.05);
     border-radius: .35rem;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
     box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0.015);
+    max-width: 100%;
 }
 
 .main-container label {
@@ -133,42 +134,56 @@
     padding: 0px;
     line-height: 14px;
 }
-
-.settings-XP {
+.character-container {
     display: flex;
-    flex-direction: column;
-    width: 51%;
-    margin-right: 3px;
+    flex-direction: row;
 }
 
-.settings-personage,
-.settings-input-xp {
+.character-settings {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-left: 30px;
+    width: 75%;
+}
+
+    .character-settings label {
+        margin-right: 3px;
+    }
+
+    .settings-inputs input {
+    min-width: 60px;
     max-width: 150px;
-    margin-right: 5%;
 }
 
-.settings-input-xp {
-    max-width: 60px;
+.settings-inputs input {
+    width: 60px;
 }
 
+.settings-personage {
+    width: 150px;
+}
+
+.select-inputs,
 .settings-btns {
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: right;
-    right: 0px;
+    padding: 3px;
 }
 
-/* select component */
-.select-basic-container,
-.select-extra-container,
-.select-settings {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    width: 100%;
-    margin-left: 17px;
+.settings-btns {
+    margin-left: 3px;
 }
+    /* select component */
+    .select-basic-container,
+    .select-extra-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
 .select {
     display: flex;
@@ -384,15 +399,6 @@
 }
 
 /* btn eigenschappen */
-.btn-img24 {
-    max-width: 20px;
-    max-height: 20px;
-    object-fit: contain;
-    cursor: pointer;
-    vertical-align: middle;
-    padding-left: 2px;
-}
-
 .btn-image {
     max-width: 16px;
     max-height: 16px;
@@ -411,18 +417,18 @@
     width: 100%;
     height: 24px;
 }
+
 .btn-toolbar {
     margin: 2px;
     padding: calc(.3rem - 1px) calc(0.3rem - 1px);
 }
-
 .btn-primary,
 .btn-secondary {
     margin: 2px;
     padding: calc(.7rem - 1px) calc(1rem - 1px);
 }
 
-.btn-primary, 
+.btn-primary,
 .btn-secondary,
 .btn-toolbar {
     display: inline-flex;
@@ -438,7 +444,6 @@
     font-size: 12px;
     font-weight: 600;
     justify-content: center;
-
     position: relative;
     text-decoration: none;
     transition: all 250ms;
@@ -459,8 +464,7 @@
     .btn-primary:active,
     .btn-secondary:active,
     .close:active,
-    .btn-toolbar:active
-    {
+    .btn-toolbar:active {
         background-color: #F0F0F1;
         border-color: rgba(0, 0, 0, 0.15);
         box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
@@ -508,6 +512,10 @@
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+.modal-container {
+    margin: 15px;
+}
+
 .upload-modal {
     background-color: white;
     text-align: center;
@@ -542,6 +550,7 @@
 .bug-text {
     min-height: 75px;
 }
+
 .close {
     margin-top: 3px;
     margin-left: -30px;
@@ -600,9 +609,6 @@
     overflow-x: hidden;
 }
 
-.tooltip {
-}
-
 /* tooltip tabel eigenschapen */
 .tooltip-table {
     display: initial;
@@ -618,3 +624,41 @@
         border: hidden;
         white-space: normal;
     }
+
+/* Load Character table */
+.character-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .character-table tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+        .character-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+.selected-row {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    background-color: #e5e5e5;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    justify-content: center;
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+}

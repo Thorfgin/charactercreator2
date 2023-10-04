@@ -5,8 +5,10 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Tooltip from './tooltip.js';
 import Toolbar from './toolbar.js';
+import ModalMessage from './modalmessage.js'
 import BugReportForm from './bugReport.js'
 import FileUploadModal from './fileupload.js'
+import LoadCharacterModal from './loadcharacter.js'
 
 import openPage from './openPdf.js';
 import {
@@ -83,7 +85,7 @@ if (typeof (Storage) !== "undefined") {
     Storage.prototype.setObject = function (key, value) {
         if (!key || !value) { return; }
         if (typeof value === "object") { value = JSON.stringify(value); }
-        var encodedValue = encodeURIComponent(packageInfo.ruleset_version + "|+|"+ value);
+        var encodedValue = encodeURIComponent(value);
         var unreadableValue = btoa(encodedValue);
         localStorage.setItem(key, unreadableValue);
     }
@@ -94,8 +96,8 @@ if (typeof (Storage) !== "undefined") {
         var value = this.getItem(key);
         if (!value) { return; }
         var readableValue = atob(value);
-        var [version, decodedValue] = decodeURIComponent(readableValue).split("|+|");
-        if (version === packageInfo.ruleset_version) {
+        var decodedValue = decodeURIComponent(readableValue);
+        if (decodedValue && decodedValue.length >= 0) {
             if (decodedValue[0] === "{" || decodedValue[1] === "{") { decodedValue = JSON.parse(decodedValue); }
             return decodedValue;
         }
@@ -516,31 +518,67 @@ function requestLoreSheet({ pdf, page }) {
     }
 }
 
+// Fetch data before the page is loaded
+const rawData = getLocalStorage('CCdata');
+
 /// --- MAIN APP --- ///
 export default function App() {
-    const [tableData, setTableData] = useState(getLocalStorage('CCdata'));
+    const [tableData, setTableData] = useState(getInitialData(true, false, false));
+    const [charName, setCharName] = useState("");
+    const [isChecked, setIsChecked] = useState(getInitialData(false, false, true));
+    const [MAX_XP, setMAX_XP] = useState(getInitialData(false, true, false));
     const [showModal, setShowModal] = useState(false);
     const [showBugModal, setShowBugModal] = useState(false);
     const [showUploadModal, setShowUploadModal] = useState(false);
+    const [showLoadCharacterModal, setShowLoadCharacterModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("")
     const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
     const [gridSpreuken, setGridSpreuken] = useState(emptyData)
     const [gridRecepten, setGridRecepten] = useState(emptyData)
-    const [MAX_XP, setMAX_XP] = useState(15);
 
     useEffect(() => { onUpdateTableData(); }, [tableData]);
 
     const toolbarContainer = new Toolbar(
         [tableData, setTableData],
         [MAX_XP, setMAX_XP],
+        [charName, setCharName],
+        [isChecked, setIsChecked],
         setModalMsg,
         setShowModal,
-        setShowUploadModal);
+        setShowUploadModal,
+        setShowLoadCharacterModal,
+        clearCharacterBuild);
+
 
     /// --- GRID CONTENT --- ///
+    function getInitialData(hasData, hasXP, wasChecked) {
+        if (rawData && rawData.length > 0) {
+            const charData = rawData[0]
+            if (charData &&
+                charData.ruleset_version &&
+                charData.ruleset_version === packageInfo.ruleset_version) {
+
+                if (hasData) { return charData.data; }
+                if (hasXP) { return charData.MAX_XP };
+                if (wasChecked) { return charData.isChecked };
+            }
+        }
+        else {
+        
+            if (hasData) { return [] };
+            if (hasXP) { return 15 };
+            if (wasChecked) { return true };
+        }
+    }
+
     function onUpdateTableData() {
         // LocalStorage bijwerken
-        setLocalStorage('CCdata', tableData);
+        setLocalStorage('CCdata', [{
+            ruleset_version: packageInfo.ruleset_version,
+            isChecked: isChecked,
+            MAX_XP: MAX_XP,
+            data: tableData
+        }]);
 
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
         if (tableData.length >= 0) {
@@ -598,13 +636,21 @@ export default function App() {
                         <button
                             title="Alle vaardigheden verwijderen"
                             className="btn-secondary"
-                            onClick={() => setTableData([])}>
+                            onClick={clearCharacterBuild}>
                             Wissen
                         </button>
                     </td>
                 </tr>
             );
         }
+    }
+
+    // Wissen van tabel + naam
+    function clearCharacterBuild() {
+        setTableData([]);
+        setCharName("");
+        setMAX_XP(15);
+        setIsChecked(true);
     }
 
     // Verwijderen uit de tabel, updaten van grid
@@ -753,28 +799,10 @@ export default function App() {
         setShowModal(true);
     }
 
-    function modalContent(modalMsg, closeModal) {
-        const msgBlocks = modalMsg.split('\n');
-        const urlRegex = /(https?:\/\/[^\s]+)/g;
-
-        return (
-            <div className="modal-overlay">
-                <div className="modal">
-                    {msgBlocks.map((block, index) => (
-                        <div key={index} className="modal-block">
-                            {block === '' ? <br /> : block.match(urlRegex) ? <a target="_blank" rel="noopener noreferrer" href={block}>{block}</a> : block}
-                        </div>
-                    ))}
-                    <button className="btn-primary" onClick={closeModal}>
-                        OK
-                    </button>
-                </div>
-            </div>);
-    }
-
     const closeModal = () => { setShowModal(false); };
     const closeBugModal = () => { setShowBugModal(false); };
     const closeUploadModal = () => { setShowUploadModal(false); };
+    const closeLoadCharacterModal = () => { setShowLoadCharacterModal(false); };
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData }, useSortBy);
 
@@ -850,9 +878,34 @@ export default function App() {
                         </table>
                     </DragDropContext>
 
-                    {showModal && modalContent(modalMsg, closeModal)}
-                    {showBugModal && BugReportForm(closeBugModal)}
-                    {showUploadModal && FileUploadModal(closeUploadModal, packageInfo.ruleset_version, setTableData)}
+                    {showModal && (<ModalMessage
+                        modalMsg={modalMsg}
+                        closeModal={closeModal}/>
+                    )}
+
+                    {showBugModal && (
+                        <BugReportForm
+                            closeModal={closeBugModal} />
+                    )}
+                    {showUploadModal && (
+                        <FileUploadModal
+                            closeModal={closeUploadModal}
+                            ruleset_version={packageInfo.ruleset_version}
+                            setCharName={setCharName}
+                            setIsChecked={setIsChecked}
+                            setMAX_XP={setMAX_XP}
+                            setTableData={setTableData} />
+                    )}
+                    {showLoadCharacterModal && (
+                        <LoadCharacterModal
+                            closeModal={closeLoadCharacterModal}
+                            setTableData={setTableData}
+                            setCharName={setCharName}
+                            setIsChecked={setIsChecked}
+                            setMAX_XP={setMAX_XP}
+                            version={packageInfo.ruleset_version}
+                        />
+                    )}
 
                 </div>
                 <div className="side-containers">
