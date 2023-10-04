@@ -61,7 +61,7 @@ function FileUploadModal({ closeModal, ruleset_version, setCharName, setIsChecke
                 </div>
                 <div className="upload-modal-block">
                     <button className="btn-primary" onClick={handleUpload}>Upload</button>
-                    <button className="btn-primary" onClick={closeModal}>Cancel</button>
+                    <button className="btn-primary" onClick={closeModal}>Annuleren</button>
                 </div>
             </div>
             <span className="close" onClick={closeModal}>&times;</span>

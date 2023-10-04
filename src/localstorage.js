@@ -16,13 +16,13 @@ export function setLocalStorage(key, data) {
     }
 }
 
-export function getAllLocalStorageKeys(keyPattern) {
+export function getAllLocalStorageKeys(givenKey) {
     const keys = []
     if (typeof (Storage) !== "undefined") {
         for (let key in localStorage) {
             if (localStorage.hasOwnProperty(key)) {
-                if (!keyPattern) { keys.push(key); }
-                else if (keyPattern && key.includes(keyPattern)) { keys.push(key); }
+                if (!givenKey) { keys.push(key); }
+                else if (givenKey && key === givenKey) { keys.push(key); }
                 else { } // do nothing
             }
         }

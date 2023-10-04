@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Select from 'react-select';
 import Tooltip from './tooltip.js';
+import { ConfirmModal } from './modalmessage.js';
 
 import {
     totalXP,
@@ -25,10 +26,12 @@ function Toolbar(
 
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
 
-    // UPLOAD MODAL
+    // MODALS
     const showUploadModal = () => { setShowUploadModal(true); }
     const showLoadCharacterModal = () => { setShowLoadCharacterModal(true); }
+    const closeConfirmModal = () => { setShowConfirmModal(false); }
 
     // CHECKBOX
     const handleCheckboxChange = () => {
@@ -214,26 +217,27 @@ function Toolbar(
 
     // Opslaan in de local storage van de browser
     function saveCharacterToLocalStorage() {
-        const prefix = "CC-"
         const result = getAllLocalStorageKeys(charName);
-        let override = true;
+        let isUnique = true;
+        let msg = "";
         if (result.length > 0) {
-            override = false;
-            let msg = "De naam van het personage '" + charName + "' komt al voor.";
+            isUnique = false;
+            msg = "De naam van het personage '" + charName + "' komt al voor.";
             if (charName === "") { msg = "Vul de naam van het personage in." }
-            setModalMsg(msg);
-            setShowModal(true);
         }
 
-        if (result.length === 0 || override === true) {
-            setLocalStorage(prefix + charName,
+        if (result.length === 0 || isUnique === true) {
+            setLocalStorage(charName,
                 [{
                     ruleset_version: packageInfo.ruleset_version,
                     isChecked: isChecked,
                     MAX_XP: MAX_XP,
                     data: tableData
                 }]);
-        }       
+            msg = "Personage '" + charName + "' opgeslagen."
+        }
+        setModalMsg(msg);
+        setShowModal(true);
     }
 
     // Verwijderen uit de local storage van de browser
@@ -241,7 +245,11 @@ function Toolbar(
         const key = getAllLocalStorageKeys(charName);
         if (key) { setLocalStorage(key, null); }
         clearCharacterBuild();
+        setShowConfirmModal(false);
     }
+
+    // Eerst via ConfirmModal bevestigen, daarna verwijdern
+    function showConfirmRemoval() { setShowConfirmModal(true); }
 
     // Exporteren naar .dat bestand
     function exportCharacter() {
@@ -260,7 +268,7 @@ function Toolbar(
             const a = document.createElement('a');
             a.href = url;
             const downloadName = charName !== "" ? charName : "character";
-            a.download = "VA_" + downloadName.toString() +".dat";
+            a.download = "VA_" + downloadName.toString() + ".dat";
             a.click();
             // Opruimen na download
             URL.revokeObjectURL(url);
@@ -270,11 +278,21 @@ function Toolbar(
     // Exporteren van de gegevens in de tableData en Grids naar PDF
     // TODO: Export bouwen
     function exportCharacterToPDF() {
+        setModalMsg("Work in progress...");
+        setShowModal(true);
     }
+
+    const modalMsg = "Weet u zeker dat u dit personage: '" + charName + "' wilt verwijderen?";
 
     // RETURN
     return (
         <div className="toolbar-container">
+            {showConfirmModal && (
+                <ConfirmModal
+                    modalMessage={modalMsg}
+                    onClose={closeConfirmModal}
+                    onConfirm={removeCharacterToLocalStorage}
+                />)}
             <div className="character-container">
                 <div className="character-settings">
                     <div>
@@ -334,19 +352,19 @@ function Toolbar(
                         <button className="btn-toolbar" title="Personage opslaan" onClick={saveCharacterToLocalStorage}>
                             <img className="btn-image" src="./images/button_save.png" alt="Save Button" />
                         </button>
-                        <button className="btn-toolbar" title="Laad personage" onClick={showLoadCharacterModal}>
+                        <button className="btn-toolbar" title="Personage laden" onClick={showLoadCharacterModal}>
                             <img className="btn-image" src="./images/button_load.png" alt="Load Button" />
                         </button>
-                        <button className="btn-toolbar" title="Verwijder personage" onClick={removeCharacterToLocalStorage}>
+                        <button className="btn-toolbar" title="Personage verwijderen" onClick={showConfirmRemoval}>
                             <img className="btn-image" src="./images/button_trash.png" alt="Trash Button" />
                         </button>
                     </div>
                     <div className="btns-row">
-                        <button className="btn-toolbar" title="Exporteer personage" onClick={exportCharacter}>
+                        <button className="btn-toolbar" title="Personage exporteren" onClick={exportCharacter}>
                             <img className="btn-image" src="./images/button_download.png" alt="Export Button" />
 
                         </button>
-                        <button className="btn-toolbar" title="Importeer personage" onClick={showUploadModal}>
+                        <button className="btn-toolbar" title="Personage importeren" onClick={showUploadModal}>
                             <img className="btn-image" src="./images/button_upload.png" alt="Import Button" />
                         </button>
                         <button className="btn-toolbar" title="Exporteer naar PDF" onClick={exportCharacterToPDF}>

@@ -531,10 +531,10 @@ export default function App() {
     const [showBugModal, setShowBugModal] = useState(false);
     const [showUploadModal, setShowUploadModal] = useState(false);
     const [showLoadCharacterModal, setShowLoadCharacterModal] = useState(false);
-    const [modalMsg, setModalMsg] = useState("")
+    const [modalMsg, setModalMsg] = useState("");
     const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
-    const [gridSpreuken, setGridSpreuken] = useState(emptyData)
-    const [gridRecepten, setGridRecepten] = useState(emptyData)
+    const [gridSpreuken, setGridSpreuken] = useState(emptyData);
+    const [gridRecepten, setGridRecepten] = useState(emptyData);
 
     useEffect(() => { onUpdateTableData(); }, [tableData]);
 
@@ -548,7 +548,6 @@ export default function App() {
         setShowUploadModal,
         setShowLoadCharacterModal,
         clearCharacterBuild);
-
 
     /// --- GRID CONTENT --- ///
     function getInitialData(hasData, hasXP, wasChecked) {
@@ -564,13 +563,14 @@ export default function App() {
             }
         }
         else {
-        
             if (hasData) { return [] };
             if (hasXP) { return 15 };
             if (wasChecked) { return true };
         }
     }
 
+    // Wanneer er iets aan de tableData verandert, wordt de nieuwe data opgeslagen.
+    // Op basis van de nieuwe tableData worden de Selects, Grid en Spreuken/Recepten bijewerkt.
     function onUpdateTableData() {
         // LocalStorage bijwerken
         setLocalStorage('CCdata', [{
@@ -881,8 +881,7 @@ export default function App() {
                     {showModal && (<ModalMessage
                         modalMsg={modalMsg}
                         closeModal={closeModal}/>
-                    )}
-
+                    )}              
                     {showBugModal && (
                         <BugReportForm
                             closeModal={closeBugModal} />

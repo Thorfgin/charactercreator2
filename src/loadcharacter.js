@@ -9,10 +9,8 @@ function CharacterTable({ selectedCharacter, handleCharacterChange }) {
     const tableRef = useRef(null);
     let keys = [];
 
-    const allCharacterKeys = getAllLocalStorageKeys("CC-");
-    if (allCharacterKeys) {
-        keys = allCharacterKeys.map((key) => key.replace('CC-', ''));
-    }
+    const allCharacterKeys = getAllLocalStorageKeys();
+    allCharacterKeys.forEach(key => key !== "CCdata" ? keys.push(key) : null);
     
     function handleSelectCharacter(key) {
         handleCharacterChange(key);
@@ -60,7 +58,7 @@ function LoadCharacterModal({ closeModal, setTableData, setCharName, setIsChecke
     function loadCharacterToLocalStorage() {
         const key = getAllLocalStorageKeys(selectedCharacter);
         const rawData = getLocalStorage(key);
-        if (rawData) {
+        if (rawData && rawData.length > 0) {
             const charData = rawData[0]
             if (charData.ruleset_version && charData.ruleset_version === version) {
                 const cleanCharName = selectedCharacter.replace('CC-', '');
@@ -71,9 +69,15 @@ function LoadCharacterModal({ closeModal, setTableData, setCharName, setIsChecke
                 closeModal();
             }
             else {
-                alert("De regelset versie van het personage wordt niet herkend.");
-                console.error("De regelset versie van het personage wordt niet herkend.");
+                const msg = "De regelset versie van het personage wordt niet herkend."
+                alert(msg);
+                console.error("De regelset versie van het personage wordt niet herkend.", key);
             }
+        }
+        else {
+            const msg = "Deze versie van dit personage kan helaas niet ingeladen worden.";
+            alert(msg);
+            console.error(msg, key, rawData);
         }
     }
 
@@ -91,7 +95,7 @@ function LoadCharacterModal({ closeModal, setTableData, setCharName, setIsChecke
                 </div>
                 <div className="upload-modal-block">
                     <button className="btn-primary" onClick={loadCharacterToLocalStorage}>Laad</button>
-                    <button className="btn-primary" onClick={closeModal}>Cancel</button>
+                    <button className="btn-primary" onClick={closeModal}>Annuleren</button>
                 </div>
             </div>
             <span className="close" onClick={closeModal}>&times;</span>
