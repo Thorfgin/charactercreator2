@@ -30,9 +30,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: |
-            npm run build --if-present
-            echo "REACT_APP_GITHUB_TOKEN=${{ secrets.REACT_APP_GITHUB_TOKEN }}" >> $GITHUB_ENV
+        run: npm run build --if-present
         env:
             REACT_APP_GITHUB_TOKEN: ${{ secrets.REACT_APP_GITHUB_TOKEN }}
         
