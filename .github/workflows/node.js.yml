@@ -31,6 +31,9 @@ jobs:
 
       - name: Build
         run: npm run build --if-present
+
+      - name: Set the Access Token
+        run: echo "REACT_APP_GITHUB_TOKEN=${{ secrets.REACT_APP_GITHUB_TOKEN }}" >> $GITHUB_ENV
         
       - name: Test
         run: npm test
@@ -46,5 +49,3 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
           repository: ${{ github.repository }}
-          REACT_APP_GITHUB_TOKEN: ${{ secrets.REACT_APP_GITHUB_TOKEN }}
-
