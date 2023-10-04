@@ -1,9 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import Select from 'react-select';
+
 import Tooltip from './tooltip.js';
+import Toolbar from './toolbar.js';
+import ModalMessage from './modalmessage.js'
+import BugReportForm from './bugReport.js'
+import FileUploadModal from './fileupload.js'
+import LoadCharacterModal from './loadcharacter.js'
+
 import openPage from './openPdf.js';
 import {
     GridEigenschapItem,
@@ -13,28 +19,31 @@ import {
     updateGridReceptenTiles
 } from './griditem.js';
 
+import { setLocalStorage, getLocalStorage } from './localstorage.js';
+
 import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
 import recepten from './json/recepten.json';
 import packageInfo from '../package.json';
 import './App.css';
 
-let totalXP = 0; // Berekende totaal waarde
+export let totalXP = 0; // Berekende totaal waarde
 
 // Ophalen van de skills uit vaardigheden/spreuken/recepten
 export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
-let optionsBasisVaardigheden = sourceBasisVaardigheden.map((record) => (
+export let optionsBasisVaardigheden = sourceBasisVaardigheden.map((record) => (
     {
         value: record.skill,
         label: record.skill + " (" + record.xp + " xp)"
     }));
 
 export const sourceExtraVaardigheden = vaardigheden.ExtraVaardigheden;
-let optionsExtraVaardigheden = sourceExtraVaardigheden.map((record) => (
+export let optionsExtraVaardigheden = sourceExtraVaardigheden.map((record) => (
     {
         value: record.skill,
         label: record.skill + " (" + record.xp + " xp)"
     }));
+
 
 export const sourceSpreuken = [].concat(...spreuken.Categories.map(category => category.Skills));
 export const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
@@ -54,22 +63,7 @@ export const defaultProperties = [
     { name: "rune_imbue_cap", image: "./images/image_run_imb.png", text: "Rune Imbue cap", value: 0 }
 ];
 
-// LOCALSTORAGE
-Storage.prototype.setObject = function (key, value) {
-    if (!key || !value) { return; }
-    if (typeof value === "object") { value = JSON.stringify(value); }
-    localStorage.setItem(key, value);
-}
-
-Storage.prototype.getObject = function (key) {
-    if (!key) { return; }
-    var value = this.getItem(key);
-    if (!value) { return; }
-    if (value[0] === "{") { value = JSON.parse(value); }
-    return value;
-}
-
-
+// Tabel Data
 const gridData = [defaultProperties[0], defaultProperties[1]];
 const emptyData = [];
 
@@ -82,6 +76,36 @@ const columns = [
     { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
     { Header: "Info", className: "col-info", Cell: ({ row }) => requestInfo(row) },
 ];
+
+/// --- LOCAL STORAGE --- ///
+
+// De locale storage with gemarkeerd met een regelset versie, zoals opgenomen in de packageInfo
+// Hiermee kan (in de toekomst) onderscheid gemaakt worden tussen verschillende versies van regels 
+if (typeof (Storage) !== "undefined") {
+    Storage.prototype.setObject = function (key, value) {
+        if (!key || !value) { return; }
+        if (typeof value === "object") { value = JSON.stringify(value); }
+        var encodedValue = encodeURIComponent(value);
+        var unreadableValue = btoa(encodedValue);
+        localStorage.setItem(key, unreadableValue);
+    }
+
+    // Op dit moment wordt alleen de versie uitgelezen. Afwijkende versie nummers worden vooralsnog niet getoond.
+    Storage.prototype.getObject = function (key) {
+        if (!key) { return; }
+        var value = this.getItem(key);
+        if (!value) { return; }
+        var readableValue = atob(value);
+        var decodedValue = decodeURIComponent(readableValue);
+        if (decodedValue && decodedValue.length >= 0) {
+            if (decodedValue[0] === "{" || decodedValue[1] === "{") { decodedValue = JSON.parse(decodedValue); }
+            return decodedValue;
+        }
+        else {
+            return [];
+        }
+    }
+};
 
 // Check of de Skill aan de vereisten voldoet
 export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
@@ -461,6 +485,7 @@ function requestInfo(row) {
                 />
                 <img
                     className="btn-image"
+                    title={"Open Vaardigheden.pdf - pagina " + currentItem.page}
                     onClick={() => openPage('Vaardigheden.pdf', currentItem.page)}
                     src="./images/img-pdf.png"
                     alt="PDF">
@@ -482,6 +507,7 @@ function requestLoreSheet({ pdf, page }) {
                 <div className="loresheet-info">
                     <img
                         className="btn-image"
+                        title={"Open " + pdf}
                         onClick={() => openPage(pdf, page ? page : 1)}
                         src="./images/img-pdf.png"
                         alt="PDF">
@@ -492,133 +518,67 @@ function requestLoreSheet({ pdf, page }) {
     }
 }
 
+// Fetch data before the page is loaded
+const rawData = getLocalStorage('CCdata');
+
 /// --- MAIN APP --- ///
-export default function App() {  
-    const [tableData, setTableData] = useState(getLocalStorage());
-    const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
-    const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
+export default function App() {
+    const [tableData, setTableData] = useState(getInitialData(true, false, false));
+    const [charName, setCharName] = useState("");
+    const [isChecked, setIsChecked] = useState(getInitialData(false, false, true));
+    const [MAX_XP, setMAX_XP] = useState(getInitialData(false, true, false));
     const [showModal, setShowModal] = useState(false);
-    const [modalMsg, setModalMsg] = useState("")
+    const [showBugModal, setShowBugModal] = useState(false);
+    const [showUploadModal, setShowUploadModal] = useState(false);
+    const [showLoadCharacterModal, setShowLoadCharacterModal] = useState(false);
+    const [modalMsg, setModalMsg] = useState("");
     const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
-    const [gridSpreuken, setGridSpreuken] = useState(emptyData)
-    const [gridRecepten, setGridRecepten] = useState(emptyData)
-    const [isChecked, setIsChecked] = useState(true);
-    const [MAX_XP, setMAX_XP] = useState(15);
+    const [gridSpreuken, setGridSpreuken] = useState(emptyData);
+    const [gridRecepten, setGridRecepten] = useState(emptyData);
 
-    useEffect(() => { onUpdateTableData(); }, [tableData]);    
+    useEffect(() => { onUpdateTableData(); }, [tableData]);
 
-    // CHECKBOX
-    const handleCheckboxChange = () => {
-        setIsChecked(!isChecked);
-        if (!isChecked) {
-            setMAX_XP(15);
-            setTableData([]);
-        }
-    };
-
-    // INPUT    
-    const handleInputChange = (event) => {
-        if (isChecked) { event.preventDefault(); } // stop bewerking 
-        else if (event.target.value && event.target.value > event.target.min) {
-            const newValue = parseFloat(event.target.value);
-            let roundedValue = Math.floor(newValue * 4) / 4;
-            roundedValue = roundedValue.toFixed(2)
-
-            if (roundedValue > parseFloat(event.target.max)) {
-                roundedValue = event.target.max;
-            }
-            setMAX_XP(roundedValue);
-        }
-        else { setMAX_XP(1); }
-    };
-
-    // SELECT & INFO
-    const imageSrc = ["./images/img-info.png", "./images/img-info_red.png"]
-    const [currentBasicImageIndex, setCurrentBasicImageIndex] = useState(0);
-    const [currentExtraImageIndex, setCurrentExtraImageIndex] = useState(0);
-
-    const btnAddBasicRef = useRef(null);
-    const btnAddExtraRef = useRef(null);
-
-    useEffect(() => { onSelectSkill(true, selectedBasicSkill); }, [selectedBasicSkill]);
-    useEffect(() => { onSelectSkill(false, selectedExtraSkill); }, [selectedExtraSkill]);
-
-    // Op basis van de geselecteerde skill, bepaald de bijbehorende (i) afbeelding
-    function onSelectSkill(isBasicSkill, selectedSkill) {
-        let meetsPrerequisites;
-
-        if (selectedSkill && selectedSkill.value !== "") {
-            let selectedRecord = sourceBasisVaardigheden.find((record) =>
-                record.skill.toLowerCase() === selectedSkill.value.toLowerCase());
-            if (!selectedRecord) {
-                selectedRecord = sourceExtraVaardigheden.find((record) =>
-                    record.skill.toLowerCase() === selectedSkill.value.toLowerCase());
-            }
-
-            meetsPrerequisites = meetsAllPrerequisites(selectedRecord, tableData, setModalMsg);
-
-            if (meetsPrerequisites === false) {
-                isBasicSkill ? btnAddBasicRef.current.disabled = true : btnAddExtraRef.current.disabled = true;
-                loop(isBasicSkill);
-            }
-            else {
-                isBasicSkill === true ? btnAddBasicRef.current.disabled = false : btnAddExtraRef.current.disabled = false;
-            }
-            isBasicSkill === true ? setCurrentBasicImageIndex(0) : setCurrentExtraImageIndex(0);
-        }
-        else {
-            if (btnAddBasicRef.current) { btnAddBasicRef.current.disabled = false }
-            if (btnAddExtraRef.current) { btnAddExtraRef.current.disabled = false; }
-        }
-    }
-
-    // TOOLTIP ICON
-    // Laat het icoontje flitsen van zwart > rood
-    function loop(isBasicSkill, counter = 0) {
-        const maxIterations = 8;
-        const delay = 100;
-
-        if (isBasicSkill === true) {
-            setTimeout(() => {
-                setCurrentBasicImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
-                if (counter < maxIterations) {
-                    setTimeout(() => {
-                        loop(isBasicSkill, counter + 1);
-                    }, delay);
-                };
-            })
-        }
-        else {
-            setTimeout(() => {
-                setCurrentExtraImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
-                if (counter < maxIterations) {
-                    setTimeout(() => { loop(isBasicSkill, counter + 1); }, delay);
-                };
-            })
-        }
-    }
+    const toolbarContainer = new Toolbar(
+        [tableData, setTableData],
+        [MAX_XP, setMAX_XP],
+        [charName, setCharName],
+        [isChecked, setIsChecked],
+        setModalMsg,
+        setShowModal,
+        setShowUploadModal,
+        setShowLoadCharacterModal,
+        clearCharacterBuild);
 
     /// --- GRID CONTENT --- ///
-    // LocalStorage uitlezen en inladen
-    function getLocalStorage() {
-        if (typeof (Storage) !== "undefined") {
-            const storedData = localStorage.getObject('VACC_tableData');
-            if (storedData) { return JSON.parse(storedData); }
-            else { return []; }
-        }
-        else { return []; }
-    };
+    function getInitialData(hasData, hasXP, wasChecked) {
+        if (rawData && rawData.length > 0) {
+            const charData = rawData[0]
+            if (charData &&
+                charData.ruleset_version &&
+                charData.ruleset_version === packageInfo.ruleset_version) {
 
-    function setLocalStorage() {
-        if (typeof (Storage) !== "undefined") {
-            if (tableData.length > 0) { localStorage.setObject('VACC_tableData', JSON.stringify(tableData)); }
-            else { localStorage.removeItem('VACC_tableData'); }
+                if (hasData) { return charData.data; }
+                if (hasXP) { return charData.MAX_XP };
+                if (wasChecked) { return charData.isChecked };
+            }
+        }
+        else {
+            if (hasData) { return [] };
+            if (hasXP) { return 15 };
+            if (wasChecked) { return true };
         }
     }
 
+    // Wanneer er iets aan de tableData verandert, wordt de nieuwe data opgeslagen.
+    // Op basis van de nieuwe tableData worden de Selects, Grid en Spreuken/Recepten bijewerkt.
     function onUpdateTableData() {
         // LocalStorage bijwerken
-        setLocalStorage();
+        setLocalStorage('CCdata', [{
+            ruleset_version: packageInfo.ruleset_version,
+            isChecked: isChecked,
+            MAX_XP: MAX_XP,
+            data: tableData
+        }]);
 
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
         if (tableData.length >= 0) {
@@ -673,7 +633,10 @@ export default function App() {
                     <td />
                     <td />
                     <td>
-                        <button className="btn-secondary" onClick={() => setTableData([])}>
+                        <button
+                            title="Alle vaardigheden verwijderen"
+                            className="btn-secondary"
+                            onClick={clearCharacterBuild}>
                             Wissen
                         </button>
                     </td>
@@ -682,81 +645,13 @@ export default function App() {
         }
     }
 
-    // Voeg de geselecteerde Basis vaardigheid toe aan de tabel
-    function handleBasicSkillSelection() {
-        if (selectedBasicSkill) {
-            const selectedBasicRecord = sourceBasisVaardigheden.find((record) =>
-                record.skill.toLowerCase() === selectedBasicSkill.value.toLowerCase());
-            const wasSuccesfull = handleAddToTable(selectedBasicRecord)
-            if (wasSuccesfull) { setSelectedBasicSkill(''); }
-        }
-        else {
-            console.warn("Selected Basic skill could not be found.")
-        }
+    // Wissen van tabel + naam
+    function clearCharacterBuild() {
+        setTableData([]);
+        setCharName("");
+        setMAX_XP(15);
+        setIsChecked(true);
     }
-
-    // Acteer op een Key Press op de geselecteerde Basis vaaardigheid
-    const handleBasicSkillSelectKeyPress = (event) => {
-        if (event.key === "Enter") { handleBasicSkillSelection(); }
-        else if (event.key === "Escape") { setSelectedBasicSkill(''); }
-    };
-
-    // Voeg de geselecteerde Extra vaardigheid toe aan de tabel
-    function handleExtraSkillSelection() {
-        if (selectedExtraSkill) {
-            const selectedExtraRecord = sourceExtraVaardigheden.find((record) =>
-                record.skill.toLowerCase() === selectedExtraSkill.value.toLowerCase());
-            const wasSuccesfull = handleAddToTable(selectedExtraRecord)
-            if (wasSuccesfull) { setSelectedExtraSkill(''); }
-        }
-        else {
-            console.warn("Selected Extra skill could not be found.")
-        }
-    }
-
-    // Acteer op een Key Press op de geselecteerde Extra vaaardigheid
-    const handleExtraSkillSelectKeyPress = (event) => {
-        if (event.key === "Enter") { handleExtraSkillSelection(); }
-        else if (event.key === "Escape") { setSelectedExtraSkill(''); }
-    };
-
-    // Handel alle controles af, alvorens het opgevoerde Record toe te voegen aan de tabel
-    // Werkt voor zowel de basis- als extra vaardigheden.
-    function handleAddToTable(selectedRecord) {
-        const wasAlreadySelected = tableData.some((record) =>
-            record.skill.toLowerCase() === selectedRecord.skill.toLowerCase());
-        const hasSufficientFreeXP = (totalXP + selectedRecord.xp) <= Math.floor(MAX_XP) || selectedRecord.xp === 0;
-
-        if (wasAlreadySelected) {
-            setModalMsg("Dit item is al geselecteerd. \nToevoegen is niet toegestaan.\n");
-            setShowModal(true);
-        }
-        // TODO: COMMENT OUT THIS CODEBLOCK TO DISABLE REQUIREMENTS
-        else if (!meetsAllPrerequisites(selectedRecord, tableData, setModalMsg)) { setShowModal(true); }
-        else if (!hasSufficientFreeXP) {
-            if (totalXP === Math.floor(MAX_XP)) {
-                setModalMsg(
-                    "Maximum XP (" + MAX_XP + ") bereikt. \n" +
-                    "Toevoegen is niet toegestaan.\n");
-            }
-            else if (totalXP < Math.floor(MAX_XP)) {
-                setModalMsg(
-                    "Maximum xp (" + MAX_XP + ") zal worden overschreden. \n" +
-                    "Deze skill kost: " + selectedRecord.xp + ". \n" +
-                    "Toevoegen is niet toegestaan.\n");
-            } else {
-                console.warn("There should be a reason, but no reason was set.")
-                setModalMsg("Er ging iets fout...");
-            }
-            setShowModal(true);
-            return false;
-        }
-        else {
-            setTableData((prevData) => [...prevData, selectedRecord]);
-            return true;
-        }
-    };
-
 
     // Verwijderen uit de tabel, updaten van grid
     function handleDelete(row) {
@@ -838,19 +733,21 @@ export default function App() {
                     <div className="acties-overige">
                         <img
                             className="btn-image"
+                            title="Toevoegen"
                             onClick={() => handleAdd(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
                             src="./images/button_add.png"
                             alt="Add">
-
                         </img>
                         <img
                             className="btn-image"
+                            title="Verminderen"
                             onClick={() => handleSubtract(currentItem)}
                             src="./images/button_subtract.png"
                             alt="Subtract">
                         </img>
                         <img
                             className="btn-image"
+                            title={currentItem.skill + " verwijderen"}
                             onClick={() => handleDelete(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
                             src="./images/button_remove.png"
                             alt="Remove">
@@ -865,6 +762,7 @@ export default function App() {
                     <div className="acties-overige">
                         <img
                             className="btn-image"
+                            title={currentItem.skill + " verwijderen"}
                             onClick={() => handleDelete(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
                             src="./images/button_remove.png"
                             alt="Remove">
@@ -886,6 +784,9 @@ export default function App() {
         setTableData(updatedTableData);
     };
 
+    function showBugReport() {
+        setShowBugModal(true);
+    }
 
     function showDisclaimer() {
         setModalMsg(
@@ -898,144 +799,23 @@ export default function App() {
         setShowModal(true);
     }
 
-    function modalContent(modalMsg, closeModal) {
-        const msgBlocks = modalMsg.split('\n');
-        const urlRegex = /(https?:\/\/[^\s]+)/g;
-
-        return (
-            <div className="modal-overlay">
-                <div className="modal">
-                    {msgBlocks.map((block, index) => (
-                        <div key={index} className="modal-block">
-                            {block === '' ? <br /> : block.match(urlRegex) ? <a target="_blank" rel="noopener noreferrer" href={block}>{block}</a> : block}
-                        </div>
-                    ))}
-                    <button className="btn-primary" onClick={closeModal}>
-                        OK
-                    </button>
-                </div>
-            </div>);
-    }
-
     const closeModal = () => { setShowModal(false); };
+    const closeBugModal = () => { setShowBugModal(false); };
+    const closeUploadModal = () => { setShowUploadModal(false); };
+    const closeLoadCharacterModal = () => { setShowLoadCharacterModal(false); };
+
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData }, useSortBy);
 
     /// --- HTML CONTENT --- ///
     return (
         <div className="App">
             <header className="App-header">
-                <img id="App-VA-logo" src="./images/logo_100.png" alt="Logo"/>
+                <img id="App-VA-logo" src="./images/logo_100.png" alt="Logo" />
                 <h2>Character Creator</h2>
             </header>
             <main>
                 <div className="main-container">
-                    <div className="select-settings">
-                        <div>
-                            <label className="settings-label">
-                                Nieuw personage:
-                            </label>
-                            <input className="settings-checkbox"
-                                type="checkbox"
-                                checked={isChecked}
-                                onChange={handleCheckboxChange}
-                            />{' '}
-                        </div>
-                        <div>
-                            <label className="settings-label">
-                                Max XP:
-                            </label>
-                            <input className="settings-input-xp"
-                                type="number"
-                                value={MAX_XP}
-                                min={1}
-                                max={100}
-                                onChange={handleInputChange}
-                                disabled={isChecked}
-                                step={0.25}
-                            />
-
-                            <label className="settings-label">
-                                XP over:
-                            </label>
-                            <input className="settings-input-xp"
-                                type="number"
-                                value={MAX_XP - totalXP}
-                                min={1}
-                                max={100}
-                                disabled={true}
-                            />
-                        </div>
-                    </div>
-                    <div className="select-basic-container">
-                        <Select
-                            className="form-select"
-                            options={optionsBasisVaardigheden}
-                            value={selectedBasicSkill}
-                            onChange={(selectedBasicOption) => setSelectedBasicSkill(selectedBasicOption)}
-                            onKeyDown={handleBasicSkillSelectKeyPress}
-                            placeholder="Selecteer een Basis vaardigheid"
-                            isClearable
-                            isSearchable
-                        />
-
-                        {   // Conditionele tooltip
-                            selectedBasicSkill &&
-                            <div className="select-info">
-                                <Tooltip
-                                    skillName={selectedBasicSkill.value}
-                                    isSpell={false}
-                                    isRecipy={false}
-                                    isSkill={true}
-                                    image={imageSrc[currentBasicImageIndex]}
-                                />
-                            </div>
-                        }
-
-                        <button
-                            ref={btnAddBasicRef}
-                            className="btn-primary"
-                            onClick={handleBasicSkillSelection}>
-                            Toevoegen
-                        </button>
-                    </div>
-
-                    {
-                        // Bij uitzettend Checkbox worden Extra skills beschikbaar
-                        !isChecked && (
-                            <div className="select-extra-container">
-                                <Select
-                                    className="form-select"
-                                    options={optionsExtraVaardigheden}
-                                    value={selectedExtraSkill}
-                                    onChange={(selectedExtraOption) => setSelectedExtraSkill(selectedExtraOption)}
-                                    onKeyDown={handleExtraSkillSelectKeyPress}
-                                    placeholder="Selecteer een Extra vaardigheid"
-                                    isClearable
-                                    isSearchable
-                                />
-
-                                {   // Conditionele tooltip
-                                    selectedExtraSkill &&
-                                    selectedExtraSkill.value !== "" &&
-                                    <div className="select-info">
-                                        <Tooltip
-                                            skillName={selectedExtraSkill.value}
-                                            isSpell={false}
-                                            isRecipy={false}
-                                            isSkill={true}
-                                            image={imageSrc[currentExtraImageIndex]}
-                                        />
-                                    </div>
-                                }
-
-                                <button
-                                    ref={btnAddExtraRef}
-                                    className="btn-primary"
-                                    onClick={handleExtraSkillSelection}>
-                                    Toevoegen
-                                </button>
-                            </div>
-                        )}
+                    {toolbarContainer}
 
                     <DragDropContext onDragEnd={handleDragEnd}>
                         <table {...getTableProps()} className="App-table">
@@ -1098,7 +878,34 @@ export default function App() {
                         </table>
                     </DragDropContext>
 
-                    {showModal && modalContent(modalMsg, closeModal)}
+                    {showModal && (<ModalMessage
+                        modalMsg={modalMsg}
+                        closeModal={closeModal}/>
+                    )}              
+                    {showBugModal && (
+                        <BugReportForm
+                            closeModal={closeBugModal} />
+                    )}
+                    {showUploadModal && (
+                        <FileUploadModal
+                            closeModal={closeUploadModal}
+                            ruleset_version={packageInfo.ruleset_version}
+                            setCharName={setCharName}
+                            setIsChecked={setIsChecked}
+                            setMAX_XP={setMAX_XP}
+                            setTableData={setTableData} />
+                    )}
+                    {showLoadCharacterModal && (
+                        <LoadCharacterModal
+                            closeModal={closeLoadCharacterModal}
+                            setTableData={setTableData}
+                            setCharName={setCharName}
+                            setIsChecked={setIsChecked}
+                            setMAX_XP={setMAX_XP}
+                            version={packageInfo.ruleset_version}
+                        />
+                    )}
+
                 </div>
                 <div className="side-containers">
                     <div className="side-container-b">
@@ -1155,7 +962,11 @@ export default function App() {
             <footer>
                 <div>{packageInfo.version}</div>
                 <div>{packageInfo.creator}{'\u2122'}</div>
-                <div className="disclaimer" onClick={showDisclaimer}>Disclaimer</div>
+                <div>
+                    <label className="disclaimer" onClick={showDisclaimer}>Disclaimer</label>
+                    <label className="bugreport" onClick={showBugReport}>Bug melden</label>
+                </div>
+
             </footer>
         </div >
     );
