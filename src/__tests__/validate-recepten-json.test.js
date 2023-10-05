@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import sourceRecepten from '../../src/json/recepten.json';
 
 // Test for Unique Recipy id's

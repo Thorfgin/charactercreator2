@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 import sourceSpreuken from '../../src/json/spreuken.json';
 
 // Test for Unique Spell id's
 function hasUniqueSpellIDs(json) {
 	const spells = [];
-	for (const category of sourceSpreuken.Categories) {
+    for (const category of json.Categories) {
 		for (const skill of category.Skills) {
 			for (const spell of skill.Spells) {
 				spells.push(spell);
