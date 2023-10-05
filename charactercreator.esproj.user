@@ -2,7 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>LaunchJsonDebugger</DebuggerFlavor>
-    <LaunchJsonTarget>
-    </LaunchJsonTarget>
+    <LaunchJsonTarget>{
+  "name": "localhost (Chrome)",
+  "type": "chrome",
+  "request": "launch",
+  "url": "http://localhost:5173",
+  "webRoot": "C:\\Users\\JosvanRest\\source\\repos\\charactercreator"
+}</LaunchJsonTarget>
   </PropertyGroup>
 </Project>
