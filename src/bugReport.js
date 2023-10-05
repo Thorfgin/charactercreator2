@@ -1,4 +1,5 @@
 import React from 'react';
+import packageInfo from '../package.json'
 
 function BugReportForm({ closeModal }) {
     let title = "";
@@ -6,20 +7,24 @@ function BugReportForm({ closeModal }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Construct the issue data
-        const issueData = {
-            title,
-            body: description,
-            labels: ['bug'], // You can customize the labels as needed
-        };
+        const githubToken = process.env.REACT_APP_GITHUB_TOKEN;
 
         try {
-            // Create the GitHub issue using the GitHub API
+            // Melding data
+            const issueData = {
+                title,
+                body: description,
+                labels: [
+                    "bug",
+                    "build:" + packageInfo.version,
+                    "ruleset:" + packageInfo.ruleset_version],
+            };
+            
+            // Aanmaken van GitHub issue via de GitHub API
             const response = await fetch('https://api.github.com/repos/Thorfgin/charactercreator/issues', {
                 method: 'POST',
                 headers: {
-                    'Authorization': 'Bearer ' + process.env.REACT_APP_GITHUB_TOKEN,
+                    'Authorization': 'Bearer ' + githubToken,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(issueData),

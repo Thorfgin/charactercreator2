@@ -31,9 +31,7 @@ jobs:
 
       - name: Build
         run: npm run build --if-present
-        env:
-            REACT_APP_GITHUB_TOKEN: ${{ secrets.REACT_APP_GITHUB_TOKEN }}
-        
+
       - name: Test
         run: npm test
 
