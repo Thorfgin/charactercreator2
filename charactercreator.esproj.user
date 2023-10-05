@@ -10,4 +10,14 @@
   "webRoot": "C:\\Users\\JosvanRest\\source\\repos\\charactercreator"
 }</LaunchJsonTarget>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebuggerFlavor>LaunchJsonDebugger</DebuggerFlavor>
+    <LaunchJsonTarget>{
+  "name": "localhost (Chrome)",
+  "type": "chrome",
+  "request": "launch",
+  "url": "http://localhost:5173",
+  "webRoot": "C:\\Users\\JosvanRest\\source\\repos\\charactercreator"
+}</LaunchJsonTarget>
+  </PropertyGroup>
 </Project>
