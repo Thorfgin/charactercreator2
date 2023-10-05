@@ -22,6 +22,7 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE:
+
 	20231004	RULESET_VERSION: futureproofing - added support to check on the ruleset version.
 			generic fixes: seperated some components and functions for maintainability
 			EXPORT BUILD: Export the current skillset into a downloadable file
@@ -30,7 +31,8 @@
 			LOCALSTORAGE: obfuscated the data, to somewhat prevent tinkering
 			BUGREPORT: added option to report bugs
 
-	20231001	LOCALSTORAGE: the latest build data is stored the localstorage
+	20231001		LOCALSTORAGE: the latest build data is stored the localstorage
+
 
 	20230928	bugfixes: fixed some minor inconsistencies
 			- added special prereq to teacher expertise in tooltip
@@ -40,12 +42,13 @@
 			TABLE: columns are sortable by clicking the header
 			TABLE: Drag and Drop in the skill table, as method of rearranging items
 
-	20230926	SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
+	20230926		SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
 				(SIZE, COLOR, ANIMATION, ETC)
 			WONT DO: Change Error messages (modals) to a (!) img with mouseover.
 			This is done already above, as the only messages/modals are shown when adding/removing items.
 			Removing has no valid option to show another (!).
 			XP: add a reverse counter to show the ammount of free xp.
+
 
 	20230924	SPELL: Add a PDF Source/Page reference to each GridItem
 			SKILL: Add a PDF Source/Page reference to each row
@@ -61,7 +64,8 @@
 			Several prerequisite checks have been updated.
 			PREQUISITES: added option to select a category and XP value
 
-	20230918	SELECT: customized the Selects to show a tooltip with the Skill description
+	20230918		SELECT: customized the Selects to show a tooltip with the Skill description
+
 
 	20230917	SKILL: ExtraSkill selection
 			SKILL: ExtraSkill removal
@@ -77,12 +81,14 @@
 			PREREQUISITES: stop removing of a skill when other skills are dependant on it as requirement
 			SKILLS: Tooltip is properly formatted and shows the right content.
 	
-	20230912	SKILLS have Tooltips available
+	20230912		SKILLS have Tooltips available
 	
+
 	20230911	SPELLS/RECIPIES can be converted to JSON per script
 	
-	20230908	SPELLS/RECIPIES have tooltips
+	20230908		SPELLS/RECIPIES have tooltips
 	
+
 	20230905	RECIPY gives a summary of the selected spells aquired by skills
 			SPELLS & TECHNIQUE gives a summary of the selected spells aquired by skills
 			RESET: button on TOP reset the Character Creator, clears all tables.
