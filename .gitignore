@@ -10,7 +10,6 @@
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
 
 # dependencies
