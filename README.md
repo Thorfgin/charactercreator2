@@ -34,8 +34,15 @@
 			LOCALSTORAGE: obfuscated the data, to somewhat prevent tinkering
 			BUGREPORT: added option to report bugs
 
-	20231001	LOCALSTORAGE: the latest build data is stored the localstorage
+	20231004	RULESET_VERSION: futureproofing - added support to check on the ruleset version.
+			generic fixes: seperated some components and functions for maintainability
+			EXPORT BUILD: Export the current skillset into a downloadable file
+			IMPORT BUILD: Import a local file and set it as the current skillset
+			LOCALSTORAGE: Store a character under its own name. Make it reloadable by a pick-list
+			LOCALSTORAGE: obfuscated the data, to somewhat prevent tinkering
+			BUGREPORT: added option to report bugs
 
+	20231001	LOCALSTORAGE: the latest build data is stored the localstorage
 
 	20230928	bugfixes: fixed some minor inconsistencies
 			- added special prereq to teacher expertise in tooltip
