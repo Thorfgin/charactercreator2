@@ -1,5 +1,7 @@
 {
-  "testMatch": [
-    "<rootDir>/src/__tests__/**/*.test.js"
-  ]
+  "testMatch": [ "<rootDir>/src/__tests__/**/*.test.js" ],
+  "moduleFileExtensions": [ "js", "jsx" ],
+  "transform": {
+    "^.+\\.jsx?$": "babel-jest"
+  }
 }

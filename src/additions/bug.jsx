@@ -198,11 +198,11 @@ var BugDispatch = {
         var that = this;
         if (thebug.bug) {
             if (thebug.bug.addEventListener) {
-                thebug.bug.addEventListener('mouseover', function (e) {
+                thebug.bug.addEventListener('mouseover', function () {
                     that.on_bug(thebug);
                 });
             } else if (thebug.bug.attachEvent) {
-                thebug.bug.attachEvent('onmouseover', function (e) {
+                thebug.bug.attachEvent('onmouseover', function () {
                     that.on_bug(thebug);
                 });
             }
@@ -1022,12 +1022,13 @@ function SpawnBug() {
     var newBug = {},
         prop;
     for (prop in Bug) {
+        // eslint-disable-next-line no-prototype-builtins
         if (Bug.hasOwnProperty(prop)) {
             newBug[prop] = Bug[prop];
         }
     }
     return newBug;
-};
+}
 
 // debated about which pattern to use to instantiate each bug...
 // see http://jsperf.com/obj-vs-prototype-vs-other
@@ -1044,12 +1045,13 @@ function mergeOptions(obj1, obj2, clone) {
     }
     var newobj = (clone) ? cloneOf(obj1) : obj1;
     for (var key in obj2) {
+        // eslint-disable-next-line no-prototype-builtins
         if (obj2.hasOwnProperty(key)) {
             newobj[key] = obj2[key];
         }
     }
     return newobj;
-};
+}
 
 function cloneOf(obj) {
     if (obj === null || typeof (obj) != 'object')
@@ -1058,6 +1060,7 @@ function cloneOf(obj) {
     var temp = obj.constructor(); // changed
 
     for (var key in obj) {
+        // eslint-disable-next-line no-prototype-builtins
         if (obj.hasOwnProperty(key)) {
             temp[key] = cloneOf(obj[key]);
         }
@@ -1073,6 +1076,7 @@ window.requestAnimFrame = (function () {
         window.webkitRequestAnimationFrame ||
         window.mozRequestAnimationFrame ||
         window.oRequestAnimationFrame ||
+        // eslint-disable-next-line no-unused-vars
         window.msRequestAnimationFrame || function ( /* function */ callback, /* DOMElement */ element) {
             window.setTimeout(callback, 1000 / 60);
         };

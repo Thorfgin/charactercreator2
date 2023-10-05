@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import {
-    meetsAllPrerequisites,
     isSkillAPrerequisiteToAnotherSkill,
+    meetsAllPrerequisites,
     sourceBasisVaardigheden,
     sourceExtraVaardigheden
-} from '../../src/App.js';
-
+} from '../../src/App.jsx';
 
 
 // Moke the setState function

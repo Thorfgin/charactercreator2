@@ -1,11 +1,17 @@
-import React, { useState, useRef }  from 'react';
+import { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import {
     getLocalStorage,
     getAllLocalStorageKeys
-} from './localstorage.js';
+} from './localstorage.jsx';
 
 
 function CharacterTable({ selectedCharacter, handleCharacterChange }) {
+    CharacterTable.propTypes = {
+        selectedCharacter: PropTypes.string.isRequired,
+        handleCharacterChange: PropTypes.object.isRequired,
+    };
+
     const tableRef = useRef(null);
     let keys = [];
 
@@ -52,6 +58,15 @@ function CharacterTable({ selectedCharacter, handleCharacterChange }) {
 }
 
 function LoadCharacterModal({ closeModal, setTableData, setCharName, setIsChecked, setMAX_XP, version }) {
+    LoadCharacterModal.propTypes = {
+        closeModal: PropTypes.object.isRequired,
+        setTableData: PropTypes.object.isRequired,
+        setCharName: PropTypes.object.isRequired,
+        setIsChecked: PropTypes.object.isRequired,
+        setMAX_XP: PropTypes.object.isRequired,
+        version: PropTypes.string.isRequired,
+    };
+
     const [selectedCharacter, setSelectedCharacter] = useState("");
 
     // Laden uit de local storage van de browser

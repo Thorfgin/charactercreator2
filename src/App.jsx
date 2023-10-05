@@ -1,31 +1,31 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
+import { useState, useEffect } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-import Tooltip from './tooltip.js';
-import Toolbar from './toolbar.js';
-import ModalMessage from './modalmessage.js'
-import BugReportForm from './bugReport.js'
-import FileUploadModal from './fileupload.js'
-import LoadCharacterModal from './loadcharacter.js'
+import Tooltip from './tooltip.jsx';
+import Toolbar from './toolbar.jsx';
+import ModalMessage from './modalmessage.jsx'
+import FileUploadModal from './fileupload.jsx'
+import LoadCharacterModal from './loadcharacter.jsx'
 
-import openPage from './openPdf.js';
+import openPage from './openPdf.jsx';
 import {
     GridEigenschapItem,
     GenericTooltipItem,
     updateGridEigenschappenTiles,
     updateGridSpreukenTiles,
     updateGridReceptenTiles
-} from './griditem.js';
+} from './griditem.jsx';
 
-import { setLocalStorage, getLocalStorage } from './localstorage.js';
+import { setLocalStorage, getLocalStorage } from './localstorage.jsx';
 
 import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
 import recepten from './json/recepten.json';
 import packageInfo from '../package.json';
-import './App.css';
 
 export let totalXP = 0; // Berekende totaal waarde
 
@@ -63,20 +63,6 @@ export const defaultProperties = [
     { name: "rune_imbue_cap", image: "./images/image_run_imb.png", text: "Rune Imbue cap", value: 0 }
 ];
 
-// Tabel Data
-const gridData = [defaultProperties[0], defaultProperties[1]];
-const emptyData = [];
-
-// Tabel Vaardigheden
-const columns = [
-    { Header: "ID", accessor: "id", className: "col-id" },
-    { Header: "Vaardigheid", accessor: "skill", className: "col-vaardigheid" },
-    { Header: "XP Kosten", accessor: "xp", className: "col-xp" },
-    { Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: ({ value }) => (requestLoreSheet(value)), },
-    { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
-    { Header: "Info", className: "col-info", Cell: ({ row }) => requestInfo(row) },
-];
-
 /// --- LOCAL STORAGE --- ///
 
 // De locale storage with gemarkeerd met een regelset versie, zoals opgenomen in de packageInfo
@@ -105,7 +91,22 @@ if (typeof (Storage) !== "undefined") {
             return [];
         }
     }
-};
+}
+
+
+// Tabel Data
+const gridData = [defaultProperties[0], defaultProperties[1]];
+const emptyData = [];
+
+// Tabel Vaardigheden
+const columns = [
+    { Header: "ID", accessor: "id", className: "col-id" },
+    { Header: "Vaardigheid", accessor: "skill", className: "col-vaardigheid" },
+    { Header: "XP Kosten", accessor: "xp", className: "col-xp" },
+    { Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: ({ value }) => (requestLoreSheet(value)), },
+    { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
+    { Header: "Info", className: "col-info", Cell: ({ row }) => requestInfo(row) },
+];
 
 // Check of de Skill aan de vereisten voldoet
 export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
@@ -480,7 +481,7 @@ function requestInfo(row) {
                 <Tooltip
                     skillName={currentItem.skill}
                     isSpell={false}
-                    isRecipy={false}
+                    isRecipe={false}
                     isSkill={true}
                 />
                 <img
@@ -528,7 +529,6 @@ export default function App() {
     const [isChecked, setIsChecked] = useState(getInitialData(false, false, true));
     const [MAX_XP, setMAX_XP] = useState(getInitialData(false, true, false));
     const [showModal, setShowModal] = useState(false);
-    const [showBugModal, setShowBugModal] = useState(false);
     const [showUploadModal, setShowUploadModal] = useState(false);
     const [showLoadCharacterModal, setShowLoadCharacterModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("");
@@ -558,14 +558,14 @@ export default function App() {
                 charData.ruleset_version === packageInfo.ruleset_version) {
 
                 if (hasData) { return charData.data; }
-                if (hasXP) { return charData.MAX_XP };
-                if (wasChecked) { return charData.isChecked };
+                if (hasXP) { return charData.MAX_XP }
+                if (wasChecked) { return charData.isChecked }
             }
         }
         else {
-            if (hasData) { return [] };
-            if (hasXP) { return 15 };
-            if (wasChecked) { return true };
+            if (hasData) { return [] }
+            if (hasXP) { return 15 }
+            if (wasChecked) { return true }
         }
     }
 
@@ -614,7 +614,7 @@ export default function App() {
             return property.value !== ""
         });
         setGridRecepten(updatedGridReceptenContent);
-    };
+    }
 
     /// --- TABLE CONTENT --- ///
     function getTableDataSums() {
@@ -663,7 +663,7 @@ export default function App() {
             setTableData((prevData) => prevData.filter((item) =>
                 item.skill.toLowerCase() !== row.skill.toLowerCase()));
         }
-    };
+    }
 
     // Aanvullende aankopen van reeds bestaande vaardigheid
     function handleAdd(row) {
@@ -674,7 +674,7 @@ export default function App() {
             if (!sourceRecord) {
                 sourceRecord = sourceExtraVaardigheden.find((record) =>
                     record.skill.toLowerCase() === row.skill.toLowerCase())
-            };
+            }
             const currentRecord = tableData.find((record) =>
                 record.skill.toLowerCase() === row.skill.toLowerCase());
 
@@ -697,7 +697,7 @@ export default function App() {
             setModalMsg("Maximum XP (" + MAX_XP + ") bereikt. \nToevoegen is niet toegestaan.\n");
             setShowModal(true);
         }
-    };
+    }
 
     function handleSubtract(row) {
         // check of het een vereiste is
@@ -720,7 +720,7 @@ export default function App() {
                 setTableData(updatedTableData);
             }
         }
-    };
+    }
 
     // Plaats Acties in de kolom op basis van de multipurchase property
     function requestActions(row) {
@@ -784,10 +784,6 @@ export default function App() {
         setTableData(updatedTableData);
     };
 
-    function showBugReport() {
-        setShowBugModal(true);
-    }
-
     function showDisclaimer() {
         setModalMsg(
             "De character creator geeft een indicatie van de mogelijkheden.\n " +
@@ -800,7 +796,6 @@ export default function App() {
     }
 
     const closeModal = () => { setShowModal(false); };
-    const closeBugModal = () => { setShowBugModal(false); };
     const closeUploadModal = () => { setShowUploadModal(false); };
     const closeLoadCharacterModal = () => { setShowLoadCharacterModal(false); };
 
@@ -821,8 +816,10 @@ export default function App() {
                         <table {...getTableProps()} className="App-table">
                             <thead>
                                 {headerGroups.map((headerGroup) => (
+                                    // eslint-disable-next-line react/jsx-key
                                     <tr {...headerGroup.getHeaderGroupProps()}>
                                         {headerGroup.headers.map((column) => (
+                                            // eslint-disable-next-line react/jsx-key
                                             <th
                                                 {...column.getHeaderProps(column.getSortByToggleProps())}
                                                 className={column.className}
@@ -858,6 +855,7 @@ export default function App() {
                                                             {...provided.dragHandleProps}
                                                         >
                                                             {row.cells.map((cell) => (
+                                                                // eslint-disable-next-line react/jsx-key
                                                                 <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                                                             ))}
                                                             <td role="cell">
@@ -882,10 +880,6 @@ export default function App() {
                         modalMsg={modalMsg}
                         closeModal={closeModal}/>
                     )}              
-                    {showBugModal && (
-                        <BugReportForm
-                            closeModal={closeBugModal} />
-                    )}
                     {showUploadModal && (
                         <FileUploadModal
                             closeModal={closeUploadModal}
@@ -964,7 +958,7 @@ export default function App() {
                 <div>{packageInfo.creator}{'\u2122'}</div>
                 <div>
                     <label className="disclaimer" onClick={showDisclaimer}>Disclaimer</label>
-                    <label className="bugreport" onClick={showBugReport}>Bug melden</label>
+                    <label className="faq" onClick={() => { console.log("OK") }}>F.A.Q.</label>
                 </div>
 
             </footer>

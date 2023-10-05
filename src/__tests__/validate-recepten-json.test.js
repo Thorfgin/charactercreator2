@@ -3,7 +3,7 @@ import sourceRecepten from '../../src/json/recepten.json';
 // Test for Unique Recipy id's
 function hasUniqueRecipyIDs(json) {
 	const spells = [];
-	for (const category of sourceRecepten.Categories) {
+	for (const category of json.Categories) {
 		for (const skill of category.Skills) {
 			for (const spell of skill.Recipies) {
 				spells.push(spell);

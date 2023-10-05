@@ -1,4 +1,4 @@
-const fs = require('fs').promises;
+import { promises as fs } from 'fs';
 
 // Define the URL or local path to your PDF file
 const index = 4

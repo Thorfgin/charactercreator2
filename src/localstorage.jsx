@@ -4,7 +4,7 @@ export function getLocalStorage(key) {
         if (storedData) { return storedData; }
         else { return []; }
     }
-    else { return []; };
+    else { return []; }
 }
 
 export function setLocalStorage(key, data) {
@@ -20,10 +20,13 @@ export function getAllLocalStorageKeys(givenKey) {
     const keys = []
     if (typeof (Storage) !== "undefined") {
         for (let key in localStorage) {
+            // eslint-disable-next-line no-prototype-builtins
             if (localStorage.hasOwnProperty(key)) {
                 if (!givenKey) { keys.push(key); }
                 else if (givenKey && key === givenKey) { keys.push(key); }
-                else { } // do nothing
+                else {
+                    // do nothing
+                } 
             }
         }
     }
