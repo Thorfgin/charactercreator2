@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import sourceVaardigheden from '../../src/json/vaardigheden.json';
 
 // Test for Unique Skill id's
