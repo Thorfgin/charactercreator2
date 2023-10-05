@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Select from 'react-select';
-import Tooltip from './tooltip.js';
-import { ConfirmModal } from './modalmessage.js';
+import Tooltip from './tooltip.jsx';
+import { ConfirmModal } from './modalmessage.jsx';
 
 import {
     totalXP,
@@ -12,11 +12,11 @@ import {
     optionsExtraVaardigheden,
     meetsAllPrerequisites
 }
-    from './App.js'
+    from './App.jsx'
 import {
     setLocalStorage,
     getAllLocalStorageKeys
-} from './localstorage.js';
+} from './localstorage.jsx';
 import packageInfo from '../package.json';
 
 
@@ -184,7 +184,7 @@ function Toolbar(
             setTableData((prevData) => [...prevData, selectedRecord]);
             return true;
         }
-    };
+    }
 
 
     // TOOLTIP ICON
@@ -200,7 +200,7 @@ function Toolbar(
                     setTimeout(() => {
                         loop(isBasicSkill, counter + 1);
                     }, delay);
-                };
+                }
             })
         }
         else {
@@ -208,7 +208,7 @@ function Toolbar(
                 setCurrentExtraImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
                 if (counter < maxIterations) {
                     setTimeout(() => { loop(isBasicSkill, counter + 1); }, delay);
-                };
+                }
             })
         }
     }

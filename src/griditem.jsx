@@ -1,25 +1,32 @@
-import React, { useState } from 'react';
-import Tooltip from './tooltip.js';
-import openPage from './openPdf.js';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+import Tooltip from './tooltip.jsx';
+import openPage from './openPdf.jsx';
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
     defaultProperties
-} from './App.js';
+} from './App.jsx';
 import {
     SpiderController,
     GhostController,
     SkeletonController,
-} from './additions/bug.js';
+} from './additions/bug.jsx';
 import {
     StoneController
-} from './additions/stone.js';
+} from './additions/stone.jsx';
 import './css/heart.css';
 
 let bugsActive = false;
 
 // Karakter eigenschappen griditem
 export function GridEigenschapItem({ image, text, value }) {
+    GridEigenschapItem.propTypes = {
+        image: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        value: PropTypes.any.isRequired,
+    };
+
     const [clicked, setClicked] = useState(false);
     const [counter, setCounter] = useState(0);
     const [spiderController, setSpiderController] = useState(null);
@@ -29,13 +36,13 @@ export function GridEigenschapItem({ image, text, value }) {
 
     let reqClicks = 2;
 
-
     const handleItemClick = () => {
         setClicked(!clicked);
         setCounter(counter + 1);
     };
 
     const getContent = () => {
+        // eslint-disable-next-line react/prop-types
         if (text.trim() === "Totaal HP" && clicked && counter >= reqClicks) {
             const jstoggle = document.getElementById("App-VA-logo");
 
@@ -104,6 +111,14 @@ export function GridEigenschapItem({ image, text, value }) {
 
 // Generiek aanmaken van een tooltip knop op basis van type
 export function GenericTooltipItem({ skill, name, text, type, page }) {
+    GenericTooltipItem.propTypes = {
+        skill: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        page: PropTypes.integer.isRequired,
+    };
+
     let result = <div></div>;
     if (type === "grid-spreuken") { result = getTooltip(skill, name, type, page); }
     if (type === "grid-recepten") { result = getTooltip(skill, name, type); }

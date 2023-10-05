@@ -1,7 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from 'react';
+import PropTypes from 'prop-types';
 
 export function ConfirmModal({ modalMessage, onClose, onConfirm }) {
+    ConfirmModal.propTypes = {
+        modalMessage: PropTypes.string.isRequired,
+        onClose: PropTypes.object.isRequired,
+        onConfirm: PropTypes.object.isRequired
+    };
+
     return (
         <div className="modal-overlay">
             <div className="modal">
@@ -13,9 +19,13 @@ export function ConfirmModal({ modalMessage, onClose, onConfirm }) {
             </div>
         </div>
     );
-};
+}
 
 function ModalMessage({ modalMsg, closeModal }) {
+    ModalMessage.propTypes = {
+        modalMsg: PropTypes.string.isRequired,
+        closeModal: PropTypes.object.isRequired
+    };
     const msgBlocks = modalMsg.split('\n');
     const urlRegex = /(https?:\/\/[^\s]+)/g;
 

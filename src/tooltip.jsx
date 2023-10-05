@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
     sourceSpreuken,
     sourceRecepten
-} from './App.js'
+} from './App.jsx'
 
 // Tooltip component voor GridItems
 // Gebruikt OF skillName OF de combinatioe van skillName/itemName (spell/technique/recipy e.d.)
-function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill, image }) {
+function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkill, image }) {
+    Tooltip.propTypes = {
+        skillName: PropTypes.any,
+        itemName: PropTypes.any,
+        isSpell: PropTypes.bool.isRequired,
+        isRecipe: PropTypes.bool.isRequired,
+        isSkill: PropTypes.bool.isRequired,
+        image: PropTypes.any,
+    };
+
     const [showTooltip, setShowTooltip] = useState(false);
     const handleMouseOver = () => setShowTooltip(true);
     const closeTooltip = () => setShowTooltip(false);
@@ -22,7 +32,7 @@ function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill, image }) {
     }
     if (!sourceSkill) { return null; } // Exit early.
 
-    let data = getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName);   
+    let data = getData(isSpell, sourceSkill, itemName, isRecipe, isSkill, skillName);   
     if (!image) { image = './images/img-info.png' }
 
     return (
@@ -36,10 +46,10 @@ function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill, image }) {
                 <div className="tooltip-overlay">
                     <div className="tooltip" onClick={closeTooltip}>
                         <h5>Vaardigheid: {skillName}</h5>
-                        {isSpell ? <h5>Spreuk/Techniek: {itemName}</h5> : isRecipy ? <h5>Recept: {itemName}</h5> : null}
+                        {isSpell ? <h5>Spreuk/Techniek: {itemName}</h5> : isRecipe ? <h5>Recept: {itemName}</h5> : null}
                         <table className="tooltip-table">
                             <tbody>
-                                {getMappingFromData(data, isSkill, isSpell, isRecipy)}
+                                {getMappingFromData(data, isSkill, isSpell, isRecipe)}
                             </tbody>
                         </table>
                     </div>
@@ -47,7 +57,7 @@ function Tooltip({ skillName, itemName, isSpell, isRecipy, isSkill, image }) {
             )}
         </div>
     );
-};
+}
 
 export default Tooltip;
 
@@ -63,6 +73,7 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
             item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
 
         data = skillFound.Spells.find((item) => item.spell.toLowerCase() === itemName.toLowerCase());
+        console.log(data);
         data = data !== {} ? data : {
             name: itemName ? itemName : '',
             description: 'Spreuk/Techniek informatie kon niet gevonden worden.'
@@ -77,6 +88,7 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
 
         data = skillFound.Recipies.find((item) =>
             item.recipy.toLowerCase() === itemName.toLowerCase());
+        console.log(data);
         data = data !== {} ? data : {
             recipy: itemName ? itemName : '',
             effect: 'Recept informatie kon niet gevonden worden.'
@@ -93,7 +105,7 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
         if (reqSkills.length > 0) {
             reqSkills.forEach((item) => newRequirements += (newRequirements === "" ? item : ", \n" + item))
             fullRequirementsBlock += newRequirements + "\n";
-        };
+        }
         // uitzondering - deze staat niet in de vaardigheden.json
         if (sourceSkill.skill === "Leermeester Expertise") { fullRequirementsBlock += "1 Extra vaardigheid"; }
 
@@ -104,7 +116,7 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
             reqAny.forEach((item) => newAnyRequirements += (newAnyRequirements === "" ? item : ", \n" + item))
             newAnyRequirements = "Een van de volgende: \n" + newAnyRequirements;
             fullRequirementsBlock += newAnyRequirements + "\n";
-        };
+        }
 
 
         let newCategoryRequirements = "";

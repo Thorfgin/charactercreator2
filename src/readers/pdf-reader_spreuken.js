@@ -1,5 +1,5 @@
-const fs = require('fs');
-const pdfjs = require('pdfjs-dist');
+import { writeFile } from 'fs';
+import { getDocument } from 'pdfjs-dist';
 
 // Define the URL or local path to your PDF file
 const pdfPath = 'C:\\Users\\JosvanRest\\Downloads\\Spreuken.pdf';
@@ -312,14 +312,14 @@ function processCleanedContent() {
 async function main() {
     try {
         // Process PDF
-        const pdf = await pdfjs.getDocument(pdfPath).promise;
+        const pdf = await getDocument(pdfPath).promise;
         console.log('PDF Loaded:', pdf.numPages);
         await processPDF(pdf);
         processCleanedContent();
 
         // Convert to JSON
         const jsonString = JSON.stringify(jsonData, null, 2);
-        fs.writeFile(outputPath, jsonString, 'utf-8', (err) => {
+        writeFile(outputPath, jsonString, 'utf-8', (err) => {
             if (err) {
                 console.error('Error writing to file:', err);
             } else {

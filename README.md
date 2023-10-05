@@ -8,6 +8,7 @@
 	MUST
 
 	SHOULD:
+	- FAQ: add a set of FAQ to save time
 
 	COULD:
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
@@ -21,7 +22,9 @@
 	
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-	DONE:
+	DONE
+	20231005	BUGREPORT: removed the option, in favor of SENTRY implementation
+			FAQ: added a FAQ page to answer some common questions
 
 	20231004	RULESET_VERSION: futureproofing - added support to check on the ruleset version.
 			generic fixes: seperated some components and functions for maintainability
@@ -31,7 +34,7 @@
 			LOCALSTORAGE: obfuscated the data, to somewhat prevent tinkering
 			BUGREPORT: added option to report bugs
 
-	20231001		LOCALSTORAGE: the latest build data is stored the localstorage
+	20231001	LOCALSTORAGE: the latest build data is stored the localstorage
 
 
 	20230928	bugfixes: fixed some minor inconsistencies
