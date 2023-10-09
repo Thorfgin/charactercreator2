@@ -3,7 +3,7 @@
   "name": "Character Creator",
   "icons": [
     {
-      "src": "/public/favicon.ico",
+      "src": "./public/favicon-32x32.jpg",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }

@@ -1,20 +1,18 @@
-/* eslint-disable no-undef */
-import { useState } from 'react';
+import * as React from 'react';
+import { 
+    jest,
+    describe,
+    test,
+    beforeEach,
+    expect
+} from '@jest/globals';
+
 import {
     isSkillAPrerequisiteToAnotherSkill,
     meetsAllPrerequisites,
     sourceBasisVaardigheden,
     sourceExtraVaardigheden
-} from '../../src/App.jsx';
-
-
-// Moke the setState function
-jest.mock('react', () => ({
-    ...jest.requireActual('react'),
-    useState: jest.fn()
-}))
-const setModalMsg = jest.fn();
-
+} from '../src/App.jsx';
 
 // Replace ë with the Unicode
 function replaceChar(word) { return word.replace(/ë/g, '\u00EB') }
@@ -39,11 +37,15 @@ function getSkillsFromExtraVaardigheden(skillNames) {
     return mockTableData;
 }
 
+// Prepare for useState Mock
+const setModalMsg = jest.fn();
+
 /// --- Pre-Requisites --- ///
 
 describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
     beforeEach(() => {
-        useState.mockImplementation((init) => [init, setModalMsg])
+        const useStateSpy = jest.spyOn(React, 'useState');
+        useStateSpy.mockImplementation((init) => [init, setModalMsg]);
     })
 
     // No Prerequisites

@@ -1,5 +1,8 @@
-/* eslint-disable no-undef */
-import sourceVaardigheden from '../../src/json/vaardigheden.json';
+import {
+    test,
+    expect
+} from '@jest/globals';
+import sourceVaardigheden from '../src/json/vaardigheden.json';
 
 // Test for Unique Skill id's
 function hasUniqueSpellIDs(jsonArray) {

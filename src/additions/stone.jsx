@@ -44,11 +44,11 @@ function StoneDispatch(options) {
 
     this.initialize = function () {
         var posStone = [
-            { x: 0.45, y: 0.25 },
-            { x: 0.55, y: 0.25 },
-            { x: 0.40, y: 0.35 },
-            { x: 0.60, y: 0.35 },
-            { x: 0.5, y: 0.45 },
+            { x: 0.43, y: 0.25 },
+            { x: 0.53, y: 0.25 },
+            { x: 0.38, y: 0.35 },
+            { x: 0.58, y: 0.35 },
+            { x: 0.48, y: 0.45 },
         ];
 
         posStone.forEach(function (pos) {

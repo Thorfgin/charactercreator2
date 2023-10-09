@@ -7,18 +7,18 @@ import {
     sourceRecepten
 } from './App.jsx'
 
+Tooltip.propTypes = {
+    skillName: PropTypes.any,
+    itemName: PropTypes.any,
+    isSpell: PropTypes.bool.isRequired,
+    isRecipe: PropTypes.bool.isRequired,
+    isSkill: PropTypes.bool.isRequired,
+    image: PropTypes.any,
+};
+
 // Tooltip component voor GridItems
 // Gebruikt OF skillName OF de combinatioe van skillName/itemName (spell/technique/recipy e.d.)
 function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkill, image }) {
-    Tooltip.propTypes = {
-        skillName: PropTypes.any,
-        itemName: PropTypes.any,
-        isSpell: PropTypes.bool.isRequired,
-        isRecipe: PropTypes.bool.isRequired,
-        isSkill: PropTypes.bool.isRequired,
-        image: PropTypes.any,
-    };
-
     const [showTooltip, setShowTooltip] = useState(false);
     const handleMouseOver = () => setShowTooltip(true);
     const closeTooltip = () => setShowTooltip(false);
@@ -73,8 +73,7 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
             item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
 
         data = skillFound.Spells.find((item) => item.spell.toLowerCase() === itemName.toLowerCase());
-        console.log(data);
-        data = data !== {} ? data : {
+        data = Object.keys(data).length > 0 ? data : {
             name: itemName ? itemName : '',
             description: 'Spreuk/Techniek informatie kon niet gevonden worden.'
         };
@@ -88,8 +87,7 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
 
         data = skillFound.Recipies.find((item) =>
             item.recipy.toLowerCase() === itemName.toLowerCase());
-        console.log(data);
-        data = data !== {} ? data : {
+        data = Object.keys(data).length > 0 ? data : {
             recipy: itemName ? itemName : '',
             effect: 'Recept informatie kon niet gevonden worden.'
         };
@@ -141,7 +139,7 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
 
 // Data verwerken tot een Tooltip definitie voor basisvaardigheid, spreuk of recept
 function getMappingFromData(data, isSkill, isSpell, isRecipy) {
-    if (!data) { return; }
+    if (!data || Object.keys(data).length === 0 ) { return; }
 
     if (isSkill === true) {
         let descriptionBlock = data.description.split('\n');

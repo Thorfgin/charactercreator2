@@ -1,5 +1,8 @@
-/* eslint-disable no-undef */
-import sourceSpreuken from '../../src/json/spreuken.json';
+import {
+    test,
+    expect
+} from '@jest/globals';
+import sourceSpreuken from '../src/json/spreuken.json';
 
 // Test for Unique Spell id's
 function hasUniqueSpellIDs(json) {

@@ -1,17 +1,17 @@
-#wrapper {
+.wrapper {
     position: absolute;
     margin-left: 18px;
     margin-top: 20px;
     animation: pulse 1s infinite;
 }
 
-#pulsingheart {
+.pulsingheart {
     position: relative;
     width: 40px;
     height: 36px;
 }
 
-    #pulsingheart:before, #pulsingheart:after {
+    .pulsingheart:before, .pulsingheart:after {
         position: absolute;
         content: "";
         left: 20px;
@@ -25,7 +25,7 @@
         animation: pulsecolor 1s infinite;
     }
 
-    #pulsingheart:after {
+    .pulsingheart:after {
         left: 0;
         transform: rotate(45deg);
         transform-origin: 100% 100%;
