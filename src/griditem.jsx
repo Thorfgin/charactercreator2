@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Tooltip from './tooltip.jsx';
@@ -19,13 +20,14 @@ import './css/heart.css';
 
 let bugsActive = false;
 
+GridEigenschapItem.propTypes = {
+    image: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    value: PropTypes.any.isRequired,
+};
+
 // Karakter eigenschappen griditem
 export function GridEigenschapItem({ image, text, value }) {
-    GridEigenschapItem.propTypes = {
-        image: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired,
-        value: PropTypes.any.isRequired,
-    };
 
     const [clicked, setClicked] = useState(false);
     const [counter, setCounter] = useState(0);
@@ -45,6 +47,7 @@ export function GridEigenschapItem({ image, text, value }) {
         // eslint-disable-next-line react/prop-types
         if (text.trim() === "Totaal HP" && clicked && counter >= reqClicks) {
             const jstoggle = document.getElementById("App-VA-logo");
+            console.log("HIT")
 
             // event listenis op Logo. Werkt wanneer hartje aanwezig is.
             jstoggle.addEventListener('click', () => {
@@ -66,8 +69,8 @@ export function GridEigenschapItem({ image, text, value }) {
             return (
                 <div>
                     <div className="grid-eigenschap-image" style={{ backgroundImage: "url(" + image + ")" }}>
-                        <div id="wrapper">
-                            <div id="pulsingheart"></div>
+                        <div className="wrapper">
+                            <div className="pulsingheart" id="pulsingheart"></div>
                         </div>
                     </div >
                     <div className="grid-eigenschap-text">{text}: {value}</div>
@@ -109,15 +112,16 @@ export function GridEigenschapItem({ image, text, value }) {
     );
 }
 
+GenericTooltipItem.propTypes = {
+    skill: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    page: PropTypes.number,
+};
+
 // Generiek aanmaken van een tooltip knop op basis van type
 export function GenericTooltipItem({ skill, name, text, type, page }) {
-    GenericTooltipItem.propTypes = {
-        skill: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        page: PropTypes.integer.isRequired,
-    };
 
     let result = <div></div>;
     if (type === "grid-spreuken") { result = getTooltip(skill, name, type, page); }
@@ -131,12 +135,19 @@ export function GenericTooltipItem({ skill, name, text, type, page }) {
     );
 }
 
+getTooltip.propTypes = {
+    skill: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    page: PropTypes.number,
+};
+
 function getTooltip(skill, name, type, page) {
     let isSpell = false;
-    let isRecipy = false;
+    let isRecipe = false;
 
     if (type === "grid-spreuken") { isSpell = true; }
-    else if (type === "grid-recepten") { isRecipy = true; }
+    else if (type === "grid-recepten") { isRecipe = true; }
     else { console.log("Type was not recognized") }
 
     return (
@@ -145,13 +156,13 @@ function getTooltip(skill, name, type, page) {
                 skillName={skill}
                 itemName={name}
                 isSpell={isSpell}
-                isRecipy={isRecipy}
+                isRecipe={isRecipe}
                 isSkill={false} />
             {isSpell &&
                 page && (
                     <img
                         className="btn-image"
-                        title={"Open Spreuken.pdf - pagina "+page}
+                        title={"Open Spreuken.pdf - pagina " + page}
                         onClick={() => openPage('Spreuken.pdf', page)}
                         src="./images/img-pdf.png"
                         alt="PDF">

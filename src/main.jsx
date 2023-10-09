@@ -11,7 +11,7 @@ Sentry.init({
         new Sentry.BrowserTracing({
             tracePropagationTargets: [
                 "localhost",
-                /^http:\/\/localhost:3000/,
+                /^http:\/\/localhost:5173/,
                 /^https:\/\/thorfgin\.github\.io\/charactercreator\//],
         }),
         new Sentry.Replay(),

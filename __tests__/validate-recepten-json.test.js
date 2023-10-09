@@ -1,5 +1,8 @@
-/* eslint-disable no-undef */
-import sourceRecepten from '../../src/json/recepten.json';
+import {
+	test,
+	expect
+} from '@jest/globals';
+import sourceRecepten from '../src/json/recepten.json';
 
 // Test for Unique Recipy id's
 function hasUniqueRecipyIDs(json) {

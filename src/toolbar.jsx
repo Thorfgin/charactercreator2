@@ -392,7 +392,7 @@ function Toolbar(
                         <Tooltip
                             skillName={selectedBasicSkill.value}
                             isSpell={false}
-                            isRecipy={false}
+                            isRecipe={false}
                             isSkill={true}
                             image={imageSrc[currentBasicImageIndex]}
                         />

@@ -21,7 +21,7 @@
 /build
 
 # misc
-.DS_Store
+ DS_Store
 .env.local
 .env.development.local
 .env.test.local
@@ -40,8 +40,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Other
 node_modules
 dist
 dist-ssr
+coverage
 *.local
 obj

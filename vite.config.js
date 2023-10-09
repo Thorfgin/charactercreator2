@@ -11,7 +11,7 @@ export default defineConfig({
     // Enable CSS support
     css: {
         // Enable CSS modules
-        modules: true,
+        modules: false,
 
         // Extract CSS into a separate file for production builds
         // Setting this to `true` generates a separate CSS file.
