@@ -24,12 +24,6 @@ Sentry.init({
     replaysOnErrorSampleRate: 1.0, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
 });
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
-
 // Function to handle orientation change
 function adjustViewportScale() {
     const viewportMetaTag = document.querySelector('meta[name="viewport"]');
@@ -38,7 +32,7 @@ function adjustViewportScale() {
         viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.6');
     } else if (window.matchMedia("(orientation: landscape)").matches) {
         // Landscape orientation: Set initial scale to a different value
-        viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=1.0');
+        viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.8');
     }
 }
 
@@ -65,3 +59,9 @@ handleOrientationChange();
 // Listen for orientation changes
 window.addEventListener('resize', handleOrientationChange);
 
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+)

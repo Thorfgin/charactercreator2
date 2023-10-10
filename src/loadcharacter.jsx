@@ -6,11 +6,12 @@ import {
 } from './localstorage.jsx';
 
 
+CharacterTable.propTypes = {
+    selectedCharacter: PropTypes.string.isRequired,
+    handleCharacterChange: PropTypes.object.isRequired,
+};
+
 function CharacterTable({ selectedCharacter, handleCharacterChange }) {
-    CharacterTable.propTypes = {
-        selectedCharacter: PropTypes.string.isRequired,
-        handleCharacterChange: PropTypes.object.isRequired,
-    };
 
     const tableRef = useRef(null);
     let keys = [];
@@ -57,16 +58,17 @@ function CharacterTable({ selectedCharacter, handleCharacterChange }) {
     );
 }
 
-function LoadCharacterModal({ closeModal, setTableData, setCharName, setIsChecked, setMAX_XP, version }) {
-    LoadCharacterModal.propTypes = {
-        closeModal: PropTypes.object.isRequired,
-        setTableData: PropTypes.object.isRequired,
-        setCharName: PropTypes.object.isRequired,
-        setIsChecked: PropTypes.object.isRequired,
-        setMAX_XP: PropTypes.object.isRequired,
-        version: PropTypes.string.isRequired,
-    };
 
+LoadCharacterModal.propTypes = {
+    closeModal: PropTypes.object.isRequired,
+    setTableData: PropTypes.object.isRequired,
+    setCharName: PropTypes.object.isRequired,
+    setIsChecked: PropTypes.object.isRequired,
+    setMAX_XP: PropTypes.object.isRequired,
+    version: PropTypes.string.isRequired,
+};
+
+function LoadCharacterModal({ closeModal, setTableData, setCharName, setIsChecked, setMAX_XP, version }) {
     const [selectedCharacter, setSelectedCharacter] = useState("");
 
     // Laden uit de local storage van de browser
