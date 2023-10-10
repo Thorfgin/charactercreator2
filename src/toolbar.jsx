@@ -241,7 +241,7 @@ function Toolbar(
     }
 
     // Verwijderen uit de local storage van de browser
-    function removeCharacterToLocalStorage() {
+    function removeCharacterFromLocalStorage() {
         const key = getAllLocalStorageKeys(charName);
         if (key) { setLocalStorage(key, null); }
         clearCharacterBuild();
@@ -295,7 +295,7 @@ function Toolbar(
                     header={modalHeader}
                     modalMsg={modalMsg}
                     onClose={closeConfirmModal}
-                    onConfirm={removeCharacterToLocalStorage}
+                    onConfirm={removeCharacterFromLocalStorage}
                 />)}
             <div className="character-container">
                 <div className="character-settings">

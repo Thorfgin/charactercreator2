@@ -47,7 +47,6 @@ export function GridEigenschapItem({ image, text, value }) {
         // eslint-disable-next-line react/prop-types
         if (text.trim() === "Totaal HP" && clicked && counter >= reqClicks) {
             const jstoggle = document.getElementById("App-VA-logo");
-            console.log("HIT")
 
             // event listenis op Logo. Werkt wanneer hartje aanwezig is.
             jstoggle.addEventListener('click', () => {
