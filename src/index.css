@@ -517,7 +517,8 @@
     margin: 15px;
 }
 
-.upload-modal {
+.upload-modal, 
+.faq-modal {
     background-color: white;
     text-align: center;
     min-width: 20%;

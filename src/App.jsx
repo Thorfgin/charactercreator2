@@ -8,6 +8,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import Tooltip from './tooltip.jsx';
 import Toolbar from './toolbar.jsx';
 import ModalMessage from './modalmessage.jsx'
+import FAQModal from './faq.jsx'
 import FileUploadModal from './fileupload.jsx'
 import LoadCharacterModal from './loadcharacter.jsx'
 
@@ -529,6 +530,7 @@ export default function App() {
     const [isChecked, setIsChecked] = useState(getInitialData(false, false, true));
     const [MAX_XP, setMAX_XP] = useState(getInitialData(false, true, false));
     const [showModal, setShowModal] = useState(false);
+    const [showFAQModal, setShowFAQModal] = useState(false);
     const [showUploadModal, setShowUploadModal] = useState(false);
     const [showLoadCharacterModal, setShowLoadCharacterModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("");
@@ -785,18 +787,22 @@ export default function App() {
     };
 
     function showDisclaimer() {
-        setModalMsg(
-            "De character creator geeft een indicatie van de mogelijkheden.\n " +
-            "Er kunnen altijd afwijkingen zitten tussen de teksten\n" +
-            "in de character creator en de VA regelset.\n\n" +
-            "Check altijd de laatste versie van de regelset op:\n" +
-            "https://the-vortex.nl/het-spel/regels/" +
-            "\n");
-        setShowModal(true);
+        if (showModal !== true) {
+            setModalMsg(
+                "De character creator geeft een indicatie van de mogelijkheden.\n " +
+                "Er kunnen altijd afwijkingen zitten tussen de teksten\n" +
+                "in de character creator en de VA regelset.\n\n" +
+                "Check altijd de laatste versie van de regelset op:\n" +
+                "https://the-vortex.nl/het-spel/regels/" +
+                "\n");
+            setShowModal(true);
+        }        
     }
 
     const closeModal = () => { setShowModal(false); };
     const closeUploadModal = () => { setShowUploadModal(false); };
+    const closeFAQModal = () => { setShowFAQModal(false); };
+    const openFAQModal = () => { setShowFAQModal(true); };
     const closeLoadCharacterModal = () => { setShowLoadCharacterModal(false); };
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData }, useSortBy);
@@ -880,6 +886,7 @@ export default function App() {
                         modalMsg={modalMsg}
                         closeModal={closeModal}/>
                     )}              
+
                     {showUploadModal && (
                         <FileUploadModal
                             closeModal={closeUploadModal}
@@ -889,6 +896,11 @@ export default function App() {
                             setMAX_XP={setMAX_XP}
                             setTableData={setTableData} />
                     )}
+
+                    {showFAQModal && (<FAQModal
+                        closeModal={closeFAQModal} />
+                    )}   
+
                     {showLoadCharacterModal && (
                         <LoadCharacterModal
                             closeModal={closeLoadCharacterModal}
@@ -958,7 +970,7 @@ export default function App() {
                 <div>{packageInfo.creator}{'\u2122'}</div>
                 <div>
                     <label className="disclaimer" onClick={showDisclaimer}>Disclaimer</label>
-                    <label className="faq" onClick={() => { console.log("OK") }}>F.A.Q.</label>
+                    <label className="faq" onClick={openFAQModal}>F.A.Q.</label>
                 </div>
 
             </footer>

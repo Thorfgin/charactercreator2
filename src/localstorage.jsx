@@ -1,3 +1,4 @@
+// Get the data stored in the localStorage by Key
 export function getLocalStorage(key) {
     if (typeof (Storage) !== "undefined") {
         const storedData = localStorage.getObject(key);
@@ -7,6 +8,7 @@ export function getLocalStorage(key) {
     else { return []; }
 }
 
+// Store the data in the localStorage by Key
 export function setLocalStorage(key, data) {
     if (typeof (Storage) !== "undefined") {
         if (data && data.length > 0) {
@@ -16,6 +18,10 @@ export function setLocalStorage(key, data) {
     }
 }
 
+/* 
+Get all Keys that match the givenKey.
+If the givenKey is undefined, instead it returns all keys
+*/
 export function getAllLocalStorageKeys(givenKey) {
     const keys = []
     if (typeof (Storage) !== "undefined") {
