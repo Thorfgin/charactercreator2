@@ -282,14 +282,18 @@ function Toolbar(
         setShowModal(true);
     }
 
-    const modalMsg = "Weet u zeker dat u dit personage: '" + charName + "' wilt verwijderen?";
+    const modalHeader = "Bevestig verwijderen"
+    const modalMsg = "Weet u zeker dat u dit personage:\n'" + charName + "'\nwilt verwijderen?";
+    const IsCharSelected = (charName && charName.trim() !== '') ? true : false;
+    if (IsCharSelected === false && showConfirmModal === true) { setShowConfirmModal(false); }
 
     // RETURN
     return (
         <div className="toolbar-container">
-            {showConfirmModal && (
+            {IsCharSelected === true && showConfirmModal=== true && (
                 <ConfirmModal
-                    modalMessage={modalMsg}
+                    header={modalHeader}
+                    modalMsg={modalMsg}
                     onClose={closeConfirmModal}
                     onConfirm={removeCharacterToLocalStorage}
                 />)}

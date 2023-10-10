@@ -29,10 +29,10 @@ function adjustViewportScale() {
     const viewportMetaTag = document.querySelector('meta[name="viewport"]');
     if (window.matchMedia("(orientation: portrait)").matches) {
         // Portrait orientation: Set initial scale to 1
-        viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.6');
+        viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.55');
     } else if (window.matchMedia("(orientation: landscape)").matches) {
         // Landscape orientation: Set initial scale to a different value
-        viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.8');
+        viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=1.0');
     }
 }
 
