@@ -66,7 +66,7 @@ function FileUploadModal({ closeModal, ruleset_version, setCharName, setIsChecke
     return (
         <div className="modal-overlay">
             <div className="upload-modal">
-                <h2>Upload een Bestand</h2>
+                <h3>Upload een Bestand</h3>
                 <div className="upload-modal-block">
                     <input type="file" onChange={handleFileChange} />
                 </div>

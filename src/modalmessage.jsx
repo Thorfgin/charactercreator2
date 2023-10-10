@@ -1,31 +1,43 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import PropTypes from 'prop-types';
 
-export function ConfirmModal({ modalMessage, onClose, onConfirm }) {
-    ConfirmModal.propTypes = {
-        modalMessage: PropTypes.string.isRequired,
-        onClose: PropTypes.object.isRequired,
-        onConfirm: PropTypes.object.isRequired
-    };
+ConfirmModal.propTypes = {
+    header: PropTypes.string,
+    modalMsg: PropTypes.string.isRequired,
+    onClose: PropTypes.func.isRequired,
+    onConfirm: PropTypes.func.isRequired
+};
+
+// Toont een Modal message met een Bevestig/Annuleer knop
+export function ConfirmModal({ header, modalMsg, onClose, onConfirm }) {
+    const msgBlocks = modalMsg.split('\n');
 
     return (
         <div className="modal-overlay">
             <div className="modal">
+                <h3>{header}</h3>
                 <div className="modal-container">
-                    {modalMessage}
+                    {msgBlocks.map((block, index) => (
+                        <div key={index} className="modal-block">
+                            {block === '' ? <br /> : block}
+                        </div>
+                    ))}
                 </div>
                 <button className="btn-primary" onClick={onConfirm}>Bevestig</button>
                 <button className="btn-primary" onClick={onClose}>Annuleren</button>
             </div>
+            <span className="close" onClick={onClose}>&times;</span>
         </div>
     );
 }
 
+ModalMessage.propTypes = {
+    modalMsg: PropTypes.string.isRequired,
+    closeModal: PropTypes.func.isRequired
+};
+
+// Toont een Modal message met alleen een sluit knop
 function ModalMessage({ modalMsg, closeModal }) {
-    ModalMessage.propTypes = {
-        modalMsg: PropTypes.string.isRequired,
-        closeModal: PropTypes.object.isRequired
-    };
     const msgBlocks = modalMsg.split('\n');
     const urlRegex = /(https?:\/\/[^\s]+)/g;
 

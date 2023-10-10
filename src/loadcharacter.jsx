@@ -7,18 +7,17 @@ import {
 
 
 CharacterTable.propTypes = {
-    selectedCharacter: PropTypes.string.isRequired,
-    handleCharacterChange: PropTypes.object.isRequired,
+    selectedCharacter: PropTypes.string,
+    handleCharacterChange: PropTypes.func.isRequired,
 };
 
 function CharacterTable({ selectedCharacter, handleCharacterChange }) {
-
     const tableRef = useRef(null);
     let keys = [];
 
     const allCharacterKeys = getAllLocalStorageKeys();
     allCharacterKeys.forEach(key => key !== "CCdata" ? keys.push(key) : null);
-    
+
     function handleSelectCharacter(key) {
         handleCharacterChange(key);
         // Verwijderen 'selected-row' als deze al was toegewezen
@@ -49,7 +48,7 @@ function CharacterTable({ selectedCharacter, handleCharacterChange }) {
                 ))}
                 {!keys && (
                     <tr>
-                    <td>Geen personages gevonden</td>
+                        <td>Geen personages gevonden</td>
                     </tr>
                 )
                 }
@@ -60,11 +59,11 @@ function CharacterTable({ selectedCharacter, handleCharacterChange }) {
 
 
 LoadCharacterModal.propTypes = {
-    closeModal: PropTypes.object.isRequired,
-    setTableData: PropTypes.object.isRequired,
-    setCharName: PropTypes.object.isRequired,
-    setIsChecked: PropTypes.object.isRequired,
-    setMAX_XP: PropTypes.object.isRequired,
+    closeModal: PropTypes.func.isRequired,
+    setTableData: PropTypes.func.isRequired,
+    setCharName: PropTypes.func.isRequired,
+    setIsChecked: PropTypes.func.isRequired,
+    setMAX_XP: PropTypes.func.isRequired,
     version: PropTypes.string.isRequired,
 };
 
@@ -91,6 +90,7 @@ function LoadCharacterModal({ closeModal, setTableData, setCharName, setIsChecke
                 console.error("De regelset versie van het personage wordt niet herkend.", key);
             }
         }
+        if (selectedCharacter || selectedCharacter.trim() === "") { return; }
         else {
             const msg = "Deze versie van dit personage kan helaas niet ingeladen worden.";
             alert(msg);
@@ -104,7 +104,7 @@ function LoadCharacterModal({ closeModal, setTableData, setCharName, setIsChecke
     return (
         <div className="modal-overlay">
             <div className="upload-modal">
-                <h2>Laad een personage</h2>
+                <h3>Laad een personage</h3>
                 <div className="upload-modal-block">
                     <CharacterTable
                         selectedChar={selectedCharacter}
