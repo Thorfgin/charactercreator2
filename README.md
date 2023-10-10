@@ -23,10 +23,13 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
-	20231005	FRAMEWORK: Major overhaul to deal with security risks
-				UNITTESTING: Have been temporarily disabled untill deployments work properly
-			BUGREPORT: removed the option, in favor of SENTRY implementation
+	20231009	UNITTESTING: Reinstated. Added coverage logging.
 			FAQ: added a FAQ page to answer some common questions
+
+
+	20231005	FRAMEWORK: Major overhaul to deal with security risks
+			UNITTESTING: Have been temporarily disabled untill deployments work properly
+			BUGREPORT: removed the option, in favor of SENTRY implementation
 
 	20231004	RULESET_VERSION: futureproofing - added support to check on the ruleset version.
 			generic fixes: seperated some components and functions for maintainability

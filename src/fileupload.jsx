@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
+FileUploadModal.propTypes = {
+    closeModal: PropTypes.object.isRequired,
+    ruleset_version: PropTypes.string.isRequired,
+    setCharName: PropTypes.object.isRequired,
+    setIsChecked: PropTypes.object.isRequired,
+    setMAX_XP: PropTypes.object.isRequired,
+    setTableData: PropTypes.object.isRequired,
+};
+
 function FileUploadModal({ closeModal, ruleset_version, setCharName, setIsChecked, setMAX_XP, setTableData }) {
-    FileUploadModal.propTypes = {
-        closeModal: PropTypes.object.isRequired,
-        ruleset_version: PropTypes.string.isRequired,
-        setCharName: PropTypes.object.isRequired,
-        setIsChecked: PropTypes.object.isRequired,
-        setMAX_XP: PropTypes.object.isRequired,
-        setTableData: PropTypes.object.isRequired,
-    };
 
     const [selectedFile, setSelectedFile] = useState(null);
 
