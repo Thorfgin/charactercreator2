@@ -26,12 +26,16 @@ function Toolbar(
 
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
-    const [showConfirmModal, setShowConfirmModal] = useState(false);
+    const [showConfirmRemoveModal, setShowConfirmRemoveModal] = useState(false);
+    const [showConfirmUpdateModal, setShowConfirmUpdateModal] = useState(false);
+    const [headerConfirmModal, setHeaderConfirmModal] = useState("");
+    const [msgConfirmModal, setMsgConfirmModal] = useState("");
 
     // MODALS
     const showUploadModal = () => { setShowUploadModal(true); }
     const showLoadCharacterModal = () => { setShowLoadCharacterModal(true); }
-    const closeConfirmModal = () => { setShowConfirmModal(false); }
+    const closeConfirmRemoveModal = () => { setShowConfirmRemoveModal(false); }
+    const closeConfirmUpdateModal = () => { setShowConfirmUpdateModal(false); }
 
     // CHECKBOX
     const handleCheckboxChange = () => {
@@ -93,7 +97,7 @@ function Toolbar(
                     record.skill.toLowerCase() === selectedSkill.value.toLowerCase());
             }
 
-            meetsPrerequisites = meetsAllPrerequisites(selectedRecord, tableData, setModalMsg);
+            meetsPrerequisites = meetsAllPrerequisites(selectedRecord, tableData);
 
             if (meetsPrerequisites === false) {
                 isBasicSkill ? btnAddBasicRef.current.disabled = true : btnAddExtraRef.current.disabled = true;
@@ -119,7 +123,7 @@ function Toolbar(
             if (wasSuccesfull) { setSelectedBasicSkill(''); }
         }
         else {
-            console.warn("Selected Basic skill could not be found.")
+            setSelectedBasicSkill('');
         }
     }
 
@@ -138,7 +142,7 @@ function Toolbar(
             if (wasSuccesfull) { setSelectedExtraSkill(''); }
         }
         else {
-            console.warn("Selected Extra skill could not be found.")
+            setSelectedBasicSkill('');
         }
     }
 
@@ -152,17 +156,10 @@ function Toolbar(
     // Handel alle controles af, alvorens het opgevoerde Record toe te voegen aan de tabel
     // Werkt voor zowel de basis- als extra vaardigheden.
     function handleAddToTable(selectedRecord) {
-        const wasAlreadySelected = tableData.some((record) =>
-            record.skill.toLowerCase() === selectedRecord.skill.toLowerCase());
         const hasSufficientFreeXP = (totalXP + selectedRecord.xp) <= Math.floor(MAX_XP) || selectedRecord.xp === 0;
 
-        if (wasAlreadySelected) {
-            setModalMsg("Dit item is al geselecteerd. \nToevoegen is niet toegestaan.\n");
-            setShowModal(true);
-        }
         // TODO: COMMENT OUT THIS CODEBLOCK TO DISABLE REQUIREMENTS
-        else if (!meetsAllPrerequisites(selectedRecord, tableData, setModalMsg)) { setShowModal(true); }
-        else if (!hasSufficientFreeXP) {
+        if (!hasSufficientFreeXP) {
             if (totalXP === Math.floor(MAX_XP)) {
                 setModalMsg(
                     "Maximum XP (" + MAX_XP + ") bereikt. \n" +
@@ -174,7 +171,7 @@ function Toolbar(
                     "Deze skill kost: " + selectedRecord.xp + ". \n" +
                     "Toevoegen is niet toegestaan.\n");
             } else {
-                console.warn("There should be a reason, but no reason was set.")
+                console.Error("There should be a reason for refusing to add the skill, but no reason was set.")
                 setModalMsg("Er ging iets fout...");
             }
             setShowModal(true);
@@ -185,7 +182,6 @@ function Toolbar(
             return true;
         }
     }
-
 
     // TOOLTIP ICON
     // Laat het icoontje flitsen van zwart > rood
@@ -217,25 +213,17 @@ function Toolbar(
 
     // Opslaan in de local storage van de browser
     function saveCharacterToLocalStorage() {
-        const result = getAllLocalStorageKeys(charName);
-        let isUnique = true;
-        let msg = "";
-        if (result.length > 0) {
-            isUnique = false;
-            msg = "De naam van het personage '" + charName + "' komt al voor.";
-            if (charName === "") { msg = "Vul de naam van het personage in." }
-        }
+        setLocalStorage(charName,
+            [{
+                ruleset_version: packageInfo.ruleset_version,
+                isChecked: isChecked,
+                MAX_XP: MAX_XP,
+                data: tableData
+            }]);
 
-        if (result.length === 0 || isUnique === true) {
-            setLocalStorage(charName,
-                [{
-                    ruleset_version: packageInfo.ruleset_version,
-                    isChecked: isChecked,
-                    MAX_XP: MAX_XP,
-                    data: tableData
-                }]);
-            msg = "Personage '" + charName + "' opgeslagen."
-        }
+        if (showConfirmUpdateModal === true) { closeConfirmUpdateModal(); }
+
+        const msg = "Personage '" + charName + "' opgeslagen."
         setModalMsg(msg);
         setShowModal(true);
     }
@@ -243,13 +231,51 @@ function Toolbar(
     // Verwijderen uit de local storage van de browser
     function removeCharacterFromLocalStorage() {
         const key = getAllLocalStorageKeys(charName);
-        if (key) { setLocalStorage(key, null); }
-        clearCharacterBuild();
-        setShowConfirmModal(false);
+        let wasRemoved = false;
+        
+        if (key) {
+            setLocalStorage(key, null);
+            clearCharacterBuild();
+            wasRemoved = true;
+        }
+        closeConfirmRemoveModal();
+
+        if (wasRemoved === true) {
+            setModalMsg("Personage '" + charName + "' verwijdert.");
+            setShowModal(true);
+        }
     }
 
     // Eerst via ConfirmModal bevestigen, daarna verwijdern
-    function showConfirmRemoval() { setShowConfirmModal(true); }
+    function showConfirmRemoval() {
+        if (charName && charName.trim() !== '') {
+            setHeaderConfirmModal("Bevestig verwijderen");
+            setMsgConfirmModal("Weet u zeker dat u dit personage:\n'" + charName + "'\nwilt verwijderen?");
+            setShowConfirmRemoveModal(true);
+        }
+    }
+
+    // Eerst via ConfirmModal bevestigen, daarna updaten
+    // Check of de naam gevuld is en of deze bestaat in de localstorage
+    // Als deze bestaat mag de gebruiken de update bevestigen
+    // Anders gewoon opslaan.
+    function showConfirmUpdate() {
+        if (charName && charName.trim() !== '') {
+            const result = getAllLocalStorageKeys(charName);
+            if (result.length > 0) {
+                setHeaderConfirmModal("Bevestig overschrijven");
+                setMsgConfirmModal("Personage bestaat al.\nWilt u dit personage:\n'" + charName + "'\n oveschrijven?");
+                setShowConfirmUpdateModal(true);
+            }
+            else {
+                saveCharacterToLocalStorage();
+            }
+        }
+        else {
+            setModalMsg("Vul de naam van het personage in.");
+            setShowModal(true);
+        }
+    }
 
     // Exporteren naar .dat bestand
     function exportCharacter() {
@@ -282,20 +308,23 @@ function Toolbar(
         setShowModal(true);
     }
 
-    const modalHeader = "Bevestig verwijderen"
-    const modalMsg = "Weet u zeker dat u dit personage:\n'" + charName + "'\nwilt verwijderen?";
-    const IsCharSelected = (charName && charName.trim() !== '') ? true : false;
-    if (IsCharSelected === false && showConfirmModal === true) { setShowConfirmModal(false); }
 
     // RETURN
     return (
         <div className="toolbar-container">
-            {IsCharSelected === true && showConfirmModal=== true && (
+            {showConfirmRemoveModal === true && (
                 <ConfirmModal
-                    header={modalHeader}
-                    modalMsg={modalMsg}
-                    onClose={closeConfirmModal}
+                    header={headerConfirmModal}
+                    modalMsg={msgConfirmModal}
+                    onClose={closeConfirmRemoveModal}
                     onConfirm={removeCharacterFromLocalStorage}
+                />)}
+            {showConfirmUpdateModal === true && (
+                <ConfirmModal
+                    header={headerConfirmModal}
+                    modalMsg={msgConfirmModal}
+                    onClose={closeConfirmUpdateModal}
+                    onConfirm={saveCharacterToLocalStorage}
                 />)}
             <div className="character-container">
                 <div className="character-settings">
@@ -353,7 +382,7 @@ function Toolbar(
                 </div>
                 <div className="settings-btns">
                     <div className="settings-btns-row">
-                        <button className="btn-toolbar" title="Personage opslaan" onClick={saveCharacterToLocalStorage}>
+                        <button className="btn-toolbar" title="Personage opslaan" onClick={showConfirmUpdate}>
                             <img className="btn-image" src="./images/button_save.png" alt="Save Button" />
                         </button>
                         <button className="btn-toolbar" title="Personage laden" onClick={showLoadCharacterModal}>
@@ -434,7 +463,7 @@ function Toolbar(
                                 <Tooltip
                                     skillName={selectedExtraSkill.value}
                                     isSpell={false}
-                                    isRecipy={false}
+                                    isRecipe={false}
                                     isSkill={true}
                                     image={imageSrc[currentExtraImageIndex]}
                                 />

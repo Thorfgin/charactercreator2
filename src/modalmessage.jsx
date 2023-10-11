@@ -9,7 +9,7 @@ ConfirmModal.propTypes = {
 };
 
 // Toont een Modal message met een Bevestig/Annuleer knop
-export function ConfirmModal({ header, modalMsg, onClose, onConfirm }) {
+export function ConfirmModal({header, modalMsg, onClose, onConfirm}) {
     const msgBlocks = modalMsg.split('\n');
 
     return (

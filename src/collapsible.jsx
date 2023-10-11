@@ -7,6 +7,8 @@ Collapsible.propTypes = {
 };
 
 const urlRegex = /(https?:\/\/[^\s]+)/g;
+function replaceChar(text) { return text.replace(/ë/g, '\u00EB') }
+
 
 function Collapsible({ header, message }) {
     const { getCollapseProps, getToggleProps } = useCollapse();
@@ -16,13 +18,16 @@ function Collapsible({ header, message }) {
         <div className="collapsible">
             <div><br /></div>
             <div className="header" {...getToggleProps()}>
-                <i><u>{'\u2022' + " " + header}</u></i>
+                <i><u>{'\u2022' + " " + replaceChar(header)}</u></i>
             </div>
             <div {...getCollapseProps()}>
                 <div><br /></div>
                 {msgBlocks.map((block, index) => (
                     <div key={index} className="modal-block">
-                        {block === '' ? <br /> : block.match(urlRegex) ? <a target="_blank" rel="noopener noreferrer" href={block}>{block}</a> : block}
+                        {
+                            block === '' ?
+                                <br /> : block.match(urlRegex) ?
+                                    <a target="_blank" rel="noopener noreferrer" href={block.split("||")[0]}>{block.split("||")[1]}</a> : replaceChar(block)}
                     </div>
                 ))}
             </div>
