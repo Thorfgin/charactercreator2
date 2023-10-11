@@ -20,6 +20,8 @@ import {
 import packageInfo from '../package.json';
 
 
+// Zet een Toolbar klaar met daarin de mogelijkheid om:
+// Settings te wijzigen, Vaarigheden te selecteren, Personages te bewaren/laden of Personages te exporteren/importeren
 function Toolbar(
     [tableData, setTableData], [MAX_XP, setMAX_XP], [charName, setCharName], [isChecked, setIsChecked],
     setModalMsg, setShowModal, setShowUploadModal, setShowLoadCharacterModal, clearCharacterBuild) {
@@ -47,9 +49,10 @@ function Toolbar(
     };
 
     // INPUT    
-    const sanitizeInput = (input) => { return input.replace(/[^a-zA-Z0-9._ -]/g, ''); };
-
+    // Personage naam opschonen op basis van de regex.
     const handleTextChange = (event) => {
+        const sanitizeInput = (input) => { return input.replace(/[^a-zA-Z0-9._ -]/g, ''); };
+
         if (event.target.value && event.target.value !== "") {
             const sanitizedValue = sanitizeInput(event.target.value)
             setCharName(sanitizedValue);
@@ -59,19 +62,33 @@ function Toolbar(
         }
     }
 
-    const handleInputChange = (event) => {
+    // Laat de gebruiker vrij de waarde wijzigen zonder interuptie
+    const handleInputUpdate = (event) => {
         if (isChecked) { event.preventDefault(); } // stop bewerking 
-        else if (event.target.value && event.target.value > event.target.min) {
+        else if (event.target.value && event.target.value >= event.target.min) {
+            const newValue = parseFloat(event.target.value);
+            let roundedValue = Math.floor(newValue * 4) / 4;
+            setMAX_XP(roundedValue);
+        }
+    }
+
+    // Wanneer de Focus verloren gaat op de Input, valideer en corrigeer de input-waarde
+    const handleInputValidate = (event) => {
+        if (isChecked) { event.preventDefault(); } // stop bewerking 
+        else if (event.target.value && event.target.value >= event.target.min) {
             const newValue = parseFloat(event.target.value);
             let roundedValue = Math.floor(newValue * 4) / 4;
             roundedValue = roundedValue.toFixed(2)
 
-            if (roundedValue > parseFloat(event.target.max)) {
+            if (roundedValue >= parseFloat(event.target.max)) {
                 roundedValue = event.target.max;
+            }
+            else if (roundedValue <= totalXP) {
+                roundedValue = totalXP
             }
             setMAX_XP(roundedValue);
         }
-        else { setMAX_XP(1); }
+        else { setMAX_XP(totalXP); }
     };
 
     // SELECT & INFO
@@ -158,7 +175,6 @@ function Toolbar(
     function handleAddToTable(selectedRecord) {
         const hasSufficientFreeXP = (totalXP + selectedRecord.xp) <= Math.floor(MAX_XP) || selectedRecord.xp === 0;
 
-        // TODO: COMMENT OUT THIS CODEBLOCK TO DISABLE REQUIREMENTS
         if (!hasSufficientFreeXP) {
             if (totalXP === Math.floor(MAX_XP)) {
                 setModalMsg(
@@ -232,7 +248,7 @@ function Toolbar(
     function removeCharacterFromLocalStorage() {
         const key = getAllLocalStorageKeys(charName);
         let wasRemoved = false;
-        
+
         if (key) {
             setLocalStorage(key, null);
             clearCharacterBuild();
@@ -361,7 +377,8 @@ function Toolbar(
                                 value={MAX_XP}
                                 min={1}
                                 max={100}
-                                onChange={handleInputChange}
+                                onBlur={handleInputValidate}
+                                onChange={handleInputUpdate}
                                 disabled={isChecked}
                                 step={0.25}
                             />
