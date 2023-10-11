@@ -94,7 +94,6 @@ if (typeof (Storage) !== "undefined") {
     }
 }
 
-
 // Tabel Data
 const gridData = [defaultProperties[0], defaultProperties[1]];
 const emptyData = [];
@@ -110,7 +109,7 @@ const columns = [
 ];
 
 // Check of de Skill aan de vereisten voldoet
-export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
+export function meetsAllPrerequisites(selectedSkill, tableData) {
     let meetsPrerequisite = true;
     if (selectedSkill) {
         const reqSkill = selectedSkill.Requirements.skill;
@@ -129,49 +128,28 @@ export function meetsAllPrerequisites(selectedSkill, tableData, setModalMsg) {
             // uitzondering eerst
             if (selectedSkill.skill === "Leermeester Expertise") {
                 meetsPrerequisite = verifyTableContainsExtraSkill(tableData);
-                if (meetsPrerequisite === false) {
-                    setModalMsg(
-                        "Deze vaardigheid kan alleen geselecteerd worden \n" +
-                        "wanneer een Extra vaardigheid aangeleerd is.");
-                }
             }
 
             // skill
             if (reqSkill.length > 0 && meetsPrerequisite === true) {
-                meetsPrerequisite = verifyTableContainsRequiredSkills(reqSkill, tableData, setModalMsg);
+                meetsPrerequisite = verifyTableContainsRequiredSkills(reqSkill, tableData);
             }
 
             // any_list
             if (reqAny.length > 0 && meetsPrerequisite === true) {
                 meetsPrerequisite = verifyTableContainsOneofAnyList(reqAny, tableData);
-                if (meetsPrerequisite === false) {
-                    setModalMsg("Dit item mist een vereiste vaardigheid. \n" +
-                        "een van de volgende:" +
-                        reqAny.map((item) => "\n" + item) + "\n" +
-                        "Toevoegen is niet toegestaan.\n");
-                }
             }
 
             // category
             if (reqCategory && meetsPrerequisite === true) {
                 meetsPrerequisite = verifyTableMeetsPrerequisiteCategoryXP(reqCategory, tableData);
-                if (meetsPrerequisite === false) {
-                    setModalMsg(
-                        "Dit item mist de vereiste XP (" + reqCategory.value + ") in een van de volgende categorien:" +
-                        reqCategory.name.map((item) => "\n" + item) +
-                        "\nToevoegen is niet toegestaan.");
-                }
             }
 
             // exception
             if (reqException && meetsPrerequisite === false) {
                 const isValidException = verifyTableMeetsPrerequisiteException(reqException, tableData);
-                if (isValidException === true) {
-                    meetsPrerequisite = true
-                    setModalMsg('');
-                }
+                if (isValidException === true) { meetsPrerequisite = true }
             }
-
         }
     }
     else {
@@ -258,7 +236,7 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
 
                     // exception
                     if (reqException && isPrerequisite === false) {
-                        isPrerequisite = verifyTableExceptionSkillMeetsPrerequisite(tableData, reqException, skillTableData, nameSkillToRemove, setModalMsg);
+                        isPrerequisite = verifyTableExceptionSkillMeetsPrerequisite(tableData, reqException, skillTableData, nameSkillToRemove,);
                         if (isPrerequisite === true) {
                             setModalMsg("Dit item is nodig voor als uitzondering" +
                                 " voor de vaardigheid: \n" + skillTableData.skill + "\n" +
@@ -293,17 +271,11 @@ function getExtraSkillsFromTable(tableData) {
 }
 
 // Check of de skills in Requirements.skill aanwezig zijn in de tabel
-function verifyTableContainsRequiredSkills(reqSkill, tableData, setModalMsg) {
+function verifyTableContainsRequiredSkills(reqSkill, tableData) {
     let meetsPrerequisite = false;
     for (let i = 0; i < reqSkill.length; i++) {
         meetsPrerequisite = tableData.some((record) => record.skill.toLowerCase() === reqSkill[i].toLowerCase());
-        if (meetsPrerequisite === false) {
-            setModalMsg(
-                "Deze vaardigheid mist een vereiste vaardigheid: \n"
-                + reqSkill[i] + ". \n " +
-                "Toevoegen is niet toegestaan.\n");
-            break;
-        }
+        if (meetsPrerequisite === false) { break; }
     }
     return meetsPrerequisite;
 }
@@ -421,7 +393,7 @@ function verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, ite
 
 // Check of de uitgezonderde skills aanwezig zijn in tableData en of deze nog voldoen zonder verwijderde vaardigheid
 // Dit is specifiek voor Druid/Necro die bepaalde vereisten mogen negeren
-function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, skillTableData, nameSkillToRemove, setModalMsg) {
+function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, skillTableData, nameSkillToRemove) {
     let isExceptionPrerequisite = false;
 
     for (const exception of reqExceptions) {
@@ -433,7 +405,7 @@ function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, sk
                     filteredTableData.push(oldSkill)
             }
 
-            const meetsPrequisites = meetsAllPrerequisites(skillTableData, filteredTableData, setModalMsg)
+            const meetsPrequisites = meetsAllPrerequisites(skillTableData, filteredTableData)
             if (meetsPrequisites === false) {
                 isExceptionPrerequisite = true;
                 break;
@@ -851,8 +823,8 @@ export default function App() {
                                             prepareRow(row);
                                             return (
                                                 <Draggable
-                                                    key={row.id.toString()}
-                                                    draggableId={row.id.toString()}
+                                                    key={row.id}
+                                                    draggableId={row.id}
                                                     index={index}>
                                                     {(provided) => (
                                                         <tr

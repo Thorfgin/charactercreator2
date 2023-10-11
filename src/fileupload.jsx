@@ -2,12 +2,12 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 FileUploadModal.propTypes = {
-    closeModal: PropTypes.object.isRequired,
+    closeModal: PropTypes.func.isRequired,
     ruleset_version: PropTypes.string.isRequired,
-    setCharName: PropTypes.object.isRequired,
-    setIsChecked: PropTypes.object.isRequired,
-    setMAX_XP: PropTypes.object.isRequired,
-    setTableData: PropTypes.object.isRequired,
+    setCharName: PropTypes.func.isRequired,
+    setIsChecked: PropTypes.func.isRequired,
+    setMAX_XP: PropTypes.func.isRequired,
+    setTableData: PropTypes.func.isRequired,
 };
 
 function FileUploadModal({ closeModal, ruleset_version, setCharName, setIsChecked, setMAX_XP, setTableData }) {

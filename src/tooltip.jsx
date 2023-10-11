@@ -62,7 +62,7 @@ function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkill, image }) {
 export default Tooltip;
 
 // Data ophalen uit basisvaardigheden, spreuken of recepten
-function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
+function getData(isSpell, sourceSkill, itemName, isRecipe, isSkill, skillName) {
     let data = {};
 
     // Data kiezen voor spreuk, recept of vaardigheid
@@ -73,14 +73,16 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
             item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
 
         data = skillFound.Spells.find((item) => item.spell.toLowerCase() === itemName.toLowerCase());
-        data = Object.keys(data).length > 0 ? data : {
-            name: itemName ? itemName : '',
-            description: 'Spreuk/Techniek informatie kon niet gevonden worden.'
-        };
+        if (!data || Object.keys(data).length === 0) {
+            data = {
+                name: itemName ? itemName : '',
+                description: 'Spreuk/Techniek informatie kon niet gevonden worden.'
+            };
+        }
     }
 
     // Tooltip recept
-    else if (isRecipy === true) {
+    else if (isRecipe === true) {
         const skillFound = sourceRecepten.find((item) =>
             item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
             item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
@@ -138,7 +140,7 @@ function getData(isSpell, sourceSkill, itemName, isRecipy, isSkill, skillName) {
 }
 
 // Data verwerken tot een Tooltip definitie voor basisvaardigheid, spreuk of recept
-function getMappingFromData(data, isSkill, isSpell, isRecipy) {
+function getMappingFromData(data, isSkill, isSpell, isRecipe) {
     if (!data || Object.keys(data).length === 0 ) { return; }
 
     if (isSkill === true) {
@@ -183,7 +185,7 @@ function getMappingFromData(data, isSkill, isSpell, isRecipy) {
             </tr>
         ));
     }
-    else if (isRecipy === true) {
+    else if (isRecipe === true) {
         let descriptionBlock = data.effect.split('\n');
         const description = descriptionBlock.map((block, index) => (
             <div key={index} className="description-block"> {block === '' ? <br /> : block} </div>

@@ -248,7 +248,7 @@ describe('Using meetsAllPrerequisites', () => {
 
         const mockTableData = [...tableDataBasis, ...tableDataExtra]
 
-        let meetsPrerequisite = meetsAllPrerequisites(mockTeacherExpertise, mockTableData, setModalMsg);
+        let meetsPrerequisite = meetsAllPrerequisites(mockTeacherExpertise, mockTableData);
         expect(meetsPrerequisite).toBe(true);
     });
 
@@ -258,7 +258,7 @@ describe('Using meetsAllPrerequisites', () => {
         const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
         const mockTeacherExpertise = getSkillsFromBasisVaardigheden(["Leermeester Expertise"])[0];
 
-        let meetsPrerequisite = meetsAllPrerequisites(mockTeacherExpertise, mockTableData, setModalMsg);
+        let meetsPrerequisite = meetsAllPrerequisites(mockTeacherExpertise, mockTableData);
         expect(meetsPrerequisite).toBe(false);
     });
 
@@ -268,7 +268,7 @@ describe('Using meetsAllPrerequisites', () => {
         const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
         const mockHarnasII = getSkillsFromBasisVaardigheden(["Harnas II"])[0];
 
-        let meetsPrerequisite = meetsAllPrerequisites(mockHarnasII, mockTableData, setModalMsg);
+        let meetsPrerequisite = meetsAllPrerequisites(mockHarnasII, mockTableData);
         expect(meetsPrerequisite).toBe(true);
     });
 
@@ -277,7 +277,7 @@ describe('Using meetsAllPrerequisites', () => {
         const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
         const mockHarnasII = getSkillsFromBasisVaardigheden(["Harnas II"])[0];
 
-        let meetsPrerequisite = meetsAllPrerequisites(mockHarnasII, mockTableData, setModalMsg);
+        let meetsPrerequisite = meetsAllPrerequisites(mockHarnasII, mockTableData);
         expect(meetsPrerequisite).toBe(false);
     });
 
@@ -291,7 +291,7 @@ describe('Using meetsAllPrerequisites', () => {
 
         const mockExtraWilskracht = tableDataExtra[0]
 
-        let meetsPrerequisites = meetsAllPrerequisites(mockExtraWilskracht, mockTableData, setModalMsg);
+        let meetsPrerequisites = meetsAllPrerequisites(mockExtraWilskracht, mockTableData);
         expect(meetsPrerequisites).toBe(true);
     });
 
@@ -304,7 +304,7 @@ describe('Using meetsAllPrerequisites', () => {
 
         const mockExtraWilskracht = tableDataExtra[0]
 
-        let meetsPrerequisites = meetsAllPrerequisites(mockExtraWilskracht, mockTableData, setModalMsg);
+        let meetsPrerequisites = meetsAllPrerequisites(mockExtraWilskracht, mockTableData);
         expect(meetsPrerequisites).toBe(false);
     });
 
@@ -319,7 +319,7 @@ describe('Using meetsAllPrerequisites', () => {
         mockTableData[0].xp = 3;
         mockTableData[0].count = 3;
 
-        let meetsPrerequisites = meetsAllPrerequisites(mockRitualLeader, mockTableData, setModalMsg);
+        let meetsPrerequisites = meetsAllPrerequisites(mockRitualLeader, mockTableData);
         expect(meetsPrerequisites).toBe(true);
     });
 
@@ -333,7 +333,7 @@ describe('Using meetsAllPrerequisites', () => {
         const mockTableData = [...tableDataBasis, ...tableDataExtra]
         const mockCirkelVinden = tableDataExtra[0];
 
-        let meetsPrerequisites = meetsAllPrerequisites(mockCirkelVinden, mockTableData, setModalMsg);
+        let meetsPrerequisites = meetsAllPrerequisites(mockCirkelVinden, mockTableData);
         expect(meetsPrerequisites).toBe(false);
     });
 
@@ -343,7 +343,7 @@ describe('Using meetsAllPrerequisites', () => {
         const mockTableData = getSkillsFromBasisVaardigheden([mageA]);
         const mockMageB = getSkillsFromBasisVaardigheden([mageB])[0];
 
-        let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData, setModalMsg);
+        let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData);
         expect(meetsPrerequisite).toBe(true);
     });
 
@@ -353,7 +353,7 @@ describe('Using meetsAllPrerequisites', () => {
         const mockTableData = getSkillsFromBasisVaardigheden([math]);
         const mockMageB = getSkillsFromBasisVaardigheden([mageB])[0];
 
-        let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData, setModalMsg);
+        let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData);
         expect(meetsPrerequisite).toBe(false);
     });
 
@@ -363,7 +363,7 @@ describe('Using meetsAllPrerequisites', () => {
         const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
         const mockGenezingsSpreukenC = getSkillsFromExtraVaardigheden(["Genezingsspreuken C (EL)"])[0];
 
-        let meetsPrerequisite = meetsAllPrerequisites(mockGenezingsSpreukenC, mockTableData, setModalMsg);
+        let meetsPrerequisite = meetsAllPrerequisites(mockGenezingsSpreukenC, mockTableData);
         expect(meetsPrerequisite).toBe(true);
     });
 
@@ -380,7 +380,7 @@ describe('Using meetsAllPrerequisites', () => {
         const mageB = replaceChar("Magiërspreuken B - Metaal");
         const mockMageB = getSkillsFromBasisVaardigheden([mageB])[0];
 
-        let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData, setModalMsg);
+        let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData);
         expect(meetsPrerequisite).toBe(true);
     });
 })
