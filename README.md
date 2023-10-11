@@ -16,12 +16,14 @@
 		> Needs to be done from within a player portal?
 
 	WOULD: 
-	- PRESETS: Ability to click some preset-character builds somewhere
 	- EXPORT CHARACTER: Export the character overview as a PDF, for easy use at the event.
 	
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
+	202310??	PRESETS: Ability to load a preset-character build
+			Bugfix: fixed negative XP remaining
+
 	20231011	UNITTESTING: Reinstated. Added coverage logging.
 			FAQ: added a FAQ page to answer some common questions
 			LOCALSTORAGE: Extended the save/load buttons with confirm messages
