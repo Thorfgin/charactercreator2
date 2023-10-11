@@ -24,7 +24,7 @@ import packageInfo from '../package.json';
 // Settings te wijzigen, Vaarigheden te selecteren, Personages te bewaren/laden of Personages te exporteren/importeren
 function Toolbar(
     [tableData, setTableData], [MAX_XP, setMAX_XP], [charName, setCharName], [isChecked, setIsChecked],
-    setModalMsg, setShowModal, setShowUploadModal, setShowLoadCharacterModal, clearCharacterBuild) {
+    setModalMsg, setShowModal, setShowUploadModal, setShowLoadCharacterModal, setShowLoadPresetModal, clearCharacterBuild) {
 
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
@@ -36,6 +36,7 @@ function Toolbar(
     // MODALS
     const showUploadModal = () => { setShowUploadModal(true); }
     const showLoadCharacterModal = () => { setShowLoadCharacterModal(true); }
+    const showLoadPresetModal = () => { setShowLoadPresetModal(true); }
     const closeConfirmRemoveModal = () => { setShowConfirmRemoveModal(false); }
     const closeConfirmUpdateModal = () => { setShowConfirmUpdateModal(false); }
 
@@ -324,6 +325,9 @@ function Toolbar(
         setShowModal(true);
     }
 
+    // Importen van een Preset
+    
+
 
     // RETURN
     return (
@@ -345,7 +349,7 @@ function Toolbar(
             <div className="character-container">
                 <div className="character-settings">
                     <div>
-                        <div>
+                        <div className="settings-row">
                             <label>
                                 Naam:
                             </label>
@@ -356,7 +360,7 @@ function Toolbar(
                                 onChange={handleTextChange}
                             />
                         </div>
-                        <div>
+                        <div className="settings-row">
                             <label>
                                 Nieuw personage:
                             </label>
@@ -368,7 +372,7 @@ function Toolbar(
                         </div>
                     </div>
                     <div className="settings-inputs">
-                        <div>
+                        <div className="settings-row">
                             <label>
                                 Max XP:
                             </label>
@@ -383,7 +387,7 @@ function Toolbar(
                                 step={0.25}
                             />
                         </div>
-                        <div>
+                        <div className="settings-row">
                             <label>
                                 XP over:
                             </label>
@@ -399,6 +403,9 @@ function Toolbar(
                 </div>
                 <div className="settings-btns">
                     <div className="settings-btns-row">
+                        <button className="btn-toolbar" title="Toon templates" onClick={showLoadPresetModal}>
+                            <img className="btn-image" src="./images/button_presets.png" alt="Preset Button" />
+                        </button>
                         <button className="btn-toolbar" title="Personage opslaan" onClick={showConfirmUpdate}>
                             <img className="btn-image" src="./images/button_save.png" alt="Save Button" />
                         </button>
@@ -410,6 +417,9 @@ function Toolbar(
                         </button>
                     </div>
                     <div className="btns-row">
+                        <button className="btn-toolbar" title="Exporteer naar PDF" onClick={exportCharacterToPDF}>
+                            <img className="btn-image" src="./images/button_export-pdf.png" alt="Export PDF Button" />
+                        </button>
                         <button className="btn-toolbar" title="Personage exporteren" onClick={exportCharacter}>
                             <img className="btn-image" src="./images/button_download.png" alt="Export Button" />
 
@@ -417,9 +427,7 @@ function Toolbar(
                         <button className="btn-toolbar" title="Personage importeren" onClick={showUploadModal}>
                             <img className="btn-image" src="./images/button_upload.png" alt="Import Button" />
                         </button>
-                        <button className="btn-toolbar" title="Exporteer naar PDF" onClick={exportCharacterToPDF}>
-                            <img className="btn-image" src="./images/button_export-pdf.png" alt="Export PDF Button" />
-                        </button>
+
                     </div>
                 </div>
 

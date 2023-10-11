@@ -11,7 +11,6 @@ FileUploadModal.propTypes = {
 };
 
 function FileUploadModal({ closeModal, ruleset_version, setCharName, setIsChecked, setMAX_XP, setTableData }) {
-
     const [selectedFile, setSelectedFile] = useState(null);
 
     // Werk bestand info mbij
