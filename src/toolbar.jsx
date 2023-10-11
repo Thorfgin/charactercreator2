@@ -24,7 +24,7 @@ import packageInfo from '../package.json';
 // Settings te wijzigen, Vaarigheden te selecteren, Personages te bewaren/laden of Personages te exporteren/importeren
 function Toolbar(
     [tableData, setTableData], [MAX_XP, setMAX_XP], [charName, setCharName], [isChecked, setIsChecked],
-    setModalMsg, setShowModal, setShowUploadModal, setShowLoadCharacterModal, clearCharacterBuild) {
+    setModalMsg, setShowModal, setShowUploadModal, setShowLoadCharacterModal, setShowLoadPresetModal, clearCharacterBuild) {
 
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
@@ -36,6 +36,7 @@ function Toolbar(
     // MODALS
     const showUploadModal = () => { setShowUploadModal(true); }
     const showLoadCharacterModal = () => { setShowLoadCharacterModal(true); }
+    const showLoadPresetModal = () => { setShowLoadPresetModal(true); }
     const closeConfirmRemoveModal = () => { setShowConfirmRemoveModal(false); }
     const closeConfirmUpdateModal = () => { setShowConfirmUpdateModal(false); }
 
@@ -402,7 +403,7 @@ function Toolbar(
                 </div>
                 <div className="settings-btns">
                     <div className="settings-btns-row">
-                        <button className="btn-toolbar" title="Toon templates" onClick={console.log("OK")}>
+                        <button className="btn-toolbar" title="Toon templates" onClick={showLoadPresetModal}>
                             <img className="btn-image" src="./images/button_presets.png" alt="Preset Button" />
                         </button>
                         <button className="btn-toolbar" title="Personage opslaan" onClick={showConfirmUpdate}>
