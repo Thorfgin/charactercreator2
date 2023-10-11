@@ -8,7 +8,6 @@
 	MUST
 
 	SHOULD:
-	- FAQ: add a set of FAQ to save time
 
 	COULD:
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
@@ -23,9 +22,10 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
-	20231010	UNITTESTING: Reinstated. Added coverage logging.
+	20231011	UNITTESTING: Reinstated. Added coverage logging.
 			FAQ: added a FAQ page to answer some common questions
-
+			LOCALSTORAGE: Extended the save/load buttons with confirm messages
+			Fixed some minor issues.
 
 	20231005	FRAMEWORK: Major overhaul to deal with security risks
 			UNITTESTING: Have been temporarily disabled untill deployments work properly
@@ -53,11 +53,11 @@
 			- added special prereq to teacher expertise in tooltip
 			- fixed check on extra skills for ritualism
 	
-	20230927		LORESHEET: column contains an actual link to the loresheet itself
+	20230927	LORESHEET: column contains an actual link to the loresheet itself
 			TABLE: columns are sortable by clicking the header
 			TABLE: Drag and Drop in the skill table, as method of rearranging items
 
-	20230926		SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
+	20230926	SELECT: INFO next to the Select should INDICATE based on meeting pre-reqs
 				(SIZE, COLOR, ANIMATION, ETC)
 			WONT DO: Change Error messages (modals) to a (!) img with mouseover.
 			This is done already above, as the only messages/modals are shown when adding/removing items.
@@ -79,7 +79,7 @@
 			Several prerequisite checks have been updated.
 			PREQUISITES: added option to select a category and XP value
 
-	20230918		SELECT: customized the Selects to show a tooltip with the Skill description
+	20230918	SELECT: customized the Selects to show a tooltip with the Skill description
 
 
 	20230917	SKILL: ExtraSkill selection
@@ -96,12 +96,12 @@
 			PREREQUISITES: stop removing of a skill when other skills are dependant on it as requirement
 			SKILLS: Tooltip is properly formatted and shows the right content.
 	
-	20230912		SKILLS have Tooltips available
+	20230912	SKILLS have Tooltips available
 	
 
 	20230911	SPELLS/RECIPIES can be converted to JSON per script
 	
-	20230908		SPELLS/RECIPIES have tooltips
+	20230908	SPELLS/RECIPIES have tooltips
 	
 
 	20230905	RECIPY gives a summary of the selected spells aquired by skills
