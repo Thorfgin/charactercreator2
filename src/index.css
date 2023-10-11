@@ -36,6 +36,7 @@
         left: 0%;
         transform: translate(-75%, -50%);
         overflow-y: scroll;
+        overflow-x: hidden;
     }
 
     .modal {
@@ -500,6 +501,8 @@
     align-items: flex-start;
     padding-top: 100px;
     z-index: 1000;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .modal {
@@ -517,7 +520,8 @@
     margin: 15px;
 }
 
-.upload-modal, 
+
+.upload-modal,
 .faq-modal {
     background-color: white;
     text-align: center;
@@ -529,28 +533,18 @@
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+.faq-modal {
+    min-width: 600px;
+    width: 40%;
+    max-width: 40%;
+}
+
+.faq-modal-block {
+    text-align: left;
+}
+
 .upload-modal-block {
     margin: 10px;
-}
-
-.bug-modal {
-    background-color: white;
-    align-content: center;
-    justify-content: center;
-    max-width: 75%;
-    max-height: 75%;
-    font-size: 12px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.bug-input, .bug-text {
-    min-width: 300px;
-}
-
-.bug-text {
-    min-height: 75px;
 }
 
 .close {

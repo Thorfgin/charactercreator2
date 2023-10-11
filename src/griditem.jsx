@@ -47,7 +47,6 @@ export function GridEigenschapItem({ image, text, value }) {
         // eslint-disable-next-line react/prop-types
         if (text.trim() === "Totaal HP" && clicked && counter >= reqClicks) {
             const jstoggle = document.getElementById("App-VA-logo");
-            console.log("HIT")
 
             // event listenis op Logo. Werkt wanneer hartje aanwezig is.
             jstoggle.addEventListener('click', () => {
@@ -148,7 +147,7 @@ function getTooltip(skill, name, type, page) {
 
     if (type === "grid-spreuken") { isSpell = true; }
     else if (type === "grid-recepten") { isRecipe = true; }
-    else { console.log("Type was not recognized") }
+    else { console.Error("Type was not recognized") }
 
     return (
         <div className="grid-spreuk-icons">
