@@ -22,6 +22,7 @@
 
 	DONE
 	202310??	PRESETS: Ability to load a preset-character build
+			Bugfix: fixed negative XP remaining
 
 	20231011	UNITTESTING: Reinstated. Added coverage logging.
 			FAQ: added a FAQ page to answer some common questions
