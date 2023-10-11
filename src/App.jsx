@@ -11,6 +11,7 @@ import ModalMessage from './modalmessage.jsx'
 import FAQModal from './faq.jsx'
 import FileUploadModal from './fileupload.jsx'
 import LoadCharacterModal from './loadcharacter.jsx'
+import LoadPresetModal from './loadpreset.jsx'
 
 import openPage from './openPdf.jsx';
 import {
@@ -505,6 +506,7 @@ export default function App() {
     const [showFAQModal, setShowFAQModal] = useState(false);
     const [showUploadModal, setShowUploadModal] = useState(false);
     const [showLoadCharacterModal, setShowLoadCharacterModal] = useState(false);
+    const [showLoadPresetModal, setShowLoadPresetModal] = useState(false);
     const [modalMsg, setModalMsg] = useState("");
     const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
     const [gridSpreuken, setGridSpreuken] = useState(emptyData);
@@ -521,6 +523,7 @@ export default function App() {
         setShowModal,
         setShowUploadModal,
         setShowLoadCharacterModal,
+        setShowLoadPresetModal,
         clearCharacterBuild);
 
     /// --- GRID CONTENT --- ///
@@ -776,6 +779,7 @@ export default function App() {
     const closeFAQModal = () => { setShowFAQModal(false); };
     const openFAQModal = () => { setShowFAQModal(true); };
     const closeLoadCharacterModal = () => { setShowLoadCharacterModal(false); };
+    const closeLoadPresetModal = () => { setShowLoadPresetModal(false); };
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData }, useSortBy);
 
@@ -876,6 +880,17 @@ export default function App() {
                     {showLoadCharacterModal && (
                         <LoadCharacterModal
                             closeModal={closeLoadCharacterModal}
+                            setTableData={setTableData}
+                            setCharName={setCharName}
+                            setIsChecked={setIsChecked}
+                            setMAX_XP={setMAX_XP}
+                            version={packageInfo.ruleset_version}
+                        />
+                    )}
+
+                    {showLoadPresetModal && (
+                        <LoadPresetModal
+                            closeModal={closeLoadPresetModal}
                             setTableData={setTableData}
                             setCharName={setCharName}
                             setIsChecked={setIsChecked}

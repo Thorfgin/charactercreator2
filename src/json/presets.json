@@ -1,0 +1,39 @@
+{
+  "version": "2023-10",
+  "Presets": [
+    {
+      "name": "Lichte vechter",
+      "skills": [
+        "Lezen & Schrijven",
+        "Rekenen",
+        "Kleine Wapens",
+        "Eenhandige Wapens",
+        "Staf Wapens",
+        "Ambidextrie",
+        "Levenskracht A",
+        "Levenskracht B",
+        "Doorzettingsvermogen",
+        "Kracht A",
+        "Harnas I",
+        "Harnas II"
+      ]
+    },
+    {
+      "name": "Zware vechter",
+      "skills": [
+        "Lezen & Schrijven",
+        "Rekenen",
+        "Kleine Wapens",
+        "Eenhandige Wapens",
+        "Staf Wapens",
+        "Schilden",
+        "Levenskracht A",
+        "Doorzettingsvermogen",
+        "Militaire training A",
+        "Harnas I",
+        "Harnas II",
+        "Harnas III"
+      ]
+    }
+  ]
+}
