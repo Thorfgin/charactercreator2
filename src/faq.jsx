@@ -66,6 +66,12 @@ const content = [
             "https://the-vortex.nl/wp-content/uploads/2022/04/Vaardigheden.pdf#page=40||Vaardigheden.pdf"
     },
     {
+        header: "Ik heb een voorstel voor een (nog missend) arche-type als template!",
+        message: "We horen graag van je wat je toe gevoegd zou willen zien aan de templates." + "\n" +
+            "Vragen over de templates of suggestie mogen gesteld worden op de VA Discord in het kanaal:" + "\n" +
+            "https://discord.com/channels/887411615178293298/889812948514639893||Website-feedback"
+    },
+    {
         header: "Ik heb een vraag over de regelset!",
         message: "We horen graag van je waar we je mee kunnen helpen." + "\n" +
             "Vragen over de regelset mogen gesteld worden op de VA Discord in het kanaal:" + "\n" +
