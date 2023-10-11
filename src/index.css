@@ -124,7 +124,7 @@
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
     box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0.015);
-    max-width: 100%;
+    max-width: 650px;
 }
 
 .main-container label {
@@ -136,6 +136,7 @@
     padding: 0px;
     line-height: 14px;
 }
+
 .character-container {
     display: flex;
     flex-direction: row;
@@ -155,12 +156,13 @@
         margin-right: 3px;
     }
 
-    .settings-inputs input {
-    min-width: 60px;
-    max-width: 150px;
+.settings-row {
+    padding: 2px;
 }
 
 .settings-inputs input {
+    min-width: 60px;
+    max-width: 150px;
     width: 60px;
 }
 
@@ -177,15 +179,17 @@
 }
 
 .settings-btns {
+    min-width: 22%;
     margin-left: 3px;
+    padding-right: 15px;
 }
-    /* select component */
-    .select-basic-container,
-    .select-extra-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+/* select component */
+.select-basic-container,
+.select-extra-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .select {
     display: flex;
@@ -424,6 +428,7 @@
     margin: 2px;
     padding: calc(.3rem - 1px) calc(0.3rem - 1px);
 }
+
 .btn-primary,
 .btn-secondary {
     margin: 2px;
