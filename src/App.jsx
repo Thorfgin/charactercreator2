@@ -23,6 +23,7 @@ import {
 } from './griditem.jsx';
 
 import { setLocalStorage, getLocalStorage } from './localstorage.jsx';
+import { useSourceSkills } from './getpublicjson.jsx'
 
 import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
@@ -31,7 +32,6 @@ import packageInfo from '../package.json';
 
 export let totalXP = 0; // Berekende totaal waarde
 
-// Ophalen van de skills uit vaardigheden/spreuken/recepten
 export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
 export let optionsBasisVaardigheden = sourceBasisVaardigheden.map((record) => (
     {

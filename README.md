@@ -22,6 +22,8 @@
 
 	DONE
 	20231012	PRESETS: Ability to load a preset-character
+			JSON: Extracted JSON files and made available in the public folder for easy maintanance.
+			ARTIFACT: the CI/CD yields an artifact for sharing convenience.
 			Bugfix: fixed negative XP remaining
 
 	20231011	UNITTESTING: Reinstated. Added coverage logging.

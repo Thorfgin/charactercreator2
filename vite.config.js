@@ -7,12 +7,13 @@ export default defineConfig({
 
     base: '',
     publicDir: 'public',
+    build: {
+        copyPublicDir: true,
+    },
 
     // Enable CSS support
     css: {
-        // Enable CSS modules
         modules: false,
-
         // Extract CSS into a separate file for production builds
         // Setting this to `true` generates a separate CSS file.
         extract: true,
