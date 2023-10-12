@@ -1,15 +1,11 @@
 import { useState, useEffect } from 'react';
-import urlFAQ from '/json/faq.json?url';
-import urlVaardigheden from '/json/vaardigheden.json?url';
+
+const urlFAQ = '/json/faq.json?url';
+const urlVaardigheden = '/json/vaardigheden.json?url';
 
 // Custom hooks voor JSON data sources
-export function useSourceFAQ() {
-    return usePublicJson(urlFAQ).then(data => data);
-}
-
-export function useSourceSkills() {
-    return usePublicJson(urlVaardigheden).then(data => data);
-}
+export function useSourceFAQ() { return usePublicJson(urlFAQ).then(data => data }
+export function useSourceSkills() { return usePublicJson(urlVaardigheden).then(data => data); }
 
 // Uitlezen van JSON uit de public folder
 function usePublicJson(url) {

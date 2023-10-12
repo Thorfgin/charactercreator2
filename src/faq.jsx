@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Collapsible from './collapsible.jsx';
 import sourceFAQ from './json/faq.json';
-
 
 FAQModal.propTypes = {
     closeModal: PropTypes.func.isRequired

@@ -31,6 +31,7 @@ import packageInfo from '../package.json';
 
 export let totalXP = 0; // Berekende totaal waarde
 
+// Ophalen van de skills uit vaardigheden/spreuken/recepten
 export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
 export let optionsBasisVaardigheden = sourceBasisVaardigheden.map((record) => (
     {
