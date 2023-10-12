@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import urlFAQ from '/json/faq.json?url';
 import urlVaardigheden from '/json/vaardigheden.json?url';
 
-// Custom hooks for JSON data sources
+// Custom hooks voor JSON data sources
 export function useSourceFAQ() {
     return usePublicJson(urlFAQ).then(data => data);
 }
@@ -11,7 +11,7 @@ export function useSourceSkills() {
     return usePublicJson(urlVaardigheden).then(data => data);
 }
 
-// Allows for reading JSON in the public folder
+// Uitlezen van JSON uit de public folder
 function usePublicJson(url) {
     return fetch(url, {
         headers: {

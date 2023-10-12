@@ -23,7 +23,6 @@ import {
 } from './griditem.jsx';
 
 import { setLocalStorage, getLocalStorage } from './localstorage.jsx';
-import { useSourceSkills } from './getpublicjson.jsx'
 
 import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
