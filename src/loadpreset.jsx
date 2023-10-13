@@ -73,10 +73,21 @@ function LoadPresetModal({ closeModal, setTableData, setCharName, setIsChecked, 
         if (presets.version === version) {
             const preset = sourcePresets.find(item => item.name === selectedTemplate)
             const skills = [];
+
+            // TableData is niet beschikbaar nog, 
+            // dus Skill direct aannpassen zodat multi - aankoop mogelijk is
             for (const skill of preset.skills) {
+                const props = skill.split('||')
+
                 const sourceSkill = sourceBasisVaardigheden.find(item =>
-                    item.skill.toLowerCase() === skill.toLowerCase());
-                skills.push(sourceSkill);
+                    item.skill.toLowerCase() === props[0].toLowerCase());
+                const copySkill = Object.assign({}, sourceSkill); // kopie om wijzigingen op source te voorkomen
+                if (props.length > 1) {
+                    const count = Number(props[1]);
+                    copySkill.xp = copySkill.xp * count;
+                    copySkill.count = count;
+                }
+                skills.push(copySkill);
             }
 
             setCharName(preset.name);
