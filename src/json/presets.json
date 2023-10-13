@@ -34,6 +34,139 @@
         "Harnas II",
         "Harnas III"
       ]
+    },
+    {
+      "name": "Paladijn",
+      "skills": [
+        "Lezen & Schrijven",
+        "Rekenen",
+        "Kleine Wapens",
+        "Eenhandige Wapens",
+        "Schilden",
+        "Levenskracht A",
+        "Harnas I",
+        "Harnas II",
+        "Genezingsspreuken A (SP)",
+        "Paladijn",
+        "Paladijnspreuken A"
+      ]
+    },
+    {
+      "name": "Vechter/Magiër",
+      "skills": [
+        "Lezen & Schrijven",
+        "Rekenen",
+        "Kleine Wapens",
+        "Staf Wapens",
+        "Levenskracht A",
+        "Magiërspreuken A - Wit",
+        "Magiërspreuken B - Vuur",
+        "Harnas I",
+        "Harnas II",
+        "Spreuken in bepantsering",
+        "Elementair Ritualisme"
+      ]
+    },
+    {
+      "name": "Magiër Ritualist",
+      "skills": [
+        "Lezen & Schrijven",
+        "Rekenen",
+        "Kleine Wapens",
+        "Harnas I",
+        "Magiërspreuken A - Wit",
+        "Magiërspreuken B - Vuur",
+        "Elementair Ritualisme||7"
+      ]
+    },
+    {
+      "name": "Vechter/Priester",
+      "skills": [
+        "Lezen & Schrijven",
+        "Rekenen",
+        "Kleine Wapens",
+        "Eenhandige Wapens",
+        "Schilden",
+        "Levenskracht A",
+        "Priesterspreuken A - Reinheid",
+        "Priesterspreuken B - Reinheid",
+        "Harnas I",
+        "Spreuken in bepantsering",
+        "Spiritueel Ritualisme"
+      ]
+    },
+    {
+      "name": "Priester Ritualist",
+      "skills": [
+        "Lezen & Schrijven",
+        "Rekenen",
+        "Kleine Wapens",
+        "Harnas I",
+        "Priesterspreuken A - Reinheid",
+        "Priesterspreuken B - Reinheid",
+        "Spiritueel Ritualisme||7"
+      ]
+    },
+    {
+      "name": "Genezer (Elementair)",
+      "skills": [
+        "Lezen & Schrijven",
+        "Rekenen",
+        "Kleine Wapens",
+        "Harnas I",
+        "Genezingsspreuken A (EL)",
+        "Genezer van Giffen (EL)",
+        "Genezer van Ziekten (EL)"
+      ]
+    },
+    {
+      "name": "Arts",
+      "skills": [
+        "Lezen & Schrijven",
+        "Rekenen",
+        "Kleine Wapens",
+        "Harnas I",
+        "Eerste Hulp Bij Gevechten",
+        "Diagnostiek",
+        "Snelle behandeling",
+        "Slagveld operatie",
+        "Humorisch Patholoog",
+        "Bezoar specialist",
+        "Hypnotherapie"
+      ]
+    },
+    {
+      "name": "Alchemist",
+      "skills": [
+        "Lezen & Schrijven",
+        "Rekenen",
+        "Kleine Wapens",
+        "Harnas I",
+        "Kennis van Kruiden",
+        "Kruiden bewaren||2",
+        "Brouw Kruiden Elixers A",
+        "Brouw Genezende Dranken A",
+        "Brouw Magische Elixers A",
+        "Brouw Hallucinerende Elixers A",
+        "Brouw Giffen A"
+      ]
+    },
+    {
+      "name": "Crafter/Handelaar",
+      "skills": [
+        "Lezen & Schrijven",
+        "Rekenen",
+        "Kleine Wapens",
+        "Eenhandige Wapens",
+        "Harnas I",
+        "Meestersmid A",
+        "Houtbewerker A",
+        "Steenzetter A",
+        "Juwelier A",
+        "Kleermaker A",
+        "Boekbinder A",
+        "Leerbewerker A"
+      ]
     }
   ]
 }

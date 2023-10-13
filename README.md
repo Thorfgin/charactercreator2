@@ -22,6 +22,7 @@
 
 	DONE
 	20231012	PRESETS: Ability to load a preset-character
+			ARTIFACT: the CI/CD yields an artifact for sharing convenience.
 			Bugfix: fixed negative XP remaining
 
 	20231011	UNITTESTING: Reinstated. Added coverage logging.

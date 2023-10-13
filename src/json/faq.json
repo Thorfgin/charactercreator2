@@ -1,0 +1,65 @@
+{
+  "FAQ": [
+    {
+      "header": "Kan ik mijn personage direct indienen bij VA ?",
+      "message": "Nee, helaas is er nog geen koppeling mogelijk met het VA personagebeheer en/of inschrijfsysteem.\nDeze module is bedoeld om gemakkelijker je eigen personage bij te houden.\nHet is nog onbekend of en hoe de VA infobalie hier gebruik van zou kunnen/willen maken.\nIn de toekomst biedt het spelerportaal mogelijk hier een oplossing voor."
+    },
+    {
+      "header": "Kan ik mijn personage bewaren ?",
+      "message": "Ja, als je dit venster sluit, wordt je laatste invoer bewaard.\nDaarnaast heb je de mogelijkheid 't personage op naam te bewaren in de opslag van je browser,\nof een databestand te downloaden dat je lokaal kunt bewaren op je apparaat."
+    },
+    {
+      "header": "Waarom moet ik mijn personage een naam geven voor ik kan opslaan ?",
+      "message": "Voor het ophalen van de personages hebben we een naam nodig waardoor jij weet welk personage het is.\nDe naam die je invoert hoeft niet daadwerkelijk de uiteindelijke naam te zijn.\nJe bent volledig vrij in wat je invoert in het invoerveld 'naam'.\nJe kunt dus ook 'Personage 1', 'Personage 2', 'Personage 3' invoeren."
+    },
+    {
+      "header": "Kan ik mijn personage nog wijzigen nadat ik het opgeslagen heb ?",
+      "message": "Ja, als je het personage na invoer bewaard, kun je het daarna gewoon weer inladen.\nJe mag dan wijzigingen aanbrengen aan het personage, maarrr...\nLet op: dit heeft geen effect op de opgeslagen versie!\nWil je deze wijzigingen los opslaan? Vergeet dan niet de naam eerst te wijzigen!"
+    },
+    {
+      "header": "Kan ik mijn personage nog wijzigen nadat ik het geëxporteerd heb ?",
+      "message": "Ja, als je het personage geëxporteerd hebt, kun je het daarna gewoon weer uploaden.\nJe mag dan wijzigingen aanbrengen aan het personage, maarrr...\nLet op: dit heeft geen effect op het lokale bestand!\nJe zal de gewijzigde versie opnieuw moeten exporteren!"
+    },
+    {
+      "header": "Kan ik mijn personage uitprinten ?",
+      "message": "Nee, je kunt momenteel alleen de pagina uitprinten door de webpagina vanuit je browser af te drukken\nEr liggen wel plannen om een uitgebreidere PDF-export te laten genereren.\nDeze optie wordt t.z.t. toegevoegd."
+    },
+    {
+      "header": "Waarom kan ik 0.25 XP toevoegen ?",
+      "message": "Per evenement die het personage volledig heeft overleefd ontvangt je personage XP.\nDe hoeveelheid XP die je ontvangt is afhankelijk van hoeveel XP je al hebt vergaard.\nDe hoeveelheid XP die je ontvangt is altijd deelbaar door 0.25. Vandaar dat deze hoeveelheid gekozen is.\nVoor meer informatie zie de regels voor Groei in het Vaardigheden boekje op pagina 40.\nhttps://the-vortex.nl/wp-content/uploads/2022/04/Vaardigheden.pdf#page=40||Vaardigheden.pdf"
+    },
+    {
+      "header": "Wat is het verschil tussen Basis- en Extra vaardigheden ?",
+      "message": "Wanneer je een personage start, mogen alleen Basis vaardigheden gekozen worden.\nAlle vaardigheden uit de lijst met Extra vaardigheden kunnen alleen in het spel zelf geleerd worden.\nHiervoor is een andere speler of npc nodig met de vaardigheid 'Leermeester Expertise',\nen de vaardigheid in kwestie welke je zou willen leren.\nHoe dit werkt staat uitgelegd in de regels voor Groei in het Vaardighedenboekje op pagina 40.\nhttps://the-vortex.nl/wp-content/uploads/2022/04/Vaardigheden.pdf#page=40||Vaardigheden.pdf"
+    },
+    {
+      "header": "Ik heb een voorstel voor een (nog missend) arche-type als template!",
+      "message": "We horen graag van je wat je toe gevoegd zou willen zien aan de templates.\nVragen over de templates of suggestie mogen gesteld worden op de VA Discord in het kanaal:\nhttps://discord.com/channels/887411615178293298/889812948514639893||Website-feedback"
+    },
+    {
+      "header": "Ik heb een vraag over de regelset!",
+      "message": "We horen graag van je waar we je mee kunnen helpen.\nVragen over de regelset mogen gesteld worden op de VA Discord in het kanaal:\nhttps://discord.com/channels/887411615178293298/1119280489140846754||Regelsysteemvragen"
+    },
+    {
+      "header": "Ik heb een fout gevonden in de regelset!",
+      "message": "Dat is niet zo mooi! We horen graag van je wat je gevonden hebt.\nFouten in de regelset mogen gemeld worden op de VA Discord in het kanaal:\nhttps://discord.com/channels/887411615178293298/1119280489140846754||Regelsysteemvragen"
+    },
+    {
+      "header": "Ik heb een fout gevonden in de character creator",
+      "message": "Dat is vervelend. Uiteraard willen we dit voor je oplossen!\nWanneer er een error optreedt in de browser (console), wordt deze automatisch gelogd.\nDeze fouten hoeven dus niet gemeld te worden. Twijfel je, of wil je toch de fout melden?\nMeld deze dan op de VA Discord in het kanaal:\nhttps://discord.com/channels/887411615178293298/889812948514639893||Website-feedback"
+
+    },
+    {
+      "header": "Tijdens het inladen krijg ik een melding dat de regelset versie niet wordt herkend.",
+      "message": "Dat is vervelend. Mogelijk heb je een oudere versie van een personage geprobeerd in te laden.\nElk personage wordt opgeslagen met benoeming van een regelset versie en aanvullende details.\nHiermee voorkomen we foutief samengestelde personages.\nMomenteel is er nog geen ondersteuning om oudere personages in te lezen."
+    },
+    {
+      "header": "Tijdens het inladen krijg ik een melding dat de regelset versie niet kan worden ingelezen.",
+      "message": "Dat is vervelend. Mogelijk heb je een corrupte of verouderde versie van een personage geprobeerd in te laden.\nElk personage wordt opgeslagen met benoeming van een regelset versie en aanvullende details.\nHiermee voorkomen we foutief samengestelde personages.\nHet personage dat je hebt gekozen voldoet niet (meer) aan deze standaard.\nMomenteel is er nog geen ondersteuning om foutieve of corrupte personages in te lezen."
+    },
+    {
+      "header": "Na het uploaden krijg ik een melding dat er iets mis is gegaan.",
+      "message": "Dat is vervelend. Mogelijk is er iets niet goed aan het bestand dat je probeert in te laden.\nElk personage wordt opgeslagen met benoeming van een regelset versie en aanvullende details.\nAls er gerommeld wordt met een bestand, kan dit kapot gaan.\nWe raden je aan de inhoud van opgeslagen of geëxporteerde personages niet te wijzigen."
+    }
+  ]
+}

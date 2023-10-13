@@ -881,7 +881,7 @@
       "category": "Heelmeestervaardigheden",
       "page": 22,
       "description": "Je krijgt 3 extra wilskracht per dag. \nJe bezit medicijnen en methoden om ziektes te bestrijden. De rest is hetzelfde als de bezoar specialist. De grace period wordt tijdens de behandeling gestopt zodat patiënten niet tijdens de behandeling zullen sterven. De behandeling geneest per 5 minuten 1 wond die door een ziekte is veroorzaakt of verwijdert 1 specifiek type ziekte die een effect veroorzaakt. De patiënt krijgt een willekeurige bijwerking die jij als humorisch pathaloog beslist. Je mag niet twee maal dezelfde beslissing maken op 1 evenement. Als je alle 5 de bijwerkingen hebt gekozen dan begin je weer opnieuw:\n [ verliest 1 energie, verliest 2 energie, agressief vandaag, Geen bijwerking, 1 minder hitpoint vandaag ] \nWanneer je 1 wilskracht betaalt hoef je geen bijwerking te kiezen. \n\nVoor deze vaardigheid zijn physreps vereist! Je werkt immers met de lichaamsvloeistoffen van de patiënt",
-      " ": {
+      "Requirements": {
         "skill": [ "Diagnostiek" ],
         "any_list": []
       },
