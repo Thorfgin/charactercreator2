@@ -6,8 +6,11 @@
 	TODO:
 
 	MUST
+	- MIN-XP: When a build has spend less than 13 points, show a warning that the build is invalid.
+
 
 	SHOULD:
+	- VERSION: when clicking the version, show a modal with the release notes
 
 	COULD:
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
