@@ -3,10 +3,12 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Tooltip from './tooltip.jsx';
 import openPage from './openPdf.jsx';
+
+import { defaultProperties } from './SharedStateContext.jsx';
+
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
-    defaultProperties
 } from './App.jsx';
 import {
     SpiderController,

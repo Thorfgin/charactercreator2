@@ -1,12 +1,15 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react-hooks/exhaustive-deps */
 // eslint-disable-next-line no-unused-vars
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
+import { useSharedState } from './SharedStateContext.jsx';
+
 import Tooltip from './tooltip.jsx';
 import Toolbar from './toolbar.jsx';
+import LoreSheet from './openloresheet.jsx';
 import ModalMessage from './modalmessage.jsx'
 import FAQModal from './faq.jsx'
 import FileUploadModal from './fileupload.jsx'
@@ -22,89 +25,51 @@ import {
     updateGridReceptenTiles
 } from './griditem.jsx';
 
-import { setLocalStorage, getLocalStorage } from './localstorage.jsx';
+import { setLocalStorage } from './localstorage.jsx';
 
 import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
 import recepten from './json/recepten.json';
 import packageInfo from '../package.json';
 
-export let totalXP = 0; // Berekende totaal waarde
-
 // Ophalen van de skills uit vaardigheden/spreuken/recepten
-export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
-export let optionsBasisVaardigheden = sourceBasisVaardigheden.map((record) => (
-    {
+function generateOptions(source) {
+    return source.map((record) => ({
         value: record.skill,
-        label: record.skill + " (" + record.xp + " xp)"
+        label: `${record.skill} (${record.xp} xp)`
     }));
+}
+
+// Ophalen van de skills uit vaardigheden/spreuken/recepten, minus geselecteerde skills
+function regenerateOptions(source, tableData) {
+    return source.map((record) => ({
+        value: record.skill,
+        label: `${record.skill} (${record.xp} xp)`
+    })).filter((currentSkill) =>
+        !tableData.some((record) =>
+            record.skill.toLowerCase() === currentSkill.value.toLowerCase()
+        )
+    );
+}
+
+export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
+export let optionsBasisVaardigheden = generateOptions(sourceBasisVaardigheden);
 
 export const sourceExtraVaardigheden = vaardigheden.ExtraVaardigheden;
-export let optionsExtraVaardigheden = sourceExtraVaardigheden.map((record) => (
-    {
-        value: record.skill,
-        label: record.skill + " (" + record.xp + " xp)"
-    }));
-
+export let optionsExtraVaardigheden = generateOptions(sourceExtraVaardigheden);
 
 export const sourceSpreuken = [].concat(...spreuken.Categories.map(category => category.Skills));
 export const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
 
-export const defaultProperties = [
-    { name: "hitpoints", image: "./images/image_hp.png", text: "Totaal HP", value: 1 },
-    { name: "armourpoints", image: "./images/image_ap.png", text: "Max AP", value: 0 },
-    { name: "elemental_mana", image: "./images/image_em.png", text: "Elementaire Mana", value: 0 },
-    { name: "elemental_ritual_mana", image: "./images/image_erm.png", text: "Rituele Elementaire Mana", value: 0 },
-    { name: "spiritual_mana", image: "./images/image_sm.png", text: "Spirituele Mana", value: 0 },
-    { name: "spiritual_ritual_mana", image: "./images/image_srm.png", text: "Rituele Spirituele Mana", value: 0 },
-    { name: "inspiration", image: "./images/image_ins.png", text: "Inspiratie", value: 0 },
-    { name: "willpower", image: "./images/image_wil.png", text: "Wilskracht", value: 0 },
-    { name: "glyph_craft_cap", image: "./images/image_glp_cra.png", text: "Glyph Craft cap", value: 0 },
-    { name: "glyph_imbue_cap", image: "./images/image_glp_imb.png", text: "Glyph Imbue cap", value: 0 },
-    { name: "rune_craft_cap", image: "./images/image_run_cra.png", text: "Rune Craft cap", value: 0 },
-    { name: "rune_imbue_cap", image: "./images/image_run_imb.png", text: "Rune Imbue cap", value: 0 }
-];
-
-/// --- LOCAL STORAGE --- ///
-
-// De locale storage with gemarkeerd met een regelset versie, zoals opgenomen in de packageInfo
-// Hiermee kan (in de toekomst) onderscheid gemaakt worden tussen verschillende versies van regels 
-if (typeof (Storage) !== "undefined") {
-    Storage.prototype.setObject = function (key, value) {
-        if (!key || !value) { return; }
-        if (typeof value === "object") { value = JSON.stringify(value); }
-        var encodedValue = encodeURIComponent(value);
-        var unreadableValue = btoa(encodedValue);
-        localStorage.setItem(key, unreadableValue);
-    }
-
-    // Op dit moment wordt alleen de versie uitgelezen. Afwijkende versie nummers worden vooralsnog niet getoond.
-    Storage.prototype.getObject = function (key) {
-        if (!key) { return; }
-        var value = this.getItem(key);
-        if (!value) { return; }
-        var readableValue = atob(value);
-        var decodedValue = decodeURIComponent(readableValue);
-        if (decodedValue && decodedValue.length >= 0) {
-            if (decodedValue[0] === "{" || decodedValue[1] === "{") { decodedValue = JSON.parse(decodedValue); }
-            return decodedValue;
-        }
-        else {
-            return [];
-        }
-    }
-}
-
-// Tabel Data
-const gridData = [defaultProperties[0], defaultProperties[1]];
-const emptyData = [];
+// Berekende totaal XP waarde
+export let totalXP = 0; 
 
 // Tabel Vaardigheden
 const columns = [
     { Header: "ID", accessor: "id", className: "col-id" },
     { Header: "Vaardigheid", accessor: "skill", className: "col-vaardigheid" },
     { Header: "XP Kosten", accessor: "xp", className: "col-xp" },
-    { Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: ({ value }) => (requestLoreSheet(value)), },
+    { Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: ({ value }) => (LoreSheet(value)), },
     { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
     { Header: "Info", className: "col-info", Cell: ({ row }) => requestInfo(row) },
 ];
@@ -165,12 +130,10 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
     let isPrerequisite = false;
 
     if (tableData.length > 1) {
-        let extraSkills = [];
-
         // Check leermeester expertise afhankelijkheden
         const containsTeacherSkill = tableData.some((record) => record.skill === "Leermeester Expertise");
         if (containsTeacherSkill) {
-            extraSkills = getExtraSkillsFromTable(tableData);
+            const extraSkills = getExtraSkillsFromTable(tableData);
             const filteredSkills = extraSkills.filter(extraSkill => extraSkill.toLowerCase() !== nameSkillToRemove.toLowerCase())
             if (filteredSkills.length === 0) {
                 isPrerequisite = true;
@@ -232,6 +195,7 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
                             setModalMsg("Dit item is nodig voor de vereiste XP (" + totalReqXP + ")\n" +
                                 "voor de vaardigheid: \n" + skillTableData.skill + "\n" +
                                 "Verwijderen is niet toegestaan.");
+                            break;
                         }
                     }
 
@@ -242,6 +206,7 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
                             setModalMsg("Dit item is nodig voor als uitzondering" +
                                 " voor de vaardigheid: \n" + skillTableData.skill + "\n" +
                                 "Verwijderen is niet toegestaan.");
+                            break;
                         }
                     }
                 }
@@ -470,81 +435,25 @@ function requestInfo(row) {
     )
 }
 
-// Open PDF op basis van loresheet uit de vaardigheden.json
-function requestLoreSheet({ pdf, page }) {
-
-    if (!pdf || pdf === "") {
-        <div className="info" />
-    }
-    else {
-        return (
-            <div className="info">
-                <div className="loresheet-info">
-                    <img
-                        className="btn-image"
-                        title={"Open " + pdf}
-                        onClick={() => openPage(pdf, page ? page : 1)}
-                        src="./images/img-pdf.png"
-                        alt="PDF">
-                    </img>
-                </div>
-            </div>
-        )
-    }
-}
-
-// Fetch data before the page is loaded
-const rawData = getLocalStorage('CCdata');
-
 /// --- MAIN APP --- ///
 export default function App() {
-    const [tableData, setTableData] = useState(getInitialData(true, false, false));
-    const [charName, setCharName] = useState("");
-    const [isChecked, setIsChecked] = useState(getInitialData(false, false, true));
-    const [MAX_XP, setMAX_XP] = useState(getInitialData(false, true, false));
-    const [showModal, setShowModal] = useState(false);
-    const [showFAQModal, setShowFAQModal] = useState(false);
-    const [showUploadModal, setShowUploadModal] = useState(false);
-    const [showLoadCharacterModal, setShowLoadCharacterModal] = useState(false);
-    const [showLoadPresetModal, setShowLoadPresetModal] = useState(false);
-    const [modalMsg, setModalMsg] = useState("");
-    const [gridEigenschappen, setGridEigenschappen] = useState(gridData);
-    const [gridSpreuken, setGridSpreuken] = useState(emptyData);
-    const [gridRecepten, setGridRecepten] = useState(emptyData);
+    const {
+        tableData, setTableData,
+        isChecked, setIsChecked,
+        MAX_XP, setMAX_XP,
+        charName, setCharName,
+        showModal, setShowModal,
+        showFAQModal, setShowFAQModal,
+        showUploadModal, setShowUploadModal,
+        showLoadCharacterModal, setShowLoadCharacterModal,
+        showLoadPresetModal, setShowLoadPresetModal,
+        modalMsg, setModalMsg,
+        gridEigenschappen, setGridEigenschappen,
+        gridSpreuken, setGridSpreuken,
+        gridRecepten, setGridRecepten
+    } = useSharedState();
 
     useEffect(() => { onUpdateTableData(); }, [tableData]);
-
-    const toolbarContainer = new Toolbar(
-        [tableData, setTableData],
-        [MAX_XP, setMAX_XP],
-        [charName, setCharName],
-        [isChecked, setIsChecked],
-        setModalMsg,
-        setShowModal,
-        setShowUploadModal,
-        setShowLoadCharacterModal,
-        setShowLoadPresetModal,
-        clearCharacterBuild);
-
-    /// --- GRID CONTENT --- ///
-    function getInitialData(hasData, hasXP, wasChecked) {
-        if (rawData && rawData.length > 0) {
-            const charData = rawData[0]
-            if (charData &&
-                charData.ruleset_version &&
-                charData.ruleset_version === packageInfo.ruleset_version) {
-
-                if (hasData) { return charData.data; }
-                if (hasXP) { return charData.MAX_XP }
-                if (wasChecked) { return charData.isChecked }
-            }
-        }
-        else {
-            if (hasData) { return [] }
-            if (hasXP) { return 15 }
-            if (wasChecked) { return true }
-        }
-    }
 
     // Wanneer er iets aan de tableData verandert, wordt de nieuwe data opgeslagen.
     // Op basis van de nieuwe tableData worden de Selects, Grid en Spreuken/Recepten bijewerkt.
@@ -559,17 +468,8 @@ export default function App() {
 
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
         if (tableData.length >= 0) {
-            const allBasicOptions = sourceBasisVaardigheden.map((record) =>
-                ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
-            optionsBasisVaardigheden = allBasicOptions.filter((currentSkill) =>
-                !tableData.some((record) =>
-                    record.skill.toLowerCase() === currentSkill.value.toLowerCase()));
-
-            const allExtraOptions = sourceExtraVaardigheden.map((record) =>
-                ({ value: record.skill, label: record.skill + " (" + record.xp + " xp)" }));
-            optionsExtraVaardigheden = allExtraOptions.filter((currentSkill) =>
-                !tableData.some((record) =>
-                    record.skill.toLowerCase() === currentSkill.value.toLowerCase()));
+            optionsBasisVaardigheden = regenerateOptions(sourceBasisVaardigheden, tableData);
+            optionsExtraVaardigheden = regenerateOptions(sourceExtraVaardigheden, tableData);
         }
 
         // karakter eigenschappen container
@@ -595,16 +495,11 @@ export default function App() {
 
     /// --- TABLE CONTENT --- ///
     function getTableDataSums() {
-        // reset
-        totalXP = 0;
-        // herberekenen op basis van tabel data.
-        const totalSkills = tableData.length;
-        tableData.forEach(skill => { totalXP += skill.xp; });
-
-        if (totalSkills > 0) {
+        if (tableData.length > 0) {
+            const totalXP = tableData.reduce((accumulator, skill) => accumulator + skill.xp, 0);
             return (
                 <tr>
-                    <td /><td>Aantal vaardigheden: {totalSkills} </td>
+                    <td /><td>Aantal vaardigheden: {tableData.length} </td>
                     <td>Totaal: {totalXP}</td>
                     <td />
                     <td />
@@ -619,6 +514,10 @@ export default function App() {
                     </td>
                 </tr>
             );
+        }
+        else {
+            totalXP = 0;
+            return null;
         }
     }
 
@@ -771,7 +670,7 @@ export default function App() {
                 "https://the-vortex.nl/het-spel/regels/" +
                 "\n");
             setShowModal(true);
-        }        
+        }
     }
 
     const closeModal = () => { setShowModal(false); };
@@ -792,8 +691,22 @@ export default function App() {
             </header>
             <main>
                 <div className="main-container">
-                    {toolbarContainer}
-
+                    <Toolbar
+                        tableData={tableData}
+                        setTableData={setTableData}
+                        MAX_XP={MAX_XP}
+                        setMAX_XP={setMAX_XP}
+                        charName={charName}
+                        setCharName={setCharName}
+                        isChecked={isChecked}
+                        setIsChecked={setIsChecked}
+                        setModalMsg={setModalMsg}
+                        setShowModal={setShowModal}
+                        setShowUploadModal={setShowUploadModal}
+                        setShowLoadCharacterModal={setShowLoadCharacterModal}
+                        setShowLoadPresetModal={setShowLoadPresetModal}
+                        clearCharacterBuild={clearCharacterBuild}
+                    />
                     <DragDropContext onDragEnd={handleDragEnd}>
                         <table {...getTableProps()} className="App-table">
                             <thead>
@@ -848,9 +761,7 @@ export default function App() {
                                                 </Draggable>
                                             );
                                         })}
-                                        {
-                                            getTableDataSums()
-                                        }
+                                        { getTableDataSums() }
                                         {provided.placeholder}
                                     </tbody>
                                 )}
@@ -860,8 +771,8 @@ export default function App() {
 
                     {showModal && (<ModalMessage
                         modalMsg={modalMsg}
-                        closeModal={closeModal}/>
-                    )}              
+                        closeModal={closeModal} />
+                    )}
 
                     {showUploadModal && (
                         <FileUploadModal
@@ -875,7 +786,7 @@ export default function App() {
 
                     {showFAQModal && (<FAQModal
                         closeModal={closeFAQModal} />
-                    )}   
+                    )}
 
                     {showLoadCharacterModal && (
                         <LoadCharacterModal
