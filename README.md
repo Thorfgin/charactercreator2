@@ -6,8 +6,8 @@
 	TODO:
 
 	MUST
-	- MIN-XP: When a build has spend less than 13 points, show a warning that the build is invalid.
-
+	- EXPORT CHARACTER: Export the character overview as a PDF, for easy use at the event.
+	- MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
 
 	SHOULD:
 	- VERSION: when clicking the version, show a modal with the release notes
@@ -15,11 +15,10 @@
 	COULD:
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
 	- integration with VOIDWALKER / create new characters
-		> this requires integration on perhaps and API level
+		> this requires integration on perhaps an API level
 		> Needs to be done from within a player portal?
 
 	WOULD: 
-	- EXPORT CHARACTER: Export the character overview as a PDF, for easy use at the event.
 	
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
