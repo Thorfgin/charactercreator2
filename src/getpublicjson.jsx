@@ -4,7 +4,7 @@ const urlFAQ = '/json/faq.json?url';
 const urlVaardigheden = '/json/vaardigheden.json?url';
 
 // Custom hooks voor JSON data sources
-export function useSourceFAQ() { return usePublicJson(urlFAQ).then(data => data }
+export function useSourceFAQ() { return usePublicJson(urlFAQ).then(data => data); }
 export function useSourceSkills() { return usePublicJson(urlVaardigheden).then(data => data); }
 
 // Uitlezen van JSON uit de public folder

@@ -13,4 +13,7 @@
   <ItemGroup>
     <None Include=".github\workflows\node.js.yml" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\components\" />
+  </ItemGroup>
 </Project>

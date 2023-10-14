@@ -1,6 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useRef } from 'react';
 import Select from 'react-select';
+
+// import { useSharedState } from './SharedStateContext.jsx';
 import Tooltip from './tooltip.jsx';
 import { ConfirmModal } from './modalmessage.jsx';
 
@@ -22,9 +25,9 @@ import packageInfo from '../package.json';
 
 // Zet een Toolbar klaar met daarin de mogelijkheid om:
 // Settings te wijzigen, Vaarigheden te selecteren, Personages te bewaren/laden of Personages te exporteren/importeren
-function Toolbar(
-    [tableData, setTableData], [MAX_XP, setMAX_XP], [charName, setCharName], [isChecked, setIsChecked],
-    setModalMsg, setShowModal, setShowUploadModal, setShowLoadCharacterModal, setShowLoadPresetModal, clearCharacterBuild) {
+function Toolbar({
+    tableData, setTableData, MAX_XP, setMAX_XP, charName, setCharName, isChecked, setIsChecked,
+    setModalMsg, setShowModal, setShowUploadModal, setShowLoadCharacterModal, setShowLoadPresetModal, clearCharacterBuild }) {
 
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
@@ -32,6 +35,7 @@ function Toolbar(
     const [showConfirmUpdateModal, setShowConfirmUpdateModal] = useState(false);
     const [headerConfirmModal, setHeaderConfirmModal] = useState("");
     const [msgConfirmModal, setMsgConfirmModal] = useState("");
+
 
     // MODALS
     const showUploadModal = () => { setShowUploadModal(true); }
@@ -326,7 +330,7 @@ function Toolbar(
     }
 
     // Importen van een Preset
-    
+
 
 
     // RETURN
