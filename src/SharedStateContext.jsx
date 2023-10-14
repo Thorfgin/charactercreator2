@@ -89,6 +89,9 @@ SharedStateProvider.propTypes = {
 };
 
 export function SharedStateProvider({ children }) {
+    const [version, setVersion] = useState(packageInfo.version);
+    const [ruleset_version, setRuleset_Version] = useState(packageInfo.ruleset_version);
+    const [creator, setCreator] = useState(packageInfo.creator);
     const [tableData, setTableData] = useState(getInitialData(true, false, false));
     const [isChecked, setIsChecked] = useState(getInitialData(false, false, true));
     const [MAX_XP, setMAX_XP] = useState(getInitialData(false, true, false));
@@ -108,6 +111,9 @@ export function SharedStateProvider({ children }) {
 
     return (
         <SharedStateContext.Provider value={{
+            version,
+            ruleset_version, 
+            creator,
             tableData, setTableData,
             isChecked, setIsChecked,
             MAX_XP, setMAX_XP,

@@ -1,6 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react-hooks/exhaustive-deps */
-// eslint-disable-next-line no-unused-vars
 import { useEffect } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
@@ -30,7 +28,6 @@ import { setLocalStorage } from './localstorage.jsx';
 import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
 import recepten from './json/recepten.json';
-import packageInfo from '../package.json';
 
 // Ophalen van de skills uit vaardigheden/spreuken/recepten
 function generateOptions(source) {
@@ -438,6 +435,9 @@ function requestInfo(row) {
 /// --- MAIN APP --- ///
 export default function App() {
     const {
+        version,
+        ruleset_version,
+        creator,
         tableData, setTableData,
         isChecked, setIsChecked,
         MAX_XP, setMAX_XP,
@@ -453,6 +453,7 @@ export default function App() {
         gridRecepten, setGridRecepten
     } = useSharedState();
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => { onUpdateTableData(); }, [tableData]);
 
     // Wanneer er iets aan de tableData verandert, wordt de nieuwe data opgeslagen.
@@ -460,7 +461,7 @@ export default function App() {
     function onUpdateTableData() {
         // LocalStorage bijwerken
         setLocalStorage('CCdata', [{
-            ruleset_version: packageInfo.ruleset_version,
+            ruleset_version: ruleset_version,
             isChecked: isChecked,
             MAX_XP: MAX_XP,
             data: tableData
@@ -777,7 +778,7 @@ export default function App() {
                     {showUploadModal && (
                         <FileUploadModal
                             closeModal={closeUploadModal}
-                            ruleset_version={packageInfo.ruleset_version}
+                            ruleset_version={ruleset_version}
                             setCharName={setCharName}
                             setIsChecked={setIsChecked}
                             setMAX_XP={setMAX_XP}
@@ -795,7 +796,7 @@ export default function App() {
                             setCharName={setCharName}
                             setIsChecked={setIsChecked}
                             setMAX_XP={setMAX_XP}
-                            version={packageInfo.ruleset_version}
+                            version={ruleset_version}
                         />
                     )}
 
@@ -806,7 +807,7 @@ export default function App() {
                             setCharName={setCharName}
                             setIsChecked={setIsChecked}
                             setMAX_XP={setMAX_XP}
-                            version={packageInfo.ruleset_version}
+                            version={ruleset_version}
                         />
                     )}
 
@@ -864,8 +865,8 @@ export default function App() {
             </main >
             <div className="flex-filler"></div>
             <footer>
-                <div>{packageInfo.version}</div>
-                <div>{packageInfo.creator}{'\u2122'}</div>
+                <div>{version}</div>
+                <div>{creator}{'\u2122'}</div>
                 <div>
                     <label className="disclaimer" onClick={showDisclaimer}>Disclaimer</label>
                     <label className="faq" onClick={openFAQModal}>F.A.Q.</label>
