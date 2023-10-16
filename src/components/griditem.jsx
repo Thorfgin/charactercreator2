@@ -2,25 +2,26 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// Components
-import Tooltip from './tooltip.jsx';
-import openPage from './openPdf.jsx';
+// components
+import Tooltip from '../tooltip.jsx';
+import openPage from '../openPdf.jsx';
 
-// Shared
-import { defaultProperties } from './SharedObjects.js';
+// functions
+import { useSharedState } from '../SharedStateContext.jsx';
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
-} from './SharedObjects.js'
+} from '../SharedActions.js'
 
-// Konami
 import {
     SpiderController,
     GhostController,
     SkeletonController,
-} from './additions/bug.jsx';
-import { StoneController } from './additions/stone.jsx';
-import './css/heart.css';
+} from '../additions/bug.jsx';
+import {
+    StoneController
+} from '../additions/stone.jsx';
+import '../css/heart.css';
 
 let bugsActive = false;
 
@@ -176,7 +177,7 @@ function getTooltip(skill, name, type, page) {
 }
 
 // Op basis van de Eigenschappen, voeg nieuwe tegels toe.
-export function updateGridEigenschappenTiles(tableData) {
+export function updateGridEigenschappenTiles(tableData, defaultProperties) {
     const propertySums = defaultProperties.map((property) => (
         {
             ...property, value: tableData.reduce((sum, record) => {
@@ -231,7 +232,7 @@ export function updateGridReceptenTiles(tableData) {
                 vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
         }
 
-        const recepten = vaardigheid.Recepten || [];
+        const recepten = vaardigheid ? vaardigheid.Recepten : [];
 
         for (const recipy of recepten) {
             const existingRecipy = recipyAccumulator.find((existing) =>

@@ -1,12 +1,25 @@
 /* eslint-disable react-refresh/only-export-components */
-import { useEffect } from 'react';
+
+import { useEffect, useMemo } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
+// Shared
 import { useSharedState } from './SharedStateContext.jsx';
+import { setLocalStorage } from './SharedActions.js';
 
+import {
+    totalXP,
+    setTotalXP,
+    sourceBasisVaardigheden,
+    sourceExtraVaardigheden,
+    regeneratedBasisVaardigheden,
+    regeneratedExtraVaardigheden,
+} from './SharedObjects.js';
+
+// Components
 import Tooltip from './tooltip.jsx';
-import Toolbar from './toolbar.jsx';
+import Toolbar from './components/toolbar.jsx';
 import LoreSheet from './openloresheet.jsx';
 import ModalMessage from './modalmessage.jsx'
 import FAQModal from './faq.jsx'
@@ -14,7 +27,6 @@ import FileUploadModal from './fileupload.jsx'
 import LoadCharacterModal from './loadcharacter.jsx'
 import LoadPresetModal from './loadpreset.jsx'
 
-import openPage from './openPdf.jsx';
 import {
     GridEigenschapItem,
     GenericTooltipItem,
@@ -23,43 +35,8 @@ import {
     updateGridReceptenTiles
 } from './griditem.jsx';
 
-import { setLocalStorage } from './localstorage.jsx';
-
-import vaardigheden from './json/vaardigheden.json';
-import spreuken from './json/spreuken.json';
-import recepten from './json/recepten.json';
-
-// Ophalen van de skills uit vaardigheden/spreuken/recepten
-function generateOptions(source) {
-    return source.map((record) => ({
-        value: record.skill,
-        label: `${record.skill} (${record.xp} xp)`
-    }));
-}
-
-// Ophalen van de skills uit vaardigheden/spreuken/recepten, minus geselecteerde skills
-function regenerateOptions(source, tableData) {
-    return source.map((record) => ({
-        value: record.skill,
-        label: `${record.skill} (${record.xp} xp)`
-    })).filter((currentSkill) =>
-        !tableData.some((record) =>
-            record.skill.toLowerCase() === currentSkill.value.toLowerCase()
-        )
-    );
-}
-
-export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
-export let optionsBasisVaardigheden = generateOptions(sourceBasisVaardigheden);
-
-export const sourceExtraVaardigheden = vaardigheden.ExtraVaardigheden;
-export let optionsExtraVaardigheden = generateOptions(sourceExtraVaardigheden);
-
-export const sourceSpreuken = [].concat(...spreuken.Categories.map(category => category.Skills));
-export const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
-
-// Berekende totaal XP waarde
-export let totalXP = 0; 
+// Functions
+import openPage from './openPdf.jsx';
 
 // Tabel Vaardigheden
 const columns = [
@@ -469,8 +446,8 @@ export default function App() {
 
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
         if (tableData.length >= 0) {
-            optionsBasisVaardigheden = regenerateOptions(sourceBasisVaardigheden, tableData);
-            optionsExtraVaardigheden = regenerateOptions(sourceExtraVaardigheden, tableData);
+            regeneratedBasisVaardigheden(tableData);
+            regeneratedExtraVaardigheden(tableData);
         }
 
         // karakter eigenschappen container
@@ -517,7 +494,7 @@ export default function App() {
             );
         }
         else {
-            totalXP = 0;
+            setTotalXP(0);
             return null;
         }
     }

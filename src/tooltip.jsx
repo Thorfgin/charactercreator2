@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+
+// Shared
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
     sourceSpreuken,
     sourceRecepten
-} from './App.jsx'
+} from './SharedObjects.js';
 
 Tooltip.propTypes = {
     skillName: PropTypes.any,
