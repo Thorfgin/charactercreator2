@@ -10,9 +10,12 @@ import {
 import {
     isSkillAPrerequisiteToAnotherSkill,
     meetsAllPrerequisites,
+} from '../src/SharedActions.js';
+
+import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden
-} from '../src/App.jsx';
+} from '../src/SharedObjects.js';
 
 // Replace ë with the Unicode
 function replaceChar(word) { return word.replace(/ë/g, '\u00EB') }

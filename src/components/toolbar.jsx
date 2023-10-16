@@ -6,16 +6,12 @@ import PropTypes from 'prop-types';
 import Tooltip from '../tooltip.jsx';
 import { ConfirmModal } from '../modalmessage.jsx';
 
-// Functions
-import {
-    meetsAllPrerequisites
-} from '../App.jsx'
-
 // Shared
 import { useSharedState } from '../SharedStateContext.jsx';
 import {
     setLocalStorage,
     getAllLocalStorageKeys,
+    meetsAllPrerequisites
 } from '../SharedActions.js';
 import {
     totalXP,
