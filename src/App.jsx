@@ -8,6 +8,9 @@ import { useSharedState } from './SharedStateContext.jsx';
 import {
     setLocalStorage,
     isSkillAPrerequisiteToAnotherSkill,
+    updateGridEigenschappenTiles,
+    updateGridSpreukenTiles,
+    updateGridReceptenTiles,
 } from './SharedActions.js';
 
 import {
@@ -26,9 +29,6 @@ import Toolbar from './components/Toolbar.jsx';
 import {
     GridEigenschapItem,
     GenericTooltipItem,
-    updateGridEigenschappenTiles,
-    updateGridSpreukenTiles,
-    updateGridReceptenTiles
 } from './components/GridItem.jsx';
 
 // --- 

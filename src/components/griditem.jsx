@@ -5,20 +5,14 @@ import PropTypes from 'prop-types';
 import Tooltip from '../tooltip.jsx';
 import openPage from '../openPdf.jsx';
 
-// functions
-import {
-    sourceBasisVaardigheden,
-    sourceExtraVaardigheden,
-} from '../SharedObjects.js'
-
+// additions
 import {
     SpiderController,
     GhostController,
     SkeletonController,
 } from '../additions/bug.jsx';
-import {
-    StoneController
-} from '../additions/stone.jsx';
+
+import { StoneController } from '../additions/stone.jsx';
 import '../css/heart.css';
 
 let bugsActive = false;
@@ -172,77 +166,4 @@ function getTooltip(skill, name, type, page) {
                 )}
         </div>
     )
-}
-
-// Op basis van de Eigenschappen, voeg nieuwe tegels toe.
-export function updateGridEigenschappenTiles(tableData, defaultProperties) {
-    const propertySums = defaultProperties.map((property) => (
-        {
-            ...property, value: tableData.reduce((sum, record) => {
-                let vaardigheid = sourceBasisVaardigheden.find((vaardigheid) =>
-                    vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-                if (!vaardigheid) {
-                    vaardigheid = sourceExtraVaardigheden.find((vaardigheid) =>
-                        vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-                }
-
-                const propertyValue = vaardigheid.Eigenschappen?.find((prop) =>
-                    prop.name.toLowerCase() === property.name.toLowerCase())?.value || 0;
-                return sum + propertyValue * record.count;
-            }, property.name === "hitpoints" ? 1 : 0)
-        }));
-    return propertySums;
-}
-
-// Op basis van de Spreuken, voeg nieuwe tegels toe.
-export function updateGridSpreukenTiles(tableData) {
-    const spellProperties = tableData.reduce((spellsAccumulator, record) => {
-        let vaardigheid = sourceBasisVaardigheden.find((vaardigheid) =>
-            vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-        if (!vaardigheid) {
-            vaardigheid = sourceExtraVaardigheden.find((vaardigheid) =>
-                vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-        }
-
-        const spells = vaardigheid.Spreuken || [];
-
-        spells.forEach((spell) => {
-            const existingSpell = spellsAccumulator.find((existing) =>
-                existing.name.toLowerCase() === spell.name.toLowerCase());
-            if (existingSpell) { existingSpell.count += spell.count; }
-            else {
-                spell.skill = vaardigheid.skill;
-                spellsAccumulator.push({ ...spell });
-            }
-        });
-        return spellsAccumulator;
-    }, []);
-    return spellProperties;
-}
-
-// Op basis van de Recepten, voeg nieuwe tegels toe.
-export function updateGridReceptenTiles(tableData) {
-    const recipyProperties = tableData.reduce((recipyAccumulator, record) => {
-        let vaardigheid = sourceBasisVaardigheden.find((vaardigheid) =>
-            vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-        if (!vaardigheid) {
-            vaardigheid = sourceExtraVaardigheden.find((vaardigheid) =>
-                vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-        }
-
-        const recepten = vaardigheid ? vaardigheid.Recepten : [];
-
-        for (const recipy of recepten) {
-            const existingRecipy = recipyAccumulator.find((existing) =>
-                existing?.name.toLowerCase() === recipy.name.toLowerCase());
-            if (existingRecipy) {
-                existingRecipy.count += recipy.count;
-            } else {
-                recipy.skill = vaardigheid.skill;
-                recipyAccumulator.push({ ...recipy });
-            }
-        }
-        return recipyAccumulator;
-    }, []);
-    return recipyProperties;
 }
