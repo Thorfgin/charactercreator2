@@ -17,17 +17,11 @@ import {
     sourceExtraVaardigheden,
     regeneratedBasisVaardigheden,
     regeneratedExtraVaardigheden,
+    defaultProperties,
 } from './SharedObjects.js';
 
 // Components
-import { InfoTooltip } from './tooltip.jsx';
-import Toolbar from './components/toolbar.jsx';
-import LoreSheet from './openloresheet.jsx';
-import ModalMessage from './modalmessage.jsx'
-import FAQModal from './faq.jsx'
-import FileUploadModal from './fileupload.jsx'
-import LoadCharacterModal from './loadcharacter.jsx'
-import LoadPresetModal from './loadpreset.jsx'
+import Toolbar from './components/Toolbar.jsx';
 
 import {
     GridEigenschapItem,
@@ -35,7 +29,16 @@ import {
     updateGridEigenschappenTiles,
     updateGridSpreukenTiles,
     updateGridReceptenTiles
-} from './griditem.jsx';
+} from './components/GridItem.jsx';
+
+// --- 
+import { InfoTooltip } from './tooltip.jsx';
+import LoreSheet from './openloresheet.jsx';
+import ModalMessage from './modalmessage.jsx'
+import FAQModal from './faq.jsx'
+import FileUploadModal from './fileupload.jsx'
+import LoadCharacterModal from './loadcharacter.jsx'
+import LoadPresetModal from './loadpreset.jsx'
 
 // Tabel Vaardigheden
 const columns = [
@@ -87,7 +90,7 @@ export default function App() {
         regeneratedExtraVaardigheden(tableData);
 
         // karakter eigenschappen container
-        const updatedGridEigenschappenContent = updateGridEigenschappenTiles(tableData).filter((property) => {
+        const updatedGridEigenschappenContent = updateGridEigenschappenTiles(tableData, defaultProperties).filter((property) => {
             return property.value !== 0
                 || property.name === 'hitpoints'
                 || property.name === 'armourpoints';

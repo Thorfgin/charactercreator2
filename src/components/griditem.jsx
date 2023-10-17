@@ -9,7 +9,7 @@ import openPage from '../openPdf.jsx';
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
-} from '../SharedActions.js'
+} from '../SharedObjects.js'
 
 import {
     SpiderController,
