@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
 
@@ -21,10 +21,6 @@ import {
     optionsExtraVaardigheden
 } from '../SharedObjects.js'
 
-// JSON
-import packageInfo from '../../package.json';
-
-
 Toolbar.propTypes = {
     clearCharacterBuild: PropTypes.func.isRequired
 };
@@ -35,6 +31,9 @@ function Toolbar({ clearCharacterBuild }) {
 
     // Ophalen uit SharedStateContext
     const {
+        // packageinfo
+        ruleset_version,
+
         // table
         tableData, setTableData,
         charName, setCharName,
@@ -63,9 +62,6 @@ function Toolbar({ clearCharacterBuild }) {
 
     const btnAddBasicRef = useRef(null);
     const btnAddExtraRef = useRef(null);
-
-    useEffect(() => { onSelectSkill(true, selectedBasicSkill); }, [onSelectSkill, selectedBasicSkill]);
-    useEffect(() => { onSelectSkill(false, selectedExtraSkill); }, [onSelectSkill, selectedExtraSkill]);
 
     // MODALS
     const showUploadModal = () => { setShowUploadModal(true); }
@@ -120,7 +116,7 @@ function Toolbar({ clearCharacterBuild }) {
     };
 
     // Op basis van de geselecteerde skill, bepaald de bijbehorende (i) afbeelding
-    function onSelectSkill(isBasicSkill, selectedSkill) {
+    const onSelectSkill = useCallback((isBasicSkill, selectedSkill) => {
         if (!selectedSkill || selectedSkill.value === "") {
             if (btnAddBasicRef.current) btnAddBasicRef.current.disabled = false;
             if (btnAddExtraRef.current) btnAddExtraRef.current.disabled = false;
@@ -148,7 +144,12 @@ function Toolbar({ clearCharacterBuild }) {
         else {
             setCurrentExtraImageIndex(0);
         }
-    }
+    }, [tableData, btnAddBasicRef, btnAddExtraRef]);
+
+    // Declare Use-effects
+    useEffect(() => { onSelectSkill(true, selectedBasicSkill); }, [onSelectSkill, selectedBasicSkill]);
+    useEffect(() => { onSelectSkill(false, selectedExtraSkill); }, [onSelectSkill, selectedExtraSkill]);
+
 
     // Voeg de geselecteerde Basis vaardigheid toe aan de tabel
     function handleBasicSkillSelection() {
@@ -244,7 +245,7 @@ function Toolbar({ clearCharacterBuild }) {
     function saveCharacterToLocalStorage() {
         setLocalStorage(charName,
             [{
-                ruleset_version: packageInfo.ruleset_version,
+                ruleset_version: ruleset_version,
                 isChecked: isChecked,
                 MAX_XP: MAX_XP,
                 data: tableData
@@ -303,7 +304,7 @@ function Toolbar({ clearCharacterBuild }) {
     function exportCharacter() {
         if (tableData.length > 0) {
             const dataSet = [{
-                ruleset_version: packageInfo.ruleset_version,
+                ruleset_version: ruleset_version,
                 isChecked: isChecked,
                 MAX_XP: MAX_XP,
                 data: tableData
