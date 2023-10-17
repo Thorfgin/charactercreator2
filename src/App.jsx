@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid';
@@ -26,10 +26,8 @@ import {
 // Components
 import Toolbar from './components/Toolbar.jsx';
 
-import {
-    GridEigenschapItem,
-    GenericTooltipItem,
-} from './components/GridItem.jsx';
+import GridEigenschapItem from './components/GridEigenschapItem.jsx';
+import GenericTooltipItem from './components/GenericTooltipItem.jsx';
 
 // --- 
 import { InfoTooltip } from './tooltip.jsx';
@@ -71,12 +69,9 @@ export default function App() {
         gridRecepten, setGridRecepten
     } = useSharedState();
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => { onUpdateTableData(); }, [tableData]);
-
     // Wanneer er iets aan de tableData verandert, wordt de nieuwe data opgeslagen.
     // Op basis van de nieuwe tableData worden de Selects, Grid en Spreuken/Recepten bijewerkt.
-    function onUpdateTableData() {
+    const onUpdateTableData = useCallback(() => {
         // LocalStorage bijwerken
         setLocalStorage('CCdata', [{
             ruleset_version: ruleset_version,
@@ -108,7 +103,9 @@ export default function App() {
             return property.value !== ""
         });
         setGridRecepten(updatedGridReceptenContent);
-    }
+    }, [ruleset_version, isChecked, MAX_XP, tableData, setGridEigenschappen, setGridSpreuken, setGridRecepten]);
+
+    useEffect(() => { onUpdateTableData(); }, [onUpdateTableData, tableData]);
 
     /// --- TABLE CONTENT --- ///
     function getTableDataSums() {

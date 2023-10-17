@@ -21,13 +21,11 @@ import {
     optionsExtraVaardigheden
 } from '../SharedObjects.js'
 
-Toolbar.propTypes = {
-    clearCharacterBuild: PropTypes.func.isRequired
-};
+Toolbar.propTypes = { clearCharacterBuild: PropTypes.func.isRequired };
 
 // Zet een Toolbar klaar met daarin de mogelijkheid om:
 // Settings te wijzigen, Vaarigheden te selecteren, Personages te bewaren/laden of Personages te exporteren/importeren
-function Toolbar({ clearCharacterBuild }) {
+export default function Toolbar({ clearCharacterBuild }) {
 
     // Ophalen uit SharedStateContext
     const {
@@ -509,5 +507,3 @@ function Toolbar({ clearCharacterBuild }) {
         </div>
     );
 }
-
-export default Toolbar;
