@@ -3,7 +3,7 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 
 // Components
-import Tooltip from '../tooltip.jsx';
+import Tooltip from './Tooltip.jsx';
 import { ConfirmModal } from '../modalmessage.jsx';
 
 // Shared

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 // components
-import Tooltip from './tooltip.jsx';
+import Tooltip from './Tooltip.jsx';
 import openPage from '../openPdf.jsx';
 
 getTooltip.propTypes = {
