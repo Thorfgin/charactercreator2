@@ -1,6 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
-
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
@@ -8,7 +6,6 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { useSharedState } from './SharedStateContext.jsx';
 import {
     setLocalStorage,
-    meetsAllPrerequisites,
     isSkillAPrerequisiteToAnotherSkill,
 } from './SharedActions.js';
 
@@ -58,7 +55,7 @@ export default function App() {
         tableData, setTableData,
         isChecked, setIsChecked,
         MAX_XP, setMAX_XP,
-        charName, setCharName,
+        setCharName,
         showModal, setShowModal,
         showFAQModal, setShowFAQModal,
         showUploadModal, setShowUploadModal,
@@ -309,22 +306,7 @@ export default function App() {
             </header>
             <main>
                 <div className="main-container">
-                    <Toolbar
-                        tableData={tableData}
-                        setTableData={setTableData}
-                        MAX_XP={MAX_XP}
-                        setMAX_XP={setMAX_XP}
-                        charName={charName}
-                        setCharName={setCharName}
-                        isChecked={isChecked}
-                        setIsChecked={setIsChecked}
-                        setModalMsg={setModalMsg}
-                        setShowModal={setShowModal}
-                        setShowUploadModal={setShowUploadModal}
-                        setShowLoadCharacterModal={setShowLoadCharacterModal}
-                        setShowLoadPresetModal={setShowLoadPresetModal}
-                        clearCharacterBuild={clearCharacterBuild}
-                    />
+                    <Toolbar clearCharacterBuild={clearCharacterBuild} />
                     <DragDropContext onDragEnd={handleDragEnd}>
                         <table {...getTableProps()} className="App-table">
                             <thead>
