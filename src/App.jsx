@@ -24,16 +24,16 @@ import {
 } from './SharedObjects.js';
 
 // Components
-import Toolbar from './components/Toolbar.jsx';
 
-import GridEigenschapItem from './components/GridEigenschapItem.jsx';
+import FAQModal from './components/FaqModal.jsx'
 import GenericTooltipItem from './components/GenericTooltipItem.jsx';
+import GridEigenschapItem from './components/GridEigenschapItem.jsx';
+import Toolbar from './components/Toolbar.jsx';
 
 // --- 
 import { InfoTooltip } from './tooltip.jsx';
 import LoreSheet from './openloresheet.jsx';
 import ModalMessage from './modalmessage.jsx'
-import FAQModal from './faq.jsx'
 import FileUploadModal from './fileupload.jsx'
 import LoadCharacterModal from './loadcharacter.jsx'
 import LoadPresetModal from './loadpreset.jsx'

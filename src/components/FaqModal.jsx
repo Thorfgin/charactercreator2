@@ -1,23 +1,26 @@
 import PropTypes from 'prop-types';
-import Collapsible from './collapsible.jsx';
-import sourceFAQ from './json/faq.json';
+import { v4 as uuidv4 } from 'uuid';
 
-FAQModal.propTypes = {
-    closeModal: PropTypes.func.isRequired
-};
+// Components
+import Collapsible from './Collapsible.jsx';
+
+// json
+import sourceFAQ from '../json/faq.json';
+
+FAQModal.propTypes = { closeModal: PropTypes.func.isRequired };
 
 // Toont een venster met daar in de meeste gestelde vragen.
 // Vragen zijn open/dicht te klappen
-function FAQModal({ closeModal }) {
+export default function FAQModal({ closeModal }) {
 
     return (
         <div className="modal-overlay">
             <div className="faq-modal">
                 <h3>Frequently Asked Questions</h3>
                     <div className="faq-modal-block">
-                    {sourceFAQ.FAQ.map(({ header, message }, index) => (
+                    {sourceFAQ.FAQ.map(({ header, message }) => (
                             <Collapsible
-                                key={index}
+                            key={uuidv4()}
                                 className="modal-block"
                                 header={header}
                                 message={message}
@@ -31,5 +34,3 @@ function FAQModal({ closeModal }) {
         </div>
     );
 }
-
-export default FAQModal;
