@@ -26,15 +26,15 @@ import {
 // Components
 
 import FAQModal from './components/FaqModal.jsx'
+import FileUploadModal from './components/FileUploadModal.jsx'
 import GenericTooltipItem from './components/GenericTooltipItem.jsx';
 import GridEigenschapItem from './components/GridEigenschapItem.jsx';
+import { InfoTooltip } from './components/Tooltip.jsx';
 import Toolbar from './components/Toolbar.jsx';
 
 // --- 
-import { InfoTooltip } from './tooltip.jsx';
 import LoreSheet from './openloresheet.jsx';
 import ModalMessage from './modalmessage.jsx'
-import FileUploadModal from './fileupload.jsx'
 import LoadCharacterModal from './loadcharacter.jsx'
 import LoadPresetModal from './loadpreset.jsx'
 

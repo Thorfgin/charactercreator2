@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 const urlFAQ = '/json/faq.json?url';
 const urlVaardigheden = '/json/vaardigheden.json?url';
 

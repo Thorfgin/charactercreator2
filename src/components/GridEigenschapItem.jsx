@@ -9,7 +9,7 @@ import {
 } from '../additions/bug.jsx';
 
 import { StoneController } from '../additions/stone.jsx';
-import '../css/heart.css';
+import '../additions/css/heart.css';
 
 let bugsActive = false;
 

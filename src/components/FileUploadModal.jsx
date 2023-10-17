@@ -10,7 +10,20 @@ FileUploadModal.propTypes = {
     setTableData: PropTypes.func.isRequired,
 };
 
-function FileUploadModal({ closeModal, ruleset_version, setCharName, setIsChecked, setMAX_XP, setTableData }) {
+// Check of het de naam heeft zoals verwacht
+function getCharacterName(name) {
+    if (name.includes('VA_') && name.includes(".dat")) {
+        const startIndex = name.indexOf("VA_") + 3;
+        const endIndex = name.indexOf(".dat");
+        const cleanedName = name.substring(startIndex, endIndex);
+        return cleanedName;
+    }
+    else {
+        return name;
+    }
+}
+
+export default function FileUploadModal({ closeModal, ruleset_version, setCharName, setIsChecked, setMAX_XP, setTableData }) {
     const [selectedFile, setSelectedFile] = useState(null);
 
     // Werk bestand info mbij
@@ -27,18 +40,11 @@ function FileUploadModal({ closeModal, ruleset_version, setCharName, setIsChecke
                 try {
                     if (rawData) {
                         const readableValue = atob(rawData);
-                        var decodedValue = decodeURIComponent(readableValue);
-                        var charData = JSON.parse(decodedValue)[0];
-                        if (charData &&
-                            charData.ruleset_version &&
-                            charData.ruleset_version === ruleset_version) {
-                            if (selectedFile.name.includes('VA_') && selectedFile.name.includes(".dat"))
-                            {
-                                const startIndex = selectedFile.name.indexOf("VA_") + 3;
-                                const endIndex = selectedFile.name.indexOf(".dat");
-                                const cleanedName = selectedFile.name.substring(startIndex, endIndex);
-                                setCharName(cleanedName);
-                            }
+                        let decodedValue = decodeURIComponent(readableValue);
+                        let charData = JSON.parse(decodedValue)[0];
+                        if (charData?.ruleset_version &&
+                            charData?.ruleset_version === ruleset_version) {
+                            setCharName(getCharacterName(selectedFile.name));
                             setIsChecked(charData.isChecked);
                             setMAX_XP(charData.MAX_XP);
                             setTableData(charData.data);
@@ -78,5 +84,3 @@ function FileUploadModal({ closeModal, ruleset_version, setCharName, setIsChecke
         </div>
     );
 }
-
-export default FileUploadModal;
