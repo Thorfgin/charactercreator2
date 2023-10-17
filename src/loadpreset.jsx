@@ -1,11 +1,15 @@
+/* eslint-disable react/prop-types */
 import { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import presets from './json/presets.json';
+
 import {
+    getPresets,
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
 }
-    from './App.jsx'
+    from './SharedObjects.js'
+
+const presets = getPresets();
 const sourcePresets = presets.Presets;
 
 TemplateTable.propTypes = {
@@ -44,7 +48,7 @@ function TemplateTable({ selectedTemplate, handleTemplateChange }) {
                         <td>{item.name}</td>
                     </tr>
                 ))}
-                {!presets && (
+                {!sourcePresets && (
                     <tr>
                         <td>Geen presets gevonden</td>
                     </tr>

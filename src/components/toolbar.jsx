@@ -1,41 +1,67 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Select from 'react-select';
+import PropTypes from 'prop-types';
 
-// import { useSharedState } from './SharedStateContext.jsx';
-import Tooltip from './tooltip.jsx';
-import { ConfirmModal } from './modalmessage.jsx';
+// Components
+import Tooltip from '../tooltip.jsx';
+import { ConfirmModal } from '../modalmessage.jsx';
 
+// Shared
+import { useSharedState } from '../SharedStateContext.jsx';
+import {
+    setLocalStorage,
+    getAllLocalStorageKeys,
+    meetsAllPrerequisites
+} from '../SharedActions.js';
 import {
     totalXP,
     sourceBasisVaardigheden,
-    optionsBasisVaardigheden,
     sourceExtraVaardigheden,
-    optionsExtraVaardigheden,
-    meetsAllPrerequisites
-}
-    from './App.jsx'
-import {
-    setLocalStorage,
-    getAllLocalStorageKeys
-} from './localstorage.jsx';
-import packageInfo from '../package.json';
+    optionsBasisVaardigheden,
+    optionsExtraVaardigheden
+} from '../SharedObjects.js'
 
+Toolbar.propTypes = {
+    clearCharacterBuild: PropTypes.func.isRequired
+};
 
 // Zet een Toolbar klaar met daarin de mogelijkheid om:
 // Settings te wijzigen, Vaarigheden te selecteren, Personages te bewaren/laden of Personages te exporteren/importeren
-function Toolbar({
-    tableData, setTableData, MAX_XP, setMAX_XP, charName, setCharName, isChecked, setIsChecked,
-    setModalMsg, setShowModal, setShowUploadModal, setShowLoadCharacterModal, setShowLoadPresetModal, clearCharacterBuild }) {
+function Toolbar({ clearCharacterBuild }) {
 
-    const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
-    const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
-    const [showConfirmRemoveModal, setShowConfirmRemoveModal] = useState(false);
-    const [showConfirmUpdateModal, setShowConfirmUpdateModal] = useState(false);
-    const [headerConfirmModal, setHeaderConfirmModal] = useState("");
-    const [msgConfirmModal, setMsgConfirmModal] = useState("");
+    // Ophalen uit SharedStateContext
+    const {
+        // packageinfo
+        ruleset_version,
 
+        // table
+        tableData, setTableData,
+        charName, setCharName,
+        isChecked, setIsChecked,
+        MAX_XP, setMAX_XP,
+        selectedBasicSkill, setSelectedBasicSkill,
+        selectedExtraSkill, setSelectedExtraSkill,
+
+        // modals
+        setModalMsg, setShowModal,
+        setShowUploadModal,
+        setShowLoadCharacterModal,
+        setShowLoadPresetModal,
+        showConfirmRemoveModal, setShowConfirmRemoveModal,
+        showConfirmUpdateModal, setShowConfirmUpdateModal,
+
+        headerConfirmModal, setHeaderConfirmModal,
+        msgConfirmModal, setMsgConfirmModal,
+
+    } = useSharedState();
+
+    // SELECT & INFO
+    const imageSrc = ["./images/img-info.png", "./images/img-info_red.png"]
+    const [currentBasicImageIndex, setCurrentBasicImageIndex] = useState(0);
+    const [currentExtraImageIndex, setCurrentExtraImageIndex] = useState(0);
+
+    const btnAddBasicRef = useRef(null);
+    const btnAddExtraRef = useRef(null);
 
     // MODALS
     const showUploadModal = () => { setShowUploadModal(true); }
@@ -46,8 +72,10 @@ function Toolbar({
 
     // CHECKBOX
     const handleCheckboxChange = () => {
-        setIsChecked(!isChecked);
-        if (!isChecked) {
+        const newIsChecked = !isChecked;
+        setIsChecked(newIsChecked);
+
+        if (!newIsChecked) {
             setMAX_XP(15);
             setTableData([]);
         }
@@ -56,85 +84,72 @@ function Toolbar({
     // INPUT    
     // Personage naam opschonen op basis van de regex.
     const handleTextChange = (event) => {
-        const sanitizeInput = (input) => { return input.replace(/[^a-zA-Z0-9._ -]/g, ''); };
-
-        if (event.target.value && event.target.value !== "") {
-            const sanitizedValue = sanitizeInput(event.target.value)
-            setCharName(sanitizedValue);
-        }
-        else {
-            setCharName("");
-        }
-    }
+        const inputValue = event.target.value;
+        const sanitizedValue = inputValue.replace(/[^a-zA-Z0-9._ -]/g, '');
+        setCharName(sanitizedValue || "");
+    };
 
     // Laat de gebruiker vrij de waarde wijzigen zonder interuptie
     const handleInputUpdate = (event) => {
-        if (isChecked) { event.preventDefault(); } // stop bewerking 
-        else if (event.target.value && event.target.value >= event.target.min) {
-            const newValue = parseFloat(event.target.value);
-            let roundedValue = Math.floor(newValue * 4) / 4;
-            setMAX_XP(roundedValue);
-        }
-    }
+        if (isChecked || !event.target.value || event.target.value < event.target.min) { return; }
+        const newValue = parseFloat(event.target.value);
+        const roundedValue = Math.floor(newValue * 4) / 4;
+        setMAX_XP(roundedValue);
+    };
 
     // Wanneer de Focus verloren gaat op de Input, valideer en corrigeer de input-waarde
     const handleInputValidate = (event) => {
-        if (isChecked) { event.preventDefault(); } // stop bewerking 
-        else if (event.target.value && event.target.value >= event.target.min) {
-            const newValue = parseFloat(event.target.value);
-            let roundedValue = Math.floor(newValue * 4) / 4;
-            roundedValue = roundedValue.toFixed(2)
+        if (isChecked) {
+            event.preventDefault(); // Stop bewerking 
+            return;
+        }
 
-            if (roundedValue >= parseFloat(event.target.max)) {
-                roundedValue = event.target.max;
-            }
-            else if (roundedValue <= totalXP) {
-                roundedValue = totalXP
-            }
-            setMAX_XP(roundedValue);
+        const newValue = parseFloat(event.target.value);
+        if (newValue >= event.target.min) {
+            const { min, max } = event.target;
+            const newValue = parseFloat(event.target.value);
+            const roundedValue = (Math.floor(newValue * 4) / 4).toFixed(2);
+            const clampedValue = Math.max(min, Math.min(max, roundedValue));
+            setMAX_XP(clampedValue);
         }
         else { setMAX_XP(totalXP); }
     };
 
-    // SELECT & INFO
-    const imageSrc = ["./images/img-info.png", "./images/img-info_red.png"]
-    const [currentBasicImageIndex, setCurrentBasicImageIndex] = useState(0);
-    const [currentExtraImageIndex, setCurrentExtraImageIndex] = useState(0);
-
-    const btnAddBasicRef = useRef(null);
-    const btnAddExtraRef = useRef(null);
-
-    useEffect(() => { onSelectSkill(true, selectedBasicSkill); }, [selectedBasicSkill]);
-    useEffect(() => { onSelectSkill(false, selectedExtraSkill); }, [selectedExtraSkill]);
-
     // Op basis van de geselecteerde skill, bepaald de bijbehorende (i) afbeelding
-    function onSelectSkill(isBasicSkill, selectedSkill) {
-        let meetsPrerequisites;
+    const onSelectSkill = useCallback((isBasicSkill, selectedSkill) => {
+        if (!selectedSkill || selectedSkill.value === "") {
+            if (btnAddBasicRef.current) btnAddBasicRef.current.disabled = false;
+            if (btnAddExtraRef.current) btnAddExtraRef.current.disabled = false;
+            return;
+        }
 
-        if (selectedSkill && selectedSkill.value !== "") {
-            let selectedRecord = sourceBasisVaardigheden.find((record) =>
-                record.skill.toLowerCase() === selectedSkill.value.toLowerCase());
-            if (!selectedRecord) {
-                selectedRecord = sourceExtraVaardigheden.find((record) =>
-                    record.skill.toLowerCase() === selectedSkill.value.toLowerCase());
-            }
+        const selectedRecord =
+            sourceBasisVaardigheden.find(record => record.skill.toLowerCase() === selectedSkill.value.toLowerCase()) ||
+            sourceExtraVaardigheden.find(record => record.skill.toLowerCase() === selectedSkill.value.toLowerCase());
+        if (!selectedRecord) { return; }
 
-            meetsPrerequisites = meetsAllPrerequisites(selectedRecord, tableData);
+        const meetsPrerequisites = meetsAllPrerequisites(selectedRecord, tableData);
+        if (!meetsPrerequisites) {
+            const btnRef = isBasicSkill ? btnAddBasicRef : btnAddExtraRef;
+            btnRef.current.disabled = true;
+            loop(isBasicSkill);
+        } else {
+            const btnRef = isBasicSkill ? btnAddBasicRef : btnAddExtraRef;
+            btnRef.current.disabled = false;
+        }
 
-            if (meetsPrerequisites === false) {
-                isBasicSkill ? btnAddBasicRef.current.disabled = true : btnAddExtraRef.current.disabled = true;
-                loop(isBasicSkill);
-            }
-            else {
-                isBasicSkill === true ? btnAddBasicRef.current.disabled = false : btnAddExtraRef.current.disabled = false;
-            }
-            isBasicSkill === true ? setCurrentBasicImageIndex(0) : setCurrentExtraImageIndex(0);
+        if (isBasicSkill) {
+            setCurrentBasicImageIndex(0);
         }
         else {
-            if (btnAddBasicRef.current) { btnAddBasicRef.current.disabled = false }
-            if (btnAddExtraRef.current) { btnAddExtraRef.current.disabled = false; }
+            setCurrentExtraImageIndex(0);
         }
-    }
+    }, [tableData, btnAddBasicRef, btnAddExtraRef]);
+
+    // Declare Use-effects
+    useEffect(() => { onSelectSkill(true, selectedBasicSkill); }, [onSelectSkill, selectedBasicSkill]);
+    useEffect(() => { onSelectSkill(false, selectedExtraSkill); }, [onSelectSkill, selectedExtraSkill]);
+
 
     // Voeg de geselecteerde Basis vaardigheid toe aan de tabel
     function handleBasicSkillSelection() {
@@ -157,16 +172,18 @@ function Toolbar({
 
     // Voeg de geselecteerde Extra vaardigheid toe aan de tabel
     function handleExtraSkillSelection() {
-        if (selectedExtraSkill) {
-            const selectedExtraRecord = sourceExtraVaardigheden.find((record) =>
-                record.skill.toLowerCase() === selectedExtraSkill.value.toLowerCase());
-            const wasSuccesfull = handleAddToTable(selectedExtraRecord)
-            if (wasSuccesfull) { setSelectedExtraSkill(''); }
-        }
-        else {
+        if (!selectedExtraSkill) {
             setSelectedBasicSkill('');
+            return;
         }
+
+        const selectedExtraRecord = sourceExtraVaardigheden.find((record) =>
+            record.skill.toLowerCase() === selectedExtraSkill.value.toLowerCase()
+        );
+
+        if (selectedExtraRecord && handleAddToTable(selectedExtraRecord)) { setSelectedExtraSkill(''); }
     }
+
 
     // Acteer op een Key Press op de geselecteerde Extra vaaardigheid
     const handleExtraSkillSelectKeyPress = (event) => {
@@ -209,25 +226,17 @@ function Toolbar({
     function loop(isBasicSkill, counter = 0) {
         const maxIterations = 8;
         const delay = 100;
+        const setIndex = isBasicSkill ? setCurrentBasicImageIndex : setCurrentExtraImageIndex;
 
-        if (isBasicSkill === true) {
-            setTimeout(() => {
-                setCurrentBasicImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
-                if (counter < maxIterations) {
-                    setTimeout(() => {
-                        loop(isBasicSkill, counter + 1);
-                    }, delay);
-                }
-            })
-        }
-        else {
-            setTimeout(() => {
-                setCurrentExtraImageIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
-                if (counter < maxIterations) {
-                    setTimeout(() => { loop(isBasicSkill, counter + 1); }, delay);
-                }
-            })
-        }
+        const toggleIndex = () => {
+            setIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+            if (counter < maxIterations) {
+                setTimeout(toggleIndex, delay);
+                counter++;
+            }
+        };
+
+        toggleIndex();
     }
 
     /// --- BUTTONS --- ///
@@ -236,35 +245,28 @@ function Toolbar({
     function saveCharacterToLocalStorage() {
         setLocalStorage(charName,
             [{
-                ruleset_version: packageInfo.ruleset_version,
+                ruleset_version: ruleset_version,
                 isChecked: isChecked,
                 MAX_XP: MAX_XP,
                 data: tableData
             }]);
-
         if (showConfirmUpdateModal === true) { closeConfirmUpdateModal(); }
-
-        const msg = "Personage '" + charName + "' opgeslagen."
-        setModalMsg(msg);
+        setModalMsg(`Personage '${charName}' opgeslagen.`);
         setShowModal(true);
     }
 
     // Verwijderen uit de local storage van de browser
     function removeCharacterFromLocalStorage() {
         const key = getAllLocalStorageKeys(charName);
-        let wasRemoved = false;
-
-        if (key) {
+        if (key.length > 0) {
             setLocalStorage(key, null);
             clearCharacterBuild();
-            wasRemoved = true;
+            setModalMsg(`Personage '${charName}' verwijderd.`);
+        } else {
+            setModalMsg(`Personage '${charName}' niet gevonden.`);
         }
         closeConfirmRemoveModal();
-
-        if (wasRemoved === true) {
-            setModalMsg("Personage '" + charName + "' verwijdert.");
-            setShowModal(true);
-        }
+        setShowModal(true);
     }
 
     // Eerst via ConfirmModal bevestigen, daarna verwijdern
@@ -302,7 +304,7 @@ function Toolbar({
     function exportCharacter() {
         if (tableData.length > 0) {
             const dataSet = [{
-                ruleset_version: packageInfo.ruleset_version,
+                ruleset_version: ruleset_version,
                 isChecked: isChecked,
                 MAX_XP: MAX_XP,
                 data: tableData
@@ -315,7 +317,7 @@ function Toolbar({
             const a = document.createElement('a');
             a.href = url;
             const downloadName = charName !== "" ? charName : "character";
-            a.download = "VA_" + downloadName.toString() + ".dat";
+            a.download = `VA_${downloadName}.dat`;
             a.click();
             // Opruimen na download
             URL.revokeObjectURL(url);
@@ -328,10 +330,6 @@ function Toolbar({
         setModalMsg("Work in progress...");
         setShowModal(true);
     }
-
-    // Importen van een Preset
-
-
 
     // RETURN
     return (

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
     getLocalStorage,
     getAllLocalStorageKeys
-} from './localstorage.jsx';
+} from './SharedActions.js';
 
 
 CharacterTable.propTypes = {
