@@ -7,8 +7,8 @@ import Tooltip from './tooltip.jsx';
 import openPage from './openPdf.jsx';
 
 // Shared
-import { defaultProperties } from './SharedObjects.js';
 import {
+    defaultProperties, 
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
 } from './SharedObjects.js'

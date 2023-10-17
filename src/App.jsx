@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { v4 as uuidv4 } from 'uuid';
 
 // Shared
 import { useSharedState } from './SharedStateContext.jsx';
@@ -310,11 +311,10 @@ export default function App() {
                         <table {...getTableProps()} className="App-table">
                             <thead>
                                 {headerGroups.map((headerGroup) => (
-                                    // eslint-disable-next-line react/jsx-key
-                                    <tr {...headerGroup.getHeaderGroupProps()}>
+                                    <tr key={uuidv4()} {...headerGroup.getHeaderGroupProps()}>
                                         {headerGroup.headers.map((column) => (
-                                            // eslint-disable-next-line react/jsx-key
                                             <th
+                                                key={uuidv4()}
                                                 {...column.getHeaderProps(column.getSortByToggleProps())}
                                                 className={column.className}
                                             >
@@ -324,7 +324,7 @@ export default function App() {
                                                 </span>
                                             </th>
                                         ))}
-                                        <th className="col-acties">Acties</th>
+                                        <th key={uuidv4()} className="col-acties">Acties</th>
                                     </tr>
                                 ))}
                             </thead>
@@ -419,7 +419,7 @@ export default function App() {
                             {gridEigenschappen.map((item) => (
                                 <GridEigenschapItem
                                     name={item.name}
-                                    key={item.id}
+                                    key={uuidv4()}
                                     image={item.image}
                                     text={item.text}
                                     value={item.value}
@@ -438,7 +438,7 @@ export default function App() {
                                     name={item.name}
                                     type={"grid-spreuken"}
                                     page={item.page}
-                                    key={item.id}
+                                    key={uuidv4()}
                                     text={item.name}
                                 />
                             ))}
@@ -453,7 +453,7 @@ export default function App() {
                                     skill={item.skill}
                                     name={item.name}
                                     type={"grid-recepten"}
-                                    key={item.id}
+                                    key={uuidv4()}
                                     text={item.name}
                                 />
                             ))}
