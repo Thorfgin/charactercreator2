@@ -85,13 +85,10 @@ let SharedStateContext = createContext();
 export function useSharedState() {
     const context = useContext(SharedStateContext);
     if (context === undefined) { throw new Error('useSharedState must be used within a SharedStateProvider'); }
-
     return context;
 }
 
-SharedStateProvider.propTypes = {
-    children: PropTypes.any.isRequired
-};
+SharedStateProvider.propTypes = { children: PropTypes.any.isRequired };
 
 export function SharedStateProvider({ children }) {
     const [version, setVersion] = useState(packageInfo.version);
@@ -115,7 +112,6 @@ export function SharedStateProvider({ children }) {
     const [showConfirmUpdateModal, setShowConfirmUpdateModal] = useState(false);
     const [headerConfirmModal, setHeaderConfirmModal] = useState("");
     const [msgConfirmModal, setMsgConfirmModal] = useState("");
-
 
     const [gridEigenschappen, setGridEigenschappen] = useState([defaultProperties[0], defaultProperties[1]]);
     const [gridSpreuken, setGridSpreuken] = useState([]);
