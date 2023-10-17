@@ -285,6 +285,7 @@ export default function App() {
             setShowModal(true);
         }
     }
+    const determineSortinSymbol = (isSorted) => { return isSorted ? ' \u25BC' : ' \u25B2' }
 
     const closeModal = () => { setShowModal(false); };
     const closeUploadModal = () => { setShowUploadModal(false); };
@@ -319,7 +320,7 @@ export default function App() {
                                             >
                                                 {column.render('Header')}
                                                 <span>
-                                                    {column.isSorted ? (column.isSortedDesc ? ' \u25BC' : ' \u25B2') : ''}
+                                                    {column.isSorted ? determineSortinSymbol(column.isSortedDesc) : ''}
                                                 </span>
                                             </th>
                                         ))}
@@ -415,10 +416,10 @@ export default function App() {
                             <h5>Character eigenschappen</h5>
                         </div>
                         <div className="grid-eigenschappen">
-                            {gridEigenschappen.map((item, index) => (
+                            {gridEigenschappen.map((item) => (
                                 <GridEigenschapItem
                                     name={item.name}
-                                    key={index}
+                                    key={item.id}
                                     image={item.image}
                                     text={item.text}
                                     value={item.value}
@@ -431,13 +432,13 @@ export default function App() {
                             <h5>Spreuken & Technieken</h5>
                         </div>
                         <div className="grid-spreuken">
-                            {gridSpreuken?.map((item, index) => (
+                            {gridSpreuken?.map((item) => (
                                 <GenericTooltipItem
                                     skill={item.skill}
                                     name={item.name}
                                     type={"grid-spreuken"}
                                     page={item.page}
-                                    key={index}
+                                    key={item.id}
                                     text={item.name}
                                 />
                             ))}
@@ -447,12 +448,12 @@ export default function App() {
                             <h5>Recepten</h5>
                         </div>
                         <div className="grid-recepten">
-                            {gridRecepten.map((item, index) => (
+                            {gridRecepten.map((item) => (
                                 <GenericTooltipItem
                                     skill={item.skill}
                                     name={item.name}
                                     type={"grid-recepten"}
-                                    key={index}
+                                    key={item.id}
                                     text={item.name}
                                 />
                             ))}
