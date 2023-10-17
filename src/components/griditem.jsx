@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,7 +6,6 @@ import Tooltip from '../tooltip.jsx';
 import openPage from '../openPdf.jsx';
 
 // functions
-import { useSharedState } from '../SharedStateContext.jsx';
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,

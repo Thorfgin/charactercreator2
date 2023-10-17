@@ -82,10 +82,8 @@ export default function App() {
         }]);
 
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
-        if (tableData.length >= 0) {
-            regeneratedBasisVaardigheden(tableData);
-            regeneratedExtraVaardigheden(tableData);
-        }
+        regeneratedBasisVaardigheden(tableData);
+        regeneratedExtraVaardigheden(tableData);
 
         // karakter eigenschappen container
         const updatedGridEigenschappenContent = updateGridEigenschappenTiles(tableData).filter((property) => {
@@ -225,7 +223,7 @@ export default function App() {
                         <img
                             className="btn-image"
                             title="Toevoegen"
-                            onClick={() => handleAdd(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
+                            onClick={() => handleAdd(currentItem)}
                             src="./images/button_add.png"
                             alt="Add">
                         </img>
@@ -239,7 +237,7 @@ export default function App() {
                         <img
                             className="btn-image"
                             title={currentItem.skill + " verwijderen"}
-                            onClick={() => handleDelete(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
+                            onClick={() => handleDelete(currentItem)}
                             src="./images/button_remove.png"
                             alt="Remove">
                         </img>
@@ -254,7 +252,7 @@ export default function App() {
                         <img
                             className="btn-image"
                             title={currentItem.skill + " verwijderen"}
-                            onClick={() => handleDelete(currentItem, [tableData, setTableData], [modalMsg, setModalMsg], [showModal, setShowModal])}
+                            onClick={() => handleDelete(currentItem)}
                             src="./images/button_remove.png"
                             alt="Remove">
                         </img>
@@ -361,7 +359,7 @@ export default function App() {
                                                 </Draggable>
                                             );
                                         })}
-                                        { getTableDataSums() }
+                                        {getTableDataSums()}
                                         {provided.placeholder}
                                     </tbody>
                                 )}

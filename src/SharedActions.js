@@ -85,7 +85,7 @@ export function meetsAllPrerequisites(selectedSkill, tableData) {
             reqAny.length === 0 &&
             (!reqCategory || (reqCategory && reqCategory.name.length === 0)) &&
             selectedSkill.skill !== "Leermeester Expertise") {
-            meetsPrerequisite = true;
+            return meetsPrerequisite;
         }
         else {
             // uitzondering eerst
@@ -132,10 +132,10 @@ function verifyTableContainsExtraSkill(tableData) {
 }
 
 // Check of de skills in Requirements.skill aanwezig zijn in de tabel
-function verifyTableContainsRequiredSkills(reqSkill, tableData) {
+function verifyTableContainsRequiredSkills(reqSkills, tableData) {
     let meetsPrerequisite = false;
-    for (let i = 0; i < reqSkill.length; i++) {
-        meetsPrerequisite = tableData.some((record) => record.skill.toLowerCase() === reqSkill[i].toLowerCase());
+    for (const reqSkill of reqSkills) {
+        meetsPrerequisite = tableData.some((record) => record.skill.toLowerCase() === reqSkill.toLowerCase());
         if (meetsPrerequisite === false) { break; }
     }
     return meetsPrerequisite;
@@ -144,8 +144,8 @@ function verifyTableContainsRequiredSkills(reqSkill, tableData) {
 // Check of tenminste een van de skills in Requirements.any_list aanwezig zijn in de tabel
 function verifyTableContainsOneofAnyList(reqAny, tableData) {
     let meetsAnyListPrerequisite = false;
-    for (let i = 0; i < reqAny.length; i++) {
-        meetsAnyListPrerequisite = tableData.some((record) => record.skill.toLowerCase().includes(reqAny[i].toLowerCase()));
+    for (const req of reqAny) {
+        meetsAnyListPrerequisite = tableData.some((record) => record.skill.toLowerCase().includes(req.toLowerCase()));
         if (meetsAnyListPrerequisite === true) { break; }
     }
     return meetsAnyListPrerequisite;
@@ -297,21 +297,17 @@ function getExtraSkillsFromTable(tableData) {
 }
 
 // Check of de skill niet een prequisite is uit de Any_Skill
-function verifyRemovedSkillIsNotSkillPrerequisite(reqSkill, currentSkill, nameSkillToRemove, isRemoved) {
+function verifyRemovedSkillIsNotSkillPrerequisite(reqSkills, currentSkill, nameSkillToRemove, isRemoved) {
     let isPrerequisite = false;
-    for (let i = 0; i < reqSkill.length; i++) {
+    for (const reqSkill of reqSkills) {
         if (isRemoved) {
-            if (nameSkillToRemove.toLowerCase() === reqSkill[i].toLowerCase()) {
+            if (nameSkillToRemove.toLowerCase() === reqSkill.toLowerCase()) {
                 isPrerequisite = true;
                 break;
             }
-
         }
-        else {
-            if (!isRemoved &&
-                currentSkill.skill.toLowerCase() === nameSkillToRemove.toLowerCase()) {
-                if (currentSkill.count === 1) { isPrerequisite = true; }
-            }
+        else if (!isRemoved && currentSkill.skill.toLowerCase() === nameSkillToRemove.toLowerCase()) {
+            if (currentSkill.count === 1) { isPrerequisite = true; }
         }
     }
     return isPrerequisite;
@@ -327,9 +323,9 @@ function verifyRemovedSkillIsNotOnlyAnyListPrerequisite(reqAny, nameSkillToRemov
         hasOtherSkillThatIsPrerequisite = true;
     }
     else {
-        for (let i = 0; i < reqAny.length; i++) {
+        for (const req of reqAny) {
             hasOtherSkillThatIsPrerequisite = tableData.some((record) =>
-                record.skill.toLowerCase().includes(reqAny[i].toLowerCase()) &&
+                record.skill.toLowerCase().includes(req.toLowerCase()) &&
                 record.skill.toLowerCase() !== nameSkillToRemove.toLowerCase());
             if (hasOtherSkillThatIsPrerequisite === true) { break; }
         }

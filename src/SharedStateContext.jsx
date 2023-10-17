@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import { defaultProperties } from './SharedObjects.js';
@@ -12,19 +12,19 @@ if (typeof (Storage) !== "undefined") {
     Storage.prototype.setObject = function (key, value) {
         if (!key || !value) { return; }
         if (typeof value === "object") { value = JSON.stringify(value); }
-        var encodedValue = encodeURIComponent(value);
-        var unreadableValue = btoa(encodedValue);
+        let encodedValue = encodeURIComponent(value);
+        let unreadableValue = btoa(encodedValue);
         localStorage.setItem(key, unreadableValue);
     }
 
     // Op dit moment wordt alleen de versie uitgelezen. Afwijkende versie nummers worden vooralsnog niet getoond.
     Storage.prototype.getObject = function (key) {
         if (!key) { return; }
-        var value = this.getItem(key);
+        let value = this.getItem(key);
         if (!value) { return; }
-        var readableValue = atob(value);
-        var decodedValue = decodeURIComponent(readableValue);
-        if (decodedValue && decodedValue.length >= 0) {
+        let readableValue = atob(value);
+        let decodedValue = decodeURIComponent(readableValue);
+        if (decodedValue?.length >= 0) {
             if (decodedValue[0] === "{" || decodedValue[1] === "{") { decodedValue = JSON.parse(decodedValue); }
             return decodedValue;
         }
@@ -39,23 +39,44 @@ if (typeof (Storage) !== "undefined") {
 
 /// --- PREP INITIAL TABLE DATA --- ///
 function getInitialData(hasData, hasXP, wasChecked) {
-    if (rawData && rawData.length > 0) {
-        const charData = rawData[0]
-        if (charData &&
-            charData.ruleset_version &&
-            charData.ruleset_version === packageInfo.ruleset_version) {
+    if (hasData) { return getData(hasData); }
+    if (hasXP) { return getXP(hasXP); }
+    if (wasChecked) { return getChecked(wasChecked); }
+}
 
-            if (hasData) { return charData.data; }
-            if (hasXP) { return charData.MAX_XP }
-            if (wasChecked) { return charData.isChecked }
+function getData(hasData) {
+    if (rawData?.length > 0) {
+        const charData = rawData[0];
+        if (charData?.ruleset_version && charData?.ruleset_version === packageInfo.ruleset_version) {
+            return hasData ? charData.data : undefined;
         }
-    }
-    else {
-        if (hasData) { return [] }
-        if (hasXP) { return 15 }
-        if (wasChecked) { return true }
+    } else {
+        return hasData ? [] : undefined;
     }
 }
+
+function getXP(hasXP) {
+    if (rawData?.length > 0) {
+        const charData = rawData[0];
+        if (charData?.ruleset_version && charData?.ruleset_version === packageInfo.ruleset_version) {
+            return hasXP ? charData.MAX_XP : undefined;
+        }
+    } else {
+        return hasXP ? 15 : undefined;
+    }
+}
+
+function getChecked(wasChecked) {
+    if (rawData?.length > 0) {
+        const charData = rawData[0];
+        if (charData?.ruleset_version && charData?.ruleset_version === packageInfo.ruleset_version) {
+            return wasChecked ? charData.isChecked : undefined;
+        }
+    } else {
+        return wasChecked ? true : undefined;
+    }
+}
+
 
 /// --- SHARED STATE --- ///
 let SharedStateContext = createContext();
@@ -94,42 +115,72 @@ export function SharedStateProvider({ children }) {
     const [showConfirmUpdateModal, setShowConfirmUpdateModal] = useState(false);
     const [headerConfirmModal, setHeaderConfirmModal] = useState("");
     const [msgConfirmModal, setMsgConfirmModal] = useState("");
-    
+
 
     const [gridEigenschappen, setGridEigenschappen] = useState([defaultProperties[0], defaultProperties[1]]);
     const [gridSpreuken, setGridSpreuken] = useState([]);
     const [gridRecepten, setGridRecepten] = useState([]);
 
+    const sharedStateValues = useMemo(() => ({
+        version,
+        ruleset_version,
+        creator,
+
+        isChecked, setIsChecked,
+        MAX_XP, setMAX_XP,
+        totalXP, setTotalXP,
+        charName, setCharName,
+        selectedBasicSkill, setSelectedBasicSkill,
+        selectedExtraSkill, setSelectedExtraSkill,
+
+        tableData, setTableData,
+
+        modalMsg, setModalMsg,
+        showModal, setShowModal,
+        showFAQModal, setShowFAQModal,
+        showUploadModal, setShowUploadModal,
+        showLoadCharacterModal, setShowLoadCharacterModal,
+        showLoadPresetModal, setShowLoadPresetModal,
+        showConfirmRemoveModal, setShowConfirmRemoveModal,
+        showConfirmUpdateModal, setShowConfirmUpdateModal,
+        headerConfirmModal, setHeaderConfirmModal,
+        msgConfirmModal, setMsgConfirmModal,
+
+        gridEigenschappen, setGridEigenschappen,
+        gridSpreuken, setGridSpreuken,
+        gridRecepten, setGridRecepten
+    }), [
+        version,
+        ruleset_version,
+        creator,
+
+        isChecked, setIsChecked,
+        MAX_XP, setMAX_XP,
+        totalXP, setTotalXP,
+        charName, setCharName,
+        selectedBasicSkill, setSelectedBasicSkill,
+        selectedExtraSkill, setSelectedExtraSkill,
+
+        tableData, setTableData,
+
+        modalMsg, setModalMsg,
+        showModal, setShowModal,
+        showFAQModal, setShowFAQModal,
+        showUploadModal, setShowUploadModal,
+        showLoadCharacterModal, setShowLoadCharacterModal,
+        showLoadPresetModal, setShowLoadPresetModal,
+        showConfirmRemoveModal, setShowConfirmRemoveModal,
+        showConfirmUpdateModal, setShowConfirmUpdateModal,
+        headerConfirmModal, setHeaderConfirmModal,
+        msgConfirmModal, setMsgConfirmModal,
+
+        gridEigenschappen, setGridEigenschappen,
+        gridSpreuken, setGridSpreuken,
+        gridRecepten, setGridRecepten
+    ]);
+
     return (
-        <SharedStateContext.Provider value={{
-            version,
-            ruleset_version, 
-            creator,
-
-            isChecked, setIsChecked,
-            MAX_XP, setMAX_XP,
-            totalXP, setTotalXP,
-            charName, setCharName,
-            selectedBasicSkill, setSelectedBasicSkill,
-            selectedExtraSkill, setSelectedExtraSkill,
-
-            tableData, setTableData,
-
-            modalMsg, setModalMsg,
-            showModal, setShowModal,
-            showFAQModal, setShowFAQModal,
-            showUploadModal, setShowUploadModal,
-            showLoadCharacterModal, setShowLoadCharacterModal,
-            showLoadPresetModal, setShowLoadPresetModal,
-            showConfirmRemoveModal, setShowConfirmRemoveModal,
-            showConfirmUpdateModal, setShowConfirmUpdateModal,
-            headerConfirmModal, setHeaderConfirmModal,
-            msgConfirmModal, setMsgConfirmModal,
-
-            gridEigenschappen, setGridEigenschappen,
-            gridSpreuken, setGridSpreuken,
-            gridRecepten, setGridRecepten
-        }}>
+        <SharedStateContext.Provider value={sharedStateValues}>
             {children}
         </SharedStateContext.Provider>
     );
