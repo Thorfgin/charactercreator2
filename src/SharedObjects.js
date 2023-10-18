@@ -15,15 +15,16 @@ export const getPresets= () => { return presets; }
 
 /// --- SKILLS & SELECT PROPERTIES --- ///
 export let totalXP = 0;
-export const setTotalXP = (value) => { totalXP = value; }
+export function setTotalXP(value) { totalXP = value; }
+export function resetTotalXP(tableData) { totalXP = tableData.length > 0 ? tableData.reduce((accumulator, skill) => accumulator + skill.xp, 0) : 0 }
 
 export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
 export let optionsBasisVaardigheden = generateOptions(sourceBasisVaardigheden);
-export const regeneratedBasisVaardigheden = (tableData) => { optionsBasisVaardigheden = regenerateOptions(sourceBasisVaardigheden, tableData); }
+export function regeneratedBasisVaardigheden(tableData) { optionsBasisVaardigheden = regenerateOptions(sourceBasisVaardigheden, tableData); }
 
 export const sourceExtraVaardigheden = vaardigheden.ExtraVaardigheden;
 export let optionsExtraVaardigheden = generateOptions(sourceExtraVaardigheden);
-export const regeneratedExtraVaardigheden = (tableData) => { optionsExtraVaardigheden = regenerateOptions(sourceExtraVaardigheden, tableData); }
+export function regeneratedExtraVaardigheden(tableData) { optionsExtraVaardigheden = regenerateOptions(sourceExtraVaardigheden, tableData); }
 
 export const sourceSpreuken = [].concat(...spreuken.Categories.map(category => category.Skills));
 export const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
@@ -43,5 +44,3 @@ export const defaultProperties = [
     { name: "rune_craft_cap", image: "./images/image_run_cra.png", text: "Rune Craft cap", value: 0 },
     { name: "rune_imbue_cap", image: "./images/image_run_imb.png", text: "Rune Imbue cap", value: 0 }
 ];
-
-export const getTotalXP = (tableData) => { return tableData.length > 0 ? tableData.reduce((accumulator, skill) => accumulator + skill.xp, 0) : 0 }

@@ -194,7 +194,6 @@ export default function Toolbar({ clearCharacterBuild }) {
     // Werkt voor zowel de basis- als extra vaardigheden.
     function handleAddToTable(selectedRecord) {
         const hasSufficientFreeXP = (totalXP + selectedRecord.xp) <= Math.floor(MAX_XP) || selectedRecord.xp === 0;
-
         if (!hasSufficientFreeXP) {
             if (totalXP === Math.floor(MAX_XP)) {
                 setModalMsg(

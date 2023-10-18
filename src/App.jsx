@@ -16,6 +16,7 @@ import {
 import {
     totalXP,
     setTotalXP,
+    resetTotalXP,
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
     regeneratedBasisVaardigheden,
@@ -82,6 +83,9 @@ export default function App() {
         regeneratedBasisVaardigheden(tableData);
         regeneratedExtraVaardigheden(tableData);
 
+        // INPUT resterende XP bijwerken
+        resetTotalXP(tableData);
+
         // karakter eigenschappen container
         const updatedGridEigenschappenContent = updateGridEigenschappenTiles(tableData, defaultProperties).filter((property) => {
             return property.value !== 0
@@ -96,7 +100,7 @@ export default function App() {
         });
         setGridSpreuken(updatedGridSpreukenContent);
 
-        // receptne container
+        // recepten container
         const updatedGridReceptenContent = updateGridReceptenTiles(tableData).filter((property) => {
             return property.value !== ""
         });
