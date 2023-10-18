@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-
+// shared
+import { useSharedState } from '../SharedStateContext.jsx';
 
 // Check of het de naam heeft zoals verwacht
 function getCharacterName(name) {
@@ -16,16 +17,18 @@ function getCharacterName(name) {
     }
 }
 
-FileUploadModal.propTypes = {
-    closeModal: PropTypes.func.isRequired,
-    ruleset_version: PropTypes.string.isRequired,
-    setCharName: PropTypes.func.isRequired,
-    setIsChecked: PropTypes.func.isRequired,
-    setMAX_XP: PropTypes.func.isRequired,
-    setTableData: PropTypes.func.isRequired,
-};
+FileUploadModal.propTypes = { closeModal: PropTypes.func.isRequired };
 
-export default function FileUploadModal({ closeModal, ruleset_version, setCharName, setIsChecked, setMAX_XP, setTableData }) {
+export default function FileUploadModal({ closeModal }) {
+
+    const {
+        ruleset_version,
+        setCharName,
+        setIsChecked,
+        setMAX_XP, 
+        setTableData 
+    } = useSharedState();
+
     const [selectedFile, setSelectedFile] = useState(null);
 
     // Werk bestand info mbij

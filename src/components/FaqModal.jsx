@@ -17,16 +17,16 @@ export default function FAQModal({ closeModal }) {
         <div className="modal-overlay">
             <div className="faq-modal">
                 <h3>Frequently Asked Questions</h3>
-                    <div className="faq-modal-block">
+                <div className="faq-modal-block">
                     {sourceFAQ.FAQ.map(({ header, message }) => (
-                            <Collapsible
+                        <Collapsible
                             key={uuidv4()}
-                                className="modal-block"
-                                header={header}
-                                message={message}
-                            />
-                        ))}
-                    </div>
+                            className="modal-block"
+                            header={header}
+                            message={message}
+                        />
+                    ))}
+                </div>
                 <div><br /></div>
                 <button className="btn-primary" onClick={closeModal}>Sluiten</button>
             </div>

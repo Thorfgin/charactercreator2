@@ -112,7 +112,7 @@ export default function App() {
     /// --- TABLE CONTENT --- ///
     function getTableDataSums() {
         if (tableData.length > 0) {
-            const totalXP = tableData.reduce((accumulator, skill) => accumulator + skill.xp, 0);
+            setTotalXP(tableData.reduce((accumulator, skill) => accumulator + skill.xp, 0));
             return (
                 <tr>
                     <td /><td>Aantal vaardigheden: {tableData.length} </td>
@@ -375,20 +375,8 @@ export default function App() {
                         closeModal={closeModal} />
                     )}
 
-                    {showUploadModal && (
-                        <FileUploadModal
-                            closeModal={closeUploadModal}
-                            ruleset_version={ruleset_version}
-                            setCharName={setCharName}
-                            setIsChecked={setIsChecked}
-                            setMAX_XP={setMAX_XP}
-                            setTableData={setTableData} />
-                    )}
-
-                    {showFAQModal && (<FAQModal
-                        closeModal={closeFAQModal} />
-                    )}
-
+                    {showUploadModal && ( <FileUploadModal closeModal={closeUploadModal} /> )}
+                    {showFAQModal && (<FAQModal closeModal={closeFAQModal} /> )}
                     {showLoadCharacterModal && (
                         <LoadCharacterModal
                             closeModal={closeLoadCharacterModal}

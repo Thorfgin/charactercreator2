@@ -126,7 +126,6 @@ export function SharedStateProvider({ children }) {
 
         isChecked, setIsChecked,
         MAX_XP, setMAX_XP,
-        totalXP, setTotalXP,
         charName, setCharName,
         selectedBasicSkill, setSelectedBasicSkill,
         selectedExtraSkill, setSelectedExtraSkill,
@@ -154,7 +153,6 @@ export function SharedStateProvider({ children }) {
 
         isChecked, setIsChecked,
         MAX_XP, setMAX_XP,
-        totalXP, setTotalXP,
         charName, setCharName,
         selectedBasicSkill, setSelectedBasicSkill,
         selectedExtraSkill, setSelectedExtraSkill,
