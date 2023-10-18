@@ -1,58 +1,19 @@
-import { useState, useRef } from 'react';
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-import presets from './json/presets.json';
+
+// components
+import TemplateTable from './TemplateTable.jsx';
+
+// shared
 import {
-    sourceBasisVaardigheden,
-    sourceExtraVaardigheden,
+    getPresets,
+    sourceBasisVaardigheden
 }
-    from './App.jsx'
+    from '../SharedObjects.js'
+
+const presets = getPresets();
 const sourcePresets = presets.Presets;
-
-TemplateTable.propTypes = {
-    selectedTemplate: PropTypes.string,
-    handleTemplateChange: PropTypes.func.isRequired
-};
-
-function TemplateTable({ selectedTemplate, handleTemplateChange }) {
-    const tableRef = useRef(null);
-
-    function handleSelectTemplate(name) {
-        handleTemplateChange(name);
-        // Verwijderen 'selected-row' als deze al was toegewezen
-        const prevSelectedRow = tableRef.current.querySelector('.selected-row');
-        if (prevSelectedRow) {
-            prevSelectedRow.classList.remove('selected-row');
-        }
-
-        // Toevoegen 'selected-row' aan geselecteerde rij
-        const selectedRow = tableRef.current.querySelector(`tr[data-key="${name}"]`);
-        if (selectedRow) {
-            selectedRow.classList.add('selected-row');
-        }
-    }
-
-    return (
-        <table className="character-table" ref={tableRef}>
-            <tbody>
-                {sourcePresets.length > 0 && sourcePresets.map((item) => (
-                    <tr
-                        key={item.name}
-                        data-key={item.name}
-                        className={selectedTemplate === item.name ? 'selected-row' : ''}
-                        onClick={() => handleSelectTemplate(item.name)}
-                    >
-                        <td>{item.name}</td>
-                    </tr>
-                ))}
-                {!presets && (
-                    <tr>
-                        <td>Geen presets gevonden</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>
-    );
-}
 
 LoadPresetModal.propTypes = {
     closeModal: PropTypes.func.isRequired,
@@ -63,7 +24,7 @@ LoadPresetModal.propTypes = {
     version: PropTypes.string.isRequired,
 };
 
-function LoadPresetModal({ closeModal, setTableData, setCharName, setIsChecked, setMAX_XP, version }) {
+export default function LoadPresetModal({ closeModal, setTableData, setCharName, setIsChecked, setMAX_XP, version }) {
     const [selectedTemplate, setSelectedTemplate] = useState("");
 
     // Selecteer personage
@@ -81,7 +42,7 @@ function LoadPresetModal({ closeModal, setTableData, setCharName, setIsChecked, 
 
                 const sourceSkill = sourceBasisVaardigheden.find(item =>
                     item.skill.toLowerCase() === props[0].toLowerCase());
-                const copySkill = Object.assign({}, sourceSkill); // kopie om wijzigingen op source te voorkomen
+                const copySkill = { ...sourceSkill}; // kopie om wijzigingen op source te voorkomen
                 if (props.length > 1) {
                     const count = Number(props[1]);
                     copySkill.xp = copySkill.xp * count;
@@ -121,5 +82,3 @@ function LoadPresetModal({ closeModal, setTableData, setCharName, setIsChecked, 
         </div>
     );
 }
-
-export default LoadPresetModal;

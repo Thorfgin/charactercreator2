@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
+
+// shared
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
     sourceSpreuken,
     sourceRecepten
-} from './App.jsx'
+} from '../SharedObjects.js';
 
 Tooltip.propTypes = {
     skillName: PropTypes.any,
@@ -18,7 +21,7 @@ Tooltip.propTypes = {
 
 // Tooltip component voor GridItems
 // Gebruikt OF skillName OF de combinatioe van skillName/itemName (spell/technique/recipy e.d.)
-function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkill, image }) {
+export default function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkill, image }) {
     const [showTooltip, setShowTooltip] = useState(false);
     const handleMouseOver = () => setShowTooltip(true);
     const closeTooltip = () => setShowTooltip(false);
@@ -35,6 +38,8 @@ function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkill, image }) {
     let data = getData(isSpell, sourceSkill, itemName, isRecipe, isSkill, skillName);   
     if (!image) { image = './images/img-info.png' }
 
+    const verifyIsRecipe = (isRecipe) => { return isRecipe ? <h5>Recept: {itemName}</h5> : null }
+
     return (
         <div className="tooltip-container" onMouseEnter={handleMouseOver}>
             <img
@@ -46,7 +51,7 @@ function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkill, image }) {
                 <div className="tooltip-overlay">
                     <div className="tooltip" onClick={closeTooltip}>
                         <h5>Vaardigheid: {skillName}</h5>
-                        {isSpell ? <h5>Spreuk/Techniek: {itemName}</h5> : isRecipe ? <h5>Recept: {itemName}</h5> : null}
+                        {isSpell ? <h5>Spreuk/Techniek: {itemName}</h5> : verifyIsRecipe(isRecipe)}
                         <table className="tooltip-table">
                             <tbody>
                                 {getMappingFromData(data, isSkill, isSpell, isRecipe)}
@@ -58,8 +63,6 @@ function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkill, image }) {
         </div>
     );
 }
-
-export default Tooltip;
 
 // Data ophalen uit basisvaardigheden, spreuken of recepten
 function getData(isSpell, sourceSkill, itemName, isRecipe, isSkill, skillName) {
@@ -75,7 +78,7 @@ function getData(isSpell, sourceSkill, itemName, isRecipe, isSkill, skillName) {
         data = skillFound.Spells.find((item) => item.spell.toLowerCase() === itemName.toLowerCase());
         if (!data || Object.keys(data).length === 0) {
             data = {
-                name: itemName ? itemName : '',
+                name: itemName || '',
                 description: 'Spreuk/Techniek informatie kon niet gevonden worden.'
             };
         }
@@ -90,7 +93,7 @@ function getData(isSpell, sourceSkill, itemName, isRecipe, isSkill, skillName) {
         data = skillFound.Recipies.find((item) =>
             item.recipy.toLowerCase() === itemName.toLowerCase());
         data = Object.keys(data).length > 0 ? data : {
-            recipy: itemName ? itemName : '',
+            recipy: itemName || '',
             effect: 'Recept informatie kon niet gevonden worden.'
         };
     }
@@ -145,21 +148,21 @@ function getMappingFromData(data, isSkill, isSpell, isRecipe) {
 
     if (isSkill === true) {
         let descriptionBlock = data.description.split('\n');
-        const description = descriptionBlock.map((block, index) => (
-            <div key={index} className="description-block"> {block === '' ? <br /> : block} </div>
+        const description = descriptionBlock.map((block) => (
+            <div key={uuidv4()} className="description-block"> {block === '' ? <br /> : block} </div>
         ))
 
         let reqBlock = data.requirements.split('\n');
-        const requirements = reqBlock.map((block, index) => (
-            <div key={index} className="requirements-block"> {block === '' ? <br /> : block} </div>
+        const requirements = reqBlock.map((block) => (
+            <div key={uuidv4()} className="requirements-block"> {block === '' ? <br /> : block} </div>
         ))
 
         return [
             { label: 'XP kosten', value: data.xp },
             { label: 'Vereisten', value: requirements },
             { label: 'Omschrijving', value: description },
-        ].map((item, index) => (
-            <tr key={index}>
+        ].map((item) => (
+            <tr key={uuidv4()}>
                 <td className="tooltip-property">{item.label}:</td>
                 <td className="tooltip-value"> {item.value}
                 </td>
@@ -168,8 +171,8 @@ function getMappingFromData(data, isSkill, isSpell, isRecipe) {
     }
     else if (isSpell === true) {
         let descriptionBlock = data.description.split('\n');
-        const description = descriptionBlock.map((block, index) => (
-            <div key={index} className="description-block"> {block === '' ? <br /> : block} </div>
+        const description = descriptionBlock.map((block) => (
+            <div key={uuidv4()} className="description-block"> {block === '' ? <br /> : block} </div>
         ))
 
         return [
@@ -178,8 +181,8 @@ function getMappingFromData(data, isSkill, isSpell, isRecipe) {
             { label: 'Omschrijving', value: description },
             { label: 'Effect', value: data.spell_effect },
             { label: 'Duur', value: data.spell_duration },
-        ].map((item, index) => (
-            <tr key={index}>
+        ].map((item) => (
+            <tr key={uuidv4()}>
                 <td className="tooltip-property">{item.label}:</td>
                 <td className="tooltip-value">{item.value}</td>
             </tr>
@@ -187,16 +190,16 @@ function getMappingFromData(data, isSkill, isSpell, isRecipe) {
     }
     else if (isRecipe === true) {
         let descriptionBlock = data.effect.split('\n');
-        const description = descriptionBlock.map((block, index) => (
-            <div key={index} className="description-block"> {block === '' ? <br /> : block} </div>
+        const description = descriptionBlock.map((block) => (
+            <div key={uuidv4()} className="description-block"> {block === '' ? <br /> : block} </div>
         ))
 
         return [
             { label: 'Omschrijving', value: description },
             { label: 'Inspiratie kosten', value: data.inspiration },
             { label: 'Benodigdheden', value: data.components },
-        ].map((item, index) => (
-            <tr key={index}>
+        ].map((item) => (
+            <tr key={uuidv4()}>
                 <td className="tooltip-property">{item.label}:</td>
                 <td className="tooltip-value">{item.value}</td>
             </tr>
