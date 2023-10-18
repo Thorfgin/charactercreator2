@@ -2,10 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
-// Functions
-import openPage from '../openPdf.jsx';
-
-// Shared
+// shared
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
@@ -65,33 +62,6 @@ export default function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkil
             )}
         </div>
     );
-}
-
-// Plaats Info in de kolom
-InfoTooltip.propTypes = { row: PropTypes.any.isRequired };
-export function InfoTooltip({ row }) {
-    let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
-    if (!currentItem) { currentItem = sourceExtraVaardigheden.find((record) => record.id === row.original.id); }
-
-    return (
-        <div className="info">
-            <div className="acties-info">
-                <Tooltip
-                    skillName={currentItem.skill}
-                    isSpell={false}
-                    isRecipe={false}
-                    isSkill={true}
-                />
-                <img
-                    className="btn-image"
-                    title={"Open Vaardigheden.pdf - pagina " + currentItem.page}
-                    onClick={() => openPage('Vaardigheden.pdf', currentItem.page)}
-                    src="./images/img-pdf.png"
-                    alt="PDF">
-                </img>
-            </div>
-        </div>
-    )
 }
 
 // Data ophalen uit basisvaardigheden, spreuken of recepten

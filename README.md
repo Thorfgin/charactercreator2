@@ -6,6 +6,7 @@
 	TODO:
 
 	MUST
+	- FIX BUG: When adding a skill with the + while at MAX XP will still allow adding the skill somehow.
 	- EXPORT CHARACTER: Export the character overview as a PDF, for easy use at the event.
 	- MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
 

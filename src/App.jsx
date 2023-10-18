@@ -29,13 +29,13 @@ import FAQModal from './components/FaqModal.jsx'
 import FileUploadModal from './components/FileUploadModal.jsx'
 import GenericTooltipItem from './components/GenericTooltipItem.jsx';
 import GridEigenschapItem from './components/GridEigenschapItem.jsx';
-import { InfoTooltip } from './components/Tooltip.jsx';
+import InfoTooltip from './components/InfoTooltip.jsx';
+import LoadCharacterModal from './components/LoadCharacterModal.jsx'
 import Toolbar from './components/Toolbar.jsx';
 
 // --- 
 import LoreSheet from './openloresheet.jsx';
 import ModalMessage from './modalmessage.jsx'
-import LoadCharacterModal from './loadcharacter.jsx'
 import LoadPresetModal from './loadpreset.jsx'
 
 // Tabel Vaardigheden
