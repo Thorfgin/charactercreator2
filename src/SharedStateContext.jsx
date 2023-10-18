@@ -1,8 +1,11 @@
 import { createContext, useContext, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
+// components
 import { defaultProperties } from './SharedObjects.js';
 import { getLocalStorage } from './SharedActions.js';
+
+// json
 import packageInfo from '../package.json';
 
 /// --- PREP LOCALSTORAGE DATA --- ///
@@ -77,7 +80,6 @@ function getChecked(wasChecked) {
     }
 }
 
-
 /// --- SHARED STATE --- ///
 let SharedStateContext = createContext();
 
@@ -91,9 +93,9 @@ export function useSharedState() {
 SharedStateProvider.propTypes = { children: PropTypes.any.isRequired };
 
 export function SharedStateProvider({ children }) {
-    const [version, setVersion] = useState(packageInfo.version);
-    const [ruleset_version, setRuleset_Version] = useState(packageInfo.ruleset_version);
-    const [creator, setCreator] = useState(packageInfo.creator);
+    const [version] = useState(packageInfo.version);
+    const [ruleset_version] = useState(packageInfo.ruleset_version);
+    const [creator] = useState(packageInfo.creator);
     const [tableData, setTableData] = useState(getInitialData(true, false, false));
     const [isChecked, setIsChecked] = useState(getInitialData(false, false, true));
     const [MAX_XP, setMAX_XP] = useState(getInitialData(false, true, false));

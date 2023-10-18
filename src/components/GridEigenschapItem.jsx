@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// components
-import Tooltip from '../tooltip.jsx';
-import openPage from '../openPdf.jsx';
-
 // additions
 import {
     SpiderController,
@@ -13,7 +9,7 @@ import {
 } from '../additions/bug.jsx';
 
 import { StoneController } from '../additions/stone.jsx';
-import '../css/heart.css';
+import '../additions/css/heart.css';
 
 let bugsActive = false;
 
@@ -24,7 +20,7 @@ GridEigenschapItem.propTypes = {
 };
 
 // Karakter eigenschappen griditem
-export function GridEigenschapItem({ image, text, value }) {
+export default function GridEigenschapItem({ image, text, value }) {
 
     const [clicked, setClicked] = useState(false);
     const [counter, setCounter] = useState(0);
@@ -108,62 +104,3 @@ export function GridEigenschapItem({ image, text, value }) {
     );
 }
 
-GenericTooltipItem.propTypes = {
-    skill: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    page: PropTypes.number,
-};
-
-// Generiek aanmaken van een tooltip knop op basis van type
-export function GenericTooltipItem({ skill, name, text, type, page }) {
-
-    let result = <div></div>;
-    if (type === "grid-spreuken") { result = getTooltip(skill, name, type, page); }
-    if (type === "grid-recepten") { result = getTooltip(skill, name, type); }
-
-    return (
-        <div className="grid-spreuk-item">
-            <div className="grid-spreuk-text">{"  " + text}</div>
-            {result}
-        </div>
-    );
-}
-
-getTooltip.propTypes = {
-    skill: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    page: PropTypes.number,
-};
-
-function getTooltip(skill, name, type, page) {
-    let isSpell = false;
-    let isRecipe = false;
-
-    if (type === "grid-spreuken") { isSpell = true; }
-    else if (type === "grid-recepten") { isRecipe = true; }
-    else { console.Error("Type was not recognized") }
-
-    return (
-        <div className="grid-spreuk-icons">
-            <Tooltip
-                skillName={skill}
-                itemName={name}
-                isSpell={isSpell}
-                isRecipe={isRecipe}
-                isSkill={false} />
-            {isSpell &&
-                page && (
-                    <img
-                        className="btn-image"
-                        title={"Open Spreuken.pdf - pagina " + page}
-                        onClick={() => openPage('Spreuken.pdf', page)}
-                        src="./images/img-pdf.png"
-                        alt="PDF">
-                    </img>
-                )}
-        </div>
-    )
-}

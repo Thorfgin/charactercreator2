@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid';
@@ -24,21 +24,17 @@ import {
 } from './SharedObjects.js';
 
 // Components
+
+import FAQModal from './components/FaqModal.jsx'
+import FileUploadModal from './components/FileUploadModal.jsx'
+import GenericTooltipItem from './components/GenericTooltipItem.jsx';
+import GridEigenschapItem from './components/GridEigenschapItem.jsx';
+import InfoTooltip from './components/InfoTooltip.jsx';
+import LoadCharacterModal from './components/LoadCharacterModal.jsx'
+import LoadPresetModal from './components/LoadPresetModal.jsx'
+import LoreSheet from './components/LoreSheet.jsx';
+import ModalMessage from './components/ModalMessage.jsx'
 import Toolbar from './components/Toolbar.jsx';
-
-import {
-    GridEigenschapItem,
-    GenericTooltipItem,
-} from './components/GridItem.jsx';
-
-// --- 
-import { InfoTooltip } from './tooltip.jsx';
-import LoreSheet from './openloresheet.jsx';
-import ModalMessage from './modalmessage.jsx'
-import FAQModal from './faq.jsx'
-import FileUploadModal from './fileupload.jsx'
-import LoadCharacterModal from './loadcharacter.jsx'
-import LoadPresetModal from './loadpreset.jsx'
 
 // Tabel Vaardigheden
 const columns = [
@@ -71,12 +67,9 @@ export default function App() {
         gridRecepten, setGridRecepten
     } = useSharedState();
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => { onUpdateTableData(); }, [tableData]);
-
     // Wanneer er iets aan de tableData verandert, wordt de nieuwe data opgeslagen.
     // Op basis van de nieuwe tableData worden de Selects, Grid en Spreuken/Recepten bijewerkt.
-    function onUpdateTableData() {
+    const onUpdateTableData = useCallback(() => {
         // LocalStorage bijwerken
         setLocalStorage('CCdata', [{
             ruleset_version: ruleset_version,
@@ -108,7 +101,9 @@ export default function App() {
             return property.value !== ""
         });
         setGridRecepten(updatedGridReceptenContent);
-    }
+    }, [ruleset_version, isChecked, MAX_XP, tableData, setGridEigenschappen, setGridSpreuken, setGridRecepten]);
+
+    useEffect(() => { onUpdateTableData(); }, [onUpdateTableData, tableData]);
 
     /// --- TABLE CONTENT --- ///
     function getTableDataSums() {

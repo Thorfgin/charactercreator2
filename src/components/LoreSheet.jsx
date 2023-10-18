@@ -1,5 +1,7 @@
-import openPage from './openPdf.jsx';
 import PropTypes from 'prop-types';
+
+// shared
+import { openPdfPage } from '../SharedActions.js';
 
 LoreSheet.propTypes = {
     pdf: PropTypes.string.isRequired,
@@ -7,11 +9,9 @@ LoreSheet.propTypes = {
 };
 
 // Open PDF op basis van loresheet uit de vaardigheden.json
-function LoreSheet({ pdf, page }) {
+export default function LoreSheet({ pdf, page }) {
 
-    if (!pdf || pdf === "") {
-        <div className="info" />
-    }
+    if (!pdf || pdf === "") { return (<div className="info" />); }
     else {
         return (
             <div className="info">
@@ -19,7 +19,7 @@ function LoreSheet({ pdf, page }) {
                     <img
                         className="btn-image"
                         title={"Open " + pdf}
-                        onClick={() => openPage(pdf, page ? page : 1)}
+                        onClick={() => openPdfPage(pdf, page || 1)}
                         src="./images/img-pdf.png"
                         alt="PDF">
                     </img>
@@ -28,5 +28,3 @@ function LoreSheet({ pdf, page }) {
         )
     }
 }
-
-export default LoreSheet;
