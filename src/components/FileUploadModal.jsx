@@ -1,14 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-FileUploadModal.propTypes = {
-    closeModal: PropTypes.func.isRequired,
-    ruleset_version: PropTypes.string.isRequired,
-    setCharName: PropTypes.func.isRequired,
-    setIsChecked: PropTypes.func.isRequired,
-    setMAX_XP: PropTypes.func.isRequired,
-    setTableData: PropTypes.func.isRequired,
-};
+
 
 // Check of het de naam heeft zoals verwacht
 function getCharacterName(name) {
@@ -22,6 +15,15 @@ function getCharacterName(name) {
         return name;
     }
 }
+
+FileUploadModal.propTypes = {
+    closeModal: PropTypes.func.isRequired,
+    ruleset_version: PropTypes.string.isRequired,
+    setCharName: PropTypes.func.isRequired,
+    setIsChecked: PropTypes.func.isRequired,
+    setMAX_XP: PropTypes.func.isRequired,
+    setTableData: PropTypes.func.isRequired,
+};
 
 export default function FileUploadModal({ closeModal, ruleset_version, setCharName, setIsChecked, setMAX_XP, setTableData }) {
     const [selectedFile, setSelectedFile] = useState(null);

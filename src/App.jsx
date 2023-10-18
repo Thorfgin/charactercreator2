@@ -31,12 +31,13 @@ import GenericTooltipItem from './components/GenericTooltipItem.jsx';
 import GridEigenschapItem from './components/GridEigenschapItem.jsx';
 import InfoTooltip from './components/InfoTooltip.jsx';
 import LoadCharacterModal from './components/LoadCharacterModal.jsx'
+import LoadPresetModal from './components/LoadPresetModal.jsx'
+import LoreSheet from './components/LoreSheet.jsx';
 import Toolbar from './components/Toolbar.jsx';
 
-// --- 
-import LoreSheet from './openloresheet.jsx';
+// ---
 import ModalMessage from './modalmessage.jsx'
-import LoadPresetModal from './loadpreset.jsx'
+
 
 // Tabel Vaardigheden
 const columns = [
