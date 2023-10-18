@@ -14,10 +14,13 @@ import {
 export const getPresets= () => { return presets; }
 
 /// --- SKILLS & SELECT PROPERTIES --- ///
+
+// total XP
 export let totalXP = 0;
 export function setTotalXP(value) { totalXP = value; }
 export function resetTotalXP(tableData) { totalXP = tableData.length > 0 ? tableData.reduce((accumulator, skill) => accumulator + skill.xp, 0) : 0 }
 
+// vaardigheden
 export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
 export let optionsBasisVaardigheden = generateOptions(sourceBasisVaardigheden);
 export function regeneratedBasisVaardigheden(tableData) { optionsBasisVaardigheden = regenerateOptions(sourceBasisVaardigheden, tableData); }
