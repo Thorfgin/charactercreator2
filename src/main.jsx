@@ -1,6 +1,6 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import * as Sentry from "@sentry/react";
+import { SharedStateProvider } from './SharedStateContext.jsx';
 import App from './App.jsx'
 import './index.css'
 
@@ -60,4 +60,8 @@ handleOrientationChange();
 window.addEventListener('resize', handleOrientationChange);
 
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <SharedStateProvider>
+        <App />
+    </SharedStateProvider>
+)

@@ -1,6 +1,6 @@
 {
   "name": "charactercreator",
-  "version": "2023 v0.3.27",
+  "version": "2023 v0.4.0",
   "ruleset_version": "2023-10",
   "author": "Deprecated Dodo",
   "creator": "Design by Deprecated Dodo",
@@ -421,6 +421,7 @@
     "use-isomorphic-layout-effect": "^1.1.2",
     "use-memo-one": "^1.1.3",
     "util-deprecate": "^1.0.2",
+    "uuid": "^9.0.1",
     "v8-to-istanbul": "^9.1.3",
     "vite": "^4.4.11",
     "walker": "^1.0.8",
