@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 
-// functions
-import openPage from '../openPdf.jsx';
-
+// shared
+import { openPdfPage } from '../SharedActions.js';
 
 LoreSheet.propTypes = {
     pdf: PropTypes.string.isRequired,
@@ -20,7 +19,7 @@ export default function LoreSheet({ pdf, page }) {
                     <img
                         className="btn-image"
                         title={"Open " + pdf}
-                        onClick={() => openPage(pdf, page || 1)}
+                        onClick={() => openPdfPage(pdf, page || 1)}
                         src="./images/img-pdf.png"
                         alt="PDF">
                     </img>

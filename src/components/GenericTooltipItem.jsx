@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 
 // components
 import Tooltip from './Tooltip.jsx';
-import openPage from '../openPdf.jsx';
+
+// shared
+import { openPdfPage } from '../SharedActions.js';
 
 getTooltip.propTypes = {
     skill: PropTypes.string.isRequired,
@@ -31,7 +33,7 @@ function getTooltip(skill, name, type, page) {
                     <img
                         className="btn-image"
                         title={"Open Spreuken.pdf - pagina " + page}
-                        onClick={() => openPage('Spreuken.pdf', page)}
+                        onClick={() => openPdfPage('Spreuken.pdf', page)}
                         src="./images/img-pdf.png"
                         alt="PDF">
                     </img>

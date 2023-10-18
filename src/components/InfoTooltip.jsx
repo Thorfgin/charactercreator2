@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 // componenets
 import Tooltip from './Tooltip.jsx';
 
-// functions
-import openPage from '../openPdf.jsx';
-
 // shared
+import { openPdfPage } from '../SharedActions.js';
+
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
@@ -32,7 +31,7 @@ export default function InfoTooltip({ row }) {
                 <img
                     className="btn-image"
                     title={"Open Vaardigheden.pdf - pagina " + currentItem.page}
-                    onClick={() => openPage('Vaardigheden.pdf', currentItem.page)}
+                    onClick={() => openPdfPage('Vaardigheden.pdf', currentItem.page)}
                     src="./images/img-pdf.png"
                     alt="PDF">
                 </img>

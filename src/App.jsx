@@ -33,11 +33,8 @@ import InfoTooltip from './components/InfoTooltip.jsx';
 import LoadCharacterModal from './components/LoadCharacterModal.jsx'
 import LoadPresetModal from './components/LoadPresetModal.jsx'
 import LoreSheet from './components/LoreSheet.jsx';
+import ModalMessage from './components/ModalMessage.jsx'
 import Toolbar from './components/Toolbar.jsx';
-
-// ---
-import ModalMessage from './modalmessage.jsx'
-
 
 // Tabel Vaardigheden
 const columns = [

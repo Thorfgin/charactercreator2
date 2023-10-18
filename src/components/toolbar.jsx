@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // Components
 import Tooltip from './Tooltip.jsx';
-import { ConfirmModal } from '../modalmessage.jsx';
+import ConfirmModal from './ConfirmModal.jsx';
 
 // Shared
 import { useSharedState } from '../SharedStateContext.jsx';
