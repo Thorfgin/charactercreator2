@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Select from 'react-select';
-import PropTypes from 'prop-types';
 
 // Components
 import Tooltip from './Tooltip.jsx';
 import ConfirmModal from './ConfirmModal.jsx';
+
+// Functions
+import ExportToPDF from '../ExportToPDF.js';
 
 // Shared
 import { useSharedState } from '../SharedStateContext.jsx';
@@ -21,11 +23,9 @@ import {
     optionsExtraVaardigheden
 } from '../SharedObjects.js'
 
-Toolbar.propTypes = { clearCharacterBuild: PropTypes.func.isRequired };
-
 // Zet een Toolbar klaar met daarin de mogelijkheid om:
 // Settings te wijzigen, Vaarigheden te selecteren, Personages te bewaren/laden of Personages te exporteren/importeren
-export default function Toolbar({ clearCharacterBuild }) {
+export default function Toolbar() {
 
     // Ophalen uit SharedStateContext
     const {
@@ -50,6 +50,10 @@ export default function Toolbar({ clearCharacterBuild }) {
 
         headerConfirmModal, setHeaderConfirmModal,
         msgConfirmModal, setMsgConfirmModal,
+
+        // grids
+        gridSpreuken,
+        gridRecepten
 
     } = useSharedState();
 
@@ -236,6 +240,15 @@ export default function Toolbar({ clearCharacterBuild }) {
         toggleIndex();
     }
 
+    // Wissen van tabel + naam
+    function clearCharacterBuild() {
+        setTableData([]);
+        setCharName("");
+        setMAX_XP(15);
+        setIsChecked(true);
+    }
+
+
     /// --- BUTTONS --- ///
 
     // Opslaan in de local storage van de browser
@@ -321,12 +334,7 @@ export default function Toolbar({ clearCharacterBuild }) {
         }
     }
 
-    // Exporteren van de gegevens in de tableData en Grids naar PDF
-    // TODO: Export bouwen
-    function exportCharacterToPDF() {
-        setModalMsg("Work in progress...");
-        setShowModal(true);
-    }
+    const exportToPDF = async () => { await ExportToPDF(charName, tableData, MAX_XP, totalXP, gridSpreuken, gridRecepten); }
 
     // RETURN
     return (
@@ -349,54 +357,59 @@ export default function Toolbar({ clearCharacterBuild }) {
                 <div className="character-settings">
                     <div>
                         <div className="settings-row">
-                            <label>
+                            <label name="name_label">
                                 Naam:
+                                <input name="name_input"
+                                    className="settings-personage"
+                                    type="text"
+                                    maxLength="25"
+                                    value={charName}
+                                    onChange={handleTextChange}
+                                />
                             </label>
-                            <input className="settings-personage"
-                                type="text"
-                                maxLength="20"
-                                value={charName}
-                                onChange={handleTextChange}
-                            />
                         </div>
                         <div className="settings-row">
-                            <label>
+                            <label name="new_character_label">
                                 Nieuw personage:
+                                <input
+                                    name="new_character_checkbox"
+                                    className="settings-checkbox"
+                                    type="checkbox"
+                                    checked={isChecked}
+                                    onChange={handleCheckboxChange}
+                                />
                             </label>
-                            <input className="settings-checkbox"
-                                type="checkbox"
-                                checked={isChecked}
-                                onChange={handleCheckboxChange}
-                            />
                         </div>
                     </div>
                     <div className="settings-inputs">
                         <div className="settings-row">
-                            <label>
+                            <label name="max_xp_label">
                                 Max XP:
+                                <input
+                                    name="max_xp_input"
+                                    type="number"
+                                    value={MAX_XP}
+                                    min={1}
+                                    max={100}
+                                    onBlur={handleInputValidate}
+                                    onChange={handleInputUpdate}
+                                    disabled={isChecked}
+                                    step={0.25}
+                                />
                             </label>
-                            <input
-                                type="number"
-                                value={MAX_XP}
-                                min={1}
-                                max={100}
-                                onBlur={handleInputValidate}
-                                onChange={handleInputUpdate}
-                                disabled={isChecked}
-                                step={0.25}
-                            />
                         </div>
                         <div className="settings-row">
-                            <label>
+                            <label name="xp_over_label">
                                 XP over:
+                                <input
+                                    id="xp_over_input"
+                                    type="number"
+                                    value={MAX_XP - totalXP}
+                                    min={1}
+                                    max={100}
+                                    disabled={true}
+                                />
                             </label>
-                            <input
-                                type="number"
-                                value={MAX_XP - totalXP}
-                                min={1}
-                                max={100}
-                                disabled={true}
-                            />
                         </div>
                     </div>
                 </div>
@@ -416,7 +429,7 @@ export default function Toolbar({ clearCharacterBuild }) {
                         </button>
                     </div>
                     <div className="btns-row">
-                        <button className="btn-toolbar" title="Exporteer naar PDF" onClick={exportCharacterToPDF}>
+                        <button className="btn-toolbar" title="Exporteer naar PDF" onClick={exportToPDF}>
                             <img className="btn-image" src="./images/button_export-pdf.png" alt="Export PDF Button" />
                         </button>
                         <button className="btn-toolbar" title="Personage exporteren" onClick={exportCharacter}>
@@ -433,6 +446,7 @@ export default function Toolbar({ clearCharacterBuild }) {
             </div>
             <div className="select-basic-container">
                 <Select
+                    id="basic_skill_select"
                     className="form-select"
                     options={optionsBasisVaardigheden}
                     value={selectedBasicSkill}
@@ -470,6 +484,7 @@ export default function Toolbar({ clearCharacterBuild }) {
                 !isChecked && (
                     <div className="select-extra-container">
                         <Select
+                            id="extra_skill_select"
                             className="form-select"
                             options={optionsExtraVaardigheden}
                             value={selectedExtraSkill}

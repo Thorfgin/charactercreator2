@@ -289,8 +289,18 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
     return isPrerequisite;
 }
 
+// Ophalen van alle vaardigheden uit de basis vaardigheden die aanwezig zijn in de tabel
+export function getBasicSkillsFromTable(tableData) {
+    const basicSkills = []
+    for (const tableSkill of tableData) {
+        const isBasicSkill = sourceBasisVaardigheden.some((record) => record.skill.toLowerCase() === tableSkill.skill.toLowerCase());
+        if (isBasicSkill) { basicSkills.push(tableSkill.skill); }
+    }
+    return basicSkills;
+}
+
 // Ophalen van alle vaardigheden uit de extra vaardigheden die aanwezig zijn in de tabel
-function getExtraSkillsFromTable(tableData) {
+export function getExtraSkillsFromTable(tableData) {
     const extraSkills = []
     for (const tableSkill of tableData) {
         const isExtraSkill = sourceExtraVaardigheden.some((record) => record.skill.toLowerCase() === tableSkill.skill.toLowerCase());
@@ -442,6 +452,7 @@ export function updateGridSpreukenTiles(tableData) {
             if (existingSpell) { existingSpell.count += spell.count; }
             else {
                 spell.skill = vaardigheid.skill;
+                spell.alt_skill = vaardigheid.alt_skill;
                 spellsAccumulator.push({ ...spell });
             }
         });

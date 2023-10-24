@@ -11,6 +11,7 @@
 	- MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
 
 	SHOULD:
+	- CHARNAME: when refreshing or reloading the page, the name of the character is lost
 	- VERSION: when clicking the version, show a modal with the release notes
 
 	COULD:
@@ -24,6 +25,8 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
+	20231018	FRAMEWORK: Decoupled components and seperated dataobjects to a seperated context.
+
 	20231012	PRESETS: Ability to load a preset-character
 			ARTIFACT: the CI/CD yields an artifact for sharing convenience.
 			Bugfix: fixed negative XP remaining
