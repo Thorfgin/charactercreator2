@@ -17,8 +17,8 @@ async function addNewPage(pdf) {
     };
 
     pdf.addPage();
-    await addImageToPDF(pdf, '../public/images/logo_100.png', { x: 70, y: 5, width: 50, height: 50 });
-    await addTextBlockToPdf(pdf, ["Character Creator"], 82, 12.5, false, headerOptions);
+    await addImageToPDF(pdf, '../public/images/logo_100.png', { x: 70, y: 7.5, width: 50, height: 50 });
+    await addTextBlockToPdf(pdf, ["Character Creator"], 82, 15, false, headerOptions);
 }
 
 // Voeg Skills toe aan de pdf
@@ -85,6 +85,12 @@ async function addSpellDescriptionsToPdf(pdf, gridSpreuken, x = 20, y = 30) {
                     lineheight: 1
                 }
             },
+            skill: {
+                options: {
+                    text: `Vaardigheid: ${item.skill}`,
+                    fontSize: 11
+                }
+            },
             incantation: {
                 options: {
                     text: `${spellData.incantation}`,
@@ -110,7 +116,6 @@ async function addSpellDescriptionsToPdf(pdf, gridSpreuken, x = 20, y = 30) {
     await addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y);
 }
 
-
 // Voeg Spreuken toe aan de pdf
 async function addRecipeDescriptionsToPdf(pdf, gridRecepten, x = 20, y = 30) {
     const blockElements = [];
@@ -134,6 +139,12 @@ async function addRecipeDescriptionsToPdf(pdf, gridRecepten, x = 20, y = 30) {
                     lineheight: 1
                 }
             },
+            skill: {
+                options: {
+                    text: `Vaardigheid: ${item.skill}`,
+                    fontSize: 11
+                }
+            },
             components: {
                 options: {
                     text: `Componenten: ${recipeData.components}`,
@@ -153,18 +164,18 @@ async function addRecipeDescriptionsToPdf(pdf, gridRecepten, x = 20, y = 30) {
     await addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y);
 }
 
-
 // Voeg een block met mark-up toe aan de pdf.
 async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPercentage = 0.8) {
     const pageHeight = pdf.internal.pageSize.getHeight();
     const pageWidth = pdf.internal.pageSize.getWidth() * maxWidthPercentage;
 
     // Calculate the total height required for the element
-    const getTotalElementHeight = (title, incantation, requirements, components, description, spelleffect) => {
+    const getTotalElementHeight = (title, skill, incantation, requirements, components, description, spelleffect) => {
         let totalHeight = 0;
         if (title?.options?.text) {
             totalHeight += title.options?.text.split('\n').length * title.options.fontSize;
         }
+        if (skill?.options?.text) { totalHeight += skill.options.text.split('\n').length * skill.options.fontSize; }
         if (incantation?.options?.text) { totalHeight += incantation.options.text.split('\n').length * incantation.options.fontSize; }
         if (requirements?.options?.text) { totalHeight += requirements.options.text.split('\n').length * requirements.options.fontSize; }
         if (components?.options?.text) { totalHeight += components.options.text.split('\n').length * components.options.fontSize; }
@@ -196,6 +207,7 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
     for (const element of blockElements) {
         const {
             title = {},
+            skill = {},
             incantation = {},
             requirements = {},
             components = {},
@@ -203,15 +215,16 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
             spelleffect = {}
         } = element;
 
-        const totalElementHeight = getTotalElementHeight(title, incantation, requirements, components, description, spelleffect);
+        const totalElementHeight = getTotalElementHeight(title, skill, incantation, requirements, components, description, spelleffect);
         if (y + totalElementHeight > pageHeight) {
             await addNewPage(pdf);
-            y = 25;
+            y = 30;
         }
 
         if (title?.options) { await processElement(title.options); }
+        if (skill?.options) { await processElement(skill.options); }
         if (incantation?.options) { await processElement(incantation.options); }
-        if (requirements.options && requirements?.options?.text?.toLowerCase().trim() !== "vereist:") {
+        if (requirements?.options && requirements?.options?.text?.toLowerCase().trim() !== "vereist:") {
             await processElement(requirements.options);
         }
         if (components?.options) { await processElement(components.options); }
