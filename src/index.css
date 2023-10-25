@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'InknutAntiqua-Regular';
+    src: url('../public/InknutAntiqua-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @media only screen and (max-width: 1000px) {
     .App {
         display: flex;

@@ -3,12 +3,22 @@ import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 
 // Shared
-import { sourceSpreuken } from './SharedObjects.js';
+import {
+    sourceSpreuken,
+    sourceRecepten
+} from './SharedObjects.js';
 
 // Nieuwe pagina klaarzetten
 async function addNewPage(pdf) {
+    const headerOptions = {
+        fontSize: 16,
+        font: 'InknutAntiqua-Regular',
+        textColor: [0, 0, 0],
+    };
+
     pdf.addPage();
-    await addImgElementToPDF(pdf, "App-header", 0.65, 0.65, 0, 10);
+    await addImageToPDF(pdf, '../public/images/logo_100.png', { x: 70, y: 5, width: 50, height: 50 });
+    await addTextBlockToPdf(pdf, ["Character Creator"], 82, 12.5, false, headerOptions);
 }
 
 // Voeg Skills toe aan de pdf
@@ -34,6 +44,7 @@ async function addSkillDescriptionsToPdf(pdf, tableData, x = 20, y = 30) {
             requirements: {
                 options: {
                     text: `${vereisten}`,
+                    isItalic: true,
                     fontSize: 11
                 }
             },
@@ -62,7 +73,7 @@ async function addSpellDescriptionsToPdf(pdf, gridSpreuken, x = 20, y = 30) {
 
         const spellData = skillFound?.Spells.find((sourceSpell) =>
             item.name?.toLowerCase() === sourceSpell.spell.toLowerCase());
-        if (!spellData) { continue; }        
+        if (!spellData) { continue; }
 
         const newBlock = {
             title: {
@@ -77,6 +88,7 @@ async function addSpellDescriptionsToPdf(pdf, gridSpreuken, x = 20, y = 30) {
             incantation: {
                 options: {
                     text: `${spellData.incantation}`,
+                    isItalic: true,
                     fontSize: 11
                 }
             },
@@ -98,27 +110,74 @@ async function addSpellDescriptionsToPdf(pdf, gridSpreuken, x = 20, y = 30) {
     await addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y);
 }
 
+
+// Voeg Spreuken toe aan de pdf
+async function addRecipeDescriptionsToPdf(pdf, gridRecepten, x = 20, y = 30) {
+    const blockElements = [];
+
+    for (const item of gridRecepten) {
+        const skillFound = sourceRecepten.find((sourceSkill) =>
+            item.skill?.toLowerCase() === sourceSkill.skill.toLowerCase());
+        if (!skillFound) { continue; }
+
+        const recipeData = skillFound?.Recipies.find((sourceRecipe) =>
+            item.name?.toLowerCase() === sourceRecipe.recipy.toLowerCase());
+        if (!recipeData) { continue; }
+
+        const newBlock = {
+            title: {
+                options: {
+                    text: `${recipeData.recipy} ${recipeData.inspiration}`,
+                    fontSize: 14,
+                    font: 'helvetica',
+                    textColor: [72, 133, 199],
+                    lineheight: 1
+                }
+            },
+            components: {
+                options: {
+                    text: `Componenten: ${recipeData.components}`,
+                    isItalic: true,
+                    fontSize: 11
+                }
+            },
+            description: {
+                options: {
+                    text: `${recipeData.effect}`,
+                    fontSize: 11
+                }
+            }
+        };
+        blockElements.push(newBlock);
+    }
+    await addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y);
+}
+
+
 // Voeg een block met mark-up toe aan de pdf.
 async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPercentage = 0.8) {
     const pageHeight = pdf.internal.pageSize.getHeight();
     const pageWidth = pdf.internal.pageSize.getWidth() * maxWidthPercentage;
 
     // Calculate the total height required for the element
-    const getTotalElementHeight = (title, incantation, requirements, description, spelleffect) => {
+    const getTotalElementHeight = (title, incantation, requirements, components, description, spelleffect) => {
         let totalHeight = 0;
-        if (title?.options?.text) { 
-            totalHeight += title.options?.text.split('\n').length * title.options.fontSize; }
-        if (requirements?.options?.text) { totalHeight += requirements.options.text.split('\n').length * requirements.options.fontSize; }
+        if (title?.options?.text) {
+            totalHeight += title.options?.text.split('\n').length * title.options.fontSize;
+        }
         if (incantation?.options?.text) { totalHeight += incantation.options.text.split('\n').length * incantation.options.fontSize; }
+        if (requirements?.options?.text) { totalHeight += requirements.options.text.split('\n').length * requirements.options.fontSize; }
+        if (components?.options?.text) { totalHeight += components.options.text.split('\n').length * components.options.fontSize; }
         if (description?.options?.text) { totalHeight += description.options.text.split('\n').length * description.options.fontSize; }
         if (spelleffect?.options?.text) { totalHeight += spelleffect.options.text.split('\n').length * spelleffect.options.fontSize; }
-        return totalHeight * 0.91;
+        return totalHeight;
     };
 
     const processElement = async (options, fontSizeThreshold = 14) => {
-        const { text = "", fontSize = 11, font = 'helvetica', textColor = [0, 0, 0], lineHeight = 0.5 } = options;
+        const { text = "", fontSize = 11, font = 'helvetica', isItalic = false, textColor = [0, 0, 0], lineHeight = 0.5 } = options;
 
-        pdf.setFont(font);
+        if (isItalic) { pdf.setFont(font, "italic"); }
+        else { pdf.setFont(font, "normal"); }
         pdf.setFontSize(fontSize);
         pdf.setTextColor(textColor[0], textColor[1], textColor[2]);
 
@@ -137,23 +196,25 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
     for (const element of blockElements) {
         const {
             title = {},
-            requirements = {},
             incantation = {},
+            requirements = {},
+            components = {},
             description = {},
             spelleffect = {}
         } = element;
 
-        const totalElementHeight = getTotalElementHeight(title, requirements, incantation, description, spelleffect);
+        const totalElementHeight = getTotalElementHeight(title, incantation, requirements, components, description, spelleffect);
         if (y + totalElementHeight > pageHeight) {
             await addNewPage(pdf);
             y = 25;
         }
 
         if (title?.options) { await processElement(title.options); }
+        if (incantation?.options) { await processElement(incantation.options); }
         if (requirements.options && requirements?.options?.text?.toLowerCase().trim() !== "vereist:") {
             await processElement(requirements.options);
         }
-        if (incantation?.options) { await processElement(incantation.options); }
+        if (components?.options) { await processElement(components.options); }
         if (description?.options) { await processElement(description.options); }
         if (spelleffect?.options) { await processElement(spelleffect.options); }
         y += 3;
@@ -224,6 +285,28 @@ async function addImgElementToPDF(pdf, element, scaleX = 1, scaleY = 1, posX = 1
     });
 }
 
+// Voeg een Afbeelding als achtergrond toe aan de pdf
+async function addImageToPDF(pdf, imageSource, options = undefined) {
+    const img = new Image();
+    img.src = imageSource;
+
+    return new Promise((resolve, reject) => {
+        img.onload = function () {
+
+            if (options) {
+                pdf.addImage(img, 'PNG', options.x, options.y, options.width * 0.25, options.height * 0.25);
+            }
+            else {
+                const pageWidth = pdf.internal.pageSize.getWidth();
+                const pageHeight = pdf.internal.pageSize.getHeight();
+                pdf.addImage(img, 'PNG', 0, 0, pageWidth, pageHeight);
+            }
+            resolve();
+        };
+        img.onerror = reject;
+    });
+}
+
 // Voeg Tekst toe aan de pdf
 async function addTextBlockToPdf(pdf, textArray, x = 0, y = 0, isCentered = false, options = {}) {
     const {
@@ -284,10 +367,25 @@ export default async function useExportToPDF(charName, tableData, MAX_XP, totalX
         format: "a4",
     });
 
+    // Font wordt opgehaald uit de CSS @font-face
+    pdf.addFont('InknutAntiqua-Regular.ttf', 'InknutAntiqua-Regular', 'normal');
+
     const titleOptions = {
         fontSize: 14,
         font: 'helvetica',
         textColor: [72, 133, 199],
+    };
+
+    const bigTitleOptions = {
+        fontSize: 18,
+        font: 'InknutAntiqua-Regular',
+        textColor: [72, 133, 199],
+    };
+
+    const coverOptions = {
+        fontSize: 24,
+        font: 'InknutAntiqua-Regular',
+        textColor: [0, 0, 0],
     };
 
     const next_event_xp = calculateGainedXP();
@@ -295,8 +393,12 @@ export default async function useExportToPDF(charName, tableData, MAX_XP, totalX
     /// --- OPBOUW EXPORT --- ///
 
     // Page 1
-    await addImgElementToPDF(pdf, "App-header", 1, 1, 0, 10);
+    await addImageToPDF(pdf, '../public/images/pdf_cover.png');
+    await addImageToPDF(pdf, '../public/images/logo_100.png', {x: 52, y: 200, width: 75, height: 75 });
+    await addTextBlockToPdf(pdf, ["Character Creator"], 72, 212, false, coverOptions);
 
+    // Page 2
+    await addNewPage(pdf);
     await addTextBlockToPdf(pdf, ["Character"], 35, 50, false, titleOptions);
     await addTextBlockToPdf(pdf, [`${name}`], 35, 55, false);
 
@@ -315,19 +417,30 @@ export default async function useExportToPDF(charName, tableData, MAX_XP, totalX
 
     await addImgElementToPDF(pdf, "side-container-b", 0.85, 0.85, 105, 45);
 
-    // Page2
+    // Page 3
     await addNewPage(pdf);
     await addSkillTableToPdf(pdf, tableData, 30);
 
-    // Page 3 -->>
-    await addNewPage(pdf);
-    await addTextBlockToPdf(pdf, ["Vaardigheden"], 20, 30, false, titleOptions);
+    // Page 4 -->>
 
+    /// --- VAARDIGHEDEN --- ///
+    await addNewPage(pdf);
+    await addTextBlockToPdf(pdf, ["Vaardigheden"], 20, 30, false, bigTitleOptions);
     await addSkillDescriptionsToPdf(pdf, tableData, 20, 40);
 
-    await addNewPage(pdf);
-    await addTextBlockToPdf(pdf, ["Spreuken & Technieken"], 20, 30, false, titleOptions);
-    await addSpellDescriptionsToPdf(pdf, gridSpreuken, 20, 40);
+    /// --- OPTIONEEL: SPREUKEN --- ///
+    if (gridSpreuken.length > 0) {
+        await addNewPage(pdf);
+        await addTextBlockToPdf(pdf, ["Spreuken & Technieken"], 20, 30, false, bigTitleOptions);
+        await addSpellDescriptionsToPdf(pdf, gridSpreuken, 20, 40);
+    }
+
+    /// --- OPTIONEEL: RECEPTEN --- ///
+    if (gridRecepten.length > 0) {
+        await addNewPage(pdf);
+        await addTextBlockToPdf(pdf, ["Recepten"], 20, 30, false, bigTitleOptions);
+        await addRecipeDescriptionsToPdf(pdf, gridRecepten, 20, 40);
+    }
 
     pdf.save(`${name}.pdf`);
 }
