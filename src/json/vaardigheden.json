@@ -54,6 +54,7 @@
       "xp": 1,
       "loresheet": {
         "pdf": "Priest-Runes.pdf",
+        "special": "priest_runes.ttf",
         "page": 1
       },
       "multi_purchase": false,
@@ -107,6 +108,7 @@
       "xp": 1,
       "loresheet": {
         "pdf": "Mage-Glyphs.pdf",
+        "special": "mage_glyphs.ttf",
         "page": 1
       },
       "multi_purchase": false,
@@ -293,7 +295,10 @@
         "any_list": []
       },
       "xp": 0,
-      "loresheet": "",
+      "loresheet": {
+        "pdf": "Armourpoint-kostuum-eisen.pdf",
+        "page":  1
+      },
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
