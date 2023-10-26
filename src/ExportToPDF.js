@@ -10,7 +10,6 @@ import {
 
 import { getPdfURL } from './SharedActions.js';
 
-
 let version = "";
 
 // Definieer de table columns en headers
@@ -160,7 +159,7 @@ async function addSpellDescriptionsToPdf(pdf, gridSpreuken, x = 20, y = 30) {
     await addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y);
 }
 
-// Voeg Spreuken toe aan de pdf
+// Voeg Recepten toe aan de pdf
 async function addRecipeDescriptionsToPdf(pdf, gridRecepten, x = 20, y = 30) {
     const blockElements = [];
 
@@ -174,7 +173,7 @@ async function addRecipeDescriptionsToPdf(pdf, gridRecepten, x = 20, y = 30) {
         if (!recipeData) { continue; }
 
         let newTitle = `${recipeData.recipy}`;
-        newTitle = newTitle + (recipeData.inspiration >= 1 ? ` ${recipeData.inspiration}` : ``); 
+        newTitle = newTitle + (recipeData.inspiration >= 1 ? ` ${recipeData.inspiration}` : ``);
 
         const newBlock = {
             title: {
@@ -211,12 +210,58 @@ async function addRecipeDescriptionsToPdf(pdf, gridRecepten, x = 20, y = 30) {
     await addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y);
 }
 
+// Voeg LoreSheets in een Bijlage-referentie toe
+async function addLoreSheetDescriptionsToPdf(pdf, uniqueLoreSheetValues, x = 20, y = 30) {
+    const blockElements = [];
+
+    for (const item of uniqueLoreSheetValues) {
+        const url = getPdfURL(item.pdf);
+        const sourcePDF = url + item.pdf;
+        const newTitle = item.pdf.split(".")[0];
+
+        let special;
+        if (item.pdf.includes("Priest-Runes") || item.pdf.includes("Mage-Glyphs")) {
+            const specialUrl = getPdfURL(item.special);
+            special = specialUrl + item.special;
+        }
+
+        const newBlock = {
+            title: {
+                options: {
+                    text: newTitle,
+                    fontSize: 14,
+                    font: 'helvetica',
+                    textColor: [72, 133, 199],
+                    lineheight: 1
+                }
+            },
+            url: {
+                options: {
+                    text: sourcePDF,
+                    special: special,
+                    isUrl: true,
+                    fontSize: 11,
+                    textColor: [0, 0, 255]
+                }
+            },
+            description: {
+                options: {
+                    text: ``,
+                    fontSize: 11
+                }
+            }
+        };
+        blockElements.push(newBlock);
+    }
+    await addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y);
+}
+
 // Voeg een block met mark-up toe aan de pdf.
 async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPercentage = 0.8) {
     const pageHeight = pdf.internal.pageSize.getHeight();
     const pageWidth = pdf.internal.pageSize.getWidth() * maxWidthPercentage;
 
-    // Calculate the total height required for the element
+    // Bereken de height van het element
     const getTotalElementHeight = (allParts = []) => {
         let totalHeight = 0;
         for (const part of allParts) {
@@ -228,10 +273,19 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
         return totalHeight;
     };
 
+    // Verwerk het element
     const processElement = async (options, fontSizeThreshold = 14) => {
-        const { text = "", fontSize = 11, font = 'helvetica', isItalic = false, textColor = [0, 0, 0], lineHeight = 0.45 } = options;
+        const {
+            text = "",
+            special = undefined,
+            fontSize = 11,
+            font = 'helvetica',
+            isUrl = false,
+            isItalic = false,
+            textColor = [0, 0, 0],
+            lineHeight = 0.45 } = options;
 
-        if (isItalic) { pdf.setFont(font, "italic"); }
+        if (isItalic === true) { pdf.setFont(font, "italic"); }
         else { pdf.setFont(font, "normal"); }
         pdf.setFontSize(fontSize);
         pdf.setTextColor(textColor[0], textColor[1], textColor[2]);
@@ -239,18 +293,31 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
         if (fontSize >= fontSizeThreshold) { y += 1; }
 
         const lines = pdf.splitTextToSize(text, pageWidth);
-
         for (const line of lines) {
             if (line.trim() === "") { continue; }
-            pdf.text(line, x, y);
+            if (isUrl === true) {
+                pdf.setTextColor(0, 0, 0);
+                pdf.text("Url:", x, y)
+                pdf.setTextColor(textColor[0], textColor[1], textColor[2]);
+                pdf.textWithLink(line, x + 12, y, { url: line, target: "_blank" });
+                if (special !== undefined) {
+                    y += (fontSize * lineHeight);
+                    pdf.setTextColor(0, 0, 0);
+                    pdf.text("Extra:", x, y)
+                    pdf.setTextColor(textColor[0], textColor[1], textColor[2]);
+                    pdf.textWithLink(special, x + 12, y, { url: special, target: "_blank" });
+                }
+            }
+            else { pdf.text(line, x, y); }
             y += (fontSize * lineHeight);
         }
-    };
+    }
 
     // element op de pagina plaatsen
     for (const element of blockElements) {
         const {
             title = {},
+            url = {},
             skill = {},
             incantation = {},
             requirements = {},
@@ -259,13 +326,14 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
             spelleffect = {}
         } = element;
 
-        const totalElementHeight = getTotalElementHeight([title, skill, incantation, requirements, components, description, spelleffect]);
+        const totalElementHeight = getTotalElementHeight([title, url, skill, incantation, requirements, components, description, spelleffect]);
         if (y + totalElementHeight > pageHeight) {
             await addNewPage(pdf);
             y = 30;
         }
 
         if (title?.options) { await processElement(title.options); }
+        if (url?.options) { await processElement(url.options); }
         if (skill?.options) { await processElement(skill.options); }
         if (incantation?.options) { await processElement(incantation.options); }
         if (requirements?.options && requirements?.options?.text?.toLowerCase().trim() !== "vereist:") {
@@ -393,19 +461,22 @@ async function addTextBlockToPdf(pdf, textArray, x = 0, y = 0, isCentered = fals
     return addTextBlockAsync();
 }
 
-// Haal de inhoud van een andere PDF op
-async function mergePDFContent(pdf, pdfName) {
-    const url = getPdfURL(pdfName);
-    const sourcePDF = url + pdfName;
-
-}
-
 // Exporteren van de gegevens in de tableData en Grids naar PDF
 export default async function useExportToPDF(charName, ruleset_version, tableData, MAX_XP, totalXP, gridSpreuken, gridRecepten) {
-
     version = ruleset_version;
     let name = (charName && charName !== "") ? charName : "Naam onbekend";
-    const uniqueLoreSheetValues = [...new Set(tableData.map(item => item.loresheet.pdf).filter(item => item !== undefined))];
+
+    const uniqueItemsSet = new Set();
+    // Samenvoegen en Filteren van LoreSheets
+    const uniqueLoreSheetValues = [...new Set(tableData.map(item => item.loresheet))]
+        .filter(item => {
+            if (item.pdf !== undefined && !uniqueItemsSet.has(item.pdf)) {
+                uniqueItemsSet.add(item.pdf);
+                return true;
+            }
+            return false;
+        });
+    uniqueLoreSheetValues.push({ pdf: "Samenvatting-regelsysteem.pdf" });
 
     const pdf = new jsPDF({
         orientation: "p",
@@ -421,8 +492,8 @@ export default async function useExportToPDF(charName, ruleset_version, tableDat
     /// --- OPBOUW EXPORT --- ///
 
     // Page 1
-    await addImageToPDF(pdf, '../public/images/pdf_cover.png');
-    await addImageToPDF(pdf, '../public/images/logo_100.png', { x: 52, y: 200, width: 75, height: 75 });
+    await addImageToPDF(pdf, '../images/pdf_cover.png');
+    await addImageToPDF(pdf, '../images/logo_100.png', { x: 52, y: 200, width: 75, height: 75 });
     await addTextBlockToPdf(pdf, ["Character Creator"], 72, 212, false, coverOptions);
     await addTextBlockToPdf(pdf, [`versie ${version}`], 105, 222, true);
 
@@ -444,7 +515,7 @@ export default async function useExportToPDF(charName, ruleset_version, tableDat
         `Aantal spreuken/technieken: ${gridSpreuken.length}`,
         `Aantal recepten: ${gridRecepten.length}`], 35, 110, false);
 
-    await addImgElementToPDF(pdf, "side-container-b", 0.9, 0.9, 105, 45);
+    await addImgElementToPDF(pdf, "side-container-b", 1, 1, 105, 45);
 
     // Page 3
     await addNewPage(pdf);
@@ -471,12 +542,10 @@ export default async function useExportToPDF(charName, ruleset_version, tableDat
         await addRecipeDescriptionsToPdf(pdf, gridRecepten, 20, 40);
     }
 
-    /// --- OPTIONEEL: LoreSheets --- ///
-    if (uniqueLoreSheetValues.length > 0) {
-        for (const item of uniqueLoreSheetValues) {
-            mergePDFContent(pdf, item);
-        }
-    }
+    /// --- LoreSheets --- ///
+    await addNewPage(pdf);
+    await addTextBlockToPdf(pdf, ["Bijlagen"], 20, 30, false, bigTitleOptions);
+    await addLoreSheetDescriptionsToPdf(pdf, uniqueLoreSheetValues, 20, 40);
 
     pdf.save(`${name}.pdf`);
 }

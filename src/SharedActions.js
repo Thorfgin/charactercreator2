@@ -500,7 +500,10 @@ export function getPdfURL(pdfName) {
     if ([
         "Vaardigheden.pdf",
         "Crafting-loresheets.pdf",
-        "Imbue-loresheet.pdf"
+        "Imbue-loresheet.pdf",
+        "Armourpoint-kostuum-eisen.pdf",
+        "priest_runes.ttf",
+        "mage_glyphs.ttf"
     ].includes(pdfName)) { rootURL = "https://the-vortex.nl/wp-content/uploads/2022/04/" }
     else if ([
         "Spreuken.pdf",
@@ -511,8 +514,9 @@ export function getPdfURL(pdfName) {
         "Kruiden-Elixers.pdf",
         "Magische-Elixers.pdf",
         "Hallucinerende-Elixers.pdf",
-        "Giffen.pdf"
+        "Giffen.pdf",
+        "Samenvatting-regelsysteem.pdf"
     ].includes(pdfName)) { rootURL = "https://the-vortex.nl/wp-content/uploads/2022/03/" }
-    else { console.warn("PDF name was not recognized as a valid option.") }
+    else { console.warn("PDF name was not recognized as a valid option.", pdfName) }
     return rootURL;
 }
