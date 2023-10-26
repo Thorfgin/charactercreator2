@@ -6,9 +6,9 @@
 	TODO:
 
 	MUST
-	- FIX BUG: When adding a skill with the + while at MAX XP will still allow adding the skill somehow.
-	- EXPORT CHARACTER: Export the character overview as a PDF, for easy use at the event.
 	- MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
+	- JSON: When a json is updated, old characters do not reload their skills on a load (localstorage) or import (datafile). 
+	Instead, old data is loaded causing failures in the code. This requires a conversion to current skillset.
 
 	SHOULD:
 	- CHARNAME: when refreshing or reloading the page, the name of the character is lost
@@ -25,6 +25,9 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
+	20231026	FIX BUG: When adding a skill with the + while at MAX XP will still allow adding the skill somehow.
+			PDF EXPORT: Export the character overview as a PDF, for easy use at the event.
+
 	20231018	FRAMEWORK: Decoupled components and seperated dataobjects to a seperated context.
 
 	20231012	PRESETS: Ability to load a preset-character
