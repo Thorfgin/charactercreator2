@@ -59,7 +59,7 @@ const calculateGainedXP = (MAX_XP) => {
 // Nieuwe pagina klaarzetten
 async function addNewPage(pdf) {
     pdf.addPage();
-    await addImageToPDF(pdf, '../public/images/logo_100.png', { x: 70, y: 7.5, width: 50, height: 50 });
+    await addImageToPDF(pdf, './images/logo_100.png', { x: 70, y: 7.5, width: 50, height: 50 });
     await addTextBlockToPdf(pdf, ["Character Creator"], 82, 15, false, headerOptions);
     await addTextBlockToPdf(pdf, [`Vortex Adventures - Character Creator - versie ${version}`], 105, 285, true);
 }
@@ -492,8 +492,8 @@ export default async function useExportToPDF(charName, ruleset_version, tableDat
     /// --- OPBOUW EXPORT --- ///
 
     // Page 1
-    await addImageToPDF(pdf, '../public/images/pdf_cover.png');
-    await addImageToPDF(pdf, '../public/images/logo_100.png', { x: 52, y: 200, width: 75, height: 75 });
+    await addImageToPDF(pdf, './images/pdf_cover.png');
+    await addImageToPDF(pdf, './images/logo_100.png', { x: 52, y: 200, width: 75, height: 75 });
     await addTextBlockToPdf(pdf, ["Character Creator"], 72, 212, false, coverOptions);
     await addTextBlockToPdf(pdf, [`versie ${version}`], 105, 222, true);
 
