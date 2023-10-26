@@ -41,7 +41,11 @@ const columns = [
     { Header: "ID", accessor: "id", className: "col-id" },
     { Header: "Vaardigheid", accessor: "skill", className: "col-vaardigheid" },
     { Header: "XP Kosten", accessor: "xp", className: "col-xp" },
-    { Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: ({ value }) => (LoreSheet(value)), },
+    {
+        Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: (table) => {
+            return <LoreSheet pdf={table?.cell?.value?.pdf}></LoreSheet>
+        }
+    },
     { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
     { Header: "Info", className: "col-info", Cell: (table) => { return <InfoTooltip row={table.cell.row}></InfoTooltip> } }
 ];

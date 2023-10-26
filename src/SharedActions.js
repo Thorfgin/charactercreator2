@@ -490,7 +490,13 @@ export function updateGridReceptenTiles(tableData) {
 
 // Open het vaardigheden boekje op de juiste pagina
 export function openPdfPage(pdfName, pageNumber) {
-    let rootURL = ""
+    let rootURL = getPdfURL(pdfName);
+    const fullURL = rootURL + pdfName + "#page=" + pageNumber;
+    window.open(fullURL, '_blank');
+}
+
+export function getPdfURL(pdfName) {
+    let rootURL = "";
     if ([
         "Vaardigheden.pdf",
         "Crafting-loresheets.pdf",
@@ -508,7 +514,5 @@ export function openPdfPage(pdfName, pageNumber) {
         "Giffen.pdf"
     ].includes(pdfName)) { rootURL = "https://the-vortex.nl/wp-content/uploads/2022/03/" }
     else { console.warn("PDF name was not recognized as a valid option.") }
-
-    const fullURL = rootURL + pdfName + "#page=" + pageNumber;
-    window.open(fullURL, '_blank');
+    return rootURL;
 }

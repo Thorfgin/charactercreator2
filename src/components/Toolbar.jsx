@@ -334,7 +334,7 @@ export default function Toolbar() {
         }
     }
 
-    const exportToPDF = async () => { await ExportToPDF(charName, tableData, MAX_XP, totalXP, gridSpreuken, gridRecepten); }
+    const exportToPDF = async () => { await ExportToPDF(charName, ruleset_version, tableData, MAX_XP, totalXP, gridSpreuken, gridRecepten); }
 
     // RETURN
     return (

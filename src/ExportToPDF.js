@@ -8,17 +8,61 @@ import {
     sourceRecepten
 } from './SharedObjects.js';
 
+import { getPdfURL } from './SharedActions.js';
+
+
+let version = "";
+
+// Definieer de table columns en headers
+const columns = [
+    { header: 'ID', dataKey: 'id' },
+    { header: 'Vaardigheid', dataKey: 'skill' },
+    { header: 'Aantal keer', dataKey: 'count' },
+    { header: 'XP Kosten', dataKey: 'xp' },
+    { header: 'Loresheet', dataKey: 'loresheet' },
+];
+
+// Definieer de Option variaties
+const titleOptions = {
+    fontSize: 14,
+    font: 'helvetica',
+    textColor: [72, 133, 199],
+};
+
+const bigTitleOptions = {
+    fontSize: 18,
+    font: 'InknutAntiqua-Regular',
+    textColor: [72, 133, 199],
+};
+
+const coverOptions = {
+    fontSize: 24,
+    font: 'InknutAntiqua-Regular',
+    textColor: [0, 0, 0],
+};
+
+const headerOptions = {
+    fontSize: 16,
+    font: 'InknutAntiqua-Regular',
+    textColor: [0, 0, 0],
+};
+
+// Const waarmee de XP per event berekend wordt
+const calculateGainedXP = (MAX_XP) => {
+    if (MAX_XP < 20) { return 1.5; }
+    else if (MAX_XP >= 20 && MAX_XP < 30) { return 1.25; }
+    else if (MAX_XP >= 30 && MAX_XP < 40) { return 1; }
+    else if (MAX_XP >= 40 && MAX_XP < 50) { return 0.75; }
+    else if (MAX_XP >= 50) { return 0.5; }
+    else { console.error("The required xp value was not found"); }
+}
+
 // Nieuwe pagina klaarzetten
 async function addNewPage(pdf) {
-    const headerOptions = {
-        fontSize: 16,
-        font: 'InknutAntiqua-Regular',
-        textColor: [0, 0, 0],
-    };
-
     pdf.addPage();
     await addImageToPDF(pdf, '../public/images/logo_100.png', { x: 70, y: 7.5, width: 50, height: 50 });
     await addTextBlockToPdf(pdf, ["Character Creator"], 82, 15, false, headerOptions);
+    await addTextBlockToPdf(pdf, [`Vortex Adventures - Character Creator - versie ${version}`], 105, 285, true);
 }
 
 // Voeg Skills toe aan de pdf
@@ -129,10 +173,13 @@ async function addRecipeDescriptionsToPdf(pdf, gridRecepten, x = 20, y = 30) {
             item.name?.toLowerCase() === sourceRecipe.recipy.toLowerCase());
         if (!recipeData) { continue; }
 
+        let newTitle = `${recipeData.recipy}`;
+        newTitle = newTitle + (recipeData.inspiration >= 1 ? ` ${recipeData.inspiration}` : ``); 
+
         const newBlock = {
             title: {
                 options: {
-                    text: `${recipeData.recipy} ${recipeData.inspiration}`,
+                    text: `${newTitle}`,
                     fontSize: 14,
                     font: 'helvetica',
                     textColor: [72, 133, 199],
@@ -170,22 +217,19 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
     const pageWidth = pdf.internal.pageSize.getWidth() * maxWidthPercentage;
 
     // Calculate the total height required for the element
-    const getTotalElementHeight = (title, skill, incantation, requirements, components, description, spelleffect) => {
+    const getTotalElementHeight = (allParts = []) => {
         let totalHeight = 0;
-        if (title?.options?.text) {
-            totalHeight += title.options?.text.split('\n').length * title.options.fontSize;
+        for (const part of allParts) {
+            if (part?.options?.text) {
+                const blockSize = part.options?.text.split('\n').length * part.options.fontSize * 0.92;
+                totalHeight += blockSize;
+            }
         }
-        if (skill?.options?.text) { totalHeight += skill.options.text.split('\n').length * skill.options.fontSize; }
-        if (incantation?.options?.text) { totalHeight += incantation.options.text.split('\n').length * incantation.options.fontSize; }
-        if (requirements?.options?.text) { totalHeight += requirements.options.text.split('\n').length * requirements.options.fontSize; }
-        if (components?.options?.text) { totalHeight += components.options.text.split('\n').length * components.options.fontSize; }
-        if (description?.options?.text) { totalHeight += description.options.text.split('\n').length * description.options.fontSize; }
-        if (spelleffect?.options?.text) { totalHeight += spelleffect.options.text.split('\n').length * spelleffect.options.fontSize; }
         return totalHeight;
     };
 
     const processElement = async (options, fontSizeThreshold = 14) => {
-        const { text = "", fontSize = 11, font = 'helvetica', isItalic = false, textColor = [0, 0, 0], lineHeight = 0.5 } = options;
+        const { text = "", fontSize = 11, font = 'helvetica', isItalic = false, textColor = [0, 0, 0], lineHeight = 0.45 } = options;
 
         if (isItalic) { pdf.setFont(font, "italic"); }
         else { pdf.setFont(font, "normal"); }
@@ -215,7 +259,7 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
             spelleffect = {}
         } = element;
 
-        const totalElementHeight = getTotalElementHeight(title, skill, incantation, requirements, components, description, spelleffect);
+        const totalElementHeight = getTotalElementHeight([title, skill, incantation, requirements, components, description, spelleffect]);
         if (y + totalElementHeight > pageHeight) {
             await addNewPage(pdf);
             y = 30;
@@ -230,21 +274,12 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
         if (components?.options) { await processElement(components.options); }
         if (description?.options) { await processElement(description.options); }
         if (spelleffect?.options) { await processElement(spelleffect.options); }
-        y += 3;
+        y += 4;
     }
 }
 
 // Voeg skills table toe aan de pdf
 async function addSkillTableToPdf(pdf, tableData, posY) {
-    // Definieer de table columns en headers.
-    const columns = [
-        { header: 'ID', dataKey: 'id' },
-        { header: 'Vaardigheid', dataKey: 'skill' },
-        { header: 'Aantal keer', dataKey: 'count' },
-        { header: 'XP Kosten', dataKey: 'xp' },
-        { header: 'Loresheet', dataKey: 'loresheet' },
-    ];
-
     // Map de data aan de columns.
     const rows = tableData.map((item) => {
         const row = {};
@@ -358,21 +393,19 @@ async function addTextBlockToPdf(pdf, textArray, x = 0, y = 0, isCentered = fals
     return addTextBlockAsync();
 }
 
+// Haal de inhoud van een andere PDF op
+async function mergePDFContent(pdf, pdfName) {
+    const url = getPdfURL(pdfName);
+    const sourcePDF = url + pdfName;
+
+}
+
 // Exporteren van de gegevens in de tableData en Grids naar PDF
-export default async function useExportToPDF(charName, tableData, MAX_XP, totalXP, gridSpreuken, gridRecepten) {
+export default async function useExportToPDF(charName, ruleset_version, tableData, MAX_XP, totalXP, gridSpreuken, gridRecepten) {
 
-    // check op lege charName
+    version = ruleset_version;
     let name = (charName && charName !== "") ? charName : "Naam onbekend";
-
-    // Const waarmee de XP per event berekend wordt
-    const calculateGainedXP = () => {
-        if (MAX_XP < 20) { return 1.5; }
-        else if (MAX_XP >= 20 && MAX_XP < 30) { return 1.25; }
-        else if (MAX_XP >= 30 && MAX_XP < 40) { return 1; }
-        else if (MAX_XP >= 40 && MAX_XP < 50) { return 0.75; }
-        else if (MAX_XP >= 50) { return 0.5; }
-        else { console.error("The required xp value was not found"); }
-    }
+    const uniqueLoreSheetValues = [...new Set(tableData.map(item => item.loresheet.pdf).filter(item => item !== undefined))];
 
     const pdf = new jsPDF({
         orientation: "p",
@@ -383,32 +416,15 @@ export default async function useExportToPDF(charName, tableData, MAX_XP, totalX
     // Font wordt opgehaald uit de CSS @font-face
     pdf.addFont('InknutAntiqua-Regular.ttf', 'InknutAntiqua-Regular', 'normal');
 
-    const titleOptions = {
-        fontSize: 14,
-        font: 'helvetica',
-        textColor: [72, 133, 199],
-    };
-
-    const bigTitleOptions = {
-        fontSize: 18,
-        font: 'InknutAntiqua-Regular',
-        textColor: [72, 133, 199],
-    };
-
-    const coverOptions = {
-        fontSize: 24,
-        font: 'InknutAntiqua-Regular',
-        textColor: [0, 0, 0],
-    };
-
-    const next_event_xp = calculateGainedXP();
+    const next_event_xp = calculateGainedXP(MAX_XP);
 
     /// --- OPBOUW EXPORT --- ///
 
     // Page 1
     await addImageToPDF(pdf, '../public/images/pdf_cover.png');
-    await addImageToPDF(pdf, '../public/images/logo_100.png', {x: 52, y: 200, width: 75, height: 75 });
+    await addImageToPDF(pdf, '../public/images/logo_100.png', { x: 52, y: 200, width: 75, height: 75 });
     await addTextBlockToPdf(pdf, ["Character Creator"], 72, 212, false, coverOptions);
+    await addTextBlockToPdf(pdf, [`versie ${version}`], 105, 222, true);
 
     // Page 2
     await addNewPage(pdf);
@@ -428,7 +444,7 @@ export default async function useExportToPDF(charName, tableData, MAX_XP, totalX
         `Aantal spreuken/technieken: ${gridSpreuken.length}`,
         `Aantal recepten: ${gridRecepten.length}`], 35, 110, false);
 
-    await addImgElementToPDF(pdf, "side-container-b", 0.85, 0.85, 105, 45);
+    await addImgElementToPDF(pdf, "side-container-b", 0.9, 0.9, 105, 45);
 
     // Page 3
     await addNewPage(pdf);
@@ -453,6 +469,13 @@ export default async function useExportToPDF(charName, tableData, MAX_XP, totalX
         await addNewPage(pdf);
         await addTextBlockToPdf(pdf, ["Recepten"], 20, 30, false, bigTitleOptions);
         await addRecipeDescriptionsToPdf(pdf, gridRecepten, 20, 40);
+    }
+
+    /// --- OPTIONEEL: LoreSheets --- ///
+    if (uniqueLoreSheetValues.length > 0) {
+        for (const item of uniqueLoreSheetValues) {
+            mergePDFContent(pdf, item);
+        }
     }
 
     pdf.save(`${name}.pdf`);
