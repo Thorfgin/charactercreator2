@@ -25,7 +25,6 @@ import {
 } from './SharedObjects.js';
 
 // Components
-
 import FAQModal from './components/FaqModal.jsx'
 import FileUploadModal from './components/FileUploadModal.jsx'
 import GenericTooltipItem from './components/GenericTooltipItem.jsx';
@@ -42,7 +41,11 @@ const columns = [
     { Header: "ID", accessor: "id", className: "col-id" },
     { Header: "Vaardigheid", accessor: "skill", className: "col-vaardigheid" },
     { Header: "XP Kosten", accessor: "xp", className: "col-xp" },
-    { Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: ({ value }) => (LoreSheet(value)), },
+    {
+        Header: "Loresheet", accessor: "loresheet", className: "col-loresheet", Cell: (table) => {
+            return <LoreSheet pdf={table?.cell?.value?.pdf}></LoreSheet>
+        }
+    },
     { Header: "Aantal keer", accessor: "count", className: "col-aantalkeer" },
     { Header: "Info", className: "col-info", Cell: (table) => { return <InfoTooltip row={table.cell.row}></InfoTooltip> } }
 ];
@@ -288,6 +291,7 @@ export default function App() {
             setShowModal(true);
         }
     }
+
     const determineSortinSymbol = (isSorted) => { return isSorted ? ' \u25BC' : ' \u25B2' }
 
     const closeModal = () => { setShowModal(false); };
@@ -302,15 +306,19 @@ export default function App() {
     /// --- HTML CONTENT --- ///
     return (
         <div className="App">
-            <header className="App-header">
-                <img id="App-VA-logo" src="./images/logo_100.png" alt="Logo" />
-                <h2>Character Creator</h2>
+            <header className="App-header" id="App-header">
+                <div></div>
+                <div className="header-wrapper" id="header-wrapper">
+                    <img id="App-VA-logo" src="./images/logo_100.png" alt="Logo" />
+                    <h2 id="App-VA-title">Character Creator</h2>
+                </div>
+                <div></div>
             </header>
-            <main>
+            <main id="main">
                 <div className="main-container">
-                    <Toolbar clearCharacterBuild={clearCharacterBuild} />
+                    <Toolbar />
                     <DragDropContext onDragEnd={handleDragEnd}>
-                        <table {...getTableProps()} className="App-table">
+                        <table {...getTableProps()} className="App-table" id="App-table">
                             <thead>
                                 {headerGroups.map((headerGroup) => (
                                     <tr key={uuidv4()} {...headerGroup.getHeaderGroupProps()}>
@@ -375,8 +383,8 @@ export default function App() {
                         closeModal={closeModal} />
                     )}
 
-                    {showUploadModal && ( <FileUploadModal closeModal={closeUploadModal} /> )}
-                    {showFAQModal && (<FAQModal closeModal={closeFAQModal} /> )}
+                    {showUploadModal && (<FileUploadModal closeModal={closeUploadModal} />)}
+                    {showFAQModal && (<FAQModal closeModal={closeFAQModal} />)}
                     {showLoadCharacterModal && (
                         <LoadCharacterModal
                             closeModal={closeLoadCharacterModal}
@@ -401,7 +409,7 @@ export default function App() {
 
                 </div>
                 <div className="side-containers">
-                    <div className="side-container-b">
+                    <div className="side-container-b" id="side-container-b">
                         <div className="summary-title">
                             <h5>Character eigenschappen</h5>
                         </div>
@@ -417,7 +425,7 @@ export default function App() {
                             ))}
                         </div>
                     </div>
-                    <div className="side-container-a">
+                    <div className="side-container-a" id="side-container-a">
                         <div className="summary-title">
                             <h5>Spreuken & Technieken</h5>
                         </div>
@@ -456,10 +464,9 @@ export default function App() {
                 <div>{version}</div>
                 <div>{creator}{'\u2122'}</div>
                 <div>
-                    <label className="disclaimer" onClick={showDisclaimer}>Disclaimer</label>
-                    <label className="faq" onClick={openFAQModal}>F.A.Q.</label>
+                    <div className="disclaimer" onClick={showDisclaimer}>Disclaimer</div>
+                    <div className="faq" onClick={openFAQModal}>F.A.Q.</div>
                 </div>
-
             </footer>
         </div >
     );

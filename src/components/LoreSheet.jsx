@@ -4,13 +4,12 @@ import PropTypes from 'prop-types';
 import { openPdfPage } from '../SharedActions.js';
 
 LoreSheet.propTypes = {
-    pdf: PropTypes.string.isRequired,
-    page: PropTypes.int
+    pdf: PropTypes.string,
+    page: PropTypes.number
 };
 
 // Open PDF op basis van loresheet uit de vaardigheden.json
 export default function LoreSheet({ pdf, page }) {
-
     if (!pdf || pdf === "") { return (<div className="info" />); }
     else {
         return (

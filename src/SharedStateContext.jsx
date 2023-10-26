@@ -99,7 +99,6 @@ export function SharedStateProvider({ children }) {
     const [tableData, setTableData] = useState(getInitialData(true, false, false));
     const [isChecked, setIsChecked] = useState(getInitialData(false, false, true));
     const [MAX_XP, setMAX_XP] = useState(getInitialData(false, true, false));
-    const [totalXP, setTotalXP] = useState(0);
     const [charName, setCharName] = useState("");
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
