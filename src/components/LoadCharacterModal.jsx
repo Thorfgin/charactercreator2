@@ -4,23 +4,26 @@ import PropTypes from 'prop-types';
 // components
 import CharacterTable from './CharacterTable.jsx';
 
-// shared
+// Shared
+import { useSharedState } from '../SharedStateContext.jsx';
 import {
     getLocalStorage,
     getAllLocalStorageKeys
 } from '../SharedActions.js';
 
-LoadCharacterModal.propTypes = {
-    closeModal: PropTypes.func.isRequired,
-    setTableData: PropTypes.func.isRequired,
-    setCharName: PropTypes.func.isRequired,
-    setIsChecked: PropTypes.func.isRequired,
-    setMAX_XP: PropTypes.func.isRequired,
-    version: PropTypes.string.isRequired,
-};
+LoadCharacterModal.propTypes = { closeModal: PropTypes.func.isRequired };
 
-function LoadCharacterModal({ closeModal, setTableData, setCharName, setIsChecked, setMAX_XP, version }) {
+function LoadCharacterModal({ closeModal }) {
     const [selectedCharacter, setSelectedCharacter] = useState("");
+
+    // Ophalen uit SharedStateContext
+    const {
+        setTableData,
+        setCharName,
+        setIsChecked,
+        setMAX_XP,
+        ruleset_version,
+    } = useSharedState();
 
     // Laden uit de local storage van de browser
     function loadCharacterToLocalStorage() {
@@ -28,7 +31,7 @@ function LoadCharacterModal({ closeModal, setTableData, setCharName, setIsChecke
         const rawData = getLocalStorage(key);
         if (rawData && rawData.length > 0) {
             const charData = rawData[0]
-            if (charData.ruleset_version && charData.ruleset_version === version) {
+            if (charData.ruleset_version && charData.ruleset_version === ruleset_version) {
                 const cleanCharName = selectedCharacter.replace('CC-', '');
                 setCharName(cleanCharName);
                 setIsChecked(charData.isChecked);

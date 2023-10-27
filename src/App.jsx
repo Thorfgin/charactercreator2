@@ -65,7 +65,7 @@ export default function App() {
         showUploadModal, setShowUploadModal,
         showLoadCharacterModal, setShowLoadCharacterModal,
         showLoadPresetModal, setShowLoadPresetModal,
-        modalMsg, setModalMsg,
+        setModalMsg,
         gridEigenschappen, setGridEigenschappen,
         gridSpreuken, setGridSpreuken,
         gridRecepten, setGridRecepten
@@ -378,34 +378,11 @@ export default function App() {
                         </table>
                     </DragDropContext>
 
-                    {showModal && (<ModalMessage
-                        modalMsg={modalMsg}
-                        closeModal={closeModal} />
-                    )}
-
+                    {showModal && (<ModalMessage closeModal={closeModal} /> )}
                     {showUploadModal && (<FileUploadModal closeModal={closeUploadModal} />)}
                     {showFAQModal && (<FAQModal closeModal={closeFAQModal} />)}
-                    {showLoadCharacterModal && (
-                        <LoadCharacterModal
-                            closeModal={closeLoadCharacterModal}
-                            setTableData={setTableData}
-                            setCharName={setCharName}
-                            setIsChecked={setIsChecked}
-                            setMAX_XP={setMAX_XP}
-                            version={ruleset_version}
-                        />
-                    )}
-
-                    {showLoadPresetModal && (
-                        <LoadPresetModal
-                            closeModal={closeLoadPresetModal}
-                            setTableData={setTableData}
-                            setCharName={setCharName}
-                            setIsChecked={setIsChecked}
-                            setMAX_XP={setMAX_XP}
-                            version={ruleset_version}
-                        />
-                    )}
+                    {showLoadCharacterModal && (<LoadCharacterModal closeModal={closeLoadCharacterModal} /> )}
+                    {showLoadPresetModal && (<LoadPresetModal closeModal={closeLoadPresetModal} />)}
 
                 </div>
                 <div className="side-containers">

@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 // components
 import TemplateTable from './TemplateTable.jsx';
 
-// shared
+// Shared
+import { useSharedState } from '../SharedStateContext.jsx';
 import {
     getPresets,
     sourceBasisVaardigheden
@@ -15,23 +16,25 @@ import {
 const presets = getPresets();
 const sourcePresets = presets.Presets;
 
-LoadPresetModal.propTypes = {
-    closeModal: PropTypes.func.isRequired,
-    setTableData: PropTypes.func.isRequired,
-    setCharName: PropTypes.func.isRequired,
-    setIsChecked: PropTypes.func.isRequired,
-    setMAX_XP: PropTypes.func.isRequired,
-    version: PropTypes.string.isRequired,
-};
+LoadPresetModal.propTypes = { closeModal: PropTypes.func.isRequired };
 
-export default function LoadPresetModal({ closeModal, setTableData, setCharName, setIsChecked, setMAX_XP, version }) {
+export default function LoadPresetModal({ closeModal }) {
     const [selectedTemplate, setSelectedTemplate] = useState("");
+
+    // Ophalen uit SharedStateContext
+    const {
+        setTableData,
+        setCharName,
+        setIsChecked,
+        setMAX_XP,
+        ruleset_version,
+    } = useSharedState();
 
     // Selecteer personage
     function handleSelectPreset(selectedTemp) { setSelectedTemplate(selectedTemp); }
 
     function loadPresetToTableData() {
-        if (presets.version === version) {
+        if (presets.version === ruleset_version) {
             const preset = sourcePresets.find(item => item.name === selectedTemplate)
             const skills = [];
 
