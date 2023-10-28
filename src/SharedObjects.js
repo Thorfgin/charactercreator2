@@ -11,7 +11,7 @@ import {
 } from './SharedActions.js';
 
 // --- PRESETS --- ///
-export const getPresets= () => { return presets; }
+export const getPresets = () => { return presets; }
 
 /// --- SKILLS & SELECT PROPERTIES --- ///
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // components
 import { defaultProperties } from './SharedObjects.js';
-import { getLocalStorage } from './SharedActions.js';
+import { loadCharacterFromStorage } from './SharedStorage.js';
 
 // json
 import packageInfo from '../package.json';
@@ -37,48 +37,14 @@ if (typeof (Storage) !== "undefined") {
     }
 
     // Fetch data before the page is loaded
-    rawData = getLocalStorage('CCdata');
+    rawData = loadCharacterFromStorage('CCdata');
 }
 
 /// --- PREP INITIAL TABLE DATA --- ///
-function getInitialData(hasData, hasXP, wasChecked) {
-    if (hasData) { return getData(hasData); }
-    if (hasXP) { return getXP(hasXP); }
-    if (wasChecked) { return getChecked(wasChecked); }
-}
-
-function getData(hasData) {
-    if (rawData?.length > 0) {
-        const charData = rawData[0];
-        if (charData?.ruleset_version && charData?.ruleset_version === packageInfo.ruleset_version) {
-            return hasData ? charData.data : undefined;
-        }
-    } else {
-        return hasData ? [] : undefined;
-    }
-}
-
-function getXP(hasXP) {
-    if (rawData?.length > 0) {
-        const charData = rawData[0];
-        if (charData?.ruleset_version && charData?.ruleset_version === packageInfo.ruleset_version) {
-            return hasXP ? charData.MAX_XP : undefined;
-        }
-    } else {
-        return hasXP ? 15 : undefined;
-    }
-}
-
-function getChecked(wasChecked) {
-    if (rawData?.length > 0) {
-        const charData = rawData[0];
-        if (charData?.ruleset_version && charData?.ruleset_version === packageInfo.ruleset_version) {
-            return wasChecked ? charData.isChecked : undefined;
-        }
-    } else {
-        return wasChecked ? true : undefined;
-    }
-}
+const getInitialData = () => { return rawData?.Skills ? rawData?.Skills : []; }
+const getInitialXP = () => { return rawData?.max_xp ? rawData.max_xp : 15; }
+const getInitialCheckState = () => { return rawData?.is_checked ? rawData.is_checked : true; }
+const getInitialName = () => { return rawData?.name ? rawData.name : ""; }
 
 /// --- SHARED STATE --- ///
 let SharedStateContext = createContext();
@@ -96,10 +62,10 @@ export function SharedStateProvider({ children }) {
     const [version] = useState(packageInfo.version);
     const [ruleset_version] = useState(packageInfo.ruleset_version);
     const [creator] = useState(packageInfo.creator);
-    const [tableData, setTableData] = useState(getInitialData(true, false, false));
-    const [isChecked, setIsChecked] = useState(getInitialData(false, false, true));
-    const [MAX_XP, setMAX_XP] = useState(getInitialData(false, true, false));
-    const [charName, setCharName] = useState("");
+    const [tableData, setTableData] = useState(getInitialData());
+    const [isChecked, setIsChecked] = useState(getInitialCheckState());
+    const [MAX_XP, setMAX_XP] = useState(getInitialXP());
+    const [charName, setCharName] = useState(getInitialName());
     const [selectedBasicSkill, setSelectedBasicSkill] = useState("");
     const [selectedExtraSkill, setSelectedExtraSkill] = useState("");
 
