@@ -11,9 +11,14 @@ import ExportToPDF from '../ExportToPDF.js';
 // Shared
 import { useSharedState } from '../SharedStateContext.jsx';
 import {
-    setLocalStorage,
     getAllLocalStorageKeys,
-    meetsAllPrerequisites
+    saveCharacterToStorage,
+    removeCharacterFromStorage,
+    exportCharacterToFile
+} from '../SharedStorage.js';
+import {
+    meetsAllPrerequisites,
+    verifyTableContainsExtraSkill
 } from '../SharedActions.js';
 import {
     totalXP,
@@ -73,13 +78,16 @@ export default function Toolbar() {
     const closeConfirmUpdateModal = () => { setShowConfirmUpdateModal(false); }
 
     // CHECKBOX
+    // ON/OFF: Toggled restrictie van XP en Select met Extra vaardigheden.
+    // OFF: Wanneer er een Extra skills zijn, wist de tabel
     const handleCheckboxChange = () => {
         const newIsChecked = !isChecked;
         setIsChecked(newIsChecked);
 
-        if (!newIsChecked) {
+        if (newIsChecked === true) {
             setMAX_XP(15);
-            setTableData([]);
+            const hasExtraSkill = verifyTableContainsExtraSkill(tableData);
+            if (hasExtraSkill === true) { setTableData([]); }
         }
     };
 
@@ -253,13 +261,7 @@ export default function Toolbar() {
 
     // Opslaan in de local storage van de browser
     function saveCharacterToLocalStorage() {
-        setLocalStorage(charName,
-            [{
-                ruleset_version: ruleset_version,
-                isChecked: isChecked,
-                MAX_XP: MAX_XP,
-                data: tableData
-            }]);
+        saveCharacterToStorage(charName, charName, isChecked, MAX_XP, tableData)
         if (showConfirmUpdateModal === true) { closeConfirmUpdateModal(); }
         setModalMsg(`Personage '${charName}' opgeslagen.`);
         setShowModal(true);
@@ -267,9 +269,8 @@ export default function Toolbar() {
 
     // Verwijderen uit de local storage van de browser
     function removeCharacterFromLocalStorage() {
-        const key = getAllLocalStorageKeys(charName);
-        if (key.length > 0) {
-            setLocalStorage(key, null);
+        const wasRemoved = removeCharacterFromStorage(charName);
+        if (wasRemoved === true) {
             clearCharacterBuild();
             setModalMsg(`Personage '${charName}' verwijderd.`);
         } else {
@@ -294,8 +295,8 @@ export default function Toolbar() {
     // Anders gewoon opslaan.
     function showConfirmUpdate() {
         if (charName && charName.trim() !== '') {
-            const result = getAllLocalStorageKeys(charName);
-            if (result.length > 0) {
+            const keys = getAllLocalStorageKeys(charName);
+            if (keys.length > 0) {
                 setHeaderConfirmModal("Bevestig overschrijven");
                 setMsgConfirmModal("Personage bestaat al.\nWilt u dit personage:\n'" + charName + "'\n oveschrijven?");
                 setShowConfirmUpdateModal(true);
@@ -310,30 +311,8 @@ export default function Toolbar() {
         }
     }
 
-    // Exporteren naar .dat bestand
-    function exportCharacter() {
-        if (tableData.length > 0) {
-            const dataSet = [{
-                ruleset_version: ruleset_version,
-                isChecked: isChecked,
-                MAX_XP: MAX_XP,
-                data: tableData
-            }];
-            const value = JSON.stringify(dataSet);
-            const encodedValue = encodeURIComponent(value);
-            const unreadableValue = btoa(encodedValue);
-            const blob = new Blob([unreadableValue], { type: 'application/octet-stream' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            const downloadName = charName !== "" ? charName : "character";
-            a.download = `VA_${downloadName}.dat`;
-            a.click();
-            // Opruimen na download
-            URL.revokeObjectURL(url);
-        }
-    }
-
+    // Exporteren
+    const exportToFile = () => { exportCharacterToFile(charName, isChecked, MAX_XP, tableData); }
     const exportToPDF = async () => { await ExportToPDF(charName, ruleset_version, tableData, MAX_XP, totalXP, gridSpreuken, gridRecepten); }
 
     // RETURN
@@ -432,7 +411,7 @@ export default function Toolbar() {
                         <button className="btn-toolbar" title="Exporteer naar PDF" onClick={exportToPDF}>
                             <img className="btn-image" src="./images/button_export-pdf.png" alt="Export PDF Button" />
                         </button>
-                        <button className="btn-toolbar" title="Personage exporteren" onClick={exportCharacter}>
+                        <button className="btn-toolbar" title="Personage exporteren" onClick={exportToFile}>
                             <img className="btn-image" src="./images/button_download.png" alt="Export Button" />
 
                         </button>

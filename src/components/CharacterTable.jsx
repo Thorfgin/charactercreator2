@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // shared
-import { getAllLocalStorageKeys } from '../SharedActions.js';
+import { getAllLocalStorageKeys } from '../SharedStorage.js';
 
 
 CharacterTable.propTypes = {
@@ -16,6 +16,7 @@ export default function CharacterTable({ selectedCharacter, handleCharacterChang
 
     const allCharacterKeys = getAllLocalStorageKeys();
     allCharacterKeys.forEach(key => key !== "CCdata" ? keys.push(key) : null);
+    keys.sort((a, b) => a.localeCompare(b));
 
     function handleSelectCharacter(key) {
         handleCharacterChange(key);

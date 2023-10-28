@@ -1,52 +1,8 @@
-// shared
-
+// Shared
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
 } from './SharedObjects.js';
-
-/// --- LOCAL STORAGE --- ///
-
-// Get the data stored in the localStorage by Key
-export function getLocalStorage(key) {
-    if (typeof (Storage) !== "undefined") {
-        const storedData = localStorage.getObject(key);
-        if (storedData) { return storedData; }
-        else { return []; }
-    }
-    else { return []; }
-}
-
-// Store the data in the localStorage by Key
-export function setLocalStorage(key, data) {
-    if (typeof (Storage) !== "undefined") {
-        if (data && data.length > 0) {
-            localStorage.setObject(key, data);
-        }
-        else { localStorage.removeItem(key); }
-    }
-}
-
-/* 
-Get all Keys that match the givenKey.
-If the givenKey is undefined, instead it returns all keys
-*/
-export function getAllLocalStorageKeys(givenKey) {
-    const keys = []
-    if (typeof (Storage) !== "undefined") {
-        for (let key in localStorage) {
-            // eslint-disable-next-line no-prototype-builtins
-            if (localStorage.hasOwnProperty(key)) {
-                if (!givenKey) { keys.push(key); }
-                else if (givenKey && key === givenKey) { keys.push(key); }
-                else {
-                    // do nothing
-                }
-            }
-        }
-    }
-    return keys;
-}
 
 /// --- SELECT --- ///
 
@@ -125,7 +81,7 @@ export function meetsAllPrerequisites(selectedSkill, tableData) {
 }
 
 // Check of er minimaal 1 vaardigheid uit de extra vaardigheden aanwezig is in de tabel
-function verifyTableContainsExtraSkill(tableData) {
+export function verifyTableContainsExtraSkill(tableData) {
     let meetsPrerequisite = false;
     for (const tableDataSkill of tableData) {
         meetsPrerequisite = sourceExtraVaardigheden.some((record) => record.skill.toLowerCase() === tableDataSkill.skill.toLowerCase());

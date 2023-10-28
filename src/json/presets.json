@@ -1,173 +1,556 @@
 {
-  "version": "2023-10",
   "Presets": [
     {
-      "name": "Lichte vechter",
-      "skills": [
-        "Lezen & Schrijven",
-        "Rekenen",
-        "Kleine Wapens",
-        "Eenhandige Wapens",
-        "Staf Wapens",
-        "Ambidextrie",
-        "Levenskracht A",
-        "Levenskracht B",
-        "Doorzettingsvermogen",
-        "Kracht A",
-        "Harnas I",
-        "Harnas II"
+      "version": "2023-10a",
+      "name": "Vechter (Licht)",
+      "max_xp": 15,
+      "is_checked": true,
+      "Skills": [
+        {
+          "skill": "Lezen & Schrijven",
+          "count": 1
+        },
+        {
+          "skill": "Rekenen",
+          "count": 1
+        },
+        {
+          "skill": "Kleine Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Eenhandige Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Staf Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Ambidextrie",
+          "count": 1
+        },
+        {
+          "skill": "Levenskracht A",
+          "count": 1
+        },
+        {
+          "skill": "Levenskracht B",
+          "count": 1
+        },
+        {
+          "skill": "Doorzettingsvermogen",
+          "count": 1
+        },
+        {
+          "skill": "Kracht A",
+          "count": 1
+        },
+        {
+          "skill": "Harnas I",
+          "count": 1
+        },
+        {
+          "skill": "Harnas II",
+          "count": 1
+        }
       ]
     },
     {
-      "name": "Zware vechter",
-      "skills": [
-        "Lezen & Schrijven",
-        "Rekenen",
-        "Kleine Wapens",
-        "Eenhandige Wapens",
-        "Staf Wapens",
-        "Schilden",
-        "Levenskracht A",
-        "Doorzettingsvermogen",
-        "Militaire training A",
-        "Harnas I",
-        "Harnas II",
-        "Harnas III"
+      "version": "2023-10a",
+      "name": "Vechter (Zwaar)",
+      "max_xp": 15,
+      "is_checked": true,
+      "Skills": [
+        {
+          "skill": "Lezen & Schrijven",
+          "count": 1
+        },
+        {
+          "skill": "Rekenen",
+          "count": 1
+        },
+        {
+          "skill": "Kleine Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Eenhandige Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Staf Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Schilden",
+          "count": 1
+        },
+        {
+          "skill": "Levenskracht A",
+          "count": 1
+        },
+        {
+          "skill": "Doorzettingsvermogen",
+          "count": 1
+        },
+        {
+          "skill": "Militaire training A",
+          "count": 1
+        },
+        {
+          "skill": "Harnas I",
+          "count": 1
+        },
+        {
+          "skill": "Harnas II",
+          "count": 1
+        },
+        {
+          "skill": "Harnas III",
+          "count": 1
+        }
       ]
     },
     {
+      "version": "2023-10a",
       "name": "Paladijn",
-      "skills": [
-        "Lezen & Schrijven",
-        "Rekenen",
-        "Kleine Wapens",
-        "Eenhandige Wapens",
-        "Schilden",
-        "Levenskracht A",
-        "Harnas I",
-        "Harnas II",
-        "Genezingsspreuken A (SP)",
-        "Paladijn",
-        "Paladijnspreuken A"
+      "max_xp": 15,
+      "is_checked": true,
+      "Skills": [
+        [
+          {
+            "skill": "Lezen & Schrijven",
+            "count": 1
+          },
+          {
+            "skill": "Rekenen",
+            "count": 1
+          },
+          {
+            "skill": "Kleine Wapens",
+            "count": 1
+          },
+          {
+            "skill": "Eenhandige Wapens",
+            "count": 1
+          },
+          {
+            "skill": "Schilden",
+            "count": 1
+          },
+          {
+            "skill": "Levenskracht A",
+            "count": 1
+          },
+          {
+            "skill": "Harnas I",
+            "count": 1
+          },
+          {
+            "skill": "Harnas II",
+            "count": 1
+          },
+          {
+            "skill": "Genezingsspreuken A (SP)",
+            "count": 1
+          },
+          {
+            "skill": "Paladijn",
+            "count": 1
+          },
+          {
+            "skill": "Paladijnspreuken A",
+            "count": 1
+          }
+        ]
+
       ]
     },
     {
+      "version": "2023-10a",
       "name": "Vechter/Magiër",
-      "skills": [
-        "Lezen & Schrijven",
-        "Rekenen",
-        "Kleine Wapens",
-        "Staf Wapens",
-        "Levenskracht A",
-        "Magiërspreuken A - Wit",
-        "Magiërspreuken B - Vuur",
-        "Harnas I",
-        "Harnas II",
-        "Spreuken in bepantsering",
-        "Elementair Ritualisme"
+      "max_xp": 15,
+      "is_checked": true,
+      "Skills": [
+        {
+          "skill": "Lezen & Schrijven",
+          "count": 1
+        },
+        {
+          "skill": "Rekenen",
+          "count": 1
+        },
+        {
+          "skill": "Kleine Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Staf Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Levenskracht A",
+          "count": 1
+        },
+        {
+          "skill": "Magiërspreuken A - Wit",
+          "count": 1
+        },
+        {
+          "skill": "Magiërspreuken B - Vuur",
+          "count": 1
+        },
+        {
+          "skill": "Harnas I",
+          "count": 1
+        },
+        {
+          "skill": "Harnas II",
+          "count": 1
+        },
+        {
+          "skill": "Spreuken in bepantsering",
+          "count": 1
+        },
+        {
+          "skill": "Elementair Ritualisme",
+          "count": 1
+        }
       ]
     },
     {
+      "version": "2023-10a",
       "name": "Magiër Ritualist",
-      "skills": [
-        "Lezen & Schrijven",
-        "Rekenen",
-        "Kleine Wapens",
-        "Harnas I",
-        "Magiërspreuken A - Wit",
-        "Magiërspreuken B - Vuur",
-        "Elementair Ritualisme||7"
+      "max_xp": 15,
+      "is_checked": true,
+      "Skills": [
+        {
+          "skill": "Lezen & Schrijven",
+          "count": 1
+        },
+        {
+          "skill": "Rekenen",
+          "count": 1
+        },
+        {
+          "skill": "Kleine Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Harnas I",
+          "count": 1
+        },
+        {
+          "skill": "Magiërspreuken A - Wit",
+          "count": 1
+        },
+        {
+          "skill": "Magiërspreuken B - Vuur",
+          "count": 1
+        },
+        {
+          "skill": "Elementair Ritualisme",
+          "count": 7
+        }
       ]
+
     },
     {
+      "version": "2023-10a",
       "name": "Vechter/Priester",
-      "skills": [
-        "Lezen & Schrijven",
-        "Rekenen",
-        "Kleine Wapens",
-        "Eenhandige Wapens",
-        "Schilden",
-        "Levenskracht A",
-        "Priesterspreuken A - Reinheid",
-        "Priesterspreuken B - Reinheid",
-        "Harnas I",
-        "Spreuken in bepantsering",
-        "Spiritueel Ritualisme"
+      "max_xp": 15,
+      "is_checked": true,
+      "Skills": [
+        {
+          "skill": "Lezen & Schrijven",
+          "count": 1
+        },
+        {
+          "skill": "Rekenen",
+          "count": 1
+        },
+        {
+          "skill": "Kleine Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Eenhandige Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Schilden",
+          "count": 1
+        },
+        {
+          "skill": "Levenskracht A",
+          "count": 1
+        },
+        {
+          "skill": "Priesterspreuken A - Reinheid",
+          "count": 1
+        },
+        {
+          "skill": "Priesterspreuken B - Reinheid",
+          "count": 1
+        },
+        {
+          "skill": "Harnas I",
+          "count": 1
+        },
+        {
+          "skill": "Spreuken in bepantsering",
+          "count": 1
+        },
+        {
+          "skill": "Spiritueel Ritualisme",
+          "count": 1
+        }
       ]
+
     },
     {
+      "version": "2023-10a",
       "name": "Priester Ritualist",
-      "skills": [
-        "Lezen & Schrijven",
-        "Rekenen",
-        "Kleine Wapens",
-        "Harnas I",
-        "Priesterspreuken A - Reinheid",
-        "Priesterspreuken B - Reinheid",
-        "Spiritueel Ritualisme||7"
+      "max_xp": 15,
+      "is_checked": true,
+      "Skills": [
+        {
+          "skill": "Lezen & Schrijven",
+          "count": 1
+        },
+        {
+          "skill": "Rekenen",
+          "count": 1
+        },
+        {
+          "skill": "Kleine Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Harnas I",
+          "count": 1
+        },
+        {
+          "skill": "Priesterspreuken A - Reinheid",
+          "count": 1
+        },
+        {
+          "skill": "Priesterspreuken B - Reinheid",
+          "count": 1
+        },
+        {
+          "skill": "Spiritueel Ritualisme",
+          "count": 7
+        }
       ]
+
     },
     {
+      "version": "2023-10a",
       "name": "Genezer (Elementair)",
-      "skills": [
-        "Lezen & Schrijven",
-        "Rekenen",
-        "Kleine Wapens",
-        "Harnas I",
-        "Glyph Gebruiken",
-        "Glyph Gewenning||2",
-        "Genezingsspreuken A (EL)",
-        "Genezer van Giffen (EL)",
-        "Genezer van Ziekten (EL)"
+      "max_xp": 15,
+      "is_checked": true,
+      "Skills": [
+        {
+          "skill": "Lezen & Schrijven",
+          "count": 1
+        },
+        {
+          "skill": "Rekenen",
+          "count": 1
+        },
+        {
+          "skill": "Kleine Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Harnas I",
+          "count": 1
+        },
+        {
+          "skill": "Glyph Gebruiken",
+          "count": 1
+        },
+        {
+          "skill": "Glyph Gewenning",
+          "count": 2
+        },
+        {
+          "skill": "Genezingsspreuken A (EL)",
+          "count": 1
+        },
+        {
+          "skill": "Genezer van Giffen (EL)",
+          "count": 1
+        },
+        {
+          "skill": "Genezer van Ziekten (EL)",
+          "count": 1
+        }
       ]
+
     },
     {
+      "version": "2023-10a",
       "name": "Arts",
-      "skills": [
-        "Lezen & Schrijven",
-        "Rekenen",
-        "Kleine Wapens",
-        "Harnas I",
-        "Eerste Hulp Bij Gevechten",
-        "Diagnostiek",
-        "Snelle behandeling",
-        "Slagveld operatie",
-        "Humorisch Patholoog",
-        "Bezoar specialist",
-        "Hypnotherapie"
+      "max_xp": 15,
+      "is_checked": true,
+      "Skills": [
+        {
+          "skill": "Lezen & Schrijven",
+          "count": 1
+        },
+        {
+          "skill": "Rekenen",
+          "count": 1
+        },
+        {
+          "skill": "Kleine Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Harnas I",
+          "count": 1
+        },
+        {
+          "skill": "Eerste Hulp Bij Gevechten",
+          "count": 1
+        },
+        {
+          "skill": "Diagnostiek",
+          "count": 1
+        },
+        {
+          "skill": "Snelle behandeling",
+          "count": 1
+        },
+        {
+          "skill": "Slagveld operatie",
+          "count": 1
+        },
+        {
+          "skill": "Humorisch Patholoog",
+          "count": 1
+        },
+        {
+          "skill": "Bezoar specialist",
+          "count": 1
+        },
+        {
+          "skill": "Hypnotherapie",
+          "count": 1
+        }
       ]
+
     },
     {
+      "version": "2023-10a",
       "name": "Alchemist",
-      "skills": [
-        "Lezen & Schrijven",
-        "Rekenen",
-        "Kleine Wapens",
-        "Harnas I",
-        "Kennis van Kruiden",
-        "Kruiden bewaren||2",
-        "Brouw Kruiden Elixers A",
-        "Brouw Genezende Dranken A",
-        "Brouw Magische Elixers A",
-        "Brouw Hallucinerende Elixers A",
-        "Brouw Giffen A"
+      "max_xp": 15,
+      "is_checked": true,
+      "Skills": [
+        {
+          "skill": "Lezen & Schrijven",
+          "count": 1
+        },
+        {
+          "skill": "Rekenen",
+          "count": 1
+        },
+        {
+          "skill": "Kleine Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Harnas I",
+          "count": 1
+        },
+        {
+          "skill": "Kennis van Kruiden",
+          "count": 1
+        },
+        {
+          "skill": "Kruiden bewaren",
+          "count": 2
+        },
+        {
+          "skill": "Brouw Kruiden Elixers A",
+          "count": 1
+        },
+        {
+          "skill": "Brouw Genezende Dranken A",
+          "count": 1
+        },
+        {
+          "skill": "Brouw Magische Elixers A",
+          "count": 1
+        },
+        {
+          "skill": "Brouw Hallucinerende Elixers A",
+          "count": 1
+        },
+        {
+          "skill": "Brouw Giffen A",
+          "count": 1
+        }
       ]
+
     },
     {
+      "version": "2023-10a",
       "name": "Crafter/Handelaar",
-      "skills": [
-        "Lezen & Schrijven",
-        "Rekenen",
-        "Kleine Wapens",
-        "Eenhandige Wapens",
-        "Harnas I",
-        "Meestersmid A",
-        "Houtbewerker A",
-        "Steenzetter A",
-        "Juwelier A",
-        "Kleermaker A",
-        "Boekbinder A",
-        "Leerbewerker A"
+      "max_xp": 15,
+      "is_checked": true,
+      "Skills": [
+        {
+          "skill": "Lezen & Schrijven",
+          "count": 1
+        },
+        {
+          "skill": "Rekenen",
+          "count": 1
+        },
+        {
+          "skill": "Kleine Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Eenhandige Wapens",
+          "count": 1
+        },
+        {
+          "skill": "Harnas I",
+          "count": 1
+        },
+        {
+          "skill": "Meestersmid A",
+          "count": 1
+        },
+        {
+          "skill": "Houtbewerker A",
+          "count": 1
+        },
+        {
+          "skill": "Steenzetter A",
+          "count": 1
+        },
+        {
+          "skill": "Juwelier A",
+          "count": 1
+        },
+        {
+          "skill": "Kleermaker A",
+          "count": 1
+        },
+        {
+          "skill": "Boekbinder A",
+          "count": 1
+        },
+        {
+          "skill": "Leerbewerker A",
+          "count": 1
+        }
       ]
     }
   ]

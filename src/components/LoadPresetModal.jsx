@@ -5,62 +5,43 @@ import PropTypes from 'prop-types';
 // components
 import TemplateTable from './TemplateTable.jsx';
 
-// shared
-import {
-    getPresets,
-    sourceBasisVaardigheden
-}
-    from '../SharedObjects.js'
+// Shared
+import { useSharedState } from '../SharedStateContext.jsx';
+import { getPresets } from '../SharedObjects.js'
+import { loadCharacterFromPreset } from '../SharedStorage.js'
 
 const presets = getPresets();
 const sourcePresets = presets.Presets;
 
-LoadPresetModal.propTypes = {
-    closeModal: PropTypes.func.isRequired,
-    setTableData: PropTypes.func.isRequired,
-    setCharName: PropTypes.func.isRequired,
-    setIsChecked: PropTypes.func.isRequired,
-    setMAX_XP: PropTypes.func.isRequired,
-    version: PropTypes.string.isRequired,
-};
+LoadPresetModal.propTypes = { closeModal: PropTypes.func.isRequired };
 
-export default function LoadPresetModal({ closeModal, setTableData, setCharName, setIsChecked, setMAX_XP, version }) {
+export default function LoadPresetModal({ closeModal }) {
     const [selectedTemplate, setSelectedTemplate] = useState("");
+
+    // Ophalen uit SharedStateContext
+    const {
+        setTableData,
+        setCharName,
+        setIsChecked,
+        setMAX_XP
+    } = useSharedState();
 
     // Selecteer personage
     function handleSelectPreset(selectedTemp) { setSelectedTemplate(selectedTemp); }
 
     function loadPresetToTableData() {
-        if (presets.version === version) {
-            const preset = sourcePresets.find(item => item.name === selectedTemplate)
-            const skills = [];
-
-            // TableData is niet beschikbaar nog, 
-            // dus Skill direct aannpassen zodat multi - aankoop mogelijk is
-            for (const skill of preset.skills) {
-                const props = skill.split('||')
-
-                const sourceSkill = sourceBasisVaardigheden.find(item =>
-                    item.skill.toLowerCase() === props[0].toLowerCase());
-                const copySkill = { ...sourceSkill}; // kopie om wijzigingen op source te voorkomen
-                if (props.length > 1) {
-                    const count = Number(props[1]);
-                    copySkill.xp = copySkill.xp * count;
-                    copySkill.count = count;
-                }
-                skills.push(copySkill);
-            }
-
-            setCharName(preset.name);
-            setIsChecked(true);
-            setMAX_XP(15);
-            setTableData(skills);
+        const preset = sourcePresets.find(item => item.name === selectedTemplate)
+        const charData = loadCharacterFromPreset(preset);
+        if (charData) {
+            setCharName(charData.name);
+            setIsChecked(charData.is_checked);
+            setMAX_XP(charData.max_xp);
+            setTableData(charData.Skills);
             closeModal();
         }
         else {
             console.error("De versie van deze templates komt niet overeen met de huidige regelset versie.");
         }
-
     }
 
     return (

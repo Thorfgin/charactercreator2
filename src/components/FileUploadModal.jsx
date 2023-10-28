@@ -3,26 +3,13 @@ import PropTypes from 'prop-types';
 
 // shared
 import { useSharedState } from '../SharedStateContext.jsx';
-
-// Check of het de naam heeft zoals verwacht
-function getCharacterName(name) {
-    if (name.includes('VA_') && name.includes(".dat")) {
-        const startIndex = name.indexOf("VA_") + 3;
-        const endIndex = name.indexOf(".dat");
-        const cleanedName = name.substring(startIndex, endIndex);
-        return cleanedName;
-    }
-    else {
-        return name;
-    }
-}
+import { importCharacterFromFile } from '../SharedStorage.js';
 
 FileUploadModal.propTypes = { closeModal: PropTypes.func.isRequired };
 
 export default function FileUploadModal({ closeModal }) {
 
     const {
-        ruleset_version,
         setCharName,
         setIsChecked,
         setMAX_XP, 
@@ -44,21 +31,23 @@ export default function FileUploadModal({ closeModal }) {
                 const rawData = e.target.result;
                 try {
                     if (rawData) {
-                        const readableValue = atob(rawData);
-                        let decodedValue = decodeURIComponent(readableValue);
-                        let charData = JSON.parse(decodedValue)[0];
-                        if (charData?.ruleset_version &&
-                            charData?.ruleset_version === ruleset_version) {
-                            setCharName(getCharacterName(selectedFile.name));
-                            setIsChecked(charData.isChecked);
-                            setMAX_XP(charData.MAX_XP);
-                            setTableData(charData.data);
+                        const charData = importCharacterFromFile(rawData);
+                        if (charData) {
+                            setCharName(charData.name || "Mr/Mrs Smith");
+                            setIsChecked(charData.is_checked);
+                            setMAX_XP(charData.max_xp);
+                            setTableData(charData.Skills);
                             closeModal();
+
+                            setSelectedFile(null);
                         }
                         else {
-                            alert("De regelset versie van het personage wordt niet herkend.");
-                            console.error("De regelset versie van het personage wordt niet herkend.");
+                            const msg = "Deze versie van dit personage kan helaas niet ingeladen worden.";
+                            alert(msg);
+                            console.error(msg, selectedFile, charData);
                         }
+
+
                     }
                 } catch (error) {
                     alert("Er ging iets mis bij het inlezen van het bestand.");

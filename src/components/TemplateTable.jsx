@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 // functions
 import { getPresets } from '../SharedObjects.js'
 
-const presets = getPresets();
-const sourcePresets = presets.Presets;
-
 TemplateTable.propTypes = {
     selectedTemplate: PropTypes.string,
     handleTemplateChange: PropTypes.func.isRequired
@@ -14,6 +11,8 @@ TemplateTable.propTypes = {
 
 export default function TemplateTable({ selectedTemplate, handleTemplateChange }) {
     const tableRef = useRef(null);
+    const presets = getPresets();
+    const sourcePresets = presets.Presets.sort((a, b) => a.name.localeCompare(b.name));
 
     function handleSelectTemplate(name) {
         handleTemplateChange(name);
