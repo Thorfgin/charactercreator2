@@ -7,9 +7,9 @@ import CharacterTable from './CharacterTable.jsx';
 // Shared
 import { useSharedState } from '../SharedStateContext.jsx';
 import {
-    getLocalStorage,
+    loadCharacterFromStorage,
     getAllLocalStorageKeys
-} from '../SharedActions.js';
+} from '../SharedStorage.js';
 
 LoadCharacterModal.propTypes = { closeModal: PropTypes.func.isRequired };
 
@@ -21,35 +21,25 @@ function LoadCharacterModal({ closeModal }) {
         setTableData,
         setCharName,
         setIsChecked,
-        setMAX_XP,
-        ruleset_version,
+        setMAX_XP
     } = useSharedState();
 
     // Laden uit de local storage van de browser
-    function loadCharacterToLocalStorage() {
+    function loadCharacterFromLocalStorage() {
         const key = getAllLocalStorageKeys(selectedCharacter);
-        const rawData = getLocalStorage(key);
-        if (rawData && rawData.length > 0) {
-            const charData = rawData[0]
-            if (charData.ruleset_version && charData.ruleset_version === ruleset_version) {
-                const cleanCharName = selectedCharacter.replace('CC-', '');
-                setCharName(cleanCharName);
-                setIsChecked(charData.isChecked);
-                setMAX_XP(charData.MAX_XP);
-                setTableData(charData.data);
+        const charData = loadCharacterFromStorage(key);
+        if (charData) {
+                setCharName(charData.name || selectedCharacter.replace('CC-', ''));
+                setIsChecked(charData.is_checked);
+                setMAX_XP(charData.max_xp);
+                setTableData(charData.Skills);
                 closeModal();
             }
-            else {
-                const msg = "De regelset versie van het personage wordt niet herkend."
-                alert(msg);
-                console.error("De regelset versie van het personage wordt niet herkend.", key);
-            }
-        }
-        if (selectedCharacter || selectedCharacter.trim() === "") { return; }
+        else if (!selectedCharacter || selectedCharacter.trim() === "") { return; }
         else {
             const msg = "Deze versie van dit personage kan helaas niet ingeladen worden.";
             alert(msg);
-            console.error(msg, key, rawData);
+            console.error(msg, key, charData);
         }
     }
 
@@ -66,7 +56,7 @@ function LoadCharacterModal({ closeModal }) {
                         handleCharacterChange={handleCharacterChange} />
                 </div>
                 <div className="upload-modal-block">
-                    <button className="btn-primary" onClick={loadCharacterToLocalStorage}>Laad</button>
+                    <button className="btn-primary" onClick={loadCharacterFromLocalStorage}>Laad</button>
                     <button className="btn-primary" onClick={closeModal}>Annuleren</button>
                 </div>
             </div>

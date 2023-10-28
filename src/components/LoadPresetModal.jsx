@@ -7,11 +7,8 @@ import TemplateTable from './TemplateTable.jsx';
 
 // Shared
 import { useSharedState } from '../SharedStateContext.jsx';
-import {
-    getPresets,
-    sourceBasisVaardigheden
-}
-    from '../SharedObjects.js'
+import { getPresets } from '../SharedObjects.js'
+import { loadCharacterFromPreset } from '../SharedStorage.js'
 
 const presets = getPresets();
 const sourcePresets = presets.Presets;
@@ -26,44 +23,25 @@ export default function LoadPresetModal({ closeModal }) {
         setTableData,
         setCharName,
         setIsChecked,
-        setMAX_XP,
-        ruleset_version,
+        setMAX_XP
     } = useSharedState();
 
     // Selecteer personage
     function handleSelectPreset(selectedTemp) { setSelectedTemplate(selectedTemp); }
 
     function loadPresetToTableData() {
-        if (presets.version === ruleset_version) {
-            const preset = sourcePresets.find(item => item.name === selectedTemplate)
-            const skills = [];
-
-            // TableData is niet beschikbaar nog, 
-            // dus Skill direct aannpassen zodat multi - aankoop mogelijk is
-            for (const skill of preset.skills) {
-                const props = skill.split('||')
-
-                const sourceSkill = sourceBasisVaardigheden.find(item =>
-                    item.skill.toLowerCase() === props[0].toLowerCase());
-                const copySkill = { ...sourceSkill}; // kopie om wijzigingen op source te voorkomen
-                if (props.length > 1) {
-                    const count = Number(props[1]);
-                    copySkill.xp = copySkill.xp * count;
-                    copySkill.count = count;
-                }
-                skills.push(copySkill);
-            }
-
-            setCharName(preset.name);
-            setIsChecked(true);
-            setMAX_XP(15);
-            setTableData(skills);
+        const preset = sourcePresets.find(item => item.name === selectedTemplate)
+        const charData = loadCharacterFromPreset(preset);
+        if (charData) {
+            setCharName(charData.name);
+            setIsChecked(charData.is_checked);
+            setMAX_XP(charData.max_xp);
+            setTableData(charData.Skills);
             closeModal();
         }
         else {
             console.error("De versie van deze templates komt niet overeen met de huidige regelset versie.");
         }
-
     }
 
     return (

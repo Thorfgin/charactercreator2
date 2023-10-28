@@ -5,8 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 // Shared
 import { useSharedState } from './SharedStateContext.jsx';
+import { saveCharacterToStorage } from './SharedStorage.js';
 import {
-    setLocalStorage,
     isSkillAPrerequisiteToAnotherSkill,
     updateGridEigenschappenTiles,
     updateGridSpreukenTiles,
@@ -54,12 +54,11 @@ const columns = [
 export default function App() {
     const {
         version,
-        ruleset_version,
         creator,
         tableData, setTableData,
         isChecked, setIsChecked,
         MAX_XP, setMAX_XP,
-        setCharName,
+        charName, setCharName,
         showModal, setShowModal,
         showFAQModal, setShowFAQModal,
         showUploadModal, setShowUploadModal,
@@ -74,13 +73,9 @@ export default function App() {
     // Wanneer er iets aan de tableData verandert, wordt de nieuwe data opgeslagen.
     // Op basis van de nieuwe tableData worden de Selects, Grid en Spreuken/Recepten bijewerkt.
     const onUpdateTableData = useCallback(() => {
+
         // LocalStorage bijwerken
-        setLocalStorage('CCdata', [{
-            ruleset_version: ruleset_version,
-            isChecked: isChecked,
-            MAX_XP: MAX_XP,
-            data: tableData
-        }]);
+        saveCharacterToStorage('CCdata', charName, isChecked, MAX_XP, tableData);
 
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
         regeneratedBasisVaardigheden(tableData);
@@ -108,7 +103,7 @@ export default function App() {
             return property.value !== ""
         });
         setGridRecepten(updatedGridReceptenContent);
-    }, [ruleset_version, isChecked, MAX_XP, tableData, setGridEigenschappen, setGridSpreuken, setGridRecepten]);
+    }, [charName, isChecked, MAX_XP, tableData, setGridEigenschappen, setGridSpreuken, setGridRecepten]);
 
     useEffect(() => { onUpdateTableData(); }, [onUpdateTableData, tableData]);
 
@@ -174,7 +169,6 @@ export default function App() {
                 record.skill.toLowerCase() === row.skill.toLowerCase());
 
             if (currentRecord.count < sourceRecord.maxcount) {
-                // Updated Table Data here skill matches and record has multi_purchase === true
                 const updatedTableData = tableData.map((record) =>
                     record.skill.toLowerCase() === row.skill.toLowerCase()
                         ? { ...record, count: record.count + 1, xp: sourceRecord.xp * (record.count + 1) }
