@@ -118,7 +118,6 @@
       "max_xp": 15,
       "is_checked": true,
       "Skills": [
-        [
           {
             "skill": "Lezen & Schrijven",
             "count": 1
@@ -164,8 +163,6 @@
             "count": 1
           }
         ]
-
-      ]
     },
     {
       "version": "2023-10a",
