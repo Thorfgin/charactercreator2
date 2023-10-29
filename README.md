@@ -9,7 +9,6 @@
 	- MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
 
 	SHOULD:
-	- VERSION: when clicking the version, show a modal with the release notes
 
 	COULD:
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
@@ -22,6 +21,9 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
+	202310??	VERSION: when clicking the version, show a modal with the release notes
+
+
 	20231028	FRAMEWORK: When a json is updated, old characters do not reload their skills 
 			on a load (localstorage) or import (datafile). Instead, old data is loaded causing failures 
 			in the code. This requires a conversion of the current way to save characters.
