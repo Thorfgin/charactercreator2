@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 
 // components
 import CharacterTable from './CharacterTable.jsx';
@@ -11,9 +10,7 @@ import {
     getAllLocalStorageKeys
 } from '../SharedStorage.js';
 
-LoadCharacterModal.propTypes = { closeModal: PropTypes.func.isRequired };
-
-function LoadCharacterModal({ closeModal }) {
+function LoadCharacterModal() {
     const [selectedCharacter, setSelectedCharacter] = useState("");
 
     // Ophalen uit SharedStateContext
@@ -21,20 +18,27 @@ function LoadCharacterModal({ closeModal }) {
         setTableData,
         setCharName,
         setIsChecked,
-        setMAX_XP
+        setMAX_XP,
+        setShowLoadCharacterModal,
+        setSelectedBasicSkill,
+        setSelectedExtraSkill
     } = useSharedState();
+
+    const closeModal = () => { setShowLoadCharacterModal(false); };
 
     // Laden uit de local storage van de browser
     function loadCharacterFromLocalStorage() {
         const key = getAllLocalStorageKeys(selectedCharacter);
         const charData = loadCharacterFromStorage(key);
         if (charData) {
-                setCharName(charData.name || selectedCharacter.replace('CC-', ''));
-                setIsChecked(charData.is_checked);
-                setMAX_XP(charData.max_xp);
-                setTableData(charData.Skills);
-                closeModal();
-            }
+            setCharName(charData.name || selectedCharacter.replace('CC-', ''));
+            setIsChecked(charData.is_checked);
+            setMAX_XP(charData.max_xp);
+            setTableData(charData.Skills);
+            setSelectedBasicSkill(null);
+            setSelectedExtraSkill(null);
+            closeModal();
+        }
         else if (!selectedCharacter || selectedCharacter.trim() === "") { return; }
         else {
             const msg = "Deze versie van dit personage kan helaas niet ingeladen worden.";

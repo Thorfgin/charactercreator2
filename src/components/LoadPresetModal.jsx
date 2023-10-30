@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 
 // components
 import TemplateTable from './TemplateTable.jsx';
@@ -13,9 +12,7 @@ import { loadCharacterFromPreset } from '../SharedStorage.js'
 const presets = getPresets();
 const sourcePresets = presets.Presets;
 
-LoadPresetModal.propTypes = { closeModal: PropTypes.func.isRequired };
-
-export default function LoadPresetModal({ closeModal }) {
+export default function LoadPresetModal() {
     const [selectedTemplate, setSelectedTemplate] = useState("");
 
     // Ophalen uit SharedStateContext
@@ -23,8 +20,13 @@ export default function LoadPresetModal({ closeModal }) {
         setTableData,
         setCharName,
         setIsChecked,
-        setMAX_XP
+        setMAX_XP,
+        setShowLoadPresetModal,
+        setSelectedBasicSkill,
+        setSelectedExtraSkill
     } = useSharedState();
+
+    const closeModal = () => { setShowLoadPresetModal(false); };
 
     // Selecteer personage
     function handleSelectPreset(selectedTemp) { setSelectedTemplate(selectedTemp); }
@@ -37,6 +39,8 @@ export default function LoadPresetModal({ closeModal }) {
             setIsChecked(charData.is_checked);
             setMAX_XP(charData.max_xp);
             setTableData(charData.Skills);
+            setSelectedBasicSkill(null);
+            setSelectedExtraSkill(null);
             closeModal();
         }
         else {

@@ -9,19 +9,28 @@
 	- MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
 
 	SHOULD:
-	- VERSION: when clicking the version, show a modal with the release notes
+	- UNITTEST: add unittests for presets.json and releasenotes.json
 
 	COULD:
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
 	- integration with VOIDWALKER / create new characters
 		> this requires integration on perhaps an API level
-		> Needs to be done from within a player portal?
+		> Needs to be done from within a player portal? Probably requires a Node.js server
 
 	WOULD: 
 	
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
+	202310??	VERSION: when clicking the version, show a modal with the release notes
+			FIX: minor bug in Presets, causing a single preset not to load.
+			FIX: faulty scaling based of the image Character Eigenschappen based on current screen dimensions
+			FIX: Adding a Skill to the Select, than loading a preset (or save) does not clear Select.
+			  This results in the skill being added twice.
+			LOOKS/FEELS: Changed the NewCharacter toggle, it will no longer erase when unchecking the checkbox,
+			unless and Extra skill was added. If that is the case it will be erased entirely still.
+
+
 	20231028	FRAMEWORK: When a json is updated, old characters do not reload their skills 
 			on a load (localstorage) or import (datafile). Instead, old data is loaded causing failures 
 			in the code. This requires a conversion of the current way to save characters.

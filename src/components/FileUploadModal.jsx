@@ -1,25 +1,26 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 
 // shared
 import { useSharedState } from '../SharedStateContext.jsx';
 import { importCharacterFromFile } from '../SharedStorage.js';
 
-FileUploadModal.propTypes = { closeModal: PropTypes.func.isRequired };
-
-export default function FileUploadModal({ closeModal }) {
+export default function FileUploadModal() {
 
     const {
         setCharName,
         setIsChecked,
-        setMAX_XP, 
-        setTableData 
+        setMAX_XP,
+        setTableData,
+        setShowUploadModal,
+        setSelectedBasicSkill,
+        setSelectedExtraSkill
     } = useSharedState();
 
     const [selectedFile, setSelectedFile] = useState(null);
 
     // Werk bestand info mbij
     const handleFileChange = (e) => { setSelectedFile(e.target.files[0]); };
+    const closeModal = () => { setShowUploadModal(false); }
 
     // Oppakken van het aangewezen bestand, uitlezen en nakijken of het matcht.
     // Daarna de juiste velden en tabel updaten.
@@ -37,9 +38,10 @@ export default function FileUploadModal({ closeModal }) {
                             setIsChecked(charData.is_checked);
                             setMAX_XP(charData.max_xp);
                             setTableData(charData.Skills);
-                            closeModal();
-
+                            setSelectedBasicSkill(null);
+                            setSelectedExtraSkill(null);
                             setSelectedFile(null);
+                            closeModal();
                         }
                         else {
                             const msg = "Deze versie van dit personage kan helaas niet ingeladen worden.";
