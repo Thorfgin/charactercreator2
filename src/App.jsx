@@ -283,8 +283,8 @@ export default function App() {
     function showDisclaimer() {
         if (showModal !== true) {
             setModalMsg(
-                "De character creator geeft een indicatie van de mogelijkheden.\n " +
-                "Er kunnen altijd afwijkingen zitten tussen de teksten\n" +
+                "De character creator geeft een indicatie van de mogelijkheden. " +
+                "Er kunnen altijd afwijkingen zitten tussen de teksten" +
                 "in de character creator en de VA regelset.\n\n" +
                 "Check altijd de laatste versie van de regelset op:\n" +
                 "https://the-vortex.nl/het-spel/regels/" +
