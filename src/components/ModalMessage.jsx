@@ -1,15 +1,17 @@
-import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
 // Shared
 import { useSharedState } from '../SharedStateContext.jsx';
 
-ModalMessage.propTypes = { closeModal: PropTypes.func.isRequired };
-
 // Toont een Modal message met alleen een sluit knop
-export default function ModalMessage({ closeModal }) {
+export default function ModalMessage() {
     // Ophalen uit SharedStateContext
-    const { modalMsg } = useSharedState();
+    const {
+        modalMsg,
+        setShowModal
+    } = useSharedState();
+
+    const closeModal = () => { setShowModal(false); };
 
     const msgBlocks = modalMsg.split('\n');
     const urlRegex = /(https?:\/\/[^\s]+)/g;

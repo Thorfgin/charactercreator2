@@ -34,6 +34,7 @@ import LoadCharacterModal from './components/LoadCharacterModal.jsx'
 import LoadPresetModal from './components/LoadPresetModal.jsx'
 import LoreSheet from './components/LoreSheet.jsx';
 import ModalMessage from './components/ModalMessage.jsx'
+import ReleaseNotesModal from './components/ReleaseNotesModal.jsx'
 import Toolbar from './components/Toolbar.jsx';
 
 // Tabel Vaardigheden
@@ -59,11 +60,15 @@ export default function App() {
         isChecked, setIsChecked,
         MAX_XP, setMAX_XP,
         charName, setCharName,
+        setSelectedBasicSkill,
+        setSelectedExtraSkill,
+
         showModal, setShowModal,
         showFAQModal, setShowFAQModal,
-        showUploadModal, setShowUploadModal,
-        showLoadCharacterModal, setShowLoadCharacterModal,
-        showLoadPresetModal, setShowLoadPresetModal,
+        showReleaseNotesModal, setShowReleaseNotesModal,
+        showUploadModal,
+        showLoadCharacterModal,
+        showLoadPresetModal,
         setModalMsg,
         gridEigenschappen, setGridEigenschappen,
         gridSpreuken, setGridSpreuken,
@@ -141,6 +146,8 @@ export default function App() {
         setCharName("");
         setMAX_XP(15);
         setIsChecked(true);
+        setSelectedBasicSkill(null);
+        setSelectedExtraSkill(null);
     }
 
     // Verwijderen uit de tabel, updaten van grid
@@ -286,14 +293,10 @@ export default function App() {
         }
     }
 
-    const determineSortinSymbol = (isSorted) => { return isSorted ? ' \u25BC' : ' \u25B2' }
-
-    const closeModal = () => { setShowModal(false); };
-    const closeUploadModal = () => { setShowUploadModal(false); };
-    const closeFAQModal = () => { setShowFAQModal(false); };
-    const openFAQModal = () => { setShowFAQModal(true); };
-    const closeLoadCharacterModal = () => { setShowLoadCharacterModal(false); };
-    const closeLoadPresetModal = () => { setShowLoadPresetModal(false); };
+    const determineSortinSymbol = (isSorted) => { return isSorted ? ' \u25BC' : ' \u25B2'; }
+    const openFAQModal = () => { setShowFAQModal(true); }
+    const openReleaseNotesModal = () => { setShowReleaseNotesModal(true); }
+ 
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData }, useSortBy);
 
@@ -372,11 +375,12 @@ export default function App() {
                         </table>
                     </DragDropContext>
 
-                    {showModal && (<ModalMessage closeModal={closeModal} /> )}
-                    {showUploadModal && (<FileUploadModal closeModal={closeUploadModal} />)}
-                    {showFAQModal && (<FAQModal closeModal={closeFAQModal} />)}
-                    {showLoadCharacterModal && (<LoadCharacterModal closeModal={closeLoadCharacterModal} /> )}
-                    {showLoadPresetModal && (<LoadPresetModal closeModal={closeLoadPresetModal} />)}
+                    {showModal && (<ModalMessage /> )}
+                    {showUploadModal && (<FileUploadModal />)}
+                    {showFAQModal && (<FAQModal />)}
+                    {showReleaseNotesModal && (<ReleaseNotesModal />)}
+                    {showLoadCharacterModal && (<LoadCharacterModal /> )}
+                    {showLoadPresetModal && (<LoadPresetModal />)}
 
                 </div>
                 <div className="side-containers">
@@ -432,11 +436,11 @@ export default function App() {
             </main >
             <div className="flex-filler"></div>
             <footer>
-                <div>{version}</div>
+                <div className="release-notes" onClick={openReleaseNotesModal}><u>{version}</u></div>
                 <div>{creator}{'\u2122'}</div>
                 <div>
-                    <div className="disclaimer" onClick={showDisclaimer}>Disclaimer</div>
-                    <div className="faq" onClick={openFAQModal}>F.A.Q.</div>
+                    <div className="disclaimer" onClick={showDisclaimer}><u>Disclaimer</u></div>
+                    <div className="faq" onClick={openFAQModal}><u>F.A.Q.</u></div>
                 </div>
             </footer>
         </div >

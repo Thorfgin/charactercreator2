@@ -254,6 +254,8 @@ export default function Toolbar() {
         setCharName("");
         setMAX_XP(15);
         setIsChecked(true);
+        setSelectedBasicSkill(null);
+        setSelectedExtraSkill(null);
     }
 
 

@@ -1,17 +1,19 @@
-import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
 // Components
 import Collapsible from './Collapsible.jsx';
 
+// shared
+import { useSharedState } from '../SharedStateContext.jsx';
+
 // json
 import sourceFAQ from '../json/faq.json';
 
-FAQModal.propTypes = { closeModal: PropTypes.func.isRequired };
-
 // Toont een venster met daar in de meeste gestelde vragen.
 // Vragen zijn open/dicht te klappen
-export default function FAQModal({ closeModal }) {
+export default function FAQModal() {
+    const { setShowFAQModal } = useSharedState();
+    const closeModal = () => { setShowFAQModal(false); };
 
     return (
         <div className="modal-overlay">

@@ -72,6 +72,7 @@ export function SharedStateProvider({ children }) {
     const [modalMsg, setModalMsg] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [showFAQModal, setShowFAQModal] = useState(false);
+    const [showReleaseNotesModal, setShowReleaseNotesModal] = useState(false);
     const [showUploadModal, setShowUploadModal] = useState(false);
     const [showLoadCharacterModal, setShowLoadCharacterModal] = useState(false);
     const [showLoadPresetModal, setShowLoadPresetModal] = useState(false);
@@ -100,6 +101,7 @@ export function SharedStateProvider({ children }) {
         modalMsg, setModalMsg,
         showModal, setShowModal,
         showFAQModal, setShowFAQModal,
+        showReleaseNotesModal, setShowReleaseNotesModal,
         showUploadModal, setShowUploadModal,
         showLoadCharacterModal, setShowLoadCharacterModal,
         showLoadPresetModal, setShowLoadPresetModal,
@@ -127,6 +129,7 @@ export function SharedStateProvider({ children }) {
         modalMsg, setModalMsg,
         showModal, setShowModal,
         showFAQModal, setShowFAQModal,
+        showReleaseNotesModal, setShowReleaseNotesModal,
         showUploadModal, setShowUploadModal,
         showLoadCharacterModal, setShowLoadCharacterModal,
         showLoadPresetModal, setShowLoadPresetModal,

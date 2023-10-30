@@ -377,7 +377,7 @@ async function addSkillTableToPdf(pdf, tableData, posY) {
 }
 
 // Voeg een Afbeelding van een element via ID toe aan de pdf
-async function addImgElementToPDF(pdf, element, scaleX = 1, scaleY = 1, posX = 10, posY = 10) {
+async function addImgElementToPDF(pdf, element, width, height, scaleX = 1, scaleY = 1, posX = 10, posY = 10) {
     const input = document.getElementById(element);
     const canvas = await html2canvas(input);
     const imgData = canvas.toDataURL("image/png");
@@ -386,8 +386,8 @@ async function addImgElementToPDF(pdf, element, scaleX = 1, scaleY = 1, posX = 1
         const img = new Image();
         img.src = imgData;
         img.onload = function () {
-            const imgWidth = img.width * (0.25 * scaleX);
-            const imgHeight = img.height * (0.25 * scaleY);
+            const imgWidth = width * (0.25 * scaleX); // 350
+            const imgHeight = height * (0.25 * scaleY); // 625
 
             const pageWidth = pdf.internal.pageSize.getWidth();
             const pageHeight = pdf.internal.pageSize.getHeight();
@@ -515,7 +515,7 @@ export default async function useExportToPDF(charName, ruleset_version, tableDat
         `Aantal spreuken/technieken: ${gridSpreuken.length}`,
         `Aantal recepten: ${gridRecepten.length}`], 35, 110, false);
 
-    await addImgElementToPDF(pdf, "side-container-b", 1, 1, 105, 45);
+    await addImgElementToPDF(pdf, "side-container-b", 350, 625, 0.75, 0.75, 100, 45);
 
     // Page 3
     await addNewPage(pdf);
