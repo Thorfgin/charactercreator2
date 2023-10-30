@@ -26,7 +26,6 @@ export default function ReleaseNotesModal() {
                             <div className="header">
                                 <b>{`${date} release versie ${version}`}</b>
                             </div>
-                            <p>
                                 {Items.map(({ title, description }) => (
                                     <Collapsible
                                         key={uuidv4()}
@@ -35,7 +34,6 @@ export default function ReleaseNotesModal() {
                                         message={description}
                                     />
                                 ))}
-                            </p>
                             <div><br/></div>
                         </div>
                     ))}
