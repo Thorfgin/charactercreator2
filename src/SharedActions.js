@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 
 // Shared
 import {
+    sourceSpreuken,
+    sourceRecepten,
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
 } from './SharedObjects.js';
@@ -52,9 +54,20 @@ export function getExtraSkillsFromTable(tableData) {
 }
 
 /// --- SPELLS & RECIPE --- ///
-
-
-
+export function getSpellBySkillName(skillName, spellName) {
+    const sourceSkill = getSkillByName(skillName);
+    const sourceSpell = sourceSpreuken.find((item) =>
+        item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
+        item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
+    return sourceSpell.Spells.find((item) => item.spell.toLowerCase() === spellName.toLowerCase());
+}
+export function getRecipeBySkillName(skillName, recipeName) {
+    const sourceSkill = getSkillByName(skillName);
+    const skillFound = sourceRecepten.find((item) =>
+        item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
+        item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
+    return skillFound.Recipies.find((item) => item.recipy.toLowerCase() === recipeName.toLowerCase());
+}
 
 /// --- SELECT --- ///
 

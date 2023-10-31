@@ -2,7 +2,10 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Select from 'react-select';
 
 // Components
-import { SkillTooltip } from './Tooltip.jsx';
+import {
+    SkillTooltip,
+    CustomTooltip
+} from './Tooltip.jsx';
 import ConfirmModal from './ConfirmModal.jsx';
 
 // Functions
@@ -379,7 +382,7 @@ export default function Toolbar() {
                             <label name="xp_over_label">
                                 XP over:
                                 <input
-                                    className = { totalXP < 13 ? "xp_over_input" : null}
+                                    className = { isChecked && totalXP < 13 ? "xp_over_input" : null}
                                     id="xp_over_input"
                                     type="number"
                                     value={MAX_XP - totalXP}
@@ -388,6 +391,13 @@ export default function Toolbar() {
                                     disabled={true}
                                 />
                             </label>
+                            {(isChecked && totalXP < 13) ? (
+                                <CustomTooltip
+                                    header="Nieuw personage"
+                                    message="Nieuwe personages mogen niet meer dan 2 xp punten bewaren. \nXP boven de 2 punten die niet besteed wordt, zal verloren raken."
+                                    image={imageSrc[1]}
+                                />
+                            ) : null}
                         </div>
                     </div>
                 </div>

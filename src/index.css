@@ -185,6 +185,9 @@
     }
 
 .settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     padding: 2px;
 }
 
@@ -193,7 +196,7 @@
 }
 
 .settings-inputs input {
-    min-width: 60px;
+    min-width: 50px;
     max-width: 150px;
     width: 50px;
 }
@@ -621,6 +624,7 @@
     display: flex;
     align-items: center;
     height: 100%;
+    width: 20px;
     margin: 0;
     padding: 0;
     line-height: 24px;
