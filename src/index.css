@@ -188,6 +188,10 @@
     padding: 2px;
 }
 
+.xp_over_input {
+    color: red;
+}
+
 .settings-inputs input {
     min-width: 60px;
     max-width: 150px;

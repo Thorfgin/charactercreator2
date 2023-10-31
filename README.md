@@ -6,7 +6,6 @@
 	TODO:
 
 	MUST
-	- MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
 
 	SHOULD:
 	- UNITTEST: add unittests for presets.json and releasenotes.json
@@ -22,7 +21,9 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
-	202310??	VERSION: when clicking the version, show a modal with the release notes
+	202310??	VERSION: when clicking the version, show a modal with the release notes.
+			MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
+			FRAMEWORK: Reworked the Tooltips to be less convoluted and more maintainable
 			FIX: minor bug in Presets, causing a single preset not to load.
 			FIX: faulty scaling based of the image Character Eigenschappen based on current screen dimensions
 			FIX: Adding a Skill to the Select, than loading a preset (or save) does not clear Select.

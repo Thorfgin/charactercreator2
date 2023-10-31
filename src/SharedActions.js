@@ -1,8 +1,60 @@
+import PropTypes from 'prop-types';
+
 // Shared
 import {
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
 } from './SharedObjects.js';
+
+
+/// --- SKILLS --- ///
+
+getSkillByName.propTypes = { skillName: PropTypes.string.isRequired };
+
+// Ophalen van een vaardigheid op naam
+export function getSkillByName(skillName) {
+    let sourceSkill = null;
+    sourceSkill = sourceBasisVaardigheden.find((item) =>
+        item.skill.toLowerCase() === skillName.toLowerCase());
+    if (!sourceSkill || sourceSkill === null) {
+        sourceSkill = sourceExtraVaardigheden.find((item) =>
+            item.skill.toLowerCase() === skillName.toLowerCase());
+    }
+    return sourceSkill;
+}
+
+// Ophalen van een vaardigheid op id
+export function getSkillById(id) {
+    let sourceSkill = null;
+    sourceSkill = sourceBasisVaardigheden.find((record) => record.id === id);
+    if (!sourceSkill) { sourceSkill = sourceExtraVaardigheden.find((record) => record.id === id); }
+    return sourceSkill;
+}
+
+// Ophalen van alle vaardigheden uit de basis vaardigheden die aanwezig zijn in de tabel
+export function getBasicSkillsFromTable(tableData) {
+    const basicSkills = []
+    for (const tableSkill of tableData) {
+        const isBasicSkill = sourceBasisVaardigheden.some((record) => record.skill.toLowerCase() === tableSkill.skill.toLowerCase());
+        if (isBasicSkill) { basicSkills.push(tableSkill.skill); }
+    }
+    return basicSkills;
+}
+
+// Ophalen van alle vaardigheden uit de extra vaardigheden die aanwezig zijn in de tabel
+export function getExtraSkillsFromTable(tableData) {
+    const extraSkills = []
+    for (const tableSkill of tableData) {
+        const isExtraSkill = sourceExtraVaardigheden.some((record) => record.skill.toLowerCase() === tableSkill.skill.toLowerCase());
+        if (isExtraSkill) { extraSkills.push(tableSkill.skill); }
+    }
+    return extraSkills;
+}
+
+/// --- SPELLS & RECIPE --- ///
+
+
+
 
 /// --- SELECT --- ///
 
@@ -245,26 +297,6 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
     return isPrerequisite;
 }
 
-// Ophalen van alle vaardigheden uit de basis vaardigheden die aanwezig zijn in de tabel
-export function getBasicSkillsFromTable(tableData) {
-    const basicSkills = []
-    for (const tableSkill of tableData) {
-        const isBasicSkill = sourceBasisVaardigheden.some((record) => record.skill.toLowerCase() === tableSkill.skill.toLowerCase());
-        if (isBasicSkill) { basicSkills.push(tableSkill.skill); }
-    }
-    return basicSkills;
-}
-
-// Ophalen van alle vaardigheden uit de extra vaardigheden die aanwezig zijn in de tabel
-export function getExtraSkillsFromTable(tableData) {
-    const extraSkills = []
-    for (const tableSkill of tableData) {
-        const isExtraSkill = sourceExtraVaardigheden.some((record) => record.skill.toLowerCase() === tableSkill.skill.toLowerCase());
-        if (isExtraSkill) { extraSkills.push(tableSkill.skill); }
-    }
-    return extraSkills;
-}
-
 // Check of de skill niet een prequisite is uit de Any_Skill
 function verifyRemovedSkillIsNotSkillPrerequisite(reqSkills, currentSkill, nameSkillToRemove, isRemoved) {
     let isPrerequisite = false;
@@ -370,6 +402,8 @@ function verifyRemovedSkillIsNotARitualismPrerequisite(nameSkillToRemove, tableD
     return isPrerequisite;
 }
 
+/// --- TILES --- ///
+
 // Op basis van de Eigenschappen, voeg nieuwe tegels toe.
 export function updateGridEigenschappenTiles(tableData, defaultProperties) {
     const propertySums = defaultProperties.map((property) => (
@@ -443,6 +477,8 @@ export function updateGridReceptenTiles(tableData) {
     }, []);
     return recipyProperties;
 }
+
+/// --- PDF --- ///
 
 // Open het vaardigheden boekje op de juiste pagina
 export function openPdfPage(pdfName, pageNumber) {
