@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useSharedState } from './SharedStateContext.jsx';
 import { saveCharacterToStorage } from './SharedStorage.js';
 import {
+    getSkillById,
     isSkillAPrerequisiteToAnotherSkill,
     updateGridEigenschappenTiles,
     updateGridSpreukenTiles,
@@ -25,11 +26,14 @@ import {
 } from './SharedObjects.js';
 
 // Components
+import {
+    SpellTile,
+    RecipeTile
+} from './components/GridTileItem.jsx';
 import FAQModal from './components/FaqModal.jsx'
 import FileUploadModal from './components/FileUploadModal.jsx'
-import GenericTooltipItem from './components/GenericTooltipItem.jsx';
 import GridEigenschapItem from './components/GridEigenschapItem.jsx';
-import InfoTooltip from './components/InfoTooltip.jsx';
+import { InfoTooltip } from './components/Tooltip.jsx';
 import LoadCharacterModal from './components/LoadCharacterModal.jsx'
 import LoadPresetModal from './components/LoadPresetModal.jsx'
 import LoreSheet from './components/LoreSheet.jsx';
@@ -220,9 +224,7 @@ export default function App() {
 
     // Plaats Acties in de kolom op basis van de multipurchase property
     function requestActions(row) {
-        let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
-        if (!currentItem) { currentItem = sourceExtraVaardigheden.find((record) => record.id === row.original.id); }
-
+        const currentItem = getSkillById(row.original.id);
         if (currentItem && currentItem.multi_purchase === true) {
             return (
                 <div className="acties">
@@ -272,11 +274,9 @@ export default function App() {
     // TableData aanpassen op basis van Drag & Drop
     const handleDragEnd = (result) => {
         if (!result.destination) return;
-
         const updatedTableData = [...tableData];
         const [reorderedRow] = updatedTableData.splice(result.source.index, 1);
         updatedTableData.splice(result.destination.index, 0, reorderedRow);
-
         setTableData(updatedTableData);
     };
 
@@ -296,7 +296,7 @@ export default function App() {
     const determineSortinSymbol = (isSorted) => { return isSorted ? ' \u25BC' : ' \u25B2'; }
     const openFAQModal = () => { setShowFAQModal(true); }
     const openReleaseNotesModal = () => { setShowReleaseNotesModal(true); }
- 
+
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData }, useSortBy);
 
@@ -375,11 +375,11 @@ export default function App() {
                         </table>
                     </DragDropContext>
 
-                    {showModal && (<ModalMessage /> )}
+                    {showModal && (<ModalMessage />)}
                     {showUploadModal && (<FileUploadModal />)}
                     {showFAQModal && (<FAQModal />)}
                     {showReleaseNotesModal && (<ReleaseNotesModal />)}
-                    {showLoadCharacterModal && (<LoadCharacterModal /> )}
+                    {showLoadCharacterModal && (<LoadCharacterModal />)}
                     {showLoadPresetModal && (<LoadPresetModal />)}
 
                 </div>
@@ -406,13 +406,11 @@ export default function App() {
                         </div>
                         <div className="grid-spreuken">
                             {gridSpreuken?.map((item) => (
-                                <GenericTooltipItem
-                                    skill={item.skill}
-                                    name={item.name}
-                                    type={"grid-spreuken"}
-                                    page={item.page}
+                                <SpellTile
                                     key={uuidv4()}
-                                    text={item.name}
+                                    skillName={item.skill}
+                                    spellName={item.name}
+                                    page={item.page}
                                 />
                             ))}
                         </div>
@@ -422,12 +420,10 @@ export default function App() {
                         </div>
                         <div className="grid-recepten">
                             {gridRecepten.map((item) => (
-                                <GenericTooltipItem
-                                    skill={item.skill}
-                                    name={item.name}
-                                    type={"grid-recepten"}
+                                <RecipeTile
                                     key={uuidv4()}
-                                    text={item.name}
+                                    skillName={item.skill}
+                                    recipeName={item.name}
                                 />
                             ))}
                         </div>

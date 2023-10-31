@@ -2,7 +2,10 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Select from 'react-select';
 
 // Components
-import Tooltip from './Tooltip.jsx';
+import {
+    SkillTooltip,
+    CustomTooltip
+} from './Tooltip.jsx';
 import ConfirmModal from './ConfirmModal.jsx';
 
 // Functions
@@ -148,18 +151,14 @@ export default function Toolbar() {
             btnRef.current.disabled = false;
         }
 
-        if (isBasicSkill) {
-            setCurrentBasicImageIndex(0);
-        }
-        else {
-            setCurrentExtraImageIndex(0);
-        }
+        if (isBasicSkill) { setCurrentBasicImageIndex(0); }
+        else { setCurrentExtraImageIndex(0); }
+
     }, [tableData, btnAddBasicRef, btnAddExtraRef]);
 
     // Declare Use-effects
     useEffect(() => { onSelectSkill(true, selectedBasicSkill); }, [onSelectSkill, selectedBasicSkill]);
     useEffect(() => { onSelectSkill(false, selectedExtraSkill); }, [onSelectSkill, selectedExtraSkill]);
-
 
     // Voeg de geselecteerde Basis vaardigheid toe aan de tabel
     function handleBasicSkillSelection() {
@@ -383,6 +382,7 @@ export default function Toolbar() {
                             <label name="xp_over_label">
                                 XP over:
                                 <input
+                                    className = { isChecked && totalXP < 13 ? "xp_over_input" : null}
                                     id="xp_over_input"
                                     type="number"
                                     value={MAX_XP - totalXP}
@@ -391,6 +391,13 @@ export default function Toolbar() {
                                     disabled={true}
                                 />
                             </label>
+                            {(isChecked && totalXP < 13) ? (
+                                <CustomTooltip
+                                    header="Nieuw personage"
+                                    message="Nieuwe personages mogen niet meer dan 2 xp punten bewaren. \nXP boven de 2 punten die niet besteed wordt, zal verloren raken."
+                                    image={imageSrc[1]}
+                                />
+                            ) : null}
                         </div>
                     </div>
                 </div>
@@ -441,11 +448,8 @@ export default function Toolbar() {
                 {   // Conditionele tooltip
                     selectedBasicSkill &&
                     <div className="select-info">
-                        <Tooltip
+                            <SkillTooltip
                             skillName={selectedBasicSkill.value}
-                            isSpell={false}
-                            isRecipe={false}
-                            isSkill={true}
                             image={imageSrc[currentBasicImageIndex]}
                         />
                     </div>
@@ -480,13 +484,10 @@ export default function Toolbar() {
                             selectedExtraSkill &&
                             selectedExtraSkill.value !== "" &&
                             <div className="select-info">
-                                <Tooltip
+                                <SkillTooltip
                                     skillName={selectedExtraSkill.value}
-                                    isSpell={false}
-                                    isRecipe={false}
-                                    isSkill={true}
                                     image={imageSrc[currentExtraImageIndex]}
-                                />
+                                    />
                             </div>
                         }
 

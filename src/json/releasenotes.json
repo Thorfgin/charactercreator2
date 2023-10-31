@@ -13,6 +13,10 @@
           "title": "Looks/Feels: Checkbox 'Nieuw personage' aan/uitvinken wist niet altijd meer het grid."
         },
         {
+          "description": "Wanneer de checkbox nieuw personage aan staat, mag er niet meer dan 2 xp overblijven. Dit wordt kenbaar gemaakt met een rode tekst en info button.",
+          "title": "Looks/Feels: Beginnend personage mag niet meer dan 2 xp overhouden"
+        },
+        {
           "description": "Exporteer naar PDF bevat een afbeelding van character eigenschappen  Deze afbeelding werd niet juist geschaald bij export vanaf een mobiel.",
           "title": "Bugfix: Exporteer naar Pdf afbeelding schaalt niet bij export vanaf een mobiel"
         },
