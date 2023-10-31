@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useSharedState } from './SharedStateContext.jsx';
 import { saveCharacterToStorage } from './SharedStorage.js';
 import {
+    getSkillById,
     isSkillAPrerequisiteToAnotherSkill,
     updateGridEigenschappenTiles,
     updateGridSpreukenTiles,
@@ -25,15 +26,19 @@ import {
 } from './SharedObjects.js';
 
 // Components
+import {
+    SpellTile,
+    RecipeTile
+} from './components/GridTileItem.jsx';
 import FAQModal from './components/FaqModal.jsx'
 import FileUploadModal from './components/FileUploadModal.jsx'
-import GenericTooltipItem from './components/GenericTooltipItem.jsx';
 import GridEigenschapItem from './components/GridEigenschapItem.jsx';
-import InfoTooltip from './components/InfoTooltip.jsx';
+import { InfoTooltip } from './components/Tooltip.jsx';
 import LoadCharacterModal from './components/LoadCharacterModal.jsx'
 import LoadPresetModal from './components/LoadPresetModal.jsx'
 import LoreSheet from './components/LoreSheet.jsx';
 import ModalMessage from './components/ModalMessage.jsx'
+import ReleaseNotesModal from './components/ReleaseNotesModal.jsx'
 import Toolbar from './components/Toolbar.jsx';
 
 // Tabel Vaardigheden
@@ -59,11 +64,15 @@ export default function App() {
         isChecked, setIsChecked,
         MAX_XP, setMAX_XP,
         charName, setCharName,
+        setSelectedBasicSkill,
+        setSelectedExtraSkill,
+
         showModal, setShowModal,
         showFAQModal, setShowFAQModal,
-        showUploadModal, setShowUploadModal,
-        showLoadCharacterModal, setShowLoadCharacterModal,
-        showLoadPresetModal, setShowLoadPresetModal,
+        showReleaseNotesModal, setShowReleaseNotesModal,
+        showUploadModal,
+        showLoadCharacterModal,
+        showLoadPresetModal,
         setModalMsg,
         gridEigenschappen, setGridEigenschappen,
         gridSpreuken, setGridSpreuken,
@@ -141,6 +150,8 @@ export default function App() {
         setCharName("");
         setMAX_XP(15);
         setIsChecked(true);
+        setSelectedBasicSkill(null);
+        setSelectedExtraSkill(null);
     }
 
     // Verwijderen uit de tabel, updaten van grid
@@ -213,9 +224,7 @@ export default function App() {
 
     // Plaats Acties in de kolom op basis van de multipurchase property
     function requestActions(row) {
-        let currentItem = sourceBasisVaardigheden.find((record) => record.id === row.original.id);
-        if (!currentItem) { currentItem = sourceExtraVaardigheden.find((record) => record.id === row.original.id); }
-
+        const currentItem = getSkillById(row.original.id);
         if (currentItem && currentItem.multi_purchase === true) {
             return (
                 <div className="acties">
@@ -265,19 +274,17 @@ export default function App() {
     // TableData aanpassen op basis van Drag & Drop
     const handleDragEnd = (result) => {
         if (!result.destination) return;
-
         const updatedTableData = [...tableData];
         const [reorderedRow] = updatedTableData.splice(result.source.index, 1);
         updatedTableData.splice(result.destination.index, 0, reorderedRow);
-
         setTableData(updatedTableData);
     };
 
     function showDisclaimer() {
         if (showModal !== true) {
             setModalMsg(
-                "De character creator geeft een indicatie van de mogelijkheden.\n " +
-                "Er kunnen altijd afwijkingen zitten tussen de teksten\n" +
+                "De character creator geeft een indicatie van de mogelijkheden. " +
+                "Er kunnen altijd afwijkingen zitten tussen de teksten " +
                 "in de character creator en de VA regelset.\n\n" +
                 "Check altijd de laatste versie van de regelset op:\n" +
                 "https://the-vortex.nl/het-spel/regels/" +
@@ -286,14 +293,10 @@ export default function App() {
         }
     }
 
-    const determineSortinSymbol = (isSorted) => { return isSorted ? ' \u25BC' : ' \u25B2' }
+    const determineSortinSymbol = (isSorted) => { return isSorted ? ' \u25BC' : ' \u25B2'; }
+    const openFAQModal = () => { setShowFAQModal(true); }
+    const openReleaseNotesModal = () => { setShowReleaseNotesModal(true); }
 
-    const closeModal = () => { setShowModal(false); };
-    const closeUploadModal = () => { setShowUploadModal(false); };
-    const closeFAQModal = () => { setShowFAQModal(false); };
-    const openFAQModal = () => { setShowFAQModal(true); };
-    const closeLoadCharacterModal = () => { setShowLoadCharacterModal(false); };
-    const closeLoadPresetModal = () => { setShowLoadPresetModal(false); };
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: tableData }, useSortBy);
 
@@ -372,11 +375,12 @@ export default function App() {
                         </table>
                     </DragDropContext>
 
-                    {showModal && (<ModalMessage closeModal={closeModal} /> )}
-                    {showUploadModal && (<FileUploadModal closeModal={closeUploadModal} />)}
-                    {showFAQModal && (<FAQModal closeModal={closeFAQModal} />)}
-                    {showLoadCharacterModal && (<LoadCharacterModal closeModal={closeLoadCharacterModal} /> )}
-                    {showLoadPresetModal && (<LoadPresetModal closeModal={closeLoadPresetModal} />)}
+                    {showModal && (<ModalMessage />)}
+                    {showUploadModal && (<FileUploadModal />)}
+                    {showFAQModal && (<FAQModal />)}
+                    {showReleaseNotesModal && (<ReleaseNotesModal />)}
+                    {showLoadCharacterModal && (<LoadCharacterModal />)}
+                    {showLoadPresetModal && (<LoadPresetModal />)}
 
                 </div>
                 <div className="side-containers">
@@ -402,13 +406,11 @@ export default function App() {
                         </div>
                         <div className="grid-spreuken">
                             {gridSpreuken?.map((item) => (
-                                <GenericTooltipItem
-                                    skill={item.skill}
-                                    name={item.name}
-                                    type={"grid-spreuken"}
-                                    page={item.page}
+                                <SpellTile
                                     key={uuidv4()}
-                                    text={item.name}
+                                    skillName={item.skill}
+                                    spellName={item.name}
+                                    page={item.page}
                                 />
                             ))}
                         </div>
@@ -418,12 +420,10 @@ export default function App() {
                         </div>
                         <div className="grid-recepten">
                             {gridRecepten.map((item) => (
-                                <GenericTooltipItem
-                                    skill={item.skill}
-                                    name={item.name}
-                                    type={"grid-recepten"}
+                                <RecipeTile
                                     key={uuidv4()}
-                                    text={item.name}
+                                    skillName={item.skill}
+                                    recipeName={item.name}
                                 />
                             ))}
                         </div>
@@ -432,11 +432,11 @@ export default function App() {
             </main >
             <div className="flex-filler"></div>
             <footer>
-                <div>{version}</div>
+                <div className="release-notes" onClick={openReleaseNotesModal}><u>{version}</u></div>
                 <div>{creator}{'\u2122'}</div>
                 <div>
-                    <div className="disclaimer" onClick={showDisclaimer}>Disclaimer</div>
-                    <div className="faq" onClick={openFAQModal}>F.A.Q.</div>
+                    <div className="disclaimer" onClick={showDisclaimer}><u>Disclaimer</u></div>
+                    <div className="faq" onClick={openFAQModal}><u>F.A.Q.</u></div>
                 </div>
             </footer>
         </div >

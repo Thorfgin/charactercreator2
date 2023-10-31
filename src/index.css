@@ -133,7 +133,7 @@
             box-sizing: border-box;
         }
 
-.disclaimer, .faq {
+.disclaimer, .faq, .release-notes {
     cursor: pointer;
 }
 
@@ -185,11 +185,18 @@
     }
 
 .settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     padding: 2px;
 }
 
+.xp_over_input {
+    color: red;
+}
+
 .settings-inputs input {
-    min-width: 60px;
+    min-width: 50px;
     max-width: 150px;
     width: 50px;
 }
@@ -556,7 +563,8 @@
 
 
 .upload-modal,
-.faq-modal {
+.faq-modal,
+.releasenotes-modal {
     background-color: white;
     text-align: center;
     min-width: 20%;
@@ -567,14 +575,18 @@
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.faq-modal {
+.faq-modal, .releasenotes-modal {
     min-width: 600px;
+    max-height: 600px;
     width: 40%;
     max-width: 40%;
 }
 
-.faq-modal-block {
+.faq-modal-block, .release-notes-block {
     text-align: left;
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .upload-modal-block {
@@ -612,6 +624,7 @@
     display: flex;
     align-items: center;
     height: 100%;
+    width: 20px;
     margin: 0;
     padding: 0;
     line-height: 24px;

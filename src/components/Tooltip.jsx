@@ -4,41 +4,214 @@ import { v4 as uuidv4 } from 'uuid';
 
 // shared
 import {
-    sourceBasisVaardigheden,
-    sourceExtraVaardigheden,
-    sourceSpreuken,
-    sourceRecepten
-} from '../SharedObjects.js';
+    openPdfPage,
+    getSkillById,
+    getSkillByName,
+    getSpellBySkillName,
+    getRecipeBySkillName
+} from '../SharedActions.js'
 
-Tooltip.propTypes = {
-    skillName: PropTypes.any,
-    itemName: PropTypes.any,
-    isSpell: PropTypes.bool.isRequired,
-    isRecipe: PropTypes.bool.isRequired,
-    isSkill: PropTypes.bool.isRequired,
+
+// Converteer teksten naar tekstblokken.
+const getBlock = (text, className) => {
+    if (!text) { return <div key={uuidv4()} className={className || 'error'}> </div> }
+    let descriptionBlock = text.split('\\n');
+    const description = descriptionBlock.map((block) => (
+        <div key={uuidv4()} className={className}> {block === '' ? <br /> : block} </div>
+    ))
+    return description;
+}
+
+// Map items uit een block
+const getMapping = (tooltipData) => {
+    return tooltipData.map((item) => {
+        const uniqueKey = uuidv4();
+        const label = item.label;
+        const value = item.value;
+
+        return (
+            <tr key={uniqueKey}>
+                <td className="tooltip-property">{label}:</td>
+                <td className="tooltip-value">{value}</td>
+            </tr>
+        );
+    })
+}
+
+InfoTooltip.propTypes = { row: PropTypes.any.isRequired };
+
+// Plaats Info in de kolom
+export function InfoTooltip({ row }) {
+    let currentItem = getSkillById(row.original.id);
+
+    return (
+        <div className="info">
+            <div className="acties-info">
+                <SkillTooltip skillName={currentItem.skill} />
+                <img
+                    className="btn-image"
+                    title={"Open Vaardigheden.pdf - pagina " + currentItem.page}
+                    onClick={() => openPdfPage('Vaardigheden.pdf', currentItem.page)}
+                    src="./images/img-pdf.png"
+                    alt="PDF">
+                </img>
+            </div>
+        </div>
+    )
+}
+
+SkillTooltip.propTypes = {
+    skillName: PropTypes.string.isRequired,
+    image: PropTypes.string
+};
+
+export function SkillTooltip({ skillName, image = './images/img-info.png' }) {
+
+    const sourceSkill = getSkillByName(skillName);
+    let fullRequirementsBlock = "";
+
+    function formatList(items) { return items.join(', \n'); }
+
+    // Check skills
+    const reqSkills = sourceSkill.Requirements.skill;
+    if (reqSkills.length > 0) { fullRequirementsBlock += formatList(reqSkills) + "\n"; }
+
+    // Exception - "Leermeester Expertise"
+    if (sourceSkill.skill === "Leermeester Expertise") { fullRequirementsBlock += "1 Extra vaardigheid\n"; }
+
+    // Check any_list
+    const reqAny = sourceSkill.Requirements.any_list;
+    if (reqAny.length > 0) { fullRequirementsBlock += `Een van de volgende: \n${formatList(reqAny)}\n`; }
+
+    // Check category
+    const reqCategory = sourceSkill.Requirements.Category;
+    if (reqCategory && reqCategory.name.length > 0) {
+        fullRequirementsBlock += `${reqCategory.value} xp in de volgende categorie(n): \n${formatList(reqCategory.name)}\n`;
+    }
+
+    const tooltipData = [
+        { label: 'XP kosten', value: sourceSkill.xp },
+        { label: 'Vereisten', value: getBlock(fullRequirementsBlock, "requirements-block") },
+        { label: 'Omschrijving', value: getBlock(sourceSkill.description, "description-block") },
+    ];
+
+    const tooltipItems = getMapping(tooltipData);
+
+    return GenericTooltip({
+        header: `Vaardigheid: ${sourceSkill?.skill || null}`,
+        message: tooltipItems || null,
+        image: image
+    });
+}
+
+SpellTooltip.propTypes = {
+    skillName: PropTypes.string.isRequired,
+    spellName: PropTypes.string.isRequired,
+    page: PropTypes.number.isRequired,
+    image: PropTypes.string
+};
+
+export function SpellTooltip({ skillName, spellName, page, image = './images/img-info.png' }) {
+
+    const sourceSkill = getSkillByName(skillName);
+    const sourceSpell = getSpellBySkillName(skillName, spellName);
+    const description = getBlock(sourceSpell.description, "description-block");
+
+    const tooltipData = [
+        { label: 'Mana kosten', value: sourceSpell?.mana_cost || null },
+        { label: 'Incantatie', value: sourceSpell?.incantation || null },
+        { label: 'Omschrijving', value: description || 'Spreuk/Techniek informatie kon niet gevonden worden.' },
+        { label: 'Effect', value: sourceSpell?.spell_effect || null },
+        { label: 'Duur', value: sourceSpell?.spell_duration || null },
+    ];
+
+    const tooltipItems = getMapping(tooltipData);
+
+    return (
+        <div className="grid-spreuk-icons">
+            <GenericTooltip
+                header={`Vaardigheid: ${sourceSkill.skill}`}
+                subheader={`Spreuk/Techniek: ${spellName}`}
+                message={tooltipItems || ''}
+                image={image}
+            />
+
+            <img
+                className="btn-image"
+                title={"Open Spreuken.pdf - pagina " + page}
+                onClick={() => openPdfPage('Spreuken.pdf', page)}
+                src="./images/img-pdf.png"
+                alt="PDF">
+            </img>
+        </div>
+    )
+}
+
+RecipeTooltip.propTypes = {
+    skillName: PropTypes.string.isRequired,
+    recipeName: PropTypes.string.isRequired,
+    image: PropTypes.string
+};
+
+export function RecipeTooltip({ skillName, recipeName, image = './images/img-info.png' }) {
+
+    const sourceSkill = getSkillByName(skillName);
+    const sourceRecipe = getRecipeBySkillName(skillName, recipeName);
+    const description = getBlock(sourceRecipe?.effect, "description-block");
+
+    const tooltipData = [
+        { label: 'Omschrijving', value: description || 'Recept informatie kon niet gevonden worden.' },
+        { label: 'Inspiratie kosten', value: sourceRecipe?.inspiration || null },
+        { label: 'Benodigdheden', value: sourceRecipe?.components || null },
+    ];
+
+    const tooltipItems = getMapping(tooltipData);
+
+    return (
+        <div className="grid-spreuk-icons">
+            <GenericTooltip
+                header={`Vaardigheid: ${sourceSkill.skill}`}
+                subheader={`Recept: ${recipeName}`}
+                message={tooltipItems || ''}
+                image={image}
+            />
+        </div>
+    )
+}
+
+CustomTooltip.propTypes = {
+    header: PropTypes.any,
+    subheader: PropTypes.any,
+    message: PropTypes.any,
     image: PropTypes.any,
 };
 
-// Tooltip component voor GridItems
-// Gebruikt OF skillName OF de combinatioe van skillName/itemName (spell/technique/recipy e.d.)
-export default function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkill, image }) {
+export function CustomTooltip({ header, subheader=undefined, message, image = './images/img-info.png' }) {
+
+    return (
+        <div className="grid-spreuk-icons">
+            <GenericTooltip
+                header={header}
+                subheader={subheader}
+                message={getBlock(message, "description-block") || ''}
+                image={image}
+            />
+        </div>
+    )
+}
+
+
+GenericTooltip.propTypes = {
+    header: PropTypes.any,
+    subheader: PropTypes.any,
+    message: PropTypes.any,
+    image: PropTypes.any,
+};
+
+function GenericTooltip({ header, subheader = undefined, message, image = './images/img-info.png' }) {
     const [showTooltip, setShowTooltip] = useState(false);
     const handleMouseOver = () => setShowTooltip(true);
     const closeTooltip = () => setShowTooltip(false);
-
-    // ophalen Skill & Spreuk of Recept data uit bronbestand
-    let sourceSkill = sourceBasisVaardigheden.find((item) =>
-        item.skill.toLowerCase() === skillName.toLowerCase());
-    if (!sourceSkill) {
-        sourceSkill = sourceExtraVaardigheden.find((item) =>
-            item.skill.toLowerCase() === skillName.toLowerCase());
-    }
-    if (!sourceSkill) { return null; } // Exit early.
-
-    let data = getData(isSpell, sourceSkill, itemName, isRecipe, isSkill, skillName);   
-    if (!image) { image = './images/img-info.png' }
-
-    const verifyIsRecipe = (isRecipe) => { return isRecipe ? <h5>Recept: {itemName}</h5> : null }
 
     return (
         <div className="tooltip-container" onMouseEnter={handleMouseOver}>
@@ -50,11 +223,11 @@ export default function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkil
             {showTooltip && (
                 <div className="tooltip-overlay">
                     <div className="tooltip" onClick={closeTooltip}>
-                        <h5>Vaardigheid: {skillName}</h5>
-                        {isSpell ? <h5>Spreuk/Techniek: {itemName}</h5> : verifyIsRecipe(isRecipe)}
+                        <h5>{header}</h5>
+                        {subheader ? <h5>{subheader}</h5> : null}
                         <table className="tooltip-table">
                             <tbody>
-                                {getMappingFromData(data, isSkill, isSpell, isRecipe)}
+                                {message}
                             </tbody>
                         </table>
                     </div>
@@ -62,150 +235,4 @@ export default function Tooltip({ skillName, itemName, isSpell, isRecipe, isSkil
             )}
         </div>
     );
-}
-
-// Data ophalen uit basisvaardigheden, spreuken of recepten
-function getData(isSpell, sourceSkill, itemName, isRecipe, isSkill, skillName) {
-    let data = {};
-
-    // Data kiezen voor spreuk, recept of vaardigheid
-    // Tooltip spreuk
-    if (isSpell === true) {
-        const skillFound = sourceSpreuken.find((item) =>
-            item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
-            item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
-
-        data = skillFound.Spells.find((item) => item.spell.toLowerCase() === itemName.toLowerCase());
-        if (!data || Object.keys(data).length === 0) {
-            data = {
-                name: itemName || '',
-                description: 'Spreuk/Techniek informatie kon niet gevonden worden.'
-            };
-        }
-    }
-
-    // Tooltip recept
-    else if (isRecipe === true) {
-        const skillFound = sourceRecepten.find((item) =>
-            item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
-            item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
-
-        data = skillFound.Recipies.find((item) =>
-            item.recipy.toLowerCase() === itemName.toLowerCase());
-        data = Object.keys(data).length > 0 ? data : {
-            recipy: itemName || '',
-            effect: 'Recept informatie kon niet gevonden worden.'
-        };
-    }
-
-    // Tooltip vaardigheid
-    else if (isSkill === true) {
-        let fullRequirementsBlock = "";
-
-        // check skills
-        let newRequirements = "";
-        const reqSkills = sourceSkill.Requirements.skill;
-        if (reqSkills.length > 0) {
-            reqSkills.forEach((item) => newRequirements += (newRequirements === "" ? item : ", \n" + item))
-            fullRequirementsBlock += newRequirements + "\n";
-        }
-        // uitzondering - deze staat niet in de vaardigheden.json
-        if (sourceSkill.skill === "Leermeester Expertise") { fullRequirementsBlock += "1 Extra vaardigheid"; }
-
-        // check any_list
-        let newAnyRequirements = "";
-        const reqAny = sourceSkill.Requirements.any_list;
-        if (reqAny.length > 0) {
-            reqAny.forEach((item) => newAnyRequirements += (newAnyRequirements === "" ? item : ", \n" + item))
-            newAnyRequirements = "Een van de volgende: \n" + newAnyRequirements;
-            fullRequirementsBlock += newAnyRequirements + "\n";
-        }
-
-
-        let newCategoryRequirements = "";
-        const reqCategory = sourceSkill.Requirements.Category;
-        if (reqCategory && reqCategory.name.length > 0) {
-            reqCategory.name.forEach((item) => newCategoryRequirements += (newCategoryRequirements === "" ? item : ", \n" + item))
-            newCategoryRequirements = "" + reqCategory.value + " xp in de volgende categorie(n): \n" + newCategoryRequirements;
-            fullRequirementsBlock += newCategoryRequirements + "\n";
-        }
-
-        data = {
-            xp: sourceSkill.xp,
-            requirements: fullRequirementsBlock,
-            description: sourceSkill.description
-        };
-    }
-    else {
-        console.warn("This item should have been found: ", skillName, "isSpell: ", isSpell, "isSkill: ", isSkill, "Data: ", sourceSkill);
-    }
-    return data;
-}
-
-// Data verwerken tot een Tooltip definitie voor basisvaardigheid, spreuk of recept
-function getMappingFromData(data, isSkill, isSpell, isRecipe) {
-    if (!data || Object.keys(data).length === 0 ) { return; }
-
-    if (isSkill === true) {
-        let descriptionBlock = data.description.split('\n');
-        const description = descriptionBlock.map((block) => (
-            <div key={uuidv4()} className="description-block"> {block === '' ? <br /> : block} </div>
-        ))
-
-        let reqBlock = data.requirements.split('\n');
-        const requirements = reqBlock.map((block) => (
-            <div key={uuidv4()} className="requirements-block"> {block === '' ? <br /> : block} </div>
-        ))
-
-        return [
-            { label: 'XP kosten', value: data.xp },
-            { label: 'Vereisten', value: requirements },
-            { label: 'Omschrijving', value: description },
-        ].map((item) => (
-            <tr key={uuidv4()}>
-                <td className="tooltip-property">{item.label}:</td>
-                <td className="tooltip-value"> {item.value}
-                </td>
-            </tr>
-        ));
-    }
-    else if (isSpell === true) {
-        let descriptionBlock = data.description.split('\n');
-        const description = descriptionBlock.map((block) => (
-            <div key={uuidv4()} className="description-block"> {block === '' ? <br /> : block} </div>
-        ))
-
-        return [
-            { label: 'Mana kosten', value: data.mana_cost },
-            { label: 'Incantatie', value: data.incantation },
-            { label: 'Omschrijving', value: description },
-            { label: 'Effect', value: data.spell_effect },
-            { label: 'Duur', value: data.spell_duration },
-        ].map((item) => (
-            <tr key={uuidv4()}>
-                <td className="tooltip-property">{item.label}:</td>
-                <td className="tooltip-value">{item.value}</td>
-            </tr>
-        ));
-    }
-    else if (isRecipe === true) {
-        let descriptionBlock = data.effect.split('\n');
-        const description = descriptionBlock.map((block) => (
-            <div key={uuidv4()} className="description-block"> {block === '' ? <br /> : block} </div>
-        ))
-
-        return [
-            { label: 'Omschrijving', value: description },
-            { label: 'Inspiratie kosten', value: data.inspiration },
-            { label: 'Benodigdheden', value: data.components },
-        ].map((item) => (
-            <tr key={uuidv4()}>
-                <td className="tooltip-property">{item.label}:</td>
-                <td className="tooltip-value">{item.value}</td>
-            </tr>
-        ));
-    }
-    else {
-        console.warn("Expected either isSkill, isSpell or isRecipy to be true, but found none")
-    }
 }

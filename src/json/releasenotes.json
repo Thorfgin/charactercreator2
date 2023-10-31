@@ -1,0 +1,67 @@
+{
+  "ReleaseNotes": [
+    {
+      "date": "30-10-2023",
+      "version": "v0.5.2",
+      "Items": [
+        {
+          "description": "Door op de versie te klikken wordt de release informatie zichtbaar. Release informatie wordt automatisch getoond bij een update wanneer de checkbox 'automatisch release informatie tonen' aangevinkt is.",
+          "title": "Feature: Release informatie zichtbaar voor gebruikers"
+        },
+        {
+          "description": "Wanneer de checkbox uitgevinkt wordt, blijft de invoer behouden. Alleen bij inschakelen wordt alles gewist wanneer er een of meerdere extra vaardigheden aanwezig zijn.",
+          "title": "Looks/Feels: Checkbox 'Nieuw personage' aan/uitvinken wist niet altijd meer het grid."
+        },
+        {
+          "description": "Wanneer de checkbox nieuw personage aan staat, mag er niet meer dan 2 xp overblijven. Dit wordt kenbaar gemaakt met een rode tekst en info button.",
+          "title": "Looks/Feels: Beginnend personage mag niet meer dan 2 xp overhouden"
+        },
+        {
+          "description": "Exporteer naar PDF bevat een afbeelding van character eigenschappen  Deze afbeelding werd niet juist geschaald bij export vanaf een mobiel.",
+          "title": "Bugfix: Exporteer naar Pdf afbeelding schaalt niet bij export vanaf een mobiel"
+        },
+        {
+          "description": "Wanneer de preset Paladijn gekozen werd, werd deze niet ingeladen door een fout in de indeling.",
+          "title": "Bugfix: Preset Paladijn toonde niet."
+        },
+        {
+          "description": "Wanneer een personage ingeladen werd, werden de Basis- en Extra selectievelden niet leeggemaakt. Hierdoor was het mogelijk vaardigheden dubbel in te voeren, wat tot fouten leidde.",
+          "title": "Bugfix: Laden van een personage leidde potentieel tot dubbele vaardigheden"
+        },
+        {
+          "description": "Ter verbetering van onderhoudbaarheid en verbeteren van component kwaliteit is bepaalde functionaliteit van meldingen gedecentraliseerd.",
+          "title": "Onderhoud: Algemene verbeteringen en onderhoud."
+        }
+      ]
+    },
+    {
+      "date": "28-10-2023",
+      "version": "v0.5.1",
+      "Items": [
+        {
+          "description": "Bij het opslaan van een personage (save/export) werden alle data van de vaardigheden mee geexporteerd. Hierdoor werden bijgewerkte vaardigheden niet zichtbaar en bleven oude issues bestaan. Methode van opslaan is aangepast, bestaande opslag/exports worden geconverteerd bij inladen.",
+          "title": "Feature: Aanpassing opslaan/export van een character."
+        },
+        {
+          "description": "Wanneer een characternaam is ingevoerd wordt deze opgeslagen. Zowel in de exports als de korttijdelijk opslag van de browser wordt deze onthouden.",
+          "title": "Feature: Ingevoerde character naam wordt onthouden."
+        }
+      ]
+    },
+    {
+      "date": "26-10-2023",
+      "version": "v0.5.0",
+      "Items": [
+        {
+          "description": "Wanneer een character is klaargezet (aangemaakt of ingeladen), kan deze als pdf-export gedownload worden.",
+          "title": "Feature: Exporteren van character naar een PDF bestand"
+        },
+        {
+          "description": "Uit een regressietest bleek er een specifieke situatie te bestaan waarbij het mogelijk was om vaardigheden over de max xp limiet heen toe te voegen",
+          "title": "Bugfix: Max xp overschreden in specifieke situatie."
+        }
+      ]
+    }
+
+  ]
+}
