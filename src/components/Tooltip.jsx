@@ -115,7 +115,7 @@ export function SpellTooltip({ skillName, spellName, page, image = './images/img
 
     const sourceSkill = getSkillByName(skillName);
     const sourceSpell = getSpellBySkillName(skillName, spellName);
-    const description = getBlock(sourceSpell.description, "description-block");
+    const description = getBlock(sourceSpell?.description, "description-block");
 
     const tooltipData = [
         { label: 'Mana kosten', value: sourceSpell?.mana_cost || null },
@@ -180,9 +180,9 @@ export function RecipeTooltip({ skillName, recipeName, image = './images/img-inf
 }
 
 CustomTooltip.propTypes = {
-    header: PropTypes.any,
+    header: PropTypes.string.isRequired,
     subheader: PropTypes.any,
-    message: PropTypes.any,
+    message: PropTypes.string.isRequired,
     image: PropTypes.any,
 };
 
