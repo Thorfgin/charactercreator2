@@ -43,7 +43,7 @@ if (typeof (Storage) !== "undefined") {
 /// --- PREP INITIAL TABLE DATA --- ///
 const getInitialData = () => { return rawData?.Skills ? rawData?.Skills : []; }
 const getInitialXP = () => { return rawData?.max_xp ? rawData.max_xp : 15; }
-const getInitialCheckState = () => { return rawData?.is_checked ? rawData.is_checked : true; }
+const getInitialCheckState = () => { return rawData?.is_checked === true; }
 const getInitialName = () => { return rawData?.name ? rawData.name : ""; }
 
 /// --- SHARED STATE --- ///
