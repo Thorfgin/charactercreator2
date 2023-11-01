@@ -21,13 +21,15 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
-	202310??	VERSION: when clicking the version, show a modal with the release notes.
+	20231101	VERSION: when clicking the version, show a modal with the release notes.
 			MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
 			FRAMEWORK: Reworked the Tooltips to be less convoluted and more maintainable
 			FIX: minor bug in Presets, causing a single preset not to load.
 			FIX: faulty scaling based of the image Character Eigenschappen based on current screen dimensions
 			FIX: Adding a Skill to the Select, than loading a preset (or save) does not clear Select.
 			  This results in the skill being added twice.
+			FIX: on loading a character the new Character check was nog set propperly after refactoring
+			FIX: fixed a faulty spell name
 			LOOKS/FEELS: Changed the NewCharacter toggle, it will no longer erase when unchecking the checkbox,
 			unless and Extra skill was added. If that is the case it will be erased entirely still.
 
