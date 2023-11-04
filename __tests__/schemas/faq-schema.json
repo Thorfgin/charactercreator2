@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "FAQ": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItemProperties": [ "header" ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "header": { "type": "string" },
+          "message": { "type": "string" }
+        },
+        "required": [ "header", "message" ]
+      }
+    }
+  },
+  "required": [ "FAQ" ]
+}

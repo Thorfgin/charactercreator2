@@ -3,6 +3,8 @@ import vaardigheden from './json/vaardigheden.json';
 import spreuken from './json/spreuken.json';
 import recepten from './json/recepten.json';
 import presets from './json/presets.json';
+import releasenotes from './json/releasenotes.json';
+import faq from './json/faq.json';
 
 // functions
 import {
@@ -12,6 +14,13 @@ import {
 
 // --- PRESETS --- ///
 export const getPresets = () => { return presets; }
+
+// releasenotes
+export const getSourceReleaseNotes = () => { return releasenotes; }
+
+// FAQ
+export const getSourceFAQ = () => { return faq; }
+
 
 /// --- SKILLS & SELECT PROPERTIES --- ///
 
