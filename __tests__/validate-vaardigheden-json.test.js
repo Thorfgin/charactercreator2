@@ -11,7 +11,9 @@ import {
 import {
     getSkillByName,
     getSpellBySkillName,
-    getRecipeBySkillName
+    getRecipeBySkillName,
+    getPropertyByName,
+    getPdfURL
 } from '../src/SharedActions.js';
 
 import {
@@ -137,7 +139,7 @@ test('Skills listed as Skill Requirement in ExtraVaardigheden JSON should themse
     expect(hasValidCategoriePrerequisite(sourceExtraVaardigheden)).toBe(true);
 });
 
-/// --- SPELLS  --- ///
+/// --- SPREUKEN  --- ///
 function listedSpellsExist(jsonArray) {
     const faultyRecords = jsonArray.flatMap((skill) => skill.Spreuken
         .filter((spell) => !getSpellBySkillName(skill.skill, spell.name))
@@ -156,11 +158,11 @@ test('Skill with Spells listed in ExtraVaardigheden JSON should exist in Spreuke
     expect(listedSpellsExist(sourceExtraVaardigheden)).toBe(true);
 });
 
-/// --- RECIPES  --- ///
+/// --- RECEPTEN  --- ///
 function listedRecipesExist(jsonArray) {
     const faultyRecords = jsonArray.flatMap((skill) => skill.Recepten
-            .filter((recipe) => !getRecipeBySkillName(skill.skill, recipe.name))
-            .map((recipe) => ({ skill: skill.skill, recipe }))
+        .filter((recipe) => !getRecipeBySkillName(skill.skill, recipe.name))
+        .map((recipe) => ({ skill: skill.skill, recipe }))
     );
 
     if (faultyRecords.length > 0) { console.warn('Faulty skills/recipes:', faultyRecords); }
@@ -175,3 +177,57 @@ test('Skill with Recipes listed in ExtraVaardigheden JSON should exist in Recept
     expect(listedRecipesExist(sourceExtraVaardigheden)).toBe(true);
 });
 
+/// --- EIGENSCHAPPEN --- ///
+function listedEigenschappenExist(jsonArray) {
+    const faultyRecords = jsonArray.flatMap((skill) => skill.Eigenschappen
+        .filter((eigenschap) => !getPropertyByName(eigenschap.name))
+        .map((name) => ({ skill: skill.skill, name }))
+    );
+
+    if (faultyRecords.length > 0) { console.warn('Faulty Eigenschap:', faultyRecords); }
+    return faultyRecords.length === 0;
+}
+
+test('Skill with Eigenschappen listed in BasisVaardigheden JSON should exist in Eigenschappen table', () => {
+    expect(listedEigenschappenExist(sourceBasisVaardigheden)).toBe(true);
+});
+
+test('Skill with Eigenschappen listed in ExtraVaardigheden JSON should exist in Eigenschappen table', () => {
+    expect(listedEigenschappenExist(sourceExtraVaardigheden)).toBe(true);
+});
+
+/// --- OVERIGE --- ///
+function listedPDFExist(jsonArray) {
+    const faultyRecords = new Set();
+
+    jsonArray.forEach((item) => {
+        const pdfName = item.loresheet?.pdf;
+        if (pdfName && getPdfURL(pdfName) === "") { faultyRecords.add(pdfName); }
+    });
+
+    if (faultyRecords.size > 0) { console.warn('Faulty PDF name:', Array.from(faultyRecords)); }
+    return faultyRecords.size === 0;
+}
+
+function listedSpecialExist(jsonArray) {
+    const faultyRecords = new Set();
+
+    jsonArray.forEach((item) => {
+        const specialName = item.loresheet?.special;
+        if (specialName && getPdfURL(specialName) === "") { faultyRecords.add(specialName); }
+    });
+
+    if (faultyRecords.size > 0) { console.warn('Faulty PDF name:', Array.from(faultyRecords)); }
+    return faultyRecords.size === 0;
+}
+
+// loresheet
+test('Skill with Loresheet listed in BasisVaardigheden JSON should exist in PDF Url adressess', () => {
+    expect(listedPDFExist(sourceBasisVaardigheden)).toBe(true);
+    expect(listedSpecialExist(sourceBasisVaardigheden)).toBe(true);
+});
+
+test('Skill with Loresheet listed in ExtraVaardigheden JSON should exist in PDF Url adressess', () => {
+    expect(listedPDFExist(sourceExtraVaardigheden)).toBe(true);
+    expect(listedSpecialExist(sourceExtraVaardigheden)).toBe(true);
+});

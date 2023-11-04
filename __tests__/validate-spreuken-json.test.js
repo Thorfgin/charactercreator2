@@ -1,5 +1,6 @@
 import Ajv from 'ajv';
 import ajvKeywords from 'ajv-keywords';
+import ajvErrors from 'ajv-errors';
 
 import {
     test,
@@ -42,6 +43,7 @@ test('Spreuken JSON should have unique IDs per Spell', () => {
 function hasCorrectFormat(jsonData, schema) {
     const ajv = new Ajv({ allErrors: true });
     ajvKeywords(ajv);
+    ajvErrors(ajv);
     const validate = ajv.compile(schema);
     const result = validate(jsonData)
 

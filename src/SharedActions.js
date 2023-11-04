@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 // Shared
 import {
+    defaultProperties,
     sourceSpreuken,
     sourceRecepten,
     sourceBasisVaardigheden,
@@ -77,6 +78,10 @@ export function getRecipeBySkillName(skillName, recipeName) {
         item.skill.toLowerCase() === sourceSkill?.skill.toLowerCase() ||
         item.skill.toLowerCase() === sourceSkill?.alt_skill.toLowerCase());
     return skillFound?.Recipes.find((item) => item.recipy.toLowerCase() === recipeName.toLowerCase());
+}
+
+export function getPropertyByName(name) {
+    return defaultProperties.find((item) => item.name === name);
 }
 
 /// --- SELECT --- ///

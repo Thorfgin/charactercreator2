@@ -4,6 +4,7 @@
     "Categories": {
       "type": "array",
       "minItems": 1,
+      "uniqueItemProperties": [ "categorie" ],
       "items": {
         "type": "object",
         "properties": {

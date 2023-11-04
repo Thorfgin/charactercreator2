@@ -12,24 +12,26 @@
 	- LANGUAGE: add English as an option
 
 	SHOULD:
+	- 
 
 	COULD:
 	- PRESETS: add a generic text and description per preset explaing the general style of play 
 		for this type of character on Vortex Adventure
 	- NEWCHAR: expand the XP warning with a explainatory text on skill shuffle for new players.
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
+	
+	WOULD: 
 	- integration with VOIDWALKER / create new characters
 		> this requires integration on perhaps an API level
 		> Needs to be done from within a player portal? Probably requires a Node.js server
 
-	WOULD: 
-	
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
-	2023110?	UNITTEST: improved unittests for vaardigheden.json to cross-reference Spells, Recipes, Requirements
-				UNITTEST: add unittests for presets.json 
-				UNITTEST: add unittests for releasenotes.json
+	2023114		FIX: Again faulty scaling based of the image Character Eigenschappen based on current screen dimensions	
+			UNITTEST: improved unittests for vaardigheden.json to cross-reference Spells, Recipes, Requirements
+			UNITTEST: add unittests for presets.json 
+			UNITTEST: add unittests for releasenotes.json
 
 	20231101	VERSION: when clicking the version, show a modal with the release notes.
 			MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
