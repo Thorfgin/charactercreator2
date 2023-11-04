@@ -6,21 +6,33 @@
 	TODO:
 
 	MUST
+	- FIX: change the way skills are selected, by referencing id instead of skill.
+	Skills may no be unique in name, for example 'extra wilskracht' exists twice.
+	This may cause issues with the saves, because everything is reference by skillname.
+	- LANGUAGE: add English as an option
 
 	SHOULD:
-	- UNITTEST: add unittests for presets.json and releasenotes.json
+	- 
 
 	COULD:
+	- PRESETS: add a generic text and description per preset explaing the general style of play 
+		for this type of character on Vortex Adventure
+	- NEWCHAR: expand the XP warning with a explainatory text on skill shuffle for new players.
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
+	
+	WOULD: 
 	- integration with VOIDWALKER / create new characters
 		> this requires integration on perhaps an API level
 		> Needs to be done from within a player portal? Probably requires a Node.js server
 
-	WOULD: 
-	
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
+	2023114		FIX: Again faulty scaling based of the image Character Eigenschappen based on current screen dimensions	
+			UNITTEST: improved unittests for vaardigheden.json to cross-reference Spells, Recipes, Requirements
+			UNITTEST: add unittests for presets.json 
+			UNITTEST: add unittests for releasenotes.json
+
 	20231101	VERSION: when clicking the version, show a modal with the release notes.
 			MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
 			FRAMEWORK: Reworked the Tooltips to be less convoluted and more maintainable
@@ -125,9 +137,9 @@
 	20230912	SKILLS have Tooltips available
 	
 
-	20230911	SPELLS/RECIPIES can be converted to JSON per script
+	20230911	SPELLS/RECIPES can be converted to JSON per script
 	
-	20230908	SPELLS/RECIPIES have tooltips
+	20230908	SPELLS/RECIPES have tooltips
 	
 
 	20230905	RECIPY gives a summary of the selected spells aquired by skills

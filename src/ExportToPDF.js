@@ -168,7 +168,7 @@ async function addRecipeDescriptionsToPdf(pdf, gridRecepten, x = 20, y = 30) {
             item.skill?.toLowerCase() === sourceSkill.skill.toLowerCase());
         if (!skillFound) { continue; }
 
-        const recipeData = skillFound?.Recipies.find((sourceRecipe) =>
+        const recipeData = skillFound?.Recipes.find((sourceRecipe) =>
             item.name?.toLowerCase() === sourceRecipe.recipy.toLowerCase());
         if (!recipeData) { continue; }
 

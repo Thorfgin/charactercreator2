@@ -1,7 +1,7 @@
 {
   "BasisVaardigheden": [
     {
-      "id": 1,
+      "id": 101,
       "skill": "Ambidextrie",
       "alt_skill": "",
       "category": "Algemene vaardigheden",
@@ -12,7 +12,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -21,7 +21,7 @@
       "Recepten": []
     },
     {
-      "id": 2,
+      "id": 102,
       "skill": "Lezen & Schrijven",
       "alt_skill": "",
       "category": "Algemene vaardigheden",
@@ -32,7 +32,7 @@
         "any_list": []
       },
       "xp": 0,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -41,10 +41,10 @@
       "Recepten": []
     },
     {
-      "id": 3,
+      "id": 103,
       "skill": "Runen Gebruiken",
       "alt_skill": "",
-      "category": "Algemene Vaardigheden",
+      "category": "Algemene vaardigheden",
       "page": 11,
       "description": "Je kunt runen lezen en scrolls beschreven met runen gebruiken. Bij deze vaardigheid hoort een loresheet. \nDit leert je ook runen weaves die op je eigen lichaam staan te lezen en gebruiken (personen met de “Rune Meesterschap” vaardigheid kunnen die op je lichaam plaatsen). \n\nJe lichaam heeft een maximale imbue cap van 20 voor runen weaves.",
       "Requirements": {
@@ -70,10 +70,10 @@
       "Recepten": []
     },
     {
-      "id": 4,
+      "id": 104,
       "skill": "Runen Gewenning",
       "alt_skill": "",
-      "category": "Algemene Vaardigheden",
+      "category": "Algemene vaardigheden",
       "page": 11,
       "description": "De maximale imbue cap van je lichaam voor runen weaves wordt verhoogt met 20. \n\nDeze vaardigheid mag je meerdere keren aankopen.",
       "Requirements": {
@@ -81,7 +81,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -95,10 +95,10 @@
       "Recepten": []
     },
     {
-      "id": 5,
+      "id": 105,
       "skill": "Glyph Gebruiken",
       "alt_skill": "",
-      "category": "Algemene Vaardigheden",
+      "category": "Algemene vaardigheden",
       "page": 11,
       "description": "Je kunt glyphs lezen en scrolls beschreven met glyphs gebruiken. Bij deze vaardigheid hoort een loresheet. \nDit leert je ook glyph weaves die op je eigen lichaam staan te lezen en gebruiken (personen met de “Glyph meesterschap” vaardigheid kunnen die op je lichaam plaatsen). \n\nJe lichaam heeft een maximale imbue cap van 20 voor glyph weaves.",
       "Requirements": {
@@ -124,10 +124,10 @@
       "Recepten": []
     },
     {
-      "id": 6,
+      "id": 106,
       "skill": "Glyph Gewenning",
       "alt_skill": "",
-      "category": "Algemene Vaardigheden",
+      "category": "Algemene vaardigheden",
       "page": 11,
       "description": "De maximale imbue cap van je lichaam voor glyph weaves wordt verhoogt met 20. \n\nDeze vaardigheid mag je meerdere keren aankopen.",
       "Requirements": {
@@ -135,7 +135,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -149,10 +149,10 @@
       "Recepten": []
     },
     {
-      "id": 7,
+      "id": 107,
       "skill": "Rekenen",
       "alt_skill": "",
-      "category": "Algemene Vaardigheden",
+      "category": "Algemene vaardigheden",
       "page": 11,
       "description": "Je kan rekenen.",
       "Requirements": {
@@ -160,7 +160,7 @@
         "any_list": []
       },
       "xp": 0,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -169,10 +169,10 @@
       "Recepten": []
     },
     {
-      "id": 8,
+      "id": 108,
       "skill": "Levenskracht A",
       "alt_skill": "",
-      "category": "Algemene Vaardigheden",
+      "category": "Algemene vaardigheden",
       "page": 12,
       "description": "Je hebt 2 hitpoints totaal",
       "Requirements": {
@@ -180,7 +180,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -194,10 +194,10 @@
       "Recepten": []
     },
     {
-      "id": 9,
+      "id": 109,
       "skill": "Levenskracht B",
       "alt_skill": "",
-      "category": "Algemene Vaardigheden",
+      "category": "Algemene vaardigheden",
       "page": 12,
       "description": "Je hebt 3 hitpoints totaal",
       "Requirements": {
@@ -205,7 +205,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -219,10 +219,10 @@
       "Recepten": []
     },
     {
-      "id": 10,
+      "id": 110,
       "skill": "Levenskracht C",
       "alt_skill": "",
-      "category": "Algemene Vaardigheden",
+      "category": "Algemene vaardigheden",
       "page": 12,
       "description": "Je hebt 4 hitpoints totaal",
       "Requirements": {
@@ -230,7 +230,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -244,10 +244,10 @@
       "Recepten": []
     },
     {
-      "id": 11,
+      "id": 111,
       "skill": "Leermeester Expertise",
       "alt_skill": "",
-      "category": "Algemene Vaardigheden",
+      "category": "Algemene vaardigheden",
       "page": 12,
       "description": "Je krijgt de mogelijkheid 2 leerlingen extra vaardigheden die je zelf bezit door te leren. \nDit moeten vaardigheden zijn die je zelf hebt en dus geen vaardigheden verkregen uit items. \n\nIn totaal mag een leermeester niet meer dan 8 leerlingen hebben. Dit is het totaal aantal, verkregen door rankings, items, powers en vaardigheden. Wanneer je een leerling aanneemt moet dit bij de uitcheck gemeld worden. Dit doe je door de PLIN-CHIN van de leerling te vermelden en welke vaardigheid er aangeleerd wordt. \n\nDeze vaardigheid kan tot 3 keer gekozen worden.",
       "Requirements": {
@@ -255,7 +255,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 3,
@@ -264,7 +264,7 @@
       "Recepten": []
     },
     {
-      "id": 12,
+      "id": 125,
       "skill": "Schilden",
       "alt_skill": "",
       "category": "Pantservaardigheden",
@@ -275,7 +275,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -284,7 +284,7 @@
       "Recepten": []
     },
     {
-      "id": 13,
+      "id": 126,
       "skill": "Harnas I",
       "alt_skill": "",
       "category": "Pantservaardigheden",
@@ -297,7 +297,7 @@
       "xp": 0,
       "loresheet": {
         "pdf": "Armourpoint-kostuum-eisen.pdf",
-        "page":  1
+        "page": 1
       },
       "multi_purchase": false,
       "count": 1,
@@ -312,7 +312,7 @@
       "Recepten": []
     },
     {
-      "id": 14,
+      "id": 127,
       "skill": "Harnas II",
       "alt_skill": "",
       "category": "Pantservaardigheden",
@@ -323,7 +323,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -337,7 +337,7 @@
       "Recepten": []
     },
     {
-      "id": 15,
+      "id": 128,
       "skill": "Harnas III",
       "alt_skill": "",
       "category": "Pantservaardigheden",
@@ -348,7 +348,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -362,7 +362,7 @@
       "Recepten": []
     },
     {
-      "id": 16,
+      "id": 129,
       "skill": "Harnas IV",
       "alt_skill": "",
       "category": "Pantservaardigheden",
@@ -373,7 +373,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -387,7 +387,7 @@
       "Recepten": []
     },
     {
-      "id": 17,
+      "id": 130,
       "skill": "Spreuken in bepantsering",
       "alt_skill": "",
       "category": "Pantservaardigheden",
@@ -398,7 +398,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 1,
@@ -407,7 +407,7 @@
       "Recepten": []
     },
     {
-      "id": 18,
+      "id": 131,
       "skill": "Paladijn",
       "alt_skill": "",
       "category": "Pantservaardigheden",
@@ -418,7 +418,7 @@
         "any_list": [ "Genezingsspreuken A" ]
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 3,
@@ -427,7 +427,7 @@
       "Recepten": []
     },
     {
-      "id": 19,
+      "id": 150,
       "skill": "Kleine Wapens",
       "alt_skill": "",
       "category": "Wapenvaardigheden",
@@ -438,7 +438,7 @@
         "any_list": []
       },
       "xp": 0,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -447,7 +447,7 @@
       "Recepten": []
     },
     {
-      "id": 20,
+      "id": 151,
       "skill": "Eenhandige Wapens",
       "alt_skill": "",
       "category": "Wapenvaardigheden",
@@ -458,7 +458,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -467,7 +467,7 @@
       "Recepten": []
     },
     {
-      "id": 21,
+      "id": 152,
       "skill": "Tweehandige Wapens",
       "alt_skill": "",
       "category": "Wapenvaardigheden",
@@ -478,7 +478,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -487,7 +487,7 @@
       "Recepten": []
     },
     {
-      "id": 22,
+      "id": 153,
       "skill": "Staf Wapens",
       "alt_skill": "",
       "category": "Wapenvaardigheden",
@@ -498,7 +498,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -507,7 +507,7 @@
       "Recepten": []
     },
     {
-      "id": 23,
+      "id": 154,
       "skill": "Werp Wapens",
       "alt_skill": "",
       "category": "Wapenvaardigheden",
@@ -518,7 +518,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -527,7 +527,7 @@
       "Recepten": []
     },
     {
-      "id": 25,
+      "id": 155,
       "skill": "Boogschieten",
       "alt_skill": "",
       "category": "Wapenvaardigheden",
@@ -538,7 +538,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -547,7 +547,7 @@
       "Recepten": []
     },
     {
-      "id": 26,
+      "id": 175,
       "skill": "Doorzettingsvermogen",
       "alt_skill": "",
       "category": "Vechtersvaardigheden",
@@ -558,7 +558,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -581,7 +581,7 @@
       "Recepten": []
     },
     {
-      "id": 27,
+      "id": 176,
       "skill": "Kracht A",
       "alt_skill": "",
       "category": "Vechtersvaardigheden",
@@ -592,7 +592,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -615,7 +615,7 @@
       "Recepten": []
     },
     {
-      "id": 28,
+      "id": 177,
       "skill": "Taaiheid A",
       "alt_skill": "",
       "category": "Vechtersvaardigheden",
@@ -626,7 +626,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -649,7 +649,7 @@
       "Recepten": []
     },
     {
-      "id": 29,
+      "id": 178,
       "skill": "Leiderschap A",
       "alt_skill": "",
       "category": "Vechtersvaardigheden",
@@ -660,7 +660,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -683,7 +683,7 @@
       "Recepten": []
     },
     {
-      "id": 30,
+      "id": 179,
       "skill": "Bescherming A",
       "alt_skill": "",
       "category": "Vechtersvaardigheden",
@@ -694,7 +694,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -717,7 +717,7 @@
       "Recepten": []
     },
     {
-      "id": 31,
+      "id": 180,
       "skill": "Berserker A",
       "alt_skill": "",
       "category": "Vechtersvaardigheden",
@@ -728,7 +728,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -751,7 +751,7 @@
       "Recepten": []
     },
     {
-      "id": 32,
+      "id": 181,
       "skill": "Militaire training A",
       "alt_skill": "",
       "category": "Vechtersvaardigheden",
@@ -762,7 +762,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -780,7 +780,7 @@
       "Recepten": []
     },
     {
-      "id": 33,
+      "id": 200,
       "skill": "Eerste hulp bij gevechten",
       "alt_skill": "",
       "category": "Heelmeestervaardigheden",
@@ -791,7 +791,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -805,7 +805,7 @@
       "Recepten": []
     },
     {
-      "id": 34,
+      "id": 201,
       "skill": "Snelle behandeling",
       "alt_skill": "",
       "category": "Heelmeestervaardigheden",
@@ -816,7 +816,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -830,7 +830,7 @@
       "Recepten": []
     },
     {
-      "id": 35,
+      "id": 202,
       "skill": "Slagveld operatie",
       "alt_skill": "",
       "category": "Heelmeestervaardigheden",
@@ -841,7 +841,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -855,7 +855,7 @@
       "Recepten": []
     },
     {
-      "id": 36,
+      "id": 203,
       "skill": "Diagnostiek",
       "alt_skill": "",
       "category": "Heelmeestervaardigheden",
@@ -866,7 +866,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -880,7 +880,7 @@
       "Recepten": []
     },
     {
-      "id": 37,
+      "id": 204,
       "skill": "Humorisch Patholoog",
       "alt_skill": "",
       "category": "Heelmeestervaardigheden",
@@ -891,7 +891,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -905,7 +905,7 @@
       "Recepten": []
     },
     {
-      "id": 38,
+      "id": 205,
       "skill": "Bezoar specialist",
       "alt_skill": "",
       "category": "Heelmeestervaardigheden",
@@ -916,7 +916,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -930,7 +930,7 @@
       "Recepten": []
     },
     {
-      "id": 39,
+      "id": 206,
       "skill": "Hypnotherapie",
       "alt_skill": "",
       "category": "Heelmeestervaardigheden",
@@ -941,7 +941,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -955,7 +955,7 @@
       "Recepten": []
     },
     {
-      "id": 40,
+      "id": 207,
       "skill": "Schadelijke hypnose",
       "alt_skill": "",
       "category": "Heelmeestervaardigheden",
@@ -966,7 +966,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -980,7 +980,7 @@
       "Recepten": []
     },
     {
-      "id": 41,
+      "id": 225,
       "skill": "Kennis van Kruiden",
       "alt_skill": "",
       "category": "Alchemistenvaardigheden",
@@ -1008,7 +1008,7 @@
       "Recepten": []
     },
     {
-      "id": 42,
+      "id": 226,
       "skill": "Kruiden bewaren",
       "alt_skill": "",
       "category": "Alchemistenvaardigheden",
@@ -1019,7 +1019,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -1028,7 +1028,7 @@
       "Recepten": []
     },
     {
-      "id": 43,
+      "id": 227,
       "skill": "Brouw Genezende Dranken A",
       "alt_skill": "Genezende Dranken A",
       "category": "Alchemistenvaardigheden",
@@ -1063,7 +1063,7 @@
       ]
     },
     {
-      "id": 44,
+      "id": 228,
       "skill": "Brouw Kruiden Elixers A",
       "alt_skill": "Kruiden Elixers A",
       "category": "Alchemistenvaardigheden",
@@ -1098,7 +1098,7 @@
       ]
     },
     {
-      "id": 45,
+      "id": 229,
       "skill": "Brouw Magische Elixers A",
       "alt_skill": "Magische Elixers A",
       "category": "Alchemistenvaardigheden",
@@ -1133,7 +1133,7 @@
       ]
     },
     {
-      "id": 46,
+      "id": 230,
       "skill": "Brouw Hallucinerende Elixers A",
       "alt_skill": "Hallucinerende Elixers A",
       "category": "Alchemistenvaardigheden",
@@ -1168,7 +1168,7 @@
       ]
     },
     {
-      "id": 47,
+      "id": 231,
       "skill": "Brouw Giffen A",
       "alt_skill": "Giffen A",
       "category": "Alchemistenvaardigheden",
@@ -1203,7 +1203,7 @@
       ]
     },
     {
-      "id": 48,
+      "id": 250,
       "skill": "Meestersmid A",
       "alt_skill": "",
       "category": "Ambachtsvaardigheden",
@@ -1234,7 +1234,7 @@
       ]
     },
     {
-      "id": 49,
+      "id": 251,
       "skill": "Houtbewerker A",
       "alt_skill": "",
       "category": "Ambachtsvaardigheden",
@@ -1265,7 +1265,7 @@
       ]
     },
     {
-      "id": 50,
+      "id": 252,
       "skill": "Kleermaker A",
       "alt_skill": "",
       "category": "Ambachtsvaardigheden",
@@ -1296,7 +1296,7 @@
       ]
     },
     {
-      "id": 51,
+      "id": 253,
       "skill": "Boekbinder A",
       "alt_skill": "",
       "category": "Ambachtsvaardigheden",
@@ -1327,7 +1327,7 @@
       ]
     },
     {
-      "id": 52,
+      "id": 254,
       "skill": "Leerbewerker A",
       "alt_skill": "",
       "category": "Ambachtsvaardigheden",
@@ -1358,7 +1358,7 @@
       ]
     },
     {
-      "id": 53,
+      "id": 255,
       "skill": "Juwelier A",
       "alt_skill": "",
       "category": "Ambachtsvaardigheden",
@@ -1389,7 +1389,7 @@
       ]
     },
     {
-      "id": 54,
+      "id": 256,
       "skill": "Steenzetter A",
       "alt_skill": "",
       "category": "Ambachtsvaardigheden",
@@ -1420,7 +1420,7 @@
       ]
     },
     {
-      "id": 55,
+      "id": 275,
       "skill": "Magiërspreuken A - Wit",
       "alt_skill": "White magic",
       "category": "Magiërvaardigheden",
@@ -1431,7 +1431,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1466,7 +1466,7 @@
       "Recepten": []
     },
     {
-      "id": 56,
+      "id": 276,
       "skill": "Magiërspreuken A - Grijs",
       "alt_skill": "Grey magic",
       "category": "Magiërvaardigheden",
@@ -1477,7 +1477,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1512,7 +1512,7 @@
       "Recepten": []
     },
     {
-      "id": 57,
+      "id": 277,
       "skill": "Magiërspreuken A - Zwart",
       "alt_skill": "Black magic",
       "category": "Magiërvaardigheden",
@@ -1523,7 +1523,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1558,7 +1558,7 @@
       "Recepten": []
     },
     {
-      "id": 58,
+      "id": 278,
       "skill": "Magiërspreuken B - Lucht",
       "alt_skill": "Air Magic B",
       "category": "Magiërvaardigheden",
@@ -1573,7 +1573,7 @@
         }
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1604,7 +1604,7 @@
       "Recepten": []
     },
     {
-      "id": 59,
+      "id": 279,
       "skill": "Magiërspreuken B - Metaal",
       "alt_skill": "Metal magic B",
       "category": "Magiërvaardigheden",
@@ -1620,7 +1620,7 @@
         "exception": [ "Doods Druidisme A", "Necromancer A" ]
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1651,7 +1651,7 @@
       "Recepten": []
     },
     {
-      "id": 60,
+      "id": 280,
       "skill": "Magiërspreuken B - Aarde",
       "alt_skill": "Earth magic B",
       "category": "Magiërvaardigheden",
@@ -1666,7 +1666,7 @@
         }
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1697,7 +1697,7 @@
       "Recepten": []
     },
     {
-      "id": 61,
+      "id": 281,
       "skill": "Magiërspreuken B - Water",
       "alt_skill": "Water magic B",
       "category": "Magiërvaardigheden",
@@ -1712,7 +1712,7 @@
         }
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1743,7 +1743,7 @@
       "Recepten": []
     },
     {
-      "id": 62,
+      "id": 282,
       "skill": "Magiërspreuken B - Vuur",
       "alt_skill": "Fire Magic B",
       "category": "Magiërvaardigheden",
@@ -1758,7 +1758,7 @@
         }
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1789,7 +1789,7 @@
       "Recepten": []
     },
     {
-      "id": 63,
+      "id": 283,
       "skill": "Magiërspreuken B - Hout",
       "alt_skill": "Wood Magic B",
       "category": "Magiërvaardigheden",
@@ -1805,7 +1805,7 @@
         "exception": [ "Levens Druidisme A" ]
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1836,7 +1836,7 @@
       "Recepten": []
     },
     {
-      "id": 64,
+      "id": 300,
       "skill": "Paladijnspreuken A",
       "alt_skill": "Paladijn A",
       "category": "Paladijnvaardigheden",
@@ -1847,7 +1847,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1874,7 +1874,7 @@
       "Recepten": []
     },
     {
-      "id": 65,
+      "id": 301,
       "skill": "Paladijnspreuken B",
       "alt_skill": "Paladijn B",
       "category": "Paladijnvaardigheden",
@@ -1885,7 +1885,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1912,7 +1912,7 @@
       "Recepten": []
     },
     {
-      "id": 66,
+      "id": 325,
       "skill": "Priesterspreuken A - Reinheid",
       "alt_skill": "Purity A",
       "category": "Priestervaardigheden",
@@ -1923,7 +1923,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -1958,7 +1958,7 @@
       "Recepten": []
     },
     {
-      "id": 67,
+      "id": 326,
       "skill": "Priesterspreuken A - Toorn",
       "alt_skill": "Wrath A",
       "category": "Priestervaardigheden",
@@ -1969,7 +1969,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2004,7 +2004,7 @@
       "Recepten": []
     },
     {
-      "id": 68,
+      "id": 327,
       "skill": "Priesterspreuken A - Dood",
       "alt_skill": "Death A",
       "category": "Priestervaardigheden",
@@ -2015,7 +2015,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2050,7 +2050,7 @@
       "Recepten": []
     },
     {
-      "id": 69,
+      "id": 328,
       "skill": "Priesterspreuken B - Reinheid",
       "alt_skill": "Purity B",
       "category": "Priestervaardigheden",
@@ -2065,7 +2065,7 @@
         }
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2096,7 +2096,7 @@
       "Recepten": []
     },
     {
-      "id": 70,
+      "id": 329,
       "skill": "Priesterspreuken B - Toorn",
       "alt_skill": "Wrath B",
       "category": "Priestervaardigheden",
@@ -2111,7 +2111,7 @@
         }
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2142,7 +2142,7 @@
       "Recepten": []
     },
     {
-      "id": 71,
+      "id": 330,
       "skill": "Priesterspreuken B - Dood",
       "alt_skill": "Death B",
       "category": "Priestervaardigheden",
@@ -2158,7 +2158,7 @@
         "exception": [ "Doods Druidisme A", "Necromancer A" ]
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2189,7 +2189,7 @@
       "Recepten": []
     },
     {
-      "id": 72,
+      "id": 331,
       "skill": "Priesterspreuken B - Geest",
       "alt_skill": "Mind B",
       "category": "Priestervaardigheden",
@@ -2204,7 +2204,7 @@
         }
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2235,7 +2235,7 @@
       "Recepten": []
     },
     {
-      "id": 73,
+      "id": 332,
       "skill": "Priesterspreuken B - Natuur",
       "alt_skill": "Nature B",
       "category": "Priestervaardigheden",
@@ -2251,7 +2251,7 @@
         "exception": [ "Levens Druidisme A" ]
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2282,7 +2282,7 @@
       "Recepten": []
     },
     {
-      "id": 74,
+      "id": 350,
       "skill": "Genezingsspreuken A (EL)",
       "alt_skill": "Genezing A",
       "category": "Genezingsvaardigheden (EL)",
@@ -2293,7 +2293,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2328,7 +2328,7 @@
       "Recepten": []
     },
     {
-      "id": 75,
+      "id": 351,
       "skill": "Genezingsspreuken A (SP)",
       "alt_skill": "Genezing A",
       "category": "Genezingsvaardigheden (SP)",
@@ -2339,7 +2339,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2374,7 +2374,7 @@
       "Recepten": []
     },
     {
-      "id": 76,
+      "id": 352,
       "skill": "Genezingsspreuken B (EL)",
       "alt_skill": "Genezing B",
       "category": "Genezingsvaardigheden (EL)",
@@ -2385,7 +2385,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2416,7 +2416,7 @@
       "Recepten": []
     },
     {
-      "id": 77,
+      "id": 353,
       "skill": "Genezingsspreuken B (SP)",
       "alt_skill": "Genezing B",
       "category": "Genezingsvaardigheden (SP)",
@@ -2427,7 +2427,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2458,7 +2458,7 @@
       "Recepten": []
     },
     {
-      "id": 78,
+      "id": 354,
       "skill": "Genezer van Giffen (EL)",
       "alt_skill": "Genezer van Giffen",
       "category": "Genezingsvaardigheden (EL)",
@@ -2469,7 +2469,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2500,7 +2500,7 @@
       "Recepten": []
     },
     {
-      "id": 79,
+      "id": 355,
       "skill": "Genezer van Giffen (SP)",
       "alt_skill": "Genezer van Giffen",
       "category": "Genezingsvaardigheden (SP)",
@@ -2511,7 +2511,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2542,7 +2542,7 @@
       "Recepten": []
     },
     {
-      "id": 80,
+      "id": 356,
       "skill": "Genezer van Ziekten (EL)",
       "alt_skill": "Genezer van Ziekten",
       "category": "Genezingsvaardigheden (EL)",
@@ -2553,7 +2553,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2584,7 +2584,7 @@
       "Recepten": []
     },
     {
-      "id": 81,
+      "id": 357,
       "skill": "Genezer van Ziekten (SP)",
       "alt_skill": "Genezer van Ziekten",
       "category": "Genezingsvaardigheden (SP)",
@@ -2595,7 +2595,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2626,7 +2626,7 @@
       "Recepten": []
     },
     {
-      "id": 82,
+      "id": 358,
       "skill": "Genezer van Geest (EL)",
       "alt_skill": "Genezer van Geest",
       "category": "Genezingsvaardigheden (EL)",
@@ -2637,7 +2637,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2668,7 +2668,7 @@
       "Recepten": []
     },
     {
-      "id": 83,
+      "id": 359,
       "skill": "Genezer van Geest (SP)",
       "alt_skill": "Genezer van Geest",
       "category": "Genezingsvaardigheden (SP)",
@@ -2679,7 +2679,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2710,7 +2710,7 @@
       "Recepten": []
     },
     {
-      "id": 84,
+      "id": 375,
       "skill": "Elementair Ritualisme",
       "alt_skill": "",
       "category": "Ritualisme",
@@ -2721,7 +2721,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -2735,7 +2735,7 @@
       "Recepten": []
     },
     {
-      "id": 85,
+      "id": 376,
       "skill": "Spiritueel Ritualisme",
       "alt_skill": "",
       "category": "Ritualisme",
@@ -2746,7 +2746,7 @@
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -2758,11 +2758,11 @@
       ],
       "Spreuken": [],
       "Recepten": []
-    }
+    }  
   ],
   "ExtraVaardigheden": [
     {
-      "id": 86,
+      "id": 400,
       "skill": "Genees andere wezens",
       "alt_skill": "",
       "category": "Extra Algemene vaardigheden",
@@ -2773,7 +2773,7 @@
         "any_list": [ "Genezingsspreuken A", "Diagnostiek", "Priesterspreuken A", "Magiërspreuken A" ]
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2782,7 +2782,7 @@
       "Recepten": []
     },
     {
-      "id": 87,
+      "id": 425,
       "skill": "Extra Wilskracht",
       "alt_skill": "",
       "category": "Extra Heelmeestervaardigheden",
@@ -2793,7 +2793,7 @@
         "any_list": [ "Doorzettingsvermogen", "Eerste hulp bij gevechten" ]
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -2818,7 +2818,7 @@
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2832,7 +2832,7 @@
       "Recepten": []
     },
     {
-      "id": 90,
+      "id": 427,
       "skill": "Afscheidbaar gezwel",
       "alt_skill": "",
       "category": "Extra Heelmeestervaardigheden",
@@ -2843,7 +2843,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2857,7 +2857,7 @@
       "Recepten": []
     },
     {
-      "id": 91,
+      "id": 428,
       "skill": "Creeër abominatie",
       "alt_skill": "",
       "category": "Extra Heelmeestervaardigheden",
@@ -2868,7 +2868,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -2882,7 +2882,7 @@
       "Recepten": []
     },
     {
-      "id": 92,
+      "id": 450,
       "skill": "Brouw Expertise",
       "alt_skill": "",
       "category": "Extra Alchemistenvaardigheden",
@@ -2899,7 +2899,7 @@
         ]
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 99,
@@ -2913,7 +2913,7 @@
       "Recepten": []
     },
     {
-      "id": 93,
+      "id": 451,
       "skill": "Brouw Genezende Dranken B",
       "alt_skill": "",
       "category": "Extra Alchemistenvaardigheden",
@@ -2948,7 +2948,7 @@
       ]
     },
     {
-      "id": 94,
+      "id": 452,
       "skill": "Brouw Genezende Dranken C",
       "alt_skill": "",
       "category": "Extra Alchemistenvaardigheden",
@@ -2983,7 +2983,7 @@
       ]
     },
     {
-      "id": 95,
+      "id": 453,
       "skill": "Brouw Kruiden Elixers B",
       "alt_skill": "",
       "category": "Extra Alchemistenvaardigheden",
@@ -3018,7 +3018,7 @@
       ]
     },
     {
-      "id": 96,
+      "id": 454,
       "skill": "Brouw Kruiden Elixers C",
       "alt_skill": "",
       "category": "Extra Alchemistenvaardigheden",
@@ -3053,7 +3053,7 @@
       ]
     },
     {
-      "id": 97,
+      "id": 455,
       "skill": "Brouw Magische Elixers B",
       "alt_skill": "",
       "category": "Extra Alchemistenvaardigheden",
@@ -3088,7 +3088,7 @@
       ]
     },
     {
-      "id": 98,
+      "id": 456,
       "skill": "Brouw Magische Elixers C",
       "alt_skill": "",
       "category": "Extra Alchemistenvaardigheden",
@@ -3123,7 +3123,7 @@
       ]
     },
     {
-      "id": 99,
+      "id": 457,
       "skill": "Brouw Hallucinerende Elixers B",
       "alt_skill": "",
       "category": "Extra Alchemistenvaardigheden",
@@ -3158,7 +3158,7 @@
       ]
     },
     {
-      "id": 100,
+      "id": 458,
       "skill": "Brouw Hallucinerende Elixers C",
       "alt_skill": "",
       "category": "Extra Alchemistenvaardigheden",
@@ -3193,7 +3193,7 @@
       ]
     },
     {
-      "id": 101,
+      "id": 459,
       "skill": "Brouw Giffen B",
       "alt_skill": "",
       "category": "Extra Alchemistenvaardigheden",
@@ -3228,7 +3228,7 @@
       ]
     },
     {
-      "id": 102,
+      "id": 460,
       "skill": "Brouw Giffen C",
       "alt_skill": "",
       "category": "Extra Alchemistenvaardigheden",
@@ -3263,7 +3263,7 @@
       ]
     },
     {
-      "id": 103,
+      "id": 475,
       "skill": "Ambachts Expertise",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3278,7 +3278,7 @@
         }
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 99,
@@ -3292,7 +3292,7 @@
       "Recepten": []
     },
     {
-      "id": 104,
+      "id": 476,
       "skill": "Meestersmid B",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3323,7 +3323,7 @@
       ]
     },
     {
-      "id": 105,
+      "id": 477,
       "skill": "Meestersmid C",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3354,7 +3354,7 @@
       ]
     },
     {
-      "id": 106,
+      "id": 478,
       "skill": "Houtbewerker B",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3385,7 +3385,7 @@
       ]
     },
     {
-      "id": 107,
+      "id": 479,
       "skill": "Houtbewerker C",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3416,7 +3416,7 @@
       ]
     },
     {
-      "id": 108,
+      "id": 480,
       "skill": "Kleermaker B",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3447,7 +3447,7 @@
       ]
     },
     {
-      "id": 109,
+      "id": 481,
       "skill": "Kleermaker C",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3478,7 +3478,7 @@
       ]
     },
     {
-      "id": 110,
+      "id": 482,
       "skill": "Boekbinder B",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3509,7 +3509,7 @@
       ]
     },
     {
-      "id": 111,
+      "id": 483,
       "skill": "Boekbinder C",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3540,7 +3540,7 @@
       ]
     },
     {
-      "id": 112,
+      "id": 484,
       "skill": "Leerbewerker B",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3571,7 +3571,7 @@
       ]
     },
     {
-      "id": 113,
+      "id": 485,
       "skill": "Leerbewerker C",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3602,7 +3602,7 @@
       ]
     },
     {
-      "id": 114,
+      "id": 486,
       "skill": "Juwelier B",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3633,7 +3633,7 @@
       ]
     },
     {
-      "id": 115,
+      "id": 487,
       "skill": "Juwelier C",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3664,7 +3664,7 @@
       ]
     },
     {
-      "id": 116,
+      "id": 488,
       "skill": "Steenzetter B",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3695,7 +3695,7 @@
       ]
     },
     {
-      "id": 117,
+      "id": 489,
       "skill": "Steenzetter C",
       "alt_skill": "",
       "category": "Extra Ambachtsvaardigheden",
@@ -3726,18 +3726,18 @@
       ]
     },
     {
-      "id": 118,
+      "id": 500,
       "skill": "Extra Genezingsmana (EL)",
       "alt_skill": "",
       "category": "Extra Genezingsvaardigheden (EL)",
       "page": 53,
       "description": "Je krijgt 2 elementaire mana extra. \nJe krijgt geen toegang tot extra spreuken.\n\nDeze vaardigheid mag je meerdere keren aankopen.",
       "Requirements": {
-        "skill": [ "Genezingsspreuken A" ],
+        "skill": [ "Genezingsspreuken A (EL)" ],
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -3751,18 +3751,18 @@
       "Recepten": []
     },
     {
-      "id": 119,
+      "id": 501,
       "skill": "Extra Genezingsmana (SP)",
       "alt_skill": "",
       "category": "Extra Genezingsvaardigheden (SP)",
       "page": 53,
       "description": "Je krijgt 2 spirituele mana extra. \nJe krijgt geen toegang tot extra spreuken.\n\nDeze vaardigheid mag je meerdere keren aankopen.",
       "Requirements": {
-        "skill": [ "Genezingsspreuken A" ],
+        "skill": [ "Genezingsspreuken A (SP)" ],
         "any_list": []
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -3776,7 +3776,7 @@
       "Recepten": []
     },
     {
-      "id": 120,
+      "id": 502,
       "skill": "Genezingsspreuken C (EL)",
       "alt_skill": "Genezing C",
       "category": "Extra Genezingsvaardigheden (EL)",
@@ -3791,7 +3791,7 @@
         }
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3818,7 +3818,7 @@
       "Recepten": []
     },
     {
-      "id": 121,
+      "id": 503,
       "skill": "Genezingsspreuken C (SP)",
       "alt_skill": "Genezing C",
       "category": "Extra Genezingsvaardigheden (SP)",
@@ -3833,7 +3833,7 @@
         }
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3860,18 +3860,18 @@
       "Recepten": []
     },
     {
-      "id": 122,
-      "skill": "Immuun voor Giffen",
+      "id": 504,
+      "skill": "Immuun voor Giffen (SP)",
       "alt_skill": "",
-      "category": "Extra Genezingsvaardigheden",
+      "category": "Extra Genezingsvaardigheden (SP)",
       "page": 53,
       "description": "Je bent zelf immuun voor alle giffen.",
       "Requirements": {
-        "skill": [ "Genezing van giffen" ],
+        "skill": [ "Genezer van Giffen (SP)" ],
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3880,18 +3880,38 @@
       "Recepten": []
     },
     {
-      "id": 123,
-      "skill": "Immuun voor Ziekten",
+      "id": 505,
+      "skill": "Immuun voor Giffen (EL)",
       "alt_skill": "",
-      "category": "Extra Genezingsvaardigheden",
+      "category": "Extra Genezingsvaardigheden (EL)",
+      "page": 53,
+      "description": "Je bent zelf immuun voor alle giffen.",
+      "Requirements": {
+        "skill": [ "Genezer van Giffen (EL)" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": {},
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 506,
+      "skill": "Immuun voor Ziekten (SP)",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden (SP)",
       "page": 54,
       "description": "Je bent zelf immuun voor alle ziekten.",
       "Requirements": {
-        "skill": [ "Genezing van ziekten" ],
+        "skill": [ "Genezer van Ziekten (SP)" ],
         "any_list": []
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3900,18 +3920,38 @@
       "Recepten": []
     },
     {
-      "id": 124,
-      "skill": "Immuun voor Geest Beïnvloedend A",
+      "id": 507,
+      "skill": "Immuun voor Ziekten (EL)",
       "alt_skill": "",
-      "category": "Extra Genezingsvaardigheden",
+      "category": "Extra Genezingsvaardigheden (EL)",
+      "page": 54,
+      "description": "Je bent zelf immuun voor alle ziekten.",
+      "Requirements": {
+        "skill": [ "Genezer van Ziekten (EL)" ],
+        "any_list": []
+      },
+      "xp": 2,
+      "loresheet": {},
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 508,
+      "skill": "Immuun voor Geest Beïnvloedend A (SP)",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden (SP)",
       "page": 54,
       "description": "Je bent zelf immuun Fear, Confuse en Sleep.",
       "Requirements": {
-        "skill": [ "Genezing van Geest" ],
+        "skill": [ "Genezer van Geest (SP)" ],
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3920,18 +3960,38 @@
       "Recepten": []
     },
     {
-      "id": 125,
-      "skill": "Immuun voor Geest Beïnvloedend B",
+      "id": 509,
+      "skill": "Immuun voor Geest Beïnvloedend A (EL)",
       "alt_skill": "",
-      "category": "Extra Genezingsvaardigheden",
+      "category": "Extra Genezingsvaardigheden (EL)",
+      "page": 54,
+      "description": "Je bent zelf immuun Fear, Confuse en Sleep.",
+      "Requirements": {
+        "skill": [ "Genezer van Geest (EL)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": {},
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 510,
+      "skill": "Immuun voor Geest Beïnvloedend B (SP)",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden (SP)",
       "page": 54,
       "description": "Je bent zelf immuun voor alle Geestbeïnvloedende effecten:\n Command, Confuse, Fascinate, Fear, incite aggression, Sleep, Force Truth",
       "Requirements": {
-        "skill": [ "Immuun voor Geest Beïnvloedend A" ],
+        "skill": [ "Immuun voor Geest Beïnvloedend A (SP)" ],
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -3939,9 +3999,28 @@
       "Spreuken": [],
       "Recepten": []
     },
-
     {
-      "id": 126,
+      "id": 511,
+      "skill": "Immuun voor Geest Beïnvloedend B (EL)",
+      "alt_skill": "",
+      "category": "Extra Genezingsvaardigheden (EL)",
+      "page": 54,
+      "description": "Je bent zelf immuun voor alle Geestbeïnvloedende effecten:\n Command, Confuse, Fascinate, Fear, incite aggression, Sleep, Force Truth",
+      "Requirements": {
+        "skill": [ "Immuun voor Geest Beïnvloedend A (EL)" ],
+        "any_list": []
+      },
+      "xp": 4,
+      "loresheet": {},
+      "multi_purchase": false,
+      "count": 1,
+      "maxcount": 1,
+      "Eigenschappen": [],
+      "Spreuken": [],
+      "Recepten": []
+    },
+    {
+      "id": 525,
       "skill": "Extra Elementaire mana",
       "alt_skill": "",
       "category": "Extra Magiërvaardigheden",
@@ -3956,7 +4035,7 @@
         }
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -3970,7 +4049,7 @@
       "Recepten": []
     },
     {
-      "id": 127,
+      "id": 526,
       "skill": "Magiërspreuken C - Lucht",
       "alt_skill": "Air Magic C",
       "category": "Extra Magiërvaardigheden",
@@ -3981,7 +4060,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4004,7 +4083,7 @@
       "Recepten": []
     },
     {
-      "id": 128,
+      "id": 527,
       "skill": "Magiërspreuken C - Metaal",
       "alt_skill": "Metal Magic C",
       "category": "Extra Magiërvaardigheden",
@@ -4016,7 +4095,7 @@
         "exception": [ "Doods Druidisme A", "Necromancer A" ]
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4028,7 +4107,7 @@
       ],
       "Spreuken": [
         {
-          "name": "Auru of Fear",
+          "name": "Aura of Fear",
           "page": 30
         },
         {
@@ -4039,7 +4118,7 @@
       "Recepten": []
     },
     {
-      "id": 129,
+      "id": 528,
       "skill": "Magiërspreuken C - Aarde",
       "alt_skill": "Earth Magic C",
       "category": "Extra Magiërvaardigheden",
@@ -4050,7 +4129,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4073,7 +4152,7 @@
       "Recepten": []
     },
     {
-      "id": 130,
+      "id": 529,
       "skill": "Magiërspreuken C - Water",
       "alt_skill": "Water Magic C",
       "category": "Extra Magiërvaardigheden",
@@ -4084,7 +4163,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4107,7 +4186,7 @@
       "Recepten": []
     },
     {
-      "id": 131,
+      "id": 530,
       "skill": "Magiërspreuken C - Vuur",
       "alt_skill": "Fire Magic C",
       "category": "Extra Magiërvaardigheden",
@@ -4118,7 +4197,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4141,7 +4220,7 @@
       "Recepten": []
     },
     {
-      "id": 132,
+      "id": 531,
       "skill": "Magiërspreuken C - Hout",
       "alt_skill": "Wood Magic C",
       "category": "Extra Magiërvaardigheden",
@@ -4153,7 +4232,7 @@
         "exception": [ "Levens Druidisme A" ]
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4176,7 +4255,7 @@
       "Recepten": []
     },
     {
-      "id": 133,
+      "id": 532,
       "skill": "Magiërspreuken D - Vernietiging",
       "alt_skill": "Speciale Magiërspreuken",
       "category": "Extra Magiërvaardigheden",
@@ -4187,7 +4266,7 @@
         "any_list": [ "Magiërspreuken C" ]
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4206,7 +4285,7 @@
       "Recepten": []
     },
     {
-      "id": 134,
+      "id": 533,
       "skill": "Magiërspreuken D - Dominatie",
       "alt_skill": "Speciale Magiërspreuken",
       "category": "Extra Magiërvaardigheden",
@@ -4217,7 +4296,7 @@
         "any_list": [ "Magiërspreuken C" ]
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4236,7 +4315,7 @@
       "Recepten": []
     },
     {
-      "id": 135,
+      "id": 534,
       "skill": "Magiërspreuken D - Epidemie",
       "alt_skill": "Speciale Magiërspreuken",
       "category": "Extra Magiërvaardigheden",
@@ -4247,7 +4326,7 @@
         "any_list": [ "Magiërspreuken C" ]
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4266,7 +4345,7 @@
       "Recepten": []
     },
     {
-      "id": 136,
+      "id": 535,
       "skill": "Glyphs scroll Vervaardigen",
       "alt_skill": "",
       "category": "Extra Magiërvaardigheden",
@@ -4293,7 +4372,7 @@
       "Recepten": []
     },
     {
-      "id": 137,
+      "id": 536,
       "skill": "Glyphs Meesterschap",
       "alt_skill": "",
       "category": "Extra Magiërvaardigheden",
@@ -4325,7 +4404,7 @@
       "Recepten": []
     },
     {
-      "id": 138,
+      "id": 550,
       "skill": "Extra Spirituele mana",
       "alt_skill": "",
       "category": "Extra Priestervaardigheden",
@@ -4340,7 +4419,7 @@
         }
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -4354,7 +4433,7 @@
       "Recepten": []
     },
     {
-      "id": 139,
+      "id": 551,
       "skill": "Uitdrijving",
       "alt_skill": "",
       "category": "Extra Priestervaardigheden",
@@ -4369,7 +4448,7 @@
         }
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4378,7 +4457,7 @@
       "Recepten": []
     },
     {
-      "id": 140,
+      "id": 552,
       "skill": "Priesterspreuken C - Reinheid",
       "alt_skill": "Purity C",
       "category": "Extra Priestervaardigheden",
@@ -4389,7 +4468,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4412,7 +4491,7 @@
       "Recepten": []
     },
     {
-      "id": 141,
+      "id": 553,
       "skill": "Priesterspreuken C - Toorn",
       "alt_skill": "Wrath C",
       "category": "Extra Priestervaardigheden",
@@ -4423,7 +4502,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4446,7 +4525,7 @@
       "Recepten": []
     },
     {
-      "id": 142,
+      "id": 554,
       "skill": "Priesterspreuken C - Dood",
       "alt_skill": "Death C",
       "category": "Extra Priestervaardigheden",
@@ -4458,7 +4537,7 @@
         "exception": [ "Doods Druidisme A", "Necromancer A" ]
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4481,7 +4560,7 @@
       "Recepten": []
     },
     {
-      "id": 143,
+      "id": 555,
       "skill": "Priesterspreuken C - Geest",
       "alt_skill": "Mind C",
       "category": "Extra Priestervaardigheden",
@@ -4492,7 +4571,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4515,7 +4594,7 @@
       "Recepten": []
     },
     {
-      "id": 144,
+      "id": 556,
       "skill": "Priesterspreuken C - Natuur",
       "alt_skill": "Nature C",
       "category": "Extra Priestervaardigheden",
@@ -4527,7 +4606,7 @@
         "exception": [ "Levens Druidisme A" ]
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4550,7 +4629,7 @@
       "Recepten": []
     },
     {
-      "id": 146,
+      "id": 557,
       "skill": "Priesterspreuken D - Inwijden",
       "alt_skill": "Speciale Priesterspreuken",
       "category": "Extra Priestervaardigheden",
@@ -4561,7 +4640,7 @@
         "any_list": [ "Priesterspreuken C" ]
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4580,7 +4659,7 @@
       "Recepten": []
     },
     {
-      "id": 147,
+      "id": 558,
       "skill": "Priesterspreuken D - Gebedsgenezing",
       "alt_skill": "Speciale Priesterspreuken",
       "category": "Extra Priestervaardigheden",
@@ -4591,7 +4670,7 @@
         "any_list": [ "Priesterspreuken C" ]
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4610,7 +4689,7 @@
       "Recepten": []
     },
     {
-      "id": 148,
+      "id": 559,
       "skill": "Priesterspreuken D - Toorn van de Goden",
       "alt_skill": "Speciale Priesterspreuken",
       "category": "Extra Priestervaardigheden",
@@ -4621,7 +4700,7 @@
         "any_list": [ "Priesterspreuken C" ]
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4640,7 +4719,7 @@
       "Recepten": []
     },
     {
-      "id": 149,
+      "id": 560,
       "skill": "Runen scroll Vervaardigen",
       "alt_skill": "",
       "category": "Extra Priestervaardigheden",
@@ -4667,7 +4746,7 @@
       "Recepten": []
     },
     {
-      "id": 150,
+      "id": 561,
       "skill": "Runen Meesterschap",
       "alt_skill": "",
       "category": "Extra Priestervaardigheden",
@@ -4699,7 +4778,7 @@
       "Recepten": []
     },
     {
-      "id": 151,
+      "id": 575,
       "skill": "Bloedwede",
       "alt_skill": "",
       "category": "Extra Ritualistenvaardigheden",
@@ -4713,7 +4792,7 @@
         ]
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4722,7 +4801,7 @@
       "Recepten": []
     },
     {
-      "id": 152,
+      "id": 576,
       "skill": "Ritueel Leider",
       "alt_skill": "",
       "category": "Extra Ritualistenvaardigheden",
@@ -4737,7 +4816,7 @@
         }
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -4746,7 +4825,7 @@
       "Recepten": []
     },
     {
-      "id": 153,
+      "id": 577,
       "skill": "Puur Ritueel",
       "alt_skill": "",
       "category": "Extra Ritualistenvaardigheden",
@@ -4761,7 +4840,7 @@
         }
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 4,
@@ -4770,7 +4849,7 @@
       "Recepten": []
     },
     {
-      "id": 154,
+      "id": 578,
       "skill": "Cirkel Vinden",
       "alt_skill": "",
       "category": "Extra Ritualistenvaardigheden",
@@ -4785,7 +4864,7 @@
         }
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4794,8 +4873,8 @@
       "Recepten": []
     },
     {
-      "id": 155,
-      "skill": "Extra Wilskracht",
+      "id": 600,
+      "skill": "Extra Wilskracht (Vechter)",
       "alt_skill": "",
       "category": "Extra Vechtervaardigheden",
       "page": 66,
@@ -4805,7 +4884,7 @@
         "any_list": [ "Doorzettingsvermogen", "Eerste hulp bij gevechten" ]
       },
       "xp": 1,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": true,
       "count": 1,
       "maxcount": 99,
@@ -4819,7 +4898,7 @@
       "Recepten": []
     },
     {
-      "id": 156,
+      "id": 601,
       "skill": "Kracht B",
       "alt_skill": "",
       "category": "Extra Vechtervaardigheden",
@@ -4830,7 +4909,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4853,7 +4932,7 @@
       "Recepten": []
     },
     {
-      "id": 157,
+      "id": 602,
       "skill": "Taaiheid B",
       "alt_skill": "",
       "category": "Extra Vechtervaardigheden",
@@ -4864,7 +4943,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4887,7 +4966,7 @@
       "Recepten": []
     },
     {
-      "id": 158,
+      "id": 603,
       "skill": "Leiderschap B",
       "alt_skill": "",
       "category": "Extra Vechtervaardigheden",
@@ -4898,7 +4977,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4921,7 +5000,7 @@
       "Recepten": []
     },
     {
-      "id": 159,
+      "id": 604,
       "skill": "Bescherming B",
       "alt_skill": "",
       "category": "Extra Vechtervaardigheden",
@@ -4932,7 +5011,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4955,7 +5034,7 @@
       "Recepten": []
     },
     {
-      "id": 160,
+      "id": 605,
       "skill": "Berserker B",
       "alt_skill": "",
       "category": "Extra Vechtervaardigheden",
@@ -4966,7 +5045,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -4989,7 +5068,7 @@
       "Recepten": []
     },
     {
-      "id": 161,
+      "id": 606,
       "skill": "Militaire training B",
       "alt_skill": "",
       "category": "Extra Vechtervaardigheden",
@@ -5000,7 +5079,7 @@
         "any_list": []
       },
       "xp": 3,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5018,7 +5097,7 @@
       "Recepten": []
     },
     {
-      "id": 162,
+      "id": 625,
       "skill": "Demonologist A",
       "alt_skill": "Demonoloog A",
       "category": "Demonologie",
@@ -5032,7 +5111,7 @@
         ]
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5058,7 +5137,7 @@
       "Recepten": []
     },
     {
-      "id": 163,
+      "id": 626,
       "skill": "Demonologist B (EL)",
       "alt_skill": "Demonoloog B",
       "category": "Demonologie",
@@ -5072,7 +5151,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5107,7 +5186,7 @@
       "Recepten": []
     },
     {
-      "id": 164,
+      "id": 627,
       "skill": "Demonologist B (SP)",
       "alt_skill": "Demonoloog B",
       "category": "Demonologie",
@@ -5121,7 +5200,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5156,7 +5235,7 @@
       "Recepten": []
     },
     {
-      "id": 165,
+      "id": 628,
       "skill": "Demonologist C (EL)",
       "alt_skill": "Demonoloog C",
       "category": "Demonologie",
@@ -5167,7 +5246,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5194,7 +5273,7 @@
       "Recepten": []
     },
     {
-      "id": 166,
+      "id": 629,
       "skill": "Demonologist C (SP)",
       "alt_skill": "Demonoloog C",
       "category": "Demonologie",
@@ -5205,7 +5284,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5232,7 +5311,7 @@
       "Recepten": []
     },
     {
-      "id": 167,
+      "id": 650,
       "skill": "Levens Druidisme A",
       "alt_skill": "Druid A",
       "category": "Druidisme",
@@ -5246,7 +5325,7 @@
         ]
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5272,7 +5351,7 @@
       "Recepten": []
     },
     {
-      "id": 168,
+      "id": 651,
       "skill": "Doods Druidisme A",
       "alt_skill": "Druid A",
       "category": "Druidisme",
@@ -5286,7 +5365,7 @@
         ]
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5312,7 +5391,7 @@
       "Recepten": []
     },
     {
-      "id": 169,
+      "id": 652,
       "skill": "Levens Druidisme B (EL)",
       "alt_skill": "Druid B",
       "category": "Druidisme",
@@ -5326,7 +5405,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5357,7 +5436,7 @@
       "Recepten": []
     },
     {
-      "id": 170,
+      "id": 653,
       "skill": "Levens Druidisme B (SP)",
       "alt_skill": "Druid B",
       "category": "Druidisme",
@@ -5371,7 +5450,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5402,7 +5481,7 @@
       "Recepten": []
     },
     {
-      "id": 171,
+      "id": 654,
       "skill": "Doods Druidisme B (EL)",
       "alt_skill": "Druid B",
       "category": "Druidisme",
@@ -5416,7 +5495,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5447,7 +5526,7 @@
       "Recepten": []
     },
     {
-      "id": 172,
+      "id": 655,
       "skill": "Doods Druidisme B (SP)",
       "alt_skill": "Druid B",
       "category": "Druidisme",
@@ -5461,7 +5540,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5492,7 +5571,7 @@
       "Recepten": []
     },
     {
-      "id": 173,
+      "id": 656,
       "skill": "Levens Druidisme C (EL)",
       "alt_skill": "Druid C",
       "category": "Druidisme",
@@ -5503,7 +5582,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5530,7 +5609,7 @@
       "Recepten": []
     },
     {
-      "id": 174,
+      "id": 657,
       "skill": "Levens Druidisme C (SP)",
       "alt_skill": "Druid C",
       "category": "Druidisme",
@@ -5541,7 +5620,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5568,7 +5647,7 @@
       "Recepten": []
     },
     {
-      "id": 175,
+      "id": 658,
       "skill": "Doods Druidisme C (EL)",
       "alt_skill": "Druid C",
       "category": "Druidisme",
@@ -5579,7 +5658,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5606,7 +5685,7 @@
       "Recepten": []
     },
     {
-      "id": 176,
+      "id": 659,
       "skill": "Doods Druidisme C (SP)",
       "alt_skill": "Druid C",
       "category": "Druidisme",
@@ -5617,7 +5696,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5644,7 +5723,7 @@
       "Recepten": []
     },
     {
-      "id": 177,
+      "id": 675,
       "skill": "Necromancer A",
       "alt_skill": "",
       "category": "Necromantie",
@@ -5658,7 +5737,7 @@
         ]
       },
       "xp": 2,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5688,7 +5767,7 @@
       "Recepten": []
     },
     {
-      "id": 178,
+      "id": 676,
       "skill": "Necromancer B (EL)",
       "alt_skill": "Necromancer B",
       "category": "Necromantie",
@@ -5702,7 +5781,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5733,7 +5812,7 @@
       "Recepten": []
     },
     {
-      "id": 179,
+      "id": 677,
       "skill": "Necromancer B (SP)",
       "alt_skill": "Necromancer B",
       "category": "Necromantie",
@@ -5747,7 +5826,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5778,7 +5857,7 @@
       "Recepten": []
     },
     {
-      "id": 180,
+      "id": 678,
       "skill": "Necromancer C (EL)",
       "alt_skill": "Necromancer C",
       "category": "Necromantie",
@@ -5789,7 +5868,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
@@ -5816,7 +5895,7 @@
       "Recepten": []
     },
     {
-      "id": 181,
+      "id": 679,
       "skill": "Necromancer C (SP)",
       "alt_skill": "Necromancer C",
       "category": "Necromantie",
@@ -5827,7 +5906,7 @@
         "any_list": []
       },
       "xp": 4,
-      "loresheet": "",
+      "loresheet": {},
       "multi_purchase": false,
       "count": 1,
       "maxcount": 1,
