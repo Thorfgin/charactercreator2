@@ -21,6 +21,7 @@ export function setTotalXP(value) { totalXP = value; }
 export function resetTotalXP(tableData) { totalXP = tableData.length > 0 ? tableData.reduce((accumulator, skill) => accumulator + skill.xp, 0) : 0 }
 
 // vaardigheden
+export const getSourceVaardigheden = () => { return vaardigheden; }
 export const sourceBasisVaardigheden = vaardigheden.BasisVaardigheden;
 export let optionsBasisVaardigheden = generateOptions(sourceBasisVaardigheden);
 export function regeneratedBasisVaardigheden(tableData) { optionsBasisVaardigheden = regenerateOptions(sourceBasisVaardigheden, tableData); }
@@ -29,7 +30,12 @@ export const sourceExtraVaardigheden = vaardigheden.ExtraVaardigheden;
 export let optionsExtraVaardigheden = generateOptions(sourceExtraVaardigheden);
 export function regeneratedExtraVaardigheden(tableData) { optionsExtraVaardigheden = regenerateOptions(sourceExtraVaardigheden, tableData); }
 
+// spreuken
+export const getSpreuken = () => { return spreuken; }
 export const sourceSpreuken = [].concat(...spreuken.Categories.map(category => category.Skills));
+
+// recepten
+export const getRecepten = () => { return recepten; }
 export const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
 
 /// --- TABLE PROPERTIES --- ///

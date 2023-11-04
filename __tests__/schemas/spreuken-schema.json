@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "Categories": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "categorie": { "type": "string" },
+          "Skills": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItemProperties": [ "skill" ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "skill": { "type": "string" },
+                "Spells": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItemProperties": [ "id", "spell" ],
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "integer" },
+                      "spell": { "type": "string" },
+                      "mana_cost": { "type": "string" },
+                      "incantation": { "type": "string" },
+                      "description": { "type": "string" },
+                      "spell_effect": { "type": "string" },
+                      "spell_duration": { "type": "string" }
+                    },
+                    "required": [ "id", "spell", "mana_cost", "incantation", "description", "spell_effect", "spell_duration" ]
+                  }
+                }
+              },
+              "required": [ "skill", "Spells" ]
+            }
+          }
+        },
+        "required": [ "categorie", "Skills" ]
+      }
+    }
+  },
+  "required": [ "Categories" ]
+}

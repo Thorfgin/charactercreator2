@@ -1,0 +1,101 @@
+{
+  "type": "object",
+  "properties": {
+    "BasisVaardigheden": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItemProperties": [ "id", "skill" ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "number" },
+          "skill": { "type": "string" },
+          "alt_skill": { "type": "string" },
+          "category": { "type": "string" },
+          "page": { "type": "number" },
+          "description": { "type": "string" },
+          "Requirements": {
+            "type": "object",
+            "properties": {
+              "skill": { "type": "array" },
+              "any_list": { "type": "array" }
+            }
+          },
+          "xp": { "type": "number" },
+          "loresheet": { "type": "object" },
+          "multi_purchase": { "type": "boolean" },
+          "count": { "type": "number" },
+          "maxcount": { "type": "number" },
+          "Eigenschappen": { "type": "array" },
+          "Spreuken": { "type": "array" },
+          "Recepten": { "type": "array" }
+        },
+        "required": [
+          "id",
+          "skill",
+          "alt_skill",
+          "category",
+          "page",
+          "description",
+          "Requirements",
+          "xp",
+          "loresheet",
+          "multi_purchase",
+          "count",
+          "maxcount",
+          "Eigenschappen",
+          "Spreuken",
+          "Recepten"
+        ]
+      }
+    },
+    "ExtraVaardigheden": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItemProperties": [ "id" ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "number" },
+          "skill": { "type": "string" },
+          "alt_skill": { "type": "string" },
+          "category": { "type": "string" },
+          "page": { "type": "number" },
+          "description": { "type": "string" },
+          "Requirements": {
+            "type": "object",
+            "properties": {
+              "skill": { "type": "array" },
+              "any_list": { "type": "array" }
+            }
+          },
+          "xp": { "type": "number" },
+          "loresheet": { "type": "object" },
+          "multi_purchase": { "type": "boolean" },
+          "count": { "type": "number" },
+          "maxcount": { "type": "number" },
+          "Eigenschappen": { "type": "array" },
+          "Spreuken": { "type": "array" },
+          "Recepten": { "type": "array" }
+        },
+        "required": [
+          "id",
+          "skill",
+          "alt_skill",
+          "category",
+          "page",
+          "description",
+          "Requirements",
+          "xp",
+          "loresheet",
+          "multi_purchase",
+          "count",
+          "maxcount",
+          "Eigenschappen",
+          "Spreuken",
+          "Recepten"
+        ]
+      }
+    }
+  }
+}
