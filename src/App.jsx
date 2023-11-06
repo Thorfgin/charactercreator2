@@ -87,10 +87,9 @@ export default function App() {
         saveCharacterToStorage('CCdata', charName, isChecked, MAX_XP, tableData);
 
         // SELECT skill options bijwerken | reeds geselecteerde items worden uitgesloten.
+        // INPUT resterende XP bijwerken
         regeneratedBasisVaardigheden(tableData);
         regeneratedExtraVaardigheden(tableData);
-
-        // INPUT resterende XP bijwerken
         resetTotalXP(tableData);
 
         // karakter eigenschappen container

@@ -199,10 +199,12 @@
     min-width: 50px;
     max-width: 150px;
     width: 50px;
+    margin-left: 3px;
 }
 
 .settings-personage {
     width: 160px;
+    margin-left: 3px;
 }
 
 .select-inputs,
