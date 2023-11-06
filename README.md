@@ -6,28 +6,42 @@
 	TODO:
 
 	MUST
+	- FIX: change the way skills are selected, by referencing id instead of skill.
+	Skills may no be unique in name, for example 'extra wilskracht' exists twice in ExtraVaardigheden
+	This may cause issues with the saves, because everything is reference by skillname.
+	- LANGUAGE: add English as an option
 
 	SHOULD:
-	- UNITTEST: add unittests for presets.json and releasenotes.json
+	- 
 
 	COULD:
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
+	
+	WOULD: 
 	- integration with VOIDWALKER / create new characters
 		> this requires integration on perhaps an API level
 		> Needs to be done from within a player portal? Probably requires a Node.js server
 
-	WOULD: 
-	
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
-	202310??	VERSION: when clicking the version, show a modal with the release notes.
+	20231106	PRESETS: add a generic text and description per preset explaing the general style of play 
+				for this type of character on Vortex Adventure
+			NEWCHAR: expand the XP warning with a explainatory text on skill shuffle for new players.	
+			FIX: Again faulty scaling based of the image Character Eigenschappen based on current screen dimensions	
+			UNITTEST: improved unittests for vaardigheden.json to cross-reference Spells, Recipes, Requirements
+			UNITTEST: add unittests for presets.json 
+			UNITTEST: add unittests for releasenotes.json
+
+	20231101	VERSION: when clicking the version, show a modal with the release notes.
 			MIN-XP: When a build has spend less than 13 points, show a warning next to XP remaining that XP will be lost.
 			FRAMEWORK: Reworked the Tooltips to be less convoluted and more maintainable
 			FIX: minor bug in Presets, causing a single preset not to load.
 			FIX: faulty scaling based of the image Character Eigenschappen based on current screen dimensions
 			FIX: Adding a Skill to the Select, than loading a preset (or save) does not clear Select.
 			  This results in the skill being added twice.
+			FIX: on loading a character the new Character check was nog set propperly after refactoring
+			FIX: fixed a faulty spell name
 			LOOKS/FEELS: Changed the NewCharacter toggle, it will no longer erase when unchecking the checkbox,
 			unless and Extra skill was added. If that is the case it will be erased entirely still.
 
@@ -123,9 +137,9 @@
 	20230912	SKILLS have Tooltips available
 	
 
-	20230911	SPELLS/RECIPIES can be converted to JSON per script
+	20230911	SPELLS/RECIPES can be converted to JSON per script
 	
-	20230908	SPELLS/RECIPIES have tooltips
+	20230908	SPELLS/RECIPES have tooltips
 	
 
 	20230905	RECIPY gives a summary of the selected spells aquired by skills

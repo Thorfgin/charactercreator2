@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 // Shared
 import {
+    defaultProperties,
     sourceSpreuken,
     sourceRecepten,
     sourceBasisVaardigheden,
@@ -14,13 +15,19 @@ import {
 getSkillByName.propTypes = { skillName: PropTypes.string.isRequired };
 
 // Ophalen van een vaardigheid op naam
-export function getSkillByName(skillName) {
+export function getSkillByName(skillName, useIncludes = false) {
     let sourceSkill = null;
-    sourceSkill = sourceBasisVaardigheden.find((item) =>
-        item.skill.toLowerCase() === skillName.toLowerCase());
-    if (!sourceSkill || sourceSkill === null) {
-        sourceSkill = sourceExtraVaardigheden.find((item) =>
-            item.skill.toLowerCase() === skillName.toLowerCase());
+    if (useIncludes === true) {
+        sourceSkill = sourceBasisVaardigheden.find((item) => item.skill.toLowerCase().includes(skillName.toLowerCase()));
+        if (!sourceSkill || sourceSkill === null) {
+            sourceSkill = sourceExtraVaardigheden.find((item) => item.skill.toLowerCase().includes(skillName.toLowerCase()));
+        }
+    }
+    else {
+        sourceSkill = sourceBasisVaardigheden.find((item) => item.skill.toLowerCase() === skillName.toLowerCase());
+        if (!sourceSkill || sourceSkill === null) {
+            sourceSkill = sourceExtraVaardigheden.find((item) => item.skill.toLowerCase() === skillName.toLowerCase());
+        }
     }
     return sourceSkill;
 }
@@ -47,7 +54,9 @@ export function getBasicSkillsFromTable(tableData) {
 export function getExtraSkillsFromTable(tableData) {
     const extraSkills = []
     for (const tableSkill of tableData) {
-        const isExtraSkill = sourceExtraVaardigheden.some((record) => record.skill.toLowerCase() === tableSkill.skill.toLowerCase());
+        const isExtraSkill = sourceExtraVaardigheden.some((record) =>
+            record.skill.toLowerCase() === tableSkill.skill.toLowerCase()
+        );
         if (isExtraSkill) { extraSkills.push(tableSkill.skill); }
     }
     return extraSkills;
@@ -55,18 +64,24 @@ export function getExtraSkillsFromTable(tableData) {
 
 /// --- SPELLS & RECIPE --- ///
 export function getSpellBySkillName(skillName, spellName) {
+    if (!skillName || !spellName) { return; }
     const sourceSkill = getSkillByName(skillName);
     const sourceSpell = sourceSpreuken.find((item) =>
-        item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
-        item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
-    return sourceSpell.Spells.find((item) => item.spell.toLowerCase() === spellName.toLowerCase());
+        item.skill.toLowerCase() === sourceSkill?.skill.toLowerCase() ||
+        item.skill.toLowerCase() === sourceSkill?.alt_skill.toLowerCase());
+    return sourceSpell?.Spells.find((item) => item.spell.toLowerCase() === spellName.toLowerCase());
 }
 export function getRecipeBySkillName(skillName, recipeName) {
+    if (!skillName || !recipeName) { return; }
     const sourceSkill = getSkillByName(skillName);
     const skillFound = sourceRecepten.find((item) =>
-        item.skill.toLowerCase() === sourceSkill.skill.toLowerCase() ||
-        item.skill.toLowerCase() === sourceSkill.alt_skill.toLowerCase());
-    return skillFound.Recipies.find((item) => item.recipy.toLowerCase() === recipeName.toLowerCase());
+        item.skill.toLowerCase() === sourceSkill?.skill.toLowerCase() ||
+        item.skill.toLowerCase() === sourceSkill?.alt_skill.toLowerCase());
+    return skillFound?.Recipes.find((item) => item.recipy.toLowerCase() === recipeName.toLowerCase());
+}
+
+export function getPropertyByName(name) {
+    return defaultProperties.find((item) => item.name === name);
 }
 
 /// --- SELECT --- ///

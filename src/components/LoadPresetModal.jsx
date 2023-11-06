@@ -50,15 +50,22 @@ export default function LoadPresetModal() {
 
     return (
         <div className="modal-overlay">
-            <div className="upload-modal">
+            <div className="preset-modal">
                 <h3>Bekijk een template</h3>
-                <div className="upload-modal-block">
+                <p>
+                    Deze templates dienen als voorbeeld voor hoe bepaalde<br />
+                    arche-type personages er bij VA uit zou kunnen zien.<br />
+                    Per arche-type hebben we getracht een voorbeeld te geven<br />
+                    van het soort spel dat je zou kunnen verwachten. <br />
+
+                </p>
+                <div className="preset-modal-block center-content">
                     <TemplateTable
                         selectedChar={selectedTemplate}
                         handleTemplateChange={handleSelectPreset}
                     />
                 </div>
-                <div className="upload-modal-block">
+                <div className="preset-modal-block">
                     <button className="btn-primary" onClick={loadPresetToTableData}>Laad</button>
                     <button className="btn-primary" onClick={closeModal}>Annuleren</button>
                 </div>

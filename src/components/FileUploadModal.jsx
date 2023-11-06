@@ -68,7 +68,7 @@ export default function FileUploadModal() {
         <div className="modal-overlay">
             <div className="upload-modal">
                 <h3>Upload een Bestand</h3>
-                <div className="upload-modal-block">
+                <div className="upload-modal-block center-content">
                     <input type="file" onChange={handleFileChange} />
                 </div>
                 <div className="upload-modal-block">

@@ -4,11 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 import Collapsible from './Collapsible.jsx';
 
 // Shared
+import { getSourceReleaseNotes } from '../SharedObjects.js';
 import { useSharedState } from '../SharedStateContext.jsx';
 
-// json
-import sourceReleaseNotes from '../json/releasenotes.json';
-
+const sourceReleaseNotes = getSourceReleaseNotes();
 
 // Toont een venster met daar in de release notes.
 // Release notes zijn open/dicht te klappen

@@ -4,10 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 import Collapsible from './Collapsible.jsx';
 
 // shared
+import { getSourceFAQ } from '../SharedObjects.js';
 import { useSharedState } from '../SharedStateContext.jsx';
 
-// json
-import sourceFAQ from '../json/faq.json';
+const sourceFAQ = getSourceFAQ();
 
 // Toont een venster met daar in de meeste gestelde vragen.
 // Vragen zijn open/dicht te klappen

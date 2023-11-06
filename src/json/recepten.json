@@ -5,7 +5,7 @@
       "Skills": [
         {
           "skill": "Meestersmid A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 1,
               "recipy": "Meesterstuk A (Metal)",
@@ -24,7 +24,7 @@
         },
         {
           "skill": "Meestersmid B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 3,
               "recipy": "Meesterstuk B (Steel)",
@@ -43,7 +43,7 @@
         },
         {
           "skill": "Meestersmid C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 5,
               "recipy": "Meesterstuk C (Mithril)",
@@ -62,7 +62,7 @@
         },
         {
           "skill": "Houtbewerker A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 7,
               "recipy": "Meesterstuk A (Wood)",
@@ -81,7 +81,7 @@
         },
         {
           "skill": "Houtbewerker B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 9,
               "recipy": "Meesterstuk B (Ebony)",
@@ -100,7 +100,7 @@
         },
         {
           "skill": "Houtbewerker C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 11,
               "recipy": "Meesterstuk C (Worldtree Sapling)",
@@ -119,7 +119,7 @@
         },
         {
           "skill": "Kleermaker A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 13,
               "recipy": "Meesterstuk A (Cloth)",
@@ -138,7 +138,7 @@
         },
         {
           "skill": "Kleermaker B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 15,
               "recipy": "Meesterstuk B (Velvet)",
@@ -148,7 +148,7 @@
             },
             {
               "id": 16,
-              "recipy": "Vlag van de Groep ",
+              "recipy": "Vlag van de Groep",
               "effect": "Dit voorwerp kan eenmalig gebruikt worden om 10 leden van een groep of gilde er aan te verbinden. Deze 10 leden kunnen binnen de tent waar deze vlag bij hangt vandaag eenmalig x energie naar keuze terugkrijgen door in de tent te rusten voor enkele minuten met minstens 1 ander lid van de groep.",
               "inspiration": "",
               "components": "10*x inspiratie of 2 Mythical Velvet*x"
@@ -157,7 +157,7 @@
         },
         {
           "skill": "Kleermaker C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 17,
               "recipy": "Meesterstuk C (Spidersilk)",
@@ -176,7 +176,7 @@
         },
         {
           "skill": "Boekbinder A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 19,
               "recipy": "Meesterstuk A (Paper)",
@@ -195,7 +195,7 @@
         },
         {
           "skill": "Boekbinder B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 21,
               "recipy": "Meesterstuk B (Vellum)",
@@ -214,7 +214,7 @@
         },
         {
           "skill": "Boekbinder C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 23,
               "recipy": "Meesterstuk C (Griffinskin Vellum)",
@@ -224,7 +224,7 @@
             },
             {
               "id": 24,
-              "recipy": "Leeg Boek der Ervaringen",
+              "recipy": "Boek der Ervaringen",
               "effect": "Als een persoon persoonlijke notities maakt over diens leven en ervaringen rondom dit evenement krijgt de persoon na dit evenement 0.25 extra XP. Je kunt maar 1 zo een boek gebruiken per evenement.",
               "inspiration": "",
               "components": "20 inspiratie of 1 Mythical griffinskin vellum"
@@ -233,7 +233,7 @@
         },
         {
           "skill": "Leerbewerker A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 25,
               "recipy": "Meesterstuk A (Leather)",
@@ -252,7 +252,7 @@
         },
         {
           "skill": "Leerbewerker B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 27,
               "recipy": "Meesterstuk B (Scale)",
@@ -271,7 +271,7 @@
         },
         {
           "skill": "Leerbewerker C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 29,
               "recipy": "Meesterstuk C (Dragonscale)",
@@ -290,7 +290,7 @@
         },
         {
           "skill": "Juwelier A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 31,
               "recipy": "Meesterstuk A (Copper Ingot)",
@@ -309,7 +309,7 @@
         },
         {
           "skill": "Juwelier B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 33,
               "recipy": "Meesterstuk B (Silver Ingot)",
@@ -328,7 +328,7 @@
         },
         {
           "skill": "Juwelier C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 35,
               "recipy": "Meesterstuk C (Golden Ingot)",
@@ -347,7 +347,7 @@
         },
         {
           "skill": "Steenzetter A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 37,
               "recipy": "Meesterstuk A (Quartz)",
@@ -366,7 +366,7 @@
         },
         {
           "skill": "Steenzetter B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 39,
               "recipy": "Meesterstuk B (Gems)",
@@ -385,7 +385,7 @@
         },
         {
           "skill": "Steenzetter C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 41,
               "recipy": "Meesterstuk C (Flawless Gems)",
@@ -409,7 +409,7 @@
       "Skills": [
         {
           "skill": "Brouw Genezende Dranken A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 43,
               "recipy": "Heal scrape potion",
@@ -456,7 +456,7 @@
         },
         {
           "skill": "Brouw Genezende Dranken B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 49,
               "recipy": "Heal deadly wound potion",
@@ -503,7 +503,7 @@
         },
         {
           "skill": "Brouw Genezende Dranken C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 55,
               "recipy": "Heal all wounds potion",
@@ -550,7 +550,7 @@
         },
         {
           "skill": "Brouw Giffen A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 61,
               "recipy": "Minor weapon oil",
@@ -597,7 +597,7 @@
         },
         {
           "skill": "Brouw Giffen B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 67,
               "recipy": "Venom",
@@ -644,7 +644,7 @@
         },
         {
           "skill": "Brouw Giffen C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 73,
               "recipy": "Batch of venom",
@@ -691,7 +691,7 @@
         },
         {
           "skill": "Brouw Hallucinerende Elixers A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 79,
               "recipy": "Smell of confusion",
@@ -738,7 +738,7 @@
         },
         {
           "skill": "Brouw Hallucinerende Elixers B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 85,
               "recipy": "Fever potion",
@@ -785,7 +785,7 @@
         },
         {
           "skill": "Brouw Hallucinerende Elixers C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 91,
               "recipy": "Major fever potion",
@@ -832,7 +832,7 @@
         },
         {
           "skill": "Brouw Kruiden Elixers A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 97,
               "recipy": "Martial skill potion",
@@ -879,7 +879,7 @@
         },
         {
           "skill": "Brouw Kruiden Elixers B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 103,
               "recipy": "Healing spit",
@@ -926,7 +926,7 @@
         },
         {
           "skill": "Brouw Kruiden Elixers C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 109,
               "recipy": "Healing blood",
@@ -973,7 +973,7 @@
         },
         {
           "skill": "Brouw Magische Elixers A",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 115,
               "recipy": "Fire breath potion",
@@ -1020,7 +1020,7 @@
         },
         {
           "skill": "Brouw Magische Elixers B",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 121,
               "recipy": "Magical inspiration potion",
@@ -1067,7 +1067,7 @@
         },
         {
           "skill": "Brouw Magische Elixers C",
-          "Recipies": [
+          "Recipes": [
             {
               "id": 127,
               "recipy": "Major magical inspiration potion",
