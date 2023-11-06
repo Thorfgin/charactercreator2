@@ -7,7 +7,7 @@
 
 	MUST
 	- FIX: change the way skills are selected, by referencing id instead of skill.
-	Skills may no be unique in name, for example 'extra wilskracht' exists twice.
+	Skills may no be unique in name, for example 'extra wilskracht' exists twice in ExtraVaardigheden
 	This may cause issues with the saves, because everything is reference by skillname.
 	- LANGUAGE: add English as an option
 
@@ -15,8 +15,6 @@
 	- 
 
 	COULD:
-	- PRESETS: add a generic text and description per preset explaing the general style of play 
-		for this type of character on Vortex Adventure
 	- PREREQUISITES: add button to remove all skills that have it as a prerequisite.
 	
 	WOULD: 
@@ -27,7 +25,9 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
-	2023114		NEWCHAR: expand the XP warning with a explainatory text on skill shuffle for new players.	
+	20231105	PRESETS: add a generic text and description per preset explaing the general style of play 
+				for this type of character on Vortex Adventure
+			NEWCHAR: expand the XP warning with a explainatory text on skill shuffle for new players.	
 			FIX: Again faulty scaling based of the image Character Eigenschappen based on current screen dimensions	
 			UNITTEST: improved unittests for vaardigheden.json to cross-reference Spells, Recipes, Requirements
 			UNITTEST: add unittests for presets.json 

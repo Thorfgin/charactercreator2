@@ -5,12 +5,16 @@
       "version": "v0.5.3",
       "Items": [
         {
-          "description": "Exporteer naar PDF bevat een afbeelding van character eigenschappen. Deze afbeelding werd soms vervormd door afwijkend dimensies.",
-          "title": "Bugfix: Exporteer naar Pdf kan afbeelding bevatten die vervormd wordt"
+          "description": "Elk template heeft een omschrijving gekregen van 't arche type personage en eventuele adviezen voor 't spelen van dit type bij VA.",
+          "title": "Feature: Templates bevatten een aanvullende omschrijving."
         },
         {
           "description": "In aanvulling op de beperking dat er maximaal 2 xp bewaard mag worden bij een nieuw personage, is de toevoeging voor nieuwe spelers gedaan dat zij via de infobalie nog wijzingen aan kunnen brengen, tijdens of na het eerste evenement.",
           "title": "Looks/Feels: Aanvulling op minimale XP"
+        },
+        {
+          "description": "Exporteer naar PDF bevat een afbeelding van character eigenschappen. Deze afbeelding werd soms vervormd door afwijkend dimensies.",
+          "title": "Bugfix: Exporteer naar Pdf kan vervormde afbeeldingen bevatten."
         },
         {
           "description": "Om bronbestanden beter te kunnen onderhouden, zijn er meerdere validaties toegevoegd waardoor deze consistenter onderhouden kunnen worden.",

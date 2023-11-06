@@ -19,6 +19,7 @@
             "maximum": 99
           },
           "is_checked": { "type": "boolean" },
+          "information": { "type": "string" },
           "Skills": {
             "type": "array",
             "minItems": 1,

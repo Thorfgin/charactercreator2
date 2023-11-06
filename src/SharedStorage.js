@@ -116,16 +116,19 @@ function transformDataToTableData(rawSkills) {
     const tableData = [];
 
     const getData = (source, rawSkill) => {
-        const skill = source.find((record) => record.skill.toLowerCase() === rawSkill.skill.toLowerCase());
-        const updatedSkill = { ...skill};
-        updatedSkill.count = rawSkill.count > updatedSkill.maxcount ? updatedSkill.maxcount : rawSkill.count;
-        updatedSkill.xp = rawSkill.count > 1 ? updatedSkill.xp * rawSkill.count : updatedSkill.xp;
-        tableData.push(updatedSkill);
+        if (!rawSkill) { return; }
+        const skill = source.find((record) => record.skill?.toLowerCase() === rawSkill.skill?.toLowerCase());
+        if (skill) {
+            const updatedSkill = { ...skill };
+            updatedSkill.count = rawSkill.count > updatedSkill.maxcount ? updatedSkill.maxcount : rawSkill.count;
+            updatedSkill.xp = rawSkill.count > 1 ? updatedSkill.xp * rawSkill.count : updatedSkill.xp;
+            tableData.push(updatedSkill);
+        }
     }
 
     if (rawSkills?.length > 0) {
         for (const rawSkill of rawSkills) {
-            const isBasicSkill = sourceBasisVaardigheden.some((record) => record.skill.toLowerCase() === rawSkill.skill.toLowerCase());
+            const isBasicSkill = sourceBasisVaardigheden.some((record) => record.skill?.toLowerCase() === rawSkill.skill?.toLowerCase());
             if (isBasicSkill) { getData(sourceBasisVaardigheden, rawSkill) }
             else { getData(sourceExtraVaardigheden, rawSkill) }
         }
@@ -213,7 +216,7 @@ export function exportCharacterToFile(name, is_checked, max_xp, data) {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        const downloadName = name !== "" ? name: "character";
+        const downloadName = name !== "" ? name : "character";
         a.download = `VA_${downloadName}.dat`;
         a.click();
         // Opruimen na download
