@@ -753,7 +753,7 @@
       "name": "Doodsaanbidder",
       "max_xp": 15,
       "is_checked": true,
-      "information": "De dood is grens. Waar de druides deze bewaken, stappen de necromancers er overheen. Met deze vaardigheden kun je beide kanten op. Met de aanvullende vaardigheden in Alchemie en Rituelen heb je de mogelijkheid ook jezelf of anderen verder te sterken.",
+      "information": "De dood is een grens. Waar de druides deze grens bewaken, stappen de necromancers er geregeld overheen. Met deze vaardigheden kun je beide kanten op. Met de aanvullende vaardigheden in Alchemie en Rituelen heb je de mogelijkheid ook jezelf of anderen verder te sterken.",
       "Skills": [
         {
           "skill": "Lezen & Schrijven",
