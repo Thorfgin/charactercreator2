@@ -394,7 +394,7 @@ export default function Toolbar() {
                             {(isChecked && totalXP < 13) ? (
                                 <CustomTooltip
                                     header="Nieuw personage"
-                                    message="Nieuwe personages mogen niet meer dan 2 xp punten bewaren. \nXP boven de 2 punten die niet besteed wordt, zal verloren raken."
+                                    message="Nieuwe personages mogen niet meer dan 2 XP punten bewaren. \nXP boven de 2 punten die niet besteed wordt, zal verloren raken. \n\nMocht je (toch) als nieuwe speler niet tevreden met je keuze, dan is dat geen probleem: Tijdens en na het eerste event mag je via de infobalie in overleg nog vaardigheden verwisselen."
                                     image={imageSrc[1]}
                                 />
                             ) : null}

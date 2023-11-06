@@ -18,7 +18,7 @@ const getBlock = (text, className) => {
     let descriptionBlock = text.split('\\n');
     const description = descriptionBlock.map((block) => (
         <div key={uuidv4()} className={className}> {block === '' ? <br /> : block} </div>
-    ))
+    ));
     return description;
 }
 
@@ -31,7 +31,7 @@ const getMapping = (tooltipData) => {
 
         return (
             <tr key={uniqueKey}>
-                <td className="tooltip-property">{label}:</td>
+                <td className="tooltip-property">{label ? label + ":" : null}</td>
                 <td className="tooltip-value">{value}</td>
             </tr>
         );
@@ -187,19 +187,21 @@ CustomTooltip.propTypes = {
 };
 
 export function CustomTooltip({ header, subheader=undefined, message, image = './images/img-info.png' }) {
+    const description = getBlock(message, "description-block");
+    const tooltipData = [  { label: '', value: description || 'Informatie kon niet gevonden worden.' } ];
+    const tooltipItems = getMapping(tooltipData);
 
     return (
         <div className="grid-spreuk-icons">
             <GenericTooltip
                 header={header}
                 subheader={subheader}
-                message={getBlock(message, "description-block") || ''}
+                message={tooltipItems}
                 image={image}
             />
         </div>
     )
 }
-
 
 GenericTooltip.propTypes = {
     header: PropTypes.any,
@@ -208,7 +210,7 @@ GenericTooltip.propTypes = {
     image: PropTypes.any,
 };
 
-function GenericTooltip({ header, subheader = undefined, message, image = './images/img-info.png' }) {
+function GenericTooltip({ header, subheader = undefined, message, image = './images/img-info.png'}) {
     const [showTooltip, setShowTooltip] = useState(false);
     const handleMouseOver = () => setShowTooltip(true);
     const closeTooltip = () => setShowTooltip(false);

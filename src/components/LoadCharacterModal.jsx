@@ -52,14 +52,14 @@ function LoadCharacterModal() {
 
     return (
         <div className="modal-overlay">
-            <div className="upload-modal">
+            <div className="load-modal">
                 <h3>Laad een personage</h3>
-                <div className="upload-modal-block">
+                <div className="upload-modal-block center-content">
                     <CharacterTable
                         selectedChar={selectedCharacter}
                         handleCharacterChange={handleCharacterChange} />
                 </div>
-                <div className="upload-modal-block">
+                <div className="load-modal-block">
                     <button className="btn-primary" onClick={loadCharacterFromLocalStorage}>Laad</button>
                     <button className="btn-primary" onClick={closeModal}>Annuleren</button>
                 </div>

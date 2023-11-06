@@ -1,6 +1,9 @@
 import { useRef } from 'react';
 import PropTypes from 'prop-types';
 
+// shared
+import { CustomTooltip } from './Tooltip.jsx';
+
 // functions
 import { getPresets } from '../SharedObjects.js'
 
@@ -18,15 +21,11 @@ export default function TemplateTable({ selectedTemplate, handleTemplateChange }
         handleTemplateChange(name);
         // Verwijderen 'selected-row' als deze al was toegewezen
         const prevSelectedRow = tableRef.current.querySelector('.selected-row');
-        if (prevSelectedRow) {
-            prevSelectedRow.classList.remove('selected-row');
-        }
+        if (prevSelectedRow) { prevSelectedRow.classList.remove('selected-row'); }
 
         // Toevoegen 'selected-row' aan geselecteerde rij
         const selectedRow = tableRef.current.querySelector(`tr[data-key="${name}"]`);
-        if (selectedRow) {
-            selectedRow.classList.add('selected-row');
-        }
+        if (selectedRow) { selectedRow.classList.add('selected-row'); }
     }
 
     return (
@@ -40,6 +39,14 @@ export default function TemplateTable({ selectedTemplate, handleTemplateChange }
                         onClick={() => handleSelectTemplate(item.name)}
                     >
                         <td>{item.name}</td>
+                        {item.information !== "" && (
+                            <td>
+                                <CustomTooltip
+                                    header={"Template: " + item.name}
+                                    message={item.information}
+                                />
+                            </td>
+                        )}
                     </tr>
                 ))}
                 {!sourcePresets && (

@@ -1333,7 +1333,7 @@
               "spell": "Resist Special Damage",
               "mana_cost": "2",
               "incantation": "In the name of... , I shield myself from strong blows!",
-              "description": "De priester zal bij het eerstvolgende BLAST, CRUSH, DESTROY effect slechts 1 schade krijgen. 'n'nWanneer de ontvanger het effect ontvangt moet deze persoon zeggen:\n “By the Divine One’s Might, RESIST!",
+              "description": "De priester zal bij het eerstvolgende BLAST, CRUSH, DESTROY effect slechts 1 schade krijgen. \n\nWanneer de ontvanger het effect ontvangt moet deze persoon zeggen:\n “By the Divine One’s Might, RESIST!",
               "spell_effect": "Enchantment, Zelf",
               "spell_duration": "1 uur of tot gebruikt"
             },
