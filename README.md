@@ -25,7 +25,7 @@
 	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	DONE
-	20231105	PRESETS: add a generic text and description per preset explaing the general style of play 
+	20231106	PRESETS: add a generic text and description per preset explaing the general style of play 
 				for this type of character on Vortex Adventure
 			NEWCHAR: expand the XP warning with a explainatory text on skill shuffle for new players.	
 			FIX: Again faulty scaling based of the image Character Eigenschappen based on current screen dimensions	
