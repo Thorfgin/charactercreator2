@@ -1,6 +1,28 @@
 {
   "ReleaseNotes": [
     {
+      "date": "16-04-2024",
+      "version": "v0.5.4",
+      "Items": [
+        {
+          "description": "Correctie op verkregen inspiratie bij de vaardigheid Kennis van Kruiden. 3 > 2 inspiratie.",
+          "title": "BugFix: Correctie Kennis van Kruiden."
+        },
+        {
+          "description": "Correctie op maximum aantal XP welke bewaard mag worden, bij het aanmaken van een nieuw personage. 2 > 3 XP.",
+          "title": "BugFix: Correctie op maximaal te bewaren XP bij nieuw personage."
+        },
+        {
+          "description": "Correctie op grote van het paneel waardoor in sommige gevallen een item niet correct getoond kon worden.",
+          "title": "Looks & Feels: Correctie panel size Spreuken, Technieken & Recepten."
+        },
+        {
+          "description": "Correctie op de tooltip wanneer een spreuk, techniek of recept getoond wordt. de term mana is vervangen door de overkoepelende, correcte term: energie.",
+          "title": "BugFix: Correctie op tooltip voor Spreuken, Technieken & Recepten."
+        }
+      ]
+    },
+    {
       "date": "06-11-2023",
       "version": "v0.5.3",
       "Items": [

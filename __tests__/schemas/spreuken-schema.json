@@ -26,6 +26,7 @@
                     "properties": {
                       "id": { "type": "integer" },
                       "spell": { "type": "string" },
+                      "mana_type": { "type": "string" },
                       "mana_cost": { "type": "string" },
                       "incantation": { "type": "string" },
                       "description": { "type": "string" },

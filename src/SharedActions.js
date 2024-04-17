@@ -71,6 +71,7 @@ export function getSpellBySkillName(skillName, spellName) {
         item.skill.toLowerCase() === sourceSkill?.alt_skill.toLowerCase());
     return sourceSpell?.Spells.find((item) => item.spell.toLowerCase() === spellName.toLowerCase());
 }
+
 export function getRecipeBySkillName(skillName, recipeName) {
     if (!skillName || !recipeName) { return; }
     const sourceSkill = getSkillByName(skillName);
