@@ -118,7 +118,8 @@ export function SpellTooltip({ skillName, spellName, page, image = './images/img
     const description = getBlock(sourceSpell?.description, "description-block");
 
     const tooltipData = [
-        { label: 'Mana kosten', value: sourceSpell?.mana_cost || null },
+        { label: 'Energie kosten', value: sourceSpell?.mana_cost || null },
+        { label: 'Energie type', value: (sourceSpell?.mana_type != "Special" ? sourceSpell?.mana_type : "Skill afhankelijk: Elementair of Spiritueel") || null },
         { label: 'Incantatie', value: sourceSpell?.incantation || null },
         { label: 'Omschrijving', value: description || 'Spreuk/Techniek informatie kon niet gevonden worden.' },
         { label: 'Effect', value: sourceSpell?.spell_effect || null },

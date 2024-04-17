@@ -323,8 +323,8 @@
 .side-container-a {
     display: flex;
     flex-direction: column;
-    min-width: 250px;
-    width: 250px auto;
+    min-width: 275px;
+    width: 275px auto;
     max-width: 25%;
     height: auto;
     align-items: center;
@@ -670,6 +670,7 @@
     color: #333;
     background-color: #fff;
     border: hidden;
+    min-width: 30px;
 }
 
     .tooltip-table td {
@@ -677,6 +678,11 @@
         border: hidden;
         white-space: normal;
     }
+
+.tooltip-property {
+    min-width: 95px;
+    width: 95px;
+}
 
 /* Load Character table */
 .character-table {

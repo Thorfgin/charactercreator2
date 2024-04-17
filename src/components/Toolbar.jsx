@@ -382,7 +382,7 @@ export default function Toolbar() {
                             <label name="xp_over_label">
                                 XP over:
                                 <input
-                                    className = { isChecked && totalXP < 13 ? "xp_over_input" : null}
+                                    className = { isChecked && totalXP < 12 ? "xp_over_input" : null}
                                     id="xp_over_input"
                                     type="number"
                                     value={MAX_XP - totalXP}
@@ -391,10 +391,10 @@ export default function Toolbar() {
                                     disabled={true}
                                 />
                             </label>
-                            {(isChecked && totalXP < 13) ? (
+                            {(isChecked && totalXP < 12) ? (
                                 <CustomTooltip
                                     header="Nieuw personage"
-                                    message="Nieuwe personages mogen niet meer dan 2 XP punten bewaren. \nXP boven de 2 punten die niet besteed wordt, zal verloren raken. \n\nMocht je als nieuwe speler (toch) niet tevreden zijn met je keuze, dan is dat geen probleem: Tijdens en na je eerste event mag je via de infobalie in overleg nog vaardigheden verwisselen."
+                                    message="Nieuwe personages mogen niet meer dan 3 XP punten bewaren. \nXP boven de 3 punten die niet besteed wordt, zal verloren raken. \n\nMocht je als nieuwe speler (toch) niet tevreden zijn met je keuze, dan is dat geen probleem: Tijdens en na je eerste event mag je via de infobalie in overleg nog vaardigheden verwisselen."
                                     image={imageSrc[1]}
                                 />
                             ) : null}
