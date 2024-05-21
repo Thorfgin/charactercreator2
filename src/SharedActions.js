@@ -9,28 +9,16 @@ import {
     sourceExtraVaardigheden,
 } from './SharedObjects.js';
 
+import {
+    teacherSkill,
+    ritualismSkills
+} from './SharedConstants.js';
 
 /// --- SKILLS --- ///
 
-getSkillByName.propTypes = { skillName: PropTypes.string.isRequired };
-
-// Ophalen van een vaardigheid op naam
-export function getSkillByName(skillName, useIncludes = false) {
-    let sourceSkill = null;
-    if (useIncludes === true) {
-        sourceSkill = sourceBasisVaardigheden.find((item) => item.skill.toLowerCase().includes(skillName.toLowerCase()));
-        if (!sourceSkill || sourceSkill === null) {
-            sourceSkill = sourceExtraVaardigheden.find((item) => item.skill.toLowerCase().includes(skillName.toLowerCase()));
-        }
-    }
-    else {
-        sourceSkill = sourceBasisVaardigheden.find((item) => item.skill.toLowerCase() === skillName.toLowerCase());
-        if (!sourceSkill || sourceSkill === null) {
-            sourceSkill = sourceExtraVaardigheden.find((item) => item.skill.toLowerCase() === skillName.toLowerCase());
-        }
-    }
-    return sourceSkill;
-}
+getSkillById.propTypes = {
+    id: PropTypes.number.isRequired
+};
 
 // Ophalen van een vaardigheid op id
 export function getSkillById(id) {
@@ -40,45 +28,61 @@ export function getSkillById(id) {
     return sourceSkill;
 }
 
+getBasicSkillsFromTable.propTypes = {
+    tableData: PropTypes.array.isRequired
+};
+
 // Ophalen van alle vaardigheden uit de basis vaardigheden die aanwezig zijn in de tabel
 export function getBasicSkillsFromTable(tableData) {
     const basicSkills = []
-    for (const tableSkill of tableData) {
-        const isBasicSkill = sourceBasisVaardigheden.some((record) => record.skill.toLowerCase() === tableSkill.skill.toLowerCase());
-        if (isBasicSkill) { basicSkills.push(tableSkill.skill); }
-    }
+    tableData.forEach((tableSkill) => {
+        if (sourceBasisVaardigheden.some((record) => record.id === tableSkill.id)) { basicSkills.push(tableSkill) }
+    });
     return basicSkills;
 }
 
+getExtraSkillsFromTable.propTypes = {
+    tableData: PropTypes.array.isRequired
+};
+
 // Ophalen van alle vaardigheden uit de extra vaardigheden die aanwezig zijn in de tabel
 export function getExtraSkillsFromTable(tableData) {
+    if (!tableData || !tableData.length === 0) { return []; }
     const extraSkills = []
-    for (const tableSkill of tableData) {
-        const isExtraSkill = sourceExtraVaardigheden.some((record) =>
-            record.skill.toLowerCase() === tableSkill.skill.toLowerCase()
-        );
-        if (isExtraSkill) { extraSkills.push(tableSkill.skill); }
-    }
+    tableData.forEach((tableSkill) => {
+        if (sourceExtraVaardigheden.some((record) =>
+            record.id === tableSkill.id)) { extraSkills.push(tableSkill) }
+    });
     return extraSkills;
 }
 
 /// --- SPELLS & RECIPE --- ///
-export function getSpellBySkillName(skillName, spellName) {
-    if (!skillName || !spellName) { return; }
-    const sourceSkill = getSkillByName(skillName);
-    const sourceSpell = sourceSpreuken.find((item) =>
-        item.skill.toLowerCase() === sourceSkill?.skill.toLowerCase() ||
-        item.skill.toLowerCase() === sourceSkill?.alt_skill.toLowerCase());
-    return sourceSpell?.Spells.find((item) => item.spell.toLowerCase() === spellName.toLowerCase());
+// Ophalen van een spreuk op basis van de skill
+export function getSpellBySkill(skillId, spellId) {
+    if (!skillId || !spellId) { return; }
+    const sourceSpells = getSpellsBySkill(skillId);
+    return sourceSpells?.find((item) => item.id === spellId);
 }
 
-export function getRecipeBySkillName(skillName, recipeName) {
-    if (!skillName || !recipeName) { return; }
-    const sourceSkill = getSkillByName(skillName);
-    const skillFound = sourceRecepten.find((item) =>
-        item.skill.toLowerCase() === sourceSkill?.skill.toLowerCase() ||
-        item.skill.toLowerCase() === sourceSkill?.alt_skill.toLowerCase());
-    return skillFound?.Recipes.find((item) => item.recipy.toLowerCase() === recipeName.toLowerCase());
+// Ophalen van alle spreuken op basis van de skill
+export function getSpellsBySkill(skillId) {
+    if (!skillId) { return; }
+    const sourceSpell = sourceSpreuken.find((item) => item.id.includes(skillId));
+    return sourceSpell?.Spells;
+}
+
+// Ophalen van een recept op bases van de skill
+export function getRecipyBySkill(skillId, recipyId) {
+    if (!skillId || !recipyId) { return; }
+    const sourceRecipies = getRecipesBySkill(skillId);
+    return sourceRecipies?.find((item) => item.id === recipyId);
+}
+
+// Ophalen van alle recepten op basis van de skill
+export function getRecipesBySkill(skillId) {
+    if (!skillId) { return; }
+    const sourceRecipy = sourceRecepten.find((item) => item.id === skillId);
+    return sourceRecipy?.Recipes;
 }
 
 export function getPropertyByName(name) {
@@ -87,19 +91,19 @@ export function getPropertyByName(name) {
 
 /// --- SELECT --- ///
 
-// Bewust verborgen. Exports worden verderop geregeld.
 // Ophalen van de skills uit vaardigheden/spreuken/recepten
 export function generateOptions(source) {
     return source.map((record) => ({
+        id: record.id,
         value: record.skill,
         label: `${record.skill} (${record.xp} xp)`
     }));
 }
 
-// Bewust verborgen. Exports worden verderop geregeld.
 // Ophalen van de skills uit vaardigheden/spreuken/recepten, minus geselecteerde skills
 export function regenerateOptions(source, tableData) {
     return source.map((record) => ({
+        id: record.id,
         value: record.skill,
         label: `${record.skill} (${record.xp} xp)`
     })).filter((currentSkill) =>
@@ -165,7 +169,7 @@ export function meetsAllPrerequisites(selectedSkill, tableData) {
 export function verifyTableContainsExtraSkill(tableData) {
     let meetsPrerequisite = false;
     for (const tableDataSkill of tableData) {
-        meetsPrerequisite = sourceExtraVaardigheden.some((record) => record.skill.toLowerCase() === tableDataSkill.skill.toLowerCase());
+        meetsPrerequisite = sourceExtraVaardigheden.some((record) => record.id === tableDataSkill.id);
         if (meetsPrerequisite === true) { break; }
     }
     return meetsPrerequisite;
@@ -175,17 +179,17 @@ export function verifyTableContainsExtraSkill(tableData) {
 function verifyTableContainsRequiredSkills(reqSkills, tableData) {
     let meetsPrerequisite = false;
     for (const reqSkill of reqSkills) {
-        meetsPrerequisite = tableData.some((record) => record.skill.toLowerCase() === reqSkill.toLowerCase());
+        meetsPrerequisite = tableData.some((record) => record.id === reqSkill);
         if (meetsPrerequisite === false) { break; }
     }
     return meetsPrerequisite;
 }
 
 // Check of tenminste een van de skills in Requirements.any_list aanwezig zijn in de tabel
-function verifyTableContainsOneofAnyList(reqAny, tableData) {
+function verifyTableContainsOneofAnyList(reqAnyIds, tableData) {
     let meetsAnyListPrerequisite = false;
-    for (const req of reqAny) {
-        meetsAnyListPrerequisite = tableData.some((record) => record.skill.toLowerCase().includes(req.toLowerCase()));
+    for (const reqId of reqAnyIds) {
+        meetsAnyListPrerequisite = tableData.some((record) => record.id === reqId);
         if (meetsAnyListPrerequisite === true) { break; }
     }
     return meetsAnyListPrerequisite;
@@ -225,8 +229,7 @@ function verifyTableMeetsPrerequisiteCategoryXP(reqCategory, tableData) {
 function verifyTableMeetsPrerequisiteException(reqExceptions, tableData) {
     let meetsException = false;
     for (const reqException of reqExceptions) {
-        const matchingSkills = tableData.filter(skillTableData =>
-            skillTableData.skill.toLowerCase().includes(reqException.toLowerCase()));
+        const matchingSkills = tableData.filter(skillTableData => skillTableData.id === reqException);
         if (matchingSkills.length > 0) {
             meetsException = true;
             break;
@@ -236,15 +239,15 @@ function verifyTableMeetsPrerequisiteException(reqExceptions, tableData) {
 }
 
 // Check of de skill een vereiste is voor een van de gekozen skills
-export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved, tableData, setModalMsg) {
+export function isSkillAPrerequisiteToAnotherSkill(removedSkillId, isRemoved, tableData, setModalMsg) {
     let isPrerequisite = false;
 
     if (tableData.length > 1) {
         // Check leermeester expertise afhankelijkheden
-        const containsTeacherSkill = tableData.some((record) => record.skill === "Leermeester Expertise");
+        const containsTeacherSkill = tableData.some((record) => record.id === teacherSkill);
         if (containsTeacherSkill) {
             const extraSkills = getExtraSkillsFromTable(tableData);
-            const filteredSkills = extraSkills.filter(extraSkill => extraSkill.toLowerCase() !== nameSkillToRemove.toLowerCase())
+            const filteredSkills = extraSkills.filter(extraSkill => extraSkill.id !== removedSkillId)
             if (filteredSkills.length === 0) {
                 isPrerequisite = true;
                 setModalMsg("Dit item is een vereiste voor vaardigheid:\n Leermeester Expertise \nVerwijderen is niet toegestaan.\n");
@@ -255,22 +258,21 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
         if (isPrerequisite === false &&
             (!containsTeacherSkill || tableData.length > 1)) {
             for (const skillTableData of tableData) {
-                const reqSkill = skillTableData.Requirements.skill;
+                const reqSkills = skillTableData.Requirements.skill;
                 const reqAny = skillTableData.Requirements.any_list;
                 const reqCategory = skillTableData.Requirements.Category;
                 const reqException = skillTableData.Requirements.exception;
 
-                if (isRemoved === true &&
-                    skillTableData.skill.toLowerCase() === nameSkillToRemove.toLowerCase()) { continue; }
+                if (isRemoved === true && skillTableData.id === removedSkillId) { continue; }
                 else if (
-                    reqSkill.length === 0 &&
+                    reqSkills.length === 0 &&
                     reqAny.length === 0 &&
                     (!reqCategory || (reqCategory && reqCategory.name.length === 0))
                 ) { continue; }
                 else {
                     // skill
-                    if (reqSkill.length > 0 && isPrerequisite === false) {
-                        isPrerequisite = verifyRemovedSkillIsNotSkillPrerequisite(reqSkill, skillTableData, nameSkillToRemove, isRemoved);
+                    if (reqSkills.length > 0 && isPrerequisite === false) {
+                        isPrerequisite = verifyRemovedSkillIsNotSkillPrerequisite(reqSkills, skillTableData, removedSkillId, isRemoved);
                         if (isPrerequisite === true) {
                             setModalMsg("Dit item is een vereiste voor vaardigheid:\n " + skillTableData.skill + " \nVerwijderen is niet toegestaan.\n");
                             break;
@@ -279,7 +281,7 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
 
                     // any_list
                     if (reqAny.length > 0 && isPrerequisite === false) {
-                        isPrerequisite = verifyRemovedSkillIsNotOnlyAnyListPrerequisite(reqAny, nameSkillToRemove, tableData);
+                        isPrerequisite = verifyRemovedSkillIsNotOnlyAnyListPrerequisite(reqAny, removedSkillId, tableData);
                         if (isPrerequisite === true) {
                             setModalMsg("Dit item is een vereiste voor vaardigheid: \n" + skillTableData.skill + " \nVerwijderen is niet toegestaan.\n");
                             break;
@@ -294,11 +296,11 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
                         // Afhandelen uitzondering
                         if (categories.length === 1 &&
                             categories.includes("Ritualisme")) {
-                            isPrerequisite = verifyRemovedSkillIsNotARitualismPrerequisite(nameSkillToRemove, tableData, isRemoved, totalReqXP);
+                            isPrerequisite = verifyRemovedSkillIsNotARitualismPrerequisite(removedSkillId, tableData, isRemoved, totalReqXP);
                         }
                         // Standaard werking categorie
                         else {
-                            isPrerequisite = verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, skillTableData, nameSkillToRemove, totalReqXP);
+                            isPrerequisite = verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, skillTableData, removedSkillId, totalReqXP);
                         }
 
                         if (isPrerequisite === true) {
@@ -311,7 +313,7 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
 
                     // exception
                     if (reqException && isPrerequisite === false) {
-                        isPrerequisite = verifyTableExceptionSkillMeetsPrerequisite(tableData, reqException, skillTableData, nameSkillToRemove,);
+                        isPrerequisite = verifyTableExceptionSkillMeetsPrerequisite(tableData, reqException, skillTableData, removedSkillId,);
                         if (isPrerequisite === true) {
                             setModalMsg("Dit item is nodig voor als uitzondering" +
                                 " voor de vaardigheid: \n" + skillTableData.skill + "\n" +
@@ -327,36 +329,28 @@ export function isSkillAPrerequisiteToAnotherSkill(nameSkillToRemove, isRemoved,
 }
 
 // Check of de skill niet een prequisite is uit de Any_Skill
-function verifyRemovedSkillIsNotSkillPrerequisite(reqSkills, currentSkill, nameSkillToRemove, isRemoved) {
+function verifyRemovedSkillIsNotSkillPrerequisite(reqSkillIds, currentSkill, removedSkillId, isRemoved) {
     let isPrerequisite = false;
-    for (const reqSkill of reqSkills) {
-        if (isRemoved) {
-            if (nameSkillToRemove.toLowerCase() === reqSkill.toLowerCase()) {
-                isPrerequisite = true;
-                break;
-            }
-        }
-        else if (!isRemoved && currentSkill.skill.toLowerCase() === nameSkillToRemove.toLowerCase()) {
-            if (currentSkill.count === 1) { isPrerequisite = true; }
+    for (const reqSkillId of reqSkillIds) {
+        if ((isRemoved && removedSkillId === reqSkillId) ||
+            (!isRemoved && currentSkill.id === removedSkillId && currentSkill.count === 1)
+        ) {
+            return true;
         }
     }
     return isPrerequisite;
 }
 
 // Check of na verwijderen de overige skills nog voldoen voor de item.Any-List
-function verifyRemovedSkillIsNotOnlyAnyListPrerequisite(reqAny, nameSkillToRemove, tableData) {
+function verifyRemovedSkillIsNotOnlyAnyListPrerequisite(reqAnyIds, removedSkillId, tableData) {
     let hasOtherSkillThatIsPrerequisite = false;
-    const cleanSkillName = nameSkillToRemove.includes("(") ? nameSkillToRemove.split(" (")[0] : nameSkillToRemove;
 
-    if (!reqAny.includes(cleanSkillName) &&
-        !reqAny.includes(nameSkillToRemove)) {
-        hasOtherSkillThatIsPrerequisite = true;
-    }
+    if (!reqAnyIds.includes(removedSkillId)) { hasOtherSkillThatIsPrerequisite = true; }
     else {
-        for (const req of reqAny) {
+        for (const reqAnyId of reqAnyIds) {
             hasOtherSkillThatIsPrerequisite = tableData.some((record) =>
-                record.skill.toLowerCase().includes(req.toLowerCase()) &&
-                record.skill.toLowerCase() !== nameSkillToRemove.toLowerCase());
+                record.id === reqAnyId &&
+                record.id !== removedSkillId);
             if (hasOtherSkillThatIsPrerequisite === true) { break; }
         }
     }
@@ -365,14 +359,14 @@ function verifyRemovedSkillIsNotOnlyAnyListPrerequisite(reqAny, nameSkillToRemov
 }
 
 // Check of een Category prerequisite behouden wordt wanneer de skill verwijdert/verlaagd wordt
-function verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, item, nameSkillToRemove, totalReqXP) {
+function verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, item, removedSkillId, totalReqXP) {
     let isPrerequisite = false;
     let selectedSkillsXP = 0;
 
     const selectedSkills = tableData.filter(tableItem => categories.includes(tableItem.category) && // van de juiste categorie
         (tableItem.Spreuken.length > 2 || tableItem.Recepten.length > 2) && // alleen skills met recepten of spreuken zijn doorgaans relevant                             
-        tableItem.skill.toLowerCase() !== item.skill.toLowerCase() && // item waarvan pre-reqs gecheckt worden uitsluiten
-        tableItem.skill.toLowerCase() !== nameSkillToRemove.toLowerCase()); // Skip zelf, deze is wordt verwijderd.
+        tableItem.id !== item.id && // item waarvan pre-reqs gecheckt worden uitsluiten
+        tableItem.id !== removedSkillId); // Skip zelf, deze is wordt verwijderd.
 
     selectedSkills.forEach(item => selectedSkillsXP += item.xp); // calculate XP
     if (totalReqXP > selectedSkillsXP) { isPrerequisite = true; }
@@ -381,15 +375,15 @@ function verifyRemovedSkillIsNotACategoryPrerequisite(tableData, categories, ite
 
 // Check of de uitgezonderde skills aanwezig zijn in tableData en of deze nog voldoen zonder verwijderde vaardigheid
 // Dit is specifiek voor Druid/Necro die bepaalde vereisten mogen negeren
-function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, skillTableData, nameSkillToRemove) {
+function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, skillTableData, removedSkillId) {
     let isExceptionPrerequisite = false;
 
-    for (const exception of reqExceptions) {
-        if (nameSkillToRemove.toLowerCase() === exception.toLowerCase()) {
+    for (const exceptionId of reqExceptions) {
+        if (removedSkillId === exceptionId) {
             const filteredTableData = []
             for (const oldSkill of tableData) {
-                if (oldSkill.skill.toLowerCase() !== skillTableData.skill.toLowerCase() &&
-                    oldSkill.skill.toLowerCase() !== nameSkillToRemove.toLowerCase())
+                if (oldSkill.id !== skillTableData.id &&
+                    oldSkill.id !== removedSkillId)
                     filteredTableData.push(oldSkill)
             }
 
@@ -405,10 +399,11 @@ function verifyTableExceptionSkillMeetsPrerequisite(tableData, reqExceptions, sk
 
 // Check of de ritualisme vaardigheid verwijdert wordt, en zo ja of deze een prerequisite is.
 // Zo ja, check ook of de vereiste door een andere ritualisme vaardigheid nog behaald wordt.
-function verifyRemovedSkillIsNotARitualismPrerequisite(nameSkillToRemove, tableData, isRemoved, totalReqXP) {
+function verifyRemovedSkillIsNotARitualismPrerequisite(removedSkillId, tableData, isRemoved, totalReqXP) {
     let isPrerequisite = false;
 
-    if (nameSkillToRemove.includes("Ritualisme")) {
+    // List all Ritualism skills
+    if (ritualismSkills.includes(removedSkillId)) {
         let tableSkillTotalXP = 0;
         const tableSkills = tableData.filter(tableItem => tableItem.category.includes("Ritualism"));
 
@@ -417,7 +412,7 @@ function verifyRemovedSkillIsNotARitualismPrerequisite(nameSkillToRemove, tableD
         else {
             for (const tableSkill of tableSkills) {
                 // Check of skill die vermindert wordt nog voldoet
-                if (tableSkill.skill === nameSkillToRemove) {
+                if (tableSkill.id === removedSkillId) {
                     if (!isRemoved) {
                         tableSkillTotalXP = tableSkill.xp - (tableSkill.xp / tableSkill.count);
                         isPrerequisite = totalReqXP > tableSkillTotalXP;
@@ -438,13 +433,7 @@ export function updateGridEigenschappenTiles(tableData, defaultProperties) {
     const propertySums = defaultProperties.map((property) => (
         {
             ...property, value: tableData.reduce((sum, record) => {
-                let vaardigheid = sourceBasisVaardigheden.find((vaardigheid) =>
-                    vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-                if (!vaardigheid) {
-                    vaardigheid = sourceExtraVaardigheden.find((vaardigheid) =>
-                        vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-                }
-
+                const vaardigheid = getSkillById(record.id);
                 const propertyValue = vaardigheid.Eigenschappen?.find((prop) =>
                     prop.name.toLowerCase() === property.name.toLowerCase())?.value || 0;
                 return sum + propertyValue * record.count;
@@ -456,23 +445,18 @@ export function updateGridEigenschappenTiles(tableData, defaultProperties) {
 // Op basis van de Spreuken, voeg nieuwe tegels toe.
 export function updateGridSpreukenTiles(tableData) {
     const spellProperties = tableData.reduce((spellsAccumulator, record) => {
-        let vaardigheid = sourceBasisVaardigheden.find((vaardigheid) =>
-            vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-        if (!vaardigheid) {
-            vaardigheid = sourceExtraVaardigheden.find((vaardigheid) =>
-                vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-        }
-
+        const vaardigheid = getSkillById(record.id);
         const spells = vaardigheid.Spreuken || [];
-
         spells.forEach((spell) => {
-            const existingSpell = spellsAccumulator.find((existing) =>
-                existing.name.toLowerCase() === spell.name.toLowerCase());
-            if (existingSpell) { existingSpell.count += spell.count; }
+            const existingSpell = spellsAccumulator.find((existing) => existing.id === spell);
+            if (existingSpell) { existingSpell.count += spells.count; }
             else {
-                spell.skill = vaardigheid.skill;
-                spell.alt_skill = vaardigheid.alt_skill;
-                spellsAccumulator.push({ ...spell });
+                const newSpell = {
+                    "skillId": vaardigheid.id,
+                    "spellId": spell,
+                    "alt_skill": vaardigheid.alt_skill
+                };
+                spellsAccumulator.push({ ...newSpell });
             }
         });
         return spellsAccumulator;
@@ -483,25 +467,21 @@ export function updateGridSpreukenTiles(tableData) {
 // Op basis van de Recepten, voeg nieuwe tegels toe.
 export function updateGridReceptenTiles(tableData) {
     const recipyProperties = tableData.reduce((recipyAccumulator, record) => {
-        let vaardigheid = sourceBasisVaardigheden.find((vaardigheid) =>
-            vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-        if (!vaardigheid) {
-            vaardigheid = sourceExtraVaardigheden.find((vaardigheid) =>
-                vaardigheid.skill.toLowerCase() === record.skill.toLowerCase());
-        }
-
+        const vaardigheid = getSkillById(record.id);
         const recepten = vaardigheid ? vaardigheid.Recepten : [];
 
-        for (const recipy of recepten) {
-            const existingRecipy = recipyAccumulator.find((existing) =>
-                existing?.name.toLowerCase() === recipy.name.toLowerCase());
-            if (existingRecipy) {
-                existingRecipy.count += recipy.count;
-            } else {
-                recipy.skill = vaardigheid.skill;
-                recipyAccumulator.push({ ...recipy });
+        recepten.forEach((recept) => {
+            const existingRecipy = recipyAccumulator.find((existing) => existing?.id === recept);
+            if (existingRecipy) { existingRecipy.count += recept.count; }
+            else {
+                const newRecipy = {
+                    "skillId": vaardigheid.id,
+                    "recipyId": recept,
+                    "alt_skill": vaardigheid.alt_skill
+                };
+                recipyAccumulator.push({ ...newRecipy });
             }
-        }
+        });
         return recipyAccumulator;
     }, []);
     return recipyProperties;

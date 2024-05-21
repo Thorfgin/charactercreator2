@@ -82,6 +82,7 @@ export function SharedStateProvider({ children }) {
     const [msgConfirmModal, setMsgConfirmModal] = useState("");
 
     const [gridEigenschappen, setGridEigenschappen] = useState([defaultProperties[0], defaultProperties[1]]);
+    const [gridEnergiePerDag, setGridEnergiePerDag] = useState([]);
     const [gridSpreuken, setGridSpreuken] = useState([]);
     const [gridRecepten, setGridRecepten] = useState([]);
 
@@ -111,6 +112,7 @@ export function SharedStateProvider({ children }) {
         msgConfirmModal, setMsgConfirmModal,
 
         gridEigenschappen, setGridEigenschappen,
+        gridEnergiePerDag, setGridEnergiePerDag,
         gridSpreuken, setGridSpreuken,
         gridRecepten, setGridRecepten
     }), [
@@ -139,6 +141,7 @@ export function SharedStateProvider({ children }) {
         msgConfirmModal, setMsgConfirmModal,
 
         gridEigenschappen, setGridEigenschappen,
+        gridEnergiePerDag, setGridEnergiePerDag,
         gridSpreuken, setGridSpreuken,
         gridRecepten, setGridRecepten
     ]);

@@ -32,9 +32,6 @@ export function setLocalStorage(key, data) {
             if (data) { localStorage.setObject(key, data); }
             else { localStorage.removeItem(key); }
         }
-        else {
-            console.Error("")
-        }
     }
 }
 
@@ -69,10 +66,34 @@ const saveFormat = {
     "Skills": []
 }
 
-const addSkillsToNewFormat = (oldSkills) => {
+// the 202310a format
+const addSkillsTo202310aFormat = (oldSkills) => {
+    const newSkills = [];
+    for (const oldSkill of oldSkills) {
+        // collect skill id based on old name
+        let sourceSkill = sourceBasisVaardigheden.find(
+            (item) => item.skill.toLowerCase().includes(oldSkill.skill.toLowerCase()));
+        if (!sourceSkill || sourceSkill === null) {
+            sourceSkill = sourceExtraVaardigheden.find(
+                (item) => item.skill.toLowerCase().includes(oldSkill.skill.toLowerCase()));
+        }
+
+        const newSkill = {
+            "id": sourceSkill.id,
+            "skill": oldSkill.skill,
+            "count": oldSkill.count
+        }
+        newSkills.push(newSkill);
+    }
+    return newSkills;
+}
+
+// the 202310b format
+const addSkillsTo202310bFormat = (oldSkills) => {
     const newSkills = [];
     for (const oldSkill of oldSkills) {
         const newSkill = {
+            "id": oldSkill.id,
             "skill": oldSkill.skill,
             "count": oldSkill.count
         }
@@ -96,14 +117,19 @@ function convertDataToLatestFormat(rawData, key = undefined, name = undefined) {
         newFormat.name = (name?.trim() !== "") ? name : "Mr/Mrs Smith";
         newFormat.max_xp = rawData[0].MAX_XP;
         newFormat.is_checked = rawData[0].isChecked;
-        newFormat.Skills = addSkillsToNewFormat(rawData[0].data);
+        newFormat.Skills = addSkillsTo202310aFormat(rawData[0].data);
         if (key) { setLocalStorage(key, newFormat); }
         return newFormat;
     }
-    else if (rawData?.version === "2023-10a") { // CURRENT VERSION
-        rawData.Skills = addSkillsToNewFormat(rawData.Skills);
+    else if (rawData?.version === "2023-10a") {
+        rawData.Skills = addSkillsTo202310aFormat(rawData.Skills);
         return rawData;
     }
+    else if (rawData?.version === "2023-10b") { // CURRENT VERSION
+        rawData.Skills = addSkillsTo202310bFormat(rawData.Skills);
+        return rawData;
+    }
+
     else {
         console.warn("data version was not recognized", rawData);
     }
@@ -117,7 +143,7 @@ function transformDataToTableData(rawSkills) {
 
     const getData = (source, rawSkill) => {
         if (!rawSkill) { return; }
-        const skill = source.find((record) => record.skill?.toLowerCase() === rawSkill.skill?.toLowerCase());
+        const skill = source.find((record) => record.id === rawSkill.id);
         if (skill) {
             const updatedSkill = { ...skill };
             updatedSkill.count = rawSkill.count > updatedSkill.maxcount ? updatedSkill.maxcount : rawSkill.count;
@@ -128,7 +154,7 @@ function transformDataToTableData(rawSkills) {
 
     if (rawSkills?.length > 0) {
         for (const rawSkill of rawSkills) {
-            const isBasicSkill = sourceBasisVaardigheden.some((record) => record.skill?.toLowerCase() === rawSkill.skill?.toLowerCase());
+            const isBasicSkill = sourceBasisVaardigheden.some((record) => record.id === rawSkill.id);
             if (isBasicSkill) { getData(sourceBasisVaardigheden, rawSkill) }
             else { getData(sourceExtraVaardigheden, rawSkill) }
         }
@@ -207,8 +233,9 @@ export function exportCharacterToFile(name, is_checked, max_xp, data) {
         newFormat.name = name;
         newFormat.max_xp = max_xp;
         newFormat.is_checked = is_checked;
-        newFormat.Skills = addSkillsToNewFormat(data);
+        newFormat.Skills = addSkillsTo202310aFormat(data);
 
+        console.log(newFormat);
         const value = JSON.stringify(newFormat);
         const encodedValue = encodeURIComponent(value);
         const unreadableValue = btoa(encodedValue);

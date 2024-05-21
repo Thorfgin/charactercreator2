@@ -1,0 +1,56 @@
+{
+  "version": "2023-10a",
+  "name": "Lichte vechter",
+  "max_xp": 15,
+  "is_checked": false,
+  "Skills": [
+    {
+      "skill": "Lezen & Schrijven",
+      "count": 10
+    },
+    {
+      "skill": "Rekenen",
+      "count": 1
+    },
+    {
+      "skill": "Kleine Wapens",
+      "count": 1
+    },
+    {
+      "skill": "Eenhandige Wapens",
+      "count": 1
+    },
+    {
+      "skill": "Staf Wapens",
+      "count": 1
+    },
+    {
+      "skill": "Ambidextrie",
+      "count": 1
+    },
+    {
+      "skill": "Levenskracht A",
+      "count": 1
+    },
+    {
+      "skill": "Levenskracht B",
+      "count": 1
+    },
+    {
+      "skill": "Doorzettingsvermogen",
+      "count": 1
+    },
+    {
+      "skill": "Kracht A",
+      "count": 1
+    },
+    {
+      "skill": "Harnas I",
+      "count": 1
+    },
+    {
+      "skill": "Harnas II",
+      "count": 1
+    }
+  ]
+}

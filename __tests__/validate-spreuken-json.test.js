@@ -8,16 +8,23 @@ import {
 } from '@jest/globals';
 
 // shared
-import { getSpreuken } from '../src/SharedObjects.js';
+import {
+    getSpreuken,
+} from '../src/SharedObjects.js';
+
+import {
+    getSkillById,
+    getSpellBySkill,
+} from '../src/SharedActions.js';
+
+
+const sourceSpreuken = getSpreuken();
 
 // json
 import spreuken_schema from './schemas/spreuken-schema.json';
 
-// globals
-const sourceSpreuken = getSpreuken();
-
 /// --- UNIQUE SPELL ID'S --- ///
-function hasUniqueIDs(jsonData) {
+function hasUniqueSpellIDs(jsonData) {
     const spells = new Set(jsonData.Categories.flatMap(category =>
         category.Skills.flatMap(skill => skill.Spells)
     ));
@@ -34,12 +41,30 @@ function hasUniqueIDs(jsonData) {
     return duplicateIDs.size === 0;
 }
 
-test('Spreuken JSON should have unique IDs per Spell', () => {
-    expect(hasUniqueIDs(sourceSpreuken)).toBe(true);
+// Chccks if the provided JSON data spell skill id definitions actualy exist in the vaardigheden
+function hasExistingSkillIDs(jsonData) {
+    const spellSkillIds = new Set(jsonData.Categories.flatMap(category => category.Skills.flatMap(skill => skill.id)));
+    const faultyIDs = new Set();
+    spellSkillIds.forEach(id => {
+        const skill = getSkillById(id)
+        if (!skill || skill === null) { faultyIDs.add(id); }
+    });
+ 
+    if (faultyIDs.size > 0) { console.warn('faulty Spell SkillIDs:', faultyIDs); }
+    return faultyIDs.size === 0;
+}
+
+test('Spreuken JSON should have skill IDs per Spell that exist', () => {
+    expect(hasExistingSkillIDs(sourceSpreuken)).toBe(true);
 });
 
-/// --- FORMATTING --- ///
 
+test('Spreuken JSON should have unique IDs per Spell', () => {
+    expect(hasUniqueSpellIDs(sourceSpreuken)).toBe(true);
+});
+
+
+/// --- FORMATTING --- ///
 function hasCorrectFormat(jsonData, schema) {
     const ajv = new Ajv({ allErrors: true });
     ajvKeywords(ajv);

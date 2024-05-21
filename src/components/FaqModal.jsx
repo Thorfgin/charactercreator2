@@ -16,8 +16,8 @@ export default function FAQModal() {
     const closeModal = () => { setShowFAQModal(false); };
 
     return (
-        <div className="modal-overlay">
-            <div className="faq-modal">
+        <div className="modal-overlay" onClick={closeModal}>
+            <div className="faq-modal" onClick={e => e.stopPropagation()}>
                 <h3>Frequently Asked Questions</h3>
                 <div className="faq-modal-block">
                     {sourceFAQ.FAQ.map(({ header, message }) => (

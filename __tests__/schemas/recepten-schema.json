@@ -16,6 +16,10 @@
             "items": {
               "type": "object",
               "properties": {
+                "id": {
+                  "type": "number",
+                  "minimum": 0
+                }
                 "skill": { "type": "string" },
                 "Recipes": {
                   "type": "array",
@@ -34,7 +38,7 @@
                   }
                 }
               },
-              "required": [ "skill", "Recipes" ]
+              "required": [ "id", "skill", "Recipes" ]
             }
           }
         },

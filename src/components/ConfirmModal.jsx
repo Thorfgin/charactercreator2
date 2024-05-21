@@ -4,17 +4,17 @@ import { v4 as uuidv4 } from 'uuid';
 ConfirmModal.propTypes = {
     header: PropTypes.string,
     modalMsg: PropTypes.string.isRequired,
-    onClose: PropTypes.func.isRequired,
+    closeModal: PropTypes.func.isRequired,
     onConfirm: PropTypes.func.isRequired
 };
 
 // Toont een Modal message met een Bevestig/Annuleer knop
-export default function ConfirmModal({header, modalMsg, onClose, onConfirm}) {
+export default function ConfirmModal({ header, modalMsg, closeModal, onConfirm}) {
     const msgBlocks = modalMsg.split('\n');
 
     return (
-        <div className="modal-overlay">
-            <div className="modal">
+        <div className="modal-overlay" onClick={closeModal}>
+            <div className="modal" onClick={e => e.stopPropagation()}>
                 <h3>{header}</h3>
                 <div className="modal-container">
                     {msgBlocks.map((block) => (
@@ -24,9 +24,9 @@ export default function ConfirmModal({header, modalMsg, onClose, onConfirm}) {
                     ))}
                 </div>
                 <button className="btn-primary" onClick={onConfirm}>Bevestig</button>
-                <button className="btn-primary" onClick={onClose}>Annuleren</button>
+                <button className="btn-primary" onClick={closeModal}>Annuleren</button>
             </div>
-            <span className="close" onClick={onClose}>&times;</span>
+            <span className="close" onClick={closeModal}>&times;</span>
         </div>
     );
 }

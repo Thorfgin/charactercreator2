@@ -16,8 +16,8 @@ export default function ReleaseNotesModal() {
     const closeModal = () => { setShowReleaseNotesModal(false); };
 
     return (
-        <div className="modal-overlay">
-            <div className="releasenotes-modal">
+        <div className="modal-overlay" onClick={closeModal}>
+            <div className="releasenotes-modal" onClick={e => e.stopPropagation()}>
                 <h3>Versie informatie</h3>
                 <div className="release-notes-block">
                     {sourceReleaseNotes.ReleaseNotes.map(({ date, version, Items }) => (

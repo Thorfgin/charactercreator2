@@ -6,11 +6,13 @@ import { v4 as uuidv4 } from 'uuid';
 import {
     openPdfPage,
     getSkillById,
-    getSkillByName,
-    getSpellBySkillName,
-    getRecipeBySkillName
+    getSpellBySkill,
+    getRecipyBySkill
 } from '../SharedActions.js'
 
+import {
+    teacherSkill
+} from '../SharedConstants.js'
 
 // Converteer teksten naar tekstblokken.
 const getBlock = (text, className) => {
@@ -31,7 +33,7 @@ const getMapping = (tooltipData) => {
 
         return (
             <tr key={uniqueKey}>
-                <td className="tooltip-property">{label ? label + ":" : null}</td>
+                {label ? <td className="tooltip-property">{label + ":"}</td> : null}
                 <td className="tooltip-value">{value}</td>
             </tr>
         );
@@ -47,7 +49,7 @@ export function InfoTooltip({ row }) {
     return (
         <div className="info">
             <div className="acties-info">
-                <SkillTooltip skillName={currentItem.skill} />
+                <SkillTooltip id={currentItem.id} />
                 <img
                     className="btn-image"
                     title={"Open Vaardigheden.pdf - pagina " + currentItem.page}
@@ -61,32 +63,43 @@ export function InfoTooltip({ row }) {
 }
 
 SkillTooltip.propTypes = {
-    skillName: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     image: PropTypes.string
 };
 
-export function SkillTooltip({ skillName, image = './images/img-info.png' }) {
+export function SkillTooltip({ id, image = './images/img-info.png' }) {
 
-    const sourceSkill = getSkillByName(skillName);
+    const sourceSkill = getSkillById(id);
     let fullRequirementsBlock = "";
 
-    function formatList(items) { return items.join(', \n'); }
+    function formatList(items) { return items.join(', \\n'); }
+
+    function getSkillNames(reqSkillIds) {
+        const reqSkills = [];
+        if (reqSkillIds && reqSkillIds.length > 0) {
+            for (const reqSkillId of reqSkillIds) {
+                const reqSkill = getSkillById(reqSkillId).skill;
+                reqSkills.push(reqSkill);
+            }
+        }
+        return reqSkills;
+    }
 
     // Check skills
-    const reqSkills = sourceSkill.Requirements.skill;
-    if (reqSkills.length > 0) { fullRequirementsBlock += formatList(reqSkills) + "\n"; }
+    const reqSkills = getSkillNames(sourceSkill.Requirements.skill);
+    if (reqSkills.length > 0) { fullRequirementsBlock += formatList(reqSkills); }
 
     // Exception - "Leermeester Expertise"
-    if (sourceSkill.skill === "Leermeester Expertise") { fullRequirementsBlock += "1 Extra vaardigheid\n"; }
+    if (sourceSkill.id === teacherSkill) { fullRequirementsBlock += "1 Extra vaardigheid"; }
 
     // Check any_list
-    const reqAny = sourceSkill.Requirements.any_list;
-    if (reqAny.length > 0) { fullRequirementsBlock += `Een van de volgende: \n${formatList(reqAny)}\n`; }
+    const reqAny = getSkillNames(sourceSkill.Requirements.any_list);
+    if (reqAny.length > 0) { fullRequirementsBlock += `Een van de volgende: \\n${formatList(reqAny)}`; }
 
     // Check category
     const reqCategory = sourceSkill.Requirements.Category;
     if (reqCategory && reqCategory.name.length > 0) {
-        fullRequirementsBlock += `${reqCategory.value} xp in de volgende categorie(n): \n${formatList(reqCategory.name)}\n`;
+        fullRequirementsBlock += `${reqCategory.value} xp in de volgende categorie(n): \\n${formatList(reqCategory.name)}`;
     }
 
     const tooltipData = [
@@ -105,16 +118,15 @@ export function SkillTooltip({ skillName, image = './images/img-info.png' }) {
 }
 
 SpellTooltip.propTypes = {
-    skillName: PropTypes.string.isRequired,
-    spellName: PropTypes.string.isRequired,
-    page: PropTypes.number.isRequired,
+    skillId: PropTypes.number.isRequired,
+    spellId: PropTypes.number.isRequired,
     image: PropTypes.string
 };
 
-export function SpellTooltip({ skillName, spellName, page, image = './images/img-info.png' }) {
+export function SpellTooltip({ skillId, spellId, image = './images/img-info.png' }) {
 
-    const sourceSkill = getSkillByName(skillName);
-    const sourceSpell = getSpellBySkillName(skillName, spellName);
+    const sourceSkill = getSkillById(skillId);
+    const sourceSpell = getSpellBySkill(skillId, spellId);
     const description = getBlock(sourceSpell?.description, "description-block");
 
     const tooltipData = [
@@ -132,15 +144,15 @@ export function SpellTooltip({ skillName, spellName, page, image = './images/img
         <div className="grid-spreuk-icons">
             <GenericTooltip
                 header={`Vaardigheid: ${sourceSkill.skill}`}
-                subheader={`Spreuk/Techniek: ${spellName}`}
+                subheader={`Spreuk/Techniek: ${sourceSpell.spell}`}
                 message={tooltipItems || ''}
                 image={image}
             />
 
             <img
                 className="btn-image"
-                title={"Open Spreuken.pdf - pagina " + page}
-                onClick={() => openPdfPage('Spreuken.pdf', page)}
+                title={"Open Spreuken.pdf - pagina " + sourceSpell.page}
+                onClick={() => openPdfPage('Spreuken.pdf', sourceSpell.page)}
                 src="./images/img-pdf.png"
                 alt="PDF">
             </img>
@@ -149,21 +161,20 @@ export function SpellTooltip({ skillName, spellName, page, image = './images/img
 }
 
 RecipeTooltip.propTypes = {
-    skillName: PropTypes.string.isRequired,
-    recipeName: PropTypes.string.isRequired,
+    skillId: PropTypes.number.isRequired,
+    recipyId: PropTypes.number.isRequired,
     image: PropTypes.string
 };
 
-export function RecipeTooltip({ skillName, recipeName, image = './images/img-info.png' }) {
-
-    const sourceSkill = getSkillByName(skillName);
-    const sourceRecipe = getRecipeBySkillName(skillName, recipeName);
-    const description = getBlock(sourceRecipe?.effect, "description-block");
+export function RecipeTooltip({ skillId, recipyId, image = './images/img-info.png' }) {
+    const sourceSkill = getSkillById(skillId);
+    const sourceRecipy = getRecipyBySkill(skillId, recipyId);
+    const description = getBlock(sourceRecipy?.effect, "description-block");
 
     const tooltipData = [
         { label: 'Omschrijving', value: description || 'Recept informatie kon niet gevonden worden.' },
-        { label: 'Inspiratie kosten', value: sourceRecipe?.inspiration || null },
-        { label: 'Benodigdheden', value: sourceRecipe?.components || null },
+        { label: 'Inspiratie kosten', value: sourceRecipy?.inspiration || null },
+        { label: 'Benodigdheden', value: sourceRecipy?.components || null },
     ];
 
     const tooltipItems = getMapping(tooltipData);
@@ -172,7 +183,7 @@ export function RecipeTooltip({ skillName, recipeName, image = './images/img-inf
         <div className="grid-spreuk-icons">
             <GenericTooltip
                 header={`Vaardigheid: ${sourceSkill.skill}`}
-                subheader={`Recept: ${recipeName}`}
+                subheader={`Recept: ${sourceRecipy.recipy}`}
                 message={tooltipItems || ''}
                 image={image}
             />
@@ -187,9 +198,9 @@ CustomTooltip.propTypes = {
     image: PropTypes.any,
 };
 
-export function CustomTooltip({ header, subheader=undefined, message, image = './images/img-info.png' }) {
+export function CustomTooltip({ header, subheader = undefined, message, image = './images/img-info.png' }) {
     const description = getBlock(message, "description-block");
-    const tooltipData = [  { label: '', value: description || 'Informatie kon niet gevonden worden.' } ];
+    const tooltipData = [{ label: '', value: description || 'Informatie kon niet gevonden worden.' }];
     const tooltipItems = getMapping(tooltipData);
 
     return (
@@ -211,7 +222,7 @@ GenericTooltip.propTypes = {
     image: PropTypes.any,
 };
 
-function GenericTooltip({ header, subheader = undefined, message, image = './images/img-info.png'}) {
+function GenericTooltip({ header, subheader = undefined, message, image = './images/img-info.png' }) {
     const [showTooltip, setShowTooltip] = useState(false);
     const handleMouseOver = () => setShowTooltip(true);
     const closeTooltip = () => setShowTooltip(false);

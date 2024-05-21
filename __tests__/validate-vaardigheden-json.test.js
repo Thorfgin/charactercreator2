@@ -9,9 +9,9 @@ import {
 
 // shared
 import {
-    getSkillByName,
-    getSpellBySkillName,
-    getRecipeBySkillName,
+    getSkillById,
+    getSpellBySkill,
+    getRecipeBySkill,
     getPropertyByName,
     getPdfURL
 } from '../src/SharedActions.js';
@@ -24,6 +24,7 @@ import {
 
 // json
 import vaardigheden_schema from './schemas/vaardigheden-schema.json';
+
 
 const sourceVaardigheden = getSourceVaardigheden();
 
@@ -51,7 +52,6 @@ test('Skills in ExtraVaardigheden JSON should have unique IDs', () => {
 });
 
 /// --- FORMATTING --- ///
-
 function hasCorrectFormat(jsonData, schema) {
     const ajv = new Ajv({ allErrors: true });
     ajvKeywords(ajv);
@@ -73,29 +73,29 @@ test('Skills in Vaardigheden JSON should have the correct format', () => {
 
 /// --- PREREQUISITES --- ///
 function hasValidSkillPrerequisite(jsonData) {
-    const faultyRecords = jsonData.flatMap(sourceSkill => sourceSkill.Requirements.skill
-        .filter(prereqSkillName => !getSkillByName(prereqSkillName))
-        .map(prereqSkillName => ({
-            source: sourceSkill.skill,
-            fail: prereqSkillName,
-        }))
-    );
+    let faultyRecords = [];
+    faultyRecords = jsonData.flatMap(sourceSkill => sourceSkill.Requirements.skill);
+    const result = faultyRecords.filter(id => !getSkillById(id))
+    const filteredResults = result.map(faultySkill => ({
+        source_id: faultySkill.id,
+        source: faultySkill.skill,
+    }));
 
-    if (faultyRecords.length > 0) { console.warn('Faulty skill: ', faultyRecords); }
-    return faultyRecords.length === 0;
+    if (filteredResults.length > 0) { console.warn('Faulty skill: ', filteredResults); }
+    return filteredResults.length === 0;
 }
 
 function hasValidAnyListPrerequisite(jsonData) {
-    const faultyRecords = jsonData.flatMap(sourceSkill => sourceSkill.Requirements.any_list
-        .filter(prereqSkillName => !getSkillByName(prereqSkillName, true))
-        .map(prereqSkillName => ({
-            source: sourceSkill.skill,
-            fail: prereqSkillName,
-        }))
-    );
+    let faultyRecords = [];
+    faultyRecords = jsonData.flatMap(sourceSkill => sourceSkill.Requirements.any_list);
+    const result = faultyRecords.filter(id => !getSkillById(id))
+    const filteredResults = result.map(faultySkill => ({
+        source_id: faultySkill.id,
+        source: faultySkill.skill,
+    }));
 
-    if (faultyRecords.length > 0) { console.warn('Faulty any_list skill:', faultyRecords); }
-    return faultyRecords.length === 0;
+    if (filteredResults.length > 0) { console.warn('Faulty any_list skill:', filteredResults); }
+    return filteredResults.length === 0;
 }
 
 function hasValidCategoriePrerequisite(jsonData) {
@@ -142,7 +142,7 @@ test('Skills listed as Skill Requirement in ExtraVaardigheden JSON should themse
 /// --- SPREUKEN  --- ///
 function listedSpellsExist(jsonArray) {
     const faultyRecords = jsonArray.flatMap((skill) => skill.Spreuken
-        .filter((spell) => !getSpellBySkillName(skill.skill, spell.name))
+        .filter((spell) => !getSpellBySkill(skill, spell.name))
         .map((spell) => ({ skill: skill.skill, spell }))
     );
 
@@ -161,7 +161,7 @@ test('Skill with Spells listed in ExtraVaardigheden JSON should exist in Spreuke
 /// --- RECEPTEN  --- ///
 function listedRecipesExist(jsonArray) {
     const faultyRecords = jsonArray.flatMap((skill) => skill.Recepten
-        .filter((recipe) => !getRecipeBySkillName(skill.skill, recipe.name))
+        .filter((recipe) => !getRecipeBySkill(skill, recipe.name))
         .map((recipe) => ({ skill: skill.skill, recipe }))
     );
 
