@@ -4,11 +4,12 @@ import "jspdf-autotable";
 
 // Shared
 import {
-    sourceSpreuken,
-    sourceRecepten
-} from './SharedObjects.js';
-
-import { getPdfURL } from './SharedActions.js';
+    getPdfURL,
+    getSkillById,
+    getSkillsByIds,
+    getSpellBySkill,
+    getRecipyBySkill,
+} from './SharedActions.js';
 
 let version = "";
 
@@ -64,15 +65,23 @@ async function addNewPage(pdf) {
     await addTextBlockToPdf(pdf, [`Vortex Adventures - Character Creator - versie ${version}`], 105, 285, true);
 }
 
+
 // Voeg Skills toe aan de pdf
 async function addSkillDescriptionsToPdf(pdf, tableData, x = 20, y = 30) {
     const blockElements = [];
     for (const item of tableData) {
         const punten = item.xp > 1 ? "punten" : "punt";
-        const vereisten = "Vereist: "
-            + (item.Requirements.skill ? item.Requirements.skill : "")
-            + (item.Requirements.any_list ? item.Requirements.any_list : "")
-            + (item.Requirements.exception ? item.Requirements.exception : "");
+
+        const skillReqs = item.Requirements.skill.length > 0 ?
+            "Vereist: " + getSkillsByIds(item.Requirements.skill).join(", ") + "\\n" : "";
+        const anyReqs = item.Requirements.any_list.length > 0 ?
+            "Een van de volgende: " + getSkillsByIds(item.Requirements.any_list).join(", ") + "\\n" : "";
+        const categoryReqs = item.Requirements.Category ?
+            "Vereist tenminste " + item.Requirements.Category.value + " XP in: " +
+            item.Requirements.Category.name.join(", ") + "\\n" : ""; 
+        const exceptionReqs = item.Requirements.exception?.length > 0 ?
+            "Uitgezonderd: " + getSkillsByIds(item.Requirements.exception).join(", ") + "\\n": "";
+        const vereisten = skillReqs + anyReqs + categoryReqs + exceptionReqs;
 
         const newBlock = {
             title: {
@@ -109,14 +118,9 @@ async function addSpellDescriptionsToPdf(pdf, gridSpreuken, x = 20, y = 30) {
     const blockElements = [];
 
     for (const item of gridSpreuken) {
-        const skillFound = sourceSpreuken.find((sourceSkill) =>
-            item.skill?.toLowerCase() === sourceSkill.skill.toLowerCase() ||
-            item.alt_skill?.toLowerCase() === sourceSkill.skill.toLowerCase());
-        if (!skillFound) { continue; }
-
-        const spellData = skillFound?.Spells.find((sourceSpell) =>
-            item.name?.toLowerCase() === sourceSpell.spell.toLowerCase());
-        if (!spellData) { continue; }
+        const skillData = getSkillById(item.skillId);
+        const spellData = getSpellBySkill(item.skillId, item.spellId);
+        if (!skillData || !spellData) { continue; }
 
         const newBlock = {
             title: {
@@ -130,7 +134,7 @@ async function addSpellDescriptionsToPdf(pdf, gridSpreuken, x = 20, y = 30) {
             },
             skill: {
                 options: {
-                    text: `Vaardigheid: ${item.skill}`,
+                    text: `Vaardigheid: ${skillData.skill}`,
                     fontSize: 11
                 }
             },
@@ -164,16 +168,12 @@ async function addRecipeDescriptionsToPdf(pdf, gridRecepten, x = 20, y = 30) {
     const blockElements = [];
 
     for (const item of gridRecepten) {
-        const skillFound = sourceRecepten.find((sourceSkill) =>
-            item.skill?.toLowerCase() === sourceSkill.skill.toLowerCase());
-        if (!skillFound) { continue; }
+        const skillData = getSkillById(item.skillId);
+        const recipyData = getRecipyBySkill(item.skillId, item.recipyId);
+        if (!skillData || !recipyData) { continue; }
 
-        const recipeData = skillFound?.Recipes.find((sourceRecipe) =>
-            item.name?.toLowerCase() === sourceRecipe.recipy.toLowerCase());
-        if (!recipeData) { continue; }
-
-        let newTitle = `${recipeData.recipy}`;
-        newTitle = newTitle + (recipeData.inspiration >= 1 ? ` ${recipeData.inspiration}` : ``);
+        let newTitle = `${recipyData.recipy}`;
+        newTitle = newTitle + (recipyData.inspiration >= 1 ? ` ${recipyData.inspiration}` : ``);
 
         const newBlock = {
             title: {
@@ -187,20 +187,20 @@ async function addRecipeDescriptionsToPdf(pdf, gridRecepten, x = 20, y = 30) {
             },
             skill: {
                 options: {
-                    text: `Vaardigheid: ${item.skill}`,
+                    text: `Vaardigheid: ${skillData.skill}`,
                     fontSize: 11
                 }
             },
             components: {
                 options: {
-                    text: `Componenten: ${recipeData.components}`,
+                    text: `Componenten: ${recipyData.components}`,
                     isItalic: true,
                     fontSize: 11
                 }
             },
             description: {
                 options: {
-                    text: `${recipeData.effect}`,
+                    text: `${recipyData.effect}`,
                     fontSize: 11
                 }
             }
@@ -265,8 +265,9 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
     const getTotalElementHeight = (allParts = []) => {
         let totalHeight = 0;
         for (const part of allParts) {
-            if (part?.options?.text) {
-                const blockSize = part.options?.text.split('\n').length * part.options.fontSize * 0.92;
+            const text = part?.options?.text;
+            if (text) {
+                const blockSize = text.split('\\n').length * part.options.fontSize * 0.92;
                 totalHeight += blockSize;
             }
         }
@@ -292,7 +293,10 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
 
         if (fontSize >= fontSizeThreshold) { y += 1; }
 
-        const lines = pdf.splitTextToSize(text, pageWidth);
+        // split the lines if needed. 
+        const textBlocks = text.split('\\n');
+        const lines = textBlocks.flatMap(block => pdf.splitTextToSize(block, pageWidth));
+
         for (const line of lines) {
             if (line.trim() === "") { continue; }
             if (isUrl === true) {
@@ -326,8 +330,9 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
             spelleffect = {}
         } = element;
 
+
         const totalElementHeight = getTotalElementHeight([title, url, skill, incantation, requirements, components, description, spelleffect]);
-        if (y + totalElementHeight > pageHeight) {
+        if (y + totalElementHeight > pageHeight-10) {
             await addNewPage(pdf);
             y = 30;
         }
@@ -336,7 +341,7 @@ async function addTextBlockWithMarkUpToPdf(pdf, blockElements, x, y, maxWidthPer
         if (url?.options) { await processElement(url.options); }
         if (skill?.options) { await processElement(skill.options); }
         if (incantation?.options) { await processElement(incantation.options); }
-        if (requirements?.options && requirements?.options?.text?.toLowerCase().trim() !== "vereist:") {
+        if (requirements?.options && requirements?.options?.text?.toLowerCase().trim() !== "") {
             await processElement(requirements.options);
         }
         if (components?.options) { await processElement(components.options); }
@@ -488,7 +493,7 @@ export default async function useExportToPDF(charName, ruleset_version, tableDat
             }
             return false;
         });
-    uniqueLoreSheetValues.push({ pdf: "Samenvatting-regelsysteem.pdf" });
+    uniqueLoreSheetValues.push({ pdf: "Samenvatting_regelsysteem.pdf" });
 
     const pdf = new jsPDF({
         orientation: "p",

@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {
     openPdfPage,
     getSkillById,
+    getSkillsByIds,
     getSpellBySkill,
     getRecipyBySkill
 } from '../SharedActions.js'
@@ -74,27 +75,16 @@ export function SkillTooltip({ id, image = './images/img-info.png' }) {
 
     function formatList(items) { return items.join(', \\n'); }
 
-    function getSkillNames(reqSkillIds) {
-        const reqSkills = [];
-        if (reqSkillIds && reqSkillIds.length > 0) {
-            for (const reqSkillId of reqSkillIds) {
-                const reqSkill = getSkillById(reqSkillId).skill;
-                reqSkills.push(reqSkill);
-            }
-        }
-        return reqSkills;
-    }
-
     // Check skills
-    const reqSkills = getSkillNames(sourceSkill.Requirements.skill);
-    if (reqSkills.length > 0) { fullRequirementsBlock += formatList(reqSkills); }
+    const reqSkills = getSkillsByIds(sourceSkill.Requirements.skill);
+    if (reqSkills.length > 0) { fullRequirementsBlock += `${formatList(reqSkills)} \\n`; }
 
     // Exception - "Leermeester Expertise"
     if (sourceSkill.id === teacherSkill) { fullRequirementsBlock += "1 Extra vaardigheid"; }
 
     // Check any_list
-    const reqAny = getSkillNames(sourceSkill.Requirements.any_list);
-    if (reqAny.length > 0) { fullRequirementsBlock += `Een van de volgende: \\n${formatList(reqAny)}`; }
+    const reqAny = getSkillsByIds(sourceSkill.Requirements.any_list);
+    if (reqAny.length > 0) { fullRequirementsBlock += `Een van de volgende: \\n${formatList(reqAny)} \\n`; }
 
     // Check category
     const reqCategory = sourceSkill.Requirements.Category;
@@ -151,8 +141,8 @@ export function SpellTooltip({ skillId, spellId, image = './images/img-info.png'
 
             <img
                 className="btn-image"
-                title={"Open Spreuken.pdf - pagina " + sourceSpell.page}
-                onClick={() => openPdfPage('Spreuken.pdf', sourceSpell.page)}
+                title={"Open Spreuken_en_Technieken.pdf - pagina " + sourceSpell.page}
+                onClick={() => openPdfPage('Spreuken_en_Technieken.pdf', sourceSpell.page)}
                 src="./images/img-pdf.png"
                 alt="PDF">
             </img>

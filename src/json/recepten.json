@@ -2,6 +2,15 @@
   "Categories": [
     {
       "categorie": "Ambachtsvaardigheden",
+      "Common": [
+        {
+          "id": 999,
+          "recipy": "Meesterstuk (Elemental Flesh)",
+          "effect": "Je kunt nu Elemental Flesh verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 7",
+          "inspiration": "2",
+          "components": "Pound of Elemental Flesh"
+        }
+      ],
       "Skills": [
         {
           "id": 250,

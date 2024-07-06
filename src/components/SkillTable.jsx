@@ -18,16 +18,13 @@ import {
     setTotalXP,
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
-} from '../SharedObjects.js';
-
-import { saveCharacterToStorage } from '../SharedStorage.js';
-
-import {
     resetTotalXP,
     regeneratedBasisVaardigheden,
     regeneratedExtraVaardigheden,
     defaultProperties,
 } from '../SharedObjects.js';
+
+import { saveCharacterToStorage } from '../SharedStorage.js';
 
 // Components
 import { InfoTooltip } from './Tooltip.jsx';
@@ -68,8 +65,9 @@ export default function SkillTable() {
         if (tableData.length > 0) {
             setTotalXP(tableData.reduce((accumulator, skill) => accumulator + skill.xp, 0));
             return (
-                <tr>
-                    <td /><td>Aantal vaardigheden: {tableData.length} </td>
+                <tr key={uuidv4()}>
+                    <td />
+                    <td>Aantal vaardigheden: {tableData.length} </td>
                     <td>Totaal: {totalXP}</td>
                     <td />
                     <td />
@@ -106,9 +104,9 @@ export default function SkillTable() {
         // check of het een vereiste is
         const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.id, true, tableData, setModalMsg);
         if (isPrerequisite) { setShowModal(true); }
-        else {
-            // Item weghalen uit grid
-            setTableData((prevData) => prevData.filter((item) => item.id !== row.id));
+        else { // Item weghalen uit grid
+            setTableData((prevData) =>
+                prevData.filter((item) => item.id !== row.id));
         }
     }
 
@@ -116,18 +114,12 @@ export default function SkillTable() {
     function handleAdd(row) {
         if (totalXP < Math.floor(MAX_XP)) {
             // Source data
-            let sourceRecord = sourceBasisVaardigheden.find((record) =>
-                record.skill.toLowerCase() === row.skill.toLowerCase());
-            if (!sourceRecord) {
-                sourceRecord = sourceExtraVaardigheden.find((record) =>
-                    record.skill.toLowerCase() === row.skill.toLowerCase())
-            }
-            const currentRecord = tableData.find((record) =>
-                record.skill.toLowerCase() === row.skill.toLowerCase());
+            let sourceRecord = sourceBasisVaardigheden.find((record) => record.id === row.id);
+            if (!sourceRecord) { sourceRecord = sourceExtraVaardigheden.find((record) => record.id === row.id); }
+            const currentRecord = tableData.find((record) => record.id === row.id);
 
             if (currentRecord.count < sourceRecord.maxcount) {
-                const updatedTableData = tableData.map((record) =>
-                    record.skill.toLowerCase() === row.skill.toLowerCase()
+                const updatedTableData = tableData.map((record) => record.id === row.id
                         ? { ...record, count: record.count + 1, xp: sourceRecord.xp * (record.count + 1) }
                         : record
                 );
@@ -147,18 +139,16 @@ export default function SkillTable() {
 
     function handleSubtract(row) {
         // check of het een vereiste is
-        const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.skill, false, tableData, setModalMsg);
+        const isPrerequisite = isSkillAPrerequisiteToAnotherSkill(row.id, false, tableData, setModalMsg);
         if (isPrerequisite) { setShowModal(true); }
         else {
-            const currentSkill = tableData.find(currentSkill => currentSkill.skill === row.skill);
+            const currentSkill = tableData.find(currentSkill => currentSkill.id === row.id);
             if (currentSkill.count === 1) {
-                // Item weghalen uit grid
-                setTableData((prevData) => prevData.filter((item) =>
-                    item.skill.toLowerCase() !== row.skill.toLowerCase()));
+                setTableData((prevData) =>
+                    prevData.filter((item) => item.id !== row.id)); // Item weghalen uit grid
             }
             else {
-                const updatedTableData = tableData.map((record) =>
-                    record.skill.toLowerCase() === row.skill.toLowerCase() &&
+                const updatedTableData = tableData.map((record) => record.id === row.id &&
                         record.multi_purchase === true
                         ? { ...record, count: record.count - 1, xp: (record.xp / record.count) * (record.count - 1) }
                         : record
@@ -302,23 +292,27 @@ export default function SkillTable() {
         <DragDropContext onDragEnd={handleDragEnd}>
             <table {...getTableProps()} className="App-table" id="App-table">
                 <thead>
-                    {headerGroups.map((headerGroup) => (
-                        <tr key={uuidv4()} {...headerGroup.getHeaderGroupProps()}>
-                            {headerGroup.headers.map((column) => (
-                                <th
-                                    key={uuidv4()}
-                                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                                    className={column.className}
-                                >
-                                    {column.render('Header')}
-                                    <span>
-                                        {determineSortinSymbol(column)}
-                                    </span>
-                                </th>
-                            ))}
-                            <th key={uuidv4()} className="col-acties">Acties</th>
-                        </tr>
-                    ))}
+                    {headerGroups.map((headerGroup) => {
+                        const { key: headerGroupKey, ...headerGroupProps } = headerGroup.getHeaderGroupProps();
+                        return (
+                            <tr key={uuidv4()} {...headerGroupProps}>
+                                {headerGroup.headers.map((column) => {
+                                    const { key: columnKey, ...headerProps } = column.getHeaderProps(column.getSortByToggleProps());
+                                    return (
+                                        <th
+                                            key={uuidv4()}
+                                            {...headerProps}
+                                            className={column.className}
+                                        >
+                                            {column.render('Header')}
+                                            <span>{determineSortinSymbol(column)}</span>
+                                        </th>
+                                    );
+                                })}
+                                <th key={uuidv4()} className="col-acties">Acties</th>
+                            </tr>
+                        );
+                    })}
                 </thead>
                 <Droppable droppableId="skillsDataTable">
                     {(provided) => (
@@ -333,18 +327,19 @@ export default function SkillTable() {
                                     <Draggable
                                         key={row.id}
                                         draggableId={row.id}
-                                        index={index}>
+                                        index={index}
+                                    >
                                         {(provided) => (
                                             <tr
+                                                key={row.id}
                                                 ref={provided.innerRef}
                                                 {...provided.draggableProps}
                                                 {...provided.dragHandleProps}
                                             >
                                                 {row.cells.map((cell) => (
-                                                    // eslint-disable-next-line react/jsx-key
                                                     <td key={uuidv4()}>{cell.render('Cell')}</td>
                                                 ))}
-                                                <td key={uuidv4()} > {requestActions(row)} </td>
+                                                <td>{requestActions(row)}</td>
                                             </tr>
                                         )}
                                     </Draggable>
