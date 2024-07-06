@@ -433,7 +433,7 @@ export default function Toolbar() {
                     className="form-select"
                     // Verwijder de leermeester skill voor nieuwe personages uit de Dropdown
                     options={isChecked
-                        ? optionsBasisVaardigheden.filter(item => item.value.toLowerCase() !== ('Leermeester Expertise').toLowerCase())
+                        ? optionsBasisVaardigheden.filter(item => item.id !== 111) // Leermeester Expertise
                         : optionsBasisVaardigheden}
                     value={selectedBasicSkill}
                     onChange={(selectedBasicOption) => setSelectedBasicSkill(selectedBasicOption)}

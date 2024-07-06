@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import {
     defaultProperties,
     sourceSpreuken,
-    sourceRecepten,
+    sourceSkillRecepten,
+    sourceCommonRecepten,
     sourceBasisVaardigheden,
     sourceExtraVaardigheden,
 } from './SharedObjects.js';
@@ -31,6 +32,16 @@ export function getSkillById(id) {
 getBasicSkillsFromTable.propTypes = {
     tableData: PropTypes.array.isRequired
 };
+
+// Helper function om skills uit de array op te halen
+export function getSkillsByIds(ids) {
+    const skills = [];
+    for (const id of ids) {
+        const skill = getSkillById(id);
+        skills.push(skill.skill);
+    }
+    return skills;
+}
 
 // Ophalen van alle vaardigheden uit de basis vaardigheden die aanwezig zijn in de tabel
 export function getBasicSkillsFromTable(tableData) {
@@ -71,18 +82,26 @@ export function getSpellsBySkill(skillId) {
     return sourceSpell?.Spells;
 }
 
-// Ophalen van een recept op bases van de skill
+// Ophalen van een recept op basis van de skill
+// Algemene recepten ophalen uit de Commoon
 export function getRecipyBySkill(skillId, recipyId) {
     if (!skillId || !recipyId) { return; }
     const sourceRecipies = getRecipesBySkill(skillId);
-    return sourceRecipies?.find((item) => item.id === recipyId);
+    const recipyResult = sourceRecipies?.find((item) => item.id === recipyId) || getRecipyFromCommon(recipyId); 
+    return recipyResult 
 }
 
 // Ophalen van alle recepten op basis van de skill
 export function getRecipesBySkill(skillId) {
     if (!skillId) { return; }
-    const sourceRecipy = sourceRecepten.find((item) => item.id === skillId);
-    return sourceRecipy?.Recipes;
+    const skillResult = sourceSkillRecepten.find(item => item.id === skillId);
+    return skillResult?.Recipes;
+}
+
+// Ophalen van recept uit de algemene recepten
+export function getRecipyFromCommon(recipyId) {
+    if (!recipyId) { return; }
+    return sourceCommonRecepten?.find(item => item.id === recipyId);
 }
 
 export function getPropertyByName(name) {
@@ -106,11 +125,7 @@ export function regenerateOptions(source, tableData) {
         id: record.id,
         value: record.skill,
         label: `${record.skill} (${record.xp} xp)`
-    })).filter((currentSkill) =>
-        !tableData.some((record) =>
-            record.skill.toLowerCase() === currentSkill.value.toLowerCase()
-        )
-    );
+    })).filter((currentSkill) => !tableData.some((record) => record.id === currentSkill.id));
 }
 
 /// --- VEREISTEN --- ///
@@ -466,24 +481,31 @@ export function updateGridSpreukenTiles(tableData) {
 
 // Op basis van de Recepten, voeg nieuwe tegels toe.
 export function updateGridReceptenTiles(tableData) {
-    const recipyProperties = tableData.reduce((recipyAccumulator, record) => {
+    const recipyMap = new Map();
+
+    tableData.forEach((record) => {
         const vaardigheid = getSkillById(record.id);
         const recepten = vaardigheid ? vaardigheid.Recepten : [];
 
         recepten.forEach((recept) => {
-            const existingRecipy = recipyAccumulator.find((existing) => existing?.id === recept);
-            if (existingRecipy) { existingRecipy.count += recept.count; }
-            else {
+            if (recipyMap.has(recept)) {
+                const existingRecipy = recipyMap.get(recept);
+                existingRecipy.count += recept.count;
+            } else {
                 const newRecipy = {
                     "skillId": vaardigheid.id,
                     "recipyId": recept,
-                    "alt_skill": vaardigheid.alt_skill
+                    "alt_skill": vaardigheid.alt_skill,
+                    "count": recept.count || 1 // Assuming each recipe has an initial count of 1 if not specified
                 };
-                recipyAccumulator.push({ ...newRecipy });
+                recipyMap.set(recept, newRecipy);
             }
         });
-        return recipyAccumulator;
-    }, []);
+    });
+
+    // Convert the map values to an array
+    const recipyProperties = Array.from(recipyMap.values());
+
     return recipyProperties;
 }
 
@@ -500,23 +522,25 @@ export function getPdfURL(pdfName) {
     let rootURL = "";
     if ([
         "Vaardigheden.pdf",
-        "Crafting-loresheets.pdf",
-        "Imbue-loresheet.pdf",
-        "Armourpoint-kostuum-eisen.pdf",
+        "Spreuken_en_Technieken.pdf",
+        "Samenvatting_regelsysteem.pdf",
+        "Crafting_loresheets.pdf",
+        "Imbue_loresheet.pdf",
+        "Kennis_van_kruiden.pdf",
+        "Genezende_Dranken.pdf",
+        "Kruiden_Elixers.pdf",
+        "Magische_Elixers.pdf",
+        "Hallucinerende_Elixers.pdf",
+        "Giffen.pdf",
+        "Armourpoint_kostuum_eisen.pdf"
+    ].includes(pdfName)) { rootURL = "https://the-vortex.nl/wp-content/uploads/2024/06/" }
+    else if ([
         "priest_runes.ttf",
         "mage_glyphs.ttf"
     ].includes(pdfName)) { rootURL = "https://the-vortex.nl/wp-content/uploads/2022/04/" }
     else if ([
-        "Spreuken.pdf",
         "Priest-Runes.pdf",
-        "Mage-Glyphs.pdf",
-        "Kennis-van-kruiden.pdf",
-        "Genezende-Dranken.pdf",
-        "Kruiden-Elixers.pdf",
-        "Magische-Elixers.pdf",
-        "Hallucinerende-Elixers.pdf",
-        "Giffen.pdf",
-        "Samenvatting-regelsysteem.pdf"
+        "Mage-Glyphs.pdf"
     ].includes(pdfName)) { rootURL = "https://the-vortex.nl/wp-content/uploads/2022/03/" }
     else { console.warn("PDF name was not recognized as a valid option.", pdfName) }
     return rootURL;

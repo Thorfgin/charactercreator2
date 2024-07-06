@@ -11,7 +11,7 @@ import {
 import {
     getSkillById,
     getSpellBySkill,
-    getRecipeBySkill,
+    getRecipyBySkill,
     getPropertyByName,
     getPdfURL
 } from '../src/SharedActions.js';
@@ -141,9 +141,10 @@ test('Skills listed as Skill Requirement in ExtraVaardigheden JSON should themse
 
 /// --- SPREUKEN  --- ///
 function listedSpellsExist(jsonArray) {
-    const faultyRecords = jsonArray.flatMap((skill) => skill.Spreuken
-        .filter((spell) => !getSpellBySkill(skill, spell.name))
-        .map((spell) => ({ skill: skill.skill, spell }))
+    const faultyRecords = jsonArray.flatMap(skill =>
+        skill.Spreuken
+            .filter(spell_id => !getSpellBySkill(skill.id, spell_id))
+            .map(spell_id => ({ id: skill.id, skill: skill.skill, spell_id }))
     );
 
     if (faultyRecords.length > 0) { console.warn('Faulty skills/spells:', faultyRecords); }
@@ -160,9 +161,10 @@ test('Skill with Spells listed in ExtraVaardigheden JSON should exist in Spreuke
 
 /// --- RECEPTEN  --- ///
 function listedRecipesExist(jsonArray) {
-    const faultyRecords = jsonArray.flatMap((skill) => skill.Recepten
-        .filter((recipe) => !getRecipeBySkill(skill, recipe.name))
-        .map((recipe) => ({ skill: skill.skill, recipe }))
+    const faultyRecords = jsonArray.flatMap((skill) =>
+        skill.Recepten
+            .filter((recipe_id) => !getRecipyBySkill(skill.id, recipe_id))
+            .map((recipe_id) => ({ id: skill.id, skill: skill.skill, recipe_id }))
     );
 
     if (faultyRecords.length > 0) { console.warn('Faulty skills/recipes:', faultyRecords); }

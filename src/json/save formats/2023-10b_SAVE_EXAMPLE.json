@@ -1,0 +1,68 @@
+{
+  "version": "2023-10b",
+  "is_checked": false,
+  "max_xp": 15,
+  "name": "Vechter (Licht)",
+  "Skills": [
+    {
+      "count": 1,
+      "id": 102,
+      "skill": "Lezen & Schrijven"
+    },
+    {
+      "count": 1,
+      "id": 107,
+      "skill": "Rekenen"
+    },
+    {
+      "count": 1,
+      "id": 150,
+      "skill": "Kleine Wapens"
+    },
+    {
+      "count": 1,
+      "id": 151,
+      "skill": "Eenhandige Wapens"
+    },
+    {
+      "count": 1,
+      "id": 153,
+      "skill": "Staf Wapens"
+    },
+    {
+      "count": 1,
+      "id": 101,
+      "skill": "Ambidextrie"
+    },
+    {
+      "count": 1,
+      "id": 108,
+      "skill": "Levenskracht A"
+    },
+    {
+      "count": 1,
+      "id": 109,
+      "skill": "Levenskracht B"
+    },
+    {
+      "count": 1,
+      "id": 175,
+      "skill": "Doorzettingsvermogen"
+    },
+    {
+      "count": 1,
+      "id": 108,
+      "skill": "Levenskracht A"
+    },
+    {
+      "count": 1,
+      "id": 126,
+      "skill": "Harnas I"
+    },
+    {
+      "count": 1,
+      "id": 127,
+      "skill": "Harnas II"
+    }
+  ]
+}

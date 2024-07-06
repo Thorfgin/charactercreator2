@@ -1,7 +1,7 @@
 {
   "Presets": [
     {
-      "version": "2023-10a",
+      "version": "2023-10b",
       "name": "Vechter (Licht)",
       "max_xp": 15,
       "is_checked": true,

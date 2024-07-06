@@ -45,7 +45,9 @@ export const sourceSpreuken = [].concat(...spreuken.Categories.map(category => c
 
 // recepten
 export const getRecepten = () => { return recepten; }
-export const sourceRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
+export const sourceSkillRecepten = [].concat(...recepten.Categories.map(category => category.Skills));
+export const sourceCommonRecepten = [].concat(...recepten.Categories.map(category => category.Common).filter(Boolean));
+
 
 /// --- TABLE PROPERTIES --- ///
 export const defaultProperties = [

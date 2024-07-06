@@ -19,7 +19,7 @@
                 "id": {
                   "type": "number",
                   "minimum": 0
-                }
+                },
                 "skill": { "type": "string" },
                 "Recipes": {
                   "type": "array",
