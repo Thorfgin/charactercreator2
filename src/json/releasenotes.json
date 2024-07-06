@@ -1,6 +1,86 @@
 {
   "ReleaseNotes": [
     {
+      "date": "05-07-2024",
+      "version": "v0.6.1",
+      "Items": [
+        {
+          "description": "Met de laatste update zijn wat namen en referenties veranderd. De vaardigheden, spreuken, recepten en bijbehorende teksten/pagina nummers zijn gecontroleerd en waar nodig aangepast.",
+          "title": "Regels: Content en url referenties naar de regelset boekjes aangepast."
+        },
+        {
+          "description": "De wijze van ophalen van data uit de bronbestanden is defensiever opgezet en tegelijk aangepast om in de toekomst meerdere talen te kunnen ondersteunen.",
+          "title": "Techniek: Verschillende aanpassingen op de achtergrond in de bronbestand referenties."
+        },
+        {
+          "description": "Het exporteren van een personage naar een bestand kon leiden tot een bestand zonder versienummer. Dit kon resulteren in een onbruikbaar bestand.",
+          "title": "BugFix: Export van een personage naar bestand"
+        },
+        {
+          "description": "Voorheen werd niet altijd op de juiste wijze getoond aan welke vereisten de vaardigheid moest voldoen. Deze zijn verbeterd en aangevuld met categorie vereisten.",
+          "title": "Looks & Feels: In de PDF export zijn bij vaardigheden de weergave van de vereisten verbeterd."
+        },
+        {
+          "description": "Het gebruik van het materiaal ''Pound of Elemental Flesh' is toegevoegd aan alle crafting vaardigheden.",
+          "title": "Onderhoud: Pound of Elemental Flesh als component aan Recepten toegevoegd"
+        }
+      ]
+    },
+    {
+      "date": "30-04-2024",
+      "version": "v0.5.6",
+      "Items": [
+        {
+          "description": "De omschrijving van een aantal templates is aangepast, ter verduidelijking.",
+          "title": "Looks & Feels: Verschillende tekstuele aanpassingen in de template omschrijvingen."
+        },
+        {
+          "description": "De omschrijving van een template werd opgedeeld in twee vlakken, waardoor te tekst niet goed weergegeven werd. Dit is aangepast naar 1 veld.",
+          "title": "Looks & Feels: Veld grote van template omschrijving."
+        }
+      ]
+    },
+    {
+      "date": "20-04-2024",
+      "version": "v0.5.5",
+      "Items": [
+        {
+          "description": "Wanneer 't vinkje 'nieuw personage' aan staat, is het niet langer mogelijk om 'Leermeester Expertise' te kiezen uit de selectielijst.",
+          "title": "Looks & Feels: Leermeester Expertise niet langer beschikbaar voor nieuwe personages."
+        },
+        {
+          "description": "De character eigenschappen zijn opgesplitst tussen Character Eigenschappen en Energie per dag ter verduidelijking.",
+          "title": "Looks & Feels: Opsplitsing eigenschappen en Energie per Dag."
+        },
+        {
+          "description": "Om wijzigen doorvoeren in het veld op Mobiele devices te verbeteren, is de minimale waarde voor het veld Max XP aangepast naar 1 > 0.",
+          "title": "BugFix: Minimale MaxXP waarde verlaagd naar 0."
+        },
+        {
+          "description": "Deelvensters zijn naast de sluit knop (X) nu ook te sluiten door buiten het venster te klikken.",
+          "title": "Looks & Feels: Deelvenster sluiten aangepast."
+        },
+        {
+          "description": "Omschrijvingen van een aantal componenten met imbue verhogende waarde zijn ter verduidelijking aangepast.",
+          "title": "Looks & Feels: Verduidelijking van bepaalde crafting componenten."
+        },
+        {
+          "description": "Wanneer er gewisseld werd tussen nieuw/bestaand en weer terug naar nieuw kon negatieve total xp ontstaan. Het toevoegen van een skill leverde hierbij een foutmelding op.",
+          "title": "BugFix: Toevoegen van skill bij negatieve total xp."
+        },
+
+        {
+          "description": "Wanneer er een nieuw item toegevoegd wordt aan de tabel, blijft de gekozen sorting in stand.",
+          "title": "BugFix: Sorting in tabel blijft behouden."
+        },
+        {
+          "description": "Er ontbrak een import voor een font, wat kon resulteren in een foutmelding bij het exporteren van een PDF document.",
+          "title": "BugFix: Console Error missende font type."
+        }
+
+      ]
+    },
+    {
       "date": "16-04-2024",
       "version": "v0.5.4",
       "Items": [

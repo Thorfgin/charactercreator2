@@ -13,4 +13,10 @@
   <ItemGroup>
     <None Include=".github\workflows\node.js.yml" />
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptConfiguration Remove=".github\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove=".github\**" />
+  </ItemGroup>
 </Project>

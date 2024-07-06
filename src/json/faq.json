@@ -22,7 +22,7 @@
     },
     {
       "header": "Kan ik mijn personage uitprinten ?",
-      "message": "Nee, je kunt momenteel alleen de pagina uitprinten door de webpagina vanuit je browser af te drukken Er liggen wel plannen om een uitgebreidere PDF-export te laten genereren. Deze optie wordt t.z.t. toegevoegd."
+      "message": "Ja, je kunt de pagina uitprinten door via de knop 'Exporteer naar PDF' een PDF document te maken en deze af te drukken. Deze PDF-export wordt gegeneerd op basis van de tabel."
     },
     {
       "header": "Waarom kan ik 0.25 XP toevoegen ?",

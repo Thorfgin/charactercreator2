@@ -21,20 +21,20 @@ import {
 function replaceChar(word) { return word.replace(/ë/g, '\u00EB') }
 
 // Fetch skills from BasisVaardigheden
-function getSkillsFromBasisVaardigheden(skillNames) {
+function getSkillsFromBasisVaardigheden(skillIds) {
     const mockTableData = []
-    for (const skillName of skillNames) {
-        const sourceRecord = sourceBasisVaardigheden.find((record) => record.skill.toLowerCase() === skillName.toLowerCase());
+    for (const skillId of skillIds) {
+        const sourceRecord = sourceBasisVaardigheden.find((record) => record.id === skillId);
         mockTableData.push(sourceRecord);
     }
     return mockTableData;
 }
 
 // Fetch skills from BasisVaardigheden
-function getSkillsFromExtraVaardigheden(skillNames) {
+function getSkillsFromExtraVaardigheden(skillIds) {
     const mockTableData = []
-    for (const skillName of skillNames) {
-        const sourceRecord = sourceExtraVaardigheden.find((record) => record.skill.toLowerCase() === skillName.toLowerCase());
+    for (const skillId of skillIds) {
+        const sourceRecord = sourceExtraVaardigheden.find((record) => record.id === skillId);
         mockTableData.push(sourceRecord);
     }
     return mockTableData;
@@ -52,109 +52,118 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
     })
 
     // No Prerequisites
+    // 103 Runen gebruiken, 
     test('Can remove a Skill that has no prerequisites', () => {
-        const mockTableData = getSkillsFromBasisVaardigheden(["Runen Gebruiken"]);
+        const mockTableData = getSkillsFromBasisVaardigheden([103]);
 
-        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Runen Gebruiken", true, mockTableData, setModalMsg);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(103, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
     });
 
     // Single Skill
+    // 103 Runen gebruiken, 
+    // 104 Runen gewenning,
     test('Cannot remove a Skill that is a prerequisite of type: skill', () => {
-        const mockTableData = getSkillsFromBasisVaardigheden(["Runen Gebruiken", "Runen Gewenning"]);
+        const mockTableData = getSkillsFromBasisVaardigheden([103, 104]); 
 
-        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Runen Gebruiken", true, mockTableData, setModalMsg);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(103, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Runen Gewenning", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(104, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
     });
 
     // Any-List
+    // 126 Harnas I
+    // 350 Genezingsspreuken A (EL)
+    // 131 Paladijn
+    // 300 Paladijnspreuken A
     test('Cannot remove a Skill that is the only matching prerequisite of type: any-list', () => {
-        const skills = [
-            "Harnas I",
-            "Genezingsspreuken A (EL)",
-            "Paladijn",
-            "Paladijnspreuken A"
-        ]
+        const skills = [126, 350, 131, 300 ]
         const mockTableData = getSkillsFromBasisVaardigheden(skills);
-
-        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken A (EL)", true, mockTableData, setModalMsg);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(350, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
     });
 
-    test('Can remove a Skill that still has a skill matching same prerequisite of type: any-list', () => {
-        const skills = [
-            "Harnas I",
-            "Genezingsspreuken A (EL)",
-            "Genezingsspreuken A (SP)",
-            "Paladijn",
-            "Paladijnspreuken A"
-        ];
-        const mockTableData = getSkillsFromBasisVaardigheden(skills);
 
-        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken A (EL)", true, mockTableData, setModalMsg);
+    // 126 Harnas I
+    // 350 Genezingsspreuken A (EL)
+    // 351 Genezingsspreuken A (SP)
+    // 131 Paladijn
+    // 300 Paladijnspreuken A
+    test('Can remove a Skill that still has a skill matching same prerequisite of type: any-list', () => {
+        const skills = [126, 350, 351, 131, 300]
+        const mockTableData = getSkillsFromBasisVaardigheden(skills);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(350, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
     });
 
+
+    // 350 Genezingsspreuken A (EL)
+    // 200 Eerste hulp bij gevechten
+    // 203 Diagnostiek
+    // 400 Genees andere wezens
     test('Can remove a Skill that still has a skill matching a different prerequisite of type: any-list', () => {
-        const basisSkills = ["Genezingsspreuken A (EL)", "Eerste hulp bij gevechten", "Diagnostiek"];
-        const extraSkills = ["Genees andere wezens"]
+        const basisSkills = [350, 200, 203];
+        const extraSkills = [400]
 
         const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
         const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
-
         const mockTableData = [...tableDataBasis, ...tableDataExtra]
 
-        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken A (EL)", true, mockTableData, setModalMsg);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(350, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Eerste hulp bij gevechten", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(200, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Diagnostiek", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(203, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genees andere wezens", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(400, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
     });
 
     // Category
+    // 275 Magiërspreuken A - Wit
+    // 279 Magiërspreuken B - Metaal
     test('Cannot remove a Skill that is a prerequisite of type: by Category: 4 XP', () => {
-        const mageA = replaceChar("Magiërspreuken A - Wit");
-        const mageB = replaceChar("Magiërspreuken B - Metaal");
-        const mockTableData = getSkillsFromBasisVaardigheden([mageA, mageB]);
+        const mockTableData = getSkillsFromBasisVaardigheden([275, 279]);
 
-        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(mageA, true, mockTableData, setModalMsg);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(275, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(mageB, true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(279, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
     });
 
+    // 350 Genezingsspreuken A (EL)
+    // 352 Genezingsspreuken B (EL)
+    // 502 Genezingsspreuken C (EL)
     test('Cannot remove a Skill that is a prerequisite of type: by Category: 8 XP', () => {
-        const basisSkills = ["Genezingsspreuken A (EL)", "Genezingsspreuken B (EL)"];
-        const extraSkills = ["Genezingsspreuken C (EL)"]
+        const basisSkills = [350, 352];
+        const extraSkills = [502]
 
         const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
         const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
-
         const mockTableData = [...tableDataBasis, ...tableDataExtra]
 
-        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken A (EL)", true, mockTableData, setModalMsg);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(350, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken B (EL)", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(352, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Genezingsspreuken C (EL)", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(502, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
     });
 
+    // 375 Elementair Ritualisme
+    // 376 Spiritueel Ritualisme
+    // 578 Cirkel Vinden
     test('Cannot remove a Ritualism Skill that is a prerequisite of type: by Category: 5 XP', () => {
-        const basisSkills = ["Elementair Ritualisme", "Spiritueel Ritualisme"];
-        const extraSkills = ["Cirkel Vinden"]
+        const basisSkills = [375, 376];
+        const extraSkills = [578]
 
         const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
         tableDataBasis[0].xp = 5;
@@ -163,46 +172,53 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
 
         const mockTableData = [...tableDataBasis, ...tableDataExtra]
 
-        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Elementair Ritualisme", true, mockTableData, setModalMsg);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(375, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Spiritueel Ritualisme", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(376, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Cirkel Vinden", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(578, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
     });
 
+
+    // 175 Doorzettingsvermogen
+    // 111 Leermeester Expertise
+    // 425 Extra Wilskracht
     test('Cannot remove a extra skill that is a prerequisite to Teacher Expertise', () => {
-        const basisSkills = ["Doorzettingsvermogen", "Leermeester Expertise"];
-        const extraSkills = ["Extra Wilskracht"]
+        const basisSkills = [175, 111];
+        const extraSkills = [425]
 
         const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
         const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
 
         const mockTableData = [...tableDataBasis, ...tableDataExtra]
 
-        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Doorzettingsvermogen", true, mockTableData, setModalMsg);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(175, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Leermeester Expertise", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(111, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(false);
 
-        isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Extra Wilskracht", true, mockTableData, setModalMsg);
+        isPrerequisite = isSkillAPrerequisiteToAnotherSkill(425, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
     });
 
     // Exception (Druid/Necro)
+    // 327 Priesterspreuken A - Dood
+    // 330 Priesterspreuken B - Dood
+    // 279 Magiërspreuken B - Metaal
+    // 651 Doods Druidisme A
     test('Cannot remove a Skill that is an Exception to the prerequisites', () => {
-        const mageB = replaceChar("Magiërspreuken B - Metaal");
-        const basisSkills = ["Priesterspreuken A - Dood", "Priesterspreuken B - Dood", mageB];
-        const extraSkills = ["Doods Druidisme A"] 
+        const basisSkills = [327, 330, 279];
+        const extraSkills = [651] 
 
         const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
         const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
         const mockTableData = [...tableDataBasis, ...tableDataExtra]
         
-        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Doods Druidisme A", true, mockTableData, setModalMsg);
+        let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(651, true, mockTableData, setModalMsg);
         expect(isPrerequisite).toBe(true);
     });
 });
@@ -210,25 +226,36 @@ describe('Using isSkillAPrerequisiteToAnotherSkill', () => {
 // SUBTRACT SKILL //
 
 // Single Skill
+// 126 Harnas I
+// 350 Genezingsspreuken A (EL)
+// 131 Paladijn
+// 300 Paladijnspreuken A
+// 301 Paladijnspreuken B
 test('Can remove a Skill Count when it is a Skill prerequisite with Count > 1', () => {
-    const basisSkills = ["Harnas I", "Genezingsspreuken A (EL)", "Paladijn", "Paladijnspreuken A", "Paladijnspreuken B"];
+    const basisSkills = [126, 350, 131, 300, 301];
     const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
     let mockPaladijn = mockTableData[2];
     mockPaladijn.xp = 3;
     mockPaladijn.count = 3;
 
-    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Paladijn", false, mockTableData, setModalMsg);
+    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(131, false, mockTableData, setModalMsg);
     expect(isPrerequisite).toBe(false);
 });
 
+
+// 126 Harnas I
+// 350 Genezingsspreuken A (EL)
+// 131 Paladijn
+// 300 Paladijnspreuken A
+// 301 Paladijnspreuken B
 test('Cannot remove a Skill Count when it is a Skill prerequisite with Count = 1', () => {
-    const basisSkills = ["Harnas I", "Genezingsspreuken A (EL)", "Paladijn", "Paladijnspreuken A", "Paladijnspreuken B"];
+    const basisSkills = [126, 350, 131, 300, 301];
     const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
     let mockPaladijn = mockTableData[2];
     mockPaladijn.xp = 1;
     mockPaladijn.count = 1;
 
-    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill("Paladijn", false, mockTableData, setModalMsg);
+    let isPrerequisite = isSkillAPrerequisiteToAnotherSkill(131, false, mockTableData, setModalMsg);
     expect(isPrerequisite).toBe(true);
 });
 
@@ -241,13 +268,16 @@ test('Cannot remove a Skill Count when it is a Skill prerequisite with Count = 1
 describe('Using meetsAllPrerequisites', () => {
 
     // Teacher
+    // 175 Doorzettingsvermogen
+    // 425 Extra Wilskracht
+    // 111 Leermeester Expertise
     test('Can add Teacher Expertise when an Extra Skill is present', () => {
-        const basisSkills = ["Doorzettingsvermogen"];
-        const extraSkills = ["Extra Wilskracht"]
+        const basisSkills = [175];
+        const extraSkills = [425]
 
         const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
         const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
-        const mockTeacherExpertise = getSkillsFromBasisVaardigheden(["Leermeester Expertise"])[0];
+        const mockTeacherExpertise = getSkillsFromBasisVaardigheden([111])[0];
 
         const mockTableData = [...tableDataBasis, ...tableDataExtra]
 
@@ -255,39 +285,46 @@ describe('Using meetsAllPrerequisites', () => {
         expect(meetsPrerequisite).toBe(true);
     });
 
+    // 175 Doorzettingsvermogen
+    // 111 Leermeester Expertise
     test('Cannot add Teacher Expertise when an Extra Skill is not present', () => {
-        const basisSkills = ["Doorzettingsvermogen"];
+        const basisSkills = [175];
 
         const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
-        const mockTeacherExpertise = getSkillsFromBasisVaardigheden(["Leermeester Expertise"])[0];
+        const mockTeacherExpertise = getSkillsFromBasisVaardigheden([111])[0];
 
         let meetsPrerequisite = meetsAllPrerequisites(mockTeacherExpertise, mockTableData);
         expect(meetsPrerequisite).toBe(false);
     });
 
     // Single Skill
+    // 126 Harnas I
+    // 127 Harnas II
     test('Can add a Skill that meets its Skill prerequisite', () => {
-        const basisSkills = ["Harnas I"];
+        const basisSkills = [126];
         const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
-        const mockHarnasII = getSkillsFromBasisVaardigheden(["Harnas II"])[0];
+        const mockHarnasII = getSkillsFromBasisVaardigheden([127])[0];
 
         let meetsPrerequisite = meetsAllPrerequisites(mockHarnasII, mockTableData);
         expect(meetsPrerequisite).toBe(true);
     });
 
+    // 107 Rekenen
     test('Cannot add a Skill that does not meet its Skill prerequisite', () => {
-        const basisSkills = ["Rekenen"];
+        const basisSkills = [107];
         const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
-        const mockHarnasII = getSkillsFromBasisVaardigheden(["Harnas II"])[0];
+        const mockHarnasII = getSkillsFromBasisVaardigheden([127])[0];
 
         let meetsPrerequisite = meetsAllPrerequisites(mockHarnasII, mockTableData);
         expect(meetsPrerequisite).toBe(false);
     });
 
     // Any-list
+    // 175 Doorzettingsvermogen
+    // 425 Extra Wilskracht
     test('Can add an extra skill that meets its Any-List prerequisite', () => {
-        const basisSkills = ["Doorzettingsvermogen"];
-        const extraSkills = ["Extra wilskracht"]
+        const basisSkills = [175];
+        const extraSkills = [425]
 
         const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
         const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
@@ -298,9 +335,12 @@ describe('Using meetsAllPrerequisites', () => {
         expect(meetsPrerequisites).toBe(true);
     });
 
+
+    // 107 Rekenen
+    // 425 Extra Wilskracht
     test('Cannot add an extra skill that does not meets its Any-List prerequisite', () => {
-        const basisSkills = ["Rekenen"];
-        const extraSkills = ["Extra wilskracht"]
+        const basisSkills = [107];
+        const extraSkills = [425]
 
         const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
         const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
@@ -312,9 +352,11 @@ describe('Using meetsAllPrerequisites', () => {
     });
 
     // Category
+    // 375 Elementair Ritualisme
+    // 576 Ritueel Leider
     test('Can add an extra Ritualism skill that meets its Categorie prerequisite', () => {
-        const basisSkills = ["Elementair Ritualisme"];
-        const extraSkills = ["Ritueel Leider"]
+        const basisSkills = [375];
+        const extraSkills = [576]
 
         const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
         const mockRitualLeader = getSkillsFromExtraVaardigheden(extraSkills)[0];
@@ -326,9 +368,10 @@ describe('Using meetsAllPrerequisites', () => {
         expect(meetsPrerequisites).toBe(true);
     });
 
+    // 578 Cirkel Vinden
     test('Cannot add an extra Ritualism skill that does not meet its Categorie prerequisite', () => {
         const basisSkills = [];
-        const extraSkills = ["Cirkel Vinden"]
+        const extraSkills = [578]
 
         const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
         const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
@@ -340,48 +383,53 @@ describe('Using meetsAllPrerequisites', () => {
         expect(meetsPrerequisites).toBe(false);
     });
 
+    // 275 Magiërspreuken A - Wit
+    // 279 Magiërspreuken B - Metaal
     test('Can add a Skill that meets its prerequisite of type: by Category: 4 XP', () => {
-        const mageA = replaceChar("Magiërspreuken A - Wit");
-        const mageB = replaceChar("Magiërspreuken B - Metaal");
-        const mockTableData = getSkillsFromBasisVaardigheden([mageA]);
-        const mockMageB = getSkillsFromBasisVaardigheden([mageB])[0];
+        const mockTableData = getSkillsFromBasisVaardigheden([275]);
+        const mockMageB = getSkillsFromBasisVaardigheden([279])[0];
 
         let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData);
         expect(meetsPrerequisite).toBe(true);
     });
 
+    // 107 Rekenen
+    // 279 Magiërspreuken B - Metaal
     test('Cannot add a Skill does not meet its prerequisite of type: by Category: 4 XP', () => {
-        const math = replaceChar("Rekenen");
-        const mageB = replaceChar("Magiërspreuken B - Metaal");
-        const mockTableData = getSkillsFromBasisVaardigheden([math]);
-        const mockMageB = getSkillsFromBasisVaardigheden([mageB])[0];
+        const mockTableData = getSkillsFromBasisVaardigheden([107]);
+        const mockMageB = getSkillsFromBasisVaardigheden([279])[0];
 
         let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData);
         expect(meetsPrerequisite).toBe(false);
     });
 
+    // 350 Genezingsspreuken A (EL)
+    // 352 Genezingsspreuken B (EL)
+    // 502 Genezingsspreuken C (EL)
     test('Can add a Skill that meets its prerequisite of type: by Category: 8 XP', () => {
-        const basisSkills = ["Genezingsspreuken A (EL)", "Genezingsspreuken B (EL)"];
+        const basisSkills = [350, 352];
 
         const mockTableData = getSkillsFromBasisVaardigheden(basisSkills);
-        const mockGenezingsSpreukenC = getSkillsFromExtraVaardigheden(["Genezingsspreuken C (EL)"])[0];
+        const mockGenezingsSpreukenC = getSkillsFromExtraVaardigheden([502])[0];
 
         let meetsPrerequisite = meetsAllPrerequisites(mockGenezingsSpreukenC, mockTableData);
         expect(meetsPrerequisite).toBe(true);
     });
 
     // Exception (Druid/Necro)
+    // 327 Priesterspreuken A - Dood
+    // 330 Priesterspreuken B - Dood
+    // 279 Magiërspreuken B - Metaal
+    // 651 Doods Druidisme A
     test('Can add a Skill that is an Exception to the prerequisites', () => {
-        const basisSkills = ["Priesterspreuken A - Dood", "Priesterspreuken B - Dood"];
-        const extraSkills = ["Doods Druidisme A"]
+        const basisSkills = [327, 330];
+        const extraSkills = [651]
 
         const tableDataBasis = getSkillsFromBasisVaardigheden(basisSkills);
         const tableDataExtra = getSkillsFromExtraVaardigheden(extraSkills);
-
         const mockTableData = [...tableDataBasis, ...tableDataExtra]
 
-        const mageB = replaceChar("Magiërspreuken B - Metaal");
-        const mockMageB = getSkillsFromBasisVaardigheden([mageB])[0];
+        const mockMageB = getSkillsFromBasisVaardigheden([279])[0];
 
         let meetsPrerequisite = meetsAllPrerequisites(mockMageB, mockTableData);
         expect(meetsPrerequisite).toBe(true);

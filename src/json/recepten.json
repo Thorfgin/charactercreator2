@@ -2,14 +2,24 @@
   "Categories": [
     {
       "categorie": "Ambachtsvaardigheden",
+      "Common": [
+        {
+          "id": 999,
+          "recipy": "Meesterstuk (Elemental Flesh)",
+          "effect": "Je kunt nu Elemental Flesh verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 7",
+          "inspiration": "2",
+          "components": "Pound of Elemental Flesh"
+        }
+      ],
       "Skills": [
         {
+          "id": 250,
           "skill": "Meestersmid A",
           "Recipes": [
             {
               "id": 1,
               "recipy": "Meesterstuk A (Metal)",
-              "effect": "Hoeveelheid Imbue cap: 2",
+              "effect": "Je kunt nu Mythical Metal verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 2",
               "inspiration": "0.5",
               "components": "Mythical Metal"
             },
@@ -23,12 +33,13 @@
           ]
         },
         {
+          "id": 476,
           "skill": "Meestersmid B",
           "Recipes": [
             {
               "id": 3,
               "recipy": "Meesterstuk B (Steel)",
-              "effect": "Hoeveelheid Imbue cap: 7",
+              "effect": "Je kunt nu Mythical Steel verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 7",
               "inspiration": "2",
               "components": "Mythical Steel"
             },
@@ -42,12 +53,13 @@
           ]
         },
         {
+          "id": 477,
           "skill": "Meestersmid C",
           "Recipes": [
             {
               "id": 5,
               "recipy": "Meesterstuk C (Mithril)",
-              "effect": "Hoeveelheid Imbue cap: 27",
+              "effect": "Je kunt nu Mythical Mithrill verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 27",
               "inspiration": "7",
               "components": "Mythical Mithril"
             },
@@ -61,12 +73,13 @@
           ]
         },
         {
+          "id": 251,
           "skill": "Houtbewerker A",
           "Recipes": [
             {
               "id": 7,
               "recipy": "Meesterstuk A (Wood)",
-              "effect": "Hoeveelheid Imbue cap: 2",
+              "effect": "Je kunt nu Mythical Wood verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 2",
               "inspiration": "0.5",
               "components": "Mythical Wood"
             },
@@ -80,12 +93,13 @@
           ]
         },
         {
+          "id": 478,
           "skill": "Houtbewerker B",
           "Recipes": [
             {
               "id": 9,
               "recipy": "Meesterstuk B (Ebony)",
-              "effect": "Hoeveelheid Imbue cap: 7",
+              "effect": "Je kunt nu Mythical Ebony verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 7",
               "inspiration": "2",
               "components": "Mythical Ebony"
             },
@@ -99,12 +113,13 @@
           ]
         },
         {
+          "id": 479,
           "skill": "Houtbewerker C",
           "Recipes": [
             {
               "id": 11,
               "recipy": "Meesterstuk C (Worldtree Sapling)",
-              "effect": "Hoeveelheid Imbue cap: 27",
+              "effect": "Je kunt nu Mythical Worldtree Sapling verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 27",
               "inspiration": "7",
               "components": "Mythical Worldtree Sapling"
             },
@@ -118,12 +133,13 @@
           ]
         },
         {
+          "id": 252,
           "skill": "Kleermaker A",
           "Recipes": [
             {
               "id": 13,
               "recipy": "Meesterstuk A (Cloth)",
-              "effect": "Hoeveelheid Imbue cap: 2",
+              "effect": "Je kunt nu Mythical Cloth verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 2",
               "inspiration": "0.5",
               "components": "Mythical Cloth"
             },
@@ -137,12 +153,13 @@
           ]
         },
         {
+          "id": 480,
           "skill": "Kleermaker B",
           "Recipes": [
             {
               "id": 15,
               "recipy": "Meesterstuk B (Velvet)",
-              "effect": "Hoeveelheid Imbue cap: 7",
+              "effect": "Je kunt nu Mythical Velvet verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 7",
               "inspiration": "2",
               "components": "Mythical Velvet"
             },
@@ -156,12 +173,13 @@
           ]
         },
         {
+          "id": 481,
           "skill": "Kleermaker C",
           "Recipes": [
             {
               "id": 17,
               "recipy": "Meesterstuk C (Spidersilk)",
-              "effect": "Hoeveelheid Imbue cap: 27",
+              "effect": "Je kunt nu Mythical Spidersilk verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 27",
               "inspiration": "7",
               "components": "Mythical Spidersilk "
             },
@@ -175,12 +193,13 @@
           ]
         },
         {
+          "id": 253,
           "skill": "Boekbinder A",
           "Recipes": [
             {
               "id": 19,
               "recipy": "Meesterstuk A (Paper)",
-              "effect": "Hoeveelheid Imbue cap: 2",
+              "effect": "Je kunt nu Mythical Paper verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 2",
               "inspiration": "0.5",
               "components": "Mythical Paper"
             },
@@ -194,12 +213,13 @@
           ]
         },
         {
+          "id": 482,
           "skill": "Boekbinder B",
           "Recipes": [
             {
               "id": 21,
               "recipy": "Meesterstuk B (Vellum)",
-              "effect": "Hoeveelheid Imbue cap: 7",
+              "effect": "Je kunt nu Mythical Vellum verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 7",
               "inspiration": "2",
               "components": "Mythical Vellum"
             },
@@ -213,12 +233,13 @@
           ]
         },
         {
+          "id": 483,
           "skill": "Boekbinder C",
           "Recipes": [
             {
               "id": 23,
               "recipy": "Meesterstuk C (Griffinskin Vellum)",
-              "effect": "Hoeveelheid Imbue cap: 27",
+              "effect": "Je kunt nu Mythical Griffinskin Vellum verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 27",
               "inspiration": "7",
               "components": "Mythical Griffinskin Vellum"
             },
@@ -232,12 +253,13 @@
           ]
         },
         {
+          "id": 254,
           "skill": "Leerbewerker A",
           "Recipes": [
             {
               "id": 25,
               "recipy": "Meesterstuk A (Leather)",
-              "effect": "Hoeveelheid Imbue cap: 2",
+              "effect": "Je kunt nu Mythical Leather verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 2",
               "inspiration": "0.5",
               "components": "Mythical Leather"
             },
@@ -251,12 +273,13 @@
           ]
         },
         {
+          "id": 484,
           "skill": "Leerbewerker B",
           "Recipes": [
             {
               "id": 27,
               "recipy": "Meesterstuk B (Scale)",
-              "effect": "Hoeveelheid Imbue cap: 7",
+              "effect": "Je kunt nu Mythical Scale verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 7",
               "inspiration": "2",
               "components": "Mythical Scale"
             },
@@ -270,12 +293,13 @@
           ]
         },
         {
+          "id": 485,
           "skill": "Leerbewerker C",
           "Recipes": [
             {
               "id": 29,
               "recipy": "Meesterstuk C (Dragonscale)",
-              "effect": "Hoeveelheid Imbue cap: 27",
+              "effect": "Je kunt nu Mythical Dragonscale verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 27",
               "inspiration": "7",
               "components": "Mythical Dragonscale"
             },
@@ -289,12 +313,13 @@
           ]
         },
         {
+          "id": 255,
           "skill": "Juwelier A",
           "Recipes": [
             {
               "id": 31,
               "recipy": "Meesterstuk A (Copper Ingot)",
-              "effect": "Hoeveelheid Imbue cap: 2",
+              "effect": "Je kunt nu Copper Ingots verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 2",
               "inspiration": "0.5",
               "components": "Copper Ingot"
             },
@@ -308,12 +333,13 @@
           ]
         },
         {
+          "id": 486,
           "skill": "Juwelier B",
           "Recipes": [
             {
               "id": 33,
               "recipy": "Meesterstuk B (Silver Ingot)",
-              "effect": "Hoeveelheid Imbue cap: 7",
+              "effect": "Je kunt nu Silver Ingots verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 7",
               "inspiration": "2",
               "components": "Silver Ingot"
             },
@@ -327,12 +353,13 @@
           ]
         },
         {
+          "id": 487,
           "skill": "Juwelier C",
           "Recipes": [
             {
               "id": 35,
               "recipy": "Meesterstuk C (Golden Ingot)",
-              "effect": "Hoeveelheid Imbue cap: 27",
+              "effect": "Je kunt nu Golden Ingots verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 27",
               "inspiration": "7",
               "components": "Gold Ingot"
             },
@@ -346,12 +373,13 @@
           ]
         },
         {
+          "id": 256,
           "skill": "Steenzetter A",
           "Recipes": [
             {
               "id": 37,
               "recipy": "Meesterstuk A (Quartz)",
-              "effect": "Hoeveelheid Imbue cap: 2",
+              "effect": "Je kunt nu Quartz verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 2",
               "inspiration": "0.5",
               "components": "Quartz"
             },
@@ -365,12 +393,13 @@
           ]
         },
         {
+          "id": 488,
           "skill": "Steenzetter B",
           "Recipes": [
             {
               "id": 39,
               "recipy": "Meesterstuk B (Gems)",
-              "effect": "Hoeveelheid Imbue cap: 5",
+              "effect": "Je kunt nu Gems verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 5",
               "inspiration": "1",
               "components": "Gem"
             },
@@ -384,12 +413,13 @@
           ]
         },
         {
+          "id": 489,
           "skill": "Steenzetter C",
           "Recipes": [
             {
               "id": 41,
               "recipy": "Meesterstuk C (Flawless Gems)",
-              "effect": "Hoeveelheid Imbue cap: 10",
+              "effect": "Je kunt nu Flawless Gems verwerken. \\nDeze verhoogd per stuk de Imbue cap van het item met: 10",
               "inspiration": "2",
               "components": "Flawless Gem"
             },
@@ -408,6 +438,7 @@
       "categorie": "Alchemistenvaardigheden",
       "Skills": [
         {
+          "id": 227,
           "skill": "Brouw Genezende Dranken A",
           "Recipes": [
             {
@@ -455,6 +486,7 @@
           ]
         },
         {
+          "id": 451,
           "skill": "Brouw Genezende Dranken B",
           "Recipes": [
             {
@@ -502,6 +534,7 @@
           ]
         },
         {
+          "id": 452,
           "skill": "Brouw Genezende Dranken C",
           "Recipes": [
             {
@@ -549,6 +582,7 @@
           ]
         },
         {
+          "id": 231,
           "skill": "Brouw Giffen A",
           "Recipes": [
             {
@@ -596,6 +630,7 @@
           ]
         },
         {
+          "id": 459,
           "skill": "Brouw Giffen B",
           "Recipes": [
             {
@@ -643,6 +678,7 @@
           ]
         },
         {
+          "id": 460,
           "skill": "Brouw Giffen C",
           "Recipes": [
             {
@@ -690,6 +726,7 @@
           ]
         },
         {
+          "id": 230,
           "skill": "Brouw Hallucinerende Elixers A",
           "Recipes": [
             {
@@ -737,6 +774,7 @@
           ]
         },
         {
+          "id": 457,
           "skill": "Brouw Hallucinerende Elixers B",
           "Recipes": [
             {
@@ -784,6 +822,7 @@
           ]
         },
         {
+          "id": 458,
           "skill": "Brouw Hallucinerende Elixers C",
           "Recipes": [
             {
@@ -831,6 +870,7 @@
           ]
         },
         {
+          "id": 228,
           "skill": "Brouw Kruiden Elixers A",
           "Recipes": [
             {
@@ -878,6 +918,7 @@
           ]
         },
         {
+          "id": 453,
           "skill": "Brouw Kruiden Elixers B",
           "Recipes": [
             {
@@ -925,6 +966,7 @@
           ]
         },
         {
+          "id": 454,
           "skill": "Brouw Kruiden Elixers C",
           "Recipes": [
             {
@@ -972,6 +1014,7 @@
           ]
         },
         {
+          "id": 229,
           "skill": "Brouw Magische Elixers A",
           "Recipes": [
             {
@@ -1019,6 +1062,7 @@
           ]
         },
         {
+          "id": 455,
           "skill": "Brouw Magische Elixers B",
           "Recipes": [
             {
@@ -1066,6 +1110,7 @@
           ]
         },
         {
+          "id": 456,
           "skill": "Brouw Magische Elixers C",
           "Recipes": [
             {

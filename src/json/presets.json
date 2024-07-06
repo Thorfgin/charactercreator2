@@ -1,57 +1,69 @@
 {
   "Presets": [
     {
-      "version": "2023-10a",
+      "version": "2023-10b",
       "name": "Vechter (Licht)",
       "max_xp": 15,
       "is_checked": true,
-      "information": "Een lichte vechter is van allerlei markten thuis. 't zijn slimme, gehaaide types die zich meer focussen op uiteenlopende vaardigheden en minder op levenskracht en pantser. Dit type vechter is doorgaans een breder speelbaar personage, wat zich ook kan ontwikkelen in de richting van genezing. Een leuke combinatie omdat zowel vechters- als genezersvaardigheden wilskracht gebruiken. Glyphen zijn breed inzetbaar maar kan ook ingeruild worden voor andere 1 punts vaardigheden, zoals Rune gebruiken, Kennis van Kruiden of Ritualisme",
+      "information": "Een lichte vechter is van allerlei markten thuis. 't zijn slimme, gehaaide types die zich meer focussen op uiteenlopende vaardigheden en minder op levenskracht en pantser. Dit type vechter is doorgaans een breder speelbaar personage, wat zich ook kan ontwikkelen in de richting van genezing. Een leuke combinatie omdat zowel vechters- als genezersvaardigheden wilskracht gebruiken. Zowel Runen, als Glyphs zijn breed inzetbaar maar kan ook omgewisseld worden met andere 1 punts vaardigheden, zoals Kennis van Kruiden of Ritualisme",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 151,
           "skill": "Eenhandige Wapens",
           "count": 1
         },
         {
+          "id": 101,
           "skill": "Ambidextrie",
           "count": 1
         },
         {
+          "id": 108,
           "skill": "Levenskracht A",
           "count": 1
         },
         {
+          "id": 175,
           "skill": "Doorzettingsvermogen",
           "count": 1
         },
         {
+          "id": 176,
           "skill": "Kracht A",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 127,
           "skill": "Harnas II",
           "count": 1
         },
         {
+          "id": 200,
           "skill": "Eerste hulp bij gevechten",
           "count": 1
         },
         {
+          "id": 105,
           "skill": "Glyph Gebruiken",
           "count": 1
         }
@@ -65,50 +77,62 @@
       "information": "Een zware vechter wordt gevreesd door zijn vijanden! Dit icoon focust zich op levenskracht, pantser en vechtersvaardigheden en minder andere zaken. Dit type vechter is doorgaans alleen bezig met vechten. Je kunt variëren in wapens en vechtersvaardigheden om het naar eigen inzicht interessant te maken. Echter: houd er rekening mee dat er op VA uiteraard gevochten wordt, maar dat de ratio spelers-monsters in gevecht doorgaans ongeveer 4 á 5 tot 1 staat. Ook wordt er niet constant gevochten, dus bedenk ook goed waar je je mee bezig wil gaan houden als er geen gevecht gaande is en hoe je over langere tijd je personage interessant houdt om te spelen.",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 151,
           "skill": "Eenhandige Wapens",
           "count": 1
         },
         {
+          "id": 153,
           "skill": "Staf Wapens",
           "count": 1
         },
         {
+          "id": 125,
           "skill": "Schilden",
           "count": 1
         },
         {
+          "id": 108,
           "skill": "Levenskracht A",
           "count": 1
         },
         {
+          "id": 175,
           "skill": "Doorzettingsvermogen",
           "count": 1
         },
         {
+          "id": 181,
           "skill": "Militaire training A",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 127,
           "skill": "Harnas II",
           "count": 1
         },
         {
+          "id": 128,
           "skill": "Harnas III",
           "count": 1
         }
@@ -122,46 +146,57 @@
       "information": "Knotsje, Bontje, Gaan! Een barbaarse vechter typeert in zijn diversiteit aan mogelijkheden. Een mengeling van levenskracht, pantser en vaardigheden, en geen barbaar is hetzelfde. Sommige kunnen lezen, rekenen, andere niet. Vaardigheden sluiten doorgaans aan bij de leefwereld van het personage en zijn achtergrond. In het spel kun je hiermee nog alle kanten op groeien.",
       "Skills": [
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 151,
           "skill": "Eenhandige Wapens",
           "count": 1
         },
         {
+          "id": 152,
           "skill": "Tweehandige Wapens",
           "count": 1
         },
         {
+          "id": 108,
           "skill": "Levenskracht A",
           "count": 1
         },
         {
+          "id": 109,
           "skill": "Levenskracht B",
           "count": 1
         },
         {
+          "id": 175,
           "skill": "Doorzettingsvermogen",
           "count": 1
         },
         {
+          "id": 180,
           "skill": "Berserker A",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 127,
           "skill": "Harnas II",
           "count": 1
         },
         {
+          "id": 225,
           "skill": "Kennis van Kruiden",
           "count": 1
         },
         {
+          "id": 376,
           "skill": "Spiritueel Ritualisme",
           "count": 1
         }
@@ -175,46 +210,57 @@
       "information": "De klassieke ridder. Glimmend harnas, Helm en een Schild. Deze held is in staat zij-aan-zij met zijn strijdmakkers te staan voor gerechtigheid en zelfs om midden in het slagveld te genezen met zijn spreuken. Zijn Orde of geloof geeft hem steun en richting. Hier kun je ook in het spel buiten gevechten om ruimschoots mee uit te voeten.",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 151,
           "skill": "Eenhandige Wapens",
           "count": 1
         },
         {
+          "id": 125,
           "skill": "Schilden",
           "count": 1
         },
         {
+          "id": 108,
           "skill": "Levenskracht A",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 127,
           "skill": "Harnas II",
           "count": 1
         },
         {
+          "id": 351,
           "skill": "Genezingsspreuken A (SP)",
           "count": 1
         },
         {
+          "id": 131,
           "skill": "Paladijn",
           "count": 1
         },
         {
+          "id": 300,
           "skill": "Paladijnspreuken A",
           "count": 1
         }
@@ -228,46 +274,57 @@
       "information": "Als je niet zo goed weet wat je wilt, loont het om zoveel mogelijk verschillende spelopties te hebben. Door vechter te combineren met magier en ritualisme kun je eigenlijk altijd wel ergens bij aanhaken. Je kunt terecht bij de academie en om je verder te verdiepen in de elementen, versterk je jezelf of andere met je opgedane kennis en spreuken, en uiteraard vecht je mee in de veldslagen tegen de kwaadaardige machten die er op zijn creatie te vernietigen! Je hebt ruim keuze uit vaardigheden en opties om dit personage een eigen smaakje te geven.",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 153,
           "skill": "Staf Wapens",
           "count": 1
         },
         {
+          "id": 108,
           "skill": "Levenskracht A",
           "count": 1
         },
         {
+          "id": 275,
           "skill": "Magiërspreuken A - Wit",
           "count": 1
         },
         {
+          "id": 282,
           "skill": "Magiërspreuken B - Vuur",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 127,
           "skill": "Harnas II",
           "count": 1
         },
         {
+          "id": 130,
           "skill": "Spreuken in bepantsering",
           "count": 1
         },
         {
+          "id": 375,
           "skill": "Elementair Ritualisme",
           "count": 1
         }
@@ -281,38 +338,47 @@
       "information": "De klassieke Magiër: Een toverboek, staf en grote puntmuts. Dit thema leent zich prima voor meer onderzoekende types die zich helemaal op metafysica en problemen willen storten, en oplossingen zoeken in machtige rituelen, of juist liever anderen willen ondersteunen, met (semi) permanente magische voorwerpen of bezweringen.",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 153,
           "skill": "Staf Wapens",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 275,
           "skill": "Magiërspreuken A - Wit",
           "count": 1
         },
         {
+          "id": 282,
           "skill": "Magiërspreuken B - Vuur",
           "count": 1
         },
         {
-          "skill": "Glyph gebruiken",
+          "id": 105,
+          "skill": "Glyph Gebruiken",
           "count": 1
         },
         {
+          "id": 375,
           "skill": "Elementair Ritualisme",
           "count": 5
         }
@@ -327,46 +393,57 @@
       "information": "Als je niet zo goed weet wat je wilt, loont het om zoveel mogelijk verschillende spelopties te hebben. Door vechter te combineren met priester en ritualisme kun je eigenlijk altijd wel ergens bij aanhaken. Je kunt mee doen bij de tempel in het ochtend gebed en anderen helpen, begeleid je andere op het pad van het wezen wat jij dient en uiteraard vecht je mee in de veldslagen tegen de kwaadaardige machten over het zielenheil! Je hebt ruim keuze uit vaardigheden en opties om dit personage een eigen smaakje te geven.",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 151,
           "skill": "Eenhandige Wapens",
           "count": 1
         },
         {
+          "id": 125,
           "skill": "Schilden",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 108,
           "skill": "Levenskracht A",
           "count": 1
         },
         {
+          "id": 325,
           "skill": "Priesterspreuken A - Reinheid",
           "count": 1
         },
         {
+          "id": 328,
           "skill": "Priesterspreuken B - Reinheid",
           "count": 1
         },
         {
+          "id": 130,
           "skill": "Spreuken in bepantsering",
           "count": 1
         },
         {
+          "id": 376,
           "skill": "Spiritueel Ritualisme",
           "count": 1
         }
@@ -381,38 +458,47 @@
       "information": "De klassieke Geloofsvoorganger: Een bijbel, heilig symbool en misschien zelfs wel altaar. Dit thema leent zich prima voor meer onderzoekende types die zich helemaal op goden en hemelse problemen willen storten, oplossingen zoeken in machtige rituelen, of juist liever anderen willen ondersteunen, met (semi) permanente magische voorwerpen of bezweringen.",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 153,
           "skill": "Staf Wapens",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 325,
           "skill": "Priesterspreuken A - Reinheid",
           "count": 1
         },
         {
+          "id": 328,
           "skill": "Priesterspreuken B - Reinheid",
           "count": 1
         },
         {
+          "id": 103,
           "skill": "Runen gebruiken",
           "count": 1
         },
         {
+          "id": 376,
           "skill": "Spiritueel Ritualisme",
           "count": 5
         }
@@ -424,45 +510,55 @@
       "name": "Genezer (Elementair)",
       "max_xp": 15,
       "is_checked": true,
-      "information": "Een reddende engel, op het slagveld en daarbuiten! Met behulp van magische spreuken, elementair of spiritueel van aard, is er eigen niks wat je niet kunt genezen. Kies het smaakje dat je interessant vindt (elementen of gode). Daarnaast heb je de mogelijkheid om een aantal aanvullende vaardigheden te kiezen, van vechter, ritualist, tot alchemist, je kunt alle kanten op.",
+      "information": "Een reddende engel, op het slagveld en daarbuiten! Met behulp van magische spreuken, elementair of spiritueel van aard, is er eigenlijk niks wat je niet kunt genezen. Kies het smaakje dat je interessant vindt (elementen, goden of een spirituele wezen). Daarnaast heb je de mogelijkheid om een aantal aanvullende vaardigheden te kiezen, van vechter, ritualist, tot alchemist, je kunt alle kanten op.",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 350,
           "skill": "Genezingsspreuken A (EL)",
           "count": 1
         },
         {
+          "id": 354,
           "skill": "Genezer van Giffen (EL)",
           "count": 1
         },
         {
+          "id": 356,
           "skill": "Genezer van Ziekten (EL)",
           "count": 1
         },
         {
+          "id": 105,
           "skill": "Glyph Gebruiken",
           "count": 1
         },
         {
+          "id": 375,
           "skill": "Elementair Ritualisme",
           "count": 1
         },
         {
+          "id": 225,
           "skill": "Kennis van Kruiden",
           "count": 1
         }
@@ -477,50 +573,62 @@
       "information": "Een wijsgeer die geen gelijke kent als het aan komt op het lichaam. Dit is de 'aardse' variant van genezing, zonder tussenkomst van magie, met uitgebreide mogelijkheden. Tip: met de juiste props wordt een Arts spelen een stuk leuker. Door de combinatie te maken met een ambacht- of alchemievaardigheid blijf je altijd bezig.",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
-          "skill": "Eerste Hulp Bij Gevechten",
+          "id": 200,
+          "skill": "Eerste hulp bij gevechten",
           "count": 1
         },
         {
+          "id": 203,
           "skill": "Diagnostiek",
           "count": 1
         },
         {
+          "id": 201,
           "skill": "Snelle behandeling",
           "count": 1
         },
         {
+          "id": 202,
           "skill": "Slagveld operatie",
           "count": 1
         },
         {
+          "id": 204,
           "skill": "Humorisch Patholoog",
           "count": 1
         },
         {
+          "id": 225,
           "skill": "Kennis van Kruiden",
           "count": 1
         },
         {
+          "id": 227,
           "skill": "Brouw Genezende Dranken A",
           "count": 1
         },
         {
+          "id": 253,
           "skill": "Boekbinder A",
           "count": 1
         }
@@ -535,50 +643,62 @@
       "information": "Van kruidenmenger, tot gifbrouwer, je hebt ruim opties als alchemist. Wil je meer variatie in drankjes? Probeer eens bijvoorbeeld experimenteren met je brouwsels in een ritueel. Ook de Arts/Genezer vaardigheden combineren goed, zodat je in de strijd iets toe kunt voegen.",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 225,
           "skill": "Kennis van Kruiden",
           "count": 1
         },
         {
+          "id": 226,
           "skill": "Kruiden bewaren",
           "count": 2
         },
         {
+          "id": 228,
           "skill": "Brouw Kruiden Elixers A",
           "count": 1
         },
         {
+          "id": 227,
           "skill": "Brouw Genezende Dranken A",
           "count": 1
         },
         {
+          "id": 229,
           "skill": "Brouw Magische Elixers A",
           "count": 1
         },
         {
+          "id": 200,
           "skill": "Eerste hulp bij gevechten",
           "count": 1
         },
         {
+          "id": 376,
           "skill": "Spiritueel Ritualisme",
           "count": 1
         },
         {
+          "id": 375,
           "skill": "Elementair Ritualisme",
           "count": 1
         }
@@ -593,50 +713,62 @@
       "information": "Noem je dat een zwaard? DIT is een zwaard. Leuk die goden en elementen, maar daar kan een sterveling niet van leven. Als ambachtsman weet je precies wat een echte vechtmachine nodig heeft, en jezelf goed kunnen voorzien is natuurlijk ook erg nuttig!",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 151,
           "skill": "Eenhandige Wapens",
           "count": 1
         },
         {
+          "id": 125,
           "skill": "Schilden",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 127,
           "skill": "Harnas II",
           "count": 1
         },
         {
+          "id": 175,
           "skill": "Doorzettingsvermogen",
           "count": 1
         },
         {
+          "id": 250,
           "skill": "Meestersmid A",
           "count": 1
         },
         {
+          "id": 251,
           "skill": "Houtbewerker A",
           "count": 1
         },
         {
+          "id": 254,
           "skill": "Leerbewerker A",
           "count": 1
         },
         {
+          "id": 103,
           "skill": "Runen Gebruiken",
           "count": 1
         }
@@ -647,53 +779,65 @@
       "name": "Handelaar (Juwelier)",
       "max_xp": 15,
       "is_checked": true,
-      "information": "Keiharde knaken, daar draait het allemaal. Je goederen nog beter kunnen maken met magie is natuurlijk ook erg nuttig! Uiteraard kun je dit ook combineren met een Priester- of Genezervaardigheid",
+      "information": "Keiharde knaken, daar draait het allemaal om. Je goederen nog beter kunnen maken met magie is natuurlijk ook erg nuttig! Uiteraard kun je dit ook combineren met een Priester- of Genezervaardigheid",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 153,
           "skill": "Staf Wapens",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 275,
           "skill": "Magiërspreuken A - Wit",
           "count": 1
         },
         {
+          "id": 256,
           "skill": "Steenzetter A",
           "count": 1
         },
         {
+          "id": 255,
           "skill": "Juwelier A",
           "count": 1
         },
         {
+          "id": 252,
           "skill": "Kleermaker A",
           "count": 1
         },
         {
+          "id": 253,
           "skill": "Boekbinder A",
           "count": 1
         },
         {
+          "id": 105,
           "skill": "Glyph Gebruiken",
           "count": 1
         },
         {
+          "id": 375,
           "skill": "Elementair Ritualisme",
           "count": 1
         }
@@ -707,42 +851,52 @@
       "information": "Dood of leven, welk pad wandel jij? Praat je met kleingoden, spirits, voorouders of geestenverschijningen? Je bent al aardig bekend in dit wereldje, en met deze vaardigeheden kun je dit ook waar maken!",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 153,
           "skill": "Staf Wapens",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 325,
           "skill": "Priesterspreuken A - Reinheid",
           "count": 1
         },
         {
+          "id": 332,
           "skill": "Priesterspreuken B - Natuur",
           "count": 1
         },
         {
+          "id": 225,
           "skill": "Kennis van Kruiden",
           "count": 1
         },
         {
+          "id": 230,
           "skill": "Brouw Hallucinerende Elixers A",
           "count": 1
         },
         {
+          "id": 376,
           "skill": "Spiritueel Ritualisme",
           "count": 3
         }
@@ -756,42 +910,52 @@
       "information": "De dood is een grens. Waar de druides deze grens bewaken, stappen de necromancers er geregeld overheen. Met deze vaardigheden kun je beide kanten op. Met de aanvullende vaardigheden in Alchemie en Rituelen heb je de mogelijkheid ook jezelf of anderen verder te sterken.",
       "Skills": [
         {
+          "id": 102,
           "skill": "Lezen & Schrijven",
           "count": 1
         },
         {
+          "id": 107,
           "skill": "Rekenen",
           "count": 1
         },
         {
+          "id": 150,
           "skill": "Kleine Wapens",
           "count": 1
         },
         {
+          "id": 153,
           "skill": "Staf Wapens",
           "count": 1
         },
         {
+          "id": 126,
           "skill": "Harnas I",
           "count": 1
         },
         {
+          "id": 277,
           "skill": "Magiërspreuken A - Zwart",
           "count": 1
         },
         {
+          "id": 279,
           "skill": "Magiërspreuken B - Metaal",
           "count": 1
         },
         {
+          "id": 225,
           "skill": "Kennis van Kruiden",
           "count": 1
         },
         {
+          "id": 231,
           "skill": "Brouw Giffen A",
           "count": 1
         },
         {
+          "id": 375,
           "skill": "Elementair Ritualisme",
           "count": 3
         }

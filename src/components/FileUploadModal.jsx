@@ -65,8 +65,8 @@ export default function FileUploadModal() {
     }
 
     return (
-        <div className="modal-overlay">
-            <div className="upload-modal">
+        <div className="modal-overlay" onClick={closeModal}>
+            <div className="upload-modal" onClick={e => e.stopPropagation()}>
                 <h3>Upload een Bestand</h3>
                 <div className="upload-modal-block center-content">
                     <input type="file" onChange={handleFileChange} />
