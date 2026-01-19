@@ -1,6 +1,6 @@
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
-import "jspdf-autotable";
+import { applyPlugin } from 'jspdf-autotable'
 
 // Shared
 import {
@@ -12,6 +12,9 @@ import {
 } from './SharedActions.js';
 
 let version = "";
+
+// Zorg dat de autoTabel werkt
+applyPlugin(jsPDF)
 
 // Definieer de table columns en headers
 const columns = [
